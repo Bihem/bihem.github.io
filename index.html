@@ -499,8 +499,8 @@ img{display:block;max-width:100%}
 .contact-panel-close-btn:hover{color:var(--white);border-color:rgba(255,255,255,0.3)}
 
 /* ═══════════════ SERVICES ═══════════════ */
-.services{padding:80px 28px;border-top:1px solid var(--line)}
-.services-head{display:flex;align-items:flex-start;justify-content:space-between;gap:40px;margin-bottom:64px}
+.services{padding:80px 0;border-top:1px solid var(--line);overflow:hidden}
+.services-head{padding:0 28px;display:flex;align-items:flex-start;justify-content:space-between;gap:40px;margin-bottom:0}
 .services-h{font-size:clamp(24px,3vw,42px);font-weight:700;text-transform:uppercase;letter-spacing:-0.025em;line-height:.95}
 .services-sub{font-family:'Suisse Intl',var(--F);font-size:15px;font-weight:300;color:var(--white);max-width:280px;line-height:1.65;padding-top:6px}
 .svc-icon{
@@ -553,52 +553,34 @@ img{display:block;max-width:100%}
 .svc-tags{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end}
 .svc-tag{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;color:var(--dim);padding:5px 12px;border-radius:100px;border:1px solid var(--line)}
 
-/* ── Brand Identity Showcase — Identité Visuelle ── */
-.svc-brand{
-  display:grid;grid-template-columns:1fr 1fr;align-items:center;
-  border-top:1px solid var(--line);position:relative;
-  padding:52px 0;gap:48px;cursor:none;
+/* ── Services luxury 2-col layout ── */
+.services-layout{
+  display:grid;grid-template-columns:1fr 1fr;
+  align-items:start;margin-top:48px;
 }
-.svc-brand::after{
-  content:'';position:absolute;bottom:0;left:0;
-  width:0;height:1px;background:var(--white);
-  transition:width .65s cubic-bezier(.22,1,.36,1);
+/* LEFT — panneau logos sticky pleine hauteur */
+.services-left{
+  position:sticky;top:0;height:100vh;
+  display:grid;grid-template-rows:1fr 1fr 1fr;
+  gap:3px;overflow:hidden;
 }
-.svc-brand:hover::after{width:100%}
-.svc-brand-left{display:flex;flex-direction:column;gap:20px}
-.svc-brand-left .svc-header{
-  display:grid;grid-template-columns:72px 40px 1fr;
-  align-items:center;gap:24px;padding:0;
-}
-.svc-brand-left .svc-desc{
-  font-family:'Suisse Intl',var(--F);font-size:16px;font-weight:300;
-  color:var(--white);line-height:1.7;max-width:400px;
-}
-.svc-brand-left .svc-tags{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-start}
-.svc-brand-right{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:8px;
-}
-.svc-brand-logo{
-  aspect-ratio:1;border-radius:10px;overflow:hidden;position:relative;
-}
-.svc-brand-logo img{
+.srv-logo-cell{overflow:hidden;position:relative;cursor:none}
+.srv-logo-cell img{
   width:100%;height:100%;object-fit:cover;display:block;
-  transition:transform .9s cubic-bezier(.22,1,.36,1),filter .6s ease;
-  filter:brightness(.75);
+  transition:transform 1.2s cubic-bezier(.22,1,.36,1);
 }
-.svc-brand:hover .svc-brand-logo img{transform:scale(1.06);filter:brightness(1)}
-.svc-brand:hover .svc-brand-logo:nth-child(2) img{transition-delay:.07s}
-.svc-brand:hover .svc-brand-logo:nth-child(3) img{transition-delay:.14s}
-.svc-brand-logo-lbl{
-  position:absolute;bottom:0;left:0;right:0;padding:12px 14px 10px;
-  background:linear-gradient(to top,rgba(0,0,0,.8) 0%,transparent 100%);
-  font-family:'Suisse Intl',var(--F);font-size:9px;font-weight:400;
-  letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.9);
-  opacity:0;transition:opacity .45s ease;
+.srv-logo-cell:hover img{transform:scale(1.04)}
+.srv-logo-lbl{
+  position:absolute;bottom:14px;left:20px;
+  font-family:'Suisse Intl',var(--F);font-size:9px;font-weight:300;
+  letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.5);
+  pointer-events:none;
 }
-.svc-brand:hover .svc-brand-logo-lbl{opacity:1}
-.svc-brand:hover .svc-brand-logo:nth-child(2) .svc-brand-logo-lbl{transition-delay:.07s}
-.svc-brand:hover .svc-brand-logo:nth-child(3) .svc-brand-logo-lbl{transition-delay:.14s}
+/* RIGHT — liste services */
+.services-right{padding:0 28px;border-left:1px solid var(--line)}
+.services-right .svc{grid-template-columns:1fr}
+.services-right .svc-body{grid-column:1}
+.services-right .svc-body-inner{flex-direction:column;gap:16px}
 
 /* Tarifs */
 .tarifs{margin-top:64px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
@@ -919,6 +901,11 @@ img{display:block;max-width:100%}
   .process-step:not(:first-child){padding-left:0}
   .services-head{flex-direction:column;gap:16px}
   .svc-header{grid-template-columns:48px 32px 1fr}
+  /* Services layout — tablet : colonne unique */
+  .services-layout{grid-template-columns:1fr;margin-top:40px}
+  .services-left{display:none}
+  .services-right{padding:0;border-left:none}
+  .services-right .svc{grid-template-columns:1fr 1fr}
   .contact-panel-inner{grid-template-columns:1fr;gap:48px}
   .testimonials-grid{flex-direction:column}
 }
@@ -950,9 +937,7 @@ img{display:block;max-width:100%}
   .svc-body-inner{padding:0 0 20px 0;flex-direction:column;gap:16px}
   .svc-tags{justify-content:flex-start}
   /* Brand showcase mobile */
-  .svc-brand{grid-template-columns:1fr;padding:32px 0;gap:24px}
-  .svc-brand-left .svc-header{grid-template-columns:40px 28px 1fr;gap:12px}
-  .svc-brand-right{display:none}
+  .services-head{padding:0 20px}
 
   /* about */
   .about-grid{grid-template-columns:1fr}
@@ -1198,7 +1183,7 @@ body.light .tcard.star .tcard-cta:hover{background:rgba(255,255,255,0.85)}
 
 body.light .about-body,body.light .services-sub,body.light .svc-desc{color:#000000}
 body.light .svc{border-color:rgba(0,0,0,0.1)}
-body.light .svc-brand-logo img{filter:brightness(1)}
+body.light .srv-logo-cell img{opacity:.95}
 body.light .svc::after{background:#000000}
 body.light .svc-name{color:#000000}
 body.light .svc-n{color:#000000}
@@ -1649,79 +1634,89 @@ body.light .reel-arrow svg path{stroke:#000000}
     <p class="services-sub">De la réflexion stratégique à la livraison finale, j'interviens sur l'ensemble du projet créatif.</p>
   </div>
 
-  <div class="svc rv">
-    <div class="svc-header">
-      <span class="svc-n">01</span>
-      <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="10" width="36" height="28" rx="3"/><path d="M18 22h12M18 28h8"/><circle cx="24" cy="18" r="3"/></svg>
-      <span class="svc-name">Design d'Interface</span>
-      <span class="svc-toggle">+</span>
-    </div>
-    <div class="svc-body"><div class="svc-body-inner">
-      <p class="svc-desc">Interfaces modernes et intuitives pour vos applications web et mobiles. Du wireframe au prototype haute fidélité.</p>
-      <div class="svc-tags"><span class="svc-tag">Figma</span><span class="svc-tag">Prototype</span><span class="svc-tag">Design System</span></div>
-    </div></div>
-  </div>
-  <div class="svc-brand rv d1">
-    <div class="svc-brand-left">
-      <div class="svc-header">
-        <span class="svc-n">02</span>
-        <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="24" cy="24" r="18"/><path d="M24 6v36M6 24h36"/><ellipse cx="24" cy="24" rx="10" ry="18"/></svg>
-        <span class="svc-name">Identité Visuelle</span>
-      </div>
-      <p class="svc-desc">Création de logotypes, chartes graphiques et identités de marque complètes. Des marques cohérentes et mémorables.</p>
-      <div class="svc-tags"><span class="svc-tag">Logo</span><span class="svc-tag">Charte</span><span class="svc-tag">Brand Guidelines</span></div>
-    </div>
-    <div class="svc-brand-right">
-      <div class="svc-brand-logo">
+  <!-- Layout 2 colonnes : logos gauche sticky / liste droite -->
+  <div class="services-layout">
+
+    <!-- GAUCHE — panneau logos pleine hauteur sticky -->
+    <div class="services-left">
+      <div class="srv-logo-cell">
         <img src="logo-daflon.jpg" alt="Daflon Community">
-        <span class="svc-brand-logo-lbl">Daflon</span>
+        <span class="srv-logo-lbl">Daflon Community</span>
       </div>
-      <div class="svc-brand-logo">
+      <div class="srv-logo-cell">
         <img src="logo-carole.jpg" alt="Carole Grantz Paris">
-        <span class="svc-brand-logo-lbl">Carole Grantz</span>
+        <span class="srv-logo-lbl">Carole Grantz Paris</span>
       </div>
-      <div class="svc-brand-logo">
+      <div class="srv-logo-cell">
         <img src="logo-don.jpg" alt="DON">
-        <span class="svc-brand-logo-lbl">DON</span>
+        <span class="srv-logo-lbl">DON</span>
       </div>
     </div>
-  </div>
-  <div class="svc rv d2">
-    <div class="svc-header">
-      <span class="svc-n">03</span>
-      <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 36l10-10 8 8 6-12 8 14"/><circle cx="38" cy="12" r="4"/><path d="M6 12h10M6 18h8M6 24h6"/></svg>
-      <span class="svc-name">IA &amp; No-Code</span>
-      <span class="svc-toggle">+</span>
-    </div>
-    <div class="svc-body"><div class="svc-body-inner">
-      <p class="svc-desc">Intégration de l'IA et des outils no-code pour transformer rapidement des idées en produits digitaux scalables.</p>
-      <div class="svc-tags"><span class="svc-tag">n8n</span><span class="svc-tag">Automatisation</span><span class="svc-tag">Agents IA</span></div>
-    </div></div>
-  </div>
-  <div class="svc rv d3">
-    <div class="svc-header">
-      <span class="svc-n">04</span>
-      <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="8" width="40" height="32" rx="3"/><path d="M4 16h40"/><circle cx="10" cy="12" r="1.5" fill="currentColor"/><circle cx="16" cy="12" r="1.5" fill="currentColor"/><circle cx="22" cy="12" r="1.5" fill="currentColor"/><path d="M14 26h20M14 32h14"/></svg>
-      <span class="svc-name">Site Web</span>
-      <span class="svc-toggle">+</span>
-    </div>
-    <div class="svc-body"><div class="svc-body-inner">
-      <p class="svc-desc">Sites web sur-mesure, rapides et élégants. Du site vitrine au portfolio en passant par les landing pages haute conversion.</p>
-      <div class="svc-tags"><span class="svc-tag">Webflow</span><span class="svc-tag">HTML/CSS</span><span class="svc-tag">SEO-ready</span></div>
-    </div></div>
-  </div>
-  <div class="svc rv d4">
-    <div class="svc-header">
-      <span class="svc-n">05</span>
-      <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="24" cy="24" r="18"/><polygon points="20,16 34,24 20,32" fill="currentColor" stroke="none"/></svg>
-      <span class="svc-name">Motion &amp; Animation</span>
-      <span class="svc-toggle">+</span>
-    </div>
-    <div class="svc-body"><div class="svc-body-inner">
-      <p class="svc-desc">Logos animés, micro-interactions et vidéos motion pour donner vie à votre identité et captiver votre audience.</p>
-      <div class="svc-tags"><span class="svc-tag">After Effects</span><span class="svc-tag">Lottie</span><span class="svc-tag">Motion UI</span></div>
-    </div></div>
-  </div>
+
+    <!-- DROITE — liste des services avec accordéon -->
+    <div class="services-right">
+      <div class="svc rv">
+        <div class="svc-header">
+          <span class="svc-n">01</span>
+          <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="10" width="36" height="28" rx="3"/><path d="M18 22h12M18 28h8"/><circle cx="24" cy="18" r="3"/></svg>
+          <span class="svc-name">Design d'Interface</span>
+          <span class="svc-toggle">+</span>
+        </div>
+        <div class="svc-body"><div class="svc-body-inner">
+          <p class="svc-desc">Interfaces modernes et intuitives pour vos applications web et mobiles. Du wireframe au prototype haute fidélité.</p>
+          <div class="svc-tags"><span class="svc-tag">Figma</span><span class="svc-tag">Prototype</span><span class="svc-tag">Design System</span></div>
+        </div></div>
+      </div>
+      <div class="svc rv d1">
+        <div class="svc-header">
+          <span class="svc-n">02</span>
+          <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="24" cy="24" r="18"/><path d="M24 6v36M6 24h36"/><ellipse cx="24" cy="24" rx="10" ry="18"/></svg>
+          <span class="svc-name">Identité Visuelle</span>
+          <span class="svc-toggle">+</span>
+        </div>
+        <div class="svc-body"><div class="svc-body-inner">
+          <p class="svc-desc">Création de logotypes, chartes graphiques et identités de marque complètes. Des marques cohérentes et mémorables.</p>
+          <div class="svc-tags"><span class="svc-tag">Logo</span><span class="svc-tag">Charte</span><span class="svc-tag">Brand Guidelines</span></div>
+        </div></div>
+      </div>
+      <div class="svc rv d2">
+        <div class="svc-header">
+          <span class="svc-n">03</span>
+          <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 36l10-10 8 8 6-12 8 14"/><circle cx="38" cy="12" r="4"/><path d="M6 12h10M6 18h8M6 24h6"/></svg>
+          <span class="svc-name">IA &amp; No-Code</span>
+          <span class="svc-toggle">+</span>
+        </div>
+        <div class="svc-body"><div class="svc-body-inner">
+          <p class="svc-desc">Intégration de l'IA et des outils no-code pour transformer rapidement des idées en produits digitaux scalables.</p>
+          <div class="svc-tags"><span class="svc-tag">n8n</span><span class="svc-tag">Automatisation</span><span class="svc-tag">Agents IA</span></div>
+        </div></div>
+      </div>
+      <div class="svc rv d3">
+        <div class="svc-header">
+          <span class="svc-n">04</span>
+          <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="8" width="40" height="32" rx="3"/><path d="M4 16h40"/><circle cx="10" cy="12" r="1.5" fill="currentColor"/><circle cx="16" cy="12" r="1.5" fill="currentColor"/><circle cx="22" cy="12" r="1.5" fill="currentColor"/><path d="M14 26h20M14 32h14"/></svg>
+          <span class="svc-name">Site Web</span>
+          <span class="svc-toggle">+</span>
+        </div>
+        <div class="svc-body"><div class="svc-body-inner">
+          <p class="svc-desc">Sites web sur-mesure, rapides et élégants. Du site vitrine au portfolio en passant par les landing pages haute conversion.</p>
+          <div class="svc-tags"><span class="svc-tag">Webflow</span><span class="svc-tag">HTML/CSS</span><span class="svc-tag">SEO-ready</span></div>
+        </div></div>
+      </div>
+      <div class="svc rv d4">
+        <div class="svc-header">
+          <span class="svc-n">05</span>
+          <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="24" cy="24" r="18"/><polygon points="20,16 34,24 20,32" fill="currentColor" stroke="none"/></svg>
+          <span class="svc-name">Motion &amp; Animation</span>
+          <span class="svc-toggle">+</span>
+        </div>
+        <div class="svc-body"><div class="svc-body-inner">
+          <p class="svc-desc">Logos animés, micro-interactions et vidéos motion pour donner vie à votre identité et captiver votre audience.</p>
+          <div class="svc-tags"><span class="svc-tag">After Effects</span><span class="svc-tag">Lottie</span><span class="svc-tag">Motion UI</span></div>
+        </div></div>
+      </div>
+    </div><!-- /services-right -->
+  </div><!-- /services-layout -->
 
   <!-- TARIFS -->
   <section id="tarifs" style="display:none">
