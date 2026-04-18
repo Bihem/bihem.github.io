@@ -258,7 +258,7 @@ img{display:block;max-width:100%}
 .mq-track{display:flex;gap:16px;width:max-content;animation:marqueeScroll 35s linear infinite}
 .mq-outer:hover .mq-track{animation-play-state:paused}
 @keyframes marqueeScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.mq-card{width:340px;height:260px;border-radius:16px;overflow:hidden;position:relative;flex-shrink:0;display:block;text-decoration:none;color:var(--white)}
+.mq-card{width:460px;height:360px;border-radius:0;overflow:hidden;position:relative;flex-shrink:0;display:block;text-decoration:none;color:var(--white)}
 .mq-img{width:100%;height:100%;background-size:cover;background-position:center;transition:transform .7s cubic-bezier(.22,1,.36,1)}
 .mq-card:hover .mq-img{transform:scale(1.06)}
 .mq-info{display:none}
@@ -412,7 +412,7 @@ img{display:block;max-width:100%}
 }
 .about-heading span{display:block}
 .about-photo{
-  width:100%;aspect-ratio:4/5;border-radius:var(--r);
+  width:100%;aspect-ratio:4/5;border-radius:0;
   overflow:hidden;background:var(--bg3);
   display:flex;align-items:center;justify-content:center;position:relative;
 }
@@ -1519,6 +1519,18 @@ body.light .reel-arrow svg path{stroke:#000000}
         <div class="mq-img" style="background-image:url('mockup-nike-rouge.png')"></div>
         <div class="mq-info"><span class="mq-cat">UI Design · Sport</span><span class="mq-name">Nike Air Max</span></div>
       </a>
+      <a href="projets.html" class="mq-card" onclick="goToProjects(event)">
+        <div class="mq-img" style="background-image:url('logo-daflon.jpg')"></div>
+        <div class="mq-info"><span class="mq-cat">Identité · Branding</span><span class="mq-name">Daflon Community</span></div>
+      </a>
+      <a href="projets.html" class="mq-card" onclick="goToProjects(event)">
+        <div class="mq-img" style="background-image:url('logo-carole.jpg')"></div>
+        <div class="mq-info"><span class="mq-cat">Identité · Branding</span><span class="mq-name">Carole Grantz Paris</span></div>
+      </a>
+      <a href="projets.html" class="mq-card" onclick="goToProjects(event)">
+        <div class="mq-img" style="background-image:url('logo-don.jpg')"></div>
+        <div class="mq-info"><span class="mq-cat">Identité · Monogramme</span><span class="mq-name">DON</span></div>
+      </a>
       <!-- duplicate pour boucle infinie -->
       <a href="projets.html" class="mq-card" aria-hidden="true" onclick="goToProjects(event)">
         <div class="mq-img" style="background-image:url('mockup-mamagaya.png')"></div>
@@ -1543,6 +1555,18 @@ body.light .reel-arrow svg path{stroke:#000000}
       <a href="projets.html" class="mq-card" aria-hidden="true" onclick="goToProjects(event)">
         <div class="mq-img" style="background-image:url('mockup-nike-rouge.png')"></div>
         <div class="mq-info"><span class="mq-cat">UI Design · Sport</span><span class="mq-name">Nike Air Max</span></div>
+      </a>
+      <a href="projets.html" class="mq-card" aria-hidden="true" onclick="goToProjects(event)">
+        <div class="mq-img" style="background-image:url('logo-daflon.jpg')"></div>
+        <div class="mq-info"><span class="mq-cat">Identité · Branding</span><span class="mq-name">Daflon Community</span></div>
+      </a>
+      <a href="projets.html" class="mq-card" aria-hidden="true" onclick="goToProjects(event)">
+        <div class="mq-img" style="background-image:url('logo-carole.jpg')"></div>
+        <div class="mq-info"><span class="mq-cat">Identité · Branding</span><span class="mq-name">Carole Grantz Paris</span></div>
+      </a>
+      <a href="projets.html" class="mq-card" aria-hidden="true" onclick="goToProjects(event)">
+        <div class="mq-img" style="background-image:url('logo-don.jpg')"></div>
+        <div class="mq-info"><span class="mq-cat">Identité · Monogramme</span><span class="mq-name">DON</span></div>
       </a>
     </div>
   </div>
