@@ -22,31 +22,31 @@
   --line:rgba(255,255,255,0.12);
   --SI:'Suisse Intl','Space Grotesk',sans-serif;
 }
-html{
-  min-height:100%;overflow-x:hidden;
-  background:#1D1B1B;
-  perspective:1200px;
-}
+html{min-height:100%;overflow-x:hidden;background:#1D1B1B}
 body{
   background:var(--bg);
   color:var(--white);font-family:var(--SI);font-weight:300;
   -webkit-font-smoothing:antialiased;cursor:none;
-  transform-origin:top center;
-  animation:unfold .9s cubic-bezier(.22,1,.36,1) both;
-}
-body.folding-out{
-  animation:fold .65s cubic-bezier(.55,0,.8,.45) forwards;
-}
-@keyframes unfold{
-  0%  {transform:translateY(100%) rotateX(-12deg);opacity:.4;border-radius:24px 24px 0 0;}
-  60% {border-radius:8px 8px 0 0;}
-  100%{transform:translateY(0)   rotateX(0deg);  opacity:1; border-radius:0;}
-}
-@keyframes fold{
-  0%  {transform:translateY(0)   rotateX(0deg);  opacity:1; border-radius:0;}
-  100%{transform:translateY(105%) rotateX(10deg); opacity:.3;border-radius:24px 24px 0 0;}
 }
 a,button{cursor:none;text-decoration:none;color:inherit}
+/* ── ENTRÉE PAGE */
+.page-enter{
+  position:fixed;inset:0;z-index:9000;
+  background:var(--bg);
+  transform:translateY(0);
+  transition:transform .85s cubic-bezier(.16,1,.3,1);
+  pointer-events:none;
+}
+.page-enter.out{transform:translateY(-100%)}
+/* PAGE TRANSITION SORTIE */
+.page-transition{
+  position:fixed;inset:0;z-index:9000;
+  background:var(--bg);
+  transform:translateY(100%);
+  transition:transform .85s cubic-bezier(.16,1,.3,1);
+  pointer-events:none;
+}
+.page-transition.active{transform:translateY(0);pointer-events:all}
 
 /* CURSOR */
 #cdot{position:fixed;z-index:9999;pointer-events:none;width:6px;height:6px;border-radius:50%;background:var(--white);transform:translate(-50%,-50%)}
@@ -130,17 +130,17 @@ a,button{cursor:none;text-decoration:none;color:inherit}
 .field.full{grid-column:1/-1}
 
 .field label{
-  display:block;font-size:12px;font-weight:400;
-  letter-spacing:.14em;text-transform:uppercase;
-  color:var(--white);margin-bottom:12px;
+  display:block;font-size:13px;font-weight:400;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--white);margin-bottom:14px;
 }
 
 .field input,
 .field textarea,
 .field select{
   width:100%;background:none;border:none;outline:none;
-  font-family:var(--SI);font-size:20px;font-weight:300;
-  color:var(--white);padding:0 0 24px;
+  font-family:var(--SI);font-size:22px;font-weight:300;
+  color:var(--white);padding:0 0 26px;
   line-height:1.4;caret-color:var(--white);
 }
 .field textarea{resize:none;min-height:110px}
@@ -165,13 +165,13 @@ a,button{cursor:none;text-decoration:none;color:inherit}
 .check-row input[type=checkbox]{display:none}
 .check-row input[type=checkbox]:checked+.check-box{background:var(--white);border-color:var(--white)}
 .check-row input[type=checkbox]:checked+.check-box::after{content:'✓';font-size:10px;color:#1D1B1B;font-weight:700}
-.check-label{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--white)}
+.check-label{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--white)}
 
 .btn-submit{
   display:inline-flex;align-items:center;gap:10px;
-  padding:16px 36px;border-radius:100px;
+  padding:18px 40px;border-radius:100px;
   background:var(--white);color:#1D1B1B;
-  font-family:var(--SI);font-size:15px;font-weight:400;
+  font-family:var(--SI);font-size:17px;font-weight:400;
   letter-spacing:.1em;text-transform:uppercase;
   border:none;transition:opacity .2s,transform .2s;
 }
@@ -231,6 +231,8 @@ body.light .footer-copy,body.light .footer-lnk{color:rgba(0,0,0,0.5)}
 </style>
 </head>
 <body>
+<div class="page-enter" id="pageEnter"></div>
+<div class="page-transition" id="pageTransition"></div>
 <div id="cdot"></div>
 <div id="cring"></div>
 
@@ -381,11 +383,18 @@ document.getElementById('contactForm').addEventListener('submit',async function(
   }catch{btn.textContent='Erreur — réessayez';btn.disabled=false;}
 });
 
-/* transition retour — fold vers le bas */
+/* révèle la page à l'entrée */
+window.addEventListener('load',()=>{
+  const enter=document.getElementById('pageEnter');
+  if(enter) setTimeout(()=>enter.classList.add('out'),40);
+});
+
+/* retour accueil — overlay slide bas */
 function goHome(e){
   e.preventDefault();
-  document.body.classList.add('folding-out');
-  setTimeout(()=>{window.location.href='index.html'},650);
+  const overlay=document.getElementById('pageTransition');
+  overlay.classList.add('active');
+  setTimeout(()=>{ window.location.href='index.html'; },900);
 }
 
 /* ── THEME — restaurer depuis localStorage */
