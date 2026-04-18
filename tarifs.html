@@ -14,6 +14,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 
 <style>
+@font-face{font-family:'Suisse Intl';src:url('https://cdn.prod.website-files.com/6772f6efe246aaaa73ad2a98/67784f5e4c3068c2e2f22e60_SuisseIntl-Regular.otf')format('opentype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Suisse Intl';src:url('https://cdn.prod.website-files.com/6772f6efe246aaaa73ad2a98/67784f815ee57b4c18bdae11_SuisseIntl-Light.otf')format('opentype');font-weight:300;font-style:normal;font-display:swap}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 :root{
@@ -25,6 +27,7 @@
   --dim:rgba(255,255,255,0.55);
   --line:rgba(255,255,255,0.1);
   --F:'Space Grotesk',Arial,sans-serif;
+  --SI:'Suisse Intl','Space Grotesk',Arial,sans-serif;
   --r:12px;
 }
 
@@ -200,7 +203,7 @@ img{display:block;max-width:100%}
 
 .tcard-items{display:flex;flex-direction:column;gap:10px;flex:1}
 .tcard-item{
-  font-size:17px;font-weight:400;color:var(--dim);
+  font-family:var(--SI);font-size:17px;font-weight:300;color:var(--dim);
   display:flex;align-items:flex-start;gap:8px;line-height:1.5;
 }
 .tcard-item::before{content:'→';color:var(--white);font-weight:700;font-size:15px;flex-shrink:0;margin-top:3px}
