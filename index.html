@@ -553,29 +553,52 @@ img{display:block;max-width:100%}
 .svc-tags{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end}
 .svc-tag{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;color:var(--dim);padding:5px 12px;border-radius:100px;border:1px solid var(--line)}
 
-/* ── Logo wall (Identité Visuelle) ── */
-.svc-has-logos .svc-logowall{
-  display:flex;align-items:center;justify-content:flex-end;
-  gap:9px;padding:0 28px 0 16px;
+/* ── Brand Identity Showcase — Identité Visuelle ── */
+.svc-brand{
+  display:grid;grid-template-columns:1fr 1fr;align-items:center;
+  border-top:1px solid var(--line);position:relative;
+  padding:52px 0;gap:48px;cursor:none;
 }
-.svc-has-logos .svc-body{grid-column:1/-1}
-.svc-logo-item{
-  width:70px;height:70px;border-radius:5px;overflow:hidden;flex-shrink:0;
-  background-image:url('mockup-logotype.png');
-  background-size:500% auto;
-  background-color:#111;
-  opacity:0.38;
-  border:1px solid rgba(255,255,255,0.06);
-  transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1);
+.svc-brand::after{
+  content:'';position:absolute;bottom:0;left:0;
+  width:0;height:1px;background:var(--white);
+  transition:width .65s cubic-bezier(.22,1,.36,1);
 }
-.svc:hover .svc-logo-item,.svc.open .svc-logo-item{opacity:1}
-.svc:hover .svc-logo-item:nth-child(1),.svc.open .svc-logo-item:nth-child(1){transform:translateY(-6px)}
-.svc:hover .svc-logo-item:nth-child(2),.svc.open .svc-logo-item:nth-child(2){transform:translateY(-6px);transition-delay:.07s}
-.svc:hover .svc-logo-item:nth-child(3),.svc.open .svc-logo-item:nth-child(3){transform:translateY(-6px);transition-delay:.14s}
-/* Crops: Daflon (col2 r1) · NJ (col3 r1) · DON (col5 r1) */
-.svc-logo-item:nth-child(1){background-position:25% 0%}
-.svc-logo-item:nth-child(2){background-position:50% 0%}
-.svc-logo-item:nth-child(3){background-position:100% 0%}
+.svc-brand:hover::after{width:100%}
+.svc-brand-left{display:flex;flex-direction:column;gap:20px}
+.svc-brand-left .svc-header{
+  display:grid;grid-template-columns:72px 40px 1fr;
+  align-items:center;gap:24px;padding:0;
+}
+.svc-brand-left .svc-desc{
+  font-family:'Suisse Intl',var(--F);font-size:16px;font-weight:300;
+  color:var(--white);line-height:1.7;max-width:400px;
+}
+.svc-brand-left .svc-tags{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-start}
+.svc-brand-right{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:8px;
+}
+.svc-brand-logo{
+  aspect-ratio:1;border-radius:10px;overflow:hidden;position:relative;
+}
+.svc-brand-logo img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .9s cubic-bezier(.22,1,.36,1),filter .6s ease;
+  filter:brightness(.75);
+}
+.svc-brand:hover .svc-brand-logo img{transform:scale(1.06);filter:brightness(1)}
+.svc-brand:hover .svc-brand-logo:nth-child(2) img{transition-delay:.07s}
+.svc-brand:hover .svc-brand-logo:nth-child(3) img{transition-delay:.14s}
+.svc-brand-logo-lbl{
+  position:absolute;bottom:0;left:0;right:0;padding:12px 14px 10px;
+  background:linear-gradient(to top,rgba(0,0,0,.8) 0%,transparent 100%);
+  font-family:'Suisse Intl',var(--F);font-size:9px;font-weight:400;
+  letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.9);
+  opacity:0;transition:opacity .45s ease;
+}
+.svc-brand:hover .svc-brand-logo-lbl{opacity:1}
+.svc-brand:hover .svc-brand-logo:nth-child(2) .svc-brand-logo-lbl{transition-delay:.07s}
+.svc-brand:hover .svc-brand-logo:nth-child(3) .svc-brand-logo-lbl{transition-delay:.14s}
 
 /* Tarifs */
 .tarifs{margin-top:64px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
@@ -926,7 +949,10 @@ img{display:block;max-width:100%}
   .svc-header{grid-template-columns:40px 28px 1fr auto;gap:12px;padding:20px 0}
   .svc-body-inner{padding:0 0 20px 0;flex-direction:column;gap:16px}
   .svc-tags{justify-content:flex-start}
-  .svc-logowall{display:none}
+  /* Brand showcase mobile */
+  .svc-brand{grid-template-columns:1fr;padding:32px 0;gap:24px}
+  .svc-brand-left .svc-header{grid-template-columns:40px 28px 1fr;gap:12px}
+  .svc-brand-right{display:none}
 
   /* about */
   .about-grid{grid-template-columns:1fr}
@@ -1172,7 +1198,7 @@ body.light .tcard.star .tcard-cta:hover{background:rgba(255,255,255,0.85)}
 
 body.light .about-body,body.light .services-sub,body.light .svc-desc{color:#000000}
 body.light .svc{border-color:rgba(0,0,0,0.1)}
-body.light .svc-logo-item{filter:invert(1) brightness(.9)}
+body.light .svc-brand-logo img{filter:brightness(1)}
 body.light .svc::after{background:#000000}
 body.light .svc-name{color:#000000}
 body.light .svc-n{color:#000000}
@@ -1635,22 +1661,30 @@ body.light .reel-arrow svg path{stroke:#000000}
       <div class="svc-tags"><span class="svc-tag">Figma</span><span class="svc-tag">Prototype</span><span class="svc-tag">Design System</span></div>
     </div></div>
   </div>
-  <div class="svc rv d1 svc-has-logos">
-    <div class="svc-header">
-      <span class="svc-n">02</span>
-      <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="24" cy="24" r="18"/><path d="M24 6v36M6 24h36"/><ellipse cx="24" cy="24" rx="10" ry="18"/></svg>
-      <span class="svc-name">Identité Visuelle</span>
-      <span class="svc-toggle">+</span>
-    </div>
-    <div class="svc-logowall">
-      <div class="svc-logo-item"></div>
-      <div class="svc-logo-item"></div>
-      <div class="svc-logo-item"></div>
-    </div>
-    <div class="svc-body"><div class="svc-body-inner">
+  <div class="svc-brand rv d1">
+    <div class="svc-brand-left">
+      <div class="svc-header">
+        <span class="svc-n">02</span>
+        <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="24" cy="24" r="18"/><path d="M24 6v36M6 24h36"/><ellipse cx="24" cy="24" rx="10" ry="18"/></svg>
+        <span class="svc-name">Identité Visuelle</span>
+      </div>
       <p class="svc-desc">Création de logotypes, chartes graphiques et identités de marque complètes. Des marques cohérentes et mémorables.</p>
       <div class="svc-tags"><span class="svc-tag">Logo</span><span class="svc-tag">Charte</span><span class="svc-tag">Brand Guidelines</span></div>
-    </div></div>
+    </div>
+    <div class="svc-brand-right">
+      <div class="svc-brand-logo">
+        <img src="logo-daflon.jpg" alt="Daflon Community">
+        <span class="svc-brand-logo-lbl">Daflon</span>
+      </div>
+      <div class="svc-brand-logo">
+        <img src="logo-carole.jpg" alt="Carole Grantz Paris">
+        <span class="svc-brand-logo-lbl">Carole Grantz</span>
+      </div>
+      <div class="svc-brand-logo">
+        <img src="logo-don.jpg" alt="DON">
+        <span class="svc-brand-logo-lbl">DON</span>
+      </div>
+    </div>
   </div>
   <div class="svc rv d2">
     <div class="svc-header">
