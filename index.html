@@ -512,7 +512,7 @@ img{display:block;max-width:100%}
   transform:rotate(-12deg) scale(1.18);
 }
 .svc{
-  display:grid;grid-template-columns:1fr 1fr;align-items:center;
+  display:grid;grid-template-columns:1fr 1fr;align-items:start;
   border-top:1px solid var(--line);
   position:relative;cursor:none;
   transition:padding-left .35s cubic-bezier(.22,1,.36,1);
@@ -546,14 +546,14 @@ img{display:block;max-width:100%}
 }
 .svc.open .svc-body{max-height:300px;opacity:1}
 .svc-body-inner{
-  display:flex;align-items:flex-start;justify-content:flex-start;gap:32px;
-  padding:0 0 28px 0;flex-wrap:wrap;
+  display:flex;flex-direction:column;align-items:flex-start;gap:16px;
+  padding:28px 0 28px 0;
 }
-.svc-desc{font-family:'Suisse Intl',var(--F);font-size:16px;font-weight:300;color:var(--white);line-height:1.7;max-width:420px}
-.svc-tags{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end}
+.svc-desc{font-family:'Suisse Intl',var(--F);font-size:16px;font-weight:300;color:var(--white);line-height:1.7;width:100%}
+.svc-tags{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-start}
 .svc-tag{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;color:var(--dim);padding:5px 12px;border-radius:100px;border:1px solid var(--line)}
 
-.services-list{margin-top:48px}
+.services-list{margin-top:48px;padding:0 28px}
 
 /* Tarifs */
 .tarifs{margin-top:64px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
