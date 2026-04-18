@@ -322,6 +322,83 @@ body.light .proj-meta-item{color:rgba(0,0,0,0.5)}
 body.light .proj-cta{color:#000000;border-color:#000000}
 body.light .nav{border-color:rgba(0,0,0,0.08)}
 body.light .footer-copy,body.light .footer-lnk{color:rgba(0,0,0,0.4)}
+
+/* ── LIGHTBOX PROJET */
+.proj-lb{
+  position:fixed;inset:0;z-index:9500;
+  display:grid;grid-template-columns:1fr 1fr;
+  background:var(--bg);
+  transform:scale(0.96);
+  opacity:0;pointer-events:none;
+  transition:transform .65s cubic-bezier(.22,1,.36,1),opacity .45s ease;
+  will-change:transform,opacity;
+}
+.proj-lb.open{transform:scale(1);opacity:1;pointer-events:all}
+.proj-lb-close{
+  position:absolute;top:28px;right:36px;z-index:10;
+  background:none;border:1px solid rgba(255,255,255,.18);border-radius:100px;
+  padding:9px 22px;cursor:none;
+  font-family:var(--SI);font-size:11px;font-weight:400;
+  text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.7);
+  transition:border-color .2s,color .2s,background .2s;
+}
+.proj-lb-close:hover{border-color:var(--white);color:var(--white);background:rgba(255,255,255,.06)}
+.proj-lb-img{position:relative;overflow:hidden;background:var(--bg2)}
+.proj-lb-img-bg{
+  position:absolute;inset:0;
+  background-size:contain;background-position:center;background-repeat:no-repeat;
+  transition:transform 1.2s cubic-bezier(.22,1,.36,1);
+}
+.proj-lb.open .proj-lb-img-bg{transform:scale(1.02)}
+.proj-lb-info{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:80px 72px;overflow-y:auto;
+}
+.proj-lb-num{
+  font-family:var(--SI);font-size:10px;font-weight:400;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--dim);
+  margin-bottom:16px;
+}
+.proj-lb-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--SI);font-size:10px;font-weight:400;
+  text-transform:uppercase;letter-spacing:.12em;color:var(--dim);
+  margin-bottom:24px;
+}
+.proj-lb-tag-dot{width:5px;height:5px;border-radius:50%;background:var(--dim);flex-shrink:0}
+.proj-lb-name{
+  font-family:var(--SI);font-size:clamp(48px,6vw,88px);font-weight:400;
+  letter-spacing:-.035em;line-height:.95;
+  margin-bottom:36px;
+}
+.proj-lb-desc{
+  font-family:var(--SI);font-size:16px;font-weight:300;
+  color:var(--white);line-height:1.75;max-width:440px;
+  margin-bottom:48px;
+}
+.proj-lb-meta{
+  display:flex;gap:24px;
+  border-top:1px solid var(--line);padding-top:24px;margin-bottom:40px;
+}
+.proj-lb-meta-item{
+  font-family:var(--SI);font-size:10px;font-weight:400;
+  text-transform:uppercase;letter-spacing:.1em;color:var(--dim);
+}
+.proj-lb-meta-item strong{color:var(--white);font-weight:500}
+.proj-lb-cta{
+  display:inline-flex;align-items:center;gap:12px;
+  font-family:var(--SI);font-size:12px;font-weight:400;
+  text-transform:uppercase;letter-spacing:.1em;color:var(--white);
+  border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:6px;
+  align-self:flex-start;
+  transition:border-color .25s,gap .25s;
+}
+.proj-lb-cta:hover{border-color:var(--white);gap:20px}
+@media(max-width:768px){
+  .proj-lb{grid-template-columns:1fr;grid-template-rows:45vh 1fr;overflow-y:auto}
+  .proj-lb-info{padding:40px 20px 60px}
+  .proj-lb-name{font-size:clamp(36px,10vw,56px)}
+}
 </style>
 </head>
 <body>
@@ -473,6 +550,24 @@ body.light .footer-copy,body.light .footer-lnk{color:rgba(0,0,0,0.4)}
   </article>
 
 </main>
+
+<!-- ── LIGHTBOX PROJET -->
+<div class="proj-lb" id="projLightbox" role="dialog" aria-modal="true">
+  <button class="proj-lb-close" onclick="closeLightbox()">✕ Fermer</button>
+  <div class="proj-lb-img">
+    <div class="proj-lb-img-bg" id="lbImg"></div>
+  </div>
+  <div class="proj-lb-info">
+    <div class="proj-lb-num" id="lbNum"></div>
+    <div class="proj-lb-tag"><span class="proj-lb-tag-dot"></span><span id="lbTag"></span></div>
+    <h2 class="proj-lb-name" id="lbName"></h2>
+    <p class="proj-lb-desc" id="lbDesc"></p>
+    <div class="proj-lb-meta" id="lbMeta"></div>
+    <a href="contact.html" class="proj-lb-cta" onclick="goToContact(event)">
+      Démarrer un projet <span>→</span>
+    </a>
+  </div>
+</div>
 
 <!-- ── CONTACT PANEL -->
 <div class="contact-panel" id="contactPanel">
@@ -640,6 +735,55 @@ document.querySelectorAll('.rv').forEach(el=>io.observe(el));
     document.querySelector('html').style.background = '#FFFFFF';
   }
 })();
+
+/* ── LIGHTBOX */
+function openLightbox(item){
+  const lb=document.getElementById('projLightbox');
+  const imgBg=item.querySelector('.proj-img-bg');
+  const num=item.querySelector('.proj-num');
+  const tag=item.querySelector('.proj-tag');
+  const name=item.querySelector('.proj-name');
+  const desc=item.querySelector('.proj-desc');
+  const metas=item.querySelectorAll('.proj-meta-item');
+
+  document.getElementById('lbImg').style.backgroundImage=imgBg?imgBg.style.backgroundImage:'';
+  document.getElementById('lbNum').textContent=num?num.textContent.trim():'';
+  document.getElementById('lbTag').textContent=tag?tag.textContent.trim():'';
+  document.getElementById('lbName').textContent=name?name.textContent.trim():'';
+  document.getElementById('lbDesc').textContent=desc?desc.textContent.trim():'';
+  const metaEl=document.getElementById('lbMeta');
+  metaEl.innerHTML='';
+  metas.forEach(m=>{
+    const d=document.createElement('div');
+    d.className='proj-lb-meta-item';
+    d.innerHTML=m.innerHTML;
+    metaEl.appendChild(d);
+  });
+
+  lb.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(){
+  document.getElementById('projLightbox').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+/* Attach lightbox to each project card */
+document.querySelectorAll('.proj-item').forEach(item=>{
+  item.style.cursor='pointer';
+  item.addEventListener('click',function(e){
+    if(e.target.closest('.proj-cta')||e.target.closest('.proj-lb-cta')) return;
+    openLightbox(this);
+  });
+});
+
+/* Close on Escape */
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    closeLightbox();
+    closeContactPanel();
+  }
+});
 </script>
 </body>
 </html>
