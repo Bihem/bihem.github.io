@@ -329,7 +329,7 @@ body.light .footer-copy,body.light .footer-lnk{color:rgba(0,0,0,0.4)}
 
 <!-- ── NAV -->
 <nav class="nav" id="mainNav">
-  <a href="index.html" class="nav-logo">
+  <a href="index.html" class="nav-logo" onclick="goBackHome(event)">
     <svg viewBox="0 0 320 120" fill="none" xmlns="http://www.w3.org/2000/svg">
       <ellipse cx="152" cy="60" rx="144" ry="52" stroke="white" stroke-width="7" fill="none"/>
       <text x="152" y="75" text-anchor="middle" font-family="'Space Grotesk',Arial,sans-serif" font-weight="700" font-size="46" fill="white" letter-spacing="-1">DIKENGA.</text>
@@ -338,7 +338,7 @@ body.light .footer-copy,body.light .footer-lnk{color:rgba(0,0,0,0.4)}
   </a>
   <div class="nav-right">
     <span class="nav-time" id="navtime">FR · --:--</span>
-    <a href="index.html" class="nav-cta" style="border:none;padding:0;letter-spacing:0.1em;color:var(--white)">← Accueil</a>
+    <a href="index.html" class="nav-cta" onclick="goBackHome(event)" style="border:none;padding:0;letter-spacing:0.1em;color:var(--white)">← Accueil</a>
   </div>
 </nav>
 
@@ -530,7 +530,7 @@ body.light .footer-copy,body.light .footer-lnk{color:rgba(0,0,0,0.4)}
 <!-- ── FOOTER -->
 <footer class="footer">
   <span class="footer-copy">©2026 Dikenga.</span>
-  <a href="index.html" class="footer-back">← Retour à l'accueil</a>
+  <a href="index.html" class="footer-back" onclick="goBackHome(event)">← Retour à l'accueil</a>
   <div class="footer-links">
     <a href="mentions-legales.html" class="footer-lnk">Mentions légales</a>
   </div>
@@ -616,6 +616,19 @@ document.querySelectorAll('.rv').forEach(el=>io.observe(el));
     document.querySelector('html').style.background = '#FFFFFF';
   }
 })();
+
+/* ── TRANSITION RETOUR */
+function goBackHome(e){
+  e.preventDefault();
+  const enter = document.getElementById('pageEnter');
+  if(enter){
+    enter.style.transition = 'transform 0.85s cubic-bezier(.77,0,.175,1)';
+    enter.style.transform = 'translateY(0)';
+    setTimeout(()=>{ window.location.href='index.html'; }, 870);
+  } else {
+    window.location.href='index.html';
+  }
+}
 </script>
 </body>
 </html>
