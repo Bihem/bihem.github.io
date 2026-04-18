@@ -524,19 +524,21 @@ img{display:block;max-width:100%}
 .svc:hover .svc-name{transform:translateX(10px);letter-spacing:0.1em}
 .svc-toggle{
   width:32px;height:32px;border-radius:50%;border:1px solid var(--line);
-  display:none;align-items:center;justify-content:center;
+  display:flex;align-items:center;justify-content:center;
   font-size:18px;font-weight:300;color:var(--dim);
   transition:transform .4s cubic-bezier(.22,1,.36,1),border-color .2s;
   flex-shrink:0;
 }
 .svc.open .svc-toggle{transform:rotate(45deg);border-color:rgba(255,255,255,0.3);color:var(--white)}
 .svc-body{
-  overflow:visible;max-height:none;
-  opacity:1;
+  overflow:hidden;max-height:0;
+  transition:max-height .7s cubic-bezier(.22,1,.36,1) .15s,opacity .5s ease .2s;
+  opacity:0;
 }
+.svc.open .svc-body{max-height:300px;opacity:1}
 .svc-body-inner{
   display:flex;align-items:flex-start;justify-content:flex-start;gap:32px;
-  padding:32px 0;flex-wrap:wrap;
+  padding:0 0 28px 0;flex-wrap:wrap;
 }
 .svc-desc{font-family:'Suisse Intl',var(--F);font-size:16px;font-weight:300;color:var(--white);line-height:1.7;max-width:420px}
 .svc-tags{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end}
@@ -886,11 +888,8 @@ img{display:block;max-width:100%}
   .services,.about,.process,.testimonials,.stats,.faq{padding:60px 20px}
   .projects{padding:0}
 
-  /* services accordion mobile */
+  /* services mobile — colonne unique */
   .svc{display:block}
-  .svc-toggle{display:flex}
-  .svc-body{overflow:hidden;max-height:0;opacity:0;transition:max-height .7s cubic-bezier(.22,1,.36,1) .15s,opacity .5s ease .2s}
-  .svc.open .svc-body{max-height:300px;opacity:1}
   .svc-header{grid-template-columns:40px 28px 1fr auto;gap:12px;padding:20px 0}
   .svc-body-inner{padding:0 0 20px 0;flex-direction:column;gap:16px}
   .svc-tags{justify-content:flex-start}
