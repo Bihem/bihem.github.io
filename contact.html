@@ -234,7 +234,7 @@ body.light .footer-copy,body.light .footer-lnk{color:rgba(0,0,0,0.5)}
 
 <!-- NAV -->
 <nav class="nav">
-  <a href="index-v2.html" class="nav-logo" onclick="goHome(event)">
+  <a href="index.html" class="nav-logo" onclick="goHome(event)">
     <svg viewBox="0 0 320 120" fill="none" xmlns="http://www.w3.org/2000/svg">
       <ellipse cx="152" cy="60" rx="144" ry="52" stroke="white" stroke-width="7" fill="none"/>
       <text x="152" y="75" text-anchor="middle" font-family="'Space Grotesk',Arial,sans-serif" font-weight="700" font-size="46" fill="white" letter-spacing="-1">DIKENGA.</text>
@@ -242,7 +242,7 @@ body.light .footer-copy,body.light .footer-lnk{color:rgba(0,0,0,0.5)}
     </svg>
   </a>
   <span class="nav-time" id="navtime">FR · --:--</span>
-  <a href="index-v2.html" class="nav-back" onclick="goHome(event)">← Accueil</a>
+  <a href="index.html" class="nav-back" onclick="goHome(event)">← Accueil</a>
 </nav>
 
 <div class="wrap">
@@ -383,7 +383,7 @@ document.getElementById('contactForm').addEventListener('submit',async function(
 function goHome(e){
   e.preventDefault();
   document.body.classList.add('folding-out');
-  setTimeout(()=>{window.location.href='index-v2.html'},650);
+  setTimeout(()=>{window.location.href='index.html'},650);
 }
 
 /* ── THEME — restaurer depuis localStorage */
