@@ -283,7 +283,7 @@ img{display:block;max-width:100%}
 <!-- ═══════ PAGE HEADER ═══════ -->
 <header class="page-header">
   <!-- BACK BUTTON -->
-  <a href="index.html" class="back-btn">
+  <a href="index.html" class="back-btn" onclick="goBackHome(event)">
     <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
       <path d="M8 1L3 6l5 5"/>
     </svg>
@@ -538,6 +538,15 @@ setTimeout(function(){
   },{threshold:0.05,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.rv').forEach(function(el){obs.observe(el);});
 },300);
+
+/* ── TRANSITION RETOUR */
+function goBackHome(e){
+  e.preventDefault();
+  document.body.style.transition='transform .5s cubic-bezier(.4,0,.6,1),opacity .5s ease';
+  document.body.style.transform='scale(0.94)';
+  document.body.style.opacity='0';
+  setTimeout(()=>{ window.location.href='index.html'; }, 500);
+}
 </script>
 </body>
 </html>
