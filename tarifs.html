@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<style>html{background:#1D1B1B}</style>
+<script>if(localStorage.getItem('dikenga-theme')==='light')document.documentElement.style.background='#FFFFFF'</script>
 <title>Tarifs — Dikenga. | UI/UX Designer Freelance Paris</title>
 <meta name="description" content="Découvrez les tarifs de Dikenga, designer UI/UX freelance. Formules claires pour logo, site vitrine, e-commerce, SEO, agents IA et plus. Acompte 50% au démarrage."/>
 <meta name="robots" content="index, follow"/>
@@ -283,7 +285,7 @@ img{display:block;max-width:100%}
 <!-- ═══════ PAGE HEADER ═══════ -->
 <header class="page-header">
   <!-- BACK BUTTON -->
-  <a href="index.html" class="back-btn" onclick="goBackHome(event)">
+  <a href="index.html" class="back-btn">
     <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
       <path d="M8 1L3 6l5 5"/>
     </svg>
@@ -474,7 +476,7 @@ img{display:block;max-width:100%}
 <footer class="footer">
   <div class="footer-inner">
     <div>
-      <a href="index.html" class="footer-logo" onclick="goBackHome(event)">
+      <a href="index.html" class="footer-logo">
         <svg viewBox="0 0 320 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:32px;width:auto;opacity:.8">
           <ellipse cx="152" cy="60" rx="144" ry="52" stroke="white" stroke-width="7" fill="none"/>
           <text x="152" y="75" text-anchor="middle" font-family="'Space Grotesk',Arial,sans-serif" font-weight="700" font-size="46" fill="white" letter-spacing="-1">DIKENGA.</text>
@@ -482,7 +484,7 @@ img{display:block;max-width:100%}
         </svg>
       </a>
       <p class="footer-tagline">UI/UX Designer · Branding · No-Code &amp; IA</p>
-      <a href="index.html" class="footer-back" onclick="goBackHome(event)">← Retour à l'accueil</a>
+      <a href="index.html" class="footer-back">← Retour à l'accueil</a>
     </div>
   </div>
   <div class="footer-bot">
@@ -538,15 +540,6 @@ setTimeout(function(){
   },{threshold:0.05,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.rv').forEach(function(el){obs.observe(el);});
 },300);
-
-/* ── TRANSITION RETOUR */
-function goBackHome(e){
-  e.preventDefault();
-  document.body.style.transition='transform .5s cubic-bezier(.4,0,.6,1),opacity .5s ease';
-  document.body.style.transform='scale(0.94)';
-  document.body.style.opacity='0';
-  setTimeout(()=>{ window.location.href='index.html'; }, 500);
-}
 </script>
 </body>
 </html>
