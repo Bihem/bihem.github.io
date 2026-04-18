@@ -558,45 +558,27 @@ img{display:block;max-width:100%}
   display:grid;grid-template-columns:1fr 1fr;
   align-items:start;margin-top:48px;
 }
-/* LEFT — panneau logos sticky pleine hauteur */
+/* LEFT — 1 logo grand pleine hauteur sticky */
 .services-left{
   position:sticky;top:0;height:100vh;
-  display:grid;grid-template-rows:1fr 1fr 1fr;
-  gap:2px;overflow:hidden;
+  overflow:hidden;background:#181d08;
 }
-.srv-logo-cell{overflow:hidden;position:relative;cursor:none}
-/* Fonds correspondant à chaque logo */
-.srv-logo-cell:nth-child(1){background:#181d08}
-.srv-logo-cell:nth-child(2){background:#1c2c38}
-.srv-logo-cell:nth-child(3){background:#111}
-/* Logo entier visible */
+.srv-logo-cell{width:100%;height:100%;overflow:hidden;position:relative}
 .srv-logo-cell img{
   width:100%;height:100%;object-fit:contain;display:block;
   transform-origin:center center;
+  animation:kbZoomIn 20s ease-in-out infinite alternate;
 }
-/* ── Animation Ken Burns — zoom lent cinématique ── */
 @keyframes kbZoomIn{
   0%{transform:scale(1)}
-  100%{transform:scale(1.10)}
+  100%{transform:scale(1.08)}
 }
-@keyframes kbZoomOut{
-  0%{transform:scale(1.10)}
-  100%{transform:scale(1)}
-}
-.srv-logo-cell:nth-child(1) img{animation:kbZoomIn 18s ease-in-out infinite alternate}
-.srv-logo-cell:nth-child(2) img{animation:kbZoomOut 22s ease-in-out infinite alternate;animation-delay:-6s}
-.srv-logo-cell:nth-child(3) img{animation:kbZoomIn 16s ease-in-out infinite alternate;animation-delay:-10s}
-/* Label client */
 .srv-logo-lbl{
-  position:absolute;bottom:14px;left:20px;
+  position:absolute;bottom:20px;left:24px;
   font-family:'Suisse Intl',var(--F);font-size:9px;font-weight:300;
-  letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.45);
+  letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);
   pointer-events:none;
-  animation:lblFade 6s ease-in-out infinite alternate;
 }
-.srv-logo-cell:nth-child(2) .srv-logo-lbl{animation-delay:-2s}
-.srv-logo-cell:nth-child(3) .srv-logo-lbl{animation-delay:-4s}
-@keyframes lblFade{0%{opacity:.3}100%{opacity:.8}}
 /* RIGHT — liste services */
 .services-right{padding:0 28px;border-left:1px solid var(--line)}
 .services-right .svc{grid-template-columns:1fr}
@@ -1658,19 +1640,11 @@ body.light .reel-arrow svg path{stroke:#000000}
   <!-- Layout 2 colonnes : logos gauche sticky / liste droite -->
   <div class="services-layout">
 
-    <!-- GAUCHE — panneau logos pleine hauteur sticky -->
+    <!-- GAUCHE — 1 logo grand sticky -->
     <div class="services-left">
       <div class="srv-logo-cell">
         <img src="logo-daflon.jpg" alt="Daflon Community">
         <span class="srv-logo-lbl">Daflon Community</span>
-      </div>
-      <div class="srv-logo-cell">
-        <img src="logo-carole.jpg" alt="Carole Grantz Paris">
-        <span class="srv-logo-lbl">Carole Grantz Paris</span>
-      </div>
-      <div class="srv-logo-cell">
-        <img src="logo-don.jpg" alt="DON">
-        <span class="srv-logo-lbl">DON</span>
       </div>
     </div>
 
