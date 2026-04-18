@@ -326,15 +326,16 @@ img{display:block;max-width:100%}
 
 /* ═══════════════ ALL PROJECTS PANEL ═══════════════ */
 .all-proj-panel{
-  position:fixed;inset:0;z-index:900;
-  transform:translateY(100%);
-  transition:transform 1.1s cubic-bezier(.16,1,.3,1);
+  position:fixed;top:0;right:0;bottom:0;width:65%;z-index:950;
+  transform:translateX(100%);
+  transition:transform 0.85s cubic-bezier(.16,1,.3,1);
   background:var(--bg);
+  border-left:1px solid var(--line);
   overflow-y:scroll;
   -webkit-overflow-scrolling:touch;
   display:flex;flex-direction:column;
 }
-.all-proj-panel.open{transform:translateY(0)}
+.all-proj-panel.open{transform:translateX(0)}
 .all-proj-panel-close{
   position:sticky;top:0;z-index:10;
   display:flex;align-items:center;justify-content:space-between;
@@ -1175,11 +1176,11 @@ body.light .hero-tagline,body.light .hero-sub,body.light .hero-cta-label{color:#
 
 /* ── PROJECT REEL */
 #proj-reel{
-  position:fixed;bottom:80px;right:62px;
+  position:fixed;bottom:40px;right:62px;
   width:310px;height:118px;
   border-radius:8px;
   z-index:700;
-  background:rgba(255,255,255,0.10);
+  background:rgba(255,255,255,0.22);
   backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
   border:1px solid rgba(0,0,0,0.1);
   box-shadow:0 8px 32px rgba(0,0,0,0.12);
@@ -1282,12 +1283,15 @@ body.light .reel-arrow svg path{stroke:#000000}
 #reel-overlay.open{opacity:1;pointer-events:all}
 #reel-drawer{
   position:fixed;top:0;right:0;bottom:0;
-  width:50%;z-index:950;
+  width:60%;z-index:950;
   background:var(--bg);
   transform:translateX(100%);
   transition:transform 0.85s cubic-bezier(.16,1,.3,1);
-  overflow-y:auto;display:flex;flex-direction:column;
+  overflow:hidden;display:flex;flex-direction:column;
   border-left:1px solid var(--line);
+}
+#reel-drawer iframe{
+  flex:1;width:100%;border:none;height:100%;
 }
 #reel-drawer.open{transform:translateX(0)}
 .rdrawer-head{
@@ -2276,52 +2280,8 @@ body.light .reel-arrow svg path{stroke:#000000}
   </div>
 </div>
 
-<!-- REEL DRAWER -->
-<div id="reel-overlay" onclick="closeReelDrawer()"></div>
-<div id="reel-drawer">
-  <div class="rdrawer-head">
-    <span class="rdrawer-title">Projets</span>
-    <button class="rdrawer-close" onclick="closeReelDrawer()">Fermer ✕</button>
-  </div>
-  <div class="rdrawer-list">
-    <div class="rdrawer-item">
-      <div class="proj-bg" style="background-image:url('mockup-mamagaya.png')"></div>
-      <div class="proj-veil"></div>
-      <span class="proj-badge">UI Design · App Mobile</span>
-      <div class="proj-info">
-        <h3 class="proj-name">Mamagaya</h3>
-        <span class="proj-year">2024</span>
-      </div>
-    </div>
-    <div class="rdrawer-item">
-      <div class="proj-bg" style="background-image:url('mockup-adidas.png');background-position:center top"></div>
-      <div class="proj-veil"></div>
-      <span class="proj-badge">UI Design · E-commerce</span>
-      <div class="proj-info">
-        <h3 class="proj-name">Adidas Harden</h3>
-        <span class="proj-year">2024</span>
-      </div>
-    </div>
-    <div class="rdrawer-item">
-      <div class="proj-bg" style="background-image:url('mockup-barnes.png');background-position:center top"></div>
-      <div class="proj-veil"></div>
-      <span class="proj-badge">UI Design · Automobile</span>
-      <div class="proj-info">
-        <h3 class="proj-name">BARNES CarJager</h3>
-        <span class="proj-year">2024</span>
-      </div>
-    </div>
-    <div class="rdrawer-item">
-      <div class="proj-bg" style="background-image:url('mockup-logotype.png')"></div>
-      <div class="proj-veil"></div>
-      <span class="proj-badge">Identité · Logotype</span>
-      <div class="proj-info">
-        <h3 class="proj-name">Logotype Design</h3>
-        <span class="proj-year">2024</span>
-      </div>
-    </div>
-  </div>
-</div>
+<!-- REEL OVERLAY -->
+<div id="reel-overlay" onclick="closeAllProjPanel()"></div>
 
 <script>
 /* ── SCRAMBLE */
@@ -2924,10 +2884,14 @@ function goToContact(e){
 /* ── ALL PROJECTS PANEL */
 function openAllProjPanel(){
   document.getElementById('allProjPanel').classList.add('open');
+  const ov=document.getElementById('reel-overlay');
+  if(ov)ov.classList.add('open');
   document.body.style.overflow='hidden';
 }
 function closeAllProjPanel(){
   document.getElementById('allProjPanel').classList.remove('open');
+  const ov=document.getElementById('reel-overlay');
+  if(ov)ov.classList.remove('open');
   document.body.style.overflow='';
 }
 /* ── TARIFS PANEL */
@@ -3099,11 +3063,16 @@ async function handleSubmit(e){
     },{threshold:0.05});
     obs.observe(hero);
   }
-  // Click sur le reel → ouvre le drawer
-  if(reel){reel.addEventListener('click',openReelDrawer);}
+  // Click sur le reel → ouvre le panel projets
+  if(reel){reel.addEventListener('click',openAllProjPanel);}
 })();
 
 function openReelDrawer(){
+  const frame=document.getElementById('reelDrawerFrame');
+  if(!frame.dataset.loaded){
+    frame.src='projets.html';
+    frame.dataset.loaded='1';
+  }
   document.getElementById('reel-drawer').classList.add('open');
   document.getElementById('reel-overlay').classList.add('open');
   document.body.style.overflow='hidden';
