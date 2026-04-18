@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Tarifs — Dikenga. | UI/UX Designer Freelance Paris</title>
+<meta name="description" content="Découvrez les tarifs de Dikenga, designer UI/UX freelance. Formules claires pour logo, site vitrine, e-commerce, SEO, agents IA et plus. Acompte 50% au démarrage."/>
+<meta name="robots" content="index, follow"/>
+<meta name="author" content="Dikenga"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#1D1B1B;
+  --bg2:#252323;
+  --bg3:#2E2B2B;
+  --white:#FFFFFF;
+  --off:#B8B4B4;
+  --dim:rgba(255,255,255,0.55);
+  --line:rgba(255,255,255,0.1);
+  --F:'Space Grotesk',Arial,sans-serif;
+  --r:12px;
+}
+
+html{font-size:16px;overflow-x:hidden;scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--white);
+  font-family:var(--F);
+  font-weight:400;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a,button{cursor:pointer;text-decoration:none;color:inherit}
+ul{list-style:none}
+img{display:block;max-width:100%}
+
+/* ═══════════════ PAGE COVER ═══════════════ */
+#cover{display:none}
+
+/* ═══════════════ BACK BUTTON ═══════════════ */
+.back-btn{
+  position:absolute;top:72px;right:28px;z-index:800;
+  background:rgba(29,27,27,0.6);
+  backdrop-filter:blur(12px) saturate(150%);
+  -webkit-backdrop-filter:blur(12px) saturate(150%);
+  border:1px solid rgba(255,255,255,0.1);border-radius:100px;
+  padding:6px 14px;font-family:var(--F);font-size:9px;font-weight:600;
+  letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.7);
+  display:flex;align-items:center;gap:6px;
+  transition:background .25s,border-color .25s,color .25s;
+}
+.back-btn:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.3);color:var(--white)}
+.back-btn svg{width:12px;height:12px;flex-shrink:0}
+
+/* ═══════════════ NAV ═══════════════ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:800;
+  padding:20px 28px 0;
+  display:flex;align-items:flex-start;justify-content:space-between;
+}
+.nav-logo{display:flex;align-items:center}
+.nav-logo svg{height:36px;width:auto}
+.nav-right{display:flex;align-items:center;gap:20px;padding-top:4px}
+.nav-time{font-size:11px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--dim)}
+.nav-btn{
+  background:none;border:1px solid var(--line);border-radius:100px;
+  padding:8px 20px;font-family:var(--F);font-size:11px;font-weight:600;
+  letter-spacing:0.08em;text-transform:uppercase;color:var(--white);
+  transition:background .2s,border-color .2s;
+}
+.nav-btn:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.25)}
+
+/* ═══════════════ MENU OVERLAY ═══════════════ */
+.menu{
+  position:fixed;top:0;left:0;right:0;
+  background:rgba(20,18,18,0.32);
+  backdrop-filter:blur(22px) saturate(160%);
+  -webkit-backdrop-filter:blur(22px) saturate(160%);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  z-index:850;padding:72px 28px 28px;
+  transform:translateY(-100%);opacity:0;pointer-events:none;visibility:hidden;
+  transition:transform .45s cubic-bezier(.77,0,.175,1),opacity .35s ease,visibility 0s .45s;
+}
+.menu.open{transform:translateY(0);opacity:1;pointer-events:all;visibility:visible;transition:transform .45s cubic-bezier(.77,0,.175,1),opacity .35s ease,visibility 0s 0s;}
+.menu-top{display:none}
+.menu-close{
+  display:block;background:none;border:none;
+  font-family:var(--F);font-size:9px;font-weight:500;
+  letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);
+  cursor:pointer;transition:color .2s;margin-top:16px;padding:0;
+}
+.menu-close:hover{color:var(--white)}
+.menu-links{display:flex;flex-direction:column;gap:0}
+.menu-link{
+  display:block;position:relative;overflow:hidden;
+  font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
+  padding:12px 0;color:rgba(255,255,255,0.5);
+  border-top:1px solid rgba(255,255,255,0.05);
+  transition:color .3s,padding-left .3s cubic-bezier(.22,1,.36,1);
+}
+.menu-link:last-child{border-bottom:1px solid rgba(255,255,255,0.05)}
+.menu-link::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--white);transition:width .5s cubic-bezier(.22,1,.36,1)}
+.menu-link:hover,.menu-link.active{color:var(--white);padding-left:10px}
+.menu-link:hover::after{width:100%}
+.menu-bottom{display:none}
+.menu-copy{display:none}
+.menu-socials{display:none}
+.menu-soc{display:none}
+
+/* ═══════════════ PAGE HEADER ═══════════════ */
+.page-header{
+  position:relative;
+  padding:80px 28px 60px;
+  border-bottom:1px solid var(--line);
+}
+.page-label{
+  display:flex;align-items:center;gap:14px;
+  font-size:10px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--dim);margin-bottom:32px;
+}
+.page-label::before{
+  content:'';display:inline-block;width:28px;height:1px;background:var(--dim);
+}
+.page-heading{
+  font-size:clamp(28px,4vw,52px);font-weight:700;
+  text-transform:uppercase;letter-spacing:-0.04em;line-height:.9;
+  margin-bottom:32px;
+}
+.page-sub{
+  font-size:clamp(13px,1.4vw,16px);font-weight:400;color:var(--dim);
+  line-height:1.65;max-width:560px;
+}
+
+/* ═══════════════ PRICING SECTION ═══════════════ */
+.pricing{padding:80px 28px}
+
+.tarifs-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:12px;
+}
+
+.tcard{
+  background:var(--bg2);border-radius:var(--r);padding:28px 24px;
+  border:1px solid var(--line);position:relative;overflow:hidden;
+  transition:border-color .3s,box-shadow .3s;
+  display:flex;flex-direction:column;gap:16px;
+  cursor:default;
+  transform-style:preserve-3d;
+  will-change:transform;
+}
+.tcard::before{display:none}
+.tcard:hover{
+  border-color:rgba(255,255,255,.2);
+}
+.tcard-price{
+  font-size:clamp(24px,2.2vw,36px);font-weight:700;letter-spacing:-0.025em;line-height:1;
+  transition:transform .3s cubic-bezier(.22,1,.36,1),color .3s;
+}
+.tcard:hover .tcard-price{transform:scale(1.08);color:var(--white)}
+.tcard-name{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--dim);transition:color .3s}
+.tcard:hover .tcard-name{color:rgba(255,255,255,0.8)}
+.tcard-item{
+  font-size:11px;font-weight:500;color:var(--dim);
+  display:flex;align-items:center;gap:8px;line-height:1.5;
+  padding:8px 0;
+  border-top:1px solid rgba(255,255,255,0.05);
+  position:relative;overflow:hidden;
+  transition:color .3s,padding-left .3s cubic-bezier(.22,1,.36,1);
+}
+.tcard-item:last-child{border-bottom:1px solid rgba(255,255,255,0.05)}
+.tcard-item::after{
+  content:'';position:absolute;bottom:0;left:0;
+  width:0;height:1px;background:rgba(255,255,255,0.4);
+  transition:width .5s cubic-bezier(.22,1,.36,1);
+}
+.tcard-item:hover{color:var(--white);padding-left:8px}
+.tcard-item:hover::after{width:100%}
+.tcard.star{border-color:rgba(255,255,255,.3);background:var(--bg3)}
+.tcard.pack{border-color:rgba(255,200,80,.3);background:rgba(255,200,80,.04)}
+
+.tbadge{
+  position:absolute;top:16px;right:16px;
+  font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+  padding:4px 10px;border-radius:100px;background:var(--white);color:var(--bg);
+}
+.tbadge.gold{background:rgb(255,200,80);color:#1a1200}
+
+.tcard-name{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--dim)}
+.tcard-price{font-size:clamp(24px,2.2vw,36px);font-weight:700;letter-spacing:-0.025em;line-height:1}
+.tcard-price small{font-size:13px;font-weight:400;color:var(--dim)}
+.tcard-delai{font-size:10px;color:var(--dim);letter-spacing:0.04em}
+.tcard-delai strong{color:var(--white);font-weight:600}
+
+.tcard-items{display:flex;flex-direction:column;gap:7px;flex:1}
+.tcard-item{
+  font-size:11px;font-weight:400;color:var(--dim);
+  display:flex;align-items:flex-start;gap:8px;line-height:1.5;
+}
+.tcard-item::before{content:'→';color:var(--white);font-weight:700;font-size:10px;flex-shrink:0;margin-top:1px}
+
+.tcard-cta{
+  display:inline-flex;align-items:center;justify-content:center;
+  font-family:var(--F);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;
+  padding:10px 20px;border-radius:100px;border:1px solid var(--line);
+  color:var(--white);background:none;margin-top:4px;text-decoration:none;
+  transition:background .2s,border-color .2s;
+}
+.tcard-cta:hover{background:var(--white);color:var(--bg);border-color:var(--white)}
+.tcard.star .tcard-cta{background:var(--white);color:var(--bg);border-color:var(--white)}
+.tcard.star .tcard-cta:hover{background:var(--off)}
+.tcard.pack .tcard-cta{background:rgb(255,200,80);color:#1a1200;border-color:rgb(255,200,80)}
+.tcard.pack .tcard-cta:hover{background:rgba(255,200,80,.8)}
+
+/* ═══════════════ INFO BAND ═══════════════ */
+.tarifs-info{
+  margin-top:32px;display:flex;flex-wrap:wrap;gap:0;
+  border:1px solid var(--line);border-radius:var(--r);
+  overflow:hidden;
+}
+.tarif-info-item{
+  flex:1;min-width:200px;
+  display:flex;align-items:center;gap:12px;
+  font-size:12px;color:var(--dim);
+  padding:22px 24px;
+  border-right:1px solid var(--line);
+}
+.tarif-info-item:last-child{border-right:none}
+.tarif-info-item strong{color:var(--white);font-weight:600;display:block;margin-bottom:2px}
+.tarif-info-dot{
+  width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0;
+}
+
+/* ═══════════════ FOOTER ═══════════════ */
+.footer{padding:60px 28px 40px;border-top:1px solid var(--line)}
+.footer-inner{
+  display:flex;align-items:flex-start;justify-content:space-between;gap:40px;flex-wrap:wrap;
+  padding-bottom:32px;border-bottom:1px solid var(--line);margin-bottom:32px;
+}
+.footer-logo svg{height:32px;width:auto;opacity:.8}
+.footer-tagline{font-size:13px;color:var(--dim);margin-top:12px;line-height:1.6}
+.footer-back{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;
+  padding:11px 24px;border-radius:100px;border:1px solid var(--line);color:var(--white);
+  transition:background .2s,border-color .2s;margin-top:20px;
+}
+.footer-back:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.25)}
+.footer-bot{
+  display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;
+}
+.footer-copy{font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:0.06em}
+
+/* ═══════════════ REVEAL ═══════════════ */
+.rv{opacity:1;transform:none}
+.rv.d1{transition-delay:.1s}
+.rv.d2{transition-delay:.2s}
+.rv.d3{transition-delay:.3s}
+.rv.d4{transition-delay:.4s}
+
+/* ═══════════════ RESPONSIVE ═══════════════ */
+@media(max-width:1024px){
+  .tarifs-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:640px){
+  .tarifs-grid{grid-template-columns:1fr}
+  .page-heading{font-size:clamp(44px,12vw,80px)}
+  .tarif-info-item{border-right:none;border-bottom:1px solid var(--line)}
+  .tarif-info-item:last-child{border-bottom:none}
+  .footer-bot{flex-direction:column;align-items:flex-start;gap:12px}
+}
+</style>
+</head>
+<body>
+
+<!-- PAGE COVER -->
+<div id="cover"></div>
+
+<!-- ═══════ PAGE HEADER ═══════ -->
+<header class="page-header">
+  <!-- BACK BUTTON -->
+  <a href="index-v2.html" class="back-btn">
+    <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M8 1L3 6l5 5"/>
+    </svg>
+    Accueil
+  </a>
+  <div class="page-label">Investissement</div>
+  <h1 class="page-heading">Mes tarifs.</h1>
+  <p class="page-sub">Des formules claires, sans surprise. Acompte 50% au démarrage, solde à la livraison.</p>
+</header>
+
+<!-- ═══════ PRICING CARDS ═══════ -->
+<section class="pricing">
+
+  <div class="tarifs-grid">
+
+    <!-- 1. Logo & Identité -->
+    <div class="tcard rv">
+      <div class="tcard-name">Logo &amp; Identité</div>
+      <div class="tcard-price">300 €<small> /dès</small></div>
+      <div class="tcard-delai">⏱ <strong>5 à 10 jours</strong></div>
+      <div class="tcard-items">
+        <div class="tcard-item">Logo simple &mdash; 300–600€</div>
+        <div class="tcard-item">Logo + charte &mdash; 700–1500€</div>
+        <div class="tcard-item">Identité complète &mdash; 1500–3500€</div>
+        <div class="tcard-item">Refonte de marque &mdash; 2000–5000€</div>
+      </div>
+      <a href="index-v2.html#contact" class="tcard-cta">Demander un devis</a>
+    </div>
+
+    <!-- 2. Site Vitrine -->
+    <div class="tcard rv d1">
+      <div class="tcard-name">Site Vitrine</div>
+      <div class="tcard-price">800 €<small> /dès</small></div>
+      <div class="tcard-delai">⏱ <strong>7 à 14 jours</strong></div>
+      <div class="tcard-items">
+        <div class="tcard-item">Starter (3–5 pages) &mdash; 800–1200€</div>
+        <div class="tcard-item">Pro (6–10 pages) &mdash; 1500–2500€</div>
+        <div class="tcard-item">Premium (IA intégrée) &mdash; 3000–5000€</div>
+        <div class="tcard-item">SEO de base inclus</div>
+      </div>
+      <a href="index-v2.html#contact" class="tcard-cta">Demander un devis</a>
+    </div>
+
+    <!-- 3. E-commerce (Populaire) -->
+    <div class="tcard star rv d2">
+      <span class="tbadge">Populaire</span>
+      <div class="tcard-name">E-commerce</div>
+      <div class="tcard-price">1 500 €<small> /dès</small></div>
+      <div class="tcard-delai">⏱ <strong>14 à 21 jours</strong></div>
+      <div class="tcard-items">
+        <div class="tcard-item">Starter (50 produits) &mdash; 1500–2500€</div>
+        <div class="tcard-item">Pro (illimité + filtres) &mdash; 3000–5000€</div>
+        <div class="tcard-item">Premium (IA + dashboard) &mdash; 6000–10000€</div>
+        <div class="tcard-item">Paiement en ligne inclus</div>
+      </div>
+      <a href="index-v2.html#contact" class="tcard-cta">Demander un devis</a>
+    </div>
+
+    <!-- 4. UI/UX Design -->
+    <div class="tcard rv">
+      <div class="tcard-name">UI/UX Design</div>
+      <div class="tcard-price">400 €<small> /dès</small></div>
+      <div class="tcard-delai">⏱ <strong>7 à 14 jours</strong></div>
+      <div class="tcard-items">
+        <div class="tcard-item">Audit UX &mdash; 400–800€</div>
+        <div class="tcard-item">Wireframes (5–10 écrans) &mdash; 600–1200€</div>
+        <div class="tcard-item">Design UI complet &mdash; 1500–4000€</div>
+        <div class="tcard-item">Design system &mdash; 2500–6000€</div>
+      </div>
+      <a href="index-v2.html#contact" class="tcard-cta">Demander un devis</a>
+    </div>
+
+    <!-- 5. SEO & Visibilité -->
+    <div class="tcard rv d1">
+      <div class="tcard-name">SEO &amp; Visibilité</div>
+      <div class="tcard-price">300 €<small> /dès</small></div>
+      <div class="tcard-delai">⏱ <strong>5 à 7 jours</strong></div>
+      <div class="tcard-items">
+        <div class="tcard-item">Audit SEO &mdash; 300–600€</div>
+        <div class="tcard-item">SEO On-page &mdash; 500–1000€</div>
+        <div class="tcard-item">Suivi mensuel &mdash; 400–800€/mois</div>
+        <div class="tcard-item">Rapport mensuel inclus</div>
+      </div>
+      <a href="index-v2.html#contact" class="tcard-cta">Demander un devis</a>
+    </div>
+
+    <!-- 6. Agents IA & Automatisation -->
+    <div class="tcard rv d2">
+      <div class="tcard-name">Agents IA &amp; Auto.</div>
+      <div class="tcard-price">500 €<small> /dès</small></div>
+      <div class="tcard-delai">⏱ <strong>10 à 20 jours</strong></div>
+      <div class="tcard-items">
+        <div class="tcard-item">Audit automatisation &mdash; 300–500€</div>
+        <div class="tcard-item">Agent IA simple &mdash; 500–1500€</div>
+        <div class="tcard-item">Système complet &mdash; 2000–5000€</div>
+        <div class="tcard-item">Maintenance &mdash; 200–500€/mois</div>
+      </div>
+      <a href="index-v2.html#contact" class="tcard-cta">Demander un devis</a>
+    </div>
+
+    <!-- 7. Maintenance -->
+    <div class="tcard rv">
+      <div class="tcard-name">Maintenance</div>
+      <div class="tcard-price">80 €<small> /mois</small></div>
+      <div class="tcard-delai">⏱ <strong>Contrat mensuel</strong></div>
+      <div class="tcard-items">
+        <div class="tcard-item">Essentiel &mdash; 80–150€/mois</div>
+        <div class="tcard-item">Pro (+ corrections) &mdash; 200–350€/mois</div>
+        <div class="tcard-item">Premium (prioritaire) &mdash; 400–600€/mois</div>
+        <div class="tcard-item">Rapport mensuel inclus</div>
+      </div>
+      <a href="index-v2.html#contact" class="tcard-cta">Demander un devis</a>
+    </div>
+
+    <!-- 8. Motion & Animation -->
+    <div class="tcard rv d1">
+      <div class="tcard-name">Motion &amp; Animation</div>
+      <div class="tcard-price">300 €<small> /dès</small></div>
+      <div class="tcard-delai">⏱ <strong>3 à 7 jours</strong></div>
+      <div class="tcard-items">
+        <div class="tcard-item">Logo animé (Lottie/GIF) &mdash; 300–600€</div>
+        <div class="tcard-item">Animation UI/micro-interaction &mdash; 400–800€</div>
+        <div class="tcard-item">Vidéo motion (15–30s) &mdash; 600–1500€</div>
+        <div class="tcard-item">2 révisions incluses</div>
+      </div>
+      <a href="index-v2.html#contact" class="tcard-cta">Demander un devis</a>
+    </div>
+
+    <!-- 9. Pitch Deck -->
+    <div class="tcard rv d2">
+      <div class="tcard-name">Pitch Deck</div>
+      <div class="tcard-price">400 €<small> /dès</small></div>
+      <div class="tcard-delai">⏱ <strong>5 à 8 jours</strong></div>
+      <div class="tcard-items">
+        <div class="tcard-item">Présentation (10–15 slides) &mdash; 400–700€</div>
+        <div class="tcard-item">Pro (20+ slides) &mdash; 800–1500€</div>
+        <div class="tcard-item">Figma + PowerPoint + PDF</div>
+        <div class="tcard-item">2 révisions incluses</div>
+      </div>
+      <a href="index-v2.html#contact" class="tcard-cta">Demander un devis</a>
+    </div>
+
+    <!-- 10. Pack Lancement (gold) -->
+    <div class="tcard pack rv d3" style="grid-column:1/-1;max-width:none">
+      <span class="tbadge gold">⚡ Pack</span>
+      <div class="tcard-name">Pack Lancement</div>
+      <div class="tcard-price">1 200 €<small> /dès</small></div>
+      <div class="tcard-delai">⏱ <strong>14 à 21 jours</strong></div>
+      <div class="tcard-items" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:7px 24px">
+        <div class="tcard-item">Logo + Charte graphique complète</div>
+        <div class="tcard-item">Site vitrine 3–5 pages responsive</div>
+        <div class="tcard-item">Mise en ligne + domaine guidé</div>
+        <div class="tcard-item">SEO de base + économisez 30%</div>
+      </div>
+      <a href="index-v2.html#contact" class="tcard-cta" style="align-self:flex-start">Demander un devis</a>
+    </div>
+
+  </div><!-- /.tarifs-grid -->
+
+  <!-- INFO BAND -->
+  <div class="tarifs-info rv">
+    <div class="tarif-info-item">
+      <div class="tarif-info-dot"></div>
+      <div>
+        <strong>Paiement échelonné</strong>
+        Paiement en 2 ou 3 fois disponible sur demande
+      </div>
+    </div>
+    <div class="tarif-info-item">
+      <div class="tarif-info-dot"></div>
+      <div>
+        <strong>Premier échange gratuit</strong>
+        Réponse sous 24h
+      </div>
+    </div>
+    <div class="tarif-info-item">
+      <div class="tarif-info-dot"></div>
+      <div>
+        <strong>Disponibilité</strong>
+        Disponible partout en France · Remote worldwide
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <a href="index-v2.html" class="footer-logo">
+        <svg viewBox="0 0 320 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:32px;width:auto;opacity:.8">
+          <ellipse cx="152" cy="60" rx="144" ry="52" stroke="white" stroke-width="7" fill="none"/>
+          <text x="152" y="75" text-anchor="middle" font-family="'Space Grotesk',Arial,sans-serif" font-weight="700" font-size="46" fill="white" letter-spacing="-1">DIKENGA.</text>
+          <text x="303" y="22" font-family="'Space Grotesk',Arial,sans-serif" font-size="16" fill="white" font-weight="400">®</text>
+        </svg>
+      </a>
+      <p class="footer-tagline">UI/UX Designer · Branding · No-Code &amp; IA</p>
+      <a href="index-v2.html" class="footer-back">← Retour à l'accueil</a>
+    </div>
+  </div>
+  <div class="footer-bot">
+    <span class="footer-copy">©2026 Dikenga. · Tous droits réservés</span>
+    <a href="index-v2.html#contact" style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--dim);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Prendre contact →</a>
+  </div>
+</footer>
+
+<script>
+/* ─── Paris time ─── */
+function tickTime(){
+  const now=new Date();
+  const h=String(now.toLocaleString('fr-FR',{timeZone:'Europe/Paris',hour:'2-digit',hour12:false})).padStart(2,'0');
+  const m=String(now.getMinutes()).padStart(2,'0');
+  document.getElementById('navtime').textContent='FR · '+h+':'+m;
+}
+tickTime();
+setInterval(tickTime,1000);
+
+/* ─── Page cover ─── */
+window.addEventListener('load',function(){
+  requestAnimationFrame(function(){
+    setTimeout(function(){
+      document.getElementById('cover').classList.add('out');
+    },80);
+  });
+});
+
+/* ─── Card tilt + glow ─── */
+document.querySelectorAll('.tcard').forEach(card=>{
+  card.addEventListener('mousemove',function(e){
+    const r=card.getBoundingClientRect();
+    const x=(e.clientX-r.left)/r.width;
+    const y=(e.clientY-r.top)/r.height;
+    const rotX=((y-0.5)*-12).toFixed(2);
+    const rotY=((x-0.5)*14).toFixed(2);
+    card.style.transform=`perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-6px) scale(1.02)`;
+    card.style.setProperty('--mx',(x*100).toFixed(1)+'%');
+    card.style.setProperty('--my',(y*100).toFixed(1)+'%');
+  });
+  card.addEventListener('mouseleave',function(){
+    card.style.transform='perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0) scale(1)';
+  });
+});
+
+
+/* ─── Scroll reveal ─── */
+setTimeout(function(){
+  const obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){en.target.classList.add('on');obs.unobserve(en.target);}
+    });
+  },{threshold:0.05,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){obs.observe(el);});
+},300);
+</script>
+</body>
+</html>

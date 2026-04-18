@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate"/>
+<title>Contact — Dikenga.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+@font-face{font-family:'Suisse Intl';src:url('https://cdn.prod.website-files.com/6772f6efe246aaaa73ad2a98/67784f5e4c3068c2e2f22e60_SuisseIntl-Regular.otf')format('opentype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Suisse Intl';src:url('https://cdn.prod.website-files.com/6772f6efe246aaaa73ad2a98/67784f815ee57b4c18bdae11_SuisseIntl-Light.otf')format('opentype');font-weight:300;font-style:normal;font-display:swap}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#1D1B1B;
+  --white:#fff;
+  --dim:rgba(255,255,255,0.38);
+  --line:rgba(255,255,255,0.12);
+  --SI:'Suisse Intl','Space Grotesk',sans-serif;
+}
+html{
+  min-height:100%;overflow-x:hidden;
+  background:#1D1B1B;
+  perspective:1200px;
+}
+body{
+  background:var(--bg);
+  color:var(--white);font-family:var(--SI);font-weight:300;
+  -webkit-font-smoothing:antialiased;cursor:none;
+  transform-origin:top center;
+  animation:unfold .9s cubic-bezier(.22,1,.36,1) both;
+}
+body.folding-out{
+  animation:fold .65s cubic-bezier(.55,0,.8,.45) forwards;
+}
+@keyframes unfold{
+  0%  {transform:translateY(100%) rotateX(-12deg);opacity:.4;border-radius:24px 24px 0 0;}
+  60% {border-radius:8px 8px 0 0;}
+  100%{transform:translateY(0)   rotateX(0deg);  opacity:1; border-radius:0;}
+}
+@keyframes fold{
+  0%  {transform:translateY(0)   rotateX(0deg);  opacity:1; border-radius:0;}
+  100%{transform:translateY(105%) rotateX(10deg); opacity:.3;border-radius:24px 24px 0 0;}
+}
+a,button{cursor:none;text-decoration:none;color:inherit}
+
+/* CURSOR */
+#cdot{position:fixed;z-index:9999;pointer-events:none;width:6px;height:6px;border-radius:50%;background:var(--white);transform:translate(-50%,-50%)}
+#cring{position:fixed;z-index:9998;pointer-events:none;width:32px;height:32px;border-radius:50%;border:1px solid rgba(255,255,255,0.4);transform:translate(-50%,-50%);transition:width .22s,height .22s}
+.cursor-grow #cring{width:50px;height:50px}
+
+/* NAV */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:800;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:26px 48px;
+}
+.nav-logo svg{height:28px;width:auto}
+.nav-time{font-size:10px;font-weight:300;letter-spacing:.1em;text-transform:uppercase;color:var(--white)}
+.nav-back{
+  display:flex;align-items:center;gap:8px;
+  font-size:11px;font-weight:300;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--white);transition:opacity .2s;
+}
+.nav-back:hover{opacity:.7}
+
+/* LAYOUT */
+.wrap{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  min-height:100vh;
+  padding-top:100px;
+}
+
+/* LEFT */
+.left{
+  padding:80px 60px 80px 48px;
+  display:flex;flex-direction:column;justify-content:space-between;
+  position:sticky;top:0;height:calc(100vh - 100px);overflow:hidden;
+}
+.left-top{}
+.headline{
+  font-family:var(--SI);
+  font-size:clamp(56px,6vw,100px);
+  font-weight:300;letter-spacing:-.04em;line-height:.9;
+  margin-bottom:52px;
+}
+.desc{display:flex;flex-direction:column;gap:18px;max-width:380px}
+.desc p{font-size:15px;font-weight:300;line-height:1.72;color:var(--white)}
+.desc a{border-bottom:1px solid rgba(255,255,255,.2);transition:border-color .2s}
+.desc a:hover{border-color:var(--white)}
+
+/* contact links */
+.clinks{margin-top:40px;display:flex;flex-direction:column}
+.clink{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 0;border-top:1px solid var(--line);
+  font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  transition:opacity .2s;
+}
+.clink:last-child{border-bottom:1px solid var(--line)}
+.clink:hover{opacity:.55}
+.clink-val{font-size:12px;text-transform:none;letter-spacing:0;font-weight:300}
+
+.left-foot{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--white)}
+
+/* RIGHT */
+.right{
+  padding:80px 48px 80px 60px;
+  border-left:1px solid var(--line);
+  display:flex;flex-direction:column;
+}
+.form-label{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--white);margin-bottom:44px}
+
+/* FORM GRID */
+.c-form{display:flex;flex-direction:column;gap:0}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:0 48px}
+
+/* FIELD */
+.field{
+  border-bottom:1px solid var(--line);
+  padding-top:26px;
+  transition:border-color .3s;
+}
+.field:focus-within{border-color:rgba(255,255,255,.4)}
+.field.full{grid-column:1/-1}
+
+.field label{
+  display:block;font-size:9px;font-weight:400;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--white);margin-bottom:10px;
+}
+
+.field input,
+.field textarea,
+.field select{
+  width:100%;background:none;border:none;outline:none;
+  font-family:var(--SI);font-size:17px;font-weight:300;
+  color:var(--white);padding:0 0 22px;
+  line-height:1.4;caret-color:var(--white);
+}
+.field textarea{resize:none;min-height:110px}
+.field select{appearance:none;-webkit-appearance:none}
+.field select option{background:#1D1B1B;color:var(--white)}
+.field input::placeholder,
+.field textarea::placeholder{color:rgba(255,255,255,.18)}
+.sel-wrap{position:relative}
+.sel-wrap::after{content:'↓';position:absolute;right:0;bottom:24px;font-size:13px;color:var(--white);pointer-events:none}
+
+/* BOTTOM */
+.form-foot{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:28px 0 0;flex-wrap:wrap;gap:16px;
+}
+.check-row{display:flex;align-items:center;gap:12px;cursor:none}
+.check-box{
+  width:18px;height:18px;border:1px solid rgba(255,255,255,.22);border-radius:3px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  transition:background .2s,border-color .2s;
+}
+.check-row input[type=checkbox]{display:none}
+.check-row input[type=checkbox]:checked+.check-box{background:var(--white);border-color:var(--white)}
+.check-row input[type=checkbox]:checked+.check-box::after{content:'✓';font-size:10px;color:#1D1B1B;font-weight:700}
+.check-label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--white)}
+
+.btn-submit{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 28px;border-radius:100px;
+  background:var(--white);color:#1D1B1B;
+  font-family:var(--SI);font-size:12px;font-weight:400;
+  letter-spacing:.1em;text-transform:uppercase;
+  border:none;transition:opacity .2s,transform .2s;
+}
+.btn-submit:hover{opacity:.85;transform:scale(1.02)}
+
+/* PAGE TRANSITIONS — handled via body animation */
+
+/* ── MOBILE */
+@media(max-width:900px){
+  #cdot,#cring{display:none}
+  body{cursor:auto}
+  a,button{cursor:auto}
+
+  .nav{padding:18px 20px}
+  .nav-logo svg{height:22px}
+
+  .wrap{
+    grid-template-columns:1fr;
+    padding-top:80px;
+  }
+
+  .left{
+    position:static;height:auto;
+    padding:40px 20px 48px;
+    border-bottom:1px solid var(--line);
+  }
+  .headline{font-size:clamp(44px,12vw,72px);margin-bottom:32px}
+  .desc p{font-size:14px}
+  .clinks{margin-top:32px}
+  .clink{padding:12px 0}
+  .clink-val{font-size:11px}
+  .left-foot{margin-top:32px}
+
+  .right{
+    padding:40px 20px 80px;
+    border-left:none;
+  }
+  .row{grid-template-columns:1fr}
+  .field{padding-top:20px}
+  .field input,.field textarea,.field select{font-size:15px;padding:0 0 16px}
+  .field textarea{min-height:90px}
+
+  .form-foot{flex-direction:column;align-items:flex-start;gap:20px}
+}
+/* ── THEME CLAIR */
+body.light{color:#000000;background:#FFFFFF}
+body.light .nav-logo ellipse{stroke:#000000}
+body.light .nav-logo text{fill:#000000}
+body.light .nav-back{color:#000000;border-color:rgba(0,0,0,0.15)}
+body.light .contact-left h1,body.light .contact-left p{color:#000000}
+body.light .wrap{background:#FFFFFF}
+body.light .left{background:#FFFFFF}
+body.light .field-group label{color:#000000}
+body.light .field-group input,body.light .field-group textarea,body.light .field-group select{border-color:rgba(0,0,0,0.2);color:#000000;background:#FFFFFF}
+body.light .btn-submit{background:#000000;color:#FFFFFF}
+body.light .footer-copy,body.light .footer-lnk{color:rgba(0,0,0,0.5)}
+</style>
+</head>
+<body>
+<div id="cdot"></div>
+<div id="cring"></div>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index-v2.html" class="nav-logo" onclick="goHome(event)">
+    <svg viewBox="0 0 320 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="152" cy="60" rx="144" ry="52" stroke="white" stroke-width="7" fill="none"/>
+      <text x="152" y="75" text-anchor="middle" font-family="'Space Grotesk',Arial,sans-serif" font-weight="700" font-size="46" fill="white" letter-spacing="-1">DIKENGA.</text>
+      <text x="303" y="22" font-family="'Space Grotesk',Arial,sans-serif" font-size="16" fill="white" font-weight="400">®</text>
+    </svg>
+  </a>
+  <span class="nav-time" id="navtime">FR · --:--</span>
+  <a href="index-v2.html" class="nav-back" onclick="goHome(event)">← Accueil</a>
+</nav>
+
+<div class="wrap">
+
+  <!-- LEFT -->
+  <div class="left">
+    <div class="left-top">
+      <h1 class="headline">Travaillons<br>ensemble.</h1>
+      <div class="desc">
+        <p>Pas sûr par où commencer&nbsp;? Parlez-moi de votre projet, votre budget et vos délais.</p>
+        <p>Ou contactez-moi directement à <a href="mailto:dikengadesign@gmail.com">dikengadesign@gmail.com</a>. Je lis chaque message.</p>
+        <p><a href="mailto:dikengadesign@gmail.com">Vous cherchez une collaboration&nbsp;? →</a></p>
+      </div>
+      <div class="clinks">
+        <a href="mailto:dikengadesign@gmail.com" class="clink">
+          <span>Email</span><span class="clink-val">dikengadesign@gmail.com</span>
+        </a>
+        <a href="tel:0767537059" class="clink">
+          <span>Téléphone</span><span class="clink-val">07 67 53 70 59</span>
+        </a>
+        <a href="https://instagram.com/Dikenga.design" target="_blank" rel="noopener" class="clink">
+          <span>Instagram</span><span class="clink-val">@Dikenga.design</span>
+        </a>
+      </div>
+    </div>
+    <div class="left-foot">©2026 Dikenga. — Paris, France</div>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="right">
+    <p class="form-label">Formulaire de contact</p>
+
+    <form class="c-form" id="contactForm" action="https://formspree.io/f/mdaproed" method="POST">
+      <input type="hidden" name="_subject" value="Nouveau message depuis le portfolio Dikenga."/>
+
+      <div class="row">
+        <div class="field">
+          <label>Nom *</label>
+          <input type="text" name="nom" placeholder="Votre nom complet" required/>
+        </div>
+        <div class="field">
+          <label>Email *</label>
+          <input type="email" name="email" placeholder="votre@email.com" required/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label>Comment vous m'avez trouvé ? *</label>
+          <input type="text" name="source" placeholder="Instagram, Google…" required/>
+        </div>
+        <div class="field">
+          <label>Stade de votre projet *</label>
+          <div class="sel-wrap">
+            <select name="stade" required>
+              <option value="" disabled selected>Sélectionner</option>
+              <option>Idée / Concept</option>
+              <option>Startup en démarrage</option>
+              <option>Projet en croissance</option>
+              <option>Entreprise établie</option>
+              <option>Refonte / Amélioration</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field full">
+          <label>Entreprise</label>
+          <input type="text" name="entreprise" placeholder="Votre entreprise ou projet"/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field full">
+          <label>Message *</label>
+          <textarea name="message" placeholder="Décrivez votre projet, vos objectifs, votre budget estimé…" required></textarea>
+        </div>
+      </div>
+
+      <div class="form-foot">
+        <label class="check-row">
+          <input type="checkbox" name="newsletter"/>
+          <div class="check-box"></div>
+          <span class="check-label">Recevoir mes actualités</span>
+        </label>
+        <button type="submit" class="btn-submit" id="submitBtn">
+          Envoyer &nbsp;→
+        </button>
+      </div>
+    </form>
+  </div>
+
+</div>
+
+<script>
+/* cursor */
+const dot=document.getElementById('cdot'),ring=document.getElementById('cring');
+let mx=window.innerWidth/2,my=window.innerHeight/2,rx=mx,ry=my;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+(function loop(){
+  dot.style.left=mx+'px';dot.style.top=my+'px';
+  rx+=(mx-rx)*.12;ry+=(my-ry)*.12;
+  ring.style.left=rx+'px';ring.style.top=ry+'px';
+  requestAnimationFrame(loop);
+})();
+document.querySelectorAll('a,button,label').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('cursor-grow'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('cursor-grow'));
+});
+
+/* clock */
+function tick(){
+  const n=new Date();
+  document.getElementById('navtime').textContent='FR · '+String(n.getHours()).padStart(2,'0')+':'+String(n.getMinutes()).padStart(2,'0');
+}
+tick();setInterval(tick,1000);
+
+/* checkbox */
+document.querySelectorAll('.check-row').forEach(row=>{
+  row.addEventListener('click',()=>{const cb=row.querySelector('input[type=checkbox]');if(cb)cb.checked=!cb.checked});
+});
+
+/* form */
+document.getElementById('contactForm').addEventListener('submit',async function(e){
+  e.preventDefault();
+  const btn=document.getElementById('submitBtn');
+  btn.textContent='Envoi…';btn.disabled=true;
+  try{
+    const res=await fetch(this.action,{method:'POST',body:new FormData(this),headers:{Accept:'application/json'}});
+    btn.textContent=res.ok?'Message reçu ✓':'Erreur — réessayez';
+    if(res.ok)this.reset();
+    else btn.disabled=false;
+  }catch{btn.textContent='Erreur — réessayez';btn.disabled=false;}
+});
+
+/* transition retour — fold vers le bas */
+function goHome(e){
+  e.preventDefault();
+  document.body.classList.add('folding-out');
+  setTimeout(()=>{window.location.href='index-v2.html'},650);
+}
+
+/* ── THEME — restaurer depuis localStorage */
+(function(){
+  const t = localStorage.getItem('dikenga-theme');
+  if(t === 'light'){
+    document.documentElement.style.setProperty('--bg','#FFFFFF');
+    document.documentElement.style.setProperty('--white','#000000');
+    document.documentElement.style.setProperty('--dim','rgba(0,0,0,0.5)');
+    document.documentElement.style.setProperty('--line','rgba(0,0,0,0.1)');
+    document.body.classList.add('light');
+    document.querySelector('html').style.background = '#FFFFFF';
+  }
+})();
+</script>
+</body>
+</html>

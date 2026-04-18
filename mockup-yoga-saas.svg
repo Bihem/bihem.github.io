@@ -1,0 +1,317 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F7F5F0"/>
+      <stop offset="100%" stop-color="#EEE9E0"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3D6B4F"/>
+      <stop offset="100%" stop-color="#4E8A65"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#F9F7F4"/>
+    </linearGradient>
+    <linearGradient id="dashGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F4F1EC"/>
+    </linearGradient>
+    <linearGradient id="barGreen" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#3D6B4F"/>
+      <stop offset="100%" stop-color="#6AAE84"/>
+    </linearGradient>
+    <linearGradient id="barSage" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#8DAF96"/>
+      <stop offset="100%" stop-color="#B8D4C0"/>
+    </linearGradient>
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#1A1A1A" flood-opacity="0.07"/>
+    </filter>
+    <filter id="softShadow" x="-5%" y="-5%" width="110%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="6" flood-color="#1A1A1A" flood-opacity="0.05"/>
+    </filter>
+    <clipPath id="mainClip">
+      <rect width="1200" height="900" rx="14"/>
+    </clipPath>
+    <clipPath id="dashClip">
+      <rect x="540" y="130" width="620" height="420" rx="12"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#mainClip)">
+
+    <!-- ── BACKGROUND ── -->
+    <rect width="1200" height="900" fill="url(#bgGrad)"/>
+
+    <!-- Cercles décoratifs fond -->
+    <circle cx="980" cy="80" r="220" fill="#3D6B4F" opacity="0.04"/>
+    <circle cx="100" cy="700" r="180" fill="#3D6B4F" opacity="0.03"/>
+
+    <!-- ── NAVIGATION ── -->
+    <rect width="1200" height="64" fill="white"/>
+    <rect x="0" y="63" width="1200" height="1" fill="#E8E4DC"/>
+
+    <!-- Logo -->
+    <circle cx="48" cy="32" r="14" fill="url(#greenGrad)"/>
+    <text x="48" y="37" font-family="'Helvetica Neue',sans-serif" font-size="13" font-weight="700" fill="white" text-anchor="middle">Z</text>
+    <text x="72" y="29" font-family="'Helvetica Neue',sans-serif" font-size="14" font-weight="700" fill="#1A2E1F" letter-spacing="0.5">Zenflow</text>
+    <text x="72" y="44" font-family="'Helvetica Neue',sans-serif" font-size="8" fill="#7A9B84" letter-spacing="3" font-weight="400">YOGA STUDIO</text>
+
+    <!-- Nav links -->
+    <text x="380" y="37" font-family="'Helvetica Neue',sans-serif" font-size="12" fill="#4A5568" letter-spacing="0.3">Fonctionnalités</text>
+    <text x="510" y="37" font-family="'Helvetica Neue',sans-serif" font-size="12" fill="#4A5568" letter-spacing="0.3">Tarifs</text>
+    <text x="580" y="37" font-family="'Helvetica Neue',sans-serif" font-size="12" fill="#4A5568" letter-spacing="0.3">Témoignages</text>
+    <text x="700" y="37" font-family="'Helvetica Neue',sans-serif" font-size="12" fill="#4A5568" letter-spacing="0.3">Blog</text>
+    <text x="900" y="37" font-family="'Helvetica Neue',sans-serif" font-size="12" fill="#3D6B4F" font-weight="600">Se connecter</text>
+    <rect x="990" y="18" width="172" height="36" rx="8" fill="url(#greenGrad)"/>
+    <text x="1076" y="41" font-family="'Helvetica Neue',sans-serif" font-size="12" fill="white" text-anchor="middle" font-weight="600">Démo gratuite →</text>
+
+    <!-- ── HERO ── -->
+    <!-- Badge -->
+    <rect x="54" y="96" width="190" height="26" rx="13" fill="#EAF2EC"/>
+    <circle cx="70" cy="109" r="5" fill="#3D6B4F"/>
+    <text x="82" y="113" font-family="'Helvetica Neue',sans-serif" font-size="10" fill="#3D6B4F" font-weight="600" letter-spacing="0.5">+2 400 studios partenaires</text>
+
+    <!-- Titre hero -->
+    <text x="54" y="168" font-family="Georgia,serif" font-size="46" fill="#1A2E1F" letter-spacing="-1.5">Gérez votre studio</text>
+    <text x="54" y="222" font-family="Georgia,serif" font-size="46" fill="#1A2E1F" letter-spacing="-1.5" font-style="italic">yoga simplement.</text>
+
+    <!-- Sous-titre -->
+    <text x="54" y="264" font-family="'Helvetica Neue',sans-serif" font-size="14" fill="#6B7280" font-weight="300" letter-spacing="0.2">Réservations, paiements, planning et fidélisation</text>
+    <text x="54" y="282" font-family="'Helvetica Neue',sans-serif" font-size="14" fill="#6B7280" font-weight="300">— tout en un seul outil conçu pour les studios.</text>
+
+    <!-- CTAs -->
+    <rect x="54" y="308" width="200" height="48" rx="10" fill="url(#greenGrad)"/>
+    <text x="154" y="338" font-family="'Helvetica Neue',sans-serif" font-size="13" fill="white" text-anchor="middle" font-weight="600">Essai 30 jours gratuit</text>
+    <rect x="268" y="308" width="168" height="48" rx="10" fill="white" stroke="#D5CFC6" stroke-width="1.5"/>
+    <text x="352" y="338" font-family="'Helvetica Neue',sans-serif" font-size="13" fill="#3D6B4F" text-anchor="middle" font-weight="500">Voir la démo</text>
+
+    <!-- Social proof -->
+    <text x="54" y="384" font-family="'Helvetica Neue',sans-serif" font-size="11" fill="#9CA3AF" letter-spacing="0.3">★★★★★  <tspan fill="#6B7280" font-weight="500">4.9/5</tspan>  ·  Sans CB requise  ·  Annulation libre</text>
+
+    <!-- ── DASHBOARD PREVIEW ── -->
+    <!-- Ombre principale -->
+    <rect x="538" y="82" width="624" height="426" rx="14" fill="#1A2E1F" opacity="0.08"/>
+    <!-- Fond dashboard -->
+    <rect x="534" y="78" width="624" height="426" rx="14" fill="url(#dashGrad)" filter="url(#cardShadow)"/>
+
+    <!-- Topbar dashboard -->
+    <rect x="534" y="78" width="624" height="44" rx="14" fill="#1A2E1F"/>
+    <rect x="534" y="100" width="624" height="22" fill="#1A2E1F"/>
+    <!-- Dots -->
+    <circle cx="558" cy="100" r="5" fill="#EF4444" opacity="0.8"/>
+    <circle cx="576" cy="100" r="5" fill="#F59E0B" opacity="0.8"/>
+    <circle cx="594" cy="100" r="5" fill="#10B981" opacity="0.8"/>
+    <text x="780" y="105" font-family="'Helvetica Neue',sans-serif" font-size="10" fill="rgba(255,255,255,0.5)" text-anchor="middle" letter-spacing="0.5">Zenflow — Dashboard Studio</text>
+
+    <!-- Sidebar -->
+    <rect x="534" y="122" width="148" height="382" fill="#F9F7F4"/>
+    <rect x="681" y="122" width="1" height="382" fill="#E8E4DC"/>
+
+    <!-- Sidebar items -->
+    <!-- Active item -->
+    <rect x="546" y="138" width="124" height="34" rx="6" fill="#EAF2EC"/>
+    <rect x="556" y="149" width="12" height="12" rx="2" fill="#3D6B4F"/>
+    <text x="576" y="160" font-family="'Helvetica Neue',sans-serif" font-size="11" fill="#3D6B4F" font-weight="600">Dashboard</text>
+
+    <rect x="556" y="188" width="12" height="12" rx="2" fill="#9CA3AF"/>
+    <text x="576" y="199" font-family="'Helvetica Neue',sans-serif" font-size="11" fill="#9CA3AF">Planning</text>
+
+    <rect x="556" y="218" width="12" height="12" rx="2" fill="#9CA3AF"/>
+    <text x="576" y="229" font-family="'Helvetica Neue',sans-serif" font-size="11" fill="#9CA3AF">Réservations</text>
+
+    <rect x="556" y="248" width="12" height="12" rx="2" fill="#9CA3AF"/>
+    <text x="576" y="259" font-family="'Helvetica Neue',sans-serif" font-size="11" fill="#9CA3AF">Membres</text>
+
+    <rect x="556" y="278" width="12" height="12" rx="2" fill="#9CA3AF"/>
+    <text x="576" y="289" font-family="'Helvetica Neue',sans-serif" font-size="11" fill="#9CA3AF">Paiements</text>
+
+    <rect x="556" y="308" width="12" height="12" rx="2" fill="#9CA3AF"/>
+    <text x="576" y="319" font-family="'Helvetica Neue',sans-serif" font-size="11" fill="#9CA3AF">Analytiques</text>
+
+    <rect x="556" y="338" width="12" height="12" rx="2" fill="#9CA3AF"/>
+    <text x="576" y="349" font-family="'Helvetica Neue',sans-serif" font-size="11" fill="#9CA3AF">Paramètres</text>
+
+    <!-- Avatar sidebar -->
+    <circle cx="565" cy="475" r="14" fill="#3D6B4F"/>
+    <text x="565" y="479" font-family="'Helvetica Neue',sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="600">A</text>
+    <text x="585" y="472" font-family="'Helvetica Neue',sans-serif" font-size="10" fill="#1A2E1F" font-weight="600">Amara Studio</text>
+    <text x="585" y="483" font-family="'Helvetica Neue',sans-serif" font-size="9" fill="#9CA3AF">admin@amara.fr</text>
+
+    <!-- ── CONTENU DASHBOARD ── -->
+
+    <!-- Header dashboard -->
+    <text x="698" y="148" font-family="'Helvetica Neue',sans-serif" font-size="15" font-weight="700" fill="#1A2E1F">Bonjour, Amara 👋</text>
+    <text x="698" y="163" font-family="'Helvetica Neue',sans-serif" font-size="10" fill="#9CA3AF">Vendredi 10 avril 2026 · Studio Paris 11e</text>
+
+    <!-- Bouton add -->
+    <rect x="1088" y="132" width="58" height="26" rx="6" fill="url(#greenGrad)"/>
+    <text x="1117" y="149" font-family="'Helvetica Neue',sans-serif" font-size="10" fill="white" text-anchor="middle" font-weight="600">+ Cours</text>
+
+    <!-- ── STAT CARDS ── -->
+    <!-- Card 1 -->
+    <rect x="698" y="178" width="128" height="80" rx="10" fill="white" filter="url(#softShadow)"/>
+    <text x="714" y="200" font-family="'Helvetica Neue',sans-serif" font-size="9" fill="#9CA3AF" letter-spacing="0.5" font-weight="500">MEMBRES ACTIFS</text>
+    <text x="714" y="228" font-family="'Helvetica Neue',sans-serif" font-size="26" font-weight="700" fill="#1A2E1F">247</text>
+    <rect x="714" y="242" width="40" height="4" rx="2" fill="#EAF2EC"/>
+    <rect x="714" y="242" width="32" height="4" rx="2" fill="#3D6B4F"/>
+    <text x="758" y="248" font-family="'Helvetica Neue',sans-serif" font-size="8" fill="#3D6B4F" font-weight="600">+12%</text>
+
+    <!-- Card 2 -->
+    <rect x="838" y="178" width="128" height="80" rx="10" fill="white" filter="url(#softShadow)"/>
+    <text x="854" y="200" font-family="'Helvetica Neue',sans-serif" font-size="9" fill="#9CA3AF" letter-spacing="0.5" font-weight="500">COURS CE MOIS</text>
+    <text x="854" y="228" font-family="'Helvetica Neue',sans-serif" font-size="26" font-weight="700" fill="#1A2E1F">84</text>
+    <rect x="854" y="242" width="40" height="4" rx="2" fill="#EAF2EC"/>
+    <rect x="854" y="242" width="36" height="4" rx="2" fill="#6AAE84"/>
+    <text x="898" y="248" font-family="'Helvetica Neue',sans-serif" font-size="8" fill="#3D6B4F" font-weight="600">+8%</text>
+
+    <!-- Card 3 -->
+    <rect x="978" y="178" width="128" height="80" rx="10" fill="url(#greenGrad)" filter="url(#softShadow)"/>
+    <text x="994" y="200" font-family="'Helvetica Neue',sans-serif" font-size="9" fill="rgba(255,255,255,0.65)" letter-spacing="0.5" font-weight="500">REVENUS AVRIL</text>
+    <text x="994" y="228" font-family="'Helvetica Neue',sans-serif" font-size="22" font-weight="700" fill="white">4 820 €</text>
+    <text x="994" y="248" font-family="'Helvetica Neue',sans-serif" font-size="8" fill="rgba(255,255,255,0.7)" font-weight="500">↑ +18% vs mars</text>
+
+    <!-- ── GRAPHIQUE ── -->
+    <rect x="698" y="272" width="240" height="128" rx="10" fill="white" filter="url(#softShadow)"/>
+    <text x="714" y="292" font-family="'Helvetica Neue',sans-serif" font-size="10" font-weight="600" fill="#1A2E1F">Réservations / semaine</text>
+
+    <!-- Barres graphique -->
+    <!-- Barres -->
+    <rect x="718" y="346" width="18" height="38" rx="3" fill="url(#barSage)"/>
+    <rect x="746" y="332" width="18" height="52" rx="3" fill="url(#barGreen)"/>
+    <rect x="774" y="338" width="18" height="46" rx="3" fill="url(#barSage)"/>
+    <rect x="802" y="322" width="18" height="62" rx="3" fill="url(#barGreen)"/>
+    <rect x="830" y="330" width="18" height="54" rx="3" fill="url(#barSage)"/>
+    <rect x="858" y="314" width="18" height="70" rx="3" fill="url(#barGreen)"/>
+    <rect x="886" y="326" width="18" height="58" rx="3" fill="url(#barSage)"/>
+
+    <!-- Labels jours -->
+    <text x="727" y="395" font-family="'Helvetica Neue',sans-serif" font-size="8" fill="#9CA3AF" text-anchor="middle">L</text>
+    <text x="755" y="395" font-family="'Helvetica Neue',sans-serif" font-size="8" fill="#9CA3AF" text-anchor="middle">M</text>
+    <text x="783" y="395" font-family="'Helvetica Neue',sans-serif" font-size="8" fill="#9CA3AF" text-anchor="middle">M</text>
+    <text x="811" y="395" font-family="'Helvetica Neue',sans-serif" font-size="8" fill="#9CA3AF" text-anchor="middle">J</text>
+    <text x="839" y="395" font-family="'Helvetica Neue',sans-serif" font-size="8" fill="#9CA3AF" text-anchor="middle">V</text>
+    <text x="867" y="395" font-family="'Helvetica Neue',sans-serif" font-size="8" fill="#3D6B4F" font-weight="700" text-anchor="middle">S</text>
+    <text x="895" y="395" font-family="'Helvetica Neue',sans-serif" font-size="8" fill="#9CA3AF" text-anchor="middle">D</text>
+
+    <!-- ── PLANNING DU JOUR ── -->
+    <rect x="952" y="272" width="200" height="228" rx="10" fill="white" filter="url(#softShadow)"/>
+    <text x="968" y="292" font-family="'Helvetica Neue',sans-serif" font-size="10" font-weight="600" fill="#1A2E1F">Cours aujourd'hui</text>
+    <text x="1132" y="292" font-family="'Helvetica Neue',sans-serif" font-size="9" fill="#3D6B4F" font-weight="500">Voir tout</text>
+
+    <!-- Cours 1 -->
+    <rect x="962" y="302" width="180" height="52" rx="8" fill="#EAF2EC"/>
+    <rect x="962" y="302" width="4" height="52" rx="2" fill="#3D6B4F"/>
+    <text x="974" y="319" font-family="'Helvetica Neue',sans-serif" font-size="10" font-weight="600" fill="#1A2E1F">Hatha Yoga</text>
+    <text x="974" y="332" font-family="'Helvetica Neue',sans-serif" font-size="9" fill="#6B7280">09:00 · Salle A · Prof. Léa</text>
+    <rect x="1088" y="309" width="44" height="18" rx="9" fill="#3D6B4F"/>
+    <text x="1110" y="321" font-family="'Helvetica Neue',sans-serif" font-size="8" fill="white" text-anchor="middle" font-weight="600">12/15</text>
+    <text x="974" y="347" font-family="'Helvetica Neue',sans-serif" font-size="8" fill="#9CA3AF">● Presque complet</text>
+
+    <!-- Cours 2 -->
+    <rect x="962" y="362" width="180" height="52" rx="8" fill="#F9F7F4"/>
+    <rect x="962" y="362" width="4" height="52" rx="2" fill="#8DAF96"/>
+    <text x="974" y="379" font-family="'Helvetica Neue',sans-serif" font-size="10" font-weight="600" fill="#1A2E1F">Vinyasa Flow</text>
+    <text x="974" y="392" font-family="'Helvetica Neue',sans-serif" font-size="9" fill="#6B7280">11:30 · Salle B · Prof. Marc</text>
+    <rect x="1088" y="369" width="44" height="18" rx="9" fill="#E8E4DC"/>
+    <text x="1110" y="381" font-family="'Helvetica Neue',sans-serif" font-size="8" fill="#6B7280" text-anchor="middle" font-weight="600">7/12</text>
+    <text x="974" y="407" font-family="'Helvetica Neue',sans-serif" font-size="8" fill="#9CA3AF">● Places disponibles</text>
+
+    <!-- Cours 3 -->
+    <rect x="962" y="422" width="180" height="52" rx="8" fill="#F9F7F4"/>
+    <rect x="962" y="422" width="4" height="52" rx="2" fill="#D4A030"/>
+    <text x="974" y="439" font-family="'Helvetica Neue',sans-serif" font-size="10" font-weight="600" fill="#1A2E1F">Méditation</text>
+    <text x="974" y="452" font-family="'Helvetica Neue',sans-serif" font-size="9" fill="#6B7280">18:00 · Salle A · Prof. Léa</text>
+    <rect x="1088" y="429" width="44" height="18" rx="9" fill="#FEF3C7"/>
+    <text x="1110" y="441" font-family="'Helvetica Neue',sans-serif" font-size="8" fill="#D97706" text-anchor="middle" font-weight="600">15/15</text>
+    <text x="974" y="467" font-family="'Helvetica Neue',sans-serif" font-size="8" fill="#D97706">● Complet</text>
+
+    <!-- ── DERNIÈRES RÉSERVATIONS ── -->
+    <rect x="698" y="414" width="240" height="90" rx="10" fill="white" filter="url(#softShadow)"/>
+    <text x="714" y="433" font-family="'Helvetica Neue',sans-serif" font-size="10" font-weight="600" fill="#1A2E1F">Nouvelles réservations</text>
+
+    <!-- Ligne 1 -->
+    <circle cx="716" cy="454" r="10" fill="#EAF2EC"/>
+    <text x="716" y="458" font-family="'Helvetica Neue',sans-serif" font-size="9" fill="#3D6B4F" text-anchor="middle" font-weight="700">S</text>
+    <text x="732" y="452" font-family="'Helvetica Neue',sans-serif" font-size="10" fill="#1A2E1F" font-weight="500">Sophie M.</text>
+    <text x="732" y="463" font-family="'Helvetica Neue',sans-serif" font-size="9" fill="#9CA3AF">Hatha Yoga · 09:00</text>
+    <text x="918" y="458" font-family="'Helvetica Neue',sans-serif" font-size="9" fill="#3D6B4F" text-anchor="end" font-weight="600">18 €</text>
+
+    <!-- Ligne 2 -->
+    <circle cx="716" cy="479" r="10" fill="#F0E8DA"/>
+    <text x="716" y="483" font-family="'Helvetica Neue',sans-serif" font-size="9" fill="#92612A" text-anchor="middle" font-weight="700">K</text>
+    <text x="732" y="477" font-family="'Helvetica Neue',sans-serif" font-size="10" fill="#1A2E1F" font-weight="500">Karim B.</text>
+    <text x="732" y="488" font-family="'Helvetica Neue',sans-serif" font-size="9" fill="#9CA3AF">Vinyasa Flow · 11:30</text>
+    <text x="918" y="483" font-family="'Helvetica Neue',sans-serif" font-size="9" fill="#3D6B4F" text-anchor="end" font-weight="600">22 €</text>
+
+    <!-- Ligne 3 -->
+    <circle cx="716" cy="495" r="10" fill="#EAF2EC"/>
+    <text x="716" y="499" font-family="'Helvetica Neue',sans-serif" font-size="9" fill="#3D6B4F" text-anchor="middle" font-weight="700">L</text>
+    <text x="732" y="494" font-family="'Helvetica Neue',sans-serif" font-size="10" fill="#1A2E1F" font-weight="500">Luna R.</text>
+    <text x="732" y="500" font-family="'Helvetica Neue',sans-serif" font-size="9" fill="#9CA3AF">Méditation · 18:00</text>
+    <text x="918" y="497" font-family="'Helvetica Neue',sans-serif" font-size="9" fill="#3D6B4F" text-anchor="end" font-weight="600">15 €</text>
+
+    <!-- ── SECTION FEATURES (bas de page) ── -->
+    <rect x="0" y="545" width="1200" height="355" fill="#1A2E1F"/>
+
+    <!-- Texture douce -->
+    <circle cx="1100" cy="650" r="300" fill="white" opacity="0.02"/>
+    <circle cx="100" cy="800" r="200" fill="white" opacity="0.02"/>
+
+    <text x="600" y="598" font-family="'Helvetica Neue',sans-serif" font-size="10" fill="#7A9B84" text-anchor="middle" letter-spacing="4" font-weight="600">FONCTIONNALITÉS</text>
+    <text x="600" y="638" font-family="Georgia,serif" font-size="36" fill="white" text-anchor="middle" letter-spacing="-0.5">Tout ce dont votre studio a besoin</text>
+
+    <!-- Feature cards -->
+    <!-- Card 1 -->
+    <rect x="72" y="666" width="240" height="150" rx="12" fill="rgba(255,255,255,0.06)"/>
+    <rect x="88" y="686" width="36" height="36" rx="8" fill="rgba(106,174,132,0.25)"/>
+    <!-- Icône calendrier -->
+    <rect x="96" y="693" width="20" height="16" rx="2" fill="none" stroke="#6AAE84" stroke-width="1.5"/>
+    <line x1="100" y1="690" x2="100" y2="696" stroke="#6AAE84" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="112" y1="690" x2="112" y2="696" stroke="#6AAE84" stroke-width="1.5" stroke-linecap="round"/>
+    <text x="88" y="744" font-family="'Helvetica Neue',sans-serif" font-size="13" font-weight="700" fill="white">Planning en ligne</text>
+    <text x="88" y="762" font-family="'Helvetica Neue',sans-serif" font-size="11" fill="rgba(255,255,255,0.5)" font-weight="300">Gérez vos cours, profs</text>
+    <text x="88" y="776" font-family="'Helvetica Neue',sans-serif" font-size="11" fill="rgba(255,255,255,0.5)" font-weight="300">et salles facilement.</text>
+    <text x="88" y="804" font-family="'Helvetica Neue',sans-serif" font-size="10" fill="#6AAE84" font-weight="600">En savoir plus →</text>
+
+    <!-- Card 2 -->
+    <rect x="332" y="666" width="240" height="150" rx="12" fill="rgba(255,255,255,0.06)"/>
+    <rect x="348" y="686" width="36" height="36" rx="8" fill="rgba(106,174,132,0.25)"/>
+    <!-- Icône paiement -->
+    <rect x="356" y="694" width="20" height="14" rx="2" fill="none" stroke="#6AAE84" stroke-width="1.5"/>
+    <line x1="356" y1="699" x2="376" y2="699" stroke="#6AAE84" stroke-width="1.5"/>
+    <text x="348" y="744" font-family="'Helvetica Neue',sans-serif" font-size="13" font-weight="700" fill="white">Paiements intégrés</text>
+    <text x="348" y="762" font-family="'Helvetica Neue',sans-serif" font-size="11" fill="rgba(255,255,255,0.5)" font-weight="300">CB, abonnements et</text>
+    <text x="348" y="776" font-family="'Helvetica Neue',sans-serif" font-size="11" fill="rgba(255,255,255,0.5)" font-weight="300">cartes séances inclus.</text>
+    <text x="348" y="804" font-family="'Helvetica Neue',sans-serif" font-size="10" fill="#6AAE84" font-weight="600">En savoir plus →</text>
+
+    <!-- Card 3 -->
+    <rect x="592" y="666" width="240" height="150" rx="12" fill="rgba(255,255,255,0.06)"/>
+    <rect x="608" y="686" width="36" height="36" rx="8" fill="rgba(106,174,132,0.25)"/>
+    <!-- Icône membres -->
+    <circle cx="618" cy="701" r="5" fill="none" stroke="#6AAE84" stroke-width="1.5"/>
+    <circle cx="628" cy="701" r="5" fill="none" stroke="#6AAE84" stroke-width="1.5"/>
+    <path d="M610 712 Q614 708 618 708 Q622 708 626 708 Q630 708 634 712" fill="none" stroke="#6AAE84" stroke-width="1.5" stroke-linecap="round"/>
+    <text x="608" y="744" font-family="'Helvetica Neue',sans-serif" font-size="13" font-weight="700" fill="white">Gestion membres</text>
+    <text x="608" y="762" font-family="'Helvetica Neue',sans-serif" font-size="11" fill="rgba(255,255,255,0.5)" font-weight="300">Fiches, historiques et</text>
+    <text x="608" y="776" font-family="'Helvetica Neue',sans-serif" font-size="11" fill="rgba(255,255,255,0.5)" font-weight="300">relances automatiques.</text>
+    <text x="608" y="804" font-family="'Helvetica Neue',sans-serif" font-size="10" fill="#6AAE84" font-weight="600">En savoir plus →</text>
+
+    <!-- Card 4 -->
+    <rect x="852" y="666" width="240" height="150" rx="12" fill="rgba(106,174,132,0.15)" stroke="#6AAE84" stroke-width="1" stroke-opacity="0.3"/>
+    <rect x="868" y="686" width="36" height="36" rx="8" fill="url(#greenGrad)"/>
+    <!-- Icône stats -->
+    <rect x="875" y="700" width="4" height="10" rx="1" fill="white"/>
+    <rect x="881" y="696" width="4" height="14" rx="1" fill="white"/>
+    <rect x="887" y="703" width="4" height="7" rx="1" fill="white"/>
+    <text x="868" y="744" font-family="'Helvetica Neue',sans-serif" font-size="13" font-weight="700" fill="white">Analytiques</text>
+    <text x="868" y="762" font-family="'Helvetica Neue',sans-serif" font-size="11" fill="rgba(255,255,255,0.5)" font-weight="300">Revenus, taux de remplis-</text>
+    <text x="868" y="776" font-family="'Helvetica Neue',sans-serif" font-size="11" fill="rgba(255,255,255,0.5)" font-weight="300">sage et performances.</text>
+    <text x="868" y="804" font-family="'Helvetica Neue',sans-serif" font-size="10" fill="#6AAE84" font-weight="600">En savoir plus →</text>
+
+    <!-- Bande bas -->
+    <rect x="0" y="856" width="1200" height="44" fill="rgba(0,0,0,0.2)"/>
+    <text x="600" y="883" font-family="'Helvetica Neue',sans-serif" font-size="10" fill="rgba(255,255,255,0.25)" text-anchor="middle" letter-spacing="3" font-weight="300">ZENFLOW · LOGICIEL DE GESTION POUR STUDIOS YOGA &amp; BIEN-ÊTRE · 2026</text>
+
+  </g>
+</svg>

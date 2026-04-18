@@ -1,0 +1,46 @@
+═══════════════════════════════════════════════
+  DIKENGA.FR — GUIDE DE MISE EN LIGNE
+═══════════════════════════════════════════════
+
+▶ OPTION 1 — HÉBERGEMENT CLASSIQUE (OVH, Ionos, o2switch...)
+─────────────────────────────────────────────
+1. Connecte-toi à ton hébergeur (FTP ou panel)
+2. Ouvre FileZilla (ou l'explorateur de fichiers du panel)
+3. Va dans le dossier public_html/ (ou www/)
+4. Dépose TOUS les fichiers de ce ZIP directement dedans
+5. Ton site est en ligne sur ton domaine !
+
+▶ OPTION 2 — NETLIFY (gratuit, recommandé)
+─────────────────────────────────────────────
+1. Va sur https://netlify.com → créé un compte gratuit
+2. Clique "Add new site" → "Deploy manually"
+3. Glisse-dépose le dossier entier sur la page
+4. Ton site est en ligne en 30 secondes !
+5. Pour ton domaine perso : Site settings → Domain management
+   → Add custom domain → entre "dikengadesign.fr"
+   → Chez ton registrar DNS, ajoute :
+     Type A  → 75.2.60.5
+     Type CNAME www → ton-site.netlify.app
+
+▶ OPTION 3 — GITHUB PAGES (gratuit)
+─────────────────────────────────────────────
+1. Crée un repo GitHub nommé "dikengadesign.fr"
+2. Upload tous les fichiers
+3. Settings → Pages → Branch: main → Save
+4. Pour ton domaine : ajoute un fichier CNAME avec "dikengadesign.fr"
+
+▶ BACK OFFICE
+─────────────────────────────────────────────
+Accessible via : https://tondomaine.fr/admin.html
+Protégé par mot de passe (configuré dans admin.html)
+
+▶ FICHIERS IMPORTANTS
+─────────────────────────────────────────────
+index.html        → Page principale
+admin.html        → Back office
+projets.html      → Page projets
+tarifs.html       → Page tarifs
+sitemap.xml       → SEO (à soumettre sur Google Search Console)
+.htaccess         → Config serveur Apache (URLs propres + cache)
+
+═══════════════════════════════════════════════

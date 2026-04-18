@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900">
+  <defs>
+    <linearGradient id="sportHero" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0A0A0A"/>
+      <stop offset="100%" stop-color="#141414"/>
+    </linearGradient>
+    <linearGradient id="redAccent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#C0161E"/>
+      <stop offset="100%" stop-color="#FF2D36"/>
+    </linearGradient>
+    <linearGradient id="statGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1A1A1A"/>
+      <stop offset="100%" stop-color="#111111"/>
+    </linearGradient>
+    <clipPath id="sportClip">
+      <rect width="1200" height="900" rx="12"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#sportClip)">
+    <!-- Background -->
+    <rect width="1200" height="900" fill="#0A0A0A"/>
+
+    <!-- NAV -->
+    <rect width="1200" height="64" fill="#0A0A0A"/>
+    <rect x="0" y="63" width="1200" height="1" fill="rgba(255,255,255,0.08)"/>
+    <!-- Logo -->
+    <rect x="54" y="20" width="6" height="30" fill="#C0161E"/>
+    <text x="70" y="36" font-family="'Helvetica Neue',sans-serif" font-size="18" font-weight="900" fill="white" letter-spacing="3">APEX</text>
+    <text x="70" y="52" font-family="'Helvetica Neue',sans-serif" font-size="7" fill="#C0161E" letter-spacing="6">FITNESS</text>
+    <!-- Nav links -->
+    <text x="440" y="38" font-family="'Helvetica Neue',sans-serif" font-size="11" fill="rgba(255,255,255,0.6)" letter-spacing="2" font-weight="500">PROGRAMMES</text>
+    <text x="580" y="38" font-family="'Helvetica Neue',sans-serif" font-size="11" fill="rgba(255,255,255,0.6)" letter-spacing="2" font-weight="500">COACHING</text>
+    <text x="690" y="38" font-family="'Helvetica Neue',sans-serif" font-size="11" fill="rgba(255,255,255,0.6)" letter-spacing="2" font-weight="500">NUTRITION</text>
+    <text x="800" y="38" font-family="'Helvetica Neue',sans-serif" font-size="11" fill="rgba(255,255,255,0.6)" letter-spacing="2" font-weight="500">TARIFS</text>
+    <text x="898" y="38" font-family="'Helvetica Neue',sans-serif" font-size="11" fill="rgba(255,255,255,0.6)" letter-spacing="2" font-weight="500">CONTACT</text>
+    <rect x="1020" y="18" width="136" height="38" rx="2" fill="url(#redAccent)"/>
+    <text x="1088" y="43" font-family="'Helvetica Neue',sans-serif" font-size="11" fill="white" text-anchor="middle" letter-spacing="2" font-weight="700">COMMENCER</text>
+
+    <!-- HERO -->
+    <rect x="0" y="64" width="1200" height="480" fill="url(#sportHero)"/>
+
+    <!-- Red diagonal slash decoration -->
+    <polygon points="900,64 1200,64 1200,400 1050,400" fill="#C0161E" opacity="0.06"/>
+    <polygon points="950,64 1200,64 1200,200" fill="#C0161E" opacity="0.04"/>
+
+    <!-- Grid lines subtle -->
+    <line x1="0" y1="160" x2="1200" y2="160" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    <line x1="0" y1="260" x2="1200" y2="260" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    <line x1="0" y1="360" x2="1200" y2="360" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    <line x1="300" y1="64" x2="300" y2="544" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    <line x1="600" y1="64" x2="600" y2="544" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    <line x1="900" y1="64" x2="900" y2="544" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+
+    <!-- Athlete silhouette (running figure) -->
+    <!-- Head -->
+    <circle cx="900" cy="175" r="26" fill="rgba(255,255,255,0.07)"/>
+    <!-- Body leaning forward (sprint pose) -->
+    <path d="M900 201 Q880 240 860 280 Q900 265 940 285 Q925 245 900 201" fill="rgba(255,255,255,0.07)"/>
+    <!-- Front arm back -->
+    <path d="M880 225 Q850 245 830 265" stroke="rgba(255,255,255,0.07)" stroke-width="16" stroke-linecap="round" fill="none"/>
+    <!-- Back arm forward -->
+    <path d="M920 225 Q955 210 980 200" stroke="rgba(255,255,255,0.07)" stroke-width="16" stroke-linecap="round" fill="none"/>
+    <!-- Front leg -->
+    <path d="M860 280 Q840 320 820 370 Q845 375 860 375 Q870 330 885 290" stroke="rgba(255,255,255,0.07)" stroke-width="18" stroke-linecap="round" fill="none"/>
+    <!-- Back leg extended -->
+    <path d="M940 285 Q970 310 1010 280 Q990 260 975 260 Q960 290 940 285" fill="rgba(255,255,255,0.07)"/>
+
+    <!-- Hero text -->
+    <text x="120" y="168" font-family="'Helvetica Neue',sans-serif" font-size="11" fill="#C0161E" letter-spacing="5" font-weight="700">DÉPASSE TES LIMITES</text>
+    <!-- Big number accent -->
+    <text x="108" y="310" font-family="'Helvetica Neue',sans-serif" font-size="160" font-weight="900" fill="rgba(255,255,255,0.04)" letter-spacing="-8">NO</text>
+    <!-- Main title -->
+    <text x="118" y="270" font-family="'Helvetica Neue',sans-serif" font-size="72" font-weight="900" fill="white" letter-spacing="-2">PLUS FORT.</text>
+    <text x="118" y="350" font-family="'Helvetica Neue',sans-serif" font-size="72" font-weight="900" fill="white" letter-spacing="-2">PLUS <tspan fill="#C0161E">VITE.</tspan></text>
+    <text x="118" y="406" font-family="'Helvetica Neue',sans-serif" font-size="14" fill="rgba(255,255,255,0.45)" font-weight="300" letter-spacing="1">Programmes personnalisés · Coaching expert · Résultats garantis</text>
+
+    <!-- CTA -->
+    <rect x="118" y="434" width="220" height="52" rx="2" fill="url(#redAccent)"/>
+    <text x="228" y="466" font-family="'Helvetica Neue',sans-serif" font-size="13" fill="white" text-anchor="middle" letter-spacing="2" font-weight="700">ESSAI GRATUIT</text>
+    <rect x="356" y="434" width="180" height="52" rx="2" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+    <text x="446" y="466" font-family="'Helvetica Neue',sans-serif" font-size="13" fill="rgba(255,255,255,0.5)" text-anchor="middle" letter-spacing="2" font-weight="500">NOS PLANS</text>
+
+    <!-- STATS BAND -->
+    <rect x="0" y="544" width="1200" height="100" fill="#111111"/>
+    <rect x="0" y="544" width="1200" height="2" fill="#C0161E"/>
+    <!-- Stats -->
+    <text x="175" y="595" font-family="'Helvetica Neue',sans-serif" font-size="42" font-weight="900" fill="white" text-anchor="middle">2 400</text>
+    <text x="175" y="622" font-family="'Helvetica Neue',sans-serif" font-size="10" fill="rgba(255,255,255,0.35)" text-anchor="middle" letter-spacing="3" font-weight="300">MEMBRES ACTIFS</text>
+    <rect x="349" y="564" width="1" height="50" fill="rgba(255,255,255,0.08)"/>
+    <text x="524" y="595" font-family="'Helvetica Neue',sans-serif" font-size="42" font-weight="900" fill="white" text-anchor="middle">38</text>
+    <text x="524" y="622" font-family="'Helvetica Neue',sans-serif" font-size="10" fill="rgba(255,255,255,0.35)" text-anchor="middle" letter-spacing="3" font-weight="300">COACHS CERTIFIÉS</text>
+    <rect x="698" y="564" width="1" height="50" fill="rgba(255,255,255,0.08)"/>
+    <text x="873" y="595" font-family="'Helvetica Neue',sans-serif" font-size="42" font-weight="900" fill="#C0161E" text-anchor="middle">97%</text>
+    <text x="873" y="622" font-family="'Helvetica Neue',sans-serif" font-size="10" fill="rgba(255,255,255,0.35)" text-anchor="middle" letter-spacing="3" font-weight="300">TAUX DE SATISFACTION</text>
+    <rect x="1047" y="564" width="1" height="50" fill="rgba(255,255,255,0.08)"/>
+    <text x="1135" y="595" font-family="'Helvetica Neue',sans-serif" font-size="42" font-weight="900" fill="white" text-anchor="middle">7j/7</text>
+    <text x="1135" y="622" font-family="'Helvetica Neue',sans-serif" font-size="10" fill="rgba(255,255,255,0.35)" text-anchor="middle" letter-spacing="3" font-weight="300">OUVERT</text>
+
+    <!-- PROGRAMS -->
+    <rect x="0" y="644" width="1200" height="256" fill="#0A0A0A"/>
+    <text x="120" y="694" font-family="'Helvetica Neue',sans-serif" font-size="11" fill="#C0161E" letter-spacing="4" font-weight="700">PROGRAMMES</text>
+    <text x="120" y="730" font-family="'Helvetica Neue',sans-serif" font-size="36" font-weight="900" fill="white" letter-spacing="-1">Choisissez votre programme</text>
+
+    <!-- Program pills -->
+    <rect x="120" y="752" width="140" height="40" rx="2" fill="#C0161E"/>
+    <text x="190" y="778" font-family="'Helvetica Neue',sans-serif" font-size="11" fill="white" text-anchor="middle" letter-spacing="1" font-weight="700">PRISE DE MASSE</text>
+    <rect x="272" y="752" width="130" height="40" rx="2" fill="#1A1A1A"/>
+    <text x="337" y="778" font-family="'Helvetica Neue',sans-serif" font-size="11" fill="rgba(255,255,255,0.55)" text-anchor="middle" letter-spacing="1">PERTE DE POIDS</text>
+    <rect x="414" y="752" width="130" height="40" rx="2" fill="#1A1A1A"/>
+    <text x="479" y="778" font-family="'Helvetica Neue',sans-serif" font-size="11" fill="rgba(255,255,255,0.55)" text-anchor="middle" letter-spacing="1">ENDURANCE</text>
+    <rect x="556" y="752" width="120" height="40" rx="2" fill="#1A1A1A"/>
+    <text x="616" y="778" font-family="'Helvetica Neue',sans-serif" font-size="11" fill="rgba(255,255,255,0.55)" text-anchor="middle" letter-spacing="1">TONIFICATION</text>
+    <rect x="688" y="752" width="140" height="40" rx="2" fill="#1A1A1A"/>
+    <text x="758" y="778" font-family="'Helvetica Neue',sans-serif" font-size="11" fill="rgba(255,255,255,0.55)" text-anchor="middle" letter-spacing="1">ARTS MARTIAUX</text>
+
+    <!-- Program card preview -->
+    <rect x="120" y="808" width="960" height="72" rx="4" fill="#111111"/>
+    <rect x="120" y="808" width="4" height="72" fill="#C0161E"/>
+    <text x="148" y="842" font-family="'Helvetica Neue',sans-serif" font-size="16" font-weight="700" fill="white">Programme Prise de Masse — 12 semaines</text>
+    <text x="148" y="864" font-family="'Helvetica Neue',sans-serif" font-size="12" fill="rgba(255,255,255,0.4)" font-weight="300">4 séances/semaine · Plan nutrition inclus · Suivi coach personnalisé</text>
+    <rect x="984" y="824" width="88" height="36" rx="2" fill="#C0161E"/>
+    <text x="1028" y="848" font-family="'Helvetica Neue',sans-serif" font-size="11" fill="white" text-anchor="middle" letter-spacing="1" font-weight="700">DÉMARRER</text>
+  </g>
+</svg>

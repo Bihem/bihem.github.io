@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dikenga — Back Office</title>
+<style>
+:root{
+  --bg:#0D0D0D;--bg2:#161616;--bg3:#1F1F1F;--bg4:#262626;
+  --white:#FFFFFF;--dim:rgba(255,255,255,0.45);--dimmer:rgba(255,255,255,0.2);
+  --line:rgba(255,255,255,0.07);--line2:rgba(255,255,255,0.12);
+  --accent:#7C6EFF;--accent2:rgba(124,110,255,0.12);
+  --green:#22C55E;--red:#EF4444;
+  --F:'Inter',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow:hidden}
+body{background:var(--bg);color:var(--white);font-family:var(--F);font-size:14px;line-height:1.5}
+::-webkit-scrollbar{width:4px;height:4px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--line2);border-radius:2px}
+
+/* LOGIN */
+#login{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:var(--bg);z-index:999}
+.lw{width:380px;padding:0 24px}
+.lw-brand{font-size:20px;font-weight:700;letter-spacing:-.04em;margin-bottom:48px;display:flex;align-items:center;gap:8px}
+.lw-dot{width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.lw h1{font-size:26px;font-weight:700;letter-spacing:-.04em;margin-bottom:6px}
+.lw p{color:var(--dim);font-size:13px;margin-bottom:32px}
+.lbl{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--dim);margin-bottom:7px}
+.inp{width:100%;padding:12px 16px;background:var(--bg3);border:1px solid var(--line2);border-radius:10px;color:var(--white);font-size:14px;font-family:var(--F);outline:none;transition:border-color .2s}
+.inp:focus{border-color:var(--accent)}
+.lw-btn{width:100%;padding:13px;background:var(--white);color:#000;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;transition:opacity .2s;margin-top:20px}
+.lw-btn:hover{opacity:.85}
+.lw-err{color:var(--red);font-size:12px;margin-top:10px;display:none}
+
+/* LAYOUT */
+#app{display:none;height:100vh;overflow:hidden}
+
+/* SIDEBAR */
+.sb{position:fixed;left:0;top:0;bottom:0;width:220px;background:var(--bg2);border-right:1px solid var(--line);display:flex;flex-direction:column;z-index:100}
+.sb-hd{padding:20px 18px;border-bottom:1px solid var(--line)}
+.sb-logo{font-size:16px;font-weight:700;letter-spacing:-.04em}
+.sb-tag{display:inline-block;margin-top:4px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:2px 8px;background:var(--accent2);color:var(--accent);border-radius:4px}
+.sb-nav{flex:1;overflow-y:auto;padding:8px 0}
+.sb-grp{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--dimmer);padding:14px 18px 4px}
+.sb-item{display:flex;align-items:center;gap:9px;padding:8px 18px;cursor:pointer;color:var(--dim);font-size:13px;transition:all .15s;position:relative;user-select:none}
+.sb-item:hover{color:var(--white);background:var(--bg3)}
+.sb-item.active{color:var(--white);background:var(--bg4)}
+.sb-item.active::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--accent);border-radius:0 2px 2px 0}
+.sb-ic{font-size:13px;width:18px;text-align:center;flex-shrink:0;opacity:.6}
+.sb-item.active .sb-ic{opacity:1}
+.sb-ft{padding:14px;border-top:1px solid var(--line);display:flex;gap:8px}
+.sb-btn{flex:1;padding:9px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;text-decoration:none}
+.sb-out{background:transparent;color:var(--dim);border:1px solid var(--line2)}
+.sb-out:hover{color:var(--white);background:var(--bg3)}
+.sb-prim{background:var(--accent);color:#fff;border:none}
+.sb-prim:hover{opacity:.85}
+
+/* MAIN */
+.main{margin-left:220px;height:100vh;overflow-y:auto}
+
+/* TOPBAR */
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:22px 32px;border-bottom:1px solid var(--line)}
+.tb-l{display:flex;align-items:baseline;gap:12px}
+.pg-title{font-size:20px;font-weight:700;letter-spacing:-.03em}
+.pg-sub{font-size:12px;color:var(--dim)}
+
+/* BUTTONS */
+.btn{padding:9px 18px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:6px;border:none}
+.btn-p{background:var(--accent);color:#fff}
+.btn-p:hover{opacity:.85}
+.btn-g{background:transparent;color:var(--dim);border:1px solid var(--line2)}
+.btn-g:hover{color:var(--white);background:var(--bg3)}
+.btn-d{background:transparent;color:var(--red);border:1px solid rgba(239,68,68,.3)}
+.btn-d:hover{background:rgba(239,68,68,.08)}
+
+/* CONTENT */
+.cnt{padding:26px 32px 60px}
+
+/* SECTIONS */
+.sec{display:none}
+.sec.active{display:block}
+
+/* CARDS */
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin-bottom:14px}
+.card-hd{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--dimmer);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.card-hd::after{content:'';flex:1;height:1px;background:var(--line)}
+
+/* GRIDS */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.full{grid-column:1/-1}
+
+/* FIELDS */
+.f{display:flex;flex-direction:column;gap:5px}
+.f label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--dim)}
+.f input,.f textarea,.f select{padding:9px 13px;background:var(--bg3);border:1px solid var(--line2);border-radius:8px;color:var(--white);font-size:13px;font-family:var(--F);outline:none;transition:border-color .2s;resize:vertical}
+.f input:focus,.f textarea:focus,.f select:focus{border-color:var(--accent)}
+.f textarea{min-height:78px;line-height:1.6}
+.f input[type=color]{padding:4px 8px;height:38px;cursor:pointer}
+.f select option{background:var(--bg3)}
+
+/* TABS */
+.tabs{display:flex;gap:3px;background:var(--bg3);padding:3px;border-radius:9px;width:max-content;margin-bottom:16px;flex-wrap:wrap}
+.tb{padding:6px 14px;border-radius:7px;font-size:12px;font-weight:500;cursor:pointer;color:var(--dim);background:transparent;border:none;transition:all .15s}
+.tb:hover{color:var(--white)}
+.tb.on{background:var(--bg2);color:var(--white);box-shadow:0 1px 4px rgba(0,0,0,.3)}
+.tp{display:none}
+.tp.on{display:block}
+
+/* IMG PREVIEW */
+.ipr{width:100%;height:130px;background:var(--bg3);border:1px dashed var(--line2);border-radius:8px;object-fit:cover;display:none;margin-top:10px}
+
+/* DIVIDER */
+.dvd{height:1px;background:var(--line);margin:16px 0}
+
+/* DASHBOARD */
+.ds{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:22px}
+.dc{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.dn{font-size:26px;font-weight:700;letter-spacing:-.04em}
+.dl{font-size:11px;color:var(--dim);margin-top:3px}
+.qa{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.qi{padding:16px;background:var(--bg3);border:1px solid var(--line);border-radius:10px;cursor:pointer;transition:all .2s}
+.qi:hover{border-color:var(--accent);background:var(--accent2)}
+.qi-ic{font-size:20px;margin-bottom:7px}
+.qi-nm{font-size:13px;font-weight:600}
+.qi-ds{font-size:11px;color:var(--dim);margin-top:2px}
+
+/* TOAST */
+#toast{position:fixed;bottom:24px;right:24px;padding:12px 20px;background:var(--green);color:#fff;border-radius:10px;font-size:13px;font-weight:600;opacity:0;transform:translateY(6px);transition:all .3s;pointer-events:none;z-index:9999}
+#toast.on{opacity:1;transform:none}
+
+/* BADGE */
+.badge{padding:2px 8px;border-radius:4px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;background:rgba(34,197,94,.1);color:var(--green)}
+
+/* KBD */
+kbd{background:var(--bg3);padding:3px 8px;border-radius:5px;font-size:12px;border:1px solid var(--line2);font-family:var(--F)}
+
+.danger-card{border-color:rgba(239,68,68,.2)}
+.sep{height:1px;background:var(--line);margin:16px 0}
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login">
+  <div class="lw">
+    <div class="lw-brand"><div class="lw-dot"></div>Dikenga</div>
+    <h1>Back Office</h1>
+    <p>Entrez votre mot de passe pour accéder au panneau d'administration.</p>
+    <label class="lbl">Mot de passe</label>
+    <input type="password" class="inp" id="pw" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()">
+    <button class="lw-btn" onclick="doLogin()">Accéder →</button>
+    <div class="lw-err" id="pw-err">Mot de passe incorrect. Réessayez.</div>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app">
+
+  <!-- SIDEBAR -->
+  <div class="sb">
+    <div class="sb-hd">
+      <div class="sb-logo">Dikenga.</div>
+      <div class="sb-tag">Back Office</div>
+    </div>
+    <nav class="sb-nav">
+      <div class="sb-grp">Tableau de bord</div>
+      <div class="sb-item active" data-s="dashboard"><span class="sb-ic">◈</span>Vue d'ensemble</div>
+      <div class="sb-grp">Contenu</div>
+      <div class="sb-item" data-s="hero"><span class="sb-ic">✦</span>Hero</div>
+      <div class="sb-item" data-s="about"><span class="sb-ic">◎</span>À propos</div>
+      <div class="sb-item" data-s="services"><span class="sb-ic">◐</span>Services</div>
+      <div class="sb-item" data-s="projects"><span class="sb-ic">◩</span>Projets vedette</div>
+      <div class="sb-item" data-s="tarifs"><span class="sb-ic">◆</span>Tarifs</div>
+      <div class="sb-item" data-s="process"><span class="sb-ic">◷</span>Processus</div>
+      <div class="sb-item" data-s="testi"><span class="sb-ic">◉</span>Témoignages</div>
+      <div class="sb-item" data-s="stats"><span class="sb-ic">◳</span>Statistiques</div>
+      <div class="sb-grp">Pages</div>
+      <div class="sb-item" data-s="contact"><span class="sb-ic">✉</span>Contact</div>
+      <div class="sb-item" data-s="projpage"><span class="sb-ic">◩</span>Page Projets</div>
+      <div class="sb-grp">Admin</div>
+      <div class="sb-item" data-s="settings"><span class="sb-ic">⚙</span>Paramètres</div>
+    </nav>
+    <div class="sb-ft">
+      <a href="index-v2.html" target="_blank" class="sb-btn sb-out">↗ Site</a>
+      <button class="sb-btn sb-prim" onclick="saveAll()">💾 Sauver</button>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- DASHBOARD -->
+    <div class="sec active" id="sec-dashboard">
+      <div class="topbar"><div class="tb-l"><div class="pg-title">Vue d'ensemble</div><span class="badge">En ligne</span></div><button class="btn btn-p" onclick="saveAll()">💾 Enregistrer tout</button></div>
+      <div class="cnt">
+        <div class="ds">
+          <div class="dc"><div class="dn">5</div><div class="dl">Services</div></div>
+          <div class="dc"><div class="dn">6</div><div class="dl">Projets vedette</div></div>
+          <div class="dc"><div class="dn">6</div><div class="dl">Plans tarifaires</div></div>
+          <div class="dc"><div class="dn">3</div><div class="dl">Témoignages</div></div>
+        </div>
+        <div class="card">
+          <div class="card-hd">Accès rapide</div>
+          <div class="qa">
+            <div class="qi" onclick="goSec('hero')"><div class="qi-ic">✦</div><div class="qi-nm">Hero</div><div class="qi-ds">Titre, sous-titre</div></div>
+            <div class="qi" onclick="goSec('about')"><div class="qi-ic">◎</div><div class="qi-nm">À propos</div><div class="qi-ds">Bio, compétences</div></div>
+            <div class="qi" onclick="goSec('services')"><div class="qi-ic">◐</div><div class="qi-nm">Services</div><div class="qi-ds">Noms, descriptions</div></div>
+            <div class="qi" onclick="goSec('projects')"><div class="qi-ic">◩</div><div class="qi-nm">Projets</div><div class="qi-ds">Images, titres</div></div>
+            <div class="qi" onclick="goSec('tarifs')"><div class="qi-ic">◆</div><div class="qi-nm">Tarifs</div><div class="qi-ds">Prix, plans</div></div>
+            <div class="qi" onclick="goSec('contact')"><div class="qi-ic">✉</div><div class="qi-nm">Contact</div><div class="qi-ds">Email, réseaux</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-hd">Raccourcis</div>
+          <div style="display:flex;gap:20px;flex-wrap:wrap">
+            <div><kbd>⌘S</kbd><span style="color:var(--dim);font-size:12px;margin-left:8px">Enregistrer</span></div>
+            <div><kbd>⌘↵</kbd><span style="color:var(--dim);font-size:12px;margin-left:8px">Voir le site</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HERO -->
+    <div class="sec" id="sec-hero">
+      <div class="topbar"><div class="tb-l"><div class="pg-title">Hero</div><div class="pg-sub">Première section du site</div></div><button class="btn btn-p" onclick="saveAll()">💾 Enregistrer</button></div>
+      <div class="cnt">
+        <div class="card">
+          <div class="card-hd">Titre principal (4 lignes animées)</div>
+          <div class="g2">
+            <div class="f"><label>Ligne 1</label><input id="h_line1" placeholder="Design qui"></div>
+            <div class="f"><label>Ligne 2</label><input id="h_line2" placeholder="impacte."></div>
+            <div class="f"><label>Ligne 3</label><input id="h_line3" placeholder="Identités qui"></div>
+            <div class="f"><label>Ligne 4 (animée)</label><input id="h_line4" placeholder="restent."></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-hd">Sous-titre</div>
+          <div class="f"><label>Texte descriptif</label><textarea id="h_sub"></textarea></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="sec" id="sec-about">
+      <div class="topbar"><div class="tb-l"><div class="pg-title">À propos</div><div class="pg-sub">Section biographie</div></div><button class="btn btn-p" onclick="saveAll()">💾 Enregistrer</button></div>
+      <div class="cnt">
+        <div class="card">
+          <div class="card-hd">En-tête</div>
+          <div class="g2">
+            <div class="f"><label>Salutation</label><input id="a_greeting" placeholder="Salut,"></div>
+            <div class="f"><label>Bouton CTA</label><input id="a_cta" placeholder="Travailler ensemble →"></div>
+            <div class="f"><label>Titre ligne 1</label><input id="a_h1"></div>
+            <div class="f"><label>Titre ligne 2</label><input id="a_h2"></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-hd">Biographie</div>
+          <div class="f" style="margin-bottom:12px"><label>Paragraphe 1</label><textarea id="a_p1"></textarea></div>
+          <div class="f" style="margin-bottom:12px"><label>Paragraphe 2 (HTML accepté)</label><textarea id="a_p2"></textarea></div>
+          <div class="f"><label>Paragraphe 3 (HTML accepté)</label><textarea id="a_p3"></textarea></div>
+        </div>
+        <div class="card">
+          <div class="card-hd">Photo de profil</div>
+          <div class="f"><label>Fichier image</label><input id="a_photo" placeholder="DIKENGA-4.jpg" oninput="pi(this,'a-prev')"></div>
+          <img id="a-prev" class="ipr">
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVICES -->
+    <div class="sec" id="sec-services">
+      <div class="topbar"><div class="tb-l"><div class="pg-title">Services</div><div class="pg-sub">5 services</div></div><button class="btn btn-p" onclick="saveAll()">💾 Enregistrer</button></div>
+      <div class="cnt">
+        <div class="card">
+          <div class="card-hd">Titre de section</div>
+          <div class="g2">
+            <div class="f"><label>Titre (HTML: &lt;br&gt; accepté)</label><input id="s_title"></div>
+            <div class="f"><label>Sous-titre</label><input id="s_sub"></div>
+          </div>
+        </div>
+        <div id="svc-wrap"></div>
+      </div>
+    </div>
+
+    <!-- PROJECTS -->
+    <div class="sec" id="sec-projects">
+      <div class="topbar"><div class="tb-l"><div class="pg-title">Projets vedette</div><div class="pg-sub">Carrousel défilant — 6 cartes</div></div><button class="btn btn-p" onclick="saveAll()">💾 Enregistrer</button></div>
+      <div class="cnt">
+        <div class="card" style="border-color:var(--accent2)">
+          <div class="card-hd">Info</div>
+          <p style="font-size:12px;color:var(--dim)">Nom de fichier (ex: <code style="background:var(--bg3);padding:2px 6px;border-radius:4px;font-size:11px">mockup-mamagaya.png</code>) ou URL complète.</p>
+        </div>
+        <div id="proj-wrap"></div>
+      </div>
+    </div>
+
+    <!-- TARIFS -->
+    <div class="sec" id="sec-tarifs">
+      <div class="topbar"><div class="tb-l"><div class="pg-title">Tarifs</div><div class="pg-sub">6 plans tarifaires</div></div><button class="btn btn-p" onclick="saveAll()">💾 Enregistrer</button></div>
+      <div class="cnt"><div id="tarif-wrap"></div></div>
+    </div>
+
+    <!-- PROCESS -->
+    <div class="sec" id="sec-process">
+      <div class="topbar"><div class="tb-l"><div class="pg-title">Processus</div><div class="pg-sub">4 étapes de travail</div></div><button class="btn btn-p" onclick="saveAll()">💾 Enregistrer</button></div>
+      <div class="cnt" id="proc-wrap"></div>
+    </div>
+
+    <!-- TESTI -->
+    <div class="sec" id="sec-testi">
+      <div class="topbar"><div class="tb-l"><div class="pg-title">Témoignages</div><div class="pg-sub">3 avis clients</div></div><button class="btn btn-p" onclick="saveAll()">💾 Enregistrer</button></div>
+      <div class="cnt" id="testi-wrap"></div>
+    </div>
+
+    <!-- STATS -->
+    <div class="sec" id="sec-stats">
+      <div class="topbar"><div class="tb-l"><div class="pg-title">Statistiques</div><div class="pg-sub">3 chiffres clés</div></div><button class="btn btn-p" onclick="saveAll()">💾 Enregistrer</button></div>
+      <div class="cnt"><div class="g3" id="stats-wrap"></div></div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="sec" id="sec-contact">
+      <div class="topbar"><div class="tb-l"><div class="pg-title">Contact</div><div class="pg-sub">Infos & réseaux sociaux</div></div><button class="btn btn-p" onclick="saveAll()">💾 Enregistrer</button></div>
+      <div class="cnt">
+        <div class="card">
+          <div class="card-hd">Coordonnées</div>
+          <div class="g2">
+            <div class="f"><label>Email</label><input id="c_email" type="email" placeholder="hello@dikenga.com"></div>
+            <div class="f"><label>Téléphone</label><input id="c_phone"></div>
+            <div class="f"><label>Localisation</label><input id="c_location" placeholder="Paris, France"></div>
+            <div class="f"><label>Disponibilité</label><input id="c_dispo" placeholder="Disponible maintenant"></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-hd">Réseaux sociaux</div>
+          <div class="g2">
+            <div class="f"><label>Instagram (URL)</label><input id="c_ig"></div>
+            <div class="f"><label>Twitter / X</label><input id="c_twitter"></div>
+            <div class="f"><label>LinkedIn</label><input id="c_linkedin"></div>
+            <div class="f"><label>Behance</label><input id="c_behance"></div>
+            <div class="f"><label>Dribbble</label><input id="c_dribbble"></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-hd">Texte page contact</div>
+          <div class="g2">
+            <div class="f"><label>Titre</label><input id="c_title"></div>
+            <div class="f full"><label>Sous-titre</label><textarea id="c_sub"></textarea></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE PROJETS -->
+    <div class="sec" id="sec-projpage">
+      <div class="topbar"><div class="tb-l"><div class="pg-title">Page Projets</div><div class="pg-sub">projets.html — 6 projets</div></div><button class="btn btn-p" onclick="saveAll()">💾 Enregistrer</button></div>
+      <div class="cnt"><div id="projpage-wrap"></div></div>
+    </div>
+
+    <!-- SETTINGS -->
+    <div class="sec" id="sec-settings">
+      <div class="topbar"><div class="tb-l"><div class="pg-title">Paramètres</div><div class="pg-sub">Sécurité & gestion</div></div></div>
+      <div class="cnt">
+        <div class="card">
+          <div class="card-hd">Mot de passe admin</div>
+          <div class="g2">
+            <div class="f"><label>Nouveau mot de passe</label><input type="password" id="new_pw1" placeholder="••••••••"></div>
+            <div class="f"><label>Confirmer</label><input type="password" id="new_pw2" placeholder="••••••••"></div>
+          </div>
+          <button class="btn btn-p" style="margin-top:14px" onclick="changePw()">Mettre à jour</button>
+          <div id="pw-msg" style="font-size:12px;margin-top:8px"></div>
+        </div>
+        <div class="card">
+          <div class="card-hd">Thème par défaut</div>
+          <div class="f" style="max-width:220px"><label>Thème à l'ouverture du site</label>
+            <select id="default_theme"><option value="dark">Sombre (Dark)</option><option value="light">Clair (Light)</option></select>
+          </div>
+          <button class="btn btn-p" style="margin-top:14px" onclick="saveTheme()">Appliquer</button>
+        </div>
+        <div class="card">
+          <div class="card-hd">Sauvegarde</div>
+          <p style="font-size:13px;color:var(--dim);margin-bottom:16px">Exporte tes modifications au format JSON pour les sauvegarder ou les transférer.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <button class="btn btn-g" onclick="exportJSON()">📥 Exporter JSON</button>
+            <label class="btn btn-g" style="cursor:pointer">📤 Importer JSON<input type="file" accept=".json" style="display:none" onchange="importJSON(this)"></label>
+          </div>
+        </div>
+        <div class="card danger-card">
+          <div class="card-hd" style="color:var(--red)">Zone de danger</div>
+          <p style="font-size:13px;color:var(--dim);margin-bottom:16px">Réinitialise tout le contenu. Les pages reprendront leur contenu d'origine.</p>
+          <button class="btn btn-d" onclick="resetAll()">⚠ Réinitialiser tout le contenu</button>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /.main -->
+</div><!-- /#app -->
+
+<div id="toast"></div>
+
+<script>
+// ═══ DEFAULTS ═══
+const D={
+  h_line1:'Design qui',h_line2:'impacte.',h_line3:'Identités qui',h_line4:'restent.',
+  h_sub:'UI/UX Designer · Branding · No-Code & IA — Freelance. Je conçois des interfaces modernes et des automatisations intelligentes pour accélérer votre croissance.',
+  a_greeting:'Salut,',a_cta:'Travailler ensemble →',a_h1:"MOI C'EST",a_h2:'DIKENGA.',a_photo:'DIKENGA-4.jpg',
+  a_p1:"Passionné de design depuis 2020, j'ai suivi un bac professionnel en design graphique avec Studi, ce qui m'a permis de concevoir et développer ma propre marque de vêtements streetwear, Talseume — de A à Z.",
+  a_p2:"En 2022, j'ai poursuivi avec un <strong>Bachelor Designer d'Interface UI/UX</strong>. C'est à ce moment que j'ai découvert l'intelligence artificielle, que j'intègre aujourd'hui au cœur de mes projets.",
+  a_p3:"J'allie <strong>design UI/UX</strong> et <strong>intelligence artificielle</strong> pour concevoir des expériences performantes, créer des agents IA et mettre en place des automatisations qui font gagner du temps et accélèrent la croissance.",
+  s_title:'Mes<br>Services',s_sub:"De la réflexion stratégique à la livraison finale, j'interviens sur l'ensemble du projet créatif.",
+  svc1_name:"Design d'Interface",svc1_desc:'Interfaces modernes et intuitives pour vos applications web et mobiles. Du wireframe au prototype haute fidélité.',svc1_tag1:'Figma',svc1_tag2:'Prototype',svc1_tag3:'Design System',
+  svc2_name:'Identité Visuelle',svc2_desc:'Création de logotypes, chartes graphiques et identités de marque complètes. Des marques cohérentes et mémorables.',svc2_tag1:'Logo',svc2_tag2:'Charte',svc2_tag3:'Brand Guidelines',
+  svc3_name:'IA & No-Code',svc3_desc:"Intégration de l'IA et des outils no-code pour transformer rapidement des idées en produits digitaux scalables.",svc3_tag1:'n8n',svc3_tag2:'Automatisation',svc3_tag3:'Agents IA',
+  svc4_name:'Site Web',svc4_desc:'Sites web sur-mesure, rapides et élégants. Du site vitrine au portfolio en passant par les landing pages haute conversion.',svc4_tag1:'Webflow',svc4_tag2:'HTML/CSS',svc4_tag3:'SEO-ready',
+  svc5_name:'Motion & Animation',svc5_desc:"Logos animés, micro-interactions et vidéos motion pour donner vie à votre identité et captiver votre audience.",svc5_tag1:'After Effects',svc5_tag2:'Lottie',svc5_tag3:'Motion UI',
+  p1_name:'Mamagaya',p1_cat:'UI Design · App Mobile',p1_img:'mockup-mamagaya.png',
+  p2_name:'Adidas Harden',p2_cat:'UI Design · E-commerce',p2_img:'mockup-adidas.png',
+  p3_name:'BARNES CarJager',p3_cat:'UI Design · Automobile',p3_img:'mockup-barnes.png',
+  p4_name:'Logotype Design',p4_cat:'Identité · Branding',p4_img:'mockup-logotype.png',
+  p5_name:'Nike Collection',p5_cat:'UI Design · Sport',p5_img:'mockup-nike-bleu.png',
+  p6_name:'Nike Air Max',p6_cat:'UI Design · Sport',p6_img:'mockup-nike-rouge.png',
+  t1_name:'Logo & Identité',t1_price:'300 €',t1_period:'/dès',t1_delay:'5 à 10 jours',t1_f1:'Logo simple — 300 € – 600 €',t1_f2:'Logo + charte — 700 € – 1 500 €',t1_f3:'Identité complète — 1 500 € – 3 500 €',t1_f4:'Refonte de marque — 2 000 € – 5 000 €',t1_cta:'Demander un devis',
+  t2_name:'Site Vitrine',t2_price:'800 €',t2_period:'/dès',t2_delay:'7 à 14 jours',t2_f1:'Starter (3–5 pages) — 800 € – 1 200 €',t2_f2:'Pro (6–10 pages) — 1 500 € – 2 500 €',t2_f3:'Premium (IA intégrée) — 3 000 € – 5 000 €',t2_f4:'SEO de base inclus',t2_cta:'Demander un devis',
+  t3_name:'E-commerce',t3_price:'1 500 €',t3_period:'/dès',t3_delay:'14 à 21 jours',t3_f1:'Starter (50 produits) — 1 500 € – 2 500 €',t3_f2:'Pro (illimité + filtres) — 3 000 € – 5 000 €',t3_f3:'Premium (IA + dashboard) — 6 000 € – 10 000 €',t3_f4:'Paiement en ligne inclus',t3_cta:'Demander un devis',
+  t4_name:'UI/UX Design',t4_price:'400 €',t4_period:'/dès',t4_delay:'7 à 14 jours',t4_f1:'Audit UX — 400 € – 800 €',t4_f2:'Wireframes (5–10 écrans) — 600 € – 1 200 €',t4_f3:'Design UI complet — 1 500 € – 4 000 €',t4_f4:'Design system — 2 500 € – 6 000 €',t4_cta:'Demander un devis',
+  t5_name:'Maintenance',t5_price:'80 €',t5_period:'/mois',t5_delay:'Contrat mensuel',t5_f1:'Essentiel — 80 € – 150 €/mois',t5_f2:'Pro (+ corrections) — 200 € – 350 €/mois',t5_f3:'Premium (prioritaire) — 400 € – 600 €/mois',t5_f4:'Rapport mensuel inclus',t5_cta:'Demander un devis',
+  t6_name:'Pack Lancement',t6_price:'1 200 €',t6_period:'/dès',t6_delay:'14 à 21 jours',t6_f1:'Logo + Charte graphique complète',t6_f2:'Site vitrine 3–5 pages responsive',t6_f3:'Mise en ligne + domaine guidé',t6_f4:'SEO de base + économisez 30%',t6_cta:'Demander un devis',
+  pr1_num:'01',pr1_name:'Découverte',pr1_desc:"Compréhension de vos objectifs, de votre cible et de votre contexte. On pose les vraies questions avant de dessiner.",
+  pr2_num:'02',pr2_name:'Stratégie',pr2_desc:"Définition de la direction créative, de l'architecture d'information et du positionnement visuel. Le fond avant la forme.",
+  pr3_num:'03',pr3_name:'Création',pr3_desc:"Design des interfaces ou de l'identité visuelle avec des itérations régulières. Vous voyez l'avancement en temps réel.",
+  pr4_num:'04',pr4_name:'Livraison',pr4_desc:"Fichiers finaux propres, bien nommés et documentés. Prêts à l'usage pour vos développeurs ou pour l'impression.",
+  tst1_q:'"Dikenga a complètement transformé notre présence digitale. Le site qu\'il a créé convertit 3× plus qu\'avant. Professionnel, rapide et vraiment à l\'écoute."',tst1_name:'Axel Moreau',tst1_role:'CEO — Agence Boost',tst1_avatar:'A',
+  tst2_q:'"Un vrai designer stratège. Il ne fait pas que rendre les choses jolies — il pense conversion, UX et business. Notre taux d\'engagement a explosé."',tst2_name:'Sarah Diallo',tst2_role:'Fondatrice — Luma Studio',tst2_avatar:'S',
+  tst3_q:'"Identité visuelle livrée en 4 jours, impeccable du premier coup. Dikenga comprend exactement ce que tu veux, même quand tu sais pas l\'expliquer."',tst3_name:'Kévin Lambert',tst3_role:'Entrepreneur — KL Concept',tst3_avatar:'K',
+  st1_num:'50+',st1_label:'Projets réalisés',st2_num:'3 ans',st2_label:"D'expérience",st3_num:'100%',st3_label:'Clients satisfaits',
+  c_email:'',c_phone:'',c_location:'Paris, France',c_dispo:'Disponible maintenant',
+  c_ig:'https://instagram.com/Dikenga.design',c_twitter:'',c_linkedin:'',c_behance:'',c_dribbble:'',
+  c_title:'Parlons de votre projet',c_sub:'Décrivez votre projet et je vous réponds sous 24h.',
+  pp1_num:'01',pp1_name:'Mamagaya',pp1_cat:'UI Design',pp1_year:'2024',pp1_desc:'',pp1_img:'mockup-mamagaya.png',pp1_url:'',
+  pp2_num:'02',pp2_name:'Adidas Harden',pp2_cat:'UI Design',pp2_year:'2024',pp2_desc:'',pp2_img:'mockup-adidas.png',pp2_url:'',
+  pp3_num:'03',pp3_name:'BARNES CarJager',pp3_cat:'UI Design',pp3_year:'2024',pp3_desc:'',pp3_img:'mockup-barnes.png',pp3_url:'',
+  pp4_num:'04',pp4_name:'Logotype Design',pp4_cat:'Branding',pp4_year:'2024',pp4_desc:'',pp4_img:'mockup-logotype.png',pp4_url:'',
+  pp5_num:'05',pp5_name:'Nike Collection',pp5_cat:'UI Design',pp5_year:'2024',pp5_desc:'',pp5_img:'mockup-nike-bleu.png',pp5_url:'',
+  pp6_num:'06',pp6_name:'Nike Air Max',pp6_cat:'UI Design',pp6_year:'2024',pp6_desc:'',pp6_img:'mockup-nike-rouge.png',pp6_url:'',
+  default_theme:'dark'
+};
+
+// ═══ AUTH ═══
+const PK='dkg-admin-pw',DPW='dikenga2024';
+function doLogin(){
+  const v=document.getElementById('pw').value;
+  if(v===(localStorage.getItem(PK)||DPW)){
+    document.getElementById('login').style.display='none';
+    document.getElementById('app').style.display='block';
+    init();loadAll();
+  }else{
+    document.getElementById('pw-err').style.display='block';
+    document.getElementById('pw').style.borderColor='var(--red)';
+  }
+}
+function changePw(){
+  const p1=document.getElementById('new_pw1').value,p2=document.getElementById('new_pw2').value;
+  const m=document.getElementById('pw-msg');
+  if(!p1){m.style.color='var(--red)';m.textContent='Entrez un mot de passe.';return}
+  if(p1!==p2){m.style.color='var(--red)';m.textContent='Les mots de passe ne correspondent pas.';return}
+  localStorage.setItem(PK,p1);m.style.color='var(--green)';m.textContent='✓ Mot de passe mis à jour !';
+  document.getElementById('new_pw1').value='';document.getElementById('new_pw2').value='';
+}
+
+// ═══ NAV ═══
+document.querySelector('.sb-nav').addEventListener('click',e=>{
+  const it=e.target.closest('.sb-item');if(!it)return;goSec(it.dataset.s);
+});
+function goSec(id){
+  document.querySelectorAll('.sb-item').forEach(i=>i.classList.remove('active'));
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('active'));
+  const it=document.querySelector(`.sb-item[data-s="${id}"]`);if(it)it.classList.add('active');
+  const sc=document.getElementById('sec-'+id);if(sc){sc.classList.add('active');document.querySelector('.main').scrollTop=0}
+}
+
+// ═══ TABS ═══
+function makeTabs(wrap){
+  wrap.querySelectorAll('[data-tabs]').forEach(g=>{
+    g.querySelectorAll('.tb').forEach(b=>{
+      b.onclick=()=>{
+        g.querySelectorAll('.tb').forEach(x=>x.classList.remove('on'));
+        g.querySelectorAll('.tp').forEach(x=>x.classList.remove('on'));
+        b.classList.add('on');
+        document.getElementById(b.dataset.t).classList.add('on');
+      };
+    });
+  });
+}
+
+// ═══ IMAGE PREVIEW ═══
+function pi(inp,pid){
+  const img=document.getElementById(pid);if(!img)return;
+  if(inp.value){img.src=inp.value;img.style.display='block'}else img.style.display='none';
+}
+
+// ═══ GENERATE FORMS ═══
+function f2(id,lbl,type='text',ph=''){return`<div class="f"><label>${lbl}</label><input type="${type}" id="${id}" placeholder="${ph}"></div>`}
+function ta(id,lbl,ph=''){return`<div class="f"><label>${lbl}</label><textarea id="${id}" placeholder="${ph}"></textarea></div>`}
+
+function init(){
+  // SERVICES
+  let h=`<div data-tabs><div class="tabs">`;
+  for(let i=1;i<=5;i++)h+=`<button class="tb${i===1?' on':''}" data-t="sv-${i}">Service ${i}</button>`;
+  h+=`</div>`;
+  for(let i=1;i<=5;i++)h+=`<div id="sv-${i}" class="tp${i===1?' on':''}"><div class="card"><div class="card-hd">Service ${i}</div><div class="g2"><div class="f full"><label>Nom</label><input id="svc${i}_name"></div><div class="f full"><label>Description</label><textarea id="svc${i}_desc"></textarea></div>${f2(`svc${i}_tag1`,'Tag 1')}${f2(`svc${i}_tag2`,'Tag 2')}${f2(`svc${i}_tag3`,'Tag 3')}</div></div></div>`;
+  document.getElementById('svc-wrap').innerHTML=h+'</div>';
+  makeTabs(document.getElementById('svc-wrap'));
+
+  // PROJECTS
+  h=`<div data-tabs><div class="tabs">`;
+  for(let i=1;i<=6;i++)h+=`<button class="tb${i===1?' on':''}" data-t="pj-${i}">Projet ${i}</button>`;
+  h+=`</div>`;
+  for(let i=1;i<=6;i++)h+=`<div id="pj-${i}" class="tp${i===1?' on':''}"><div class="card"><div class="card-hd">Projet ${i}</div><div class="g2">${f2(`p${i}_name`,'Titre')}${f2(`p${i}_cat`,'Catégorie')}<div class="f full"><label>Image (fichier ou URL)</label><input id="p${i}_img" oninput="pi(this,'pi-${i}')"></div></div><img id="pi-${i}" class="ipr"></div></div>`;
+  document.getElementById('proj-wrap').innerHTML=h+'</div>';
+  makeTabs(document.getElementById('proj-wrap'));
+
+  // TARIFS
+  const tnames=['Logo & Identité','Site Vitrine','E-commerce','UI/UX Design','Maintenance','Pack Lancement'];
+  h=`<div data-tabs><div class="tabs">`;
+  for(let i=1;i<=6;i++)h+=`<button class="tb${i===1?' on':''}" data-t="tr-${i}">${tnames[i-1]}</button>`;
+  h+=`</div>`;
+  for(let i=1;i<=6;i++)h+=`<div id="tr-${i}" class="tp${i===1?' on':''}"><div class="card"><div class="card-hd">${tnames[i-1]}</div><div class="g2">${f2(`t${i}_name`,'Nom du plan')}${f2(`t${i}_price`,'Prix')}${f2(`t${i}_period`,'Période (/dès, /mois…)')}${f2(`t${i}_delay`,'Délai livraison')}${f2(`t${i}_cta`,'Texte CTA')}</div><div class="sep"></div><div class="card-hd">Fonctionnalités</div><div class="g2">${f2(`t${i}_f1`,'Item 1')}${f2(`t${i}_f2`,'Item 2')}${f2(`t${i}_f3`,'Item 3')}${f2(`t${i}_f4`,'Item 4')}</div></div></div>`;
+  document.getElementById('tarif-wrap').innerHTML=h+'</div>';
+  makeTabs(document.getElementById('tarif-wrap'));
+
+  // PROCESS
+  h='';
+  for(let i=1;i<=4;i++)h+=`<div class="card"><div class="card-hd">Étape ${i}</div><div class="g2">${f2(`pr${i}_num`,'Numéro')}${f2(`pr${i}_name`,'Nom')}<div class="f full"><label>Description</label><textarea id="pr${i}_desc"></textarea></div></div></div>`;
+  document.getElementById('proc-wrap').innerHTML=h;
+
+  // TESTI
+  h='';
+  for(let i=1;i<=3;i++)h+=`<div class="card"><div class="card-hd">Témoignage ${i}</div><div class="g2"><div class="f full"><label>Citation</label><textarea id="tst${i}_q"></textarea></div>${f2(`tst${i}_name`,'Nom')}${f2(`tst${i}_role`,'Rôle / Entreprise')}${f2(`tst${i}_avatar`,'Initiale avatar')}</div></div>`;
+  document.getElementById('testi-wrap').innerHTML=h;
+
+  // STATS
+  h='';
+  for(let i=1;i<=3;i++)h+=`<div class="card"><div class="card-hd">Stat ${i}</div>${f2(`st${i}_num`,'Chiffre')}<div style="margin-top:12px">${f2(`st${i}_label`,'Label')}</div></div>`;
+  document.getElementById('stats-wrap').innerHTML=h;
+
+  // PAGE PROJETS
+  h=`<div data-tabs><div class="tabs">`;
+  for(let i=1;i<=6;i++)h+=`<button class="tb${i===1?' on':''}" data-t="pp-${i}">Projet ${i}</button>`;
+  h+=`</div>`;
+  for(let i=1;i<=6;i++)h+=`<div id="pp-${i}" class="tp${i===1?' on':''}"><div class="card"><div class="card-hd">Projet ${i}</div><div class="g2">${f2(`pp${i}_num`,'Numéro')}${f2(`pp${i}_name`,'Titre')}${f2(`pp${i}_cat`,'Catégorie')}${f2(`pp${i}_year`,'Année')}<div class="f full"><label>Description</label><textarea id="pp${i}_desc"></textarea></div><div class="f full"><label>Image (fichier ou URL)</label><input id="pp${i}_img" oninput="pi(this,'pp-img-${i}')"></div>${f2(`pp${i}_url`,'Lien du projet')}</div><img id="pp-img-${i}" class="ipr"></div></div>`;
+  document.getElementById('projpage-wrap').innerHTML=h+'</div>';
+  makeTabs(document.getElementById('projpage-wrap'));
+}
+
+// ═══ SAVE / LOAD ═══
+function getAll(){
+  const o={};
+  Object.keys(D).forEach(k=>{const el=document.getElementById(k);if(el)o[k]=el.value;});
+  return o;
+}
+function saveAll(){
+  const c=getAll();
+  localStorage.setItem('dikenga-content',JSON.stringify(c));
+  showToast('✓ Modifications enregistrées');
+}
+function loadAll(){
+  const saved=JSON.parse(localStorage.getItem('dikenga-content')||'{}');
+  const c=Object.assign({},D,saved);
+  Object.keys(c).forEach(k=>{const el=document.getElementById(k);if(el)el.value=c[k];});
+  // Image previews
+  for(let i=1;i<=6;i++){
+    const pe=document.getElementById(`p${i}_img`);if(pe&&pe.value)pi(pe,`pi-${i}`);
+    const ppe=document.getElementById(`pp${i}_img`);if(ppe&&ppe.value)pi(ppe,`pp-img-${i}`);
+  }
+  const ae=document.getElementById('a_photo');if(ae&&ae.value)pi(ae,'a-prev');
+  // Theme
+  const dt=document.getElementById('default_theme');
+  if(dt)dt.value=localStorage.getItem('dikenga-theme')||'dark';
+}
+function saveTheme(){
+  const v=document.getElementById('default_theme').value;
+  localStorage.setItem('dikenga-theme',v);
+  showToast('✓ Thème mis à jour');
+}
+function resetAll(){
+  if(!confirm('Réinitialiser tout le contenu ? Cette action est irréversible.'))return;
+  localStorage.removeItem('dikenga-content');
+  loadAll();showToast('Contenu réinitialisé');
+}
+function exportJSON(){
+  const b=new Blob([JSON.stringify(getAll(),null,2)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(b);
+  a.download='dikenga-content-'+new Date().toISOString().slice(0,10)+'.json';a.click();
+}
+function importJSON(inp){
+  const f=inp.files[0];if(!f)return;
+  const r=new FileReader();
+  r.onload=e=>{try{const c=JSON.parse(e.target.result);localStorage.setItem('dikenga-content',JSON.stringify(c));loadAll();showToast('✓ Importé !');}catch{alert('Fichier JSON invalide.')}};
+  r.readAsText(f);
+}
+
+// ═══ TOAST ═══
+let _tt;
+function showToast(msg){
+  const t=document.getElementById('toast');t.textContent=msg;t.classList.add('on');
+  clearTimeout(_tt);_tt=setTimeout(()=>t.classList.remove('on'),2500);
+}
+
+// ═══ KEYBOARD ═══
+document.addEventListener('keydown',e=>{
+  if((e.metaKey||e.ctrlKey)&&e.key==='s'){e.preventDefault();saveAll()}
+  if((e.metaKey||e.ctrlKey)&&e.key==='Enter'){window.open('index-v2.html','_blank')}
+});
+
+document.getElementById('pw').focus();
+</script>
+</body>
+</html>

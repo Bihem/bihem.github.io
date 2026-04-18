@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mentions légales — Dikenga Design</title>
+  <meta name="description" content="Mentions légales du site Dikenga Design — UI/UX Designer freelance." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:       #F8F7F4;
+      --ink:      #0D0D0D;
+      --ink-2:    #5A5A55;
+      --red:      #C0161E;
+      --border:   #E2E0DA;
+      --font-display: 'DM Serif Display', Georgia, serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+    }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-weight: 400;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--red); text-decoration: underline; text-underline-offset: 3px; }
+    a:hover { opacity: 0.8; }
+
+    /* Nav */
+    .page-nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 68px;
+      background: rgba(248, 247, 244, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .page-nav-logo {
+      font-family: var(--font-display); font-size: 20px; font-weight: 700;
+      color: var(--ink); text-decoration: none;
+    }
+    .page-nav-back {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 13px; font-weight: 500; color: var(--ink-2);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .page-nav-back:hover { color: var(--ink); }
+
+    /* Content */
+    .page-content {
+      max-width: 800px; margin: 0 auto;
+      padding: 64px 48px 96px;
+    }
+    .page-title {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 1.05; letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .page-subtitle {
+      font-size: 14px; color: var(--ink-2); margin-bottom: 56px;
+    }
+    .mentions-section {
+      margin-bottom: 48px;
+    }
+    .mentions-section h2 {
+      font-family: var(--font-display); font-size: 22px;
+      margin-bottom: 16px; padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .mentions-section p,
+    .mentions-section li {
+      font-size: 14px; color: var(--ink-2);
+      line-height: 1.8; margin-bottom: 8px;
+    }
+    .mentions-section ul { padding-left: 20px; }
+    .mentions-section strong { color: var(--ink); font-weight: 600; }
+
+    /* Footer */
+    .page-footer {
+      text-align: center; padding: 32px 48px;
+      border-top: 1px solid var(--border);
+      font-size: 13px; color: var(--ink-2);
+    }
+
+    @media (max-width: 640px) {
+      .page-nav { padding: 0 20px; }
+      .page-content { padding: 40px 20px 64px; }
+      .page-footer { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="page-nav">
+    <a href="index.html" class="page-nav-logo">DIKENGA.</a>
+    <a href="index.html" class="page-nav-back">
+      <svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8">
+        <path d="M13 7H1M7 13L1 7l6-6"/>
+      </svg>
+      Retour au site
+    </a>
+  </nav>
+
+  <main class="page-content">
+    <h1 class="page-title">Mentions<br/><em style="font-style:italic;color:var(--red);">légales.</em></h1>
+    <p class="page-subtitle">Dernière mise à jour : avril 2026</p>
+
+    <div class="mentions-section">
+      <h2>1. Éditeur du site</h2>
+      <p><strong>Dénomination :</strong> Dikenga Design</p>
+      <p><strong>Statut :</strong> Auto-entrepreneur</p>
+      <p><strong>Nom du responsable :</strong> Dikenga</p>
+      <p><strong>Email :</strong> <a href="mailto:dikengadesign@gmail.com">dikengadesign@gmail.com</a></p>
+      <p><strong>Téléphone :</strong> <a href="tel:+33767537059">+33 7 67 53 70 59</a></p>
+      <p><strong>Site web :</strong> <a href="https://dikengadesign.fr">dikengadesign.fr</a></p>
+    </div>
+
+    <div class="mentions-section">
+      <h2>2. Hébergement</h2>
+      <p>Ce site est hébergé par un prestataire tiers. Les informations concernant l'hébergeur sont disponibles sur demande à l'adresse email indiquée ci-dessus.</p>
+    </div>
+
+    <div class="mentions-section">
+      <h2>3. Propriété intellectuelle</h2>
+      <p>L'ensemble des contenus présents sur ce site (textes, images, logotypes, visuels, maquettes) sont la propriété exclusive de <strong>Dikenga Design</strong>, sauf mention contraire.</p>
+      <p>Toute reproduction, représentation, modification, publication ou transmission, totale ou partielle, des contenus de ce site, par quelque moyen que ce soit, est interdite sans autorisation préalable et écrite de Dikenga Design.</p>
+    </div>
+
+    <div class="mentions-section">
+      <h2>4. Données personnelles (RGPD)</h2>
+      <p>Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez des droits suivants concernant vos données personnelles :</p>
+      <ul>
+        <li>Droit d'accès à vos données</li>
+        <li>Droit de rectification</li>
+        <li>Droit à l'effacement (« droit à l'oubli »)</li>
+        <li>Droit à la limitation du traitement</li>
+        <li>Droit à la portabilité</li>
+        <li>Droit d'opposition</li>
+      </ul>
+      <p style="margin-top:12px;">Pour exercer ces droits, contactez : <a href="mailto:dikengadesign@gmail.com">dikengadesign@gmail.com</a></p>
+      <p>Les données collectées via le formulaire de contact (prénom, email, message) sont utilisées uniquement pour répondre à vos demandes et ne sont jamais cédées à des tiers.</p>
+    </div>
+
+    <div class="mentions-section">
+      <h2>5. Cookies</h2>
+      <p>Ce site peut utiliser des cookies techniques nécessaires à son bon fonctionnement. Aucun cookie de traçage publicitaire n'est utilisé sans votre consentement préalable.</p>
+      <p>Vous pouvez à tout moment refuser les cookies en utilisant le bandeau qui s'affiche lors de votre première visite, ou en configurant votre navigateur.</p>
+    </div>
+
+    <div class="mentions-section">
+      <h2>6. Responsabilité</h2>
+      <p>Dikenga Design s'efforce d'assurer l'exactitude et la mise à jour des informations diffusées sur ce site. Cependant, la responsabilité du site ne peut être engagée en cas d'erreur, omission, ou indisponibilité temporaire.</p>
+      <p>Les liens hypertextes présents sur ce site peuvent renvoyer vers des sites tiers dont Dikenga Design ne contrôle pas le contenu.</p>
+    </div>
+
+    <div class="mentions-section">
+      <h2>7. Droit applicable</h2>
+      <p>Les présentes mentions légales sont régies par le droit français. En cas de litige, les tribunaux français seront seuls compétents.</p>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <p>© 2026 Dikenga Design — <a href="index.html">Retour au portfolio</a></p>
+  </footer>
+
+</body>
+</html>

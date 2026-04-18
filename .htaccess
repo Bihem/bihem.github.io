@@ -1,0 +1,17 @@
+Options -Indexes
+DirectoryIndex index.html
+
+# Redirections propres sans .html
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+# HTTPS forcé (activer après avoir configuré le SSL)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Cache des images
+<FilesMatch "\.(png|jpg|jpeg|svg|gif|ico|webp)$">
+  Header set Cache-Control "max-age=2592000, public"
+</FilesMatch>
