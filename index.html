@@ -2924,9 +2924,7 @@ function closeContactPanel(){
 /* ── PAGE TRANSITION */
 function goToProjects(e){
   e.preventDefault();
-  const overlay=document.getElementById('pageTransition');
-  overlay.classList.add('active');
-  setTimeout(()=>{ window.location.href='projets.html'; },380);
+  window.location.href='projets.html';
 }
 function goToContact(e){
   if(e) e.preventDefault();
@@ -3120,10 +3118,7 @@ async function handleSubmit(e){
 })();
 
 function openProjetsRight(){
-  const overlay=document.getElementById('pageTransitionRight');
-  overlay.classList.add('active');
-  sessionStorage.setItem('projets-from-reel','1');
-  setTimeout(()=>{ window.location.href='projets.html'; },380);
+  window.location.href='projets.html';
 }
 
 function openReelDrawer(){
