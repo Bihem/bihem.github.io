@@ -577,6 +577,41 @@ body.light .footer-copy,body.light .footer-lnk{color:rgba(0,0,0,0.4)}
     </div>
   </article>
 
+  <!-- 05 — Nike Air Jordan -->
+  <article class="proj-item">
+    <div class="proj-item-inner">
+      <div class="proj-img">
+        <div class="proj-img-gallery" id="nikeGallery">
+          <div class="ag-slide active" style="background-image:url('nike-bleu.png')"></div>
+          <div class="ag-slide" style="background-image:url('nike-rouge.png')"></div>
+          <div class="ag-dots">
+            <span class="ag-dot active" onclick="nikeGo(0)"></span>
+            <span class="ag-dot" onclick="nikeGo(1)"></span>
+          </div>
+        </div>
+      </div>
+      <div class="proj-info-side">
+        <div class="proj-num rv">05</div>
+        <div>
+          <div class="proj-tag rv d1">
+            <span class="proj-tag-dot"></span>
+            UI Design · E-commerce
+          </div>
+          <h2 class="proj-name rv d1">Nike Air Jordan</h2>
+          <p class="proj-desc rv d2">Page produit immersive pour la collection Nike Air Jordan. Deux coloris — Bleu et Rouge — mis en scène avec une typographie XXL et une ambiance visuelle forte. Interface entièrement conçue sur Figma.</p>
+          <a href="#" class="proj-cta rv d3" onclick="goToContact(event)">
+            Démarrer un projet
+            <span class="proj-cta-arr">→</span>
+          </a>
+          <div class="proj-meta-row rv d3">
+            <div class="proj-meta-item"><strong>Figma</strong> · UI Design</div>
+            <div class="proj-meta-item"><strong>2024</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
 </main>
 
 <!-- ── LIGHTBOX PROJET -->
@@ -812,6 +847,19 @@ document.addEventListener('keydown',e=>{
     closeContactPanel();
   }
 });
+
+/* ── NIKE GALLERY */
+let nikeIdx = 0;
+const nikeSlides = document.querySelectorAll('#nikeGallery .ag-slide');
+const nikeDots   = document.querySelectorAll('#nikeGallery .ag-dot');
+function nikeGo(n){
+  nikeSlides[nikeIdx].classList.remove('active');
+  nikeDots[nikeIdx].classList.remove('active');
+  nikeIdx = n;
+  nikeSlides[nikeIdx].classList.add('active');
+  nikeDots[nikeIdx].classList.add('active');
+}
+setInterval(()=>{ nikeGo((nikeIdx+1) % nikeSlides.length); }, 3500);
 
 /* ── ADIDAS GALLERY */
 let adidasIdx = 0;
