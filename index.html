@@ -2367,8 +2367,8 @@ function scramble(el, finalText, duration, startDelay){
 
 
 /* ── PAGE COVER */
-window.addEventListener('load', () => {
-  setTimeout(() => document.getElementById('cover').classList.add('out'), 80);
+document.addEventListener('DOMContentLoaded', () => {
+  requestAnimationFrame(()=>requestAnimationFrame(()=>document.getElementById('cover').classList.add('out')));
   setTimeout(() => {
     const words = document.querySelectorAll('.hero-word-inner');
     words.forEach((w, i) => {
