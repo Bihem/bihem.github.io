@@ -2930,9 +2930,7 @@ function goToProjects(e){
 }
 function goToContact(e){
   if(e) e.preventDefault();
-  const overlay=document.getElementById('pageTransition');
-  overlay.classList.add('active');
-  setTimeout(()=>{ window.location.href='contact.html'; },380);
+  window.location.href='contact.html';
 }
 
 /* ── ALL PROJECTS PANEL */
