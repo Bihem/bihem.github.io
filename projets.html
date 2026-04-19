@@ -326,7 +326,7 @@ a,button{cursor:none;text-decoration:none;color:inherit}
   position:fixed;inset:0;z-index:9000;
   background:var(--bg);
   transform:translateY(0);
-  transition:transform 1s cubic-bezier(.16,1,.3,1);
+  transition:transform .45s cubic-bezier(.16,1,.3,1);
   pointer-events:none;
 }
 .page-enter.out{transform:translateY(-100%)}
@@ -743,16 +743,18 @@ async function handleSubmit(e){
 }
 
 /* entrée — vertical (default) ou horizontal (depuis reel) */
-window.addEventListener('load',()=>{
+document.addEventListener('DOMContentLoaded',()=>{
   const enter=document.getElementById('pageEnter');
   if(!enter) return;
   const fromReel = sessionStorage.getItem('projets-from-reel');
-  if(fromReel){
-    sessionStorage.removeItem('projets-from-reel');
-    setTimeout(()=>enter.classList.add('out-right'),50);
-  } else {
-    setTimeout(()=>enter.classList.add('out'),50);
-  }
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    if(fromReel){
+      sessionStorage.removeItem('projets-from-reel');
+      enter.classList.add('out-right');
+    } else {
+      enter.classList.add('out');
+    }
+  }));
 });
 
 /* retour vers l'accueil */
@@ -763,19 +765,19 @@ function goBackHome(e){
     enter.classList.remove('out','out-right');
     enter.style.transition='transform 0.85s cubic-bezier(.77,0,.175,1)';
     enter.style.transform='translateY(0)';
-    setTimeout(()=>{ window.location.href='index.html'; },880);
+    setTimeout(()=>{ window.location.href='index.html'; },400);
   } else {
     window.location.href='index.html';
   }
 }
 
 /* page header reveal */
-window.addEventListener('load',()=>{
+document.addEventListener('DOMContentLoaded',()=>{
   setTimeout(()=>{
     document.getElementById('pageTitle').classList.add('on');
     document.getElementById('pageSub').classList.add('on');
     document.getElementById('projCount').classList.add('on');
-  },100);
+  },120);
 });
 
 /* scroll reveal */
