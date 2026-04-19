@@ -145,6 +145,25 @@ a,button{cursor:none;text-decoration:none;color:inherit}
 }
 .proj-item:hover .proj-img-bg{transform:scale(1)}
 
+/* ── Galerie multi-images (Adidas) */
+.proj-img-gallery{position:relative;width:100%;height:100%;overflow:hidden}
+.ag-slide{
+  position:absolute;inset:0;
+  background-size:contain;background-position:center;background-repeat:no-repeat;
+  opacity:0;transition:opacity .8s ease;
+}
+.ag-slide.active{opacity:1}
+.ag-dots{
+  position:absolute;bottom:18px;left:50%;transform:translateX(-50%);
+  display:flex;gap:8px;z-index:2;
+}
+.ag-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:rgba(255,255,255,.35);border:1px solid rgba(255,255,255,.5);
+  cursor:pointer;transition:background .3s;
+}
+.ag-dot.active{background:#fff}
+
 /* Info side */
 .proj-info-side{
   display:flex;flex-direction:column;justify-content:flex-end;
@@ -466,10 +485,19 @@ body.light .footer-copy,body.light .footer-lnk{color:rgba(0,0,0,0.4)}
   </article>
 
   <!-- 02 — Adidas Harden -->
-  <article class="proj-item">
+  <article class="proj-item" id="adidas-proj">
     <div class="proj-item-inner reverse">
       <div class="proj-img">
-        <div class="proj-img-bg" style="background-image:url('mockup-adidas.png')"></div>
+        <div class="proj-img-gallery" id="adidasGallery">
+          <div class="ag-slide active" style="background-image:url('adidas-1.png')"></div>
+          <div class="ag-slide" style="background-image:url('mockup-adidas.png')"></div>
+          <div class="ag-slide" style="background-image:url('adidas-3.png')"></div>
+          <div class="ag-dots">
+            <span class="ag-dot active" onclick="adidasGo(0)"></span>
+            <span class="ag-dot" onclick="adidasGo(1)"></span>
+            <span class="ag-dot" onclick="adidasGo(2)"></span>
+          </div>
+        </div>
       </div>
       <div class="proj-info-side">
         <div class="proj-num rv">02</div>
@@ -784,6 +812,19 @@ document.addEventListener('keydown',e=>{
     closeContactPanel();
   }
 });
+
+/* ── ADIDAS GALLERY */
+let adidasIdx = 0;
+const adidasSlides = document.querySelectorAll('#adidasGallery .ag-slide');
+const adidasDots   = document.querySelectorAll('#adidasGallery .ag-dot');
+function adidasGo(n){
+  adidasSlides[adidasIdx].classList.remove('active');
+  adidasDots[adidasIdx].classList.remove('active');
+  adidasIdx = n;
+  adidasSlides[adidasIdx].classList.add('active');
+  adidasDots[adidasIdx].classList.add('active');
+}
+setInterval(()=>{ adidasGo((adidasIdx+1) % adidasSlides.length); }, 3500);
 </script>
 </body>
 </html>
