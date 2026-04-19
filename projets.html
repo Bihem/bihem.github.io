@@ -742,19 +742,10 @@ async function handleSubmit(e){
   }catch{btn.textContent='Erreur — réessayez';}
 }
 
-/* entrée — vertical (default) ou horizontal (depuis reel) */
+/* entrée — pas d'animation */
 document.addEventListener('DOMContentLoaded',()=>{
   const enter=document.getElementById('pageEnter');
-  if(!enter) return;
-  const fromReel = sessionStorage.getItem('projets-from-reel');
-  requestAnimationFrame(()=>requestAnimationFrame(()=>{
-    if(fromReel){
-      sessionStorage.removeItem('projets-from-reel');
-      enter.classList.add('out-right');
-    } else {
-      enter.classList.add('out');
-    }
-  }));
+  if(enter) enter.style.display='none';
 });
 
 /* retour vers l'accueil */
@@ -765,7 +756,7 @@ function goBackHome(e){
     enter.classList.remove('out','out-right');
     enter.style.transition='transform 0.85s cubic-bezier(.77,0,.175,1)';
     enter.style.transform='translateY(0)';
-    setTimeout(()=>{ window.location.href='index.html'; },400);
+    window.location.href='index.html';
   } else {
     window.location.href='index.html';
   }
