@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <style>html{background:#1D1B1B}</style>
 <script>if(localStorage.getItem('dikenga-theme')==='light')document.documentElement.style.background='#FFFFFF'</script>
-<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate"/>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" as="style"/>
 <title>Contact — Dikenga.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -378,10 +378,10 @@ document.getElementById('contactForm').addEventListener('submit',async function(
   }catch{btn.textContent='Erreur — réessayez';btn.disabled=false;}
 });
 
-/* révèle la page à l'entrée */
-window.addEventListener('load',()=>{
+/* révèle la page à l'entrée — dès que le DOM est prêt */
+document.addEventListener('DOMContentLoaded',()=>{
   const enter=document.getElementById('pageEnter');
-  if(enter) setTimeout(()=>enter.classList.add('out'),40);
+  if(enter) requestAnimationFrame(()=>requestAnimationFrame(()=>enter.classList.add('out')));
 });
 
 /* retour accueil — overlay slide bas */
@@ -389,7 +389,7 @@ function goHome(e){
   e.preventDefault();
   const overlay=document.getElementById('pageTransition');
   overlay.classList.add('active');
-  setTimeout(()=>{ window.location.href='index.html'; },900);
+  setTimeout(()=>{ window.location.href='index.html'; },650);
 }
 
 /* ── THEME — restaurer depuis localStorage */
