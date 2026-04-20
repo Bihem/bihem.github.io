@@ -67,26 +67,25 @@ a,button{cursor:none;text-decoration:none;color:inherit}
 
 /* ═══════════════ CURSOR ═══════════════ */
 #cdot{
-  position:fixed;z-index:9999;pointer-events:none;
-  width:6px;height:6px;border-radius:50%;background:var(--white);
-  transform:translate(-50%,-50%);
+  position:fixed;z-index:10000;pointer-events:none;
+  width:6px;height:6px;border-radius:50%;background:#ffffff;
+  transform:translate(-50%,-50%);top:50%;left:50%;
 }
 #cring{
-  position:fixed;z-index:9998;pointer-events:none;
+  position:fixed;z-index:9999;pointer-events:none;
   width:34px;height:34px;border-radius:50%;
-  border:1px solid rgba(255,255,255,0.7);
-  transform:translate(-50%,-50%);
+  border:1.5px solid rgba(255,255,255,0.85);
+  transform:translate(-50%,-50%);top:50%;left:50%;
   transition:width .25s,height .25s,border-color .25s;
 }
-.cursor-grow #cring{width:56px;height:56px;border-color:rgba(255,255,255,0.8)}
+.cursor-grow #cring{width:56px;height:56px;border-color:rgba(255,255,255,1)}
 body.light #cdot{background:#000000}
-body.light #cring{border-color:#000000}
+body.light #cring{border-color:rgba(0,0,0,0.85)}
 body.light .page-sub{color:#000000}
 body.light .tcard-item{color:#000000}
 body.light .tcard-name{color:#000000}
 body.light .tcard-delai{color:#000000}
 body.light .footer-tagline{color:#000000}
-a,button{cursor:pointer;text-decoration:none;color:inherit}
 ul{list-style:none}
 img{display:block;max-width:100%}
 
@@ -615,20 +614,23 @@ document.getElementById('themeBtn').addEventListener('click',function(){
 });
 
 /* ─── Cursor ─── */
-const cdot=document.getElementById('cdot');
-const cring=document.getElementById('cring');
-let mx=window.innerWidth/2,my=window.innerHeight/2,rx=mx,ry=my;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
-(function loop(){
-  cdot.style.left=mx+'px';cdot.style.top=my+'px';
-  rx+=(mx-rx)*0.1;ry+=(my-ry)*0.1;
-  cring.style.left=rx+'px';cring.style.top=ry+'px';
-  requestAnimationFrame(loop);
+(function(){
+  const cdot=document.getElementById('cdot');
+  const cring=document.getElementById('cring');
+  if(!cdot||!cring)return;
+  let mx=window.innerWidth/2,my=window.innerHeight/2,rx=mx,ry=my;
+  document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;});
+  (function loop(){
+    cdot.style.left=mx+'px';cdot.style.top=my+'px';
+    rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;
+    cring.style.left=rx+'px';cring.style.top=ry+'px';
+    requestAnimationFrame(loop);
+  })();
+  document.querySelectorAll('a,button').forEach(function(el){
+    el.addEventListener('mouseenter',function(){document.body.classList.add('cursor-grow');});
+    el.addEventListener('mouseleave',function(){document.body.classList.remove('cursor-grow');});
+  });
 })();
-document.querySelectorAll('a,button').forEach(el=>{
-  el.addEventListener('mouseenter',()=>document.body.classList.add('cursor-grow'));
-  el.addEventListener('mouseleave',()=>document.body.classList.remove('cursor-grow'));
-});
 </script>
 
 </body>
