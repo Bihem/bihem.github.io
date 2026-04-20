@@ -465,13 +465,16 @@ img{display:block;max-width:100%}
 
 /* ═══════════════ CONTACT PANEL ═══════════════ */
 .contact-panel,.tarifs-panel{
-  position:fixed;inset:0;z-index:900;
+  position:fixed;top:0;left:0;right:0;
+  height:100vh;height:100dvh;
+  z-index:900;
   background:#000000 !important;
   backdrop-filter:none !important;
   -webkit-backdrop-filter:none !important;
-  overflow-y:auto;
+  overflow-y:auto;-webkit-overflow-scrolling:touch;
   display:flex;flex-direction:column;
   will-change:transform;
+  overscroll-behavior:contain;
 }
 /* contact → slide depuis la droite */
 .contact-panel{
@@ -1904,7 +1907,7 @@ body.light .reel-arrow svg path{stroke:#000000}
         <div class="svc-cslide-tags"><span class="svc-tag">Logo</span><span class="svc-tag">Charte</span><span class="svc-tag">Brand Guidelines</span></div>
       </div>
       <div class="svc-carousel-slide">
-        <div class="svc-cslide-img" style="background-image:url('mockup-mamagaya.webp')"></div>
+        <div class="svc-cslide-img" style="background-image:url('mockup-ia-nocode.webp')"></div>
         <div class="svc-cslide-info"><span class="svc-cslide-num">03</span><span class="svc-cslide-name">IA &amp; No-Code</span></div>
         <p class="svc-cslide-desc">Intégration de l'IA et des outils no-code pour transformer rapidement des idées en produits digitaux scalables.</p>
         <div class="svc-cslide-tags"><span class="svc-tag">n8n</span><span class="svc-tag">Automatisation</span><span class="svc-tag">Agents IA</span></div>
