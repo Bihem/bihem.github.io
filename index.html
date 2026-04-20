@@ -420,6 +420,7 @@ img{display:block;max-width:100%}
   display:flex;align-items:center;justify-content:center;position:relative;
 }
 .about-photo img{width:100%;height:100%;object-fit:cover}
+.about-photo video{width:100%;height:100%;object-fit:cover;display:block}
 .about-photo-placeholder{
   opacity:.06;display:flex;align-items:center;justify-content:center;width:100%;height:100%;position:absolute;
 }
@@ -1591,7 +1592,7 @@ body.light .reel-arrow svg path{stroke:#000000}
 <section class="about" id="about">
   <div class="about-grid">
     <div class="about-photo rv">
-      <img src="DIKENGA-4.jpg" alt="Dikenga — UI/UX Designer Paris" onerror="this.style.display='none'"/>
+      <video src="about-video.webm" autoplay loop muted playsinline></video>
       <div class="about-photo-placeholder">
         <svg viewBox="0 0 320 120" fill="none" xmlns="http://www.w3.org/2000/svg">
           <ellipse cx="152" cy="60" rx="144" ry="52" stroke="white" stroke-width="7" fill="none"/>
