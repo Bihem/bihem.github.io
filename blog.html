@@ -324,6 +324,7 @@ body.light .footer-lnk:hover{color:#000}
     </div>
   </article>
 
+  <!-- ##CARDS_INSERT## -->
 </section>
 
 <!-- NEWSLETTER -->
@@ -401,6 +402,7 @@ document.querySelectorAll('.filter-btn').forEach(function(btn){
 });
 
 /* ── Articles content */
+/* ##ARTICLES_START## */
 const articles={
   a1:{
     cat:'Intelligence Artificielle',
@@ -578,7 +580,9 @@ const articles={
       <p><strong>Pour le code et les tâches d'analyse</strong> : Claude 3.7. <strong>Pour le contenu créatif et les images</strong> : GPT-4o. <strong>Pour les recherches et l'info en temps réel</strong> : Gemini. Le stack gagnant en 2025 n'est pas mono-modèle.</p>
     `
   }
+  /* ##ARTICLES_INSERT## */
 };
+/* ##ARTICLES_END## */
 
 function openArticle(id){
   const a=articles[id];
