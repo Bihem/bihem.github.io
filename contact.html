@@ -52,6 +52,7 @@ a,button{cursor:none;text-decoration:none;color:inherit}
   pointer-events:none;
 }
 .page-transition.active{transform:translateY(0);pointer-events:all}
+@media(max-width:768px){.page-transition{display:none!important}}
 
 /* CURSOR */
 #cdot{position:fixed;z-index:9999;pointer-events:none;width:6px;height:6px;border-radius:50%;background:var(--white);transform:translate(-50%,-50%)}
@@ -401,6 +402,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 /* retour accueil — overlay slide bas */
 function goHome(e){
   e.preventDefault();
+  if(window.innerWidth<=768){window.location.href='index.html';return;}
   const overlay=document.getElementById('pageTransition');
   overlay.classList.add('active');
   setTimeout(()=>{ window.location.href='index.html'; },650);
