@@ -9,11 +9,11 @@
   position:fixed;inset:0;
   width:100%;height:100%;
   object-fit:cover;
-  opacity:0.2;
+  opacity:0.45;
   z-index:1;
   pointer-events:none;
 }
-body.light .site-video-bg{opacity:0.08}
+body.light .site-video-bg{opacity:0.1}
 </style>
 <script>if(localStorage.getItem('dikenga-theme')==='light'){document.documentElement.style.background='#FFFFFF';document.documentElement.style.setProperty('--bg','#FFFFFF');}else{document.documentElement.style.setProperty('--bg','#1D1B1B');}</script>
 <title>Tarifs — Dikenga. | UI/UX Designer Freelance Paris</title>
@@ -84,8 +84,6 @@ a,button{cursor:pointer;text-decoration:none;color:inherit}
 ul{list-style:none}
 img{display:block;max-width:100%}
 
-/* ═══════════════ PAGE COVER ═══════════════ */
-#cover{display:none}
 
 /* ═══════════════ BACK BUTTON ═══════════════ */
 .back-btn{
@@ -320,13 +318,10 @@ img{display:block;max-width:100%}
 </head>
 <body>
 <!-- VIDEO FOND GLOBAL -->
-<video class="site-video-bg" autoplay muted loop playsinline>
+<video class="site-video-bg" autoplay muted loop playsinline preload="auto">
   <source src="hero-bg.mp4" type="video/mp4">
 </video>
 
-
-<!-- PAGE COVER -->
-<div id="cover"></div>
 
 <!-- ═══════ PAGE HEADER ═══════ -->
 <header class="page-header">
@@ -550,14 +545,6 @@ function tickTime(){
 tickTime();
 setInterval(tickTime,1000);
 
-/* ─── Page cover ─── */
-window.addEventListener('load',function(){
-  requestAnimationFrame(function(){
-    setTimeout(function(){
-      document.getElementById('cover').classList.add('out');
-    },80);
-  });
-});
 
 /* ─── Card tilt + glow ─── */
 document.querySelectorAll('.tcard').forEach(card=>{
