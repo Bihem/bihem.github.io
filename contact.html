@@ -390,11 +390,8 @@ document.getElementById('contactForm').addEventListener('submit',async function(
   }catch{btn.textContent='Erreur — réessayez';btn.disabled=false;}
 });
 
-/* révèle la page à l'entrée — dès que le DOM est prêt */
-document.addEventListener('DOMContentLoaded',()=>{
-  const enter=document.getElementById('pageEnter');
-  if(enter) requestAnimationFrame(()=>requestAnimationFrame(()=>enter.classList.add('out')));
-});
+/* révèle la page */
+(function(){const e=document.getElementById('pageEnter');if(e)e.style.display='none';})();
 
 /* retour accueil — overlay slide bas */
 function goHome(e){
