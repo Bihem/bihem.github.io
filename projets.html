@@ -59,9 +59,12 @@ body{
 a,button{cursor:none;text-decoration:none;color:inherit}
 
 /* ── CURSOR */
-#cdot{position:fixed;z-index:9999;pointer-events:none;width:6px;height:6px;border-radius:50%;background:var(--white);transform:translate(-50%,-50%)}
-#cring{position:fixed;z-index:9998;pointer-events:none;width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,0.45);transform:translate(-50%,-50%);transition:width .25s,height .25s,border-color .25s}
-.cursor-grow #cring{width:56px;height:56px;border-color:rgba(255,255,255,0.8)}
+#cdot{position:fixed;z-index:10000;pointer-events:none;width:6px;height:6px;border-radius:50%;background:#ffffff;transform:translate(-50%,-50%);top:50%;left:50%}
+#cring{position:fixed;z-index:9999;pointer-events:none;width:34px;height:34px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.85);transform:translate(-50%,-50%);top:50%;left:50%;transition:width .25s,height .25s,border-color .25s}
+.cursor-grow #cring{width:56px;height:56px;border-color:rgba(255,255,255,1)}
+body.light #cdot{background:#000000}
+body.light #cring{border-color:rgba(0,0,0,0.85)}
+@media(hover:none),(max-width:768px){#cdot,#cring{display:none!important}}
 
 /* ── NAV */
 .nav{
@@ -816,16 +819,23 @@ body.light .proj-info-side{background:#FFFFFF}
 
 <script>
 /* cursor */
-const dot=document.getElementById('cdot');
-const ring=document.getElementById('cring');
-let mx=window.innerWidth/2,my=window.innerHeight/2;
-let rx=mx,ry=my;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px'});
-(function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop)})();
-document.querySelectorAll('a,button').forEach(el=>{
-  el.addEventListener('mouseenter',()=>document.body.classList.add('cursor-grow'));
-  el.addEventListener('mouseleave',()=>document.body.classList.remove('cursor-grow'));
-});
+(function(){
+  const dot=document.getElementById('cdot');
+  const ring=document.getElementById('cring');
+  if(!dot||!ring) return;
+  let mx=window.innerWidth/2,my=window.innerHeight/2,rx=mx,ry=my;
+  document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;},{passive:true});
+  (function loop(){
+    dot.style.left=mx+'px';dot.style.top=my+'px';
+    rx+=(mx-rx)*.12;ry+=(my-ry)*.12;
+    ring.style.left=rx+'px';ring.style.top=ry+'px';
+    requestAnimationFrame(loop);
+  })();
+  document.querySelectorAll('a,button').forEach(function(el){
+    el.addEventListener('mouseenter',function(){document.body.classList.add('cursor-grow');});
+    el.addEventListener('mouseleave',function(){document.body.classList.remove('cursor-grow');});
+  });
+})();
 
 /* nav scroll */
 const nav=document.getElementById('mainNav');
@@ -859,32 +869,21 @@ async function handleSubmit(e){
   }catch{btn.textContent='Erreur — réessayez';}
 }
 
-/* entrée — pas d'animation */
-document.addEventListener('DOMContentLoaded',()=>{
-  const enter=document.getElementById('pageEnter');
-  if(enter) enter.style.display='none';
-});
-
 /* retour vers l'accueil */
 function goBackHome(e){
   if(e) e.preventDefault();
-  const enter=document.getElementById('pageEnter');
-  if(enter){
-    enter.classList.remove('out','out-right');
-    enter.style.transition='transform 0.85s cubic-bezier(.77,0,.175,1)';
-    enter.style.transform='translateY(0)';
-    window.location.href='index.html';
-  } else {
-    window.location.href='index.html';
-  }
+  window.location.href='index.html';
 }
 
 /* page header reveal */
-document.addEventListener('DOMContentLoaded',()=>{
-  setTimeout(()=>{
-    document.getElementById('pageTitle').classList.add('on');
-    document.getElementById('pageSub').classList.add('on');
-    document.getElementById('projCount').classList.add('on');
+document.addEventListener('DOMContentLoaded',function(){
+  setTimeout(function(){
+    var t=document.getElementById('pageTitle');
+    var s=document.getElementById('pageSub');
+    var c=document.getElementById('projCount');
+    if(t)t.classList.add('on');
+    if(s)s.classList.add('on');
+    if(c)c.classList.add('on');
   },120);
 });
 
