@@ -732,7 +732,11 @@ img{display:block;max-width:100%}
 .process-step:nth-child(2).num-active .process-num{color:#F59E0B}
 .process-step:nth-child(3).num-active .process-num{color:#10B981}
 .process-step:nth-child(4).num-active .process-num{color:#8B5CF6}
-.process-step:hover .process-num{opacity:.85}
+/* couleurs au hover */
+.process-step:nth-child(1):hover .process-num{color:#3B82F6}
+.process-step:nth-child(2):hover .process-num{color:#F59E0B}
+.process-step:nth-child(3):hover .process-num{color:#10B981}
+.process-step:nth-child(4):hover .process-num{color:#8B5CF6}
 .process-name{font-size:18px;font-weight:700;text-transform:uppercase;letter-spacing:-0.01em;margin-bottom:12px}
 .process-desc{font-family:'Suisse Intl',var(--F);font-size:16px;font-weight:300;color:var(--dim);line-height:1.75}
 
@@ -1266,6 +1270,8 @@ body.light .tcard.star .tcard-cta:hover{background:rgba(255,255,255,0.85)}
 
 /* ── TEXTES & DESCRIPTIONS */
 
+body.light .about-pill{color:rgba(0,0,0,0.6);border-color:rgba(0,0,0,0.15)}
+body.light .about-pill:hover{background:rgba(0,0,0,0.07);color:#000000;border-color:rgba(0,0,0,0.3)}
 body.light .about-body,body.light .services-sub,body.light .svc-desc{color:#000000}
 body.light .svc-row{border-color:rgba(0,0,0,0.1)}
 body.light .svc-list{border-color:rgba(0,0,0,0.1)}
