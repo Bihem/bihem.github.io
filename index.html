@@ -720,9 +720,14 @@ img{display:block;max-width:100%}
 .process-num{
   font-size:64px;font-weight:700;letter-spacing:-0.04em;line-height:1;
   color:var(--line);margin-bottom:20px;
-  transition:color .3s;
+  transition:color .7s cubic-bezier(.22,1,.36,1);
 }
-.process-step:hover .process-num{color:var(--white)}
+/* couleurs uniques par chiffre au scroll */
+.process-step:nth-child(1).num-active .process-num{color:#3B82F6}
+.process-step:nth-child(2).num-active .process-num{color:#F59E0B}
+.process-step:nth-child(3).num-active .process-num{color:#10B981}
+.process-step:nth-child(4).num-active .process-num{color:#8B5CF6}
+.process-step:hover .process-num{opacity:.85}
 .process-name{font-size:18px;font-weight:700;text-transform:uppercase;letter-spacing:-0.01em;margin-bottom:12px}
 .process-desc{font-family:var(--SI);font-size:13px;font-weight:300;color:var(--dim);line-height:1.7}
 
@@ -3114,6 +3119,23 @@ const cio=new IntersectionObserver(entries=>{
   entries.forEach(e=>{ if(e.isIntersecting){animCount(e.target);cio.unobserve(e.target);} });
 },{threshold:.5});
 document.querySelectorAll('.cnt').forEach(el=>cio.observe(el));
+
+/* ── PROCESS NUMBERS COLOR */
+(function(){
+  const steps=document.querySelectorAll('.process-step');
+  if(!steps.length)return;
+  const pio=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        /* stagger: each step gets its color with a delay based on its index */
+        const idx=Array.from(steps).indexOf(e.target);
+        setTimeout(()=>e.target.classList.add('num-active'),idx*180);
+        pio.unobserve(e.target);
+      }
+    });
+  },{threshold:0.25});
+  steps.forEach(s=>pio.observe(s));
+})();
 
 /* ── SCROLL TOP */
 const stBtn=document.getElementById('scrollTop');
