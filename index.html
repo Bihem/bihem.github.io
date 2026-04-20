@@ -57,6 +57,7 @@ body{
   cursor:none;
   overscroll-behavior-x:none;
   -webkit-tap-highlight-color:transparent;
+  animation:pageFadeIn 0.3s ease forwards;
 }
 a,button{cursor:none;text-decoration:none;color:inherit}
 @media(hover:none),(max-width:768px){
@@ -237,6 +238,7 @@ body.light .hero-video-bg{opacity:0.06;mix-blend-mode:multiply}
 }
 .hero-scroll.on{opacity:1}
 .scroll-line{width:1px;height:48px;background:var(--dim);animation:sline 2.2s ease-in-out infinite 2s}
+@keyframes pageFadeIn{from{opacity:0}to{opacity:1}}
 @keyframes sline{0%,100%{transform:scaleY(1);opacity:1}50%{transform:scaleY(.25);opacity:.3}}
 
 /* ═══════════════ MARQUEE ═══════════════ */
