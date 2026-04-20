@@ -569,10 +569,13 @@ img{display:block;max-width:100%}
 
 /* ─── Paris time ─── */
 function tickTime(){
-  const now=new Date();
-  const h=String(now.toLocaleString('fr-FR',{timeZone:'Europe/Paris',hour:'2-digit',hour12:false})).padStart(2,'0');
-  const m=String(now.getMinutes()).padStart(2,'0');
-  document.getElementById('navtime').textContent='FR · '+h+':'+m;
+  try{
+    const now=new Date();
+    const h=String(now.getHours()).padStart(2,'0');
+    const m=String(now.getMinutes()).padStart(2,'0');
+    const el=document.getElementById('navtime');
+    if(el) el.textContent='FR · '+h+':'+m;
+  }catch(err){}
 }
 tickTime();
 setInterval(tickTime,1000);
