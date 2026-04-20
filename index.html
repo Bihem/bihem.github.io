@@ -840,14 +840,21 @@ img{display:block;max-width:100%}
 .faq-item.open .faq-answer-inner{opacity:1;transform:translateY(0)}
 
 /* ═══════════════ STATS ═══════════════ */
-.stats{padding:32px 28px;border-top:none;background:#000000;text-align:center}
-.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:20px;max-width:600px;margin-left:auto;margin-right:auto}
+.stats{padding:48px 28px;border-top:none;background:#000000;text-align:center}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:32px;max-width:900px;margin-left:auto;margin-right:auto;border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden}
+.stats-grid > div{
+  padding:32px 20px;border-right:1px solid rgba(255,255,255,0.08);
+  transition:background .3s;
+}
+.stats-grid > div:last-child{border-right:none}
+.stats-grid > div:hover{background:rgba(255,255,255,0.03)}
 .stat-num{
   font-family:var(--SI);
-  font-size:clamp(32px,4vw,56px);font-weight:700;
-  letter-spacing:-0.04em;line-height:1;margin-bottom:6px;
+  font-size:clamp(36px,4.5vw,64px);font-weight:700;
+  letter-spacing:-0.05em;line-height:1;margin-bottom:8px;
+  color:#FFFFFF;
 }
-.stat-label{font-family:var(--SI);font-size:11px;font-weight:300;text-transform:uppercase;letter-spacing:0.12em;color:var(--dim)}
+.stat-label{font-family:var(--SI);font-size:11px;font-weight:300;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.45)}
 
 /* ═══════════════ CONTACT ═══════════════ */
 .contact{padding:80px 28px;border-top:none}
@@ -993,6 +1000,7 @@ img{display:block;max-width:100%}
   .nav{padding:16px 20px 0}
   .nav-logo svg{height:28px}
   .nav-time{display:none}
+  .avail-badge{display:none}
 
   /* menu */
   .menu{padding:56px 20px 24px}
@@ -1125,19 +1133,21 @@ img{display:block;max-width:100%}
   .about-grid{gap:32px}
   .about-body{font-size:14px}
 
-  /* ── STATS MOBILE : 3 colonnes égales, bien alignées */
+  /* ── STATS MOBILE : 2x2 grille */
   .stats{padding:24px 16px}
   .stats-grid{
-    grid-template-columns:repeat(3,1fr);
-    gap:0;max-width:100%;
+    grid-template-columns:repeat(2,1fr);
+    gap:0;max-width:100%;border-radius:12px;
   }
   .stats-grid > div{
-    padding:12px 8px;
-    border-right:1px solid var(--line);
+    padding:20px 12px;
+    border-right:1px solid rgba(255,255,255,0.08);
+    border-bottom:1px solid rgba(255,255,255,0.08);
   }
-  .stats-grid > div:last-child{border-right:none}
-  .stat-num{font-size:clamp(18px,6vw,28px);margin-bottom:4px}
-  .stat-label{font-size:8px;letter-spacing:0.06em}
+  .stats-grid > div:nth-child(2n){border-right:none}
+  .stats-grid > div:nth-child(3),.stats-grid > div:nth-child(4){border-bottom:none}
+  .stat-num{font-size:clamp(28px,8vw,40px);margin-bottom:4px}
+  .stat-label{font-size:9px;letter-spacing:0.06em}
 
   /* ── TESTIMONIALS MOBILE : taille réduite, espacement propre */
   .testimonials{padding:40px 16px}
@@ -1311,6 +1321,31 @@ body.light .scroll-top{background:#F2F2F2;border-color:rgba(0,0,0,0.1);color:#00
 body.light .about-greeting,body.light .about-heading,body.light .about-pill{color:#000000}
 body.light .services-h,body.light .process-title,body.light .section-title{color:#000000}
 body.light .hero-tagline,body.light .hero-sub,body.light .hero-cta-label{color:#000000}
+
+/* ── DISPONIBILITÉ BADGE */
+.avail-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;
+  color:#10B981;border:1px solid rgba(16,185,129,0.35);
+  border-radius:100px;padding:5px 12px;flex-shrink:0;
+}
+.avail-dot{
+  width:6px;height:6px;border-radius:50%;background:#10B981;flex-shrink:0;
+  animation:pulse-avail 2.2s ease-in-out infinite;
+}
+@keyframes pulse-avail{
+  0%,100%{box-shadow:0 0 0 0 rgba(16,185,129,0.5)}
+  50%{box-shadow:0 0 0 6px rgba(16,185,129,0)}
+}
+body.light .avail-badge{color:#059669;border-color:rgba(5,150,105,0.35)}
+body.light .avail-dot{background:#059669}
+
+/* ── REPLY HINT */
+.reply-hint{
+  font-family:'Suisse Intl',var(--F);font-size:12px;font-weight:300;
+  color:var(--dim);margin-top:16px;display:flex;align-items:center;gap:8px;
+}
+.reply-hint::before{content:'⚡';font-size:11px}
 
 /* ── PAGE TRANSITION */
 .page-transition{
@@ -1529,6 +1564,7 @@ body.light .reel-arrow svg path{stroke:#000000}
   </a>
   <div class="nav-right">
     <span class="nav-time" id="navtime">FR · --:--</span>
+    <span class="avail-badge"><span class="avail-dot"></span>Disponible</span>
     <button class="nav-btn" id="menuOpen">Menu</button>
   </div>
 </nav>
@@ -1767,6 +1803,7 @@ body.light .reel-arrow svg path{stroke:#000000}
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="12" height="12" rx="3.5"/><circle cx="8" cy="8" r="3"/><circle cx="11.5" cy="4.5" r=".75" fill="currentColor" stroke="none"/></svg>
         </a>
       </div>
+      <p class="reply-hint rv d4">Réponse sous 24h garantie · Premier échange gratuit</p>
     </div>
   </div>
 </section>
@@ -2213,6 +2250,8 @@ body.light .reel-arrow svg path{stroke:#000000}
       <div class="clients-item">KL CONCEPT <span class="clients-sep">·</span></div>
       <div class="clients-item">LUMA STUDIO <span class="clients-sep">·</span></div>
       <div class="clients-item">BOOST AGENCY <span class="clients-sep">·</span></div>
+      <div class="clients-item">BIHEM <span class="clients-sep">·</span></div>
+      <div class="clients-item">UNR <span class="clients-sep">·</span></div>
       <!-- duplicate -->
       <div class="clients-item">TALSEUME <span class="clients-sep">·</span></div>
       <div class="clients-item">DAFLON <span class="clients-sep">·</span></div>
@@ -2222,6 +2261,8 @@ body.light .reel-arrow svg path{stroke:#000000}
       <div class="clients-item">KL CONCEPT <span class="clients-sep">·</span></div>
       <div class="clients-item">LUMA STUDIO <span class="clients-sep">·</span></div>
       <div class="clients-item">BOOST AGENCY <span class="clients-sep">·</span></div>
+      <div class="clients-item">BIHEM <span class="clients-sep">·</span></div>
+      <div class="clients-item">UNR <span class="clients-sep">·</span></div>
     </div>
   </div>
 </div>
@@ -2262,12 +2303,32 @@ body.light .reel-arrow svg path{stroke:#000000}
       <div class="faq-answer"><div class="faq-answer-inner">Oui, la mise en ligne est incluse dans toutes les offres site web. Je guide aussi pour l'achat du nom de domaine et la configuration des e-mails professionnels si besoin.</div></div>
     </div>
 
+    <div class="faq-item">
+      <button class="faq-btn"><span class="faq-q"><span class="faq-num">07</span><span class="faq-text">Quel est le délai pour un site vitrine ?</span></span><span class="faq-icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">Un site vitrine Starter (3–5 pages) est livré en 7 à 10 jours ouvrés. Un site Pro (6–10 pages) prend 12 à 16 jours. Ces délais démarrent une fois le brief validé et l'acompte reçu.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-btn"><span class="faq-q"><span class="faq-num">08</span><span class="faq-text">Y a-t-il un suivi après la livraison ?</span></span><span class="faq-icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">Oui. Tous mes projets incluent 30 jours de support post-livraison pour corriger d'éventuels ajustements mineurs. Pour un suivi continu (mises à jour, maintenance, ajout de contenu), je propose des forfaits mensuels à partir de 80 €/mois.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-btn"><span class="faq-q"><span class="faq-num">09</span><span class="faq-text">Et si le résultat ne me convient pas ?</span></span><span class="faq-icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">C'est très rare car je travaille en collaboration étroite tout au long du projet, avec des points réguliers. Si malgré tout le résultat ne vous convient pas après les 2 rounds de révisions inclus, on en discute ensemble. La satisfaction client est ma priorité.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-btn"><span class="faq-q"><span class="faq-num">10</span><span class="faq-text">Vous travaillez seul ou en équipe ?</span></span><span class="faq-icon">+</span></button>
+      <div class="faq-answer"><div class="faq-answer-inner">Je travaille principalement en solo, ce qui garantit un interlocuteur unique et une cohérence créative totale. Pour les projets plus complexes (développement avancé, copywriting), je collabore avec des partenaires de confiance selon les besoins.</div></div>
+    </div>
+
   </div>
 </section>
 
 <!-- ═══════ STATS ═══════ -->
 <section class="stats">
-  <div class="slabel rv" style="justify-content:center">En chiffres</div>
+  <div class="slabel rv" style="justify-content:center;color:rgba(255,255,255,0.4)">En chiffres</div>
   <div class="stats-grid">
     <div class="rv">
       <div class="stat-num"><span class="cnt" data-t="17">0</span>+</div>
@@ -2280,6 +2341,10 @@ body.light .reel-arrow svg path{stroke:#000000}
     <div class="rv d2">
       <div class="stat-num"><span class="cnt" data-t="3">0</span>j</div>
       <div class="stat-label">Délai moyen</div>
+    </div>
+    <div class="rv d3">
+      <div class="stat-num"><span class="cnt" data-t="4">0</span>+</div>
+      <div class="stat-label">Années d'expérience</div>
     </div>
   </div>
 </section>
@@ -2328,6 +2393,15 @@ body.light .reel-arrow svg path{stroke:#000000}
           <div>
             <div class="contact-item-label">Instagram</div>
             <div class="contact-item-val">@Dikenga.design</div>
+          </div>
+        </a>
+        <a href="https://wa.me/33767537059" target="_blank" rel="noopener" class="contact-item">
+          <div class="contact-item-ico" style="background:#25D366;border-color:#25D366">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          </div>
+          <div>
+            <div class="contact-item-label">WhatsApp — Réponse rapide</div>
+            <div class="contact-item-val">07 67 53 70 59</div>
           </div>
         </a>
       </div>
@@ -2597,6 +2671,11 @@ body.light .reel-arrow svg path{stroke:#000000}
     </div>
   </div>
 </div>
+
+<!-- WHATSAPP BUTTON -->
+<a href="https://wa.me/33767537059" target="_blank" rel="noopener" class="wa" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
 
 <!-- SCROLL TOP -->
 <button class="scroll-top" id="scrollTop" aria-label="Retour en haut">↑</button>
