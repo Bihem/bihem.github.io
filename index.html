@@ -13,6 +13,11 @@
 <meta property="og:description" content="Designer UI/UX freelance. Je conçois des interfaces qui convertissent, des sites web avec IA et des agents automatisés pour accélérer votre business."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://dikengadesign.fr/"/>
+<meta property="og:image" content="https://dikengadesign.fr/og-image.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://dikengadesign.fr/og-image.jpg"/>
 <link rel="icon" type="image/x-icon" href="favicon.ico"/>
 <link rel="shortcut icon" href="favicon.ico"/>
 <link rel="apple-touch-icon" href="favicon.ico"/>
@@ -40,7 +45,7 @@
   --r:12px;
 }
 
-html{font-size:16px;overflow-x:hidden;scroll-behavior:smooth}
+html{font-size:16px;overflow-x:hidden;scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{
   background:var(--bg);
   color:var(--white);
@@ -50,8 +55,14 @@ body{
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
   cursor:none;
+  overscroll-behavior-x:none;
+  -webkit-tap-highlight-color:transparent;
 }
 a,button{cursor:none;text-decoration:none;color:inherit}
+@media(hover:none),(max-width:768px){
+  *,a,button{cursor:auto!important}
+  #cdot,#cring{display:none!important}
+}
 ul{list-style:none}
 img{display:block;max-width:100%}
 
@@ -258,7 +269,7 @@ img{display:block;max-width:100%}
 .mq-voir{font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:1;transition:opacity .3s;font-family:var(--SI);color:var(--white);text-decoration:none;white-space:nowrap}
 .mq-voir:hover{opacity:.6}
 .mq-outer{overflow:hidden;width:100%}
-.mq-track{display:flex;gap:0;width:max-content;animation:marqueeScroll 35s linear infinite}
+.mq-track{display:flex;gap:0;width:max-content;animation:marqueeScroll 35s linear infinite;will-change:transform;-webkit-backface-visibility:hidden;backface-visibility:hidden}
 .mq-outer:hover .mq-track{animation-play-state:paused}
 @keyframes marqueeScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 .mq-card{width:380px;height:290px;border-radius:0;overflow:hidden;position:relative;flex-shrink:0;display:block;text-decoration:none;color:var(--white)}
@@ -288,10 +299,10 @@ img{display:block;max-width:100%}
 .proj-card:hover .proj-bg{transform:scale(1)}
 .proj-card .proj-info,.proj-card .proj-badge,.proj-card .proj-veil{display:none}
 .all-proj-item .proj-info,.all-proj-item .proj-badge,.all-proj-item .proj-veil{display:none}
-.p1 .proj-bg{background-image:url('mockup-mamagaya.png');background-size:cover;background-position:center}
-.p2 .proj-bg{background-image:url('mockup-adidas.png');background-size:cover;background-position:center top}
-.p3 .proj-bg{background-image:url('mockup-barnes.png');background-size:cover;background-position:center top}
-.p4 .proj-bg{background-image:url('mockup-logotype.png');background-size:cover;background-position:center}
+.p1 .proj-bg{background-image:url('mockup-mamagaya.webp');background-size:cover;background-position:center}
+.p2 .proj-bg{background-image:url('mockup-adidas.webp');background-size:cover;background-position:center top}
+.p3 .proj-bg{background-image:url('mockup-barnes.webp');background-size:cover;background-position:center top}
+.p4 .proj-bg{background-image:url('mockup-logotype.webp');background-size:cover;background-position:center}
 .proj-veil{
   position:absolute;inset:0;
   background:linear-gradient(to top,rgba(0,0,0,.72) 0%,rgba(0,0,0,.1) 55%,transparent 100%);
@@ -859,11 +870,17 @@ img{display:block;max-width:100%}
 .cookie-refuse:hover{background:rgba(255,255,255,.14)}
 
 /* ═══════════════ REVEAL ═══════════════ */
-.rv{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.22,1,.36,1)}
-.rv.on{opacity:1;transform:translateY(0)}
-.rv.d1{transition-delay:.1s}
-.rv.d2{transition-delay:.2s}
-.rv.d3{transition-delay:.3s}
+.rv{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1);will-change:opacity,transform}
+.rv.on{opacity:1;transform:translateY(0);will-change:auto}
+.rv.d1{transition-delay:.08s}
+.rv.d2{transition-delay:.16s}
+.rv.d3{transition-delay:.24s}
+@media(max-width:640px){
+  .rv{transform:translateY(14px)}
+  .rv.d1{transition-delay:.04s}
+  .rv.d2{transition-delay:.08s}
+  .rv.d3{transition-delay:.12s}
+}
 .rv.d4{transition-delay:.4s}
 
 /* ═══════════════ RESPONSIVE ═══════════════ */
@@ -1281,20 +1298,24 @@ body.light .hero-tagline,body.light .hero-sub,body.light .hero-cta-label{color:#
   #proj-reel{
     position:relative;
     bottom:auto;right:auto;top:auto;left:auto;
-    width:100%;height:90px;
-    margin-top:24px;
+    width:calc(100% - 32px);height:80px;
+    margin:20px 16px 0;
+    border-radius:12px;
     opacity:1 !important;
     transform:none !important;
     pointer-events:all !important;
     box-shadow:none;
+    padding:0 16px;gap:14px;
   }
   #proj-reel.reel-hidden{
     opacity:1 !important;
     transform:none !important;
     pointer-events:all !important;
   }
-  .reel-square{width:110px;height:68px}
-  .reel-slide{width:110px}
+  .reel-square{width:96px;height:60px;border-radius:8px}
+  .reel-slide{width:96px}
+  .reel-cur-name{font-size:12px}
+  .reel-sub{font-size:9px}
 }
 
 /* ── REEL — THÈME CLAIR */
@@ -1479,10 +1500,10 @@ body.light .reel-arrow svg path{stroke:#000000}
   <div id="proj-reel" class="reel-hidden">
     <div class="reel-square">
       <div class="reel-track" id="reelTrack">
-        <div class="reel-slide" data-name="Mama Gaya" style="background-image:url('mockup-mamagaya.png')"></div>
-        <div class="reel-slide" data-name="Adidas" style="background-image:url('mockup-adidas.png')"></div>
-        <div class="reel-slide" data-name="Barnes" style="background-image:url('mockup-barnes.png')"></div>
-        <div class="reel-slide" data-name="Logotype" style="background-image:url('mockup-logotype.png')"></div>
+        <div class="reel-slide" data-name="Mama Gaya" style="background-image:url('mockup-mamagaya.webp')"></div>
+        <div class="reel-slide" data-name="Adidas" style="background-image:url('mockup-adidas.webp')"></div>
+        <div class="reel-slide" data-name="Barnes" style="background-image:url('mockup-barnes.webp')"></div>
+        <div class="reel-slide" data-name="Logotype" style="background-image:url('mockup-logotype.webp')"></div>
       </div>
     </div>
     <div class="reel-divider"></div>
@@ -1511,76 +1532,76 @@ body.light .reel-arrow svg path{stroke:#000000}
   <div class="mq-outer">
     <div class="mq-track">
       <a href="projets.html" class="mq-card" onclick="goToProjects(event)">
-        <div class="mq-img" style="background-image:url('mockup-mamagaya.png')"></div>
+        <div class="mq-img" style="background-image:url('mockup-mamagaya.webp')"></div>
         <div class="mq-info"><span class="mq-cat">UI Design · App Mobile</span><span class="mq-name">Mamagaya</span></div>
       </a>
       <a href="projets.html" class="mq-card" onclick="goToProjects(event)">
-        <div class="mq-img" style="background-image:url('mockup-adidas.png')"></div>
+        <div class="mq-img" style="background-image:url('mockup-adidas.webp')"></div>
         <div class="mq-info"><span class="mq-cat">UI Design · E-commerce</span><span class="mq-name">Adidas Harden</span></div>
       </a>
       <a href="projets.html" class="mq-card" onclick="goToProjects(event)">
-        <div class="mq-img" style="background-image:url('mockup-barnes.png')"></div>
+        <div class="mq-img" style="background-image:url('mockup-barnes.webp')"></div>
         <div class="mq-info"><span class="mq-cat">UI Design · Automobile</span><span class="mq-name">BARNES CarJager</span></div>
       </a>
       <a href="projets.html" class="mq-card" onclick="goToProjects(event)">
-        <div class="mq-img" style="background-image:url('mockup-logotype.png')"></div>
+        <div class="mq-img" style="background-image:url('mockup-logotype.webp')"></div>
         <div class="mq-info"><span class="mq-cat">Identité · Branding</span><span class="mq-name">Logotype Design</span></div>
       </a>
       <a href="projets.html" class="mq-card" onclick="goToProjects(event)">
-        <div class="mq-img" style="background-image:url('mockup-nike-bleu.png')"></div>
+        <div class="mq-img" style="background-image:url('mockup-nike-bleu.webp')"></div>
         <div class="mq-info"><span class="mq-cat">UI Design · Sport</span><span class="mq-name">Nike Collection</span></div>
       </a>
       <a href="projets.html" class="mq-card" onclick="goToProjects(event)">
-        <div class="mq-img" style="background-image:url('mockup-nike-rouge.png')"></div>
+        <div class="mq-img" style="background-image:url('mockup-nike-rouge.webp')"></div>
         <div class="mq-info"><span class="mq-cat">UI Design · Sport</span><span class="mq-name">Nike Air Max</span></div>
       </a>
       <a href="projets.html" class="mq-card" onclick="goToProjects(event)">
-        <div class="mq-img" style="background-image:url('logo-daflon.jpg')"></div>
+        <div class="mq-img" style="background-image:url('logo-daflon.webp')"></div>
         <div class="mq-info"><span class="mq-cat">Identité · Branding</span><span class="mq-name">Daflon Community</span></div>
       </a>
       <a href="projets.html" class="mq-card" onclick="goToProjects(event)">
-        <div class="mq-img" style="background-image:url('logo-carole.jpg')"></div>
+        <div class="mq-img" style="background-image:url('logo-carole.webp')"></div>
         <div class="mq-info"><span class="mq-cat">Identité · Branding</span><span class="mq-name">Carole Grantz Paris</span></div>
       </a>
       <a href="projets.html" class="mq-card" onclick="goToProjects(event)">
-        <div class="mq-img" style="background-image:url('logo-don.jpg')"></div>
+        <div class="mq-img" style="background-image:url('logo-don.webp')"></div>
         <div class="mq-info"><span class="mq-cat">Identité · Monogramme</span><span class="mq-name">DON</span></div>
       </a>
       <!-- duplicate pour boucle infinie -->
       <a href="projets.html" class="mq-card" aria-hidden="true" onclick="goToProjects(event)">
-        <div class="mq-img" style="background-image:url('mockup-mamagaya.png')"></div>
+        <div class="mq-img" style="background-image:url('mockup-mamagaya.webp')"></div>
         <div class="mq-info"><span class="mq-cat">UI Design · App Mobile</span><span class="mq-name">Mamagaya</span></div>
       </a>
       <a href="projets.html" class="mq-card" aria-hidden="true" onclick="goToProjects(event)">
-        <div class="mq-img" style="background-image:url('mockup-adidas.png')"></div>
+        <div class="mq-img" style="background-image:url('mockup-adidas.webp')"></div>
         <div class="mq-info"><span class="mq-cat">UI Design · E-commerce</span><span class="mq-name">Adidas Harden</span></div>
       </a>
       <a href="projets.html" class="mq-card" aria-hidden="true" onclick="goToProjects(event)">
-        <div class="mq-img" style="background-image:url('mockup-barnes.png')"></div>
+        <div class="mq-img" style="background-image:url('mockup-barnes.webp')"></div>
         <div class="mq-info"><span class="mq-cat">UI Design · Automobile</span><span class="mq-name">BARNES CarJager</span></div>
       </a>
       <a href="projets.html" class="mq-card" aria-hidden="true" onclick="goToProjects(event)">
-        <div class="mq-img" style="background-image:url('mockup-logotype.png')"></div>
+        <div class="mq-img" style="background-image:url('mockup-logotype.webp')"></div>
         <div class="mq-info"><span class="mq-cat">Identité · Branding</span><span class="mq-name">Logotype Design</span></div>
       </a>
       <a href="projets.html" class="mq-card" aria-hidden="true" onclick="goToProjects(event)">
-        <div class="mq-img" style="background-image:url('mockup-nike-bleu.png')"></div>
+        <div class="mq-img" style="background-image:url('mockup-nike-bleu.webp')"></div>
         <div class="mq-info"><span class="mq-cat">UI Design · Sport</span><span class="mq-name">Nike Collection</span></div>
       </a>
       <a href="projets.html" class="mq-card" aria-hidden="true" onclick="goToProjects(event)">
-        <div class="mq-img" style="background-image:url('mockup-nike-rouge.png')"></div>
+        <div class="mq-img" style="background-image:url('mockup-nike-rouge.webp')"></div>
         <div class="mq-info"><span class="mq-cat">UI Design · Sport</span><span class="mq-name">Nike Air Max</span></div>
       </a>
       <a href="projets.html" class="mq-card" aria-hidden="true" onclick="goToProjects(event)">
-        <div class="mq-img" style="background-image:url('logo-daflon.jpg')"></div>
+        <div class="mq-img" style="background-image:url('logo-daflon.webp')"></div>
         <div class="mq-info"><span class="mq-cat">Identité · Branding</span><span class="mq-name">Daflon Community</span></div>
       </a>
       <a href="projets.html" class="mq-card" aria-hidden="true" onclick="goToProjects(event)">
-        <div class="mq-img" style="background-image:url('logo-carole.jpg')"></div>
+        <div class="mq-img" style="background-image:url('logo-carole.webp')"></div>
         <div class="mq-info"><span class="mq-cat">Identité · Branding</span><span class="mq-name">Carole Grantz Paris</span></div>
       </a>
       <a href="projets.html" class="mq-card" aria-hidden="true" onclick="goToProjects(event)">
-        <div class="mq-img" style="background-image:url('logo-don.jpg')"></div>
+        <div class="mq-img" style="background-image:url('logo-don.webp')"></div>
         <div class="mq-info"><span class="mq-cat">Identité · Monogramme</span><span class="mq-name">DON</span></div>
       </a>
     </div>
@@ -1591,7 +1612,7 @@ body.light .reel-arrow svg path{stroke:#000000}
 <section class="about" id="about">
   <div class="about-grid">
     <div class="about-photo rv">
-      <img src="DIKENGA-4.jpg" alt="Dikenga — UI/UX Designer Paris" onerror="this.style.display='none'"/>
+      <img src="DIKENGA-4.webp" alt="Dikenga — UI/UX Designer Paris" onerror="this.style.display='none'"/>
       <div class="about-photo-placeholder">
         <svg viewBox="0 0 320 120" fill="none" xmlns="http://www.w3.org/2000/svg">
           <ellipse cx="152" cy="60" rx="144" ry="52" stroke="white" stroke-width="7" fill="none"/>
@@ -2126,7 +2147,7 @@ body.light .reel-arrow svg path{stroke:#000000}
   </div>
   <div class="all-proj-grid">
     <div class="all-proj-item">
-      <div class="proj-bg" style="background-image:url('mockup-mamagaya.png');background-size:cover;background-position:center"></div>
+      <div class="proj-bg" style="background-image:url('mockup-mamagaya.webp');background-size:cover;background-position:center"></div>
       <div class="proj-veil"></div>
       <span class="proj-badge">UI Design · App Mobile</span>
       <div class="proj-info">
@@ -2140,7 +2161,7 @@ body.light .reel-arrow svg path{stroke:#000000}
       </div>
     </div>
     <div class="all-proj-item">
-      <div class="proj-bg" style="background-image:url('mockup-adidas.png');background-size:cover;background-position:center top"></div>
+      <div class="proj-bg" style="background-image:url('mockup-adidas.webp');background-size:cover;background-position:center top"></div>
       <div class="proj-veil"></div>
       <span class="proj-badge">UI Design · E-commerce</span>
       <div class="proj-info">
@@ -2154,7 +2175,7 @@ body.light .reel-arrow svg path{stroke:#000000}
       </div>
     </div>
     <div class="all-proj-item">
-      <div class="proj-bg" style="background-image:url('mockup-barnes.png');background-size:cover;background-position:center top"></div>
+      <div class="proj-bg" style="background-image:url('mockup-barnes.webp');background-size:cover;background-position:center top"></div>
       <div class="proj-veil"></div>
       <span class="proj-badge">UI Design · Automobile</span>
       <div class="proj-info">
@@ -2168,7 +2189,7 @@ body.light .reel-arrow svg path{stroke:#000000}
       </div>
     </div>
     <div class="all-proj-item">
-      <div class="proj-bg" style="background-image:url('mockup-logotype.png');background-size:cover;background-position:center"></div>
+      <div class="proj-bg" style="background-image:url('mockup-logotype.webp');background-size:cover;background-position:center"></div>
       <div class="proj-veil"></div>
       <span class="proj-badge">Identité · Logotype</span>
       <div class="proj-info">
