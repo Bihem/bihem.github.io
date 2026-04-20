@@ -3115,11 +3115,18 @@ async function handleSubmit(e){
   }
   if(nameEl)nameEl.style.transition='opacity 0.3s ease';
   setInterval(nextSlide,3200);
-  // Cacher le reel quand le hero sort du viewport
+  // Afficher le reel immédiatement sans animation au chargement
+  reel.style.transition='none';
+  reel.classList.remove('reel-hidden');
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{ reel.style.transition=''; }));
+
+  // Cacher le reel quand le hero sort du viewport (ignore le premier fire)
   const hero=document.querySelector('.hero');
   if(hero&&reel){
+    let reelReady=false;
     const obs=new IntersectionObserver(entries=>{
       entries.forEach(e=>{
+        if(!reelReady){ reelReady=true; return; } // ignore initial fire
         if(e.isIntersecting){reel.classList.remove('reel-hidden');}
         else{reel.classList.add('reel-hidden');}
       });
