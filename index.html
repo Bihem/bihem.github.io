@@ -709,7 +709,7 @@ img{display:block;max-width:100%}
 .clients-sep{color:var(--line);font-weight:300;font-size:18px;margin:0 8px}
 
 /* ═══════════════ FAQ ═══════════════ */
-.faq{padding:80px 28px;border-top:1px solid var(--line)}
+.faq{padding:80px 28px;border-top:1px solid var(--line);background:#000000}
 .faq-list{max-width:860px;margin:0 auto}
 .faq-item{border-bottom:1px solid var(--line);position:relative}
 .faq-item:first-child{border-top:1px solid var(--line)}
@@ -745,7 +745,7 @@ img{display:block;max-width:100%}
 .faq-item.open .faq-answer-inner{opacity:1;transform:translateY(0)}
 
 /* ═══════════════ STATS ═══════════════ */
-.stats{padding:32px 28px;border-top:none;background:var(--bg2);text-align:center}
+.stats{padding:32px 28px;border-top:none;background:#000000;text-align:center}
 .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:20px;max-width:600px;margin-left:auto;margin-right:auto}
 .stat-num{
   font-family:var(--SI);
@@ -812,7 +812,7 @@ img{display:block;max-width:100%}
 .form-submit:hover{background:var(--off);transform:translateY(-2px)}
 
 /* ═══════════════ FOOTER ═══════════════ */
-.footer{padding:28px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer{padding:28px;border-top:1px solid var(--line);background:#000000;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .footer-copy{font-size:10px;font-weight:500;color:var(--dim);text-transform:uppercase;letter-spacing:0.1em}
 .footer-links{display:flex;gap:24px}
 .footer-lnk{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;color:var(--dim);transition:color .2s}
@@ -1161,24 +1161,37 @@ body.light .svc-n{color:#000000}
 body.light .svc-icon{color:#000000}
 
 /* ── STATS */
-body.light .stat-label{color:#000000}
+body.light .stats{background:#000000}
+body.light .stats .slabel{color:rgba(255,255,255,0.55)}
+body.light .stats .slabel::before{background:rgba(255,255,255,0.4)}
+body.light .stat-num{color:#FFFFFF}
+body.light .stat-label{color:rgba(255,255,255,0.55)}
 
 /* ── TESTIMONIALS */
 body.light .testi-q{color:#000000}
 body.light .testi-role{color:#000000}
 
 /* ── FAQ */
-body.light .faq-answer-inner{color:#000000}
-body.light .faq-num{color:#000000}
-body.light .faq-item{border-color:rgba(0,0,0,0.1)}
-body.light .faq-icon{border-color:rgba(0,0,0,0.2);color:#000000}
-body.light .faq-item.open .faq-icon{background:#000000;border-color:#000000;color:#FFFFFF}
+body.light .faq{background:#000000}
+body.light .faq .slabel{color:rgba(255,255,255,0.55)}
+body.light .faq .slabel::before{background:rgba(255,255,255,0.4)}
+body.light .faq .testi-h{color:#FFFFFF}
+body.light .faq-text{color:#FFFFFF}
+body.light .faq-answer-inner{color:rgba(255,255,255,0.6)}
+body.light .faq-num{color:rgba(255,255,255,0.3)}
+body.light .faq-item.open .faq-num{color:#FFFFFF}
+body.light .faq-item{border-color:rgba(255,255,255,0.1)}
+body.light .faq-item::before{background:#FFFFFF}
+body.light .faq-icon{border-color:rgba(255,255,255,0.3);color:rgba(255,255,255,0.6)}
+body.light .faq-item.open .faq-icon{background:#FFFFFF;border-color:#FFFFFF;color:#000000}
 
 /* ── DIVERS */
 body.light .slabel{color:#000000}
 body.light .slabel::before{background:#000000}
 body.light .marquee-item,body.light .clients-item{color:#000000}
-body.light .footer-copy,body.light .footer-lnk{color:#000000}
+body.light .footer{background:#000000;border-color:rgba(255,255,255,0.1)}
+body.light .footer-copy,body.light .footer-lnk{color:rgba(255,255,255,0.55)}
+body.light .footer-lnk:hover{color:#FFFFFF}
 body.light .scroll-top{background:#F2F2F2;border-color:rgba(0,0,0,0.1);color:#000000}
 body.light .about-greeting,body.light .about-heading,body.light .about-pill{color:#000000}
 body.light .services-h,body.light .process-title,body.light .section-title{color:#000000}
