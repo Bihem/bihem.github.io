@@ -555,11 +555,12 @@ img{display:block;max-width:100%}
   font-size:clamp(20px,2.6vw,42px);
   font-weight:400;text-transform:uppercase;
   letter-spacing:-0.025em;
-  color:var(--dim);
-  transition:color .3s ease,letter-spacing .4s cubic-bezier(.22,1,.36,1);
+  color:var(--white);
+  transition:letter-spacing .4s cubic-bezier(.22,1,.36,1),opacity .3s;
+  opacity:.55;
 }
 .svc-row:hover .svc-row-name,
-.svc-row.svc-active .svc-row-name{color:var(--white);letter-spacing:0.01em}
+.svc-row.svc-active .svc-row-name{opacity:1;letter-spacing:0.01em}
 .svc-row-n{
   font-size:10px;font-weight:600;letter-spacing:0.1em;
   text-transform:uppercase;color:var(--dim);flex-shrink:0;
@@ -1190,8 +1191,8 @@ body.light .tcard.star .tcard-cta:hover{background:rgba(255,255,255,0.85)}
 body.light .about-body,body.light .services-sub,body.light .svc-desc{color:#000000}
 body.light .svc-row{border-color:rgba(0,0,0,0.1)}
 body.light .svc-list{border-color:rgba(0,0,0,0.1)}
-body.light .svc-row-name{color:rgba(0,0,0,0.4)}
-body.light .svc-row:hover .svc-row-name,body.light .svc-row.svc-active .svc-row-name{color:#000000}
+body.light .svc-row-name{color:#000000;opacity:.4}
+body.light .svc-row:hover .svc-row-name,body.light .svc-row.svc-active .svc-row-name{opacity:1}
 body.light .svc-row-n{color:rgba(0,0,0,0.4)}
 body.light .svc-desc{color:rgba(0,0,0,0.6)}
 body.light .svc-tag{border-color:rgba(0,0,0,0.15);color:rgba(0,0,0,0.55)}
