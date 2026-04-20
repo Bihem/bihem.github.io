@@ -3,7 +3,19 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<style>html{background:#1D1B1B}</style>
+<style>html{background:#1D1B1B}
+/* ── VIDEO FOND GLOBAL */
+.site-video-bg{
+  position:fixed;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  opacity:0.13;
+  z-index:0;
+  pointer-events:none;
+  mix-blend-mode:screen;
+}
+body.light .site-video-bg{opacity:0.06;mix-blend-mode:multiply}
+</style>
 <script>if(localStorage.getItem('dikenga-theme')==='light')document.documentElement.style.background='#FFFFFF'</script>
 <title>Tarifs — Dikenga. | UI/UX Designer Freelance Paris</title>
 <meta name="description" content="Découvrez les tarifs de Dikenga, designer UI/UX freelance. Formules claires pour logo, site vitrine, e-commerce, SEO, agents IA et plus. Acompte 50% au démarrage."/>
@@ -281,6 +293,11 @@ img{display:block;max-width:100%}
 </style>
 </head>
 <body>
+<!-- VIDEO FOND GLOBAL -->
+<video class="site-video-bg" autoplay muted loop playsinline>
+  <source src="hero-bg.mp4" type="video/mp4">
+</video>
+
 
 <!-- PAGE COVER -->
 <div id="cover"></div>
