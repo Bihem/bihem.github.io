@@ -16,6 +16,11 @@
   mix-blend-mode:screen;
 }
 body.light .site-video-bg{opacity:0.06;mix-blend-mode:multiply}
+@view-transition{navigation:auto}
+::view-transition-old(root){animation:vt-out 0.25s ease both}
+::view-transition-new(root){animation:vt-in 0.25s ease both}
+@keyframes vt-out{to{opacity:0}}
+@keyframes vt-in{from{opacity:0}}
 </style>
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" as="style"/>
 <title>Contact — Dikenga.</title>
