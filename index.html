@@ -407,7 +407,7 @@ img{display:block;max-width:100%}
 
 /* ═══════════════ ABOUT ═══════════════ */
 .about{padding:80px 28px;border-top:1px solid var(--line)}
-.about-grid{display:grid;grid-template-columns:0.6fr 1fr;gap:64px;align-items:center}
+.about-grid{display:grid;grid-template-columns:0.6fr 1fr;gap:64px;align-items:start}
 .about-greeting{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.14em;color:var(--dim);margin-bottom:14px}
 .about-heading{
   font-size:clamp(28px,4vw,52px);font-weight:700;
@@ -416,11 +416,10 @@ img{display:block;max-width:100%}
 .about-heading span{display:block}
 .about-photo{
   width:100%;aspect-ratio:4/5;border-radius:0;
-  overflow:hidden;background:transparent;
+  overflow:hidden;background:var(--bg3);
   display:flex;align-items:center;justify-content:center;position:relative;
 }
 .about-photo img{width:100%;height:100%;object-fit:cover}
-.about-photo video{width:115%;height:115%;object-fit:contain;display:block;transform:scale(1.15);transform-origin:center}
 .about-photo-placeholder{
   opacity:.06;display:flex;align-items:center;justify-content:center;width:100%;height:100%;position:absolute;
 }
@@ -1592,7 +1591,13 @@ body.light .reel-arrow svg path{stroke:#000000}
 <section class="about" id="about">
   <div class="about-grid">
     <div class="about-photo rv">
-      <video src="about-video.webm" autoplay loop muted playsinline></video>
+      <img src="DIKENGA-4.jpg" alt="Dikenga — UI/UX Designer Paris" onerror="this.style.display='none'"/>
+      <div class="about-photo-placeholder">
+        <svg viewBox="0 0 320 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="152" cy="60" rx="144" ry="52" stroke="white" stroke-width="7" fill="none"/>
+          <text x="152" y="75" text-anchor="middle" font-family="'Space Grotesk',Arial,sans-serif" font-weight="700" font-size="46" fill="white" letter-spacing="-1">DIKENGA.</text>
+        </svg>
+      </div>
     </div>
     <div>
       <p class="about-greeting rv">Salut,</p>
