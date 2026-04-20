@@ -519,7 +519,7 @@ img{display:block;max-width:100%}
 .services-sub{font-family:'Suisse Intl',var(--F);font-size:15px;font-weight:300;color:var(--white);max-width:280px;line-height:1.65;padding-top:6px}
 
 /* ── Split layout desktop (Niklas Bubori) */
-.services-list{margin-top:64px;padding:0;display:grid;grid-template-columns:1fr 1fr}
+.services-list{margin-top:64px;padding:0;display:grid;grid-template-columns:1fr 1fr;align-items:start}
 .svc-mobile-list{display:none}
 .svc-tabs-mobile{display:none}
 /* Carousel mobile services */
@@ -557,8 +557,8 @@ img{display:block;max-width:100%}
 
 /* LEFT — sticky image panel */
 .svc-img-panel{
-  position:sticky;top:0;
-  height:100vh;overflow:hidden;
+  position:sticky;top:80px;
+  height:calc(100vh - 80px);overflow:hidden;
   background:transparent;
   display:flex;align-items:center;justify-content:center;
   padding:22px 0;
