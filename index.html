@@ -560,14 +560,35 @@ img{display:block;max-width:100%}
   border-bottom:1px solid var(--line);
   padding:32px 48px;
   cursor:none;
+  position:relative;
   transition:background .3s;
 }
 .svc-row:first-child{border-top:1px solid var(--line)}
 .svc-row:hover{background:rgba(255,255,255,.02)}
+/* Trait blanc animé */
+.svc-row::after{
+  content:'';position:absolute;bottom:0;left:0;
+  width:0;height:1px;background:var(--white);
+  transition:width .65s cubic-bezier(.22,1,.36,1);
+}
+.svc-row:hover::after,.svc-row.svc-active::after{width:100%}
 
 .svc-row-head{
-  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  display:flex;align-items:center;gap:24px;
 }
+.svc-row-icon{
+  width:34px;height:34px;flex-shrink:0;color:var(--white);
+  opacity:.7;transition:transform .35s cubic-bezier(.22,1,.36,1),opacity .3s;
+}
+.svc-row:hover .svc-row-icon,.svc-row.svc-active .svc-row-icon{
+  transform:rotate(-12deg) scale(1.18);opacity:1;
+}
+.svc-row-num{
+  font-size:10px;font-weight:600;letter-spacing:0.12em;
+  text-transform:uppercase;color:var(--dim);flex-shrink:0;
+  transition:color .3s;
+}
+.svc-row:hover .svc-row-num,.svc-row.svc-active .svc-row-num{color:var(--white)}
 .svc-row-name{
   font-family:'Suisse Intl',var(--F);
   font-size:clamp(20px,2.6vw,42px);
@@ -1719,8 +1740,9 @@ body.light .reel-arrow svg path{stroke:#000000}
 
       <div class="svc-row svc-active" data-idx="0">
         <div class="svc-row-head">
+          <span class="svc-row-num">01</span>
+          <svg class="svc-row-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="10" width="36" height="28" rx="3"/><path d="M18 22h12M18 28h8"/><circle cx="24" cy="18" r="3"/></svg>
           <span class="svc-row-name">Design d'Interface</span>
-          <span class="svc-row-n">01</span>
         </div>
         <div class="svc-row-body">
           <p class="svc-desc">Interfaces modernes et intuitives pour vos applications web et mobiles. Du wireframe au prototype haute fidélité.</p>
@@ -1730,8 +1752,9 @@ body.light .reel-arrow svg path{stroke:#000000}
 
       <div class="svc-row" data-idx="1">
         <div class="svc-row-head">
+          <span class="svc-row-num">02</span>
+          <svg class="svc-row-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="24" cy="24" r="16"/><path d="M24 8c0 0-8 6-8 16s8 16 8 16"/><path d="M24 8c0 0 8 6 8 16s-8 16-8 16"/><path d="M8 24h32"/></svg>
           <span class="svc-row-name">Identité Visuelle</span>
-          <span class="svc-row-n">02</span>
         </div>
         <div class="svc-row-body">
           <p class="svc-desc">Création de logotypes, chartes graphiques et identités de marque complètes. Des marques cohérentes et mémorables.</p>
@@ -1741,8 +1764,9 @@ body.light .reel-arrow svg path{stroke:#000000}
 
       <div class="svc-row" data-idx="2">
         <div class="svc-row-head">
+          <span class="svc-row-num">03</span>
+          <svg class="svc-row-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="8" y="14" width="32" height="22" rx="3"/><path d="M16 22l4 4-4 4"/><path d="M24 30h8"/></svg>
           <span class="svc-row-name">IA &amp; No-Code</span>
-          <span class="svc-row-n">03</span>
         </div>
         <div class="svc-row-body">
           <p class="svc-desc">Intégration de l'IA et des outils no-code pour transformer rapidement des idées en produits digitaux scalables.</p>
@@ -1752,8 +1776,9 @@ body.light .reel-arrow svg path{stroke:#000000}
 
       <div class="svc-row" data-idx="3">
         <div class="svc-row-head">
+          <span class="svc-row-num">04</span>
+          <svg class="svc-row-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="10" width="36" height="28" rx="3"/><path d="M6 18h36"/><circle cx="12" cy="14" r="1.5" fill="currentColor"/><circle cx="18" cy="14" r="1.5" fill="currentColor"/><circle cx="24" cy="14" r="1.5" fill="currentColor"/></svg>
           <span class="svc-row-name">Site Web</span>
-          <span class="svc-row-n">04</span>
         </div>
         <div class="svc-row-body">
           <p class="svc-desc">Sites web sur-mesure, rapides et élégants. Du site vitrine au portfolio en passant par les landing pages haute conversion.</p>
@@ -1763,8 +1788,9 @@ body.light .reel-arrow svg path{stroke:#000000}
 
       <div class="svc-row" data-idx="4">
         <div class="svc-row-head">
+          <span class="svc-row-num">05</span>
+          <svg class="svc-row-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="24" cy="24" r="16"/><polygon points="20,18 32,24 20,30" fill="currentColor" stroke="none"/></svg>
           <span class="svc-row-name">Motion &amp; Animation</span>
-          <span class="svc-row-n">05</span>
         </div>
         <div class="svc-row-body">
           <p class="svc-desc">Logos animés, micro-interactions et vidéos motion pour donner vie à votre identité et captiver votre audience.</p>
