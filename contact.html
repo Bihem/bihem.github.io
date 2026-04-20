@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<style>html{background:#1D1B1B}
+<script>if(localStorage.getItem('dikenga-theme')==='light'){document.documentElement.style.background='#FFFFFF';document.documentElement.style.setProperty('--bg','#FFFFFF');}else{document.documentElement.style.background='#1D1B1B';document.documentElement.style.setProperty('--bg','#1D1B1B');}</script>
+<style>html{background:transparent}
 /* ── VIDEO FOND GLOBAL */
 .site-video-bg{
   position:fixed;inset:0;
@@ -16,7 +17,6 @@
 }
 body.light .site-video-bg{opacity:0.06;mix-blend-mode:multiply}
 </style>
-<script>if(localStorage.getItem('dikenga-theme')==='light'){document.documentElement.style.background='#FFFFFF';document.documentElement.style.setProperty('--bg','#FFFFFF');}else{document.documentElement.style.setProperty('--bg','#1D1B1B');}</script>
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" as="style"/>
 <title>Contact — Dikenga.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -394,9 +394,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 /* retour accueil — overlay slide bas */
 function goHome(e){
   e.preventDefault();
-  document.body.style.transition='opacity 0.25s ease';
-  document.body.style.opacity='0';
-  setTimeout(()=>{ window.location.href='index.html'; },250);
+  window.location.href='index.html';
 }
 
 /* ── THEME — restaurer depuis localStorage */
