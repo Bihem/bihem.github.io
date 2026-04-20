@@ -3215,8 +3215,12 @@ function closeMenu(e){
 /* ── INTERSECTION OBSERVER */
 const io=new IntersectionObserver(entries=>{
   entries.forEach(e=>{ if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);} });
-},{threshold:0.12});
-document.querySelectorAll('.rv,.slabel').forEach(el=>io.observe(el));
+},{threshold:0});
+document.querySelectorAll('.rv,.slabel').forEach(el=>{
+  const r=el.getBoundingClientRect();
+  if(r.top<window.innerHeight+10&&r.bottom>0){el.classList.add('on');}
+  else{io.observe(el);}
+});
 
 /* ── COUNTERS */
 function animCount(el){
