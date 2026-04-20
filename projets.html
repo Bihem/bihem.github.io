@@ -217,8 +217,8 @@ a,button{cursor:none;text-decoration:none;color:inherit}
 .proj-case-label.sol{color:#3B82F6}
 .proj-case-label.res{color:#10B981;font-weight:800}
 .proj-case-text{
-  font-family:var(--SI);font-size:12px;font-weight:300;
-  color:rgba(255,255,255,0.7);line-height:1.65;
+  font-family:var(--SI);font-size:14px;font-weight:300;
+  color:rgba(255,255,255,0.72);line-height:1.7;
   padding:14px 16px;
 }
 .proj-case-row:last-child .proj-case-text{
@@ -372,6 +372,14 @@ body.light .proj-meta-item{color:rgba(0,0,0,0.5)}
 body.light .proj-cta{color:#000000;border-color:#000000}
 body.light .nav{border-color:rgba(0,0,0,0.08)}
 body.light .footer-copy,body.light .footer-lnk{color:rgba(0,0,0,0.4)}
+/* ── CASE STUDY — THÈME CLAIR */
+body.light .proj-case{border-color:rgba(0,0,0,0.12)}
+body.light .proj-case-row{border-color:rgba(0,0,0,0.12)}
+body.light .proj-case-label{border-color:rgba(0,0,0,0.12)}
+body.light .proj-case-text{color:rgba(0,0,0,0.65)}
+body.light .proj-case-row:last-child .proj-case-text{color:#000000;font-weight:500}
+body.light .proj-meta-row{border-color:rgba(0,0,0,0.12)}
+body.light .proj-info-side{background:#FFFFFF}
 
 /* ── LIGHTBOX PROJET */
 .proj-lb{
@@ -882,14 +890,19 @@ document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 /* ── LIGHTBOX */
 function openLightbox(item){
   const lb=document.getElementById('projLightbox');
+
+  /* Image : .proj-img-bg (simple) ou .ag-slide.active (galerie) */
   const imgBg=item.querySelector('.proj-img-bg');
+  const activeSlide=item.querySelector('.ag-slide.active');
+  const bgImg=imgBg?imgBg.style.backgroundImage:(activeSlide?activeSlide.style.backgroundImage:'');
+
   const num=item.querySelector('.proj-num');
   const tag=item.querySelector('.proj-tag');
   const name=item.querySelector('.proj-name');
   const desc=item.querySelector('.proj-desc');
   const metas=item.querySelectorAll('.proj-meta-item');
 
-  document.getElementById('lbImg').style.backgroundImage=imgBg?imgBg.style.backgroundImage:'';
+  document.getElementById('lbImg').style.backgroundImage=bgImg;
   document.getElementById('lbNum').textContent=num?num.textContent.trim():'';
   document.getElementById('lbTag').textContent=tag?tag.textContent.trim():'';
   document.getElementById('lbName').textContent=name?name.textContent.trim():'';
@@ -911,11 +924,14 @@ function closeLightbox(){
   document.body.style.overflow='';
 }
 
-/* Attach lightbox to each project card */
+/* Attach lightbox to each project card — exclure dots galerie et case study */
 document.querySelectorAll('.proj-item').forEach(item=>{
   item.style.cursor='pointer';
   item.addEventListener('click',function(e){
-    if(e.target.closest('.proj-cta')||e.target.closest('.proj-lb-cta')) return;
+    if(e.target.closest('.proj-cta')) return;
+    if(e.target.closest('.proj-lb-cta')) return;
+    if(e.target.closest('.ag-dot')) return;     /* dots galerie → pas de lightbox */
+    if(e.target.closest('.proj-case')) return;  /* bloc cas d'étude → pas de lightbox */
     openLightbox(this);
   });
 });
