@@ -179,6 +179,16 @@ img{display:block;max-width:100%}
   display:flex;flex-direction:column;justify-content:flex-end;
   overflow:hidden;
 }
+.hero-video-bg{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  opacity:0.13;
+  z-index:0;
+  pointer-events:none;
+  mix-blend-mode:screen;
+}
+body.light .hero-video-bg{opacity:0.07;mix-blend-mode:multiply}
 /* project scroll reveal */
 .proj-card{
   opacity:0;
@@ -189,7 +199,7 @@ img{display:block;max-width:100%}
   opacity:1;
   transform:translateY(0);
 }
-.hero-words{display:flex;flex-direction:column;overflow:hidden}
+.hero-words{display:flex;flex-direction:column;overflow:hidden;position:relative;z-index:1}
 .hero-word{overflow:hidden;line-height:0.9}
 .hero-word-inner{
   display:block;
@@ -213,6 +223,7 @@ img{display:block;max-width:100%}
 }
 .hero-bottom{
   margin-top:52px;display:flex;align-items:flex-end;justify-content:space-between;gap:32px;
+  position:relative;z-index:1;
 }
 .hero-sub{
   font-family:'Suisse Intl',var(--F);
@@ -1630,13 +1641,16 @@ body.light .reel-arrow svg path{stroke:#000000}
 
 <!-- ═══════ HERO ═══════ -->
 <section class="hero">
+  <video class="hero-video-bg" autoplay muted loop playsinline>
+    <source src="hero-bg.mp4" type="video/mp4">
+  </video>
   <div class="hero-words">
     <div class="hero-word"><span class="hero-word-inner" style="transition-delay:.28s">Design qui</span></div>
     <div class="hero-word"><span class="hero-word-inner" style="transition-delay:.42s">impacte.</span></div>
     <div class="hero-word"><span class="hero-word-inner" style="transition-delay:.56s">Identités qui</span></div>
     <div class="hero-word" style="overflow:visible"><span class="hero-word-inner" id="heroAlt" style="transition-delay:.70s">restent.</span></div>
   </div>
-  <div style="width:100%;height:1px;background:var(--line);margin-top:40px"></div>
+  <div style="width:100%;height:1px;background:var(--line);margin-top:40px;position:relative;z-index:1"></div>
   <div class="hero-bottom">
     <p class="hero-sub" id="heroSub">
       UI/UX Designer · Branding · No-Code &amp; IA — Freelance. Je conçois des interfaces modernes et des automatisations intelligentes pour accélérer votre croissance.
