@@ -69,7 +69,7 @@ a,button{cursor:none;text-decoration:none;color:inherit}
 #cring{
   position:fixed;z-index:9998;pointer-events:none;
   width:34px;height:34px;border-radius:50%;
-  border:1px solid rgba(255,255,255,0.45);
+  border:1px solid rgba(255,255,255,0.7);
   transform:translate(-50%,-50%);
   transition:width .25s,height .25s,border-color .25s;
 }
@@ -337,6 +337,7 @@ img{display:block;max-width:100%}
   </a>
   <div class="nav-right">
     <span class="nav-time" id="navtime">FR · --:--</span>
+    <button class="nav-btn" id="themeBtn" aria-label="Changer le thème">Thème</button>
   </div>
 </nav>
 
@@ -556,6 +557,12 @@ img{display:block;max-width:100%}
 <div id="cring"></div>
 
 <script>
+/* ─── Theme init ─── */
+(function(){
+  const t=localStorage.getItem('dikenga-theme')||'light';
+  if(t==='light') document.body.classList.add('light');
+})();
+
 /* ─── Paris time ─── */
 function tickTime(){
   const now=new Date();
@@ -594,6 +601,13 @@ setTimeout(function(){
   },{threshold:0.05,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.rv').forEach(function(el){obs.observe(el);});
 },300);
+
+/* ─── Theme toggle ─── */
+document.getElementById('themeBtn').addEventListener('click',function(){
+  const isLight=document.body.classList.toggle('light');
+  localStorage.setItem('dikenga-theme',isLight?'light':'dark');
+  document.documentElement.style.background=isLight?'#FFFFFF':'#1D1B1B';
+});
 
 /* ─── Cursor ─── */
 const cdot=document.getElementById('cdot');
