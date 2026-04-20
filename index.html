@@ -522,21 +522,19 @@ img{display:block;max-width:100%}
 .services-list{margin-top:64px;padding:0;display:grid;grid-template-columns:1fr 1fr}
 .svc-mobile-list{display:none}
 .svc-tabs-mobile{display:none}
-.svc-tabs-label{font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--dim);padding:0 20px;margin:0 0 16px}
-.svc-tabs-scroll{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;padding:0 20px;border-bottom:1px solid var(--line)}
-.svc-tabs-scroll::-webkit-scrollbar{display:none}
-.svc-tab{background:none;border:none;color:var(--dim);font-family:'Suisse Intl',var(--F);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;padding:12px 20px 12px 0;white-space:nowrap;cursor:pointer;position:relative;transition:color .3s}
-.svc-tab::after{content:'';position:absolute;bottom:-1px;left:0;width:100%;height:1px;background:var(--white);transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.22,1,.36,1)}
-.svc-tab.active{color:var(--white)}
-.svc-tab.active::after{transform:scaleX(1)}
-.svc-tabs-img-wrap{position:relative;width:100%;aspect-ratio:3/2;overflow:hidden;background:transparent}
-.svc-tab-img{position:absolute;inset:0;background-size:contain;background-position:center;background-repeat:no-repeat;opacity:0;transition:opacity .65s cubic-bezier(.16,1,.3,1)}
-.svc-tab-img.active{opacity:1}
-.svc-slide-video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
-.svc-tabs-info{padding:16px 20px 0;display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
-.svc-tabs-name{font-family:'Suisse Intl',var(--F);font-size:clamp(18px,6vw,28px);font-weight:400;text-transform:uppercase;letter-spacing:-0.02em;color:var(--white)}
-.svc-tabs-desc{font-family:'Suisse Intl',var(--F);font-size:13px;font-weight:300;color:var(--dim);line-height:1.7;padding:8px 20px 0}
-.svc-tabs-tags{display:flex;flex-wrap:wrap;gap:6px;padding:10px 20px 0}
+/* Carousel mobile services */
+.svc-carousel-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.svc-carousel-track::-webkit-scrollbar{display:none}
+.svc-carousel-slide{flex:0 0 100%;scroll-snap-align:start}
+.svc-cslide-img{width:100%;aspect-ratio:1/1;background-size:contain;background-position:center;background-repeat:no-repeat;position:relative;overflow:hidden}
+.svc-cslide-vid{background:none}
+.svc-cslide-vid video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.svc-cslide-info{display:flex;align-items:center;gap:14px;padding:14px 20px;border-top:1px solid var(--line)}
+.svc-cslide-num{font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--dim);flex-shrink:0}
+.svc-cslide-name{font-family:'Suisse Intl',var(--F);font-size:clamp(18px,5.5vw,26px);font-weight:400;text-transform:uppercase;letter-spacing:-0.02em;color:var(--white)}
+.svc-carousel-dots{display:flex;gap:6px;justify-content:center;padding:14px 0}
+.svc-dot{width:6px;height:6px;border-radius:50%;background:var(--dim);transition:all .35s cubic-bezier(.22,1,.36,1);cursor:pointer;flex-shrink:0}
+.svc-dot.active{background:var(--white);width:22px;border-radius:3px}
 
 /* ── Accordion mobile */
 .svc{border-top:1px solid var(--line);position:relative;cursor:none}
@@ -1687,8 +1685,8 @@ body.light .reel-arrow svg path{stroke:#000000}
 <section class="about" id="about">
   <div class="about-grid">
     <div class="about-photo rv">
-      <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0"><source src="motion-droplets.mp4" type="video/mp4"></video>
-      <div class="about-photo-placeholder">
+      <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:contain;position:absolute;inset:0"><source src="motion-droplets.mp4" type="video/mp4"></video>
+      <div class="about-photo-placeholder" style="display:none">
         <svg viewBox="0 0 320 120" fill="none" xmlns="http://www.w3.org/2000/svg">
           <ellipse cx="152" cy="60" rx="144" ry="52" stroke="white" stroke-width="7" fill="none"/>
           <text x="152" y="75" text-anchor="middle" font-family="'Space Grotesk',Arial,sans-serif" font-weight="700" font-size="46" fill="white" letter-spacing="-1">DIKENGA.</text>
@@ -1881,33 +1879,40 @@ body.light .reel-arrow svg path{stroke:#000000}
     </div>
   </div><!-- /svc-mobile-list -->
 
-  <!-- TABS MOBILE ONLY -->
+  <!-- CAROUSEL MOBILE ONLY -->
   <div class="svc-tabs-mobile">
-    <p class="svc-tabs-label">Services Overview</p>
-    <div class="svc-tabs-scroll">
-      <button class="svc-tab active" data-idx="0">Design d'Interface</button>
-      <button class="svc-tab" data-idx="1">Identité Visuelle</button>
-      <button class="svc-tab" data-idx="2">IA &amp; No-Code</button>
-      <button class="svc-tab" data-idx="3">Site Web</button>
-      <button class="svc-tab" data-idx="4">Motion &amp; Animation</button>
-    </div>
-    <div class="svc-tabs-img-wrap">
-      <div class="svc-tab-img active" style="background-image:url('mockup-nike-app.webp')" data-idx="0"></div>
-      <div class="svc-tab-img" style="background-image:url('mockup-talseume-bonnet.webp')" data-idx="1"></div>
-      <div class="svc-tab-img" style="background-image:url('mockup-mamagaya.webp')" data-idx="2"></div>
-      <div class="svc-tab-img" style="background-image:url('mockup-site-web.webp')" data-idx="3"></div>
-      <div class="svc-tab-img svc-vid-slide" data-idx="4">
-        <video autoplay muted loop playsinline class="svc-slide-video"><source src="motion-droplets.mp4" type="video/mp4"></video>
+    <div class="svc-carousel-track" id="svc-carousel">
+      <div class="svc-carousel-slide">
+        <div class="svc-cslide-img" style="background-image:url('mockup-nike-app.webp')"></div>
+        <div class="svc-cslide-info"><span class="svc-cslide-num">01</span><span class="svc-cslide-name">Design d'Interface</span></div>
+      </div>
+      <div class="svc-carousel-slide">
+        <div class="svc-cslide-img" style="background-image:url('mockup-talseume-bonnet.webp')"></div>
+        <div class="svc-cslide-info"><span class="svc-cslide-num">02</span><span class="svc-cslide-name">Identité Visuelle</span></div>
+      </div>
+      <div class="svc-carousel-slide">
+        <div class="svc-cslide-img" style="background-image:url('mockup-mamagaya.webp')"></div>
+        <div class="svc-cslide-info"><span class="svc-cslide-num">03</span><span class="svc-cslide-name">IA &amp; No-Code</span></div>
+      </div>
+      <div class="svc-carousel-slide">
+        <div class="svc-cslide-img" style="background-image:url('mockup-site-web.webp')"></div>
+        <div class="svc-cslide-info"><span class="svc-cslide-num">04</span><span class="svc-cslide-name">Site Web</span></div>
+      </div>
+      <div class="svc-carousel-slide">
+        <div class="svc-cslide-img svc-cslide-vid">
+          <video autoplay muted loop playsinline><source src="motion-droplets.mp4" type="video/mp4"></video>
+        </div>
+        <div class="svc-cslide-info"><span class="svc-cslide-num">05</span><span class="svc-cslide-name">Motion &amp; Animation</span></div>
       </div>
     </div>
-    <div class="svc-tabs-info">
-      <span class="svc-tabs-name" id="svc-tab-name">Design d'Interface</span>
+    <div class="svc-carousel-dots">
+      <span class="svc-dot active"></span>
+      <span class="svc-dot"></span>
+      <span class="svc-dot"></span>
+      <span class="svc-dot"></span>
+      <span class="svc-dot"></span>
     </div>
-    <p class="svc-tabs-desc" id="svc-tab-desc">Interfaces modernes et intuitives pour vos applications web et mobiles. Du wireframe au prototype haute fidélité.</p>
-    <div class="svc-tabs-tags" id="svc-tab-tags">
-      <span class="svc-tag">Figma</span><span class="svc-tag">Prototype</span><span class="svc-tag">Design System</span>
-    </div>
-  </div><!-- /svc-tabs-mobile -->
+  </div><!-- /svc-carousel mobile -->
 
   <!-- TARIFS -->
   <section id="tarifs" style="display:none">
@@ -3110,35 +3115,42 @@ document.querySelectorAll('.faq-btn').forEach(btn=>{
   });
 })();
 
-/* ── SERVICES TABS MOBILE */
+/* ── SERVICES CAROUSEL MOBILE — auto-advance + swipe */
 (function(){
-  const svcData = [
-    {name:"Design d'Interface", desc:"Interfaces modernes et intuitives pour vos applications web et mobiles. Du wireframe au prototype haute fidélité.", tags:["Figma","Prototype","Design System"]},
-    {name:"Identité Visuelle", desc:"Création de logotypes, chartes graphiques et identités de marque complètes. Des marques cohérentes et mémorables.", tags:["Logo","Charte","Brand Guidelines"]},
-    {name:"IA & No-Code", desc:"Intégration de l'IA et des outils no-code pour transformer rapidement des idées en produits digitaux scalables.", tags:["n8n","Automatisation","Agents IA"]},
-    {name:"Site Web", desc:"Sites web sur-mesure, rapides et élégants. Du site vitrine au portfolio en passant par les landing pages haute conversion.", tags:["Webflow","HTML/CSS","SEO-ready"]},
-    {name:"Motion & Animation", desc:"Logos animés, micro-interactions et vidéos motion pour donner vie à votre identité et captiver votre audience.", tags:["After Effects","Lottie","Motion UI"]}
-  ];
-  const tabs   = document.querySelectorAll('.svc-tab');
-  const imgs   = document.querySelectorAll('.svc-tab-img');
-  const nameEl = document.getElementById('svc-tab-name');
-  const descEl = document.getElementById('svc-tab-desc');
-  const tagsEl = document.getElementById('svc-tab-tags');
-  if(!tabs.length) return;
-  tabs.forEach(tab=>{
-    tab.addEventListener('click',()=>{
-      const idx = parseInt(tab.dataset.idx);
-      tabs.forEach(t=>t.classList.remove('active'));
-      imgs.forEach(i=>i.classList.remove('active'));
-      tab.classList.add('active');
-      const img = document.querySelector(`.svc-tab-img[data-idx="${idx}"]`);
-      if(img) img.classList.add('active');
-      if(nameEl) nameEl.textContent = svcData[idx].name;
-      if(descEl) descEl.textContent = svcData[idx].desc;
-      if(tagsEl) tagsEl.innerHTML = svcData[idx].tags.map(t=>`<span class="svc-tag">${t}</span>`).join('');
-      tab.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
-    });
-  });
+  const track = document.getElementById('svc-carousel');
+  const dots  = document.querySelectorAll('.svc-dot');
+  if(!track) return;
+  const slides = track.querySelectorAll('.svc-carousel-slide');
+  let current = 0, timer, isTouch = false;
+
+  function goTo(idx){
+    current = ((idx % slides.length) + slides.length) % slides.length;
+    track.scrollTo({left: current * track.offsetWidth, behavior:'smooth'});
+    dots.forEach((d,i) => d.classList.toggle('active', i===current));
+  }
+
+  function startTimer(){ timer = setInterval(()=>goTo(current+1), 3500); }
+  function stopTimer(){ clearInterval(timer); }
+
+  startTimer();
+
+  track.addEventListener('touchstart', ()=>{ isTouch=true; stopTimer(); }, {passive:true});
+  track.addEventListener('touchend', ()=>{
+    setTimeout(()=>{
+      current = Math.round(track.scrollLeft / track.offsetWidth);
+      dots.forEach((d,i)=>d.classList.toggle('active',i===current));
+      startTimer();
+    }, 50);
+  }, {passive:true});
+
+  track.addEventListener('scroll', ()=>{
+    if(!isTouch) return;
+    const idx = Math.round(track.scrollLeft / track.offsetWidth);
+    dots.forEach((d,i)=>d.classList.toggle('active',i===idx));
+    current = idx;
+  }, {passive:true});
+
+  dots.forEach((d,i)=>d.addEventListener('click',()=>{ stopTimer(); goTo(i); startTimer(); }));
 })();
 
 /* ── SERVICES ACCORDION (mobile) */
