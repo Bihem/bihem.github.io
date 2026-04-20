@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<style>html{background:#1D1B1B}
+<script>if(localStorage.getItem('dikenga-theme')==='light'){document.documentElement.style.background='#FFFFFF';document.documentElement.style.setProperty('--bg','#FFFFFF');}else{document.documentElement.style.background='#1D1B1B';document.documentElement.style.setProperty('--bg','#1D1B1B');}</script>
+<style>html{background:transparent}
 /* ── VIDEO FOND GLOBAL */
 .site-video-bg{
   position:fixed;inset:0;
@@ -15,8 +16,12 @@
   mix-blend-mode:screen;
 }
 body.light .site-video-bg{opacity:0.08;mix-blend-mode:multiply}
+@view-transition{navigation:auto}
+::view-transition-old(root){animation:vt-out 0.25s ease both}
+::view-transition-new(root){animation:vt-in 0.25s ease both}
+@keyframes vt-out{to{opacity:0}}
+@keyframes vt-in{from{opacity:0}}
 </style>
-<script>if(localStorage.getItem('dikenga-theme')==='light'){document.documentElement.style.background='#FFFFFF';document.documentElement.style.setProperty('--bg','#FFFFFF');}else{document.documentElement.style.setProperty('--bg','#1D1B1B');}</script>
 <title>Tarifs — Dikenga. | UI/UX Designer Freelance Paris</title>
 <meta name="description" content="Découvrez les tarifs de Dikenga, designer UI/UX freelance. Formules claires pour logo, site vitrine, e-commerce, SEO, agents IA et plus. Acompte 50% au démarrage."/>
 <meta name="robots" content="index, follow"/>
