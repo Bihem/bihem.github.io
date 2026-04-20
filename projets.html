@@ -191,7 +191,38 @@ a,button{cursor:none;text-decoration:none;color:inherit}
 .proj-desc{
   font-family:var(--SI);font-size:14px;font-weight:300;
   color:var(--white);line-height:1.75;
-  max-width:400px;margin-bottom:48px;
+  max-width:400px;margin-bottom:28px;
+}
+
+/* ── CASE STUDY BLOCK */
+.proj-case{
+  display:flex;flex-direction:column;gap:0;
+  margin-bottom:40px;max-width:400px;
+  border:1px solid var(--line);border-radius:12px;
+  overflow:hidden;
+}
+.proj-case-row{
+  display:flex;gap:0;align-items:stretch;
+  border-bottom:1px solid var(--line);
+}
+.proj-case-row:last-child{border-bottom:none}
+.proj-case-label{
+  font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
+  flex-shrink:0;width:96px;
+  padding:16px 14px;
+  border-right:1px solid var(--line);
+  display:flex;align-items:center;
+}
+.proj-case-label.prob{color:#EF4444}
+.proj-case-label.sol{color:#3B82F6}
+.proj-case-label.res{color:#10B981;font-weight:800}
+.proj-case-text{
+  font-family:var(--SI);font-size:12px;font-weight:300;
+  color:rgba(255,255,255,0.7);line-height:1.65;
+  padding:14px 16px;
+}
+.proj-case-row:last-child .proj-case-text{
+  color:var(--white);font-weight:400;
 }
 .proj-cta{
   display:inline-flex;align-items:center;gap:12px;
@@ -471,6 +502,20 @@ body.light .footer-copy,body.light .footer-lnk{color:rgba(0,0,0,0.4)}
           </div>
           <h2 class="proj-name rv d1">Mamagaya</h2>
           <p class="proj-desc rv d2">Une application mobile dédiée au fast food. Interface intuitive, identité visuelle forte, expérience utilisateur pensée pour commander rapidement et simplement.</p>
+          <div class="proj-case rv d2">
+            <div class="proj-case-row">
+              <div class="proj-case-label prob">Problème</div>
+              <div class="proj-case-text">Parcours de commande trop long sur les apps concurrentes — taux d'abandon élevé au checkout.</div>
+            </div>
+            <div class="proj-case-row">
+              <div class="proj-case-label sol">Solution</div>
+              <div class="proj-case-text">Interface épurée, commande en 3 étapes max, visuels produits immersifs et CTA toujours visible.</div>
+            </div>
+            <div class="proj-case-row">
+              <div class="proj-case-label res">Résultat</div>
+              <div class="proj-case-text">Parcours de commande réduit à 45 secondes — expérience fluide, mémorable et différenciante.</div>
+            </div>
+          </div>
           <a href="#" class="proj-cta rv d3" onclick="goToContact(event)">
             Démarrer un projet
             <span class="proj-cta-arr">→</span>
@@ -508,6 +553,20 @@ body.light .footer-copy,body.light .footer-lnk{color:rgba(0,0,0,0.4)}
           </div>
           <h2 class="proj-name rv d1">Adidas Harden</h2>
           <p class="proj-desc rv d2">Page produit haute performance pour la collection Adidas Harden. Un design bold et immersif qui met en valeur le produit avec précision et impact visuel.</p>
+          <div class="proj-case rv d2">
+            <div class="proj-case-row">
+              <div class="proj-case-label prob">Problème</div>
+              <div class="proj-case-text">Page produit générique qui ne reflétait pas le positionnement premium de la collection Harden.</div>
+            </div>
+            <div class="proj-case-row">
+              <div class="proj-case-label sol">Solution</div>
+              <div class="proj-case-text">Design immersif full-screen, hiérarchie visuelle forte, galerie produit interactive et typographie bold.</div>
+            </div>
+            <div class="proj-case-row">
+              <div class="proj-case-label res">Résultat</div>
+              <div class="proj-case-text">Présentation produit à fort impact, alignée avec les codes visuels de la marque Adidas Performance.</div>
+            </div>
+          </div>
           <a href="#" class="proj-cta rv d3" onclick="goToContact(event)">
             Démarrer un projet
             <span class="proj-cta-arr">→</span>
@@ -536,6 +595,20 @@ body.light .footer-copy,body.light .footer-lnk{color:rgba(0,0,0,0.4)}
           </div>
           <h2 class="proj-name rv d1">BARNES CarJager</h2>
           <p class="proj-desc rv d2">Interface automobile premium pour BARNES CarJager. Une expérience digitale qui reflète le luxe et l'élégance de la marque, avec une navigation fluide et des visuels percutants.</p>
+          <div class="proj-case rv d2">
+            <div class="proj-case-row">
+              <div class="proj-case-label prob">Problème</div>
+              <div class="proj-case-text">Interface vieillissante qui ne reflétait plus le positionnement luxe et premium de la marque BARNES.</div>
+            </div>
+            <div class="proj-case-row">
+              <div class="proj-case-label sol">Solution</div>
+              <div class="proj-case-text">Refonte UI haut de gamme — typographie élégante, navigation épurée, visuels grands formats et couleurs sobres.</div>
+            </div>
+            <div class="proj-case-row">
+              <div class="proj-case-label res">Résultat</div>
+              <div class="proj-case-text">Expérience digitale alignée avec le prestige de la marque — crédibilité renforcée auprès d'une clientèle exigeante.</div>
+            </div>
+          </div>
           <a href="#" class="proj-cta rv d3" onclick="goToContact(event)">
             Démarrer un projet
             <span class="proj-cta-arr">→</span>
@@ -564,6 +637,20 @@ body.light .footer-copy,body.light .footer-lnk{color:rgba(0,0,0,0.4)}
           </div>
           <h2 class="proj-name rv d1">Logotype Design</h2>
           <p class="proj-desc rv d2">Création d'identités visuelles percutantes. Logotypes, chartes graphiques et systèmes de design pensés pour durer, séduire et distinguer chaque marque.</p>
+          <div class="proj-case rv d2">
+            <div class="proj-case-row">
+              <div class="proj-case-label prob">Problème</div>
+              <div class="proj-case-text">Marques sans identité distinctive — difficilement mémorables et interchangeables sur leurs marchés.</div>
+            </div>
+            <div class="proj-case-row">
+              <div class="proj-case-label sol">Solution</div>
+              <div class="proj-case-text">Logotypes sur-mesure basés sur l'ADN de chaque marque — concept, formes, typographie et système couleur cohérents.</div>
+            </div>
+            <div class="proj-case-row">
+              <div class="proj-case-label res">Résultat</div>
+              <div class="proj-case-text">Identités mémorables et différenciantes, déclinables sur tous supports — digitaux, print et motion.</div>
+            </div>
+          </div>
           <a href="#" class="proj-cta rv d3" onclick="goToContact(event)">
             Démarrer un projet
             <span class="proj-cta-arr">→</span>
