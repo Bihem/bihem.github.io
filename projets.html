@@ -886,8 +886,12 @@ document.addEventListener('DOMContentLoaded',()=>{
 /* scroll reveal */
 const io=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});
-},{threshold:0.08});
-document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+},{threshold:0});
+document.querySelectorAll('.rv').forEach(el=>{
+  const r=el.getBoundingClientRect();
+  if(r.top<window.innerHeight+10&&r.bottom>0){el.classList.add('on');}
+  else{io.observe(el);}
+});
 
 /* ── THEME — restaurer depuis localStorage */
 (function(){
