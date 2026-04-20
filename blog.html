@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<script>if(localStorage.getItem('dikenga-theme')==='light'){document.documentElement.style.background='#FFFFFF';document.documentElement.style.setProperty('--bg','#FFFFFF');}else{document.documentElement.style.background='#1D1B1B';document.documentElement.style.setProperty('--bg','#1D1B1B');}</script>
+<style>html{background:transparent}
+.site-video-bg{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.13;z-index:0;pointer-events:none;mix-blend-mode:screen;}
+body.light .site-video-bg{opacity:0.06;mix-blend-mode:multiply}
+@view-transition{navigation:auto}
+::view-transition-old(root){animation:vt-out 0.25s ease both}
+::view-transition-new(root){animation:vt-in 0.25s ease both}
+@keyframes vt-out{to{opacity:0}}
+@keyframes vt-in{from{opacity:0}}
+</style>
+<title>Blog — Dikenga. | IA, Design UI/UX, SEO & Marketing Digital</title>
+<meta name="description" content="Explorez les dernières tendances IA, Claude, Anthropic, design UI/UX, SEO et marketing digital. Conseils d'expert par Dikenga, designer freelance Paris."/>
+<meta name="keywords" content="intelligence artificielle, Claude Code, Anthropic, IA marketing, SEO 2025, design UI/UX, logo, identité visuelle, no-code, agents IA, Claude Sonnet, marketing digital, automatisation"/>
+<meta name="robots" content="index, follow"/>
+<meta name="author" content="Dikenga"/>
+<meta property="og:title" content="Blog Dikenga — IA, Design & Marketing Digital"/>
+<meta property="og:description" content="Actualités IA, conseils design, SEO et marketing digital par Dikenga."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://dikengadesign.fr/blog.html"/>
+<meta property="og:image" content="https://dikengadesign.fr/og-image.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="icon" type="image/x-icon" href="favicon.ico"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+<style>
+@font-face{font-family:'Suisse Intl';src:url('https://cdn.prod.website-files.com/6772f6efe246aaaa73ad2a98/67784f5e4c3068c2e2f22e60_SuisseIntl-Regular.otf')format('opentype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Suisse Intl';src:url('https://cdn.prod.website-files.com/6772f6efe246aaaa73ad2a98/67784f815ee57b4c18bdae11_SuisseIntl-Light.otf')format('opentype');font-weight:300;font-style:normal;font-display:swap}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#1D1B1B;--bg2:#252323;--bg3:#2E2B2B;--white:#FFFFFF;--off:#B8B4B4;--dim:rgba(255,255,255,0.55);--line:rgba(255,255,255,0.1);--F:'Space Grotesk',Arial,sans-serif;--SI:'Suisse Intl','Space Grotesk',Arial,sans-serif;--r:12px;}
+html{font-size:16px;overflow-x:hidden;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:var(--F);font-weight:400;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden;cursor:none;}
+a,button{cursor:none;text-decoration:none;color:inherit}
+@media(hover:none),(max-width:768px){*,a,button{cursor:auto!important}#cdot,#cring{display:none!important}}
+ul{list-style:none}
+img{display:block;max-width:100%}
+
+/* CURSOR */
+#cdot{position:fixed;z-index:10000;pointer-events:none;width:6px;height:6px;border-radius:50%;background:#fff;transform:translate(-50%,-50%);top:50%;left:50%}
+#cring{position:fixed;z-index:9999;pointer-events:none;width:34px;height:34px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.85);transform:translate(-50%,-50%);top:50%;left:50%;transition:width .25s,height .25s,border-color .25s}
+.cursor-grow #cring{width:56px;height:56px;border-color:#fff}
+body.light #cdot{background:#000}
+body.light #cring{border-color:rgba(0,0,0,0.85)}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:800;padding:20px 28px 0;display:flex;align-items:flex-start;justify-content:space-between;}
+.nav-logo{display:flex;align-items:center}
+.nav-logo svg{height:36px;width:auto}
+.nav-right{display:flex;align-items:center;gap:20px;padding-top:4px}
+.nav-time{font-size:11px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--dim)}
+.nav-btn{background:none;border:1px solid var(--line);border-radius:100px;padding:8px 20px;font-family:var(--F);font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--white);transition:background .2s,border-color .2s;}
+.nav-btn:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.25)}
+body.light .nav-logo ellipse{stroke:#000}
+body.light .nav-logo text{fill:#000}
+body.light .nav-btn{color:#000;border-color:rgba(0,0,0,0.2)}
+body.light .nav-time{color:#000}
+
+/* PAGE HEADER */
+.page-header{padding:120px 28px 60px;border-bottom:1px solid var(--line);}
+.page-label{font-size:10px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--dim);margin-bottom:24px;display:flex;align-items:center;gap:10px;}
+.page-label::before{content:'';width:24px;height:1px;background:var(--dim)}
+.page-heading{font-family:var(--SI);font-size:clamp(48px,8vw,96px);font-weight:400;text-transform:uppercase;letter-spacing:-0.04em;line-height:.9;margin-bottom:24px}
+.page-sub{font-family:var(--SI);font-size:clamp(14px,1.5vw,18px);font-weight:300;color:var(--dim);max-width:540px;line-height:1.7}
+body.light .page-heading{color:#000}
+body.light .page-sub{color:#000}
+body.light .page-label{color:#000}
+
+/* FILTERS */
+.blog-filters{padding:28px 28px 0;display:flex;flex-wrap:wrap;gap:8px;}
+.filter-btn{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;padding:7px 16px;border-radius:100px;border:1px solid var(--line);color:var(--dim);background:none;transition:all .2s;cursor:none;}
+.filter-btn.active,.filter-btn:hover{background:var(--white);color:var(--bg);border-color:var(--white)}
+body.light .filter-btn{color:#000;border-color:rgba(0,0,0,0.2)}
+body.light .filter-btn.active,.filter-btn:hover{background:#000;color:#fff;border-color:#000}
+
+/* GRID */
+.blog-grid{padding:40px 28px 80px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);}
+.blog-card{background:var(--bg);padding:32px 28px;display:flex;flex-direction:column;gap:16px;transition:background .2s;position:relative;overflow:hidden;}
+.blog-card:hover{background:var(--bg2)}
+body.light .blog-grid{background:rgba(0,0,0,0.08)}
+body.light .blog-card{background:#fff}
+body.light .blog-card:hover{background:#f5f5f5}
+.blog-card-cat{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--dim);display:flex;align-items:center;gap:6px;}
+.blog-card-cat::before{content:'';width:16px;height:1px;background:currentColor}
+body.light .blog-card-cat{color:rgba(0,0,0,0.45)}
+.blog-card-title{font-family:var(--SI);font-size:clamp(16px,1.4vw,20px);font-weight:400;line-height:1.3;color:var(--white);letter-spacing:-0.01em;}
+body.light .blog-card-title{color:#000}
+.blog-card-excerpt{font-family:var(--SI);font-size:14px;font-weight:300;color:var(--dim);line-height:1.7;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+body.light .blog-card-excerpt{color:#333}
+.blog-card-footer{margin-top:auto;display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid var(--line);}
+body.light .blog-card-footer{border-color:rgba(0,0,0,0.08)}
+.blog-card-date{font-size:10px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--dim)}
+body.light .blog-card-date{color:rgba(0,0,0,0.4)}
+.blog-card-arrow{width:28px;height:28px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--dim);transition:all .2s;flex-shrink:0;}
+.blog-card:hover .blog-card-arrow{background:var(--white);color:var(--bg);border-color:var(--white)}
+body.light .blog-card-arrow{border-color:rgba(0,0,0,0.15)}
+body.light .blog-card:hover .blog-card-arrow{background:#000;color:#fff}
+.blog-card-tag{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;padding:4px 10px;border-radius:100px;background:rgba(255,255,255,0.06);color:var(--dim);display:inline-block;}
+body.light .blog-card-tag{background:rgba(0,0,0,0.06);color:#000}
+.blog-card.featured{grid-column:span 2;}
+.blog-card.featured .blog-card-title{font-size:clamp(20px,2vw,28px);}
+
+/* ARTICLE OVERLAY */
+.article-overlay{position:fixed;inset:0;z-index:900;background:var(--bg);overflow-y:auto;transform:translateY(100%);transition:transform .6s cubic-bezier(.16,1,.3,1);pointer-events:none;}
+.article-overlay.open{transform:translateY(0);pointer-events:all}
+.article-inner{max-width:780px;margin:0 auto;padding:100px 28px 80px;}
+.article-close{position:fixed;top:24px;right:28px;z-index:901;background:rgba(255,255,255,0.08);border:1px solid var(--line);border-radius:100px;padding:8px 20px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--white);cursor:none;transition:all .2s;}
+.article-close:hover{background:rgba(255,255,255,0.15)}
+body.light .article-overlay{background:#fff}
+body.light .article-close{color:#000;background:rgba(0,0,0,0.05);border-color:rgba(0,0,0,0.15)}
+.article-cat{font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--dim);margin-bottom:20px;}
+.article-title{font-family:var(--SI);font-size:clamp(28px,4vw,52px);font-weight:400;line-height:1.1;letter-spacing:-0.03em;margin-bottom:24px;color:var(--white);}
+body.light .article-title{color:#000}
+.article-meta{display:flex;gap:20px;align-items:center;padding-bottom:32px;border-bottom:1px solid var(--line);margin-bottom:40px;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.06em;color:var(--dim);}
+body.light .article-meta{color:rgba(0,0,0,0.45);border-color:rgba(0,0,0,0.1)}
+.article-body{font-family:var(--SI);font-size:17px;font-weight:300;line-height:1.85;color:rgba(255,255,255,0.8);}
+body.light .article-body{color:#111}
+.article-body h2{font-family:var(--SI);font-size:clamp(18px,2vw,26px);font-weight:400;color:var(--white);margin:48px 0 16px;letter-spacing:-0.02em;}
+body.light .article-body h2{color:#000}
+.article-body p{margin-bottom:24px;}
+.article-body strong{font-weight:600;color:var(--white);}
+body.light .article-body strong{color:#000}
+.article-body ul{padding-left:20px;margin-bottom:24px;}
+.article-body ul li{list-style:disc;margin-bottom:8px;}
+.article-cta-block{margin-top:60px;padding:40px;background:var(--bg2);border-radius:var(--r);text-align:center;}
+body.light .article-cta-block{background:#f0f0f0}
+.article-cta-block p{font-size:16px;color:var(--dim);margin-bottom:20px;}
+body.light .article-cta-block p{color:#333}
+.article-cta-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border-radius:100px;background:var(--white);color:var(--bg);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;cursor:none;transition:opacity .2s;}
+.article-cta-btn:hover{opacity:.85}
+body.light .article-cta-btn{background:#000;color:#fff}
+
+/* NEWSLETTER */
+.newsletter{padding:60px 28px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:40px;}
+.newsletter-left h3{font-family:var(--SI);font-size:clamp(20px,2.5vw,32px);font-weight:400;text-transform:uppercase;letter-spacing:-0.02em;margin-bottom:8px;}
+.newsletter-left p{font-size:14px;color:var(--dim);}
+body.light .newsletter-left h3{color:#000}
+body.light .newsletter-left p{color:#000}
+.newsletter-form{display:flex;gap:8px;flex-shrink:0;}
+.newsletter-input{background:var(--bg2);border:1px solid var(--line);border-radius:100px;padding:12px 20px;font-family:var(--F);font-size:13px;color:var(--white);width:260px;outline:none;transition:border-color .2s;}
+.newsletter-input::placeholder{color:var(--dim)}
+.newsletter-input:focus{border-color:rgba(255,255,255,0.3)}
+body.light .newsletter-input{background:#f0f0f0;color:#000;border-color:rgba(0,0,0,0.15)}
+.newsletter-btn{padding:12px 24px;border-radius:100px;background:var(--white);color:var(--bg);font-family:var(--F);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;border:none;cursor:none;transition:opacity .2s;flex-shrink:0;}
+.newsletter-btn:hover{opacity:.85}
+body.light .newsletter-btn{background:#000;color:#fff}
+
+/* FOOTER */
+.footer{padding:28px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.footer-copy{font-size:11px;color:var(--dim)}
+.footer-links{display:flex;gap:20px;}
+.footer-lnk{font-size:11px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--dim);transition:color .2s;}
+.footer-lnk:hover{color:var(--white)}
+body.light .footer-copy,.footer-lnk{color:rgba(0,0,0,0.45)}
+body.light .footer-lnk:hover{color:#000}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);}
+.rv.on{opacity:1;transform:none}
+
+/* MOBILE */
+@media(max-width:768px){
+  .nav{padding:16px 20px 0}
+  .nav-logo svg{height:28px}
+  .nav-time{display:block}
+  .page-header{padding:90px 20px 40px}
+  .blog-filters{padding:20px 20px 0}
+  .blog-grid{grid-template-columns:1fr;padding:20px 20px 60px}
+  .blog-card.featured{grid-column:span 1}
+  .newsletter{flex-direction:column;align-items:flex-start;padding:40px 20px}
+  .newsletter-form{flex-direction:column;width:100%}
+  .newsletter-input{width:100%}
+  .footer{padding:20px;flex-direction:column;align-items:flex-start;gap:12px}
+  .article-inner{padding:80px 20px 60px}
+  .article-close{top:16px;right:16px}
+}
+</style>
+</head>
+<body>
+
+<video class="site-video-bg" autoplay muted loop playsinline preload="auto">
+  <source src="hero-bg.mp4" type="video/mp4">
+</video>
+
+<div id="cdot"></div>
+<div id="cring"></div>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <svg viewBox="0 0 320 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="152" cy="60" rx="144" ry="52" stroke="white" stroke-width="7" fill="none"/>
+      <text x="152" y="75" text-anchor="middle" font-family="'Space Grotesk',Arial,sans-serif" font-weight="700" font-size="46" fill="white" letter-spacing="-1">DIKENGA.</text>
+    </svg>
+  </a>
+  <div class="nav-right">
+    <span class="nav-time" id="navtime">FR · --:--</span>
+    <a href="index.html" style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--dim);transition:color .2s" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--dim)'">← Accueil</a>
+    <button class="nav-btn" id="themeBtn">Thème</button>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<header class="page-header">
+  <div class="page-label">Journal</div>
+  <h1 class="page-heading rv">Blog &<br>Insights.</h1>
+  <p class="page-sub rv">IA, design, SEO, marketing digital. Les dernières tendances décryptées par Dikenga — chaque semaine.</p>
+</header>
+
+<!-- FILTERS -->
+<div class="blog-filters rv">
+  <button class="filter-btn active" data-filter="all">Tout</button>
+  <button class="filter-btn" data-filter="ia">Intelligence Artificielle</button>
+  <button class="filter-btn" data-filter="design">Design & Branding</button>
+  <button class="filter-btn" data-filter="seo">SEO & Marketing</button>
+  <button class="filter-btn" data-filter="no-code">No-Code & Outils</button>
+</div>
+
+<!-- ARTICLES GRID -->
+<section class="blog-grid" id="blogGrid">
+
+  <!-- Article 1 — FEATURED -->
+  <article class="blog-card featured rv" data-cat="ia" onclick="openArticle('a1')">
+    <div class="blog-card-cat">Intelligence Artificielle</div>
+    <h2 class="blog-card-title">Claude Code & Computer Use : Anthropic redéfinit ce qu'un développeur peut accomplir seul</h2>
+    <p class="blog-card-excerpt">Claude Code n'est pas un simple assistant de code. C'est un agent autonome capable de lire votre codebase, d'écrire des fichiers, d'exécuter des commandes et de déployer des applications entières. Voici ce que ça change concrètement pour les freelances et les startups.</p>
+    <div class="blog-card-footer">
+      <span class="blog-card-date">20 Avr 2025</span>
+      <span class="blog-card-arrow">→</span>
+    </div>
+  </article>
+
+  <!-- Article 2 -->
+  <article class="blog-card rv" data-cat="ia" onclick="openArticle('a2')">
+    <div class="blog-card-cat">Anthropic</div>
+    <h2 class="blog-card-title">Claude 3.5, Claude 3.7 Sonnet : tout ce que vous devez savoir sur les derniers modèles d'Anthropic</h2>
+    <p class="blog-card-excerpt">Anthropic s'impose comme le concurrent le plus sérieux d'OpenAI. Benchmark, cas d'usage, prix — le point complet sur leur gamme 2025.</p>
+    <div class="blog-card-footer">
+      <span class="blog-card-date">18 Avr 2025</span>
+      <span class="blog-card-arrow">→</span>
+    </div>
+  </article>
+
+  <!-- Article 3 -->
+  <article class="blog-card rv" data-cat="design" onclick="openArticle('a3')">
+    <div class="blog-card-cat">Design & Branding</div>
+    <h2 class="blog-card-title">Pourquoi un mauvais logo coûte plus cher qu'un bon designer</h2>
+    <p class="blog-card-excerpt">Un logo, c'est 80% de la première impression. Une identité visuelle mal pensée repousse les clients avant même qu'ils lisent votre offre.</p>
+    <div class="blog-card-footer">
+      <span class="blog-card-date">15 Avr 2025</span>
+      <span class="blog-card-arrow">→</span>
+    </div>
+  </article>
+
+  <!-- Article 4 -->
+  <article class="blog-card rv" data-cat="seo" onclick="openArticle('a4')">
+    <div class="blog-card-cat">SEO & Référencement</div>
+    <h2 class="blog-card-title">SEO en 2025 : comment l'IA transforme le référencement naturel</h2>
+    <p class="blog-card-excerpt">Google SGE, Perplexity, ChatGPT Search — les règles du SEO changent. Voici comment adapter votre stratégie pour rester visible à l'ère de l'IA.</p>
+    <div class="blog-card-footer">
+      <span class="blog-card-date">12 Avr 2025</span>
+      <span class="blog-card-arrow">→</span>
+    </div>
+  </article>
+
+  <!-- Article 5 -->
+  <article class="blog-card rv" data-cat="ia" onclick="openArticle('a5')">
+    <div class="blog-card-cat">Agents IA</div>
+    <h2 class="blog-card-title">Les agents IA : votre équipe qui bosse 24h/24 sans salaire</h2>
+    <p class="blog-card-excerpt">n8n, Make, Claude API — comment construire des agents qui automatisent votre prospection, votre contenu et votre SAV sans lever le petit doigt.</p>
+    <div class="blog-card-footer">
+      <span class="blog-card-date">10 Avr 2025</span>
+      <span class="blog-card-arrow">→</span>
+    </div>
+  </article>
+
+  <!-- Article 6 -->
+  <article class="blog-card rv" data-cat="no-code" onclick="openArticle('a6')">
+    <div class="blog-card-cat">No-Code & IA</div>
+    <h2 class="blog-card-title">No-code + IA = le stack idéal pour lancer un produit en 2 semaines</h2>
+    <p class="blog-card-excerpt">Webflow, Bubble, Supabase, n8n, Claude. Comment des entrepreneurs lancent des SaaS complets sans écrire une ligne de code backend.</p>
+    <div class="blog-card-footer">
+      <span class="blog-card-date">7 Avr 2025</span>
+      <span class="blog-card-arrow">→</span>
+    </div>
+  </article>
+
+  <!-- Article 7 -->
+  <article class="blog-card rv" data-cat="design" onclick="openArticle('a7')">
+    <div class="blog-card-cat">UI/UX Design</div>
+    <h2 class="blog-card-title">Les 7 erreurs UI qui font fuir vos visiteurs en moins de 3 secondes</h2>
+    <p class="blog-card-excerpt">Hiérarchie visuelle cassée, CTA invisibles, typographie illisible — les erreurs que font 90% des sites et comment les corriger immédiatement.</p>
+    <div class="blog-card-footer">
+      <span class="blog-card-date">4 Avr 2025</span>
+      <span class="blog-card-arrow">→</span>
+    </div>
+  </article>
+
+  <!-- Article 8 -->
+  <article class="blog-card rv" data-cat="seo" onclick="openArticle('a8')">
+    <div class="blog-card-cat">Marketing Digital</div>
+    <h2 class="blog-card-title">Marketing digital en 2025 : les 5 leviers que les PME ignorent encore</h2>
+    <p class="blog-card-excerpt">Personal branding, contenu IA-assisté, SEO sémantique, automation email, retargeting intelligent — les stratégies qui font la différence cette année.</p>
+    <div class="blog-card-footer">
+      <span class="blog-card-date">1 Avr 2025</span>
+      <span class="blog-card-arrow">→</span>
+    </div>
+  </article>
+
+  <!-- Article 9 -->
+  <article class="blog-card rv" data-cat="ia" onclick="openArticle('a9')">
+    <div class="blog-card-cat">Intelligence Artificielle</div>
+    <h2 class="blog-card-title">GPT-4o vs Claude 3.7 vs Gemini 2.0 : lequel choisir pour votre business ?</h2>
+    <p class="blog-card-excerpt">Comparatif honnête des trois grands modèles IA de 2025. Forces, faiblesses, tarifs et cas d'usage concrets pour PME et freelances.</p>
+    <div class="blog-card-footer">
+      <span class="blog-card-date">28 Mars 2025</span>
+      <span class="blog-card-arrow">→</span>
+    </div>
+  </article>
+
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter rv">
+  <div class="newsletter-left">
+    <h3>Restez dans la boucle.</h3>
+    <p>Chaque semaine : une tendance IA, un conseil design, une astuce SEO. Pas de spam.</p>
+  </div>
+  <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+    <input type="email" class="newsletter-input" placeholder="votre@email.com" required/>
+    <button type="submit" class="newsletter-btn">S'abonner</button>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <span class="footer-copy">©2026 Dikenga. · Tous droits réservés</span>
+  <div class="footer-links">
+    <a href="index.html" class="footer-lnk">Accueil</a>
+    <a href="projets.html" class="footer-lnk">Projets</a>
+    <a href="tarifs.html" class="footer-lnk">Tarifs</a>
+    <a href="contact.html" class="footer-lnk">Contact</a>
+  </div>
+</footer>
+
+<!-- ARTICLE OVERLAY -->
+<div class="article-overlay" id="articleOverlay">
+  <button class="article-close" onclick="closeArticle()">← Retour</button>
+  <div class="article-inner" id="articleContent"></div>
+</div>
+
+<script>
+/* ── Theme init */
+(function(){
+  const t=localStorage.getItem('dikenga-theme')||'light';
+  if(t==='light') document.body.classList.add('light');
+})();
+
+/* ── Clock */
+function tick(){
+  const n=new Date();
+  const el=document.getElementById('navtime');
+  if(el) el.textContent='FR · '+String(n.getHours()).padStart(2,'0')+':'+String(n.getMinutes()).padStart(2,'0');
+}
+tick(); setInterval(tick,1000);
+
+/* ── Theme toggle */
+document.getElementById('themeBtn').addEventListener('click',function(){
+  const isLight=document.body.classList.toggle('light');
+  localStorage.setItem('dikenga-theme',isLight?'light':'dark');
+  document.documentElement.style.background=isLight?'#FFFFFF':'#1D1B1B';
+});
+
+/* ── Scroll reveal */
+const io=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});
+},{threshold:0});
+document.querySelectorAll('.rv').forEach(function(el){
+  const r=el.getBoundingClientRect();
+  if(r.top<window.innerHeight+10&&r.bottom>0){el.classList.add('on');}
+  else{io.observe(el);}
+});
+
+/* ── Filters */
+document.querySelectorAll('.filter-btn').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active');});
+    btn.classList.add('active');
+    const f=btn.dataset.filter;
+    document.querySelectorAll('.blog-card').forEach(function(card){
+      if(f==='all'||card.dataset.cat===f){card.style.display='flex';}
+      else{card.style.display='none';}
+    });
+  });
+});
+
+/* ── Articles content */
+const articles={
+  a1:{
+    cat:'Intelligence Artificielle',
+    title:'Claude Code & Computer Use : Anthropic redéfinit ce qu\'un développeur peut accomplir seul',
+    date:'20 Avril 2025',
+    read:'8 min',
+    body:`
+      <p><strong>Claude Code est sorti en bêta publique en mars 2025</strong> et il a immédiatement retourné la communauté dev. Pas parce que c'est un meilleur autocomplete — GitHub Copilot fait ça bien. Mais parce que Claude Code peut <strong>opérer en autonomie sur votre machine</strong> : lire votre codebase entière, créer des fichiers, exécuter des commandes bash, faire des recherches web, et déployer.</p>
+      <h2>Ce que Claude Code change concrètement</h2>
+      <p>Jusqu'ici, les outils IA pour le code vous aidaient à écrire une fonction ou corriger un bug. Claude Code peut <strong>comprendre un projet entier et travailler dessus pendant des heures</strong> sans intervention humaine. Vous lui décrivez une feature, il l'implémente, teste, corrige les erreurs et vous montre le résultat.</p>
+      <p>Pour un freelance comme moi, ça signifie :</p>
+      <ul>
+        <li>Itérer 5× plus vite sur les projets clients</li>
+        <li>Déployer des prototypes en quelques heures</li>
+        <li>Réduire les tâches répétitives à zéro</li>
+        <li>Se concentrer sur la stratégie et le design</li>
+      </ul>
+      <h2>Computer Use : l'IA qui contrôle votre ordinateur</h2>
+      <p>Computer Use est une feature d'Anthropic qui permet à Claude de <strong>voir votre écran et interagir avec votre ordinateur</strong> comme un humain — cliquer, taper, naviguer. C'est encore expérimental mais les cas d'usage sont déjà immenses : QA automatisé, extraction de données depuis des interfaces complexes, automatisation de workflows.</p>
+      <h2>Ce que ça signifie pour votre business</h2>
+      <p>Si vous êtes une startup ou une PME, vous pouvez maintenant avoir accès à une capacité de développement et d'automatisation qui était réservée aux grandes équipes tech. Le coût d'entrée chute, la vitesse d'exécution monte. <strong>Ce n'est pas l'IA qui va remplacer les humains — c'est l'IA qui va rendre les bons humains 10× plus efficaces.</strong></p>
+    `
+  },
+  a2:{
+    cat:'Anthropic',
+    title:'Claude 3.5, Claude 3.7 Sonnet : tout ce que vous devez savoir sur les derniers modèles d\'Anthropic',
+    date:'18 Avril 2025',
+    read:'6 min',
+    body:`
+      <p>Anthropic a sorti une série de modèles en 2024-2025 qui <strong>repositionnent la compétition face à OpenAI et Google</strong>. Voici ce qui change vraiment.</p>
+      <h2>La gamme Claude en 2025</h2>
+      <p><strong>Claude 3.5 Haiku</strong> : le modèle rapide et économique. Parfait pour l'intégration dans des apps, le traitement de texte en masse, les chatbots. Coût très bas.</p>
+      <p><strong>Claude 3.7 Sonnet</strong> : le nouveau standard. Raisonnement étendu ("extended thinking"), capacités de codage en tête des benchmarks, compréhension multimodale avancée. C'est le modèle que j'utilise au quotidien.</p>
+      <p><strong>Claude 3 Opus</strong> : le modèle premium pour les tâches complexes qui demandent une précision maximale.</p>
+      <h2>Le vrai avantage d'Anthropic : la sécurité et la fiabilité</h2>
+      <p>Là où OpenAI joue sur la rapidité des releases, Anthropic mise sur la <strong>Constitutional AI</strong> — une approche qui entraîne les modèles à refuser les requêtes nuisibles de manière plus robuste. Pour les entreprises qui intègrent l'IA dans des processus critiques, c'est un argument de poids.</p>
+      <h2>Faut-il migrer de ChatGPT vers Claude ?</h2>
+      <p>Pour le code et l'analyse : oui, Claude 3.7 Sonnet est souvent meilleur. Pour la génération d'images et les plugins : ChatGPT reste plus complet. La vraie réponse : <strong>utilisez les deux selon le contexte.</strong></p>
+    `
+  },
+  a3:{
+    cat:'Design & Branding',
+    title:'Pourquoi un mauvais logo coûte plus cher qu\'un bon designer',
+    date:'15 Avril 2025',
+    read:'5 min',
+    body:`
+      <p>Combien de fois j'ai vu des startups dépenser 50€ sur Fiverr pour leur logo, puis 3 mois plus tard me demander de refaire toute l'identité visuelle parce que "ça ne convertit pas". Le calcul est simple : <strong>un mauvais logo coûte plus cher que l'économie faite au départ.</strong></p>
+      <h2>Le logo, c'est le premier filtre</h2>
+      <p>En B2B, votre logo apparaît dans votre signature email, sur votre site, sur vos présentations, dans vos devis. Chaque fois qu'un prospect voit votre logo avant de vous rencontrer, il fait un jugement inconscient sur votre sérieux, votre niveau de prix, votre professionnalisme.</p>
+      <p>Un logo amateur signale : <strong>"Je n'investis pas dans mon image, je ne vais probablement pas investir dans la vôtre."</strong></p>
+      <h2>Ce qu'un bon logo vous apporte concrètement</h2>
+      <ul>
+        <li>Mémorabilité accrue — on se souvient de vous après un premier contact</li>
+        <li>Cohérence sur tous les supports — site, réseaux, print</li>
+        <li>Justification de prix plus élevés — l'image premium permet de vendre premium</li>
+        <li>Confiance immédiate — un design soigné rassure le prospect</li>
+      </ul>
+      <h2>Combien faut-il investir ?</h2>
+      <p>Pour une identité visuelle sérieuse : comptez entre 700€ et 3000€ selon la complexité. C'est un investissement qui s'amortit sur des années. Ramené au nombre de prospects que votre logo convaincra (ou repoussera) chaque mois, le calcul est vite fait.</p>
+    `
+  },
+  a4:{
+    cat:'SEO & Référencement',
+    title:'SEO en 2025 : comment l\'IA transforme le référencement naturel',
+    date:'12 Avril 2025',
+    read:'7 min',
+    body:`
+      <p>Le SEO n'est pas mort — il s'est transformé. Avec l'arrivée de <strong>Google SGE (Search Generative Experience)</strong>, Perplexity et les réponses IA directement dans les résultats de recherche, les règles du jeu changent fondamentalement.</p>
+      <h2>Ce qui ne change pas</h2>
+      <p>Le contenu de qualité reste roi. Les backlinks autoritaires restent importants. La vitesse de page reste un facteur clé. <strong>Ce que vous faisiez de bien continuera de fonctionner.</strong></p>
+      <h2>Ce qui change radicalement</h2>
+      <p><strong>Position zéro vs Answer Engine</strong> : Google affiche maintenant des réponses générées par IA en haut des résultats. Si votre contenu n'est pas utilisé comme source pour ces réponses, vous perdez du trafic même en étant en position 1.</p>
+      <p><strong>L'intention de recherche prime sur les mots-clés</strong> : les algorithmes comprennent le sens, pas juste les mots. Écrire "pour les humains d'abord" n'est plus un conseil — c'est une nécessité technique.</p>
+      <h2>La stratégie gagnante en 2025</h2>
+      <ul>
+        <li><strong>Contenu long et exhaustif</strong> sur des sujets précis (topical authority)</li>
+        <li><strong>Structured data</strong> pour que l'IA puisse extraire vos informations facilement</li>
+        <li><strong>E-E-A-T</strong> renforcé : Experience, Expertise, Authority, Trust</li>
+        <li><strong>Présence multi-plateforme</strong> : votre marque doit exister là où l'IA cherche ses sources</li>
+      </ul>
+    `
+  },
+  a5:{
+    cat:'Agents IA',
+    title:'Les agents IA : votre équipe qui bosse 24h/24 sans salaire',
+    date:'10 Avril 2025',
+    read:'6 min',
+    body:`
+      <p>En 2025, <strong>un freelance ou une petite équipe peut avoir la capacité opérationnelle d'une équipe de 10 personnes</strong> grâce aux agents IA. Ce n'est pas de la science-fiction — c'est ce que je vis au quotidien.</p>
+      <h2>Qu'est-ce qu'un agent IA ?</h2>
+      <p>Un agent IA, c'est un programme qui reçoit un objectif, planifie les étapes pour l'atteindre, exécute des actions (chercher sur le web, envoyer des emails, modifier des fichiers), et s'adapte en fonction des résultats. Contrairement à un chatbot, il agit — pas seulement il répond.</p>
+      <h2>Cas d'usage concrets pour une PME</h2>
+      <ul>
+        <li><strong>Agent de contenu</strong> : génère et publie des articles SEO chaque semaine automatiquement</li>
+        <li><strong>Agent de prospection</strong> : identifie des leads qualifiés et envoie des messages personnalisés</li>
+        <li><strong>Agent SAV</strong> : répond aux questions clients 24h/24 avec les infos de votre base</li>
+        <li><strong>Agent analytics</strong> : analyse vos données et envoie un rapport hebdo avec insights</li>
+      </ul>
+      <h2>Les outils pour démarrer</h2>
+      <p><strong>n8n</strong> : l'outil open-source le plus flexible pour créer des workflows. <strong>Make</strong> (ex-Integromat) pour les non-devs. <strong>Claude API</strong> ou <strong>OpenAI API</strong> pour le cerveau de l'agent. <strong>Supabase</strong> pour la mémoire. En 2 semaines de travail, vous pouvez avoir votre premier agent opérationnel.</p>
+    `
+  },
+  a6:{
+    cat:'No-Code & IA',
+    title:'No-code + IA = le stack idéal pour lancer un produit en 2 semaines',
+    date:'7 Avril 2025',
+    read:'5 min',
+    body:`
+      <p>Le no-code a toujours promis de "démocratiser la création de produits digitaux". En 2025, avec l'IA intégrée dans ces outils, <strong>c'est enfin vrai.</strong></p>
+      <h2>Le stack 2025 pour aller vite</h2>
+      <p><strong>Design & Frontend</strong> : Webflow pour les sites marketing, Framer pour les portfolios et landing pages, Bubble pour les apps complexes.</p>
+      <p><strong>Backend & BDD</strong> : Supabase (open-source, PostgreSQL), Airtable pour les données structurées simples.</p>
+      <p><strong>IA & Automatisation</strong> : Claude API ou OpenAI API pour l'intelligence, n8n pour les workflows, Zapier pour les intégrations rapides.</p>
+      <p><strong>Paiements</strong> : Stripe directement. Pas besoin de dev backend pour intégrer Stripe avec ces outils.</p>
+      <h2>Un exemple réel</h2>
+      <p>Un de mes clients a lancé un outil de génération de contrats juridiques pour freelances en <strong>11 jours</strong> : Bubble pour l'interface, Supabase pour stocker les contrats, Claude API pour générer les clauses, Stripe pour les abonnements. Coût de développement : 0€ de dev externe.</p>
+    `
+  },
+  a7:{
+    cat:'UI/UX Design',
+    title:'Les 7 erreurs UI qui font fuir vos visiteurs en moins de 3 secondes',
+    date:'4 Avril 2025',
+    read:'5 min',
+    body:`
+      <p>Vous avez 3 secondes. C'est le temps que prend un visiteur pour décider s'il reste sur votre site ou s'il repart. Voici les 7 erreurs que j'observe le plus souvent chez mes clients.</p>
+      <h2>1. La hiérarchie visuelle absente</h2>
+      <p>Quand tout est gros et coloré, rien n'attire l'attention. Un bon design guide l'œil vers ce qui compte : votre proposition de valeur, puis votre CTA.</p>
+      <h2>2. Le CTA invisible ou trop tardif</h2>
+      <p>Votre bouton "Contactez-moi" tout en bas de la page ne convertit pas. Le CTA doit être visible above the fold et répété intelligemment.</p>
+      <h2>3. Une typographie illisible</h2>
+      <p>Taille trop petite, contraste insuffisant, interlignage serré — ces trois erreurs tuent la lisibilité et augmentent le taux de rebond.</p>
+      <h2>4. Trop d'informations sur la homepage</h2>
+      <p>La homepage n'est pas une brochure. Son seul job : convaincre le visiteur de passer à l'action ou d'explorer plus loin.</p>
+      <h2>5. Des images génériques</h2>
+      <p>Les photos Shutterstock de gens qui sourient en costume devant un ordinateur ne inspirent aucune confiance. Utilisez de vraies photos ou du design sur-mesure.</p>
+      <h2>6. Pas de preuve sociale</h2>
+      <p>Témoignages, logos clients, chiffres — la preuve sociale réduit le risque perçu et accélère la décision d'achat.</p>
+      <h2>7. Mobile oublié</h2>
+      <p>En France, plus de 60% du trafic web vient du mobile. Un site non optimisé mobile perd plus de la moitié de ses visiteurs potentiels.</p>
+    `
+  },
+  a8:{
+    cat:'Marketing Digital',
+    title:'Marketing digital en 2025 : les 5 leviers que les PME ignorent encore',
+    date:'1 Avril 2025',
+    read:'6 min',
+    body:`
+      <p>Les PME françaises dépensent encore l'essentiel de leur budget marketing en publicité payante (Google Ads, Meta Ads) sans construire d'actifs durables. Voici 5 leviers sous-exploités qui offrent un meilleur ROI sur le long terme.</p>
+      <h2>1. Le personal branding du dirigeant</h2>
+      <p>Les gens achètent à des gens, pas à des logos. Le dirigeant qui partage son expertise sur LinkedIn génère des leads qualifiés gratuitement et construit une autorité que la pub ne peut pas acheter.</p>
+      <h2>2. Le contenu SEO long terme</h2>
+      <p>Un article bien écrit et optimisé peut générer du trafic qualifié pendant 3, 5, 10 ans. C'est un actif. Une campagne pub s'arrête dès qu'on coupe le budget.</p>
+      <h2>3. L'email marketing automatisé</h2>
+      <p>L'email reste le canal avec le meilleur ROI (42€ retournés pour 1€ investi en moyenne). Une séquence email bien construite nurtote vos leads automatiquement.</p>
+      <h2>4. Le retargeting intelligent</h2>
+      <p>Vous dépensez pour attirer des visiteurs qui repartent sans convertir. Une stratégie de retargeting bien segmentée récupère 15-20% de ces visiteurs perdus.</p>
+      <h2>5. Les partenariats et la co-création</h2>
+      <p>S'associer à des marques complémentaires pour créer du contenu ou des offres communes permet d'accéder à de nouvelles audiences sans coût publicitaire.</p>
+    `
+  },
+  a9:{
+    cat:'Intelligence Artificielle',
+    title:'GPT-4o vs Claude 3.7 vs Gemini 2.0 : lequel choisir pour votre business ?',
+    date:'28 Mars 2025',
+    read:'7 min',
+    body:`
+      <p>En 2025, le choix de votre modèle IA principal n'est plus trivial. Les trois grands acteurs — OpenAI, Anthropic, Google — proposent des modèles capables et aux forces différentes. Voici mon analyse terrain après plusieurs mois d'utilisation intensive.</p>
+      <h2>GPT-4o (OpenAI)</h2>
+      <p><strong>Points forts :</strong> écosystème le plus mature, génération d'images (DALL-E 3), plugins nombreux, interface ChatGPT très utilisable. <strong>Points faibles :</strong> parfois trop "poli" et générique dans ses réponses, coûts API élevés pour les gros volumes.</p>
+      <h2>Claude 3.7 Sonnet (Anthropic)</h2>
+      <p><strong>Points forts :</strong> meilleur pour le code et l'analyse, réponses plus nuancées et honnêtes, context window énorme (200K tokens), Claude Code pour l'autonomie. <strong>Points faibles :</strong> pas de génération d'images, écosystème de plugins moins riche.</p>
+      <h2>Gemini 2.0 (Google)</h2>
+      <p><strong>Points forts :</strong> intégration native Google Workspace, multimodalité avancée, accès en temps réel à l'information. <strong>Points faibles :</strong> moins fiable sur les tâches de raisonnement complexe, hallucinations plus fréquentes.</p>
+      <h2>Ma recommandation</h2>
+      <p><strong>Pour le code et les tâches d'analyse</strong> : Claude 3.7. <strong>Pour le contenu créatif et les images</strong> : GPT-4o. <strong>Pour les recherches et l'info en temps réel</strong> : Gemini. Le stack gagnant en 2025 n'est pas mono-modèle.</p>
+    `
+  }
+};
+
+function openArticle(id){
+  const a=articles[id];
+  if(!a) return;
+  const content=document.getElementById('articleContent');
+  content.innerHTML='<div class="article-cat">'+a.cat+'</div><h1 class="article-title">'+a.title+'</h1><div class="article-meta"><span>'+a.date+'</span><span>·</span><span>'+a.read+' de lecture</span></div><div class="article-body">'+a.body+'</div><div class="article-cta-block"><p>Vous voulez mettre en place une stratégie IA ou design pour votre business ?</p><a href="contact.html" class="article-cta-btn">Parlons de votre projet →</a></div>';
+  const overlay=document.getElementById('articleOverlay');
+  overlay.classList.add('open');
+  overlay.scrollTop=0;
+  document.body.style.overflow='hidden';
+}
+
+function closeArticle(){
+  document.getElementById('articleOverlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeArticle();});
+
+/* Newsletter */
+function handleNewsletter(e){
+  e.preventDefault();
+  const btn=e.target.querySelector('.newsletter-btn');
+  btn.textContent='Abonné ✓';
+  btn.disabled=true;
+  e.target.reset();
+}
+
+/* Cursor */
+(function(){
+  const cdot=document.getElementById('cdot');
+  const cring=document.getElementById('cring');
+  if(!cdot||!cring) return;
+  let mx=window.innerWidth/2,my=window.innerHeight/2,rx=mx,ry=my;
+  document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;},{passive:true});
+  (function loop(){
+    cdot.style.left=mx+'px';cdot.style.top=my+'px';
+    rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;
+    cring.style.left=rx+'px';cring.style.top=ry+'px';
+    requestAnimationFrame(loop);
+  })();
+  document.querySelectorAll('a,button').forEach(function(el){
+    el.addEventListener('mouseenter',function(){document.body.classList.add('cursor-grow');});
+    el.addEventListener('mouseleave',function(){document.body.classList.remove('cursor-grow');});
+  });
+})();
+</script>
+</body>
+</html>
