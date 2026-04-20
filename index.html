@@ -67,12 +67,7 @@ ul{list-style:none}
 img{display:block;max-width:100%}
 
 /* ═══════════════ PAGE COVER ═══════════════ */
-#cover{
-  position:fixed;inset:0;background:var(--bg);z-index:9000;
-  transform-origin:top;transform:scaleY(1);
-  transition:transform 1s cubic-bezier(.77,0,.175,1);
-}
-#cover.out{transform:scaleY(0)}
+#cover{display:none}
 
 /* ═══════════════ CURSOR ═══════════════ */
 #cdot{
@@ -2754,7 +2749,7 @@ function scramble(el, finalText, duration, startDelay){
 
 /* ── PAGE COVER */
 document.addEventListener('DOMContentLoaded', () => {
-  requestAnimationFrame(()=>requestAnimationFrame(()=>document.getElementById('cover').classList.add('out')));
+
   setTimeout(() => {
     const words = document.querySelectorAll('.hero-word-inner');
     words.forEach((w, i) => {
