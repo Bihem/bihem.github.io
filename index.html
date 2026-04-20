@@ -1476,7 +1476,7 @@ body.light .reel-arrow svg path{stroke:#000000}
     </div>
   </div>
   <!-- PROJECT REEL (fixed desktop / static mobile) -->
-  <div id="proj-reel">
+  <div id="proj-reel" class="reel-hidden">
     <div class="reel-square">
       <div class="reel-track" id="reelTrack">
         <div class="reel-slide" data-name="Mama Gaya" style="background-image:url('mockup-mamagaya.png')"></div>
@@ -3115,18 +3115,14 @@ async function handleSubmit(e){
   }
   if(nameEl)nameEl.style.transition='opacity 0.3s ease';
   setInterval(nextSlide,3200);
-  // Afficher le reel immédiatement sans animation au chargement
-  reel.style.transition='none';
-  reel.classList.remove('reel-hidden');
-  requestAnimationFrame(()=>requestAnimationFrame(()=>{ reel.style.transition=''; }));
+  // Faire entrer le reel depuis la droite après le chargement
+  setTimeout(()=>{ reel.classList.remove('reel-hidden'); }, 900);
 
-  // Cacher le reel quand le hero sort du viewport (ignore le premier fire)
+  // Cacher le reel quand le hero sort du viewport
   const hero=document.querySelector('.hero');
   if(hero&&reel){
-    let reelReady=false;
     const obs=new IntersectionObserver(entries=>{
       entries.forEach(e=>{
-        if(!reelReady){ reelReady=true; return; } // ignore initial fire
         if(e.isIntersecting){reel.classList.remove('reel-hidden');}
         else{reel.classList.add('reel-hidden');}
       });
