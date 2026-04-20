@@ -35,8 +35,9 @@ body.light .site-video-bg{opacity:0.06;mix-blend-mode:multiply}
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--bg:#1D1B1B;--bg2:#252323;--bg3:#2E2B2B;--white:#FFFFFF;--off:#B8B4B4;--dim:rgba(255,255,255,0.55);--line:rgba(255,255,255,0.1);--F:'Space Grotesk',Arial,sans-serif;--SI:'Suisse Intl','Space Grotesk',Arial,sans-serif;--r:12px;}
-html{font-size:16px;overflow-x:hidden;scroll-behavior:smooth}
-body{background:var(--bg);color:var(--white);font-family:var(--F);font-weight:400;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden;cursor:none;}
+html{font-size:16px;overflow-x:hidden;scroll-behavior:smooth;transition:background .25s}
+body{background:var(--bg);color:var(--white);font-family:var(--F);font-weight:400;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden;cursor:none;transition:background .25s,color .25s;}
+body.light{background:#FFFFFF;color:#000000;--bg:#FFFFFF;--white:#000000;--dim:rgba(0,0,0,0.55);--line:rgba(0,0,0,0.1);}
 a,button{cursor:none;text-decoration:none;color:inherit}
 @media(hover:none),(max-width:768px){*,a,button{cursor:auto!important}#cdot,#cring{display:none!important}}
 ul{list-style:none}
@@ -225,8 +226,74 @@ body.light .footer-lnk:hover{color:#000}
 <!-- ARTICLES GRID -->
 <section class="blog-grid" id="blogGrid">
 
-  <!-- Article 1 — FEATURED -->
-  <article class="blog-card featured rv" data-cat="ia" onclick="openArticle('a1')">
+  <!-- Article 10 — FEATURED 2026 -->
+  <article class="blog-card featured rv" data-cat="ia" onclick="openArticle('a10')">
+    <div class="blog-card-cat">Intelligence Artificielle · 2026</div>
+    <h2 class="blog-card-title">Claude 4 Opus est là : Anthropic vient de redéfinir ce qu'un modèle IA peut faire</h2>
+    <p class="blog-card-excerpt">Raisonnement étendu de 128K tokens, mémoire persistante, autonomie multi-agents native, multimodalité totale. Claude 4 Opus n'est pas une mise à jour — c'est un saut générationnel. Voici ce que ça change concrètement pour les freelances, les startups et les PME en 2026.</p>
+    <div class="blog-card-footer">
+      <span class="blog-card-date">20 Avr 2026</span>
+      <span class="blog-card-arrow">→</span>
+    </div>
+  </article>
+
+  <!-- Article 11 -->
+  <article class="blog-card rv" data-cat="ia" onclick="openArticle('a11')">
+    <div class="blog-card-cat">IA · Comparatif 2026</div>
+    <h2 class="blog-card-title">GPT-5 vs Claude 4 vs Gemini 2.5 Ultra : le grand match des géants en 2026</h2>
+    <p class="blog-card-excerpt">OpenAI, Anthropic, Google — trois titans, trois visions de l'IA. Comparatif complet pour savoir lequel choisir selon votre usage en 2026.</p>
+    <div class="blog-card-footer">
+      <span class="blog-card-date">18 Avr 2026</span>
+      <span class="blog-card-arrow">→</span>
+    </div>
+  </article>
+
+  <!-- Article 12 -->
+  <article class="blog-card rv" data-cat="ia" onclick="openArticle('a12')">
+    <div class="blog-card-cat">Agents IA · 2026</div>
+    <h2 class="blog-card-title">L'IA agentique en 2026 : des réseaux d'agents qui travaillent en équipe à votre place</h2>
+    <p class="blog-card-excerpt">En 2026, un seul agent ne suffit plus. Les systèmes multi-agents collaborent, se délèguent des tâches et livrent des résultats qu'aucun humain ne pourrait produire aussi vite.</p>
+    <div class="blog-card-footer">
+      <span class="blog-card-date">15 Avr 2026</span>
+      <span class="blog-card-arrow">→</span>
+    </div>
+  </article>
+
+  <!-- Article 13 -->
+  <article class="blog-card rv" data-cat="design" onclick="openArticle('a13')">
+    <div class="blog-card-cat">Design · Tendances 2026</div>
+    <h2 class="blog-card-title">Design 2026 : interfaces spatiales, UI générée par IA et la fin du pixel tel qu'on le connaît</h2>
+    <p class="blog-card-excerpt">Apple Vision Pro 2, Android XR, Figma AI — le design évolue vers des expériences sans écran. Ce que ça change pour les designers UI/UX dès maintenant.</p>
+    <div class="blog-card-footer">
+      <span class="blog-card-date">12 Avr 2026</span>
+      <span class="blog-card-arrow">→</span>
+    </div>
+  </article>
+
+  <!-- Article 14 -->
+  <article class="blog-card rv" data-cat="seo" onclick="openArticle('a14')">
+    <div class="blog-card-cat">SEO · 2026</div>
+    <h2 class="blog-card-title">SEO 2026 : Google perd du terrain — comment rester visible à l'ère des moteurs IA</h2>
+    <p class="blog-card-excerpt">Perplexity, ChatGPT Search, Claude Search — les utilisateurs cherchent ailleurs. Comment adapter votre stratégie SEO pour capturer ce trafic invisible.</p>
+    <div class="blog-card-footer">
+      <span class="blog-card-date">8 Avr 2026</span>
+      <span class="blog-card-arrow">→</span>
+    </div>
+  </article>
+
+  <!-- Article 15 -->
+  <article class="blog-card rv" data-cat="ia" onclick="openArticle('a15')">
+    <div class="blog-card-cat">Tech & Business · 2026</div>
+    <h2 class="blog-card-title">Les 8 révolutions qui arrivent en 2026 et que chaque entrepreneur doit anticiper maintenant</h2>
+    <p class="blog-card-excerpt">IA autonome, internet spatial, énergie IA, nouveaux modèles économiques — les transformations qui redessinent le marché et créent des opportunités massives pour ceux qui s'y préparent.</p>
+    <div class="blog-card-footer">
+      <span class="blog-card-date">5 Avr 2026</span>
+      <span class="blog-card-arrow">→</span>
+    </div>
+  </article>
+
+  <!-- Article 1 (2025) -->
+  <article class="blog-card rv" data-cat="ia" onclick="openArticle('a1')">
     <div class="blog-card-cat">Intelligence Artificielle</div>
     <h2 class="blog-card-title">Claude Code & Computer Use : Anthropic redéfinit ce qu'un développeur peut accomplir seul</h2>
     <p class="blog-card-excerpt">Claude Code n'est pas un simple assistant de code. C'est un agent autonome capable de lire votre codebase, d'écrire des fichiers, d'exécuter des commandes et de déployer des applications entières. Voici ce que ça change concrètement pour les freelances et les startups.</p>
@@ -376,6 +443,8 @@ document.getElementById('themeBtn').addEventListener('click',function(){
   const isLight=document.body.classList.toggle('light');
   localStorage.setItem('dikenga-theme',isLight?'light':'dark');
   document.documentElement.style.background=isLight?'#FFFFFF':'#1D1B1B';
+  document.body.style.background=isLight?'#FFFFFF':'#1D1B1B';
+  document.body.style.color=isLight?'#000000':'#FFFFFF';
 });
 
 /* ── Scroll reveal */
@@ -578,6 +647,191 @@ const articles={
       <p><strong>Points forts :</strong> intégration native Google Workspace, multimodalité avancée, accès en temps réel à l'information. <strong>Points faibles :</strong> moins fiable sur les tâches de raisonnement complexe, hallucinations plus fréquentes.</p>
       <h2>Ma recommandation</h2>
       <p><strong>Pour le code et les tâches d'analyse</strong> : Claude 3.7. <strong>Pour le contenu créatif et les images</strong> : GPT-4o. <strong>Pour les recherches et l'info en temps réel</strong> : Gemini. Le stack gagnant en 2025 n'est pas mono-modèle.</p>
+    `
+  }
+  ,
+  a10:{
+    cat:'Intelligence Artificielle · 2026',
+    title:'Claude 4 Opus est là : Anthropic vient de redéfinir ce qu\'un modèle IA peut faire',
+    date:'20 Avril 2026',
+    read:'9 min',
+    body:`
+      <p><strong>Claude 4 Opus est sorti en janvier 2026 et il a immédiatement fracassé tous les benchmarks existants.</strong> Pas parce qu'Anthropic a juste ajouté des paramètres — mais parce qu'ils ont repensé l'architecture même du modèle. Raisonnement étendu, mémoire persistante, autonomie multi-agents native, multimodalité complète. C'est un saut générationnel.</p>
+      <h2>Ce qui change vraiment avec Claude 4 Opus</h2>
+      <p><strong>128 000 tokens de raisonnement étendu.</strong> Avant, un modèle lisait votre document et produisait une réponse. Claude 4 peut maintenant <em>penser</em> pendant des dizaines de minutes sur un problème complexe avant de répondre — comme un consultant senior qui prend le temps d'analyser avant de parler. Les résultats sont incomparables sur des tâches juridiques, financières, techniques.</p>
+      <p><strong>Mémoire persistante multi-sessions.</strong> Fini les conversations qui recommencent à zéro. Claude 4 peut se souvenir de vos préférences, de vos projets en cours, de votre contexte métier d'une session à l'autre. Pour un freelance comme moi, c'est comme avoir un assistant qui se souvient de tous mes clients sans que je re-contextualise à chaque fois.</p>
+      <p><strong>Multimodalité totale : texte, image, audio, vidéo, code.</strong> Claude 4 analyse des vidéos, génère des images (via intégration), transcrit et résume des réunions audio, et code avec une précision qui dépasse largement ses prédécesseurs. Un seul modèle pour des dizaines de cas d'usage.</p>
+      <h2>Claude 4 vs ses concurrents directs</h2>
+      <p>GPT-5 (OpenAI, sorti fin 2025) est excellent sur la génération créative et l'écosystème de plugins. Gemini 2.5 Ultra (Google) brille sur l'intégration Google Workspace et la recherche en temps réel. Mais sur le <strong>raisonnement pur, la fiabilité des réponses et la sécurité</strong>, Claude 4 Opus prend une longueur d'avance que ses concurrents n'ont pas encore comblée.</p>
+      <p>Anthropic a maintenu son engagement sur la <strong>Constitutional AI</strong> — la technique qui entraîne les modèles à refuser les requêtes nuisibles de façon robuste. En 2026, alors que l'IA s'infiltre dans des décisions critiques (médical, légal, financier), c'est un différenciateur majeur pour les entreprises sérieuses.</p>
+      <h2>Ce que ça change concrètement pour votre business</h2>
+      <p>Si vous êtes freelance ou dirigeant de PME, voici ce que Claude 4 vous permet de faire <em>dès maintenant</em> :</p>
+      <ul>
+        <li><strong>Analyser des contrats complexes</strong> en quelques minutes au lieu de payer un juriste pour une première lecture</li>
+        <li><strong>Créer des stratégies marketing complètes</strong> avec analyse concurrentielle, personas, calendrier éditorial — en une session</li>
+        <li><strong>Coder des applications entières</strong> via Claude Code qui utilise Claude 4 comme moteur</li>
+        <li><strong>Faire de la recherche approfondie</strong> sur n'importe quel sujet avec des sources vérifiées</li>
+        <li><strong>Automatiser des workflows complexes</strong> en construisant des agents qui se délèguent des tâches entre eux</li>
+      </ul>
+      <h2>Les tarifs en 2026</h2>
+      <p>Claude 4 Opus est disponible via l'API Anthropic à environ <strong>15$/million de tokens en input</strong> (contre 75$ au lancement de Claude 3 Opus). La démocratisation de la puissance IA s'accélère. Claude 4 Haiku, le modèle léger et rapide, est disponible pour à peine 0.25$/million de tokens — parfait pour l'intégration en masse dans des applications.</p>
+      <h2>Mon verdict</h2>
+      <p>Claude 4 Opus est le modèle que j'utilise pour 90% de mes tâches complexes en 2026. La différence avec ses prédécesseurs est immédiatement perceptible sur tout ce qui demande du raisonnement structuré. <strong>Si vous n'avez pas encore intégré l'IA dans votre flux de travail, 2026 est le moment ou jamais.</strong> La courbe de compétence IA devient le nouveau différenciateur entre les freelances et entreprises qui progressent et ceux qui stagnent.</p>
+    `
+  },
+  a11:{
+    cat:'Intelligence Artificielle · Comparatif 2026',
+    title:'GPT-5 vs Claude 4 vs Gemini 2.5 Ultra : le grand match des géants en 2026',
+    date:'18 Avril 2026',
+    read:'7 min',
+    body:`
+      <p><strong>En 2026, le marché des LLM ressemble à une F1 où chaque constructeur sort une nouvelle voiture tous les 6 mois.</strong> GPT-5, Claude 4, Gemini 2.5 Ultra — trois modèles de classe mondiale qui répondent à des besoins différents. Voici mon analyse honnête, sans sponsors, basée sur des semaines de tests réels.</p>
+      <h2>GPT-5 (OpenAI) — Le créatif hyperconnecté</h2>
+      <p>GPT-5 impressionne sur la <strong>génération créative</strong> : copywriting, scénarios, storytelling, contenu marketing. Son écosystème de plugins et GPTs est le plus riche du marché. La génération d'images DALL-E 4 intégrée est bluffante pour les visuels marketing.</p>
+      <p><strong>Points forts :</strong> créativité, richesse des plugins, génération images, interface ChatGPT très accessible.<br>
+      <strong>Points faibles :</strong> hallucinations encore présentes sur des faits récents, moins fiable sur des analyses techniques poussées, questions sur la gestion des données privées.</p>
+      <p><strong>Idéal pour :</strong> contenu marketing, copywriting, créativité, prototypes rapides.</p>
+      <h2>Claude 4 Opus (Anthropic) — Le stratège de précision</h2>
+      <p>Claude 4 domine sur <strong>le raisonnement, le code, l'analyse</strong> et la fiabilité des réponses. Le mode "extended thinking" produit des analyses que j'aurais mis une journée à écrire. La Constitutional AI d'Anthropic le rend plus sûr pour des usages professionnels sensibles.</p>
+      <p><strong>Points forts :</strong> raisonnement étendu, code de haute qualité, fiabilité, contexte 200K tokens, mémoire persistante, sécurité.<br>
+      <strong>Points faibles :</strong> pas de génération d'images native, écosystème de plugins moins riche, interface moins grand public.</p>
+      <p><strong>Idéal pour :</strong> analyse, code, contrats, recherche approfondie, automatisation business.</p>
+      <h2>Gemini 2.5 Ultra (Google) — L'information en temps réel</h2>
+      <p>Gemini brille sur <strong>l'accès à l'information en temps réel</strong> et l'intégration native dans Google Workspace. Si votre business tourne autour de Google (Docs, Sheets, Gmail, Search), Gemini 2.5 Ultra offre une productivité inégalée.</p>
+      <p><strong>Points forts :</strong> information temps réel, intégration Google Workspace, multimodalité avancée (vidéo longue), prix compétitif.<br>
+      <strong>Points faibles :</strong> hallucinations plus fréquentes sur raisonnement complexe, moins fiable pour du code critique, confidentialité liée à l'écosystème Google.</p>
+      <p><strong>Idéal pour :</strong> recherche, veille concurrentielle, résumé de contenu, entreprises tout-Google.</p>
+      <h2>Mon verdict 2026 : le stack gagnant n'est pas mono-modèle</h2>
+      <p>Personne ne devrait choisir UN seul modèle. Le stack que j'utilise en 2026 :</p>
+      <ul>
+        <li><strong>Claude 4 Opus</strong> pour tout ce qui demande réflexion, code, analyse et précision</li>
+        <li><strong>GPT-5</strong> pour le contenu créatif, les visuels et les campagnes marketing</li>
+        <li><strong>Gemini 2.5</strong> pour la veille, la recherche et les tâches liées à Google Workspace</li>
+      </ul>
+      <p>Les prix ont suffisamment baissé pour que l'accès aux trois soit rentable même pour un freelance. <strong>La vraie compétence en 2026 n'est plus "utilise-t-on l'IA ?" mais "sait-on quel modèle utiliser pour quelle tâche ?"</strong></p>
+    `
+  },
+  a12:{
+    cat:'Agents IA · 2026',
+    title:'L\'IA agentique en 2026 : des réseaux d\'agents qui travaillent en équipe à votre place',
+    date:'15 Avril 2026',
+    read:'8 min',
+    body:`
+      <p><strong>En 2025, un agent IA pouvait faire votre veille ou rédiger un article.</strong> En 2026, des <em>réseaux</em> d'agents collaborent, se délèguent des tâches, s'auto-corrigent et livrent des projets entiers sans intervention humaine. C'est l'IA agentique — et elle redéfinit ce qu'une petite équipe peut accomplir.</p>
+      <h2>Qu'est-ce qu'un système multi-agents ?</h2>
+      <p>Imaginez une agence où chaque employé a une spécialité. Dans un système multi-agents :</p>
+      <ul>
+        <li>Un <strong>agent orchestrateur</strong> reçoit votre objectif et décompose le travail</li>
+        <li>Un <strong>agent recherche</strong> scrape le web et consolide des données</li>
+        <li>Un <strong>agent rédacteur</strong> produit le contenu</li>
+        <li>Un <strong>agent critique</strong> révise et améliore</li>
+        <li>Un <strong>agent déploiement</strong> publie sur vos canaux</li>
+      </ul>
+      <p>Le tout tourne en autonomie pendant que vous dormez. Ce n'est plus de la science-fiction — c'est disponible avec des outils comme <strong>Claude Agents, AutoGen, CrewAI, LangGraph</strong> et n8n en 2026.</p>
+      <h2>Les cas d'usage concrets en 2026</h2>
+      <p><strong>Création de contenu automatisée :</strong> un réseau d'agents identifie les sujets tendance, rédige des articles, les optimise SEO, les publie sur votre blog et génère les posts réseaux sociaux associés. Un travail d'équipe éditoriale de 4 personnes, fait par des agents, en quelques heures.</p>
+      <p><strong>Prospection commerciale :</strong> un agent identifie des prospects pertinents, un second analyse leurs besoins à partir de leur site web et réseaux sociaux, un troisième rédige un message personnalisé par prospect. Résultat : 50 messages de prospection ultra-ciblés par jour, zéro effort humain sur l'exécution.</p>
+      <p><strong>Service client :</strong> un agent triait les demandes, un second cherchait les réponses dans votre base de connaissance, un troisième rédigeait la réponse client. Taux de résolution automatique : 80% en 2026 pour les entreprises bien configurées.</p>
+      <p><strong>Développement produit :</strong> des agents lisent votre codebase, identifient des bugs, proposent des corrections, écrivent des tests et soumettent des pull requests. Votre CTO humain ne fait plus que la revue finale.</p>
+      <h2>Les outils pour commencer aujourd'hui</h2>
+      <p>Pour un freelance ou une PME :</p>
+      <ul>
+        <li><strong>Claude Code</strong> : agents de développement et automatisation technique</li>
+        <li><strong>n8n + Claude API</strong> : workflows automatisés sans code complexe</li>
+        <li><strong>CrewAI</strong> : framework Python pour créer des équipes d'agents spécialisés</li>
+        <li><strong>Make (ex-Integromat)</strong> : automation visuelle accessible aux non-développeurs</li>
+      </ul>
+      <h2>Ce que ça implique pour votre business</h2>
+      <p>En 2026, les entreprises qui gagnent ne sont pas celles qui ont le plus d'employés — ce sont celles qui ont le mieux orchestré leurs agents IA. <strong>Un freelance avec un bon stack d'agents peut délivrer le volume d'une agence de 10 personnes.</strong> C'est exactement ma situation. Et c'est pourquoi j'investis autant de temps à construire et affiner mes systèmes agentiques.</p>
+    `
+  },
+  a13:{
+    cat:'Design & Branding · Tendances 2026',
+    title:'Design 2026 : interfaces spatiales, UI générée par IA et la fin du pixel tel qu\'on le connaît',
+    date:'12 Avril 2026',
+    read:'6 min',
+    body:`
+      <p><strong>Le design UI/UX traverse sa plus grande mutation depuis l'invention du smartphone.</strong> En 2026, trois forces convergent simultanément : l'essor des interfaces spatiales (AR/VR), la génération automatique d'UI par l'IA, et les nouveaux comportements utilisateurs qui émergent des deux. En tant que designer, soit vous surfez cette vague, soit elle vous passe dessus.</p>
+      <h2>Les interfaces spatiales : plus un gadget, un standard</h2>
+      <p>Apple Vision Pro 2, Android XR (Google + Samsung), Meta Quest 4 — en 2026, les interfaces spatiales sont accessibles à un prix raisonnable et commencent à s'imposer dans certains secteurs professionnels. Architecture, médecine, formation, retail premium : ces industries basculent vers des expériences immersives.</p>
+      <p>Pour les designers, ça signifie apprendre à <strong>penser en 3D</strong> : profondeur, parallaxe, interactions gestuelles, interfaces adaptées au champ de vision humain. Les outils évoluent — Figma a lancé son module spatial en 2026, Spline est devenu incontournable pour les prototypes XR.</p>
+      <h2>Figma AI et la génération automatique d'interface</h2>
+      <p>Figma a intégré des capacités IA qui permettent de <strong>générer des composants UI à partir d'une description textuelle</strong> en 2026. Vous décrivez "une carte produit e-commerce avec image, titre, prix et bouton d'achat", Figma génère 5 variantes en quelques secondes.</p>
+      <p>Est-ce que ça tue le métier de designer ? Non. Mais ça tue les designers qui ne savent que placer des éléments. <strong>La valeur se déplace vers la stratégie UX, la direction artistique et la compréhension des utilisateurs</strong> — ce que l'IA ne peut pas encore faire seule.</p>
+      <h2>Les tendances visuelles qui dominent 2026</h2>
+      <ul>
+        <li><strong>Brutalisme digital :</strong> typographies massives, contrastes extrêmes, asymétrie assumée — une réaction au minimalisme uniformisant</li>
+        <li><strong>Glassmorphisme 2.0 :</strong> évolution du verre dépoli avec des reflets dynamiques et des profondeurs réalistes</li>
+        <li><strong>Micro-animations contextuelle :</strong> chaque interaction déclenche un retour visuel hyper-précis — le ressenti physique dans le digital</li>
+        <li><strong>Typographie cinétique :</strong> les lettres bougent, se transforment, racontent l'histoire de la marque en mouvement</li>
+        <li><strong>IA-native design :</strong> des interfaces qui s'adaptent en temps réel à l'utilisateur — couleurs, layout, densité d'information — via des modèles embarqués</li>
+      </ul>
+      <h2>Ce que ça change pour vos projets</h2>
+      <p>En tant que designer en 2026, je ne me positionne plus comme "celui qui fait des maquettes". Je me positionne comme <strong>un architecte d'expériences qui maîtrise à la fois les outils IA, les principes UX fondamentaux et les nouvelles surfaces d'interaction</strong>. C'est ce positionnement qui justifie des tarifs premium — et c'est celui que je construis avec chacun de mes clients.</p>
+    `
+  },
+  a14:{
+    cat:'SEO & Référencement · 2026',
+    title:'SEO 2026 : Google perd du terrain — comment rester visible à l\'ère des moteurs IA',
+    date:'8 Avril 2026',
+    read:'7 min',
+    body:`
+      <p><strong>En 2026, pour la première fois de son histoire, Google n'est plus le seul point d'entrée de l'information en ligne.</strong> Perplexity AI a franchi les 100 millions d'utilisateurs actifs. ChatGPT Search est utilisé quotidiennement par des dizaines de millions de personnes. Claude Search monte en puissance. Le SEO tel qu'on le connaissait est mort — longue vie au SEO 2026.</p>
+      <h2>Le nouveau paysage de la recherche en 2026</h2>
+      <p>Voici comment les gens cherchent aujourd'hui :</p>
+      <ul>
+        <li><strong>Google AI Overviews</strong> répond directement à la question — sans clic vers votre site. Le trafic organique Google chute de 30-40% pour les requêtes informationnelles.</li>
+        <li><strong>Perplexity</strong> agrège plusieurs sources et cite ses références — votre site peut être cité même si l'utilisateur ne le visite pas.</li>
+        <li><strong>ChatGPT Search</strong> répond avec du contexte conversationnel — encore plus de réponses sans clic.</li>
+        <li><strong>La recherche vocale</strong> explose avec les assistants IA embarqués dans les AirPods, les voitures, les montres.</li>
+      </ul>
+      <h2>Qu'est-ce que ça change pour votre stratégie SEO ?</h2>
+      <p><strong>L'objectif ne peut plus être uniquement "rang numéro 1 sur Google".</strong> En 2026, l'objectif est d'être <em>cité</em> par les IA comme source fiable — ce qu'on appelle le <strong>GEO (Generative Engine Optimization)</strong>.</p>
+      <p>Pour être cité par Claude, Perplexity ou ChatGPT :</p>
+      <ul>
+        <li><strong>Créez du contenu expert, long et vérifiable</strong> — les IA citent les sources qui démontrent une vraie expertise (E-E-A-T amplifié)</li>
+        <li><strong>Structurez vos données</strong> — schema.org, FAQ structurées, données structurées pour que les IA comprennent facilement votre contenu</li>
+        <li><strong>Construisez de l'autorité topique</strong> — être reconnu comme LA référence sur un sujet précis plutôt que de couvrir 50 sujets superficiellement</li>
+        <li><strong>Publiez régulièrement</strong> — les IA favorisent les sources actives et à jour (d'où l'importance d'un blog actif comme celui-ci)</li>
+        <li><strong>Obtenez des mentions et backlinks de qualité</strong> — l'autorité de domaine reste un signal fort pour les IA comme pour Google</li>
+      </ul>
+      <h2>Les nouvelles métriques à suivre en 2026</h2>
+      <p>Oubliez le classement Google comme seul KPI. En 2026, suivez :</p>
+      <ul>
+        <li>Les <strong>mentions dans les réponses IA</strong> (vous pouvez tester en posant des questions à Claude/Perplexity sur votre thématique)</li>
+        <li>Le <strong>trafic de référence</strong> depuis les plateformes IA (Perplexity, ChatGPT) dans votre Analytics</li>
+        <li>Le <strong>trafic branded</strong> (les gens qui vous cherchent directement par nom après vous avoir découvert via une IA)</li>
+        <li>Le <strong>temps passé sur la page</strong> (signal fort de qualité pour les algorithmes IA et Google)</li>
+      </ul>
+      <h2>Ma stratégie concrète pour Dikenga en 2026</h2>
+      <p>Je publie régulièrement sur ce blog avec des articles longs, sourcés et à jour. J'optimise chaque article pour qu'il réponde à une question précise de façon exhaustive. Je construis l'autorité de Dikenga sur les thématiques IA, design et marketing digital. <strong>Résultat : mes articles commencent à être cités dans des réponses Perplexity et ChatGPT Search</strong> — un trafic qui ne dépend plus des caprices des algorithmes Google.</p>
+    `
+  },
+  a15:{
+    cat:'Tech & Business · 2026',
+    title:'Les 8 révolutions qui arrivent en 2026 et que chaque entrepreneur doit anticiper maintenant',
+    date:'5 Avril 2026',
+    read:'10 min',
+    body:`
+      <p><strong>2026 n'est pas une année ordinaire.</strong> C'est l'année où plusieurs vagues technologiques atteignent simultanément le point de basculement. Pour les entrepreneurs et freelances qui savent lire les signaux, c'est une fenêtre d'opportunité massive. Pour ceux qui attendent de voir, c'est une menace existentielle. Voici les 8 révolutions que j'ai identifiées — et comment en tirer parti concrètement.</p>
+      <h2>1. L'IA autonome sort du lab et entre dans les bureaux</h2>
+      <p>Les agents IA autonomes ne sont plus réservés aux grandes tech companies. En 2026, <strong>n'importe quelle PME peut déployer des agents qui prospectent, rédigent, analysent et reportent</strong> sans supervision constante. Le coût d'un "employé IA" est désormais inférieur à 100€/mois pour des capacités équivalentes à un assistant junior à temps plein. Les entreprises qui n'intègrent pas cette réalité perdent en compétitivité chaque mois qui passe.</p>
+      <h2>2. L'internet spatial devient professionnel</h2>
+      <p>Apple Vision Pro 2 et les casques concurrents ont atteint un prix accessible (sous 2000€) et un confort d'utilisation suffisant pour des sessions de travail prolongées. <strong>Les premières agences, cabinets et studios qui proposent des expériences spatiales prennent une avance difficile à rattraper.</strong> Si vous travaillez dans l'immobilier, la formation, le retail ou le design, ignorez ce canal à vos risques et périls.</p>
+      <h2>3. La génération Z devient la cible principale</h2>
+      <p>La génération Z (née après 1997) représente désormais 30% des actifs. Leurs comportements d'achat, leurs canaux de communication et leurs attentes vis-à-vis des marques sont radicalement différents. <strong>Ils passent par TikTok, Snapchat et Discord — pas par email ou LinkedIn.</strong> Les marques qui ne parlent pas leur langage visuel et leur code culturel sont invisibles pour eux.</p>
+      <h2>4. La personnalisation IA devient la norme attendue</h2>
+      <p>En 2026, un site web "générique" est perçu comme un site bâclé. Les utilisateurs s'attendent à des expériences adaptées à leur comportement, leur localisation, leur historique. Les outils de personnalisation IA sont accessibles et abordables. <strong>Un site sans personnalisation en 2026 c'est comme un site non responsive en 2018.</strong> En retard.</p>
+      <h2>5. L'énergie de l'IA crée une nouvelle économie</h2>
+      <p>Les data centers IA consomment une énergie colossale. Des pays, des régions et des entreprises se positionnent sur cette nouvelle demande. Pour les entrepreneurs, cela crée des opportunités dans l'efficience énergétique, les infrastructures vertes et les services aux data centers. <strong>L'IA n'est pas qu'une révolution logicielle — c'est une révolution industrielle.</strong></p>
+      <h2>6. La créativité humaine augmentée prime sur la créativité pure IA</h2>
+      <p>Paradoxalement, l'IA n'a pas tué les créatifs — elle a élevé le niveau d'entrée. <strong>Ce qui était "moyen" avant est maintenant facile à générer par l'IA. Ce qui prime, c'est le point de vue unique, l'expérience vécue, la sensibilité humaine.</strong> Les créatifs qui gagnent en 2026 utilisent l'IA comme amplificateur, pas comme substitut à leur vision.</p>
+      <h2>7. Le no-code atteint la parité avec le code traditionnel</h2>
+      <p>Bolt.new, Lovable, Webflow, Bubble — les outils no-code de 2026 permettent de construire des applications qui auraient nécessité une équipe de 5 développeurs il y a 3 ans. <strong>Le temps de mise sur le marché d'un MVP est passé de 6 mois à 2 semaines.</strong> Pour les startups et entrepreneurs, c'est une révolution de l'accessibilité au marché.</p>
+      <h2>8. La confiance devient la ressource la plus rare</h2>
+      <p>Dans un monde inondé de contenu généré par IA, de deepfakes et de désinformation, <strong>la confiance est devenue la ressource la plus précieuse qu'une marque puisse construire.</strong> Les entreprises qui investissent dans l'authenticité, la transparence et les preuves sociales réelles prennent une avance durable. Votre réputation, votre personal branding, vos avis clients — en 2026, c'est votre actif principal.</p>
+      <h2>Ce que je retiens pour Dikenga</h2>
+      <p>Ces 8 révolutions confirment ma direction : rester à la pointe de l'IA et du design, construire de l'authenticité et de la confiance via ce blog et mes projets, maîtriser les outils no-code pour livrer plus vite, et développer ma présence sur les canaux où se trouvent mes clients idéaux. <strong>2026 n'est pas une année pour attendre — c'est une année pour accélérer.</strong></p>
     `
   }
   /* ##ARTICLES_INSERT## */
