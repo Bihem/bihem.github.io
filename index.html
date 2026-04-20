@@ -518,8 +518,26 @@ img{display:block;max-width:100%}
 .services-h{font-size:clamp(24px,3vw,42px);font-weight:700;text-transform:uppercase;letter-spacing:-0.025em;line-height:.95}
 .services-sub{font-family:'Suisse Intl',var(--F);font-size:15px;font-weight:300;color:var(--white);max-width:280px;line-height:1.65;padding-top:6px}
 
-/* ── Split layout (Niklas Bubori) */
+/* ── Split layout desktop (Niklas Bubori) */
 .services-list{margin-top:64px;padding:0;display:grid;grid-template-columns:1fr 1fr}
+.svc-mobile-list{display:none}
+
+/* ── Accordion mobile */
+.svc{border-top:1px solid var(--line);position:relative;cursor:none}
+.svc:last-child{border-bottom:1px solid var(--line)}
+.svc::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--white);transition:width .65s cubic-bezier(.22,1,.36,1)}
+.svc.open::after{width:100%}
+.svc-header{display:grid;grid-template-columns:48px 36px 1fr auto;align-items:center;gap:16px;padding:22px 0;cursor:none}
+.svc-n{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--dim)}
+.svc-icon{width:32px;height:32px;flex-shrink:0;color:var(--white);transition:transform .35s cubic-bezier(.22,1,.36,1)}
+.svc:hover .svc-icon{transform:rotate(-12deg) scale(1.18)}
+.svc-name{font-family:'Suisse Intl',var(--F);font-size:clamp(16px,5vw,22px);font-weight:300;text-transform:uppercase;letter-spacing:0.04em}
+.svc-toggle{width:30px;height:30px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:300;color:var(--dim);transition:transform .4s cubic-bezier(.22,1,.36,1),border-color .2s;flex-shrink:0}
+.svc.open .svc-toggle{transform:rotate(45deg);border-color:rgba(255,255,255,0.3);color:var(--white)}
+.svc-body{overflow:hidden;max-height:0;transition:max-height .7s cubic-bezier(.22,1,.36,1),opacity .5s ease;opacity:0}
+.svc.open .svc-body{max-height:260px;opacity:1}
+.svc-body-inner{display:flex;flex-direction:column;gap:14px;padding:0 0 22px 0}
+.svc-mobile-desc{font-family:'Suisse Intl',var(--F);font-size:14px;font-weight:300;color:var(--dim);line-height:1.7}
 
 /* LEFT — sticky image panel */
 .svc-img-panel{
@@ -938,12 +956,9 @@ img{display:block;max-width:100%}
   .services,.about,.process,.testimonials,.stats,.faq{padding:60px 20px}
   .projects{padding:0}
 
-  /* services mobile */
-  .services-list{grid-template-columns:1fr}
-  .svc-img-panel{display:none}
-  .svc-list{border-left:none}
-  .svc-row{padding:24px 20px}
-  .svc-row.svc-active .svc-row-body{max-height:300px;opacity:1}
+  /* services mobile : hide split, show accordion */
+  .services-list{display:none}
+  .svc-mobile-list{display:block;margin-top:48px;padding:0 20px}
   .services-head{padding:0 20px}
 
   /* about */
@@ -1759,6 +1774,70 @@ body.light .reel-arrow svg path{stroke:#000000}
 
     </div><!-- /svc-list -->
   </div><!-- /services-list -->
+
+  <!-- ACCORDION MOBILE ONLY -->
+  <div class="svc-mobile-list">
+    <div class="svc">
+      <div class="svc-header">
+        <span class="svc-n">01</span>
+        <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="10" width="36" height="28" rx="3"/><path d="M18 22h12M18 28h8"/><circle cx="24" cy="18" r="3"/></svg>
+        <span class="svc-name">Design d'Interface</span>
+        <span class="svc-toggle">+</span>
+      </div>
+      <div class="svc-body"><div class="svc-body-inner">
+        <p class="svc-mobile-desc">Interfaces modernes et intuitives pour vos applications web et mobiles. Du wireframe au prototype haute fidélité.</p>
+        <div class="svc-tags"><span class="svc-tag">Figma</span><span class="svc-tag">Prototype</span><span class="svc-tag">Design System</span></div>
+      </div></div>
+    </div>
+    <div class="svc">
+      <div class="svc-header">
+        <span class="svc-n">02</span>
+        <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="24" cy="24" r="18"/><path d="M24 6v36M6 24h36"/><ellipse cx="24" cy="24" rx="10" ry="18"/></svg>
+        <span class="svc-name">Identité Visuelle</span>
+        <span class="svc-toggle">+</span>
+      </div>
+      <div class="svc-body"><div class="svc-body-inner">
+        <p class="svc-mobile-desc">Création de logotypes, chartes graphiques et identités de marque complètes. Des marques cohérentes et mémorables.</p>
+        <div class="svc-tags"><span class="svc-tag">Logo</span><span class="svc-tag">Charte</span><span class="svc-tag">Brand Guidelines</span></div>
+      </div></div>
+    </div>
+    <div class="svc">
+      <div class="svc-header">
+        <span class="svc-n">03</span>
+        <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 36l10-10 8 8 6-12 8 14"/><circle cx="38" cy="12" r="4"/><path d="M6 12h10M6 18h8M6 24h6"/></svg>
+        <span class="svc-name">IA &amp; No-Code</span>
+        <span class="svc-toggle">+</span>
+      </div>
+      <div class="svc-body"><div class="svc-body-inner">
+        <p class="svc-mobile-desc">Intégration de l'IA et des outils no-code pour transformer rapidement des idées en produits digitaux scalables.</p>
+        <div class="svc-tags"><span class="svc-tag">n8n</span><span class="svc-tag">Automatisation</span><span class="svc-tag">Agents IA</span></div>
+      </div></div>
+    </div>
+    <div class="svc">
+      <div class="svc-header">
+        <span class="svc-n">04</span>
+        <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="8" width="40" height="32" rx="3"/><path d="M4 16h40"/><circle cx="10" cy="12" r="1.5" fill="currentColor"/><circle cx="16" cy="12" r="1.5" fill="currentColor"/><circle cx="22" cy="12" r="1.5" fill="currentColor"/><path d="M14 26h20M14 32h14"/></svg>
+        <span class="svc-name">Site Web</span>
+        <span class="svc-toggle">+</span>
+      </div>
+      <div class="svc-body"><div class="svc-body-inner">
+        <p class="svc-mobile-desc">Sites web sur-mesure, rapides et élégants. Du site vitrine au portfolio en passant par les landing pages haute conversion.</p>
+        <div class="svc-tags"><span class="svc-tag">Webflow</span><span class="svc-tag">HTML/CSS</span><span class="svc-tag">SEO-ready</span></div>
+      </div></div>
+    </div>
+    <div class="svc">
+      <div class="svc-header">
+        <span class="svc-n">05</span>
+        <svg class="svc-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="24" cy="24" r="18"/><polygon points="20,16 34,24 20,32" fill="currentColor" stroke="none"/></svg>
+        <span class="svc-name">Motion &amp; Animation</span>
+        <span class="svc-toggle">+</span>
+      </div>
+      <div class="svc-body"><div class="svc-body-inner">
+        <p class="svc-mobile-desc">Logos animés, micro-interactions et vidéos motion pour donner vie à votre identité et captiver votre audience.</p>
+        <div class="svc-tags"><span class="svc-tag">After Effects</span><span class="svc-tag">Lottie</span><span class="svc-tag">Motion UI</span></div>
+      </div></div>
+    </div>
+  </div><!-- /svc-mobile-list -->
 
   <!-- TARIFS -->
   <section id="tarifs" style="display:none">
@@ -2960,6 +3039,15 @@ document.querySelectorAll('.faq-btn').forEach(btn=>{
     cardObserver.observe(c);
   });
 })();
+
+/* ── SERVICES ACCORDION (mobile) */
+document.querySelectorAll('.svc-mobile-list .svc').forEach(svc=>{
+  svc.querySelector('.svc-header').addEventListener('click',()=>{
+    const wasOpen=svc.classList.contains('open');
+    document.querySelectorAll('.svc-mobile-list .svc').forEach(s=>s.classList.remove('open'));
+    if(!wasOpen) svc.classList.add('open');
+  });
+});
 
 /* ── SERVICES SPLIT — hover + click */
 (function(){
