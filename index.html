@@ -561,9 +561,10 @@ img{display:block;max-width:100%}
 /* LEFT — sticky image panel */
 .svc-img-panel{
   position:sticky;top:56px;
-  height:calc(100vh - 56px);overflow:hidden;
+  overflow:hidden;
   background:transparent;
-  align-self:start;
+  /* height = grid cell = same as list column, no blank space */
+  min-height:300px;
 }
 .svc-img-slide{
   position:absolute;inset:0;
