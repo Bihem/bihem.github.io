@@ -314,6 +314,9 @@ img{display:block;max-width:100%}
   .tarif-info-item{border-right:none;border-bottom:1px solid var(--line)}
   .tarif-info-item:last-child{border-bottom:none}
   .footer-bot{flex-direction:column;align-items:flex-start;gap:12px}
+  .nav-time{display:block!important}
+  .nav{padding:16px 20px 0}
+  .nav-logo svg{height:28px}
 }
 </style>
 </head>
@@ -323,6 +326,19 @@ img{display:block;max-width:100%}
   <source src="hero-bg.mp4" type="video/mp4">
 </video>
 
+
+<!-- ═══════ NAV ═══════ -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <svg viewBox="0 0 320 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Dikenga.">
+      <ellipse cx="152" cy="60" rx="144" ry="52" stroke="white" stroke-width="7" fill="none"/>
+      <text x="152" y="75" text-anchor="middle" font-family="'Space Grotesk',Arial,sans-serif" font-weight="700" font-size="46" fill="white" letter-spacing="-1">DIKENGA.</text>
+    </svg>
+  </a>
+  <div class="nav-right">
+    <span class="nav-time" id="navtime">FR · --:--</span>
+  </div>
+</nav>
 
 <!-- ═══════ PAGE HEADER ═══════ -->
 <header class="page-header">
