@@ -24,7 +24,34 @@ body.light .site-video-bg{opacity:0.06;mix-blend-mode:multiply}
 <meta property="og:url" content="https://dikengadesign.fr/blog.html"/>
 <meta property="og:image" content="https://dikengadesign.fr/og-image.jpg"/>
 <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Blog Dikenga — IA, Design & Marketing Digital"/>
+<meta name="twitter:description" content="Actualités IA, conseils design, SEO et marketing digital par Dikenga."/>
+<meta name="twitter:image" content="https://dikengadesign.fr/og-image.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta name="geo.region" content="FR-IDF"/>
+<meta name="geo.placename" content="Paris, France"/>
+<link rel="canonical" href="https://dikengadesign.fr/blog.html"/>
 <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Blog Dikenga — IA, Design & Marketing Digital",
+  "description": "Actualités IA, Claude, Anthropic, design UI/UX, SEO et marketing digital. Conseils d'expert par Dikenga, designer freelance Paris.",
+  "url": "https://dikengadesign.fr/blog.html",
+  "inLanguage": "fr-FR",
+  "isPartOf": {"@id": "https://dikengadesign.fr/#website"},
+  "author": {"@id": "https://dikengadesign.fr/#person"},
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://dikengadesign.fr/"},
+      {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://dikengadesign.fr/blog.html"}
+    ]
+  }
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
@@ -461,10 +488,17 @@ body.light .footer-lnk:hover{color:#000}
 </div>
 
 <script>
-/* ── Theme init */
+/* ── Theme init (localStorage + préférence système) */
 (function(){
-  const t=localStorage.getItem('dikenga-theme')||'light';
-  if(t==='light') document.body.classList.add('light');
+  const stored = localStorage.getItem('dikenga-theme');
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const useDark = stored ? stored === 'dark' : prefersDark;
+  if(!useDark) document.body.classList.add('light');
+  if(!stored && window.matchMedia){
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+      if(!localStorage.getItem('dikenga-theme')) location.reload();
+    });
+  }
 })();
 
 /* ── Clock */
