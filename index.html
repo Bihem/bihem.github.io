@@ -944,6 +944,27 @@ body.light .contact-icon-insta,body.light .contact-icon-linkedin{background:tran
 }
 .form-submit:hover{background:var(--off);transform:translateY(-2px)}
 
+/* ═══════════════ NEWSLETTER ═══════════════ */
+.nl-section{padding:80px 0;text-align:center;border-top:1px solid var(--line)}
+.nl-inner{max-width:540px;margin:0 auto;padding:0 24px}
+.nl-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);margin-bottom:18px}
+.nl-title{font-size:clamp(26px,5vw,42px);font-weight:800;letter-spacing:-.04em;line-height:1.1;margin-bottom:14px}
+.nl-sub{font-size:14px;color:var(--dim);line-height:1.6;margin-bottom:32px}
+.nl-form{display:flex;gap:10px;max-width:440px;margin:0 auto}
+.nl-input{flex:1;padding:13px 18px;background:var(--bg2);border:1px solid var(--line2);border-radius:10px;color:var(--white);font-size:14px;font-family:var(--F);outline:none;transition:border-color .2s}
+.nl-input:focus{border-color:var(--accent)}
+.nl-input::placeholder{color:var(--dim)}
+.nl-btn{padding:13px 22px;background:var(--white);color:#000;border:none;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer;transition:opacity .2s;white-space:nowrap;font-family:var(--F)}
+.nl-btn:hover{opacity:.85}
+.nl-note{font-size:11px;color:var(--dimmer);margin-top:14px}
+.nl-msg{font-size:13px;margin-top:12px;min-height:20px}
+.nl-msg.ok{color:var(--accent)}
+.nl-msg.err{color:#EF4444}
+@media(max-width:480px){
+  .nl-form{flex-direction:column}
+  .nl-btn{width:100%}
+}
+
 /* ═══════════════ FOOTER ═══════════════ */
 .footer{padding:28px;border-top:1px solid var(--line);background:rgba(0,0,0,0.82);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .footer-copy{font-size:10px;font-weight:500;color:var(--dim);text-transform:uppercase;letter-spacing:0.1em}
@@ -1382,6 +1403,10 @@ body.light .marquee-item,body.light .clients-item{color:#000000}
 body.light .footer{background:rgba(0,0,0,0.82);border-color:rgba(255,255,255,0.1)}
 body.light .footer-copy,body.light .footer-lnk{color:rgba(255,255,255,0.55)}
 body.light .footer-lnk:hover{color:#FFFFFF}
+body.light .nl-section{border-color:rgba(0,0,0,0.08)}
+body.light .nl-input{background:#f5f5f5;border-color:rgba(0,0,0,0.12);color:#000}
+body.light .nl-input::placeholder{color:rgba(0,0,0,0.4)}
+body.light .nl-btn{background:#000;color:#fff}
 body.light .scroll-top{background:#F2F2F2;border-color:rgba(0,0,0,0.1);color:#000000}
 body.light .about-greeting,body.light .about-heading,body.light .about-pill{color:#000000}
 body.light .services-h,body.light .process-title,body.light .section-title{color:#000000}
@@ -2443,6 +2468,21 @@ body.light .reel-arrow svg path{stroke:#000000}
   </div>
 </section>
 
+
+<!-- ═══════ NEWSLETTER ═══════ -->
+<section class="nl-section">
+  <div class="nl-inner">
+    <div class="nl-eyebrow rv">Newsletter</div>
+    <h2 class="nl-title rv d1">Tips design &amp; IA<br>chaque semaine</h2>
+    <p class="nl-sub rv d2">Rejoins les créatifs qui reçoivent mes meilleures ressources, tendances UI/UX et astuces IA directement dans leur boîte mail.</p>
+    <form class="nl-form rv d3" onsubmit="nlSubscribe(event)">
+      <input class="nl-input" id="nl-email" type="email" placeholder="ton@email.com" required autocomplete="email">
+      <button class="nl-btn" type="submit" id="nl-submit-btn">S'abonner →</button>
+    </form>
+    <p class="nl-note rv d3">Gratuit · Sans spam · Désabonnement en 1 clic</p>
+    <div class="nl-msg" id="nl-msg"></div>
+  </div>
+</section>
 
 <!-- ═══════ FOOTER ═══════ -->
 <footer class="footer">
@@ -3669,6 +3709,61 @@ function closeReelDrawer(){
   document.body.style.overflow='';
 }
 
+
+/* ── NEWSLETTER SUBSCRIBE */
+async function nlSubscribe(e){
+  e.preventDefault();
+  const email = document.getElementById('nl-email').value.trim();
+  const btn   = document.getElementById('nl-submit-btn');
+  const msg   = document.getElementById('nl-msg');
+  if(!email){ msg.className='nl-msg err'; msg.textContent='Entre ton adresse email.'; return; }
+
+  btn.textContent = '…'; btn.disabled = true;
+
+  // Save to localStorage (visible dans le back-office)
+  const subs = JSON.parse(localStorage.getItem('nl-subscribers')||'[]');
+  if(subs.find(s=>s.email===email)){
+    msg.className='nl-msg err'; msg.textContent='Déjà inscrit(e) !';
+    btn.textContent='S\'abonner →'; btn.disabled=false; return;
+  }
+  const today = new Date().toLocaleDateString('fr-FR');
+  subs.unshift({ email, name:'', date:today, active:true });
+  localStorage.setItem('nl-subscribers', JSON.stringify(subs));
+
+  // Essaie d'envoyer via Brevo si configuré
+  const brevoKey = localStorage.getItem('brevo_key')||'';
+  const fromEmail = localStorage.getItem('brevo_email')||'';
+  if(brevoKey && fromEmail){
+    try{
+      // Créer le contact dans Brevo
+      await fetch('https://api.brevo.com/v3/contacts', {
+        method:'POST',
+        headers:{'api-key':brevoKey,'Content-Type':'application/json'},
+        body: JSON.stringify({ email, updateEnabled:true })
+      });
+      // Email de bienvenue si activé
+      const autoWelcome = localStorage.getItem('nl-auto-welcome')==='true';
+      const welcomeBody = localStorage.getItem('nl-welcome-body')||'Bonjour,\n\nMerci de t\'être inscrit(e) ! Tu recevras chaque semaine mes meilleurs tips design & IA.\n\nÀ très vite,\nDikenga';
+      if(autoWelcome){
+        await fetch('https://api.brevo.com/v3/smtp/email', {
+          method:'POST',
+          headers:{'api-key':brevoKey,'Content-Type':'application/json'},
+          body: JSON.stringify({
+            sender:{name:'Dikenga Design', email:fromEmail},
+            to:[{email}],
+            subject:'Bienvenue dans la newsletter Dikenga Design 👋',
+            htmlContent:`<div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:32px;line-height:1.7">${welcomeBody.replace(/\n/g,'<br>')}</div>`
+          })
+        });
+      }
+    } catch(err){ /* silencieux */ }
+  }
+
+  msg.className='nl-msg ok'; msg.textContent='✓ Bienvenue ! Check ta boîte mail.';
+  document.getElementById('nl-email').value='';
+  btn.textContent='Inscrit(e) ✓'; btn.style.background='#22C55E'; btn.style.color='#fff';
+  setTimeout(()=>{ btn.textContent='S\'abonner →'; btn.disabled=false; btn.style.background=''; btn.style.color=''; }, 4000);
+}
 
 /* ── COOKIE */
 const banner=document.getElementById('cookieBanner');
