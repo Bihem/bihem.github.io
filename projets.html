@@ -16,11 +16,9 @@
   mix-blend-mode:screen;
 }
 body.light .site-video-bg{opacity:0.06;mix-blend-mode:multiply}
-@view-transition{navigation:auto}
-::view-transition-old(root){animation:vt-out 0.25s ease both}
-::view-transition-new(root){animation:vt-in 0.25s ease both}
-@keyframes vt-out{to{opacity:0}}
-@keyframes vt-in{from{opacity:0}}
+/* ── SLIDE IN DEPUIS LA DROITE */
+body{animation:page-slide-in 0.5s cubic-bezier(.16,1,.3,1) both}
+@keyframes page-slide-in{from{transform:translateX(100%);opacity:0}to{transform:translateX(0);opacity:1}}
 </style>
 <title>Projets — Dikenga. | Portfolio UI/UX Designer Paris</title>
 <meta name="description" content="Découvrez les projets de Dikenga, UI/UX designer freelance à Paris : branding Mamagaya, Adidas, Barnes, identité visuelle et design d'interface. Stratégie, design et technologie."/>
@@ -541,6 +539,7 @@ body.light .proj-info-side{background:#FFFFFF}
   <div class="nav-right">
     <span class="nav-time" id="navtime">FR · --:--</span>
     <a href="blog.html" style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--dim);transition:color .2s" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--dim)'">Blog</a>
+    <a href="a-propos.html" style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--dim);transition:color .2s" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--dim)'">À propos</a>
     <a href="index.html" class="nav-cta" style="border:none;padding:0;letter-spacing:0.1em;color:var(--white)" onclick="goBackHome(event)">← Accueil</a>
   </div>
 </nav>
@@ -854,6 +853,10 @@ body.light .proj-info-side{background:#FFFFFF}
   <a href="index.html" class="footer-back" onclick="goBackHome(event)">← Retour à l'accueil</a>
   <div class="footer-links">
     <a href="mentions-legales.html" class="footer-lnk">Mentions légales</a>
+    <a href="a-propos.html" class="footer-lnk">À propos</a>
+    <a href="blog.html" class="footer-lnk">Blog</a>
+    <a href="tarifs.html" class="footer-lnk">Tarifs</a>
+    <a href="contact.html" class="footer-lnk">Contact</a>
   </div>
 </footer>
 
