@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dikengadesign.fr/sitemap.xml
