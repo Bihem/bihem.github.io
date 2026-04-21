@@ -22,7 +22,6 @@ body.light .site-video-bg{opacity:0.06;mix-blend-mode:multiply}
 @keyframes vt-out{to{opacity:0}}
 @keyframes vt-in{from{opacity:0}}
 </style>
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" as="style"/>
 <title>Contact — Dikenga. | Designer UI/UX Freelance Paris</title>
 <meta name="description" content="Contactez Dikenga, designer UI/UX freelance à Paris. Discutons de votre projet de site web, identité visuelle ou design d'interface."/>
 <meta name="robots" content="index, follow"/>
@@ -32,6 +31,12 @@ body.light .site-video-bg{opacity:0.06;mix-blend-mode:multiply}
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://dikengadesign.fr/contact.html"/>
 <meta property="og:image" content="https://dikengadesign.fr/og-image.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Contact — Dikenga. | Designer UI/UX Freelance Paris"/>
+<meta name="twitter:description" content="Contactez Dikenga pour votre projet de design UI/UX, identité visuelle ou site web."/>
+<meta name="twitter:image" content="https://dikengadesign.fr/og-image.jpg"/>
 <meta name="geo.region" content="FR-IDF"/>
 <meta name="geo.placename" content="Paris, France"/>
 <link rel="canonical" href="https://dikengadesign.fr/contact.html"/>
@@ -287,7 +292,7 @@ body.light .check-row input[type=checkbox]:checked+.check-box{background:#000000
 body.light .check-row input[type=checkbox]:checked+.check-box::after{content:'✓';font-size:10px;color:#FFFFFF;font-weight:700}
 body.light .check-label{color:#000000}
 </style>
-<script data-goatcounter="https://dikenga.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script data-goatcounter="https://dikenga.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
 <!-- VIDEO FOND GLOBAL -->
@@ -335,7 +340,7 @@ body.light .check-label{color:#000000}
           </svg>
         </a>
         <!-- Instagram -->
-        <a href="https://instagram.com/Dikenga.design" target="_blank" rel="noopener" class="clink clink-insta" title="Instagram">
+        <a href="https://instagram.com/Dikenga.design" target="_blank" rel="noopener noreferrer" class="clink clink-insta" title="Instagram">
           <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
             <defs>
               <radialGradient id="ig2" cx="30%" cy="107%" r="150%">
@@ -352,7 +357,7 @@ body.light .check-label{color:#000000}
           </svg>
         </a>
         <!-- LinkedIn -->
-        <a href="https://www.linkedin.com/in/dikengadesign/" target="_blank" rel="noopener" class="clink clink-linkedin" title="LinkedIn">
+        <a href="https://www.linkedin.com/in/dikengadesign/" target="_blank" rel="noopener noreferrer" class="clink clink-linkedin" title="LinkedIn">
           <svg width="52" height="52" viewBox="0 0 52 52" fill="white">
             <rect width="52" height="52" rx="26" fill="#0A66C2"/>
             <path d="M17 21h4v14h-4V21zm2-2a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zM35 29.2c0-4.2-2-6.2-5.2-6.2-1.7 0-3 .9-3.8 2.1V21H22v14h4v-7.3c0-1.8.9-2.9 2.5-2.9 1.5 0 2.5 1 2.5 2.9V35h4v-5.8z"/>
@@ -480,16 +485,23 @@ function goHome(e){
   window.location.href='index.html';
 }
 
-/* ── THEME — restaurer depuis localStorage */
+/* ── THEME — restaurer depuis localStorage ou préférence système */
 (function(){
-  const t = localStorage.getItem('dikenga-theme');
-  if(t === 'light'){
+  const stored = localStorage.getItem('dikenga-theme');
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const useDark = stored ? stored === 'dark' : prefersDark;
+  if(!useDark){
     document.documentElement.style.setProperty('--bg','#FFFFFF');
     document.documentElement.style.setProperty('--white','#000000');
     document.documentElement.style.setProperty('--dim','rgba(0,0,0,0.5)');
     document.documentElement.style.setProperty('--line','rgba(0,0,0,0.1)');
     document.body.classList.add('light');
     document.querySelector('html').style.background = '#FFFFFF';
+  }
+  if(!stored && window.matchMedia){
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+      if(!localStorage.getItem('dikenga-theme')) location.reload();
+    });
   }
 })();
 </script>
