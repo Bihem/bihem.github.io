@@ -322,9 +322,6 @@ body.light .hero-cta{background:#000000;color:#FFFFFF}
 }
 .hero-scroll.on{opacity:1}
 .scroll-line{width:1px;height:48px;background:var(--dim);animation:sline 2.2s ease-in-out infinite 2s}
-/* ── TRANSITION PAGE → PROJETS */
-body.leaving{animation:body-exit 0.35s cubic-bezier(.4,0,.2,1) forwards}
-@keyframes body-exit{to{transform:translateX(-4%);opacity:0}}
 @keyframes sline{0%,100%{transform:scaleY(1);opacity:1}50%{transform:scaleY(.25);opacity:.3}}
 
 /* ═══════════════ MARQUEE ═══════════════ */
@@ -3747,8 +3744,7 @@ async function handleSubmit(e){
 })();
 
 function openProjetsRight(){
-  document.body.classList.add('leaving');
-  setTimeout(()=>{ window.location.href='projets.html'; }, 340);
+  window.location.href='projets.html';
 }
 
 function openReelDrawer(){
