@@ -22,8 +22,45 @@ body.light .site-video-bg{opacity:0.06;mix-blend-mode:multiply}
 @keyframes vt-out{to{opacity:0}}
 @keyframes vt-in{from{opacity:0}}
 </style>
-<title>Projets — Dikenga. UI/UX Designer & Identité Visuelle</title>
-<meta name="description" content="Une sélection de projets où stratégie, design et technologie se rencontrent pour créer des expériences uniques."/>
+<title>Projets — Dikenga. | Portfolio UI/UX Designer Paris</title>
+<meta name="description" content="Découvrez les projets de Dikenga, UI/UX designer freelance à Paris : branding Mamagaya, Adidas, Barnes, identité visuelle et design d'interface. Stratégie, design et technologie."/>
+<meta name="robots" content="index, follow"/>
+<meta name="author" content="Dikenga"/>
+<meta name="keywords" content="portfolio UI UX designer Paris, projets branding, identité visuelle, design interface, mockup, case study designer freelance"/>
+<meta property="og:title" content="Projets — Dikenga. | Portfolio UI/UX Designer Paris"/>
+<meta property="og:description" content="Projets de branding, identité visuelle et design d'interface par Dikenga, designer freelance Paris."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://dikengadesign.fr/projets.html"/>
+<meta property="og:image" content="https://dikengadesign.fr/og-image.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Projets — Dikenga. | Portfolio UI/UX Designer Paris"/>
+<meta name="twitter:description" content="Projets de branding, identité visuelle et design d'interface par Dikenga, designer freelance Paris."/>
+<meta name="twitter:image" content="https://dikengadesign.fr/og-image.jpg"/>
+<meta name="geo.region" content="FR-IDF"/>
+<meta name="geo.placename" content="Paris, France"/>
+<link rel="canonical" href="https://dikengadesign.fr/projets.html"/>
+<link rel="icon" type="image/x-icon" href="favicon.ico"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Projets — Dikenga Design",
+  "description": "Portfolio de projets UI/UX design, branding et identité visuelle par Dikenga, designer freelance à Paris.",
+  "url": "https://dikengadesign.fr/projets.html",
+  "inLanguage": "fr-FR",
+  "isPartOf": {"@id": "https://dikengadesign.fr/#website"},
+  "author": {"@id": "https://dikengadesign.fr/#person"},
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://dikengadesign.fr/"},
+      {"@type": "ListItem", "position": 2, "name": "Projets", "item": "https://dikengadesign.fr/projets.html"}
+    ]
+  }
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
@@ -736,7 +773,7 @@ body.light .proj-info-side{background:#FFFFFF}
 </main>
 
 <!-- ── LIGHTBOX PROJET -->
-<div class="proj-lb" id="projLightbox" role="dialog" aria-modal="true">
+<div class="proj-lb" id="projLightbox" role="dialog" aria-modal="true" aria-labelledby="lbName" aria-describedby="lbDesc">
   <button class="proj-lb-close" onclick="closeLightbox()">✕ Fermer</button>
   <div class="proj-lb-img">
     <div class="proj-lb-img-bg" id="lbImg"></div>
@@ -754,7 +791,7 @@ body.light .proj-info-side{background:#FFFFFF}
 </div>
 
 <!-- ── CONTACT PANEL -->
-<div class="contact-panel" id="contactPanel">
+<div class="contact-panel" id="contactPanel" role="dialog" aria-modal="true" aria-label="Formulaire de contact">
   <div class="contact-panel-close">
     <button class="contact-panel-close-btn" onclick="closeContactPanel()">Fermer ✕</button>
   </div>
@@ -771,7 +808,7 @@ body.light .proj-info-side{background:#FFFFFF}
           <div class="contact-item-ico"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3c0 8 6 11 10 11l1-3-3-1.5-1.5 1.5C8 10 7 8.5 6 7.5L7.5 6 6 3H3Z"/></svg></div>
           <div><div class="contact-item-label">Téléphone</div><div class="contact-item-val">07 67 53 70 59</div></div>
         </a>
-        <a href="https://instagram.com/Dikenga.design" target="_blank" rel="noopener" class="contact-item">
+        <a href="https://instagram.com/Dikenga.design" target="_blank" rel="noopener noreferrer" class="contact-item">
           <div class="contact-item-ico"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="12" height="12" rx="3.5"/><circle cx="8" cy="8" r="3"/><circle cx="11.5" cy="4.5" r=".75" fill="currentColor" stroke="none"/></svg></div>
           <div><div class="contact-item-label">Instagram</div><div class="contact-item-val">@Dikenga.design</div></div>
         </a>
@@ -898,10 +935,12 @@ document.querySelectorAll('.rv').forEach(el=>{
   else{io.observe(el);}
 });
 
-/* ── THEME — restaurer depuis localStorage */
+/* ── THEME — restaurer depuis localStorage ou préférence système */
 (function(){
-  const t = localStorage.getItem('dikenga-theme');
-  if(t === 'light'){
+  const stored = localStorage.getItem('dikenga-theme');
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const useDark = stored ? stored === 'dark' : prefersDark;
+  if(!useDark){
     document.documentElement.style.setProperty('--bg','#FFFFFF');
     document.documentElement.style.setProperty('--bg2','#F2F2F2');
     document.documentElement.style.setProperty('--bg3','#E8E8E8');
@@ -910,6 +949,12 @@ document.querySelectorAll('.rv').forEach(el=>{
     document.documentElement.style.setProperty('--line','rgba(0,0,0,0.1)');
     document.body.classList.add('light');
     document.querySelector('html').style.background = '#FFFFFF';
+  }
+  /* Réagir aux changements de préférence système si pas de choix manuel */
+  if(!stored && window.matchMedia){
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+      if(!localStorage.getItem('dikenga-theme')) location.reload();
+    });
   }
 })();
 
