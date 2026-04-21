@@ -696,6 +696,8 @@ function goSec(id){
   document.querySelectorAll('.sec').forEach(s=>s.classList.remove('active'));
   const it=document.querySelector(`.sb-item[data-s="${id}"]`);if(it)it.classList.add('active');
   const sc=document.getElementById('sec-'+id);if(sc){sc.classList.add('active');document.querySelector('.main').scrollTop=0}
+  if(id==='analytics'){ loadGCConfig(); loadAnalytics(7); }
+  if(id==='newsletter'){ loadBrevoConfig(); loadAutoConfig(); refreshSubscribers(); }
 }
 
 // ═══ TABS ═══
@@ -1138,14 +1140,6 @@ function loadAutoConfig(){
   document.getElementById('toggle-welcome').style.background = v ? 'var(--accent)' : 'var(--bg4)';
   const wb = localStorage.getItem('nl-welcome-body')||'';
   if(wb) document.getElementById('welcome_body').value = wb;
-}
-
-// ══ Load Analytics + Newsletter on section open
-const _origGoSec = goSec;
-function goSec(id){
-  _origGoSec(id);
-  if(id==='analytics'){ loadGCConfig(); loadAnalytics(7); }
-  if(id==='newsletter'){ loadBrevoConfig(); loadAutoConfig(); refreshSubscribers(); }
 }
 
 // ══ Init
