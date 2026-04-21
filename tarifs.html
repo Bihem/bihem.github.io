@@ -326,7 +326,8 @@ img{display:block;max-width:100%}
 </head>
 <body>
 <!-- VIDEO FOND GLOBAL -->
-<video class="site-video-bg" autoplay muted loop playsinline preload="auto">
+<video class="site-video-bg" autoplay muted loop playsinline preload="auto"
+  oncanplay="this.play()" onloadeddata="this.play()">
   <source src="hero-bg.mp4" type="video/mp4">
 </video>
 
