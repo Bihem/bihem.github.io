@@ -73,16 +73,20 @@ img{display:block;max-width:100%}
 #cdot{
   position:fixed;z-index:9999;pointer-events:none;
   width:6px;height:6px;border-radius:50%;background:var(--white);
-  transform:translate(-50%,-50%);
+  top:0;left:0;
+  will-change:transform;
+  transform:translate3d(-50%,-50%,0);
 }
 #cring{
   position:fixed;z-index:9998;pointer-events:none;
   width:34px;height:34px;border-radius:50%;
   border:1px solid rgba(255,255,255,0.45);
-  transform:translate(-50%,-50%);
-  transition:width .25s,height .25s,border-color .25s;
+  top:0;left:0;
+  will-change:transform;
+  transform:translate3d(-50%,-50%,0);
+  transition:width .2s,height .2s,border-color .2s;
 }
-.cursor-grow #cring{width:56px;height:56px;border-color:rgba(255,255,255,0.8)}
+.cursor-grow #cring{width:52px;height:52px;border-color:rgba(255,255,255,0.8)}
 
 /* ═══════════════ NAV ═══════════════ */
 .nav{
@@ -2869,11 +2873,11 @@ document.addEventListener('DOMContentLoaded', () => {
 const cdot = document.getElementById('cdot');
 const cring = document.getElementById('cring');
 let mx=window.innerWidth/2,my=window.innerHeight/2,rx=mx,ry=my;
-document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
+document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; }, {passive:true});
 (function loop(){
-  cdot.style.left=mx+'px'; cdot.style.top=my+'px';
-  rx+=(mx-rx)*0.1; ry+=(my-ry)*0.1;
-  cring.style.left=rx+'px'; cring.style.top=ry+'px';
+  cdot.style.transform=`translate3d(calc(${mx}px - 50%),calc(${my}px - 50%),0)`;
+  rx+=(mx-rx)*0.14; ry+=(my-ry)*0.14;
+  cring.style.transform=`translate3d(calc(${rx}px - 50%),calc(${ry}px - 50%),0)`;
   requestAnimationFrame(loop);
 })();
 document.querySelectorAll('a,button').forEach(el => {
