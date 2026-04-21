@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<script>if(localStorage.getItem('dikenga-theme')==='light'){document.documentElement.style.background='#FFFFFF';document.documentElement.style.setProperty('--bg','#FFFFFF');}else{document.documentElement.style.background='#1D1B1B';document.documentElement.style.setProperty('--bg','#1D1B1B');}</script>
+<script>(function(){var s=localStorage.getItem('dikenga-theme');var pd=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;var dark=s?s==='dark':pd;var bg=dark?'#1D1B1B':'#FFFFFF';document.documentElement.style.background=bg;document.documentElement.style.setProperty('--bg',bg);})();</script>
 <style>html{background:transparent}
 .site-video-bg{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.13;z-index:0;pointer-events:none;mix-blend-mode:screen;}
 body.light .site-video-bg{opacity:0.06;mix-blend-mode:multiply}
