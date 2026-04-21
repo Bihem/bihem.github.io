@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Dikenga — Back Office</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
 :root{
   --bg:#0D0D0D;--bg2:#161616;--bg3:#1F1F1F;--bg4:#262626;
@@ -140,6 +141,41 @@ kbd{background:var(--bg3);padding:3px 8px;border-radius:5px;font-size:12px;borde
 
 .danger-card{border-color:rgba(239,68,68,.2)}
 .sep{height:1px;background:var(--line);margin:16px 0}
+
+/* ── ANALYTICS */
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:14px}
+.stat-box{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.stat-box-val{font-size:28px;font-weight:700;letter-spacing:-.04em}
+.stat-box-lbl{font-size:11px;color:var(--dim);margin-top:4px}
+.stat-box-delta{font-size:11px;color:var(--green);margin-top:4px}
+.chart-wrap{position:relative;height:220px;width:100%}
+.setup-step{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+.setup-step:last-child{border-bottom:none}
+.step-num{width:26px;height:26px;border-radius:50%;background:var(--accent2);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0}
+.step-body{flex:1}
+.step-title{font-size:13px;font-weight:600;margin-bottom:4px}
+.step-desc{font-size:12px;color:var(--dim);line-height:1.6}
+.step-link{color:var(--accent);text-decoration:none;font-size:12px}
+.step-link:hover{text-decoration:underline}
+.config-status{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;padding:4px 10px;border-radius:100px}
+.status-ok{background:rgba(34,197,94,.1);color:var(--green)}
+.status-no{background:rgba(239,68,68,.1);color:var(--red)}
+
+/* ── NEWSLETTER */
+.nl-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:14px}
+.nl-stat{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:18px 20px;text-align:center}
+.nl-stat-val{font-size:26px;font-weight:700;letter-spacing:-.04em;color:var(--accent)}
+.nl-stat-lbl{font-size:11px;color:var(--dim);margin-top:4px}
+.nl-editor{width:100%;min-height:200px;background:var(--bg3);border:1px solid var(--line2);border-radius:8px;padding:14px;color:var(--white);font-size:14px;font-family:var(--F);resize:vertical;outline:none;line-height:1.7}
+.nl-editor:focus{border-color:var(--accent)}
+.sub-table{width:100%;border-collapse:collapse}
+.sub-table th{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--dimmer);padding:8px 12px;text-align:left;border-bottom:1px solid var(--line)}
+.sub-table td{font-size:13px;padding:10px 12px;border-bottom:1px solid var(--line);color:var(--white)}
+.sub-table tr:last-child td{border-bottom:none}
+.sub-table tr:hover td{background:var(--bg3)}
+.tag-active{display:inline-block;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:700;background:rgba(34,197,94,.1);color:var(--green)}
+.tag-unsub{display:inline-block;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:700;background:rgba(239,68,68,.08);color:var(--red)}
+.nl-preview{background:var(--bg3);border:1px solid var(--line2);border-radius:8px;padding:20px;margin-top:12px;font-size:14px;line-height:1.7;display:none;max-height:280px;overflow-y:auto}
 </style>
 </head>
 <body>
@@ -181,6 +217,9 @@ kbd{background:var(--bg3);padding:3px 8px;border-radius:5px;font-size:12px;borde
       <div class="sb-grp">Pages</div>
       <div class="sb-item" data-s="contact"><span class="sb-ic">✉</span>Contact</div>
       <div class="sb-item" data-s="projpage"><span class="sb-ic">◩</span>Page Projets</div>
+      <div class="sb-grp">Analytics & Marketing</div>
+      <div class="sb-item" data-s="analytics"><span class="sb-ic">📊</span>Visites du site</div>
+      <div class="sb-item" data-s="newsletter"><span class="sb-ic">📧</span>Newsletter</div>
       <div class="sb-grp">Admin</div>
       <div class="sb-item" data-s="settings"><span class="sb-ic">⚙</span>Paramètres</div>
     </nav>
@@ -394,6 +433,183 @@ kbd{background:var(--bg3);padding:3px 8px;border-radius:5px;font-size:12px;borde
           <p style="font-size:13px;color:var(--dim);margin-bottom:16px">Réinitialise tout le contenu. Les pages reprendront leur contenu d'origine.</p>
           <button class="btn btn-d" onclick="resetAll()">⚠ Réinitialiser tout le contenu</button>
         </div>
+      </div>
+    </div>
+
+    <!-- ═══ ANALYTICS ═══ -->
+    <div class="sec" id="sec-analytics">
+      <div class="topbar">
+        <div class="tb-l"><div class="pg-title">Visites du site</div><div class="pg-sub" id="analytics-status-label">Chargement…</div></div>
+        <div style="display:flex;gap:8px">
+          <button class="btn btn-g" onclick="loadAnalytics(7)">7 jours</button>
+          <button class="btn btn-g" onclick="loadAnalytics(30)">30 jours</button>
+          <button class="btn btn-p" onclick="loadAnalytics(7)">↻ Actualiser</button>
+        </div>
+      </div>
+      <div class="cnt">
+
+        <!-- STATS BAR -->
+        <div class="stat-row" id="analytics-stats">
+          <div class="stat-box"><div class="stat-box-val" id="stat-today">—</div><div class="stat-box-lbl">Visites aujourd'hui</div></div>
+          <div class="stat-box"><div class="stat-box-val" id="stat-week">—</div><div class="stat-box-lbl">Cette semaine</div></div>
+          <div class="stat-box"><div class="stat-box-val" id="stat-month">—</div><div class="stat-box-lbl">Ce mois</div></div>
+          <div class="stat-box"><div class="stat-box-val" id="stat-total">—</div><div class="stat-box-lbl">Total</div></div>
+        </div>
+
+        <!-- CHART -->
+        <div class="card">
+          <div class="card-hd">Visites par jour</div>
+          <div class="chart-wrap"><canvas id="visitsChart"></canvas></div>
+        </div>
+
+        <!-- SETUP GOATCOUNTER -->
+        <div class="card">
+          <div class="card-hd">
+            Configuration GoatCounter
+            <span class="config-status" id="gc-status-badge"></span>
+          </div>
+          <p style="font-size:13px;color:var(--dim);margin-bottom:16px;line-height:1.6">
+            GoatCounter est un service d'analytics <strong style="color:var(--white)">100% gratuit</strong>, sans cookies, conforme RGPD. Il mesure les visites réelles de tous les visiteurs.
+          </p>
+          <div class="setup-step">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <div class="step-title">Créer un compte gratuit</div>
+              <div class="step-desc">Va sur <a href="https://goatcounter.com" target="_blank" class="step-link">goatcounter.com</a> → Sign up. Choisis un code unique (ex: <code>dikengadesign</code>). C'est gratuit, pas de carte bancaire.</div>
+            </div>
+          </div>
+          <div class="setup-step">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <div class="step-title">Obtenir ton token API</div>
+              <div class="step-desc">Dans GoatCounter → Settings → <strong>API tokens</strong> → Create token. Copie le token généré.</div>
+            </div>
+          </div>
+          <div class="setup-step">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <div class="step-title">Entrer les informations ci-dessous</div>
+              <div class="g2" style="margin-top:10px">
+                <div class="f"><label>Code du site (ex: dikengadesign)</label><input id="gc_code" placeholder="dikengadesign" oninput="saveGCConfig()"></div>
+                <div class="f"><label>Token API</label><input id="gc_token" type="password" placeholder="••••••••••••••" oninput="saveGCConfig()"></div>
+              </div>
+            </div>
+          </div>
+          <div class="setup-step">
+            <div class="step-num">4</div>
+            <div class="step-body">
+              <div class="step-title">Activer le tracking sur le site</div>
+              <div class="step-desc">Le script GoatCounter est déjà intégré dans <code>index.html</code>, <code>blog.html</code> et <code>contact.html</code>. Il suffit de rentrer ton code ci-dessus et il s'active automatiquement.</div>
+            </div>
+          </div>
+          <button class="btn btn-p" style="margin-top:8px" onclick="testGCConnection()">🔗 Tester la connexion</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══ NEWSLETTER ═══ -->
+    <div class="sec" id="sec-newsletter">
+      <div class="topbar">
+        <div class="tb-l"><div class="pg-title">Newsletter</div><div class="pg-sub">Gérer les abonnés & envoyer des emails</div></div>
+        <button class="btn btn-p" onclick="sendNewsletter()">🚀 Envoyer la newsletter</button>
+      </div>
+      <div class="cnt">
+
+        <!-- STATS -->
+        <div class="nl-stats">
+          <div class="nl-stat"><div class="nl-stat-val" id="nl-total">0</div><div class="nl-stat-lbl">Abonnés totaux</div></div>
+          <div class="nl-stat"><div class="nl-stat-val" id="nl-sent">0</div><div class="nl-stat-lbl">Emails envoyés</div></div>
+          <div class="nl-stat"><div class="nl-stat-val" id="nl-rate">—</div><div class="nl-stat-lbl">Taux d'ouverture</div></div>
+        </div>
+
+        <!-- COMPOSER -->
+        <div class="card">
+          <div class="card-hd">Composer la newsletter</div>
+          <div class="g2" style="margin-bottom:12px">
+            <div class="f"><label>Expéditeur</label><input id="nl_from" value="Dikenga Design" placeholder="Dikenga Design"></div>
+            <div class="f"><label>Objet de l'email</label><input id="nl_subject" placeholder="Ex : 3 astuces UI que tout freelance devrait connaître"></div>
+          </div>
+          <div class="f">
+            <label>Contenu (HTML autorisé)</label>
+            <textarea class="nl-editor" id="nl_body" placeholder="Bonjour,&#10;&#10;Voici les dernières actualités design & IA…&#10;&#10;[Votre contenu ici]&#10;&#10;À bientôt,&#10;Dikenga"></textarea>
+          </div>
+          <div style="display:flex;gap:8px;margin-top:10px">
+            <button class="btn btn-g" onclick="togglePreview()">👁 Prévisualiser</button>
+            <button class="btn btn-g" onclick="sendTest()">🧪 Envoyer un test</button>
+            <button class="btn btn-p" onclick="sendNewsletter()" style="margin-left:auto">🚀 Envoyer à tous les abonnés</button>
+          </div>
+          <div class="nl-preview" id="nl-preview"></div>
+        </div>
+
+        <!-- CONFIG BREVO -->
+        <div class="card">
+          <div class="card-hd">
+            Configuration Brevo (envoi d'emails)
+            <span class="config-status" id="brevo-status-badge"></span>
+          </div>
+          <p style="font-size:13px;color:var(--dim);margin-bottom:16px;line-height:1.6">
+            Brevo (ex-Sendinblue) est <strong style="color:var(--white)">gratuit jusqu'à 300 emails/jour</strong>. Il gère les abonnés et l'envoi automatique.
+          </p>
+          <div class="setup-step">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <div class="step-title">Créer un compte gratuit</div>
+              <div class="step-desc">Va sur <a href="https://brevo.com" target="_blank" class="step-link">brevo.com</a> → Inscription gratuite. Aucune carte bancaire requise. Limite : 300 emails/jour.</div>
+            </div>
+          </div>
+          <div class="setup-step">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <div class="step-title">Obtenir ta clé API</div>
+              <div class="step-desc">Dans Brevo → Mon compte → SMTP & API → <strong>Clés API</strong> → Générer une clé. Copie-la ici.</div>
+            </div>
+          </div>
+          <div class="g2" style="margin-top:10px">
+            <div class="f"><label>Clé API Brevo</label><input id="brevo_key" type="password" placeholder="xkeysib-••••••••" oninput="saveBrevoConfig()"></div>
+            <div class="f"><label>Votre email expéditeur</label><input id="brevo_email" placeholder="dikengadesign@gmail.com" oninput="saveBrevoConfig()"></div>
+          </div>
+          <button class="btn btn-p" style="margin-top:12px" onclick="testBrevoConnection()">🔗 Tester la connexion Brevo</button>
+        </div>
+
+        <!-- LISTE ABONNÉS -->
+        <div class="card">
+          <div class="card-hd">
+            Liste des abonnés
+            <button class="btn btn-g" style="margin-left:auto;padding:5px 12px;font-size:11px" onclick="exportSubscribers()">↓ Exporter CSV</button>
+            <button class="btn btn-g" style="padding:5px 12px;font-size:11px" onclick="refreshSubscribers()">↻</button>
+          </div>
+          <div style="overflow-x:auto">
+            <table class="sub-table">
+              <thead><tr><th>Email</th><th>Prénom</th><th>Date</th><th>Statut</th></tr></thead>
+              <tbody id="sub-list"></tbody>
+            </table>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)">
+            <input class="f" style="flex:1;padding:9px 13px;background:var(--bg3);border:1px solid var(--line2);border-radius:8px;color:var(--white);font-size:13px;font-family:var(--F);outline:none" id="new-sub-email" placeholder="ajouter@email.com">
+            <input class="f" style="width:140px;padding:9px 13px;background:var(--bg3);border:1px solid var(--line2);border-radius:8px;color:var(--white);font-size:13px;font-family:var(--F);outline:none" id="new-sub-name" placeholder="Prénom">
+            <button class="btn btn-p" onclick="addSubscriber()">+ Ajouter</button>
+          </div>
+        </div>
+
+        <!-- AUTOMATISATION -->
+        <div class="card">
+          <div class="card-hd">Automatisation</div>
+          <div style="display:flex;flex-direction:column;gap:16px">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <div>
+                <div style="font-size:13px;font-weight:600">Email de bienvenue</div>
+                <div style="font-size:12px;color:var(--dim);margin-top:3px">Envoyé automatiquement quand quelqu'un s'inscrit à la newsletter</div>
+              </div>
+              <label style="position:relative;display:inline-block;width:44px;height:24px;cursor:pointer">
+                <input type="checkbox" id="auto-welcome" style="opacity:0;width:0;height:0" onchange="saveAutoConfig()">
+                <span id="toggle-welcome" style="position:absolute;inset:0;background:var(--bg4);border-radius:12px;transition:.3s;border:1px solid var(--line2)"></span>
+              </label>
+            </div>
+            <div class="f"><label>Contenu email de bienvenue</label><textarea id="welcome_body" class="nl-editor" style="min-height:120px" placeholder="Bonjour {{prénom}},&#10;&#10;Merci de t'être inscrit(e) ! Tu recevras chaque semaine mes meilleurs tips design & IA.&#10;&#10;À très vite,&#10;Dikenga"></textarea></div>
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -617,6 +833,323 @@ document.addEventListener('keydown',e=>{
 });
 
 document.getElementById('pw').focus();
+
+// ══════════════════════════════════════════
+// ═══ ANALYTICS
+// ══════════════════════════════════════════
+let visitsChart = null;
+
+function saveGCConfig(){
+  localStorage.setItem('gc_code', document.getElementById('gc_code').value);
+  localStorage.setItem('gc_token', document.getElementById('gc_token').value);
+  updateGCBadge();
+}
+function loadGCConfig(){
+  const code = localStorage.getItem('gc_code')||'';
+  const token = localStorage.getItem('gc_token')||'';
+  document.getElementById('gc_code').value = code;
+  document.getElementById('gc_token').value = token;
+  updateGCBadge();
+}
+function updateGCBadge(){
+  const code = localStorage.getItem('gc_code')||'';
+  const token = localStorage.getItem('gc_token')||'';
+  const el = document.getElementById('gc-status-badge');
+  if(code && token){
+    el.className='config-status status-ok'; el.textContent='✓ Configuré';
+  } else {
+    el.className='config-status status-no'; el.textContent='✗ Non configuré';
+  }
+}
+
+async function loadAnalytics(days = 7){
+  const code  = localStorage.getItem('gc_code')||'';
+  const token = localStorage.getItem('gc_token')||'';
+  const label = document.getElementById('analytics-status-label');
+
+  // — Génère des dates
+  const dates = [];
+  for(let i = days-1; i >= 0; i--){
+    const d = new Date(); d.setDate(d.getDate()-i);
+    dates.push(d.toISOString().split('T')[0]);
+  }
+
+  let dailyData = [];
+
+  if(code && token){
+    label.textContent = 'Connexion GoatCounter…';
+    try{
+      const start = dates[0];
+      const end   = dates[dates.length-1];
+      const url   = `https://${code}.goatcounter.com/api/v0/stats/hits?start=${start}&end=${end}&daily=true`;
+      const res   = await fetch(url, {headers:{'Authorization':`Bearer ${token}`}});
+      if(res.ok){
+        const data = await res.json();
+        // GoatCounter returns {hits:[{day,count},...]}
+        const hitMap = {};
+        (data.hits||[]).forEach(h=>{ hitMap[h.day]=h.count; });
+        dailyData = dates.map(d=>({ date:d, count: hitMap[d]||0 }));
+        label.textContent = `Données réelles · ${days} derniers jours`;
+      } else {
+        throw new Error('API erreur');
+      }
+    } catch(e){
+      label.textContent = 'Erreur GoatCounter — affichage des données locales';
+      dailyData = getDemoData(dates);
+    }
+  } else {
+    // Demo data depuis localStorage (visites trackées en local)
+    const stored = JSON.parse(localStorage.getItem('dikenga-visits')||'{}');
+    dailyData = dates.map(d=>({ date:d, count: stored[d]||0 }));
+    label.textContent = 'Mode démo — Configure GoatCounter pour les vraies données';
+  }
+
+  renderChart(dailyData);
+  renderStats(dailyData);
+}
+
+function getDemoData(dates){
+  // Données démo réalistes
+  const base = [12,8,15,22,18,9,25,31,19,14,27,33,21,16,28,35,24,18,30,38,22,17,29,36,26,20,32,40,27,19];
+  return dates.map((d,i)=>({ date:d, count: base[i%base.length] + Math.floor(Math.random()*8) }));
+}
+
+function renderStats(data){
+  const today = data[data.length-1]?.count || 0;
+  const week  = data.slice(-7).reduce((s,d)=>s+d.count,0);
+  const month = data.reduce((s,d)=>s+d.count,0);
+  const stored = JSON.parse(localStorage.getItem('dikenga-visits-total')||'{}');
+  const total = stored.total || month;
+
+  document.getElementById('stat-today').textContent = today;
+  document.getElementById('stat-week').textContent  = week;
+  document.getElementById('stat-month').textContent = month;
+  document.getElementById('stat-total').textContent = total;
+}
+
+function renderChart(data){
+  const labels = data.map(d=>{
+    const parts = d.date.split('-');
+    return `${parts[2]}/${parts[1]}`;
+  });
+  const values = data.map(d=>d.count);
+
+  if(visitsChart) visitsChart.destroy();
+  const ctx = document.getElementById('visitsChart').getContext('2d');
+  visitsChart = new Chart(ctx, {
+    type:'line',
+    data:{
+      labels,
+      datasets:[{
+        label:'Visites',
+        data: values,
+        borderColor:'#7C6EFF',
+        backgroundColor:'rgba(124,110,255,0.08)',
+        borderWidth:2,
+        pointRadius:3,
+        pointBackgroundColor:'#7C6EFF',
+        fill:true,
+        tension:0.4
+      }]
+    },
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      plugins:{ legend:{display:false}, tooltip:{
+        backgroundColor:'#1F1F1F', borderColor:'rgba(255,255,255,0.1)',
+        borderWidth:1, titleColor:'#fff', bodyColor:'rgba(255,255,255,0.6)',
+        callbacks:{ title: t=>`${t[0].label}`, label: t=>`${t.raw} visites` }
+      }},
+      scales:{
+        x:{ grid:{color:'rgba(255,255,255,0.04)'}, ticks:{color:'rgba(255,255,255,0.35)',font:{size:11}} },
+        y:{ grid:{color:'rgba(255,255,255,0.04)'}, ticks:{color:'rgba(255,255,255,0.35)',font:{size:11}}, beginAtZero:true }
+      }
+    }
+  });
+}
+
+async function testGCConnection(){
+  const code  = localStorage.getItem('gc_code')||'';
+  const token = localStorage.getItem('gc_token')||'';
+  if(!code || !token){ showToast('⚠ Entre ton code et ton token d\'abord'); return; }
+  try{
+    const res = await fetch(`https://${code}.goatcounter.com/api/v0/me`, {headers:{'Authorization':`Bearer ${token}`}});
+    if(res.ok){ showToast('✓ Connexion GoatCounter OK !'); loadAnalytics(7); }
+    else showToast('✗ Erreur — vérifie ton code et token');
+  } catch(e){ showToast('✗ Connexion impossible'); }
+}
+
+// ══════════════════════════════════════════
+// ═══ NEWSLETTER
+// ══════════════════════════════════════════
+function saveBrevoConfig(){
+  localStorage.setItem('brevo_key',   document.getElementById('brevo_key').value);
+  localStorage.setItem('brevo_email', document.getElementById('brevo_email').value);
+  updateBrevoBadge();
+}
+function loadBrevoConfig(){
+  document.getElementById('brevo_key').value   = localStorage.getItem('brevo_key')||'';
+  document.getElementById('brevo_email').value = localStorage.getItem('brevo_email')||'dikengadesign@gmail.com';
+  updateBrevoBadge();
+}
+function updateBrevoBadge(){
+  const key = localStorage.getItem('brevo_key')||'';
+  const el  = document.getElementById('brevo-status-badge');
+  if(key){ el.className='config-status status-ok'; el.textContent='✓ Configuré'; }
+  else   { el.className='config-status status-no'; el.textContent='✗ Non configuré'; }
+}
+
+function getSubscribers(){
+  return JSON.parse(localStorage.getItem('nl-subscribers')||'[]');
+}
+function saveSubscribers(list){
+  localStorage.setItem('nl-subscribers', JSON.stringify(list));
+}
+
+function refreshSubscribers(){
+  const subs = getSubscribers();
+  const tbody = document.getElementById('sub-list');
+  document.getElementById('nl-total').textContent = subs.filter(s=>s.active).length;
+  const sent = parseInt(localStorage.getItem('nl-sent-count')||'0');
+  document.getElementById('nl-sent').textContent = sent;
+  document.getElementById('nl-rate').textContent = subs.length ? '—' : '—';
+
+  if(!subs.length){
+    tbody.innerHTML = `<tr><td colspan="4" style="text-align:center;color:var(--dim);padding:28px">Aucun abonné pour l'instant.<br><span style="font-size:12px">Les inscriptions du site apparaîtront ici automatiquement.</span></td></tr>`;
+    return;
+  }
+  tbody.innerHTML = subs.map((s,i)=>`
+    <tr>
+      <td>${s.email}</td>
+      <td>${s.name||'—'}</td>
+      <td style="color:var(--dim)">${s.date}</td>
+      <td><span class="${s.active?'tag-active':'tag-unsub'}">${s.active?'Actif':'Désabonné'}</span></td>
+    </tr>`).join('');
+}
+
+function addSubscriber(){
+  const email = document.getElementById('new-sub-email').value.trim();
+  const name  = document.getElementById('new-sub-name').value.trim();
+  if(!email || !email.includes('@')){ showToast('⚠ Email invalide'); return; }
+  const subs = getSubscribers();
+  if(subs.find(s=>s.email===email)){ showToast('⚠ Déjà dans la liste'); return; }
+  subs.unshift({ email, name, date: new Date().toLocaleDateString('fr-FR'), active:true });
+  saveSubscribers(subs);
+  document.getElementById('new-sub-email').value='';
+  document.getElementById('new-sub-name').value='';
+  refreshSubscribers();
+  showToast(`✓ ${email} ajouté`);
+}
+
+function exportSubscribers(){
+  const subs = getSubscribers();
+  const csv  = 'Email,Prénom,Date,Statut\n' + subs.map(s=>`${s.email},${s.name||''},${s.date},${s.active?'actif':'désabonné'}`).join('\n');
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([csv],{type:'text/csv'}));
+  a.download = `subscribers-${new Date().toISOString().slice(0,10)}.csv`;
+  a.click();
+  showToast('✓ CSV exporté');
+}
+
+function togglePreview(){
+  const p = document.getElementById('nl-preview');
+  const body = document.getElementById('nl_body').value;
+  if(p.style.display==='block'){ p.style.display='none'; return; }
+  p.style.display='block';
+  p.innerHTML = body.replace(/\n/g,'<br>');
+}
+
+async function sendTest(){
+  const key   = localStorage.getItem('brevo_key')||'';
+  const from  = localStorage.getItem('brevo_email')||'dikengadesign@gmail.com';
+  const subj  = document.getElementById('nl_subject').value || '(Test sans objet)';
+  const body  = document.getElementById('nl_body').value || '(Contenu vide)';
+  if(!key){ showToast('⚠ Configure ta clé Brevo d\'abord'); return; }
+
+  showToast('📤 Envoi du test…');
+  try{
+    const res = await fetch('https://api.brevo.com/v3/smtp/email', {
+      method:'POST',
+      headers:{'api-key':key,'Content-Type':'application/json'},
+      body: JSON.stringify({
+        sender:{ name: document.getElementById('nl_from').value||'Dikenga Design', email:from },
+        to:[{email:from, name:'Test'}],
+        subject:`[TEST] ${subj}`,
+        htmlContent:`<div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:32px">${body.replace(/\n/g,'<br>')}</div>`
+      })
+    });
+    if(res.ok) showToast('✓ Email de test envoyé à '+from);
+    else { const err=await res.json(); showToast('✗ Erreur: '+err.message); }
+  } catch(e){ showToast('✗ Erreur réseau'); }
+}
+
+async function sendNewsletter(){
+  const key   = localStorage.getItem('brevo_key')||'';
+  const from  = localStorage.getItem('brevo_email')||'dikengadesign@gmail.com';
+  const subj  = document.getElementById('nl_subject').value;
+  const body  = document.getElementById('nl_body').value;
+  const fname = document.getElementById('nl_from').value || 'Dikenga Design';
+  if(!key){ showToast('⚠ Configure ta clé Brevo d\'abord'); return; }
+  if(!subj){ showToast('⚠ Ajoute un objet à l\'email'); return; }
+  if(!body){ showToast('⚠ Le contenu est vide'); return; }
+
+  const subs = getSubscribers().filter(s=>s.active);
+  if(!subs.length){ showToast('⚠ Aucun abonné actif'); return; }
+  if(!confirm(`Envoyer à ${subs.length} abonné(s) ? Cette action est irréversible.`)) return;
+
+  showToast(`📤 Envoi à ${subs.length} abonnés…`);
+  let ok=0, fail=0;
+  for(const sub of subs){
+    try{
+      const html = `<div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:32px">${body.replace(/\n/g,'<br>').replace('{{prénom}}',sub.name||'')}</div>`;
+      const res = await fetch('https://api.brevo.com/v3/smtp/email', {
+        method:'POST',
+        headers:{'api-key':key,'Content-Type':'application/json'},
+        body: JSON.stringify({ sender:{name:fname,email:from}, to:[{email:sub.email,name:sub.name||''}], subject:subj, htmlContent:html })
+      });
+      if(res.ok) ok++; else fail++;
+    } catch(e){ fail++; }
+    await new Promise(r=>setTimeout(r,150)); // anti-rate-limit
+  }
+  const total = parseInt(localStorage.getItem('nl-sent-count')||'0') + ok;
+  localStorage.setItem('nl-sent-count', total);
+  refreshSubscribers();
+  showToast(`✓ Envoyé : ${ok} OK · ${fail} échec`);
+}
+
+async function testBrevoConnection(){
+  const key = localStorage.getItem('brevo_key')||'';
+  if(!key){ showToast('⚠ Entre ta clé Brevo d\'abord'); return; }
+  try{
+    const res = await fetch('https://api.brevo.com/v3/account', {headers:{'api-key':key}});
+    if(res.ok){ const d=await res.json(); showToast(`✓ Brevo OK — ${d.email}`); }
+    else showToast('✗ Clé API invalide');
+  } catch(e){ showToast('✗ Erreur connexion'); }
+}
+
+function saveAutoConfig(){
+  const v = document.getElementById('auto-welcome').checked;
+  localStorage.setItem('nl-auto-welcome', v);
+  const toggle = document.getElementById('toggle-welcome');
+  toggle.style.background = v ? 'var(--accent)' : 'var(--bg4)';
+}
+function loadAutoConfig(){
+  const v = localStorage.getItem('nl-auto-welcome')==='true';
+  document.getElementById('auto-welcome').checked = v;
+  document.getElementById('toggle-welcome').style.background = v ? 'var(--accent)' : 'var(--bg4)';
+  const wb = localStorage.getItem('nl-welcome-body')||'';
+  if(wb) document.getElementById('welcome_body').value = wb;
+}
+
+// ══ Load Analytics + Newsletter on section open
+const _origGoSec = goSec;
+function goSec(id){
+  _origGoSec(id);
+  if(id==='analytics'){ loadGCConfig(); loadAnalytics(7); }
+  if(id==='newsletter'){ loadBrevoConfig(); loadAutoConfig(); refreshSubscribers(); }
+}
+
+// ══ Init
+loadGCConfig(); loadBrevoConfig();
 </script>
 </body>
 </html>
