@@ -1043,6 +1043,12 @@ function adidasGo(n){
   adidasDots[adidasIdx].classList.add('active');
 }
 setInterval(()=>{ adidasGo((adidasIdx+1) % adidasSlides.length); }, 3500);
+
+/* ── SUPPRIMER L'OVERLAY AU CHARGEMENT */
+document.addEventListener('DOMContentLoaded',function(){
+  const ov=document.getElementById('pageEnter');
+  if(ov){setTimeout(()=>{ ov.classList.add('out'); },80);}
+});
 </script>
 </body>
 </html>
