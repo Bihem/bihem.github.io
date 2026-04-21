@@ -178,6 +178,17 @@ img{display:block;max-width:100%}
   display:flex;flex-direction:column;justify-content:flex-end;
   overflow:hidden;
 }
+.hero-video-bg{
+  position:fixed;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  opacity:0.13;
+  z-index:0;
+  pointer-events:none;
+  mix-blend-mode:screen;
+  transform:translateZ(0);-webkit-transform:translateZ(0);
+}
+body.light .hero-video-bg{opacity:0.06;mix-blend-mode:multiply}
 /* project scroll reveal */
 .proj-card{
   opacity:0;
@@ -1218,8 +1229,9 @@ body.light .contact-icon-insta,body.light .contact-icon-linkedin{background:tran
   .wa{bottom:16px;right:16px;width:42px;height:42px}
   .scroll-top{bottom:70px;right:16px;width:38px;height:38px}
 
-  /* perf mobile — stoppe la marquee */
+  /* perf mobile — stoppe la marquee et cache la vague */
   .mq-track{animation-play-state:paused}
+  .hero-video-bg{display:none}
 }
 
 
@@ -1605,6 +1617,10 @@ body.light .reel-arrow svg path{stroke:#000000}
 </head>
 <body>
 
+<!-- VIDEO FOND GLOBAL -->
+<video class="hero-video-bg" autoplay muted loop playsinline preload="auto">
+  <source src="hero-bg.mp4" type="video/mp4">
+</video>
 
 <!-- PAGE TRANSITION -->
 <div class="page-transition" id="pageTransition"></div>
