@@ -3633,67 +3633,6 @@ if(localStorage.getItem('cookie-ok'))banner.classList.add('hidden');
 document.getElementById('cookieAccept').addEventListener('click',()=>{localStorage.setItem('cookie-ok','1');banner.classList.add('hidden');});
 document.getElementById('cookieRefuse').addEventListener('click',()=>banner.classList.add('hidden'));
 
-/* ── TESTIMONIALS AUTO-SCROLL (mobile only) */
-(function(){
-  const grid = document.querySelector('.testi-grid');
-  if(!grid) return;
-  let idx = 0, timer = null, isDragging = false;
-
-  function isMobile(){ return window.innerWidth <= 640; }
-
-  function getCards(){ return grid.querySelectorAll('.testi'); }
-
-  function scrollTo(i){
-    const cards = getCards();
-    if(!cards.length) return;
-    idx = (i + cards.length) % cards.length;
-    const card = cards[idx];
-    grid.scrollTo({ left: card.offsetLeft - 20, behavior:'smooth' });
-  }
-
-  function start(){
-    if(!isMobile()) return;
-    timer = setInterval(function(){
-      if(!isDragging) scrollTo(idx + 1);
-    }, 3000);
-  }
-
-  function stop(){ clearInterval(timer); timer = null; }
-
-  /* pause quand l'user touche */
-  grid.addEventListener('touchstart', function(){ isDragging=true; stop(); }, {passive:true});
-  grid.addEventListener('touchend', function(){
-    isDragging=false;
-    /* reprend après 5s si l'user n'interagit plus */
-    setTimeout(function(){ if(isMobile()) start(); }, 5000);
-  }, {passive:true});
-
-  /* recalcule idx au scroll natif (drag souris / trackpad) */
-  grid.addEventListener('scroll', function(){
-    const cards = getCards();
-    if(!cards.length) return;
-    const center = grid.scrollLeft + grid.offsetWidth / 2;
-    let closest = 0, minDist = Infinity;
-    cards.forEach(function(c, i){
-      const dist = Math.abs(c.offsetLeft + c.offsetWidth/2 - center);
-      if(dist < minDist){ minDist=dist; closest=i; }
-    });
-    idx = closest;
-  }, {passive:true});
-
-  /* démarre dès que la page est prête */
-  if(document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', start);
-  } else {
-    start();
-  }
-
-  /* adapte au resize */
-  window.addEventListener('resize', function(){
-    stop();
-    if(isMobile()) start();
-  });
-})();
 </script>
 </body>
 </html>
