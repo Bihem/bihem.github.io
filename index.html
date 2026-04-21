@@ -301,6 +301,18 @@ body.light .hero-video-bg{opacity:0.06;mix-blend-mode:multiply}
   transition:opacity .9s ease 1s,transform .9s ease 1s;
 }
 .hero-sub.on{opacity:1;transform:translateY(0)}
+.hero-cta{
+  display:inline-flex;align-items:center;gap:10px;
+  margin-top:32px;padding:14px 36px;border-radius:100px;
+  background:var(--white);color:var(--bg);
+  font-family:var(--F);font-size:12px;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.08em;
+  opacity:0;transform:translateY(12px);
+  transition:opacity 1s ease 1.4s,transform 1s ease 1.4s;
+}
+.hero-cta.on{opacity:1;transform:translateY(0)}
+.hero-cta:hover{opacity:.82;transform:translateY(-2px)}
+body.light .hero-cta{background:#000000;color:#FFFFFF}
 .hero-scroll{
   display:flex;flex-direction:column;align-items:center;gap:12px;
   font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
@@ -310,11 +322,9 @@ body.light .hero-video-bg{opacity:0.06;mix-blend-mode:multiply}
 }
 .hero-scroll.on{opacity:1}
 .scroll-line{width:1px;height:48px;background:var(--dim);animation:sline 2.2s ease-in-out infinite 2s}
-@view-transition{navigation:auto}
-::view-transition-old(root){animation:vt-out 0.25s ease both}
-::view-transition-new(root){animation:vt-in 0.25s ease both}
-@keyframes vt-out{to{opacity:0}}
-@keyframes vt-in{from{opacity:0}}
+/* ── TRANSITION PAGE → PROJETS */
+body.leaving{animation:body-exit 0.35s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes body-exit{to{transform:translateX(-4%);opacity:0}}
 @keyframes sline{0%,100%{transform:scaleY(1);opacity:1}50%{transform:scaleY(.25);opacity:.3}}
 
 /* ═══════════════ MARQUEE ═══════════════ */
@@ -1767,9 +1777,12 @@ body.light .reel-arrow svg path{stroke:#000000}
   </div>
   <div style="width:100%;height:1px;background:var(--line);margin-top:40px"></div>
   <div class="hero-bottom">
-    <p class="hero-sub" id="heroSub">
-      UI/UX Designer · Branding · No-Code &amp; IA — Freelance. Je conçois des interfaces modernes et des automatisations intelligentes pour accélérer votre croissance.
-    </p>
+    <div>
+      <p class="hero-sub" id="heroSub">
+        UI/UX Designer · Branding · No-Code &amp; IA — Freelance. Je conçois des interfaces modernes et des automatisations intelligentes pour accélérer votre croissance.
+      </p>
+      <a href="contact.html" class="hero-cta" id="heroCta">Démarrer un projet →</a>
+    </div>
     <div class="hero-scroll" id="heroScroll">
       <span class="scroll-line"></span>
       <span>Scroll</span>
@@ -2520,6 +2533,8 @@ body.light .reel-arrow svg path{stroke:#000000}
 <footer class="footer">
   <span class="footer-copy">©2026 Dikenga.</span>
   <div class="footer-links">
+    <a href="a-propos.html" class="footer-lnk">À propos</a>
+    <a href="blog.html" class="footer-lnk">Blog</a>
     <a href="mentions-legales.html" class="footer-lnk">Mentions légales</a>
   </div>
 </footer>
@@ -2858,7 +2873,16 @@ body.light .reel-arrow svg path{stroke:#000000}
 </div>
 
 <!-- REEL OVERLAY -->
-<div id="reel-overlay" onclick="closeAllProjPanel()"></div>
+<div id="reel-overlay" onclick="closeAllProjPanel();closeReelDrawer();"></div>
+
+<!-- REEL DRAWER — slide depuis la droite -->
+<div id="reel-drawer">
+  <div class="rdrawer-head">
+    <span class="rdrawer-title">Projets</span>
+    <button class="rdrawer-close" onclick="closeReelDrawer()">Fermer ✕</button>
+  </div>
+  <iframe id="reelDrawerFrame" src="" title="Projets" loading="lazy"></iframe>
+</div>
 
 <script>
 /* ── SCRAMBLE */
@@ -2900,6 +2924,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     document.getElementById('heroSub').classList.add('on');
     document.getElementById('heroScroll').classList.add('on');
+    document.getElementById('heroCta').classList.add('on');
 
     // Alternance — clip reveal lettre par lettre (style Niklas Bubori)
     const altEl = document.getElementById('heroAlt');
@@ -3717,15 +3742,38 @@ async function handleSubmit(e){
     },{threshold:0.05});
     obs.observe(hero);
   }
-  // Click sur le reel → navigation vers projets.html (slide droite)
+  // Click sur le reel → projets.html avec slide depuis la droite (View Transition)
   if(reel){reel.addEventListener('click',openProjetsRight);}
 })();
 
 function openProjetsRight(){
-  window.location.href='projets.html';
+  document.body.classList.add('leaving');
+  setTimeout(()=>{ window.location.href='projets.html'; }, 340);
 }
 
 function openReelDrawer(){
+  // Créer le drawer s'il n'existe pas encore
+  if(!document.getElementById('reel-drawer')){
+    const drawer=document.createElement('div');
+    drawer.id='reel-drawer';
+    const head=document.createElement('div');
+    head.className='rdrawer-head';
+    head.innerHTML='<span class="rdrawer-title">Projets</span><button class="rdrawer-close" onclick="closeReelDrawer()">Fermer ✕</button>';
+    const iframe=document.createElement('iframe');
+    iframe.id='reelDrawerFrame';
+    iframe.title='Projets';
+    iframe.style.cssText='flex:1;width:100%;border:none;height:100%;';
+    drawer.appendChild(head);
+    drawer.appendChild(iframe);
+    document.body.appendChild(drawer);
+  }
+  // Créer l'overlay s'il n'existe pas encore
+  if(!document.getElementById('reel-overlay')){
+    const ov=document.createElement('div');
+    ov.id='reel-overlay';
+    ov.onclick=closeReelDrawer;
+    document.body.appendChild(ov);
+  }
   const frame=document.getElementById('reelDrawerFrame');
   if(!frame.dataset.loaded){
     frame.src='projets.html';
@@ -3736,8 +3784,10 @@ function openReelDrawer(){
   document.body.style.overflow='hidden';
 }
 function closeReelDrawer(){
-  document.getElementById('reel-drawer').classList.remove('open');
-  document.getElementById('reel-overlay').classList.remove('open');
+  const drawer=document.getElementById('reel-drawer');
+  const ov=document.getElementById('reel-overlay');
+  if(drawer)drawer.classList.remove('open');
+  if(ov)ov.classList.remove('open');
   document.body.style.overflow='';
 }
 
