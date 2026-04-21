@@ -1170,12 +1170,26 @@ body.light .hero-video-bg{opacity:0.06;mix-blend-mode:multiply}
   .stat-num{font-size:clamp(28px,8vw,40px);margin-bottom:4px}
   .stat-label{font-size:9px;letter-spacing:0.06em}
 
-  /* ── TESTIMONIALS MOBILE : taille réduite, espacement propre */
-  .testimonials{padding:40px 16px}
-  .testi-h{font-size:clamp(18px,5.5vw,26px);margin-bottom:32px}
-  .testi-grid{display:flex;flex-direction:column;gap:28px;margin-top:0}
-  .testi{padding-bottom:28px;border-bottom:1px solid var(--line)}
-  .testi:last-child{border-bottom:none;padding-bottom:0}
+  /* ── TESTIMONIALS MOBILE : carousel horizontal swipeable */
+  .testimonials{padding:40px 0}
+  .testi-h{font-size:clamp(18px,5.5vw,26px);margin-bottom:28px;padding:0 20px}
+  .slabel{padding:0 20px}
+  .testi-grid{
+    display:flex;flex-direction:row;
+    overflow-x:auto;scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    gap:16px;padding:8px 20px 20px;
+    margin-top:0;scrollbar-width:none;
+  }
+  .testi-grid::-webkit-scrollbar{display:none}
+  .testi{
+    flex:0 0 82vw;min-width:260px;max-width:320px;
+    scroll-snap-align:center;
+    background:var(--bg2);border:1px solid var(--line);
+    border-radius:2px;padding:24px 20px;
+    border-bottom:none;
+  }
+  .testi:last-child{border-bottom:none;padding-bottom:24px}
   .testi-stars{font-size:11px;margin-bottom:12px}
   .testi-q{font-size:14px;line-height:1.55;margin-bottom:16px}
   .testi-avatar{width:30px;height:30px;font-size:12px}
