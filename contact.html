@@ -39,7 +39,7 @@ body.light .site-video-bg{opacity:0.06;mix-blend-mode:multiply}
   --line:rgba(255,255,255,0.12);
   --SI:'Suisse Intl','Space Grotesk',sans-serif;
 }
-html{min-height:100%;overflow-x:hidden;background:#1D1B1B}
+html{min-height:100%;overflow-x:hidden;background:transparent}
 body{
   background:var(--bg);
   color:var(--white);font-family:var(--SI);font-weight:300;
@@ -224,20 +224,39 @@ a,button{cursor:none;text-decoration:none;color:inherit}
   .form-foot{flex-direction:column;align-items:flex-start;gap:20px}
 }
 /* ── THEME CLAIR */
-body.light{color:#000000;background:#FFFFFF}
+body.light{
+  --white:#000000;
+  --dim:rgba(0,0,0,0.5);
+  --line:rgba(0,0,0,0.12);
+  color:#000000;
+  background:#FFFFFF;
+}
 body.light .nav-logo ellipse{stroke:#000000}
 body.light .nav-logo text{fill:#000000}
-body.light .nav-back{color:#000000;border-color:rgba(0,0,0,0.15)}
-body.light .contact-left h1,body.light .contact-left p{color:#000000}
-body.light .wrap{background:#FFFFFF}
+body.light .nav-back{color:#000000}
+body.light .nav-time{color:rgba(0,0,0,0.5)}
 body.light .left{background:#FFFFFF}
-body.light .field-group label{color:#000000}
-body.light .field-group input,body.light .field-group textarea,body.light .field-group select{border-color:rgba(0,0,0,0.2);color:#000000;background:#FFFFFF}
+body.light .right{border-color:rgba(0,0,0,0.12);background:#FFFFFF}
+body.light .wrap{background:#FFFFFF}
+body.light .left-foot{color:rgba(0,0,0,0.5)}
+body.light .headline{color:#000000}
+body.light .desc p{color:rgba(0,0,0,0.75)}
+body.light .desc a{border-color:rgba(0,0,0,0.25)}
+body.light .desc a:hover{border-color:#000000}
+body.light .form-label{color:rgba(0,0,0,0.5)}
+body.light .field{border-color:rgba(0,0,0,0.15)}
+body.light .field:focus-within{border-color:rgba(0,0,0,0.4)}
+body.light .field label{color:rgba(0,0,0,0.6)}
+body.light .field input,body.light .field textarea,body.light .field select{color:#000000;background:transparent}
+body.light .field input::placeholder,body.light .field textarea::placeholder{color:rgba(0,0,0,0.25)}
+body.light .field select option{background:#FFFFFF;color:#000000}
+body.light .sel-wrap::after{color:#000000}
+body.light .clink{background:rgba(0,0,0,0.04);border-color:rgba(0,0,0,0.18);color:#000000}
+body.light .clink:hover{background:rgba(0,0,0,0.08);border-color:rgba(0,0,0,0.35)}
 body.light .btn-submit{background:#000000;color:#FFFFFF}
-body.light .footer-copy,body.light .footer-lnk{color:rgba(0,0,0,0.5)}
 body.light .check-box{border-color:rgba(0,0,0,0.35)}
 body.light .check-row input[type=checkbox]:checked+.check-box{background:#000000;border-color:#000000}
-body.light .check-row input[type=checkbox]:checked+.check-box::after{color:#FFFFFF}
+body.light .check-row input[type=checkbox]:checked+.check-box::after{content:'✓';font-size:10px;color:#FFFFFF;font-weight:700}
 body.light .check-label{color:#000000}
 </style>
 <script data-goatcounter="https://dikenga.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
