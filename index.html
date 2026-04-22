@@ -322,6 +322,9 @@ body.light .hero-cta{background:#000000;color:#FFFFFF}
 }
 .hero-scroll.on{opacity:1}
 .scroll-line{width:1px;height:48px;background:var(--dim);animation:sline 2.2s ease-in-out infinite 2s}
+/* ── TRANSITION PAGE → PROJETS */
+body.leaving{animation:body-exit 0.35s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes body-exit{to{transform:translateX(-4%);opacity:0}}
 @keyframes sline{0%,100%{transform:scaleY(1);opacity:1}50%{transform:scaleY(.25);opacity:.3}}
 
 /* ═══════════════ MARQUEE ═══════════════ */
@@ -1021,6 +1024,76 @@ body.light .contact-icon-insta,body.light .contact-icon-linkedin{background:tran
   transition:background .2s,transform .2s;margin-top:4px;
 }
 .form-submit:hover{background:var(--off);transform:translateY(-2px)}
+
+/* ═══════════════ TÉMOIGNAGES ═══════════════ */
+.temoignages{
+  padding:100px 28px;
+  max-width:1200px;
+  margin:0 auto;
+}
+.temoignages-header{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  margin-bottom:56px;flex-wrap:wrap;gap:20px;
+}
+.temoignages-title{
+  font-size:clamp(36px,5vw,64px);font-weight:700;
+  letter-spacing:-0.03em;line-height:1.05;color:var(--white);
+}
+.temoignages-sub{
+  font-size:14px;color:var(--dim);max-width:280px;text-align:right;line-height:1.6;
+}
+.temoignages-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+}
+.tcard-tmg{
+  background:var(--bg2);border:1px solid var(--line);
+  border-radius:var(--r);padding:32px;
+  display:flex;flex-direction:column;gap:24px;
+  transition:border-color .25s,transform .25s;
+}
+.tcard-tmg:hover{border-color:rgba(255,255,255,0.22);transform:translateY(-4px)}
+.tcard-tmg-stars{
+  font-size:15px;letter-spacing:2px;color:#FACC15;
+}
+.tcard-tmg-text{
+  font-size:15px;line-height:1.7;color:var(--dim);font-weight:400;flex:1;
+}
+.tcard-tmg-text em{color:var(--white);font-style:normal;font-weight:600}
+.tcard-tmg-author{
+  display:flex;align-items:center;gap:14px;padding-top:20px;
+  border-top:1px solid var(--line);
+}
+.tcard-tmg-avatar{
+  width:42px;height:42px;border-radius:50%;
+  background:var(--bg3);border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;font-weight:700;color:var(--white);flex-shrink:0;
+}
+.tcard-tmg-name{font-size:13px;font-weight:600;color:var(--white);margin-bottom:2px}
+.tcard-tmg-role{font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:0.08em}
+
+/* light theme */
+body.light .tcard-tmg{background:#F5F5F5;border-color:rgba(0,0,0,0.08)}
+body.light .tcard-tmg:hover{border-color:rgba(0,0,0,0.2)}
+body.light .tcard-tmg-text{color:rgba(0,0,0,0.6)}
+body.light .tcard-tmg-text em{color:#000000}
+body.light .tcard-tmg-name{color:#000000}
+body.light .tcard-tmg-role{color:rgba(0,0,0,0.45)}
+body.light .tcard-tmg-author{border-color:rgba(0,0,0,0.08)}
+body.light .tcard-tmg-avatar{background:#E8E8E8;border-color:rgba(0,0,0,0.1);color:#000000}
+body.light .temoignages-title{color:#000000}
+body.light .temoignages-sub{color:rgba(0,0,0,0.5)}
+
+/* responsive */
+@media(max-width:900px){
+  .temoignages-grid{grid-template-columns:1fr 1fr}
+  .temoignages-sub{text-align:left;max-width:100%}
+  .temoignages-header{align-items:flex-start}
+}
+@media(max-width:600px){
+  .temoignages{padding:60px 16px}
+  .temoignages-grid{grid-template-columns:1fr}
+}
 
 /* ═══════════════ FOOTER ═══════════════ */
 .footer{padding:28px;border-top:1px solid var(--line);background:rgba(0,0,0,0.82);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
@@ -2526,6 +2599,59 @@ body.light .reel-arrow svg path{stroke:#000000}
 </section>
 
 
+<!-- ═══════ TÉMOIGNAGES ═══════ -->
+<section id="temoignages">
+  <div class="temoignages">
+    <div class="temoignages-header">
+      <h2 class="temoignages-title rv">Ce que disent<br>mes clients</h2>
+      <p class="temoignages-sub rv d1">Des résultats concrets, des collaborations qui durent.</p>
+    </div>
+    <div class="temoignages-grid">
+
+      <!-- Témoignage 1 — Startup -->
+      <div class="tcard-tmg rv">
+        <div class="tcard-tmg-stars">★★★★★</div>
+        <p class="tcard-tmg-text">Dikenga a entièrement repensé notre onboarding en 10 jours. Résultat : <em>+38 % de taux de conversion</em> sur notre essai gratuit et une chute de 60 % des abandons à l'inscription. Son approche orientée données nous a bluffés.</p>
+        <div class="tcard-tmg-author">
+          <div class="tcard-tmg-avatar">A</div>
+          <div>
+            <div class="tcard-tmg-name">Axel Moreira</div>
+            <div class="tcard-tmg-role">Co-fondateur · Flowie (SaaS fintech)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Témoignage 2 — PME -->
+      <div class="tcard-tmg rv d1">
+        <div class="tcard-tmg-stars">★★★★★</div>
+        <p class="tcard-tmg-text">Notre site vitrine était daté et peu engageant. Dikenga l'a redesigné de A à Z en <em>moins de 3 semaines</em>. Les demandes de devis en ligne ont doublé dès le premier mois. Professionnel, réactif, à l'écoute.</p>
+        <div class="tcard-tmg-author">
+          <div class="tcard-tmg-avatar">S</div>
+          <div>
+            <div class="tcard-tmg-name">Sophie Lefranc</div>
+            <div class="tcard-tmg-role">Directrice · Arcane Studio (architecture)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Témoignage 3 — Agence -->
+      <div class="tcard-tmg rv d2">
+        <div class="tcard-tmg-stars">★★★★★</div>
+        <p class="tcard-tmg-text">On a sous-traité le design d'une app mobile à Dikenga pour l'un de nos clients retail. Livraison dans les délais, <em>zéro aller-retour inutile</em>, et le client a validé du premier coup. On repart avec lui sur tous nos prochains projets.</p>
+        <div class="tcard-tmg-author">
+          <div class="tcard-tmg-avatar">K</div>
+          <div>
+            <div class="tcard-tmg-name">Karim Benali</div>
+            <div class="tcard-tmg-role">Directeur technique · Heka Agency</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
 <!-- ═══════ FOOTER ═══════ -->
 <footer class="footer">
   <span class="footer-copy">©2026 Dikenga.</span>
@@ -3744,7 +3870,8 @@ async function handleSubmit(e){
 })();
 
 function openProjetsRight(){
-  window.location.href='projets.html';
+  document.body.classList.add('leaving');
+  setTimeout(()=>{ window.location.href='projets.html'; }, 340);
 }
 
 function openReelDrawer(){
