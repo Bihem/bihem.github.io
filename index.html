@@ -2634,8 +2634,6 @@ body.light .reel-arrow svg path{stroke:#000000}
 <footer class="footer">
   <span class="footer-copy">©2026 Dikenga.</span>
   <div class="footer-links">
-    <a href="a-propos.html" class="footer-lnk">À propos</a>
-    <a href="blog.html" class="footer-lnk">Blog</a>
     <a href="mentions-legales.html" class="footer-lnk">Mentions légales</a>
   </div>
 </footer>
@@ -3893,7 +3891,12 @@ function closeReelDrawer(){
 }
 
 
-/* ── COOKIE */
+/* ── BFCACHE FIX — retour depuis projets.html */
+  window.addEventListener('pageshow', function(e){
+    if(e.persisted){ document.body.classList.remove('leaving'); }
+  });
+
+  /* ── COOKIE */
 const banner=document.getElementById('cookieBanner');
 if(localStorage.getItem('cookie-ok'))banner.classList.add('hidden');
 document.getElementById('cookieAccept').addEventListener('click',()=>{localStorage.setItem('cookie-ok','1');banner.classList.add('hidden');});
