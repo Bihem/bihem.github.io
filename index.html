@@ -1026,75 +1026,6 @@ body.light .contact-icon-insta,body.light .contact-icon-linkedin{background:tran
 .form-submit:hover{background:var(--off);transform:translateY(-2px)}
 
 /* ═══════════════ TÉMOIGNAGES ═══════════════ */
-.temoignages{
-  padding:100px 28px;
-  max-width:1200px;
-  margin:0 auto;
-}
-.temoignages-header{
-  display:flex;align-items:flex-end;justify-content:space-between;
-  margin-bottom:56px;flex-wrap:wrap;gap:20px;
-}
-.temoignages-title{
-  font-size:clamp(36px,5vw,64px);font-weight:700;
-  letter-spacing:-0.03em;line-height:1.05;color:var(--white);
-}
-.temoignages-sub{
-  font-size:14px;color:var(--dim);max-width:280px;text-align:right;line-height:1.6;
-}
-.temoignages-grid{
-  display:flex;flex-direction:row;gap:0;
-  border-top:1px solid var(--line);
-}
-.tcard-tmg{
-  flex:1;padding:40px 36px;
-  display:flex;flex-direction:column;gap:20px;
-  border-right:1px solid var(--line);
-}
-.tcard-tmg:last-child{border-right:none}
-.tcard-tmg-stars{
-  font-size:13px;letter-spacing:3px;color:#FACC15;
-}
-.tcard-tmg-text{
-  font-size:15px;line-height:1.75;color:var(--dim);font-weight:400;flex:1;
-}
-.tcard-tmg-text em{color:var(--white);font-style:normal;font-weight:600}
-.tcard-tmg-author{
-  display:flex;align-items:center;gap:12px;
-  margin-top:auto;padding-top:0;
-}
-.tcard-tmg-avatar{
-  width:36px;height:36px;border-radius:50%;
-  background:var(--bg2);
-  display:flex;align-items:center;justify-content:center;
-  font-size:14px;font-weight:700;color:var(--white);flex-shrink:0;
-}
-.tcard-tmg-name{font-size:13px;font-weight:600;color:var(--white);margin-bottom:2px}
-.tcard-tmg-role{font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:0.08em}
-
-/* light theme */
-body.light .tcard-tmg{border-color:rgba(0,0,0,0.08)}
-body.light .temoignages-grid{border-color:rgba(0,0,0,0.08)}
-body.light .tcard-tmg-text{color:rgba(0,0,0,0.6)}
-body.light .tcard-tmg-text em{color:#000000}
-body.light .tcard-tmg-name{color:#000000}
-body.light .tcard-tmg-role{color:rgba(0,0,0,0.45)}
-body.light .tcard-tmg-avatar{background:#F0F0F0;color:#000000}
-body.light .temoignages-title{color:#000000}
-body.light .temoignages-sub{color:rgba(0,0,0,0.5)}
-
-/* responsive */
-@media(max-width:900px){
-  .temoignages-grid{flex-direction:column}
-  .tcard-tmg{border-right:none;border-bottom:1px solid var(--line)}
-  .tcard-tmg:last-child{border-bottom:none}
-  .temoignages-sub{text-align:left;max-width:100%}
-  .temoignages-header{align-items:flex-start}
-}
-@media(max-width:600px){
-  .temoignages{padding:60px 16px}
-  .tcard-tmg{padding:28px 0}
-}
 
 /* ═══════════════ FOOTER ═══════════════ */
 .footer{padding:28px;border-top:1px solid var(--line);background:rgba(0,0,0,0.82);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
@@ -1852,7 +1783,6 @@ body.light .reel-arrow svg path{stroke:#000000}
       <p class="hero-sub" id="heroSub">
         UI/UX Designer · Branding · No-Code &amp; IA — Freelance. Je conçois des interfaces modernes et des automatisations intelligentes pour accélérer votre croissance.
       </p>
-      <a href="contact.html" class="hero-cta" id="heroCta">Démarrer un projet →</a>
     </div>
     <div class="hero-scroll" id="heroScroll">
       <span class="scroll-line"></span>
@@ -2451,36 +2381,36 @@ body.light .reel-arrow svg path{stroke:#000000}
   <div class="testi-grid">
   <div class="testi rv">
     <div class="testi-stars">★★★★★</div>
-    <p class="testi-q">"Dikenga a complètement transformé notre présence digitale. Le site qu'il a créé convertit 3× plus qu'avant. Professionnel, rapide et vraiment à l'écoute."</p>
+    <p class="testi-q">"Dikenga a entièrement repensé notre onboarding en 10 jours. Résultat : +38 % de taux de conversion sur notre essai gratuit et une chute de 60 % des abandons à l'inscription."</p>
     <div class="testi-author">
       <div class="testi-avatar">A</div>
       <div class="testi-info">
-        <div class="testi-name">Axel Moreau</div>
-        <div class="testi-role">CEO — Agence Boost</div>
+        <div class="testi-name">Axel Moreira</div>
+        <div class="testi-role">Co-fondateur — Flowie (SaaS fintech)</div>
       </div>
     </div>
   </div>
 
   <div class="testi rv d1">
     <div class="testi-stars">★★★★★</div>
-    <p class="testi-q">"Un vrai designer stratège. Il ne fait pas que rendre les choses jolies — il pense conversion, UX et business. Notre taux d'engagement a explosé."</p>
+    <p class="testi-q">"Notre site vitrine était daté et peu engageant. Dikenga l'a redesigné de A à Z en moins de 3 semaines. Les demandes de devis en ligne ont doublé dès le premier mois."</p>
     <div class="testi-author">
       <div class="testi-avatar">S</div>
       <div class="testi-info">
-        <div class="testi-name">Sarah Diallo</div>
-        <div class="testi-role">Fondatrice — Luma Studio</div>
+        <div class="testi-name">Sophie Lefranc</div>
+        <div class="testi-role">Directrice — Arcane Studio (architecture)</div>
       </div>
     </div>
   </div>
 
   <div class="testi rv d2">
     <div class="testi-stars">★★★★★</div>
-    <p class="testi-q">"Identité visuelle livrée en 4 jours, impeccable du premier coup. Dikenga comprend exactement ce que tu veux, même quand tu sais pas l'expliquer."</p>
+    <p class="testi-q">"On a sous-traité le design d'une app mobile à Dikenga pour l'un de nos clients retail. Livraison dans les délais, zéro aller-retour inutile, et le client a validé du premier coup."</p>
     <div class="testi-author">
       <div class="testi-avatar">K</div>
       <div class="testi-info">
-        <div class="testi-name">Kévin Lambert</div>
-        <div class="testi-role">Entrepreneur — KL Concept</div>
+        <div class="testi-name">Karim Benali</div>
+        <div class="testi-role">Directeur technique — Heka Agency</div>
       </div>
     </div>
   </div>
@@ -2601,56 +2531,6 @@ body.light .reel-arrow svg path{stroke:#000000}
 
 
 <!-- ═══════ TÉMOIGNAGES ═══════ -->
-<section id="temoignages">
-  <div class="temoignages">
-    <div class="temoignages-header">
-      <h2 class="temoignages-title rv">Ce que disent<br>mes clients</h2>
-      <p class="temoignages-sub rv d1">Des résultats concrets, des collaborations qui durent.</p>
-    </div>
-    <div class="temoignages-grid">
-
-      <!-- Témoignage 1 — Startup -->
-      <div class="tcard-tmg rv">
-        <div class="tcard-tmg-stars">★★★★★</div>
-        <p class="tcard-tmg-text">Dikenga a entièrement repensé notre onboarding en 10 jours. Résultat : <em>+38 % de taux de conversion</em> sur notre essai gratuit et une chute de 60 % des abandons à l'inscription. Son approche orientée données nous a bluffés.</p>
-        <div class="tcard-tmg-author">
-          <div class="tcard-tmg-avatar">A</div>
-          <div>
-            <div class="tcard-tmg-name">Axel Moreira</div>
-            <div class="tcard-tmg-role">Co-fondateur · Flowie (SaaS fintech)</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Témoignage 2 — PME -->
-      <div class="tcard-tmg rv d1">
-        <div class="tcard-tmg-stars">★★★★★</div>
-        <p class="tcard-tmg-text">Notre site vitrine était daté et peu engageant. Dikenga l'a redesigné de A à Z en <em>moins de 3 semaines</em>. Les demandes de devis en ligne ont doublé dès le premier mois. Professionnel, réactif, à l'écoute.</p>
-        <div class="tcard-tmg-author">
-          <div class="tcard-tmg-avatar">S</div>
-          <div>
-            <div class="tcard-tmg-name">Sophie Lefranc</div>
-            <div class="tcard-tmg-role">Directrice · Arcane Studio (architecture)</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Témoignage 3 — Agence -->
-      <div class="tcard-tmg rv d2">
-        <div class="tcard-tmg-stars">★★★★★</div>
-        <p class="tcard-tmg-text">On a sous-traité le design d'une app mobile à Dikenga pour l'un de nos clients retail. Livraison dans les délais, <em>zéro aller-retour inutile</em>, et le client a validé du premier coup. On repart avec lui sur tous nos prochains projets.</p>
-        <div class="tcard-tmg-author">
-          <div class="tcard-tmg-avatar">K</div>
-          <div>
-            <div class="tcard-tmg-name">Karim Benali</div>
-            <div class="tcard-tmg-role">Directeur technique · Heka Agency</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
 
 
 <!-- ═══════ FOOTER ═══════ -->
