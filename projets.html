@@ -916,6 +916,12 @@ function goBackHome(e){
   window.location.href='index.html';
 }
 
+/* pageEnter overlay — retrait au chargement */
+document.addEventListener('DOMContentLoaded',function(){
+  var ov=document.getElementById('pageEnter');
+  if(ov){ setTimeout(function(){ ov.classList.add('out'); },80); }
+});
+
 /* page header reveal */
 document.addEventListener('DOMContentLoaded',function(){
   setTimeout(function(){
