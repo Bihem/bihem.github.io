@@ -35,7 +35,12 @@
       "url": "https://dikengadesign.fr/",
       "name": "Dikenga Design",
       "description": "UI/UX Designer freelance Paris — interfaces, identités visuelles, sites web",
-      "inLanguage": "fr-FR"
+      "inLanguage": "fr-FR",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://dikengadesign.fr/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
     },
     {
       "@type": "Person",
@@ -51,7 +56,11 @@
         "addressRegion": "Île-de-France",
         "addressCountry": "FR"
       },
-      "sameAs": ["https://www.instagram.com/dikenga.design/"],
+      "sameAs": [
+        "https://www.instagram.com/dikenga.design/",
+        "https://www.linkedin.com/in/dikengadesign/",
+        "https://www.malt.fr/profile/mesrevesbouzanga1"
+      ],
       "image": "https://dikengadesign.fr/og-image.jpg"
     },
     {
@@ -67,6 +76,12 @@
       "priceRange": "€€",
       "currenciesAccepted": "EUR",
       "paymentAccepted": "Virement bancaire, Carte bancaire",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Paris",
@@ -75,19 +90,101 @@
       },
       "areaServed": [
         {"@type": "City", "name": "Paris"},
+        {"@type": "AdministrativeArea", "name": "Île-de-France"},
         {"@type": "Country", "name": "France"}
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "3",
+        "reviewCount": "3"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": {"@type": "Person", "name": "Axel Moreira"},
+          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+          "reviewBody": "Dikenga a entièrement repensé notre onboarding en 10 jours. Résultat : +38% de taux de conversion sur notre essai gratuit et une chute de 60% des abandons à l'inscription.",
+          "datePublished": "2026-03-15"
+        },
+        {
+          "@type": "Review",
+          "author": {"@type": "Person", "name": "Sophie Lefranc"},
+          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+          "reviewBody": "Notre site vitrine était daté. Dikenga l'a redesigné de A à Z en moins de 3 semaines. Les demandes de devis en ligne ont doublé dès le premier mois.",
+          "datePublished": "2026-02-20"
+        },
+        {
+          "@type": "Review",
+          "author": {"@type": "Person", "name": "Karim Benali"},
+          "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+          "reviewBody": "On a sous-traité le design d'une app mobile à Dikenga. Livraison dans les délais, zéro aller-retour inutile, le client a validé du premier coup.",
+          "datePublished": "2026-04-01"
+        }
       ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Services de design",
         "itemListElement": [
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "UI/UX Design", "description": "Conception d'interfaces utilisateur modernes et intuitives"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Identité visuelle", "description": "Création de logo et charte graphique complète"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Création de site web", "description": "Site vitrine, e-commerce et landing page sur mesure"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Automatisation IA", "description": "Agents et automatisations intelligentes pour votre business"}}
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "UI/UX Design", "description": "Conception d'interfaces utilisateur modernes et intuitives pour apps et sites web"}, "priceSpecification": {"@type": "PriceSpecification", "priceCurrency": "EUR", "minPrice": "350"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Identité visuelle & Logo", "description": "Création de logo, charte graphique et identité visuelle complète"}, "priceSpecification": {"@type": "PriceSpecification", "priceCurrency": "EUR", "minPrice": "350"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Création de site web", "description": "Site vitrine, e-commerce et landing page sur mesure, optimisé SEO"}, "priceSpecification": {"@type": "PriceSpecification", "priceCurrency": "EUR", "minPrice": "490"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Automatisation IA & Agents", "description": "Agents et automatisations intelligentes pour accélérer votre business"}, "priceSpecification": {"@type": "PriceSpecification", "priceCurrency": "EUR", "minPrice": "800"}}
         ]
       },
-      "sameAs": ["https://www.instagram.com/dikenga.design/"]
+      "sameAs": [
+        "https://www.instagram.com/dikenga.design/",
+        "https://www.linkedin.com/in/dikengadesign/",
+        "https://www.malt.fr/profile/mesrevesbouzanga1"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://dikengadesign.fr/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Comment se déroule un projet avec vous ?",
+          "acceptedAnswer": {"@type": "Answer", "text": "On commence par un échange gratuit pour cerner vos besoins. Je vous envoie ensuite un devis détaillé sous 24h. Une fois validé, je démarre avec une phase de recherche et de maquette, puis on itère ensemble jusqu'au résultat final."}
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de révisions sont incluses ?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Chaque projet inclut 2 rounds de révisions. Des révisions supplémentaires sont possibles à 80 €/heure. Dans la pratique, 2 rounds suffisent largement, car je travaille en étroite collaboration avec vous dès le départ."}
+        },
+        {
+          "@type": "Question",
+          "name": "Vous travaillez à distance ou en présentiel ?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Je travaille principalement à distance (remote) avec des clients partout en France et à l'international. Les échanges se font par visio, email ou WhatsApp selon votre préférence."}
+        },
+        {
+          "@type": "Question",
+          "name": "Est-il possible de payer en plusieurs fois ?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Oui. Pour les projets à partir de 500 €, je propose un paiement en 2 fois (50% à la commande, 50% à la livraison). Le paiement en 3 fois est disponible sur demande pour les projets supérieurs à 1 000 €."}
+        },
+        {
+          "@type": "Question",
+          "name": "Quel est le délai pour un site vitrine ?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Un site vitrine Starter (3–5 pages) est livré en 7 à 10 jours ouvrés. Un site Pro (6–10 pages) prend 12 à 16 jours. Ces délais démarrent une fois le brief validé et l'acompte reçu."}
+        },
+        {
+          "@type": "Question",
+          "name": "Y a-t-il un suivi après la livraison ?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Oui. Tous mes projets incluent 30 jours de support post-livraison pour corriger d'éventuels ajustements mineurs. Pour un suivi continu, je propose des forfaits mensuels à partir de 80 €/mois."}
+        },
+        {
+          "@type": "Question",
+          "name": "Quels fichiers vais-je recevoir à la livraison ?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Pour un logo : fichiers vectoriels (AI, SVG, PDF) + PNG haute résolution en versions couleur, noir et blanc. Pour un site : accès complet à l'outil + guide d'utilisation. Pour un design UI : fichier Figma organisé avec tous les composants."}
+        },
+        {
+          "@type": "Question",
+          "name": "Et si le résultat ne me convient pas ?",
+          "acceptedAnswer": {"@type": "Answer", "text": "C'est très rare car je travaille en collaboration étroite tout au long du projet, avec des points réguliers. Si malgré tout le résultat ne vous convient pas après les 2 rounds de révisions inclus, on en discute ensemble. La satisfaction client est ma priorité."}
+        }
+      ]
     }
   ]
 }
