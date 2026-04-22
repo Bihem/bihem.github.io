@@ -1043,56 +1043,57 @@ body.light .contact-icon-insta,body.light .contact-icon-linkedin{background:tran
   font-size:14px;color:var(--dim);max-width:280px;text-align:right;line-height:1.6;
 }
 .temoignages-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+  display:flex;flex-direction:row;gap:0;
+  border-top:1px solid var(--line);
 }
 .tcard-tmg{
-  background:var(--bg2);border:1px solid var(--line);
-  border-radius:var(--r);padding:32px;
-  display:flex;flex-direction:column;gap:24px;
-  transition:border-color .25s,transform .25s;
+  flex:1;padding:40px 36px;
+  display:flex;flex-direction:column;gap:20px;
+  border-right:1px solid var(--line);
 }
-.tcard-tmg:hover{border-color:rgba(255,255,255,0.22);transform:translateY(-4px)}
+.tcard-tmg:last-child{border-right:none}
 .tcard-tmg-stars{
-  font-size:15px;letter-spacing:2px;color:#FACC15;
+  font-size:13px;letter-spacing:3px;color:#FACC15;
 }
 .tcard-tmg-text{
-  font-size:15px;line-height:1.7;color:var(--dim);font-weight:400;flex:1;
+  font-size:15px;line-height:1.75;color:var(--dim);font-weight:400;flex:1;
 }
 .tcard-tmg-text em{color:var(--white);font-style:normal;font-weight:600}
 .tcard-tmg-author{
-  display:flex;align-items:center;gap:14px;padding-top:20px;
-  border-top:1px solid var(--line);
+  display:flex;align-items:center;gap:12px;
+  margin-top:auto;padding-top:0;
 }
 .tcard-tmg-avatar{
-  width:42px;height:42px;border-radius:50%;
-  background:var(--bg3);border:1px solid var(--line);
+  width:36px;height:36px;border-radius:50%;
+  background:var(--bg2);
   display:flex;align-items:center;justify-content:center;
-  font-size:16px;font-weight:700;color:var(--white);flex-shrink:0;
+  font-size:14px;font-weight:700;color:var(--white);flex-shrink:0;
 }
 .tcard-tmg-name{font-size:13px;font-weight:600;color:var(--white);margin-bottom:2px}
 .tcard-tmg-role{font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:0.08em}
 
 /* light theme */
-body.light .tcard-tmg{background:#F5F5F5;border-color:rgba(0,0,0,0.08)}
-body.light .tcard-tmg:hover{border-color:rgba(0,0,0,0.2)}
+body.light .tcard-tmg{border-color:rgba(0,0,0,0.08)}
+body.light .temoignages-grid{border-color:rgba(0,0,0,0.08)}
 body.light .tcard-tmg-text{color:rgba(0,0,0,0.6)}
 body.light .tcard-tmg-text em{color:#000000}
 body.light .tcard-tmg-name{color:#000000}
 body.light .tcard-tmg-role{color:rgba(0,0,0,0.45)}
-body.light .tcard-tmg-author{border-color:rgba(0,0,0,0.08)}
-body.light .tcard-tmg-avatar{background:#E8E8E8;border-color:rgba(0,0,0,0.1);color:#000000}
+body.light .tcard-tmg-avatar{background:#F0F0F0;color:#000000}
 body.light .temoignages-title{color:#000000}
 body.light .temoignages-sub{color:rgba(0,0,0,0.5)}
 
 /* responsive */
 @media(max-width:900px){
-  .temoignages-grid{grid-template-columns:1fr 1fr}
+  .temoignages-grid{flex-direction:column}
+  .tcard-tmg{border-right:none;border-bottom:1px solid var(--line)}
+  .tcard-tmg:last-child{border-bottom:none}
   .temoignages-sub{text-align:left;max-width:100%}
   .temoignages-header{align-items:flex-start}
 }
 @media(max-width:600px){
   .temoignages{padding:60px 16px}
-  .temoignages-grid{grid-template-columns:1fr}
+  .tcard-tmg{padding:28px 0}
 }
 
 /* ═══════════════ FOOTER ═══════════════ */
