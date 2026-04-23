@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-VNYL81F091"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-VNYL81F091');
-</script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <script>(function(){var s=localStorage.getItem('dikenga-theme');var pd=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;var dark=s?s==='dark':pd;var bg=dark?'#1D1B1B':'#FFFFFF';document.documentElement.style.background=bg;document.documentElement.style.setProperty('--bg',bg);})();</script>
@@ -516,7 +508,7 @@ body.light .footer-lnk:hover{color:#000}
 (function(){
   const stored = localStorage.getItem('dikenga-theme');
   const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const useDark = stored ? stored === 'dark' : prefersDark;
+  const useDark = stored ? stored === 'dark' : true;
   if(!useDark) document.body.classList.add('light');
   if(!stored && window.matchMedia){
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
