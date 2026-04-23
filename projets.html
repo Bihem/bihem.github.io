@@ -953,7 +953,7 @@ document.querySelectorAll('.rv').forEach(el=>{
 (function(){
   const stored = localStorage.getItem('dikenga-theme');
   const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const useDark = stored ? stored === 'dark' : prefersDark;
+  const useDark = stored ? stored === 'dark' : true;
   if(!useDark){
     document.documentElement.style.setProperty('--bg','#FFFFFF');
     document.documentElement.style.setProperty('--bg2','#F2F2F2');
