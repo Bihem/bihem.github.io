@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<script>if(localStorage.getItem('dikenga-theme')==='light'){document.documentElement.style.background='#FFFFFF';document.documentElement.style.setProperty('--bg','#FFFFFF');}else{document.documentElement.style.background='#1D1B1B';document.documentElement.style.setProperty('--bg','#1D1B1B');}</script>
+<style>html{background:transparent}
+.site-video-bg{
+  position:fixed;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  opacity:0.13;
+  z-index:0;
+  pointer-events:none;
+  mix-blend-mode:screen;
+}
+body.light .site-video-bg{opacity:0.06;mix-blend-mode:multiply}
+@view-transition{navigation:auto}
+::view-transition-old(root){animation:vt-out 0.25s ease both}
+::view-transition-new(root){animation:vt-in 0.25s ease both}
+@keyframes vt-out{to{opacity:0}}
+@keyframes vt-in{from{opacity:0}}
+</style>
+<title>À propos — Dikenga. | UI/UX Designer Freelance Paris</title>
+<meta name="description" content="Dikenga, UI/UX Designer freelance à Paris. 5 ans d'expérience en design produit, identité visuelle et no-code. Figma, Design Systems, accessibilité. Disponible pour missions."/>
+<meta name="robots" content="index, follow"/>
+<meta name="author" content="Dikenga"/>
+<meta name="keywords" content="à propos designer freelance Paris, UI UX designer freelance, Dikenga Design, Figma designer Paris, design system freelance, designer no-code Paris"/>
+<meta property="og:title" content="À propos — Dikenga. | UI/UX Designer Freelance Paris"/>
+<meta property="og:description" content="5 ans d'expérience en design produit, identité visuelle et no-code. Figma, Design Systems, accessibilité. Disponible pour missions freelance."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://dikengadesign.fr/a-propos.html"/>
+<meta property="og:image" content="https://dikengadesign.fr/og-image.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="À propos — Dikenga. | UI/UX Designer Freelance Paris"/>
+<meta name="twitter:description" content="UI/UX Designer freelance à Paris. Figma, Design Systems, no-code, accessibilité. 5 ans d'expérience."/>
+<meta name="twitter:image" content="https://dikengadesign.fr/og-image.jpg"/>
+<link rel="icon" type="image/x-icon" href="favicon.ico"/>
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
+<meta name="geo.region" content="FR-IDF"/>
+<meta name="geo.placename" content="Paris, France"/>
+<link rel="canonical" href="https://dikengadesign.fr/a-propos.html"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "À propos — Dikenga Design",
+  "description": "UI/UX Designer freelance à Paris. 5 ans d'expérience en design produit, identité visuelle, Figma, Design Systems et no-code.",
+  "url": "https://dikengadesign.fr/a-propos.html",
+  "inLanguage": "fr-FR",
+  "isPartOf": {"@id": "https://dikengadesign.fr/#website"},
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://dikengadesign.fr/"},
+      {"@type": "ListItem", "position": 2, "name": "À propos", "item": "https://dikengadesign.fr/a-propos.html"}
+    ]
+  }
+}
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VNYL81F091"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VNYL81F091');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+<style>
+@font-face{font-family:'Suisse Intl';src:url('https://cdn.prod.website-files.com/6772f6efe246aaaa73ad2a98/67784f5e4c3068c2e2f22e60_SuisseIntl-Regular.otf')format('opentype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Suisse Intl';src:url('https://cdn.prod.website-files.com/6772f6efe246aaaa73ad2a98/67784f815ee57b4c18bdae11_SuisseIntl-Light.otf')format('opentype');font-weight:300;font-style:normal;font-display:swap}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#1D1B1B;
+  --bg2:#252323;
+  --bg3:#2E2B2B;
+  --white:#FFFFFF;
+  --off:#B8B4B4;
+  --dim:rgba(255,255,255,0.55);
+  --line:rgba(255,255,255,0.1);
+  --F:'Space Grotesk',Arial,sans-serif;
+  --SI:'Suisse Intl','Space Grotesk',Arial,sans-serif;
+  --r:12px;
+}
+
+html{font-size:16px;overflow-x:hidden;scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--white);
+  font-family:var(--F);
+  font-weight:400;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  cursor:none;
+}
+a,button{cursor:none;text-decoration:none;color:inherit}
+@media(hover:none),(max-width:768px){
+  *,a,button{cursor:auto!important}
+  #cdot,#cring{display:none!important}
+}
+
+/* ═══════════════ CURSOR ═══════════════ */
+#cdot{
+  position:fixed;z-index:10000;pointer-events:none;
+  width:6px;height:6px;border-radius:50%;background:#ffffff;
+  transform:translate(-50%,-50%);top:50%;left:50%;
+}
+#cring{
+  position:fixed;z-index:9999;pointer-events:none;
+  width:34px;height:34px;border-radius:50%;
+  border:1.5px solid rgba(255,255,255,0.85);
+  transform:translate(-50%,-50%);top:50%;left:50%;
+  transition:width .25s,height .25s,border-color .25s;
+}
+.cursor-grow #cring{width:56px;height:56px;border-color:rgba(255,255,255,1)}
+body.light #cdot{background:#000000}
+body.light #cring{border-color:rgba(0,0,0,0.85)}
+body.light .page-sub{color:#000000}
+body.light .footer-tagline{color:#000000}
+ul{list-style:none}
+img{display:block;max-width:100%}
+
+/* ═══════════════ BACK BUTTON ═══════════════ */
+.back-btn{
+  position:absolute;top:72px;right:28px;z-index:800;
+  background:rgba(29,27,27,0.6);
+  backdrop-filter:blur(12px) saturate(150%);
+  -webkit-backdrop-filter:blur(12px) saturate(150%);
+  border:1px solid rgba(255,255,255,0.1);border-radius:100px;
+  padding:6px 14px;font-family:var(--F);font-size:9px;font-weight:600;
+  letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.7);
+  display:flex;align-items:center;gap:6px;
+  transition:background .25s,border-color .25s,color .25s;
+}
+.back-btn:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.3);color:var(--white)}
+.back-btn svg{width:12px;height:12px;flex-shrink:0}
+
+/* ═══════════════ NAV ═══════════════ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:800;
+  padding:20px 28px 0;
+  display:flex;align-items:flex-start;justify-content:space-between;
+}
+.nav-logo{display:flex;align-items:center}
+.nav-logo svg{height:36px;width:auto}
+.nav-right{display:flex;align-items:center;gap:20px;padding-top:4px}
+.nav-time{font-size:11px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--dim)}
+.nav-btn{
+  background:none;border:1px solid var(--line);border-radius:100px;
+  padding:8px 20px;font-family:var(--F);font-size:11px;font-weight:600;
+  letter-spacing:0.08em;text-transform:uppercase;color:var(--white);
+  transition:background .2s,border-color .2s;
+}
+.nav-btn:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.25)}
+
+/* ═══════════════ PAGE HEADER ═══════════════ */
+.page-header{
+  position:relative;
+  padding:80px 28px 60px;
+  border-bottom:1px solid var(--line);
+}
+.page-label{
+  display:flex;align-items:center;gap:14px;
+  font-size:10px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--dim);margin-bottom:32px;
+}
+.page-label::before{
+  content:'';display:inline-block;width:28px;height:1px;background:var(--dim);
+}
+.page-heading{
+  font-size:clamp(28px,4vw,52px);font-weight:700;
+  text-transform:uppercase;letter-spacing:-0.04em;line-height:.9;
+  margin-bottom:32px;
+}
+.page-sub{
+  font-size:clamp(15px,1.5vw,18px);font-weight:400;color:var(--dim);
+  line-height:1.65;max-width:560px;
+}
+
+/* ═══════════════ ABOUT SECTION ═══════════════ */
+.about{padding:80px 28px;max-width:1200px;margin:0 auto}
+
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:start;
+}
+
+.about-intro{
+  font-family:var(--SI);
+  font-size:clamp(20px,2.2vw,28px);
+  font-weight:300;
+  line-height:1.55;
+  color:var(--white);
+  margin-bottom:40px;
+}
+.about-intro strong{font-weight:600}
+
+.about-para{
+  font-size:16px;
+  font-weight:400;
+  color:var(--dim);
+  line-height:1.75;
+  margin-bottom:24px;
+}
+body.light .about-para{color:#444}
+
+.about-cta{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;
+  padding:14px 28px;border-radius:100px;border:1px solid var(--white);color:var(--white);
+  transition:background .2s,border-color .2s,color .2s;margin-top:16px;
+}
+.about-cta:hover{background:var(--white);color:var(--bg);border-color:var(--white)}
+
+/* Skills side */
+.about-skills{display:flex;flex-direction:column;gap:48px}
+
+.skill-group-label{
+  font-size:9px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--dim);margin-bottom:16px;padding-bottom:12px;
+  border-bottom:1px solid var(--line);
+}
+.skill-tags{display:flex;flex-wrap:wrap;gap:8px}
+.skill-tag{
+  font-family:var(--SI);
+  font-size:13px;font-weight:400;
+  padding:8px 16px;border-radius:100px;
+  border:1px solid var(--line);color:var(--white);
+  transition:background .2s,border-color .2s;
+}
+.skill-tag:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.3)}
+body.light .skill-tag{border-color:rgba(0,0,0,0.15);color:#1D1B1B}
+
+/* Stats band */
+.about-stats{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:0;border:1px solid var(--line);border-radius:var(--r);
+  overflow:hidden;margin-top:72px;
+}
+.stat-item{
+  padding:32px 28px;border-right:1px solid var(--line);text-align:center;
+}
+.stat-item:last-child{border-right:none}
+.stat-num{
+  font-size:clamp(36px,4vw,56px);font-weight:700;letter-spacing:-0.03em;
+  line-height:1;margin-bottom:8px;
+}
+.stat-label{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--dim)}
+
+/* Process section */
+.process{
+  padding:0 28px 80px;max-width:1200px;margin:0 auto;
+}
+.section-title{
+  font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--dim);margin-bottom:48px;
+  display:flex;align-items:center;gap:14px;
+}
+.section-title::before{content:'';display:inline-block;width:28px;height:1px;background:var(--dim)}
+
+.process-steps{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;
+}
+.step{
+  padding:32px 28px;border-right:1px solid var(--line);
+  display:flex;flex-direction:column;gap:12px;
+}
+.step:last-child{border-right:none}
+.step-num{
+  font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--dim);
+}
+.step-name{font-size:17px;font-weight:700;text-transform:uppercase;letter-spacing:-0.02em}
+.step-desc{font-family:var(--SI);font-size:14px;font-weight:300;color:var(--dim);line-height:1.65}
+body.light .step-desc{color:#555}
+
+/* ═══════════════ FOOTER ═══════════════ */
+.footer{padding:60px 28px 40px;border-top:1px solid var(--line)}
+.footer-inner{
+  display:flex;align-items:flex-start;justify-content:space-between;gap:40px;flex-wrap:wrap;
+  padding-bottom:32px;border-bottom:1px solid var(--line);margin-bottom:32px;
+}
+.footer-logo svg{height:32px;width:auto;opacity:.8}
+.footer-tagline{font-size:15px;color:var(--dim);margin-top:12px;line-height:1.6}
+.footer-back{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;
+  padding:11px 24px;border-radius:100px;border:1px solid var(--line);color:var(--white);
+  transition:background .2s,border-color .2s;margin-top:20px;
+}
+.footer-back:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.25)}
+.footer-bot{
+  display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;
+}
+.footer-copy{font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:0.06em}
+
+/* ═══════════════ REVEAL ═══════════════ */
+.rv{opacity:1;transform:none}
+.rv.d1{transition-delay:.1s}
+.rv.d2{transition-delay:.2s}
+.rv.d3{transition-delay:.3s}
+
+/* ═══════════════ RESPONSIVE ═══════════════ */
+@media(max-width:1024px){
+  .about-grid{grid-template-columns:1fr;gap:60px}
+  .about-stats{grid-template-columns:repeat(2,1fr)}
+  .stat-item:nth-child(2){border-right:none}
+  .stat-item:nth-child(3){border-top:1px solid var(--line);border-right:1px solid var(--line)}
+  .stat-item:nth-child(4){border-top:1px solid var(--line);border-right:none}
+  .process-steps{grid-template-columns:repeat(2,1fr)}
+  .step:nth-child(2){border-right:none}
+  .step:nth-child(3){border-top:1px solid var(--line);border-right:1px solid var(--line)}
+  .step:nth-child(4){border-top:1px solid var(--line);border-right:none}
+}
+@media(max-width:640px){
+  .about{padding:60px 20px}
+  .process{padding:0 20px 60px}
+  .about-stats{grid-template-columns:repeat(2,1fr)}
+  .page-heading{font-size:clamp(44px,12vw,80px)}
+  .footer-bot{flex-direction:column;align-items:flex-start;gap:12px}
+  .nav{padding:16px 20px 0}
+  .nav-logo svg{height:28px}
+}
+</style>
+</head>
+<body>
+
+<!-- VIDEO FOND GLOBAL -->
+<video class="site-video-bg" autoplay muted loop playsinline preload="auto"
+  oncanplay="this.play()" onloadeddata="this.play()">
+  <source src="hero-bg.mp4" type="video/mp4">
+</video>
+
+<!-- ═══════ NAV ═══════ -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <svg viewBox="0 0 320 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Dikenga.">
+      <ellipse cx="152" cy="60" rx="144" ry="52" stroke="white" stroke-width="7" fill="none"/>
+      <text x="152" y="75" text-anchor="middle" font-family="'Space Grotesk',Arial,sans-serif" font-weight="700" font-size="46" fill="white" letter-spacing="-1">DIKENGA.</text>
+    </svg>
+  </a>
+  <div class="nav-right">
+    <span class="nav-time" id="navtime">FR · --:--</span>
+    <a href="blog.html" style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--dim);transition:color .2s" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--dim)'">Blog</a>
+    <a href="a-propos.html" style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--white);transition:color .2s">À propos</a>
+    <button class="nav-btn" id="themeBtn" aria-label="Changer le thème">Thème</button>
+  </div>
+</nav>
+
+<!-- ═══════ PAGE HEADER ═══════ -->
+<header class="page-header">
+  <a href="index.html" class="back-btn">
+    <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M8 1L3 6l5 5"/>
+    </svg>
+    Accueil
+  </a>
+  <div class="page-label">Qui suis-je</div>
+  <h1 class="page-heading">À propos.</h1>
+  <p class="page-sub">Designer, créateur de systèmes, passionné par les interfaces qui font vraiment la différence.</p>
+</header>
+
+<!-- ═══════ ABOUT ═══════ -->
+<section class="about">
+
+  <div class="about-grid rv">
+
+    <!-- Texte -->
+    <div>
+      <p class="about-intro">
+        Je suis <strong>Mes-Reves</strong>, UI/UX Designer freelance basé à Paris.<br/>
+        J'aide les startups, PME et grandes organisations à créer des <strong>produits digitaux qui convertissent</strong>.
+      </p>
+      <p class="about-para">
+        Après 5 ans à naviguer entre design produit, identité visuelle et no-code, j'ai développé une approche hybride : je pense comme un designer, j'exécute comme un développeur. Chaque projet commence par comprendre vos utilisateurs et vos objectifs business — pas par l'esthétique.
+      </p>
+      <p class="about-para">
+        Je travaille principalement sur Figma, avec une expertise en Design Systems grande échelle, accessibilité numérique (RGAA / WCAG) et interfaces complexes. Je livre du vrai — des composants documentés, prêts pour le développement, pas des maquettes qui restent dans un tiroir.
+      </p>
+      <p class="about-para">
+        Disponible pour des missions freelance en Île-de-France et à distance partout en France. TJM : ~445€/j selon la mission.
+      </p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:32px">
+        <a href="index.html#contact" class="about-cta">Me contacter →</a>
+        <a href="projets.html" class="about-cta" style="border-color:var(--line)">Voir mes projets</a>
+      </div>
+    </div>
+
+    <!-- Skills -->
+    <div class="about-skills rv d1">
+
+      <div class="skill-group">
+        <div class="skill-group-label">Design & UX</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Figma</span>
+          <span class="skill-tag">UI Design</span>
+          <span class="skill-tag">UX Research</span>
+          <span class="skill-tag">Design System</span>
+          <span class="skill-tag">Prototypage</span>
+          <span class="skill-tag">Accessibilité</span>
+          <span class="skill-tag">Wireframing</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">No-code & Web</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Webflow</span>
+          <span class="skill-tag">Framer</span>
+          <span class="skill-tag">HTML / CSS</span>
+          <span class="skill-tag">JavaScript</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">Branding & Visuel</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Identité visuelle</span>
+          <span class="skill-tag">Logotype</span>
+          <span class="skill-tag">Charte graphique</span>
+          <span class="skill-tag">Motion</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">Outils & Méthodes</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Agile / Scrum</span>
+          <span class="skill-tag">Design Thinking</span>
+          <span class="skill-tag">Test utilisateur</span>
+          <span class="skill-tag">IA & Automatisation</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Stats -->
+  <div class="about-stats rv d2">
+    <div class="stat-item">
+      <div class="stat-num">5+</div>
+      <div class="stat-label">Ans d'expérience</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">30+</div>
+      <div class="stat-label">Projets livrés</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">445€</div>
+      <div class="stat-label">TJM moyen</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">48h</div>
+      <div class="stat-label">Délai de réponse</div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ═══════ PROCESS ═══════ -->
+<section class="process">
+  <div class="section-title rv">Ma façon de travailler</div>
+  <div class="process-steps">
+    <div class="step rv">
+      <div class="step-num">01</div>
+      <div class="step-name">Découverte</div>
+      <div class="step-desc">On cadre ensemble vos objectifs, vos utilisateurs et vos contraintes techniques. Pas de brief, pas de design.</div>
+    </div>
+    <div class="step rv d1">
+      <div class="step-num">02</div>
+      <div class="step-name">Exploration</div>
+      <div class="step-desc">Wireframes, parcours utilisateur, architecture d'information. On construit la logique avant l'esthétique.</div>
+    </div>
+    <div class="step rv d2">
+      <div class="step-num">03</div>
+      <div class="step-name">Design</div>
+      <div class="step-desc">Interface haute fidélité sur Figma. Composants documentés, design system, specs prêtes pour les développeurs.</div>
+    </div>
+    <div class="step rv d3">
+      <div class="step-num">04</div>
+      <div class="step-name">Livraison</div>
+      <div class="step-desc">Fichier Figma + handoff développement + guide d'utilisation. Deux révisions incluses, accompagnement post-livraison.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <a href="index.html" class="footer-logo">
+        <svg viewBox="0 0 320 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:32px;width:auto;opacity:.8">
+          <ellipse cx="152" cy="60" rx="144" ry="52" stroke="white" stroke-width="7" fill="none"/>
+          <text x="152" y="75" text-anchor="middle" font-family="'Space Grotesk',Arial,sans-serif" font-weight="700" font-size="46" fill="white" letter-spacing="-1">DIKENGA.</text>
+          <text x="303" y="22" font-family="'Space Grotesk',Arial,sans-serif" font-size="16" fill="white" font-weight="400">®</text>
+        </svg>
+      </a>
+      <p class="footer-tagline">UI/UX Designer · Branding · No-Code &amp; IA</p>
+      <a href="index.html" class="footer-back">← Retour à l'accueil</a>
+    </div>
+  </div>
+  <div class="footer-bot">
+    <span class="footer-copy">©2026 Dikenga. · Tous droits réservés</span>
+    <div style="display:flex;gap:24px;flex-wrap:wrap">
+      <a href="mentions-legales.html" style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--dim);transition:color .2s;text-decoration:none" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Mentions légales</a>
+      <a href="a-propos.html" style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--white);transition:color .2s;text-decoration:none">À propos</a>
+      <a href="blog.html" style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--dim);transition:color .2s;text-decoration:none" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Blog</a>
+      <a href="index.html#contact" style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--dim);transition:color .2s;text-decoration:none" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Contact →</a>
+    </div>
+  </div>
+</footer>
+
+<!-- CURSOR -->
+<div id="cdot"></div>
+<div id="cring"></div>
+
+<script>
+(function(){
+  const stored = localStorage.getItem('dikenga-theme');
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const useDark = stored ? stored === 'dark' : prefersDark;
+  if(!useDark) document.body.classList.add('light');
+  if(!stored && window.matchMedia){
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+      if(!localStorage.getItem('dikenga-theme')) location.reload();
+    });
+  }
+})();
+
+(function(){
+  function tryPlay(){
+    const vid=document.querySelector('.site-video-bg');
+    if(vid && vid.paused) vid.play().catch(function(){});
+  }
+  tryPlay();
+  document.addEventListener('DOMContentLoaded', tryPlay);
+  document.addEventListener('visibilitychange', function(){
+    if(!document.hidden) tryPlay();
+  });
+  setTimeout(tryPlay, 500);
+  setTimeout(tryPlay, 1500);
+})();
+
+function tickTime(){
+  try{
+    const now=new Date();
+    const h=String(now.getHours()).padStart(2,'0');
+    const m=String(now.getMinutes()).padStart(2,'0');
+    const el=document.getElementById('navtime');
+    if(el) el.textContent='FR · '+h+':'+m;
+  }catch(err){}
+}
+tickTime();
+setInterval(tickTime,1000);
+
+setTimeout(function(){
+  const obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){en.target.classList.add('on');obs.unobserve(en.target);}
+    });
+  },{threshold:0.05,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){obs.observe(el);});
+},300);
+
+document.getElementById('themeBtn').addEventListener('click',function(){
+  const isLight=document.body.classList.toggle('light');
+  localStorage.setItem('dikenga-theme',isLight?'light':'dark');
+  document.documentElement.style.background=isLight?'#FFFFFF':'#1D1B1B';
+});
+
+(function(){
+  const cdot=document.getElementById('cdot');
+  const cring=document.getElementById('cring');
+  if(!cdot||!cring)return;
+  let mx=window.innerWidth/2,my=window.innerHeight/2,rx=mx,ry=my;
+  document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;});
+  (function loop(){
+    cdot.style.left=mx+'px';cdot.style.top=my+'px';
+    rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;
+    cring.style.left=rx+'px';cring.style.top=ry+'px';
+    requestAnimationFrame(loop);
+  })();
+  document.querySelectorAll('a,button').forEach(function(el){
+    el.addEventListener('mouseenter',function(){document.body.classList.add('cursor-grow');});
+    el.addEventListener('mouseleave',function(){document.body.classList.remove('cursor-grow');});
+  });
+})();
+</script>
+
+</body>
+</html>
