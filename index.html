@@ -1,17 +1,9 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-VNYL81F091"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-VNYL81F091');
-</script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<script>const _t=localStorage.getItem('dikenga-theme')||'light';if(_t==='light'){document.documentElement.style.background='#FFFFFF';document.documentElement.style.setProperty('--bg','#FFFFFF');}else{document.documentElement.style.background='#1D1B1B';document.documentElement.style.setProperty('--bg','#1D1B1B');}</script>
+<script>const _t=localStorage.getItem('dikenga-theme')||'dark';if(_t==='light'){document.documentElement.style.background='#FFFFFF';document.documentElement.style.setProperty('--bg','#FFFFFF');}else{document.documentElement.style.background='#1D1B1B';document.documentElement.style.setProperty('--bg','#1D1B1B');}</script>
 <style>html{background:transparent}</style>
 <title>Dikenga. — UI/UX Designer & Identité Visuelle | Freelance Paris</title>
 <meta name="description" content="Dikenga, UI/UX Designer freelance. Je conçois des interfaces modernes, des identités visuelles et des automatisations IA pour startups, entreprises et entrepreneurs."/>
@@ -3438,7 +3430,7 @@ function applyTheme(mode){
 }
 
 // Restaurer le thème sauvegardé
-const savedTheme = localStorage.getItem('dikenga-theme') || 'light';
+const savedTheme = localStorage.getItem('dikenga-theme') || 'dark';
 applyTheme(savedTheme);
 
 document.getElementById('themeLight').addEventListener('click',function(){
@@ -3900,11 +3892,11 @@ function closeReelDrawer(){
 
 
 /* ── BFCACHE FIX — retour depuis projets.html */
-  window.addEventListener('pageshow', function(e){
-    if(e.persisted){ document.body.classList.remove('leaving'); }
-  });
+window.addEventListener('pageshow', function(e){
+  if(e.persisted){ document.body.classList.remove('leaving'); }
+});
 
-  /* ── COOKIE */
+/* ── COOKIE */
 const banner=document.getElementById('cookieBanner');
 if(localStorage.getItem('cookie-ok'))banner.classList.add('hidden');
 document.getElementById('cookieAccept').addEventListener('click',()=>{localStorage.setItem('cookie-ok','1');banner.classList.add('hidden');});
