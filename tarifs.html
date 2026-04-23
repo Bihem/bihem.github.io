@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-VNYL81F091"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-VNYL81F091');
-</script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <script>if(localStorage.getItem('dikenga-theme')==='light'){document.documentElement.style.background='#FFFFFF';document.documentElement.style.setProperty('--bg','#FFFFFF');}else{document.documentElement.style.background='#1D1B1B';document.documentElement.style.setProperty('--bg','#1D1B1B');}</script>
@@ -387,6 +379,7 @@ img{display:block;max-width:100%}
   <div class="nav-right">
     <span class="nav-time" id="navtime">FR · --:--</span>
     <a href="blog.html" style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--dim);transition:color .2s" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--dim)'">Blog</a>
+    <a href="a-propos.html" style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--dim);transition:color .2s" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--dim)'">À propos</a>
     <button class="nav-btn" id="themeBtn" aria-label="Changer le thème">Thème</button>
   </div>
 </nav>
@@ -598,7 +591,12 @@ img{display:block;max-width:100%}
   </div>
   <div class="footer-bot">
     <span class="footer-copy">©2026 Dikenga. · Tous droits réservés</span>
-    <a href="index.html#contact" style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--dim);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Prendre contact →</a>
+    <div style="display:flex;gap:24px;flex-wrap:wrap">
+      <a href="mentions-legales.html" style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--dim);transition:color .2s;text-decoration:none" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Mentions légales</a>
+      <a href="a-propos.html" style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--dim);transition:color .2s;text-decoration:none" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">À propos</a>
+      <a href="blog.html" style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--dim);transition:color .2s;text-decoration:none" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Blog</a>
+      <a href="index.html#contact" style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--dim);transition:color .2s;text-decoration:none" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Contact →</a>
+    </div>
   </div>
 </footer>
 
@@ -611,7 +609,7 @@ img{display:block;max-width:100%}
 (function(){
   const stored = localStorage.getItem('dikenga-theme');
   const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const useDark = stored ? stored === 'dark' : prefersDark;
+  const useDark = stored ? stored === 'dark' : true;
   if(!useDark) document.body.classList.add('light');
   if(!stored && window.matchMedia){
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
