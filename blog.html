@@ -256,6 +256,17 @@ body.light .footer-lnk:hover{color:#000}
 <!-- ARTICLES GRID -->
 <section class="blog-grid" id="blogGrid">
 <!-- ##CARD_INSERT## -->
+  <!-- Article a202604250856 — AUTO-GENERATED -->
+  <article class="blog-card featured rv" data-cat="design" onclick="openArticle('a202604250856')">
+    <div class="blog-card-cat">UI Design</div>
+    <h2 class="blog-card-title">Design Tokens en 2026 : l'arme secrète pour scaler votre design system</h2>
+    <p class="blog-card-excerpt">Design tokens = cohérence visuelle garantie entre Figma et le code. Voici comment les utiliser pour aller 2x plus vite.</p>
+    <div class="blog-card-footer">
+      <span class="blog-card-date">25 Avril 2026</span>
+      <span class="blog-card-arrow">→</span>
+    </div>
+  </article>
+
   <!-- Article a202604242352 — AUTO-GENERATED -->
   <article class="blog-card featured rv" data-cat="design" onclick="openArticle('a202604242352')">
     <div class="blog-card-cat">IA & Design</div>
@@ -1212,6 +1223,66 @@ const articles={
 <p>En 2026, l'IA n'est plus optionnelle dans le toolkit d'un designer professionnel. C'est un multiplicateur de productivité, un accélérateur de créativité, et un argument commercial puissant face aux clients qui cherchent rapidité et qualité.</p>
 <p>La bonne nouvelle : vous n'avez pas besoin de tout maîtriser dès demain. Commencez par un outil (Figma Make, Midjourney, ou Relume), intégrez-le sur un projet réel, et construisez progressivement votre workflow.</p>
 <p>Besoin d'un designer qui combine expertise UI/UX et outils IA pour livrer plus vite, mieux, et avec impact ? <a href="https://dikengadesign.fr/contact.html" style="color:inherit;text-decoration:underline;">Contactez Dikenga Design</a> — réponse sous 24h.</p>`
+  },
+    a202604250856:{
+    cat:'UI Design',
+    title:'Design Tokens en 2026 : l'arme secrète pour scaler votre design system',
+    date:'25 Avril 2026',
+    read:'6 min',
+    body:`<p>Si votre équipe design passe encore du temps à corriger des couleurs incohérentes entre la maquette et le produit final, ou si chaque composant est hardcodé dans le CSS, vous avez un problème de scalabilité. La solution ? Les <strong>design tokens</strong>. En 2026, ils sont devenus le pilier de tout design system sérieux — et la bonne nouvelle, c'est que vous pouvez les mettre en place même avec une petite équipe.</p>
+
+<h2>Qu'est-ce qu'un design token, concrètement ?</h2>
+
+<p>Un design token est une variable nommée qui stocke une décision de design : une couleur, une taille de police, un espace, un rayon de bordure. Au lieu d'écrire <code>#1D1B1B</code> dans votre CSS, vous référencez <code>--color-bg-primary</code>. Au lieu de hardcoder <code>font-size: 14px</code>, vous utilisez <code>--text-sm</code>.</p>
+
+<p>La différence fondamentale : les tokens sont <strong>partagés entre Figma et le code</strong>. Un changement dans le fichier de tokens se propage automatiquement dans les deux univers. Plus de désynchronisation, plus de "c'est pas exactement cette nuance de gris".</p>
+
+<h2>Pourquoi c'est devenu incontournable en 2026</h2>
+
+<p>Trois raisons concrètes font des design tokens une priorité absolue cette année :</p>
+
+<p><strong>1. L'IA génère du code</strong> — Figma Dev Mode, Copilot, et les agents IA produisent maintenant du code à partir de vos maquettes. Sans tokens, ce code est rempli de valeurs arbitraires impossible à maintenir. Avec des tokens sémantiques bien nommés, le code généré est propre et cohérent dès le départ.</p>
+
+<p><strong>2. Le multi-thème est devenu standard</strong> — Dark mode, light mode, modes personnalisés pour différents clients ou contextes... Les tokens permettent de basculer d'un thème à l'autre en changeant un seul fichier, sans toucher aux composants. Ce qui prenait une semaine se fait en deux heures.</p>
+
+<p><strong>3. La scalabilité des équipes</strong> — Quand vous onboardez un nouveau designer ou un nouveau développeur, les tokens servent de documentation vivante. Ils voient immédiatement "color-brand-primary" et comprennent son usage sans avoir à fouiller dans des specs éparpillées.</p>
+
+<h2>Les 3 niveaux de tokens à connaître</h2>
+
+<p>Pour éviter la confusion, structurez vos tokens en trois couches :</p>
+
+<p><strong>Tokens primitifs (Global Tokens)</strong> : les valeurs brutes. <code>blue-500: #3B82F6</code>, <code>spacing-4: 16px</code>, <code>radius-md: 8px</code>. Ce sont vos atomes — ils n'ont pas de contexte sémantique, juste une valeur.</p>
+
+<p><strong>Tokens sémantiques (Semantic Tokens)</strong> : ils donnent du sens. <code>color-action-primary: blue-500</code>, <code>color-text-muted: gray-400</code>, <code>spacing-component-padding: spacing-4</code>. C'est ici que vous décidez "ce bleu, c'est la couleur des actions principales".</p>
+
+<p><strong>Tokens de composants (Component Tokens)</strong> : spécifiques à un composant. <code>button-bg-default: color-action-primary</code>, <code>button-padding-x: spacing-component-padding</code>. Ils pointent vers les tokens sémantiques, jamais vers les primitifs.</p>
+
+<p>Cette hiérarchie garantit qu'un changement de couleur primaire se propage partout sans casser la cohérence.</p>
+
+<h2>Comment implémenter des tokens dans Figma dès aujourd'hui</h2>
+
+<p>Figma a nativement intégré les variables (l'équivalent des tokens) depuis 2023. En 2026, c'est l'outil central du workflow :</p>
+
+<ol>
+<li><strong>Créez une page "Tokens"</strong> dans votre fichier Figma avec des collections de variables : Colors, Typography, Spacing, Radius.</li>
+<li><strong>Nommez les variables en snake_case sémantique</strong> : <code>color/bg/primary</code>, <code>color/text/muted</code>, <code>spacing/md</code>.</li>
+<li><strong>Créez plusieurs modes</strong> (Light/Dark) dans chaque collection — Figma appliquera automatiquement le bon set selon le contexte.</li>
+<li><strong>Exportez vers le code</strong> avec des plugins comme Token Studio ou le Design Token Community Group format (W3C standard).</li>
+</ol>
+
+<p>Côté développement, ces tokens s'intègrent dans du CSS custom properties, des fichiers JSON ou des variables Tailwind. Le pont Figma ↔ code est enfin fiable.</p>
+
+<h2>L'impact réel sur vos projets</h2>
+
+<p>Les équipes qui adoptent une architecture tokens-first constatent en moyenne une réduction de 30 à 40% du temps passé sur les allers-retours design/dev. Pas parce que les designers et développeurs travaillent plus vite, mais parce qu'ils parlent le même langage. Le design token est le contrat entre les deux métiers.</p>
+
+<p>Pour une startup qui scalerait son produit — nouvelle fonctionnalité, refonte partielle, adaptation à un nouveau marché — cette cohérence est un avantage compétitif direct. Chaque heure économisée en coordination, c'est une heure de plus sur la valeur produit.</p>
+
+<h2>Conclusion</h2>
+
+<p>Les design tokens ne sont plus un luxe réservé aux grandes entreprises avec des équipes design de 20 personnes. En 2026, ils sont accessibles à tout projet qui veut maintenir une cohérence visuelle à long terme — et éviter la dette design qui finit par ralentir tout le monde.</p>
+
+<p>Vous voulez mettre en place un design system avec tokens pour votre produit ? <a href="https://dikengadesign.fr/contact.html">Parlons-en</a> — c'est exactement le type de mission sur lequel j'interviens chez des startups et PME parisiennes.</p>`
   },
   /* ##ARTICLES_INSERT## */
 };
