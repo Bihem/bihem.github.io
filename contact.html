@@ -16,11 +16,19 @@
   mix-blend-mode:screen;
 }
 body.light .site-video-bg{opacity:0.06;mix-blend-mode:multiply}
-@view-transition{navigation:auto}
+@supports(view-transition-name:none){
+  @media not (max-width:768px){
+    @view-transition{navigation:auto}
+  }
+}
 ::view-transition-old(root){animation:vt-out 0.25s ease both}
 ::view-transition-new(root){animation:vt-in 0.25s ease both}
 @keyframes vt-out{to{opacity:0}}
 @keyframes vt-in{from{opacity:0}}
+@media(prefers-reduced-motion:reduce){
+  ::view-transition-old(root),::view-transition-new(root){animation:none!important}
+}
+@media(max-width:768px){html,body{overflow-x:hidden!important}}
 </style>
 <title>Contact — Dikenga. | Designer UI/UX Freelance Paris</title>
 <meta name="description" content="Contactez Dikenga, designer UI/UX freelance à Paris. Discutons de votre projet de site web, identité visuelle ou design d'interface."/>
