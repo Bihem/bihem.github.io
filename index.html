@@ -231,6 +231,7 @@ a,button{cursor:none;text-decoration:none;color:inherit}
   *,a,button{cursor:auto!important}
   #cdot,#cring{display:none!important}
 }
+@media(max-width:768px){html,body{overflow-x:hidden!important}}
 ul{list-style:none}
 img{display:block;max-width:100%}
 
@@ -665,19 +666,31 @@ body.leaving{animation:body-exit 0.35s cubic-bezier(.4,0,.2,1) forwards}
   display:flex;flex-direction:column;
   will-change:transform;
   overscroll-behavior:contain;
+  visibility:hidden;
+  pointer-events:none;
 }
 /* contact → slide depuis la droite */
 .contact-panel{
   transform:translateX(100%);
-  transition:transform 1s cubic-bezier(.16,1,.3,1);
+  transition:transform 1s cubic-bezier(.16,1,.3,1),visibility 0s linear 1s;
 }
-.contact-panel.open{transform:translateX(0)}
+.contact-panel.open{
+  transform:translateX(0);
+  visibility:visible;
+  pointer-events:all;
+  transition:transform 1s cubic-bezier(.16,1,.3,1),visibility 0s linear 0s;
+}
 /* tarifs → slide depuis le bas */
 .tarifs-panel{
   transform:translateY(100%);
-  transition:transform 1.1s cubic-bezier(.16,1,.3,1);
+  transition:transform 1.1s cubic-bezier(.16,1,.3,1),visibility 0s linear 1.1s;
 }
-.tarifs-panel.open{transform:translateY(0)}
+.tarifs-panel.open{
+  transform:translateY(0);
+  visibility:visible;
+  pointer-events:all;
+  transition:transform 1.1s cubic-bezier(.16,1,.3,1),visibility 0s linear 0s;
+}
 .tarifs-panel-close{
   position:sticky;top:0;z-index:10;
   display:flex;justify-content:flex-end;
