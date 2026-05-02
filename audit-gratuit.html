@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<script>if(localStorage.getItem('dikenga-theme')==='light'){document.documentElement.style.background='#FFFFFF';document.documentElement.style.setProperty('--bg','#FFFFFF');}else{document.documentElement.style.background='#1D1B1B';document.documentElement.style.setProperty('--bg','#1D1B1B');}</script>
+<style>html{background:transparent}
+.site-video-bg{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.13;z-index:0;pointer-events:none;mix-blend-mode:screen}
+body.light .site-video-bg{opacity:0.06;mix-blend-mode:multiply}
+@supports(view-transition-name:none){@media not (max-width:768px){@view-transition{navigation:auto}}}
+::view-transition-old(root){animation:vt-out 0.25s ease both}
+::view-transition-new(root){animation:vt-in 0.25s ease both}
+@keyframes vt-out{to{opacity:0}}
+@keyframes vt-in{from{opacity:0}}
+@media(prefers-reduced-motion:reduce){::view-transition-old(root),::view-transition-new(root){animation:none!important}}
+@media(max-width:768px){html,body{overflow-x:hidden!important}}
+</style>
+<title>Audit UX gratuit (30 min) — Dikenga. | UI/UX Designer SaaS B2B</title>
+<meta name="description" content="Audit UX gratuit en 30 min pour les SaaS B2B. Je vous montre 3 leviers concrets pour augmenter votre conversion. Réservez votre créneau."/>
+<meta name="robots" content="index, follow"/>
+<meta name="keywords" content="audit UX gratuit, audit UI SaaS, optimisation conversion SaaS, designer freelance Paris"/>
+<meta property="og:title" content="Audit UX gratuit (30 min) — Dikenga."/>
+<meta property="og:description" content="3 leviers concrets pour augmenter la conversion de votre SaaS. Réservez votre audit gratuit en 30 min."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://dikengadesign.fr/audit-gratuit.html"/>
+<meta property="og:image" content="https://dikengadesign.fr/og-image.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Audit UX gratuit (30 min) — Dikenga."/>
+<meta name="twitter:description" content="3 leviers concrets pour augmenter la conversion de votre SaaS."/>
+<meta name="twitter:image" content="https://dikengadesign.fr/og-image.jpg"/>
+<link rel="canonical" href="https://dikengadesign.fr/audit-gratuit.html"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Audit UX gratuit",
+  "description": "Audit UX gratuit de 30 minutes pour SaaS B2B — 3 leviers concrets de conversion identifiés.",
+  "provider": {
+    "@type": "Person",
+    "name": "Dikenga Design",
+    "url": "https://dikengadesign.fr"
+  },
+  "serviceType": "UX Audit",
+  "areaServed": "France",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+@font-face{font-family:'Suisse Intl';src:url('https://cdn.prod.website-files.com/6772f6efe246aaaa73ad2a98/67784f5e4c3068c2e2f22e60_SuisseIntl-Regular.otf')format('opentype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Suisse Intl';src:url('https://cdn.prod.website-files.com/6772f6efe246aaaa73ad2a98/67784f815ee57b4c18bdae11_SuisseIntl-Light.otf')format('opentype');font-weight:300;font-style:normal;font-display:swap}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#1D1B1B;
+  --white:#fff;
+  --dim:rgba(255,255,255,0.38);
+  --line:rgba(255,255,255,0.12);
+  --SI:'Suisse Intl','Space Grotesk',sans-serif;
+}
+html{min-height:100%;overflow-x:hidden;background:transparent}
+body{
+  background:var(--bg);
+  color:var(--white);font-family:var(--SI);font-weight:300;
+  -webkit-font-smoothing:antialiased;cursor:none;
+}
+a,button{cursor:none;text-decoration:none;color:inherit}
+.page-enter{display:none}
+.page-transition{display:none}
+
+#cdot{position:fixed;z-index:9999;pointer-events:none;width:6px;height:6px;border-radius:50%;background:var(--white);transform:translate(-50%,-50%)}
+#cring{position:fixed;z-index:9998;pointer-events:none;width:32px;height:32px;border-radius:50%;border:1px solid rgba(255,255,255,0.4);transform:translate(-50%,-50%);transition:width .22s,height .22s}
+.cursor-grow #cring{width:50px;height:50px}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:800;display:flex;align-items:center;justify-content:space-between;padding:26px 48px}
+.nav-logo svg{height:28px;width:auto}
+.nav-time{font-size:10px;font-weight:300;letter-spacing:.1em;text-transform:uppercase;color:var(--white)}
+.nav-back{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:300;letter-spacing:.12em;text-transform:uppercase;color:var(--white);transition:opacity .2s}
+.nav-back:hover{opacity:.7}
+
+.wrap{display:grid;grid-template-columns:1fr 1fr;min-height:100vh;padding-top:100px}
+
+.left{padding:80px 60px 80px 48px;display:flex;flex-direction:column;justify-content:space-between;position:sticky;top:0;height:calc(100vh - 100px);overflow-y:auto}
+.badge{display:inline-block;font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;padding:8px 14px;border:1px solid var(--line);border-radius:100px;color:var(--white);margin-bottom:32px;align-self:flex-start;background:rgba(255,255,255,0.04)}
+.headline{font-family:var(--SI);font-size:clamp(48px,5vw,88px);font-weight:300;letter-spacing:-.04em;line-height:.95;margin-bottom:36px}
+.headline em{font-style:normal;color:var(--white);border-bottom:2px solid var(--white);padding-bottom:4px}
+.subhead{font-size:16px;font-weight:300;line-height:1.6;color:var(--dim);max-width:480px;margin-bottom:48px}
+
+.benefits{display:flex;flex-direction:column;gap:18px;max-width:480px;margin-bottom:48px}
+.benefit{display:flex;align-items:flex-start;gap:14px;font-size:15px;line-height:1.5;color:var(--white)}
+.benefit-num{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--white);color:#1D1B1B;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;font-family:var(--SI);margin-top:1px}
+
+.process{padding:32px 0;border-top:1px solid var(--line);max-width:480px}
+.process-title{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-bottom:24px}
+.step{display:flex;gap:16px;margin-bottom:20px}
+.step-num{font-size:14px;font-weight:500;color:var(--white);flex-shrink:0;min-width:24px}
+.step-content{font-size:14px;line-height:1.5;color:var(--white)}
+.step-content strong{font-weight:500}
+.step-content span{color:var(--dim);display:block;margin-top:2px;font-size:13px}
+
+.left-foot{margin-top:32px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+
+.right{padding:80px 48px 80px 60px;border-left:1px solid var(--line);display:flex;flex-direction:column}
+.form-label{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--white);margin-bottom:16px}
+.form-intro{font-size:14px;font-weight:300;line-height:1.6;color:var(--dim);margin-bottom:44px;max-width:460px}
+
+.c-form{display:flex;flex-direction:column;gap:0}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:0 48px}
+.field{border-bottom:1px solid var(--line);padding-top:26px;transition:border-color .3s}
+.field:focus-within{border-color:rgba(255,255,255,.4)}
+.field.full{grid-column:1/-1}
+.field label{display:block;font-size:13px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:var(--white);margin-bottom:14px}
+.field input,.field textarea,.field select{width:100%;background:none;border:none;outline:none;font-family:var(--SI);font-size:22px;font-weight:300;color:var(--white);padding:0 0 26px;line-height:1.4;caret-color:var(--white)}
+.field textarea{resize:none;min-height:110px}
+.field select{appearance:none;-webkit-appearance:none}
+.field select option{background:#1D1B1B;color:var(--white)}
+.field input::placeholder,.field textarea::placeholder{color:rgba(255,255,255,.18)}
+.sel-wrap{position:relative}
+.sel-wrap::after{content:'↓';position:absolute;right:0;bottom:24px;font-size:13px;color:var(--white);pointer-events:none}
+
+.form-foot{display:flex;align-items:center;justify-content:space-between;padding:28px 0 0;flex-wrap:wrap;gap:16px}
+.assurance{font-size:11px;line-height:1.5;color:var(--dim);max-width:280px}
+.assurance strong{color:var(--white);font-weight:500}
+
+.btn-submit{display:inline-flex;align-items:center;gap:10px;padding:18px 40px;border-radius:100px;background:var(--white);color:#1D1B1B;font-family:var(--SI);font-size:17px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;border:none;transition:opacity .2s,transform .2s}
+.btn-submit:hover{opacity:.85;transform:scale(1.02)}
+
+.calendly-alt{margin-top:48px;padding:24px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,0.03)}
+.calendly-alt-label{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-bottom:12px}
+.calendly-alt-text{font-size:14px;line-height:1.5;color:var(--white);margin-bottom:14px}
+.calendly-alt a{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;letter-spacing:.06em;color:var(--white);border-bottom:1px solid rgba(255,255,255,0.3);padding-bottom:3px;transition:border-color .2s}
+.calendly-alt a:hover{border-color:var(--white)}
+
+@media(max-width:900px){
+  #cdot,#cring{display:none}
+  body{cursor:auto}
+  a,button{cursor:auto}
+  .nav{padding:18px 20px}
+  .nav-logo svg{height:22px}
+  .wrap{grid-template-columns:1fr;padding-top:80px}
+  .left{position:static;height:auto;padding:40px 20px 48px;border-bottom:1px solid var(--line);overflow:visible}
+  .headline{font-size:clamp(40px,11vw,64px);margin-bottom:28px}
+  .subhead{font-size:14px;margin-bottom:36px}
+  .benefits{margin-bottom:36px}
+  .right{padding:40px 20px 80px;border-left:none}
+  .row{grid-template-columns:1fr}
+  .field{padding-top:20px}
+  .field input,.field textarea,.field select{font-size:15px;padding:0 0 16px}
+  .field textarea{min-height:90px}
+  .form-foot{flex-direction:column;align-items:flex-start;gap:20px}
+}
+
+body.light{--white:#000000;--dim:rgba(0,0,0,0.5);--line:rgba(0,0,0,0.12);color:#000000;background:#FFFFFF}
+body.light .nav-logo ellipse{stroke:#000000}
+body.light .nav-logo text{fill:#000000}
+body.light .nav-back{color:#000000}
+body.light .nav-time{color:rgba(0,0,0,0.5)}
+body.light .badge{background:rgba(0,0,0,0.04);color:#000000}
+body.light .headline{color:#000000}
+body.light .headline em{border-color:#000000}
+body.light .subhead{color:rgba(0,0,0,0.6)}
+body.light .benefit{color:#000000}
+body.light .benefit-num{background:#000000;color:#FFFFFF}
+body.light .process-title{color:rgba(0,0,0,0.5)}
+body.light .step-num{color:#000000}
+body.light .step-content{color:#000000}
+body.light .step-content span{color:rgba(0,0,0,0.5)}
+body.light .left-foot{color:rgba(0,0,0,0.5)}
+body.light .right{border-color:rgba(0,0,0,0.12)}
+body.light .form-label{color:#000000}
+body.light .form-intro{color:rgba(0,0,0,0.6)}
+body.light .field{border-color:rgba(0,0,0,0.15)}
+body.light .field:focus-within{border-color:rgba(0,0,0,0.4)}
+body.light .field label{color:#000000}
+body.light .field input,body.light .field textarea,body.light .field select{color:#000000;background:transparent}
+body.light .field input::placeholder,body.light .field textarea::placeholder{color:rgba(0,0,0,0.25)}
+body.light .field select option{background:#FFFFFF;color:#000000}
+body.light .sel-wrap::after{color:#000000}
+body.light .assurance{color:rgba(0,0,0,0.6)}
+body.light .assurance strong{color:#000000}
+body.light .btn-submit{background:#000000;color:#FFFFFF}
+body.light .calendly-alt{background:rgba(0,0,0,0.03);border-color:rgba(0,0,0,0.12)}
+body.light .calendly-alt-label{color:rgba(0,0,0,0.5)}
+body.light .calendly-alt-text{color:#000000}
+body.light .calendly-alt a{color:#000000;border-color:rgba(0,0,0,0.3)}
+body.light .calendly-alt a:hover{border-color:#000000}
+</style>
+<script data-goatcounter="https://dikenga.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</head>
+<body>
+<video class="site-video-bg" autoplay muted loop playsinline>
+  <source src="hero-bg.mp4" type="video/mp4">
+</video>
+
+<div class="page-enter" id="pageEnter"></div>
+<div class="page-transition" id="pageTransition"></div>
+<div id="cdot"></div>
+<div id="cring"></div>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo" onclick="goHome(event)">
+    <svg viewBox="0 0 320 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="152" cy="60" rx="144" ry="52" stroke="white" stroke-width="7" fill="none"/>
+      <text x="152" y="75" text-anchor="middle" font-family="'Space Grotesk',Arial,sans-serif" font-weight="700" font-size="46" fill="white" letter-spacing="-1">DIKENGA.</text>
+      <text x="303" y="22" font-family="'Space Grotesk',Arial,sans-serif" font-size="16" fill="white" font-weight="400">®</text>
+    </svg>
+  </a>
+  <span class="nav-time" id="navtime">FR · --:--</span>
+  <a href="blog.html" style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--dim);transition:color .2s" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--dim)'">Blog</a>
+  <a href="a-propos.html" style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--dim);transition:color .2s" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--dim)'">À propos</a>
+  <a href="index.html" class="nav-back" onclick="goHome(event)">← Accueil</a>
+</nav>
+
+<div class="wrap">
+
+  <div class="left">
+    <div>
+      <span class="badge">Gratuit · 30 min · Sans engagement</span>
+      <h1 class="headline">Audit UX <em>gratuit</em> de votre SaaS.</h1>
+      <p class="subhead">Vous gérez un SaaS B2B et vous sentez qu'il y a des fuites dans votre conversion ? Je passe 30 minutes en visio avec vous et je vous montre 3 leviers concrets et chiffrés pour augmenter votre activation, votre rétention ou votre upsell.</p>
+
+      <div class="benefits">
+        <div class="benefit"><span class="benefit-num">1</span><span>Une cartographie de votre funnel et des points de friction visibles en 5 minutes d'utilisation.</span></div>
+        <div class="benefit"><span class="benefit-num">2</span><span>Trois recommandations UX prioritaires, chiffrées en impact estimé sur votre conversion.</span></div>
+        <div class="benefit"><span class="benefit-num">3</span><span>Un PDF récapitulatif envoyé sous 48h, que vous pouvez transmettre à votre équipe.</span></div>
+      </div>
+
+      <div class="process">
+        <div class="process-title">Ce qui se passe ensuite</div>
+        <div class="step"><span class="step-num">01</span><div class="step-content"><strong>Vous remplissez le formulaire</strong><span>Je teste votre produit 15 min avant notre RDV.</span></div></div>
+        <div class="step"><span class="step-num">02</span><div class="step-content"><strong>RDV visio (30 min)</strong><span>Je partage mon écran et je vous montre les leviers.</span></div></div>
+        <div class="step"><span class="step-num">03</span><div class="step-content"><strong>PDF récap sous 48h</strong><span>Vous repartez avec du concret, même si on ne travaille pas ensemble.</span></div></div>
+      </div>
+    </div>
+
+    <div class="left-foot">©2026 Dikenga. — Paris, France</div>
+  </div>
+
+  <div class="right">
+    <p class="form-label">Réservez votre audit</p>
+    <p class="form-intro">Réponse sous 24h ouvrées. Je ne prends que 5 audits gratuits par semaine pour garder de la qualité — premier arrivé, premier servi.</p>
+
+    <form class="c-form" id="auditForm" action="https://formspree.io/f/mdaproed" method="POST">
+      <input type="hidden" name="_subject" value="🎯 Nouvelle demande AUDIT UX GRATUIT — dikengadesign.fr"/>
+
+      <div class="row">
+        <div class="field">
+          <label>Prénom *</label>
+          <input type="text" name="prenom" placeholder="Marie" required/>
+        </div>
+        <div class="field">
+          <label>Nom *</label>
+          <input type="text" name="nom" placeholder="Dupont" required/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label>Email pro *</label>
+          <input type="email" name="email" placeholder="marie@votre-saas.io" required/>
+        </div>
+        <div class="field">
+          <label>Entreprise *</label>
+          <input type="text" name="entreprise" placeholder="Nom de votre SaaS" required/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label>URL produit *</label>
+          <input type="url" name="url" placeholder="https://votre-saas.io" required/>
+        </div>
+        <div class="field">
+          <label>Votre rôle *</label>
+          <div class="sel-wrap">
+            <select name="role" required>
+              <option value="" disabled selected>Sélectionner</option>
+              <option>Founder / CEO</option>
+              <option>Head of Product</option>
+              <option>Product Manager</option>
+              <option>CTO</option>
+              <option>Head of Growth</option>
+              <option>Marketing</option>
+              <option>Autre</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label>Stade de votre SaaS *</label>
+          <div class="sel-wrap">
+            <select name="stade" required>
+              <option value="" disabled selected>Sélectionner</option>
+              <option>Pré-MVP</option>
+              <option>MVP en bêta</option>
+              <option>Lancé — moins de 100 users payants</option>
+              <option>En croissance — 100 à 1000 users</option>
+              <option>Scale — plus de 1000 users</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label>Disponibilité *</label>
+          <div class="sel-wrap">
+            <select name="dispo" required>
+              <option value="" disabled selected>Sélectionner</option>
+              <option>Cette semaine</option>
+              <option>Semaine prochaine</option>
+              <option>Dans les 2 semaines</option>
+              <option>Plus tard — peu importe</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field full">
+          <label>Sur quelle métrique voulez-vous progresser ? *</label>
+          <textarea name="objectif" placeholder="Ex : « Mon onboarding a 60% de drop-off entre étape 2 et 3 », « Mes utilisateurs s'inscrivent mais ne reviennent pas la semaine 2 », « Je veux convertir mon plan gratuit en payant »…" required></textarea>
+        </div>
+      </div>
+
+      <div class="form-foot">
+        <p class="assurance"><strong>Aucun engagement.</strong> Si on n'est pas alignés, vous repartez quand même avec 3 leviers actionnables — c'est ma promesse.</p>
+        <button type="submit" class="btn-submit" id="submitBtn">Réserver mon audit &nbsp;→</button>
+      </div>
+    </form>
+
+    <div class="calendly-alt">
+      <div class="calendly-alt-label">Plus rapide ?</div>
+      <p class="calendly-alt-text">Vous préférez choisir directement votre créneau ?</p>
+      <a href="mailto:dikengadesign@gmail.com?subject=Audit%20UX%20gratuit%20-%20demande%20de%20cr%C3%A9neau&body=Bonjour%2C%0A%0AJe%20suis%20int%C3%A9ress%C3%A9(e)%20par%20l%27audit%20UX%20gratuit%20de%2030%20min.%0A%0AVoici%20mes%20infos%20%3A%0A-%20Entreprise%20%3A%20%0A-%20URL%20produit%20%3A%20%0A-%20Mon%20r%C3%B4le%20%3A%20%0A%0AJe%20suis%20disponible%20%3A%20%0A%0AMerci%20!" target="_blank">Envoyez-moi un email direct →</a>
+    </div>
+  </div>
+
+</div>
+
+<footer style="border-top:1px solid var(--line);padding:24px 48px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+  <span style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--dim)">©2026 Dikenga.</span>
+  <div style="display:flex;gap:24px;flex-wrap:wrap">
+    <a href="mentions-legales.html" style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--dim);text-decoration:none;transition:color .2s" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--dim)'">Mentions légales</a>
+    <a href="a-propos.html" style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--dim);text-decoration:none;transition:color .2s" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--dim)'">À propos</a>
+    <a href="contact.html" style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--dim);text-decoration:none;transition:color .2s" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--dim)'">Contact</a>
+    <a href="projets.html" style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--dim);text-decoration:none;transition:color .2s" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--dim)'">Projets</a>
+  </div>
+</footer>
+
+<script>
+const dot=document.getElementById('cdot'),ring=document.getElementById('cring');
+let mx=window.innerWidth/2,my=window.innerHeight/2,rx=mx,ry=my;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+(function loop(){
+  dot.style.left=mx+'px';dot.style.top=my+'px';
+  rx+=(mx-rx)*.12;ry+=(my-ry)*.12;
+  ring.style.left=rx+'px';ring.style.top=ry+'px';
+  requestAnimationFrame(loop);
+})();
+document.querySelectorAll('a,button,label').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('cursor-grow'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('cursor-grow'));
+});
+
+function tick(){
+  const n=new Date();
+  document.getElementById('navtime').textContent='FR · '+String(n.getHours()).padStart(2,'0')+':'+String(n.getMinutes()).padStart(2,'0');
+}
+tick();setInterval(tick,1000);
+
+document.getElementById('auditForm').addEventListener('submit',async function(e){
+  e.preventDefault();
+  const btn=document.getElementById('submitBtn');
+  btn.textContent='Envoi…';btn.disabled=true;
+  try{
+    const res=await fetch(this.action,{method:'POST',body:new FormData(this),headers:{Accept:'application/json'}});
+    btn.textContent=res.ok?'Demande reçue ✓ Réponse sous 24h':'Erreur — réessayez';
+    if(res.ok)this.reset();
+    else btn.disabled=false;
+  }catch{btn.textContent='Erreur — réessayez';btn.disabled=false;}
+});
+
+(function(){const e=document.getElementById('pageEnter');if(e)e.style.display='none';})();
+
+function goHome(e){
+  e.preventDefault();
+  window.location.href='index.html';
+}
+
+(function(){
+  const stored = localStorage.getItem('dikenga-theme');
+  const useDark = stored ? stored === 'dark' : true;
+  if(!useDark){
+    document.documentElement.style.setProperty('--bg','#FFFFFF');
+    document.documentElement.style.setProperty('--white','#000000');
+    document.documentElement.style.setProperty('--dim','rgba(0,0,0,0.5)');
+    document.documentElement.style.setProperty('--line','rgba(0,0,0,0.1)');
+    document.body.classList.add('light');
+    document.querySelector('html').style.background = '#FFFFFF';
+  }
+  if(!stored && window.matchMedia){
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+      if(!localStorage.getItem('dikenga-theme')) location.reload();
+    });
+  }
+})();
+</script>
+</body>
+</html>
