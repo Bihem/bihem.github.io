@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Cas d'étude — StudioBooking BI · Dikenga Design</title>
+<meta name="description" content="Cas d'étude UX/UI : dashboard Power BI 4 pages avec DAX avancé pour StudioBooking, SaaS B2B de réservation studios musicaux. 124 tenants, 4217 sessions, MRR 14k€.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Dikenga Design">
+<link rel="canonical" href="https://dikengadesign.fr/studiobooking-bi.html">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<meta property="og:title" content="Cas d'étude — Dashboard Power BI StudioBooking">
+<meta property="og:description" content="Dashboard 4 pages, 35+ mesures DAX, design system custom. Insights monétisables livrés.">
+<meta property="og:url" content="https://dikengadesign.fr/studiobooking-bi.html">
+<meta property="og:type" content="article">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg-page: #F4F4F8;
+  --bg-card: #FFFFFF;
+  --bg-sidebar: #1F1F2A;
+  --bg-header: #FFFFFF;
+  --line: #E5E7EB;
+  --text: #1F2937;
+  --text-2: #6B7280;
+  --text-dim: #9CA3AF;
+  --primary: #0078D4;
+  --blue: #2C5BFF;
+  --blue-light: #E5EDFF;
+  --green: #10B981;
+  --green-light: #D1FAE5;
+  --orange: #F59E0B;
+  --orange-light: #FEF3C7;
+  --red: #EF4444;
+  --red-light: #FEE2E2;
+  --violet: #7B5CFF;
+  --violet-light: #EDE9FE;
+  --cyan: #06B6D4;
+  --pink: #EC4899;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', -apple-system, sans-serif;
+  background: var(--bg-page);
+  color: var(--text);
+  font-size: 13px;
+}
+
+.app { display: grid; grid-template-columns: 220px 1fr; min-height: 100vh; }
+
+.sidebar {
+  background: var(--bg-sidebar);
+  color: white;
+  padding: 20px 16px;
+  position: sticky; top: 0; height: 100vh;
+}
+
+.brand {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 4px 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  margin-bottom: 16px;
+}
+
+.brand-logo {
+  width: 32px; height: 32px;
+  background: linear-gradient(135deg, var(--blue), var(--violet));
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 14px;
+}
+
+.brand-title { font-weight: 700; font-size: 14px; }
+.brand-subtitle { font-size: 10px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.1em; }
+
+.nav-section-label {
+  font-size: 9px; font-weight: 600;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  padding: 12px 8px 8px;
+}
+
+.nav-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 12px;
+  border-radius: 6px;
+  color: rgba(255,255,255,0.7);
+  cursor: pointer; font-size: 13px; margin-bottom: 2px;
+  transition: all 0.15s;
+}
+
+.nav-item:hover { background: rgba(255,255,255,0.05); color: #fff; }
+.nav-item.active {
+  background: linear-gradient(135deg, rgba(44,91,255,0.2), rgba(123,92,255,0.1));
+  color: #fff;
+  border-left: 3px solid var(--blue);
+  padding-left: 9px;
+}
+
+.nav-icon { font-size: 14px; }
+
+.sidebar-footer {
+  position: absolute; bottom: 16px; left: 16px; right: 16px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 11px; color: rgba(255,255,255,0.4);
+}
+
+.main { display: flex; flex-direction: column; }
+
+.header {
+  background: var(--bg-header);
+  border-bottom: 1px solid var(--line);
+  padding: 14px 24px;
+  display: flex; justify-content: space-between; align-items: center;
+  position: sticky; top: 0; z-index: 10;
+}
+
+.header-left h1 { font-size: 17px; font-weight: 700; }
+.header-left .subtitle { font-size: 11px; color: var(--text-2); margin-top: 2px; }
+
+.header-right { display: flex; gap: 8px; }
+
+.filter-pill {
+  background: #F4F4F8;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 12px;
+  display: flex; align-items: center; gap: 6px;
+  cursor: pointer;
+}
+
+.filter-pill .count {
+  background: var(--blue); color: white;
+  border-radius: 999px; padding: 0 6px;
+  font-size: 10px; font-weight: 700;
+}
+
+.refresh-btn {
+  background: var(--primary); color: white;
+  border: none; padding: 6px 14px; border-radius: 6px;
+  font-size: 12px; font-weight: 600; cursor: pointer;
+}
+
+.page { display: none; padding: 24px; }
+.page.active { display: block; }
+.page-grid { display: grid; gap: 16px; }
+
+.kpi-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+.kpi-row.cols-4 { grid-template-columns: repeat(4, 1fr); }
+.kpi-row.cols-6 { grid-template-columns: repeat(6, 1fr); }
+
+.kpi-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px;
+  position: relative; overflow: hidden;
+}
+
+.kpi-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 3px; background: var(--blue);
+}
+
+.kpi-card.green::before { background: var(--green); }
+.kpi-card.orange::before { background: var(--orange); }
+.kpi-card.violet::before { background: var(--violet); }
+.kpi-card.red::before { background: var(--red); }
+.kpi-card.cyan::before { background: var(--cyan); }
+.kpi-card.pink::before { background: var(--pink); }
+
+.kpi-label {
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text-2); margin-bottom: 6px;
+}
+
+.kpi-value {
+  font-size: 26px; font-weight: 800; line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.kpi-value-suffix {
+  font-size: 14px; font-weight: 600;
+  color: var(--text-2); margin-left: 2px;
+}
+
+.kpi-change {
+  font-size: 11px; margin-top: 8px;
+  display: flex; align-items: center; gap: 4px;
+  font-weight: 600;
+}
+
+.kpi-change.up { color: var(--green); }
+.kpi-change.down { color: var(--red); }
+.kpi-change.neutral { color: var(--text-2); }
+
+.kpi-spark { margin-top: 6px; height: 24px; }
+
+.chart-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.chart-title {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: 14px;
+}
+
+.chart-title h3 { font-size: 14px; font-weight: 700; }
+.chart-title .meta { font-size: 11px; color: var(--text-2); }
+
+.row-2 { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; }
+.row-2-eq { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+
+.line-chart { height: 280px; position: relative; }
+.line-chart svg { width: 100%; height: 100%; }
+
+.legend {
+  display: flex; gap: 16px;
+  font-size: 11px; margin-top: 8px;
+}
+.legend .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
+
+.bar-chart { display: flex; flex-direction: column; gap: 10px; padding: 6px 0; }
+
+.bar-row {
+  display: grid; grid-template-columns: 110px 1fr 70px;
+  align-items: center; gap: 10px; font-size: 12px;
+}
+
+.bar-label { font-weight: 600; }
+
+.bar-track {
+  background: #F0F1F5;
+  height: 24px; border-radius: 4px;
+  position: relative; overflow: hidden;
+}
+
+.bar-fill {
+  background: linear-gradient(90deg, var(--blue), var(--violet));
+  height: 100%; border-radius: 4px;
+  display: flex; align-items: center;
+  padding: 0 8px; color: white;
+  font-weight: 600; font-size: 11px;
+}
+
+.bar-value { text-align: right; font-weight: 700; }
+
+.donut-container { display: flex; align-items: center; gap: 20px; }
+.donut { position: relative; width: 180px; height: 180px; flex-shrink: 0; }
+.donut svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+
+.donut-center {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%); text-align: center;
+}
+
+.donut-total { font-size: 24px; font-weight: 800; }
+.donut-label { font-size: 10px; color: var(--text-2); text-transform: uppercase; letter-spacing: 0.1em; }
+
+.donut-legend {
+  flex: 1;
+  display: flex; flex-direction: column; gap: 8px;
+  font-size: 12px;
+}
+
+.donut-legend-item { display: flex; align-items: center; gap: 8px; }
+.donut-legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+.donut-legend-label { flex: 1; }
+.donut-legend-value { font-weight: 700; }
+
+table { width: 100%; border-collapse: collapse; font-size: 12px; }
+
+table th {
+  text-align: left; padding: 10px 12px;
+  background: #FAFAFC;
+  border-bottom: 2px solid var(--line);
+  font-weight: 600; color: var(--text-2);
+  text-transform: uppercase;
+  font-size: 10px; letter-spacing: 0.05em;
+}
+
+table td { padding: 10px 12px; border-bottom: 1px solid var(--line); }
+table tbody tr:hover { background: #FAFAFC; }
+
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.badge-green { background: var(--green-light); color: var(--green); }
+.badge-orange { background: var(--orange-light); color: var(--orange); }
+.badge-red { background: var(--red-light); color: var(--red); }
+.badge-blue { background: var(--blue-light); color: var(--blue); }
+.badge-violet { background: var(--violet-light); color: var(--violet); }
+
+.heatmap {
+  display: grid;
+  grid-template-columns: 80px repeat(14, 1fr);
+  gap: 3px; font-size: 10px;
+}
+
+.heatmap-label {
+  display: flex; align-items: center;
+  color: var(--text-2); font-weight: 600; font-size: 10px;
+}
+
+.heatmap-cell {
+  aspect-ratio: 1; border-radius: 3px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 9px; color: white; font-weight: 600;
+}
+
+.funnel { display: flex; flex-direction: column; gap: 6px; }
+
+.funnel-step {
+  background: var(--blue); color: white;
+  padding: 12px 16px;
+  border-radius: 4px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-weight: 600; margin: 0 auto;
+}
+
+/* CASE STUDY BANNER */
+.case-banner {
+  background: #0A0A0F;
+  color: #fff;
+  padding: 18px 32px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.case-banner-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.case-banner-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.case-banner-pill {
+  background: rgba(44,91,255,0.18);
+  color: #93C5FD;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.case-banner-title {
+  font-weight: 700;
+  font-size: 15px;
+}
+.case-banner-subtitle {
+  font-size: 12px;
+  color: rgba(255,255,255,0.55);
+  margin-top: 2px;
+}
+.case-banner-back {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.15);
+  transition: background 0.15s;
+}
+.case-banner-back:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+/* CASE STUDY INTRO */
+.case-intro {
+  background: #0A0A0F;
+  color: #fff;
+  padding: 50px 32px 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.case-intro-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.case-intro h1 {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+.case-intro h1 span { color: #2C5BFF; }
+.case-intro p {
+  font-size: 15px;
+  color: rgba(255,255,255,0.7);
+  max-width: 760px;
+  line-height: 1.6;
+}
+.case-meta {
+  display: flex;
+  gap: 32px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+.case-meta-item {
+  font-size: 12px;
+}
+.case-meta-label {
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 10px;
+  margin-bottom: 4px;
+  display: block;
+}
+.case-meta-value {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* CASE STUDY FOOTER */
+.case-footer {
+  background: #0A0A0F;
+  color: #fff;
+  padding: 50px 32px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.case-footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+.case-footer h2 {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+  line-height: 1.15;
+}
+.case-footer h2 span { color: #2C5BFF; }
+.case-footer p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.6;
+}
+.case-cta-btn {
+  display: inline-block;
+  background: #2C5BFF;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 18px;
+  transition: transform 0.15s;
+}
+.case-cta-btn:hover { transform: translateY(-2px); }
+.case-insights {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.case-insight {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.85);
+}
+.case-insight strong { color: #fff; }
+.case-insight-num {
+  color: #2C5BFF;
+  font-weight: 700;
+}
+
+@media (max-width: 800px) {
+  .case-footer-inner { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- CASE STUDY TOP BANNER -->
+<div class="case-banner">
+  <div class="case-banner-inner">
+    <div class="case-banner-left">
+      <span class="case-banner-pill">● Cas d'étude</span>
+      <div>
+        <div class="case-banner-title">Dashboard Power BI · StudioBooking</div>
+        <div class="case-banner-subtitle">Dikenga Design — UI/UX freelance</div>
+      </div>
+    </div>
+    <a href="https://dikengadesign.fr/projets.html" class="case-banner-back">← Retour au portfolio</a>
+  </div>
+</div>
+
+<!-- CASE STUDY INTRO -->
+<section class="case-intro">
+  <div class="case-intro-inner">
+    <h1>Dashboard Power BI <span>4 pages</span> pour un SaaS B2B</h1>
+    <p>
+      Conception et déploiement d'un dashboard analytique complet pour StudioBooking, SaaS B2B de réservation studios musicaux. 35+ mesures DAX avancées, design system custom, modèle de données relationnel propre, et des insights monétisables livrés par recommandations IA (Anthropic Claude).
+    </p>
+    <div class="case-meta">
+      <div class="case-meta-item">
+        <span class="case-meta-label">Client</span>
+        <span class="case-meta-value">StudioBooking (interne)</span>
+      </div>
+      <div class="case-meta-item">
+        <span class="case-meta-label">Rôle</span>
+        <span class="case-meta-value">UX/UI Designer + DAX</span>
+      </div>
+      <div class="case-meta-item">
+        <span class="case-meta-label">Stack</span>
+        <span class="case-meta-value">Power BI · DAX · Supabase · Anthropic API</span>
+      </div>
+      <div class="case-meta-item">
+        <span class="case-meta-label">Livraison</span>
+        <span class="case-meta-value">Mai 2026</span>
+      </div>
+      <div class="case-meta-item">
+        <span class="case-meta-label">Pages</span>
+        <span class="case-meta-value">4 — Vue, Tenants, Réservations, Clients</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="app">
+
+  <!-- ============== SIDEBAR ============== -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-logo">SB</div>
+      <div>
+        <div class="brand-title">StudioBooking BI</div>
+        <div class="brand-subtitle">Power BI</div>
+      </div>
+    </div>
+
+    <div class="nav-section-label">Vue principale</div>
+    <div class="nav-item active" onclick="showPage('p1', this)"><span class="nav-icon">📊</span> Vue d'ensemble</div>
+    <div class="nav-item" onclick="showPage('p2', this)"><span class="nav-icon">🏢</span> Tenants</div>
+    <div class="nav-item" onclick="showPage('p3', this)"><span class="nav-icon">📅</span> Réservations</div>
+    <div class="nav-item" onclick="showPage('p4', this)"><span class="nav-icon">👥</span> Clients</div>
+
+    <div class="nav-section-label">Filtres</div>
+    <div class="nav-item"><span class="nav-icon">🔍</span> Période : 12 mois</div>
+    <div class="nav-item"><span class="nav-icon">🏬</span> Tous tenants (124)</div>
+
+    <div class="sidebar-footer">
+      📂 Dataset : Supabase live<br>
+      ⏱ MAJ : 4 mai 2026 · 11:45<br>
+      🔄 Refresh : auto 1h
+    </div>
+  </aside>
+
+  <!-- ============== MAIN ============== -->
+  <div class="main">
+
+    <header class="header">
+      <div class="header-left">
+        <h1 id="page-title">Vue d'ensemble — Performance globale</h1>
+        <div class="subtitle">Données live Supabase · Dernière maj : il y a 4 min</div>
+      </div>
+      <div class="header-right">
+        <div class="filter-pill">📅 12 derniers mois</div>
+        <div class="filter-pill">🏬 Tous tenants <span class="count">124</span></div>
+        <button class="refresh-btn">↻ Actualiser</button>
+      </div>
+    </header>
+
+    <!-- ====================================================== -->
+    <!-- PAGE 1 — VUE D'ENSEMBLE -->
+    <!-- ====================================================== -->
+    <div class="page active" id="p1">
+      <div class="page-grid">
+
+        <div class="kpi-row">
+          <div class="kpi-card">
+            <div class="kpi-label">MRR</div>
+            <div class="kpi-value">14 280<span class="kpi-value-suffix">€</span></div>
+            <div class="kpi-change up">↑ +18,4% vs mois dernier</div>
+          </div>
+          <div class="kpi-card green">
+            <div class="kpi-label">ARR</div>
+            <div class="kpi-value">171 360<span class="kpi-value-suffix">€</span></div>
+            <div class="kpi-change up">↑ Projection +22% sur 12 mois</div>
+          </div>
+          <div class="kpi-card violet">
+            <div class="kpi-label">Tenants Actifs</div>
+            <div class="kpi-value">84</div>
+            <div class="kpi-change up">↑ +12 ce mois (+16,7%)</div>
+          </div>
+          <div class="kpi-card orange">
+            <div class="kpi-label">Sessions Cumulées</div>
+            <div class="kpi-value">4 217</div>
+            <div class="kpi-change up">↑ +382 ce mois</div>
+          </div>
+          <div class="kpi-card red">
+            <div class="kpi-label">Taux Churn</div>
+            <div class="kpi-value">3,2<span class="kpi-value-suffix">%</span></div>
+            <div class="kpi-change up">↓ -0,8 pt vs mois dernier</div>
+          </div>
+        </div>
+
+        <div class="row-2">
+          <div class="chart-card">
+            <div class="chart-title">
+              <h3>Évolution MRR · 12 derniers mois</h3>
+              <div class="meta">progression mensuelle (€)</div>
+            </div>
+            <div class="line-chart">
+              <svg viewBox="0 0 700 280" preserveAspectRatio="none">
+                <line x1="0" y1="50" x2="700" y2="50" stroke="#F0F1F5" />
+                <line x1="0" y1="110" x2="700" y2="110" stroke="#F0F1F5" />
+                <line x1="0" y1="170" x2="700" y2="170" stroke="#F0F1F5" />
+                <line x1="0" y1="230" x2="700" y2="230" stroke="#F0F1F5" />
+
+                <!-- MRR line: 12 points growth from 1500€ to 14280€ -->
+                <path d="M 30,255 L 88,242 L 146,228 L 204,210 L 262,189 L 320,170 L 378,148 L 436,124 L 494,98 L 552,75 L 610,55 L 670,35"
+                  fill="none" stroke="#2C5BFF" stroke-width="3" />
+
+                <!-- Filled area -->
+                <path d="M 30,255 L 88,242 L 146,228 L 204,210 L 262,189 L 320,170 L 378,148 L 436,124 L 494,98 L 552,75 L 610,55 L 670,35 L 670,260 L 30,260 Z"
+                  fill="url(#blueGrad)" opacity="0.15" />
+                <defs>
+                  <linearGradient id="blueGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#2C5BFF" />
+                    <stop offset="100%" stop-color="#2C5BFF" stop-opacity="0" />
+                  </linearGradient>
+                </defs>
+
+                <!-- Points -->
+                <circle cx="30" cy="255" r="4" fill="#2C5BFF" />
+                <circle cx="88" cy="242" r="4" fill="#2C5BFF" />
+                <circle cx="146" cy="228" r="4" fill="#2C5BFF" />
+                <circle cx="204" cy="210" r="4" fill="#2C5BFF" />
+                <circle cx="262" cy="189" r="4" fill="#2C5BFF" />
+                <circle cx="320" cy="170" r="4" fill="#2C5BFF" />
+                <circle cx="378" cy="148" r="4" fill="#2C5BFF" />
+                <circle cx="436" cy="124" r="4" fill="#2C5BFF" />
+                <circle cx="494" cy="98" r="4" fill="#2C5BFF" />
+                <circle cx="552" cy="75" r="4" fill="#2C5BFF" />
+                <circle cx="610" cy="55" r="4" fill="#2C5BFF" />
+                <circle cx="670" cy="35" r="6" fill="#2C5BFF" stroke="white" stroke-width="2" />
+
+                <!-- Axis labels -->
+                <text x="30" y="275" text-anchor="middle" font-size="10" fill="#9CA3AF">Juin</text>
+                <text x="88" y="275" text-anchor="middle" font-size="10" fill="#9CA3AF">Juil</text>
+                <text x="146" y="275" text-anchor="middle" font-size="10" fill="#9CA3AF">Août</text>
+                <text x="204" y="275" text-anchor="middle" font-size="10" fill="#9CA3AF">Sept</text>
+                <text x="262" y="275" text-anchor="middle" font-size="10" fill="#9CA3AF">Oct</text>
+                <text x="320" y="275" text-anchor="middle" font-size="10" fill="#9CA3AF">Nov</text>
+                <text x="378" y="275" text-anchor="middle" font-size="10" fill="#9CA3AF">Déc</text>
+                <text x="436" y="275" text-anchor="middle" font-size="10" fill="#9CA3AF">Jan</text>
+                <text x="494" y="275" text-anchor="middle" font-size="10" fill="#9CA3AF">Fév</text>
+                <text x="552" y="275" text-anchor="middle" font-size="10" fill="#9CA3AF">Mar</text>
+                <text x="610" y="275" text-anchor="middle" font-size="10" fill="#9CA3AF">Avr</text>
+                <text x="670" y="275" text-anchor="middle" font-size="10" fill="#9CA3AF">Mai</text>
+
+                <!-- Annotations -->
+                <text x="670" y="25" font-size="11" fill="#2C5BFF" font-weight="700" text-anchor="middle">14 280€</text>
+                <text x="30" y="245" font-size="10" fill="#9CA3AF" text-anchor="middle">1 500€</text>
+              </svg>
+            </div>
+            <div class="legend">
+              <span><span class="dot" style="background:#2C5BFF"></span>MRR mensuel · CAGR +18% / mois</span>
+            </div>
+          </div>
+
+          <div class="chart-card">
+            <div class="chart-title">
+              <h3>Tenants par plan</h3>
+              <div class="meta">124 total</div>
+            </div>
+            <div class="donut-container">
+              <div class="donut">
+                <svg viewBox="0 0 100 100">
+                  <!-- Starter 65% (252 of 251.2) -->
+                  <circle cx="50" cy="50" r="40" fill="none" stroke="#2C5BFF" stroke-width="14"
+                    stroke-dasharray="163.3 251.2" stroke-dashoffset="0" />
+                  <!-- Pro 28% -->
+                  <circle cx="50" cy="50" r="40" fill="none" stroke="#7B5CFF" stroke-width="14"
+                    stroke-dasharray="70.3 251.2" stroke-dashoffset="-163.3" />
+                  <!-- Custom 7% -->
+                  <circle cx="50" cy="50" r="40" fill="none" stroke="#F59E0B" stroke-width="14"
+                    stroke-dasharray="17.6 251.2" stroke-dashoffset="-233.6" />
+                </svg>
+                <div class="donut-center">
+                  <div class="donut-total">124</div>
+                  <div class="donut-label">Tenants</div>
+                </div>
+              </div>
+              <div class="donut-legend">
+                <div class="donut-legend-item">
+                  <span class="donut-legend-dot" style="background:#2C5BFF"></span>
+                  <span class="donut-legend-label">Starter <small style="color:#9CA3AF">99€/mo</small></span>
+                  <span class="donut-legend-value">81 · 65%</span>
+                </div>
+                <div class="donut-legend-item">
+                  <span class="donut-legend-dot" style="background:#7B5CFF"></span>
+                  <span class="donut-legend-label">Pro <small style="color:#9CA3AF">199€/mo</small></span>
+                  <span class="donut-legend-value">34 · 28%</span>
+                </div>
+                <div class="donut-legend-item">
+                  <span class="donut-legend-dot" style="background:#F59E0B"></span>
+                  <span class="donut-legend-label">Custom <small style="color:#9CA3AF">350€/mo</small></span>
+                  <span class="donut-legend-value">9 · 7%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row-2-eq">
+          <div class="chart-card">
+            <div class="chart-title">
+              <h3>Top 5 tenants par CA mensuel</h3>
+              <div class="meta">avril 2026</div>
+            </div>
+            <div class="bar-chart">
+              <div class="bar-row">
+                <div class="bar-label">Canal 93</div>
+                <div class="bar-track"><div class="bar-fill" style="width:100%">Pro</div></div>
+                <div class="bar-value">1 850€</div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">Studio Bleu</div>
+                <div class="bar-track"><div class="bar-fill" style="width:81%; background:linear-gradient(90deg,#2C5BFF,#7B5CFF)">Pro</div></div>
+                <div class="bar-value">1 240€</div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">Le Tamanoir</div>
+                <div class="bar-track"><div class="bar-fill" style="width:67%; background:linear-gradient(90deg,#2C5BFF,#7B5CFF)">Custom</div></div>
+                <div class="bar-value">980€</div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">BGA Studios</div>
+                <div class="bar-track"><div class="bar-fill" style="width:54%; background:linear-gradient(90deg,#2C5BFF,#7B5CFF)">Pro</div></div>
+                <div class="bar-value">850€</div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">Format Son</div>
+                <div class="bar-track"><div class="bar-fill" style="width:46%; background:linear-gradient(90deg,#2C5BFF,#7B5CFF)">Starter</div></div>
+                <div class="bar-value">720€</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="chart-card">
+            <div class="chart-title">
+              <h3>Statut tenants</h3>
+              <div class="meta">124 tenants</div>
+            </div>
+            <table>
+              <thead>
+                <tr><th>Statut</th><th>Nb</th><th>%</th><th>MRR</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="badge badge-green">Actifs payants</span></td>
+                  <td>84</td><td>67,7%</td>
+                  <td><strong style="color:var(--green)">14 280€</strong></td>
+                </tr>
+                <tr>
+                  <td><span class="badge badge-orange">En essai</span></td>
+                  <td>36</td><td>29,0%</td>
+                  <td>—</td>
+                </tr>
+                <tr>
+                  <td><span class="badge badge-red">Annulés</span></td>
+                  <td>4</td><td>3,2%</td>
+                  <td>0€</td>
+                </tr>
+              </tbody>
+            </table>
+            <div style="margin-top:14px; padding:10px 12px; background:var(--green-light); border-radius:6px; font-size:11px; color:#065F46">
+              ✅ <strong>Conversion essai → payant : 67%</strong> (excellent vs benchmark SaaS 25-30%)
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ====================================================== -->
+    <!-- PAGE 2 — TENANTS -->
+    <!-- ====================================================== -->
+    <div class="page" id="p2">
+      <div class="page-grid">
+
+        <div class="kpi-row cols-6">
+          <div class="kpi-card violet">
+            <div class="kpi-label">Total Tenants</div>
+            <div class="kpi-value">124</div>
+            <div class="kpi-change up">↑ +12 ce mois</div>
+          </div>
+          <div class="kpi-card green">
+            <div class="kpi-label">Actifs payants</div>
+            <div class="kpi-value">84</div>
+            <div class="kpi-change up">↑ +9 ce mois</div>
+          </div>
+          <div class="kpi-card orange">
+            <div class="kpi-label">En Essai</div>
+            <div class="kpi-value">36</div>
+            <div class="kpi-change neutral">essais 30 jours</div>
+          </div>
+          <div class="kpi-card red">
+            <div class="kpi-label">Annulés</div>
+            <div class="kpi-value">4</div>
+            <div class="kpi-change up">↓ -1 vs mois dernier</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Conversion</div>
+            <div class="kpi-value">67<span class="kpi-value-suffix">%</span></div>
+            <div class="kpi-change up">↑ +5 pts vs n-1</div>
+          </div>
+          <div class="kpi-card cyan">
+            <div class="kpi-label">CAC moyen</div>
+            <div class="kpi-value">42<span class="kpi-value-suffix">€</span></div>
+            <div class="kpi-change up">↓ -8€ vs n-1</div>
+          </div>
+        </div>
+
+        <div class="row-2">
+          <div class="chart-card">
+            <div class="chart-title">
+              <h3>Top 10 tenants — performance détaillée</h3>
+              <div class="meta">tri par CA mensuel</div>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Tenant</th>
+                  <th>Plan</th>
+                  <th>Statut</th>
+                  <th>Sessions</th>
+                  <th>Heures</th>
+                  <th>CA mois</th>
+                  <th>Inscrit</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>Canal 93</strong><br><span style="color:#9CA3AF; font-size:11px">SMAC · Bobigny</span></td><td><span class="badge badge-violet">Pro</span></td><td><span class="badge badge-green">Active</span></td><td>87</td><td>184h</td><td><strong style="color:var(--green)">1 850€</strong></td><td>nov 2025</td></tr>
+                <tr><td><strong>Studio Bleu</strong><br><span style="color:#9CA3AF; font-size:11px">Studio · Paris</span></td><td><span class="badge badge-violet">Pro</span></td><td><span class="badge badge-green">Active</span></td><td>62</td><td>147h</td><td><strong style="color:var(--green)">1 240€</strong></td><td>déc 2025</td></tr>
+                <tr><td><strong>Le Tamanoir</strong><br><span style="color:#9CA3AF; font-size:11px">SMAC · Gennevilliers</span></td><td><span class="badge badge-orange">Custom</span></td><td><span class="badge badge-green">Active</span></td><td>54</td><td>118h</td><td><strong style="color:var(--green)">980€</strong></td><td>jan 2026</td></tr>
+                <tr><td><strong>BGA Studios</strong><br><span style="color:#9CA3AF; font-size:11px">Studio · Paris</span></td><td><span class="badge badge-violet">Pro</span></td><td><span class="badge badge-green">Active</span></td><td>48</td><td>95h</td><td><strong style="color:var(--green)">850€</strong></td><td>fév 2026</td></tr>
+                <tr><td><strong>Format Son</strong><br><span style="color:#9CA3AF; font-size:11px">Studio · Toulouse</span></td><td><span class="badge badge-blue">Starter</span></td><td><span class="badge badge-green">Active</span></td><td>41</td><td>78h</td><td><strong style="color:var(--green)">720€</strong></td><td>mar 2026</td></tr>
+                <tr><td><strong>Studiomatic</strong><br><span style="color:#9CA3AF; font-size:11px">Studio · Lyon</span></td><td><span class="badge badge-orange">Custom</span></td><td><span class="badge badge-green">Active</span></td><td>38</td><td>91h</td><td><strong style="color:var(--green)">680€</strong></td><td>oct 2025</td></tr>
+                <tr><td><strong>L'Atelier 73</strong><br><span style="color:#9CA3AF; font-size:11px">SMAC · Chambéry</span></td><td><span class="badge badge-violet">Pro</span></td><td><span class="badge badge-green">Active</span></td><td>35</td><td>72h</td><td><strong style="color:var(--green)">620€</strong></td><td>nov 2025</td></tr>
+                <tr><td><strong>Mamagaya</strong><br><span style="color:#9CA3AF; font-size:11px">Culture · Marseille</span></td><td><span class="badge badge-blue">Starter</span></td><td><span class="badge badge-green">Active</span></td><td>32</td><td>64h</td><td><strong style="color:var(--green)">540€</strong></td><td>jan 2026</td></tr>
+                <tr><td><strong>Le Hangar</strong><br><span style="color:#9CA3AF; font-size:11px">Studio · Bordeaux</span></td><td><span class="badge badge-violet">Pro</span></td><td><span class="badge badge-green">Active</span></td><td>29</td><td>58h</td><td><strong style="color:var(--green)">490€</strong></td><td>fév 2026</td></tr>
+                <tr><td><strong>Son & Lumière</strong><br><span style="color:#9CA3AF; font-size:11px">SMAC · Lyon</span></td><td><span class="badge badge-blue">Starter</span></td><td><span class="badge badge-orange">Trial</span></td><td>18</td><td>32h</td><td><strong style="color:var(--orange)">— (trial)</strong></td><td>20 avr 2026</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="chart-card">
+            <div class="chart-title">
+              <h3>Funnel de conversion</h3>
+              <div class="meta">acquisition → revenue</div>
+            </div>
+            <div class="funnel" style="margin-top:20px">
+              <div class="funnel-step" style="width:100%; background:#2C5BFF">
+                <span>Inscriptions</span><span>248</span>
+              </div>
+              <div class="funnel-step" style="width:88%; background:#7B5CFF">
+                <span>Comptes activés</span><span>219</span>
+              </div>
+              <div class="funnel-step" style="width:65%; background:#06B6D4">
+                <span>Stripe connecté</span><span>162</span>
+              </div>
+              <div class="funnel-step" style="width:50%; background:#10B981">
+                <span>Premier paiement</span><span>124</span>
+              </div>
+              <div class="funnel-step" style="width:34%; background:#F59E0B">
+                <span>Actifs M+3 (rétention)</span><span>84</span>
+              </div>
+            </div>
+            <div style="margin-top:16px; padding:12px; background:var(--blue-light); border-radius:6px; font-size:11px; color:#1E40AF">
+              📊 <strong>Analyse</strong> : la perte la plus importante est entre Stripe connecté (162) et Premier paiement (124) — 38 tenants ont connecté Stripe sans payer. Action : audit du flow paiement.
+            </div>
+          </div>
+        </div>
+
+        <div class="row-2-eq">
+          <div class="chart-card">
+            <div class="chart-title">
+              <h3>Répartition géographique</h3>
+              <div class="meta">tenants par région</div>
+            </div>
+            <div class="bar-chart">
+              <div class="bar-row">
+                <div class="bar-label">Île-de-France</div>
+                <div class="bar-track"><div class="bar-fill" style="width:42%">52 tenants</div></div>
+                <div class="bar-value">42%</div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">Aura (Lyon)</div>
+                <div class="bar-track"><div class="bar-fill" style="width:18%; background:#7B5CFF">22</div></div>
+                <div class="bar-value">18%</div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">Nouvelle-Aquitaine</div>
+                <div class="bar-track"><div class="bar-fill" style="width:12%; background:#06B6D4">15</div></div>
+                <div class="bar-value">12%</div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">Occitanie</div>
+                <div class="bar-track"><div class="bar-fill" style="width:10%; background:#10B981">12</div></div>
+                <div class="bar-value">10%</div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">PACA</div>
+                <div class="bar-track"><div class="bar-fill" style="width:9%; background:#F59E0B">11</div></div>
+                <div class="bar-value">9%</div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">Autres régions</div>
+                <div class="bar-track"><div class="bar-fill" style="width:9%; background:#EC4899">12</div></div>
+                <div class="bar-value">9%</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="chart-card">
+            <div class="chart-title">
+              <h3>Trial endings — 30 prochains jours</h3>
+              <div class="meta">opportunités de conversion</div>
+            </div>
+            <div class="bar-chart">
+              <div class="bar-row">
+                <div class="bar-label">Cette semaine</div>
+                <div class="bar-track"><div class="bar-fill" style="width:33%; background:#EF4444">8 essais</div></div>
+                <div class="bar-value">≤ 7j</div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">Semaine +1</div>
+                <div class="bar-track"><div class="bar-fill" style="width:50%; background:#F59E0B">12 essais</div></div>
+                <div class="bar-value">8-14j</div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">Semaine +2</div>
+                <div class="bar-track"><div class="bar-fill" style="width:38%; background:#10B981">9 essais</div></div>
+                <div class="bar-value">15-21j</div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">Semaine +3</div>
+                <div class="bar-track"><div class="bar-fill" style="width:29%; background:#06B6D4">7 essais</div></div>
+                <div class="bar-value">22-30j</div>
+              </div>
+            </div>
+            <div style="margin-top:14px; padding:10px 12px; background:var(--red-light); border-radius:6px; font-size:11px; color:#991B1B">
+              🚨 <strong>Action urgente</strong> : 8 essais expirent cette semaine. Si conversion 67% → +800€ MRR potentiel.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ====================================================== -->
+    <!-- PAGE 3 — RÉSERVATIONS -->
+    <!-- ====================================================== -->
+    <div class="page" id="p3">
+      <div class="page-grid">
+
+        <div class="kpi-row cols-4">
+          <div class="kpi-card">
+            <div class="kpi-label">Total Réservations</div>
+            <div class="kpi-value">4 217</div>
+            <div class="kpi-change up">↑ +382 ce mois</div>
+          </div>
+          <div class="kpi-card green">
+            <div class="kpi-label">CA Généré</div>
+            <div class="kpi-value">158 920<span class="kpi-value-suffix">€</span></div>
+            <div class="kpi-change up">↑ +14 380€ ce mois</div>
+          </div>
+          <div class="kpi-card orange">
+            <div class="kpi-label">Durée Moyenne</div>
+            <div class="kpi-value">2,4<span class="kpi-value-suffix">h</span></div>
+            <div class="kpi-change up">↑ +0,3h vs n-1</div>
+          </div>
+          <div class="kpi-card violet">
+            <div class="kpi-label">Panier Moyen</div>
+            <div class="kpi-value">37,7<span class="kpi-value-suffix">€</span></div>
+            <div class="kpi-change up">↑ +4€ vs n-1</div>
+          </div>
+        </div>
+
+        <div class="chart-card">
+          <div class="chart-title">
+            <h3>Heatmap réservations · Jour × Heure</h3>
+            <div class="meta">28 derniers jours · 4 217 sessions</div>
+          </div>
+          <div class="heatmap" style="grid-template-columns: 80px repeat(14, 1fr)">
+            <div class="heatmap-label"></div>
+            <div class="heatmap-label" style="justify-content:center">9h</div>
+            <div class="heatmap-label" style="justify-content:center">10h</div>
+            <div class="heatmap-label" style="justify-content:center">11h</div>
+            <div class="heatmap-label" style="justify-content:center">12h</div>
+            <div class="heatmap-label" style="justify-content:center">13h</div>
+            <div class="heatmap-label" style="justify-content:center">14h</div>
+            <div class="heatmap-label" style="justify-content:center">15h</div>
+            <div class="heatmap-label" style="justify-content:center">16h</div>
+            <div class="heatmap-label" style="justify-content:center">17h</div>
+            <div class="heatmap-label" style="justify-content:center">18h</div>
+            <div class="heatmap-label" style="justify-content:center">19h</div>
+            <div class="heatmap-label" style="justify-content:center">20h</div>
+            <div class="heatmap-label" style="justify-content:center">21h</div>
+            <div class="heatmap-label" style="justify-content:center">22h</div>
+
+            <!-- Lundi -->
+            <div class="heatmap-label">Lundi</div>
+            <div class="heatmap-cell" style="background:#F0F1F5">2</div>
+            <div class="heatmap-cell" style="background:#F0F1F5">3</div>
+            <div class="heatmap-cell" style="background:#DBEAFE; color:#1E40AF">8</div>
+            <div class="heatmap-cell" style="background:#DBEAFE; color:#1E40AF">12</div>
+            <div class="heatmap-cell" style="background:#BFDBFE; color:#1E40AF">15</div>
+            <div class="heatmap-cell" style="background:#93C5FD; color:#1E3A8A">22</div>
+            <div class="heatmap-cell" style="background:#60A5FA">28</div>
+            <div class="heatmap-cell" style="background:#3B82F6">34</div>
+            <div class="heatmap-cell" style="background:#3B82F6">38</div>
+            <div class="heatmap-cell" style="background:#2563EB">42</div>
+            <div class="heatmap-cell" style="background:#1D4ED8">48</div>
+            <div class="heatmap-cell" style="background:#1E40AF">52</div>
+            <div class="heatmap-cell" style="background:#1E3A8A">56</div>
+            <div class="heatmap-cell" style="background:#172554">62</div>
+
+            <!-- Mardi -->
+            <div class="heatmap-label">Mardi</div>
+            <div class="heatmap-cell" style="background:#F0F1F5">3</div>
+            <div class="heatmap-cell" style="background:#DBEAFE; color:#1E40AF">7</div>
+            <div class="heatmap-cell" style="background:#DBEAFE; color:#1E40AF">10</div>
+            <div class="heatmap-cell" style="background:#BFDBFE; color:#1E40AF">14</div>
+            <div class="heatmap-cell" style="background:#93C5FD; color:#1E3A8A">18</div>
+            <div class="heatmap-cell" style="background:#60A5FA">24</div>
+            <div class="heatmap-cell" style="background:#3B82F6">31</div>
+            <div class="heatmap-cell" style="background:#3B82F6">37</div>
+            <div class="heatmap-cell" style="background:#2563EB">42</div>
+            <div class="heatmap-cell" style="background:#1D4ED8">47</div>
+            <div class="heatmap-cell" style="background:#1E40AF">53</div>
+            <div class="heatmap-cell" style="background:#1E3A8A">58</div>
+            <div class="heatmap-cell" style="background:#172554">64</div>
+            <div class="heatmap-cell" style="background:#172554">68</div>
+
+            <!-- Mercredi (PIC) -->
+            <div class="heatmap-label">Mercredi</div>
+            <div class="heatmap-cell" style="background:#DBEAFE; color:#1E40AF">5</div>
+            <div class="heatmap-cell" style="background:#BFDBFE; color:#1E40AF">10</div>
+            <div class="heatmap-cell" style="background:#93C5FD; color:#1E3A8A">17</div>
+            <div class="heatmap-cell" style="background:#93C5FD; color:#1E3A8A">22</div>
+            <div class="heatmap-cell" style="background:#60A5FA">28</div>
+            <div class="heatmap-cell" style="background:#60A5FA">34</div>
+            <div class="heatmap-cell" style="background:#3B82F6">42</div>
+            <div class="heatmap-cell" style="background:#3B82F6">48</div>
+            <div class="heatmap-cell" style="background:#2563EB">55</div>
+            <div class="heatmap-cell" style="background:#1D4ED8">62</div>
+            <div class="heatmap-cell" style="background:#1E40AF">68</div>
+            <div class="heatmap-cell" style="background:#1E3A8A">72</div>
+            <div class="heatmap-cell" style="background:#172554">78</div>
+            <div class="heatmap-cell" style="background:#172554">82</div>
+
+            <!-- Jeudi -->
+            <div class="heatmap-label">Jeudi</div>
+            <div class="heatmap-cell" style="background:#F0F1F5">3</div>
+            <div class="heatmap-cell" style="background:#DBEAFE; color:#1E40AF">8</div>
+            <div class="heatmap-cell" style="background:#BFDBFE; color:#1E40AF">12</div>
+            <div class="heatmap-cell" style="background:#93C5FD; color:#1E3A8A">17</div>
+            <div class="heatmap-cell" style="background:#93C5FD; color:#1E3A8A">21</div>
+            <div class="heatmap-cell" style="background:#60A5FA">27</div>
+            <div class="heatmap-cell" style="background:#3B82F6">35</div>
+            <div class="heatmap-cell" style="background:#3B82F6">42</div>
+            <div class="heatmap-cell" style="background:#2563EB">48</div>
+            <div class="heatmap-cell" style="background:#1D4ED8">53</div>
+            <div class="heatmap-cell" style="background:#1E40AF">58</div>
+            <div class="heatmap-cell" style="background:#1E3A8A">64</div>
+            <div class="heatmap-cell" style="background:#172554">71</div>
+            <div class="heatmap-cell" style="background:#172554">74</div>
+
+            <!-- Vendredi -->
+            <div class="heatmap-label">Vendredi</div>
+            <div class="heatmap-cell" style="background:#F0F1F5">4</div>
+            <div class="heatmap-cell" style="background:#BFDBFE; color:#1E40AF">12</div>
+            <div class="heatmap-cell" style="background:#93C5FD; color:#1E3A8A">18</div>
+            <div class="heatmap-cell" style="background:#60A5FA">24</div>
+            <div class="heatmap-cell" style="background:#60A5FA">28</div>
+            <div class="heatmap-cell" style="background:#3B82F6">35</div>
+            <div class="heatmap-cell" style="background:#3B82F6">42</div>
+            <div class="heatmap-cell" style="background:#2563EB">50</div>
+            <div class="heatmap-cell" style="background:#1D4ED8">58</div>
+            <div class="heatmap-cell" style="background:#1E40AF">65</div>
+            <div class="heatmap-cell" style="background:#1E3A8A">72</div>
+            <div class="heatmap-cell" style="background:#172554">79</div>
+            <div class="heatmap-cell" style="background:#172554">85</div>
+            <div class="heatmap-cell" style="background:#172554">88</div>
+
+            <!-- Samedi -->
+            <div class="heatmap-label">Samedi</div>
+            <div class="heatmap-cell" style="background:#DBEAFE; color:#1E40AF">8</div>
+            <div class="heatmap-cell" style="background:#BFDBFE; color:#1E40AF">15</div>
+            <div class="heatmap-cell" style="background:#93C5FD; color:#1E3A8A">22</div>
+            <div class="heatmap-cell" style="background:#60A5FA">28</div>
+            <div class="heatmap-cell" style="background:#60A5FA">34</div>
+            <div class="heatmap-cell" style="background:#3B82F6">42</div>
+            <div class="heatmap-cell" style="background:#2563EB">52</div>
+            <div class="heatmap-cell" style="background:#1D4ED8">62</div>
+            <div class="heatmap-cell" style="background:#1E40AF">71</div>
+            <div class="heatmap-cell" style="background:#1E3A8A">78</div>
+            <div class="heatmap-cell" style="background:#172554">85</div>
+            <div class="heatmap-cell" style="background:#172554">92</div>
+            <div class="heatmap-cell" style="background:#172554">98</div>
+            <div class="heatmap-cell" style="background:#172554">95</div>
+
+            <!-- Dimanche -->
+            <div class="heatmap-label">Dimanche</div>
+            <div class="heatmap-cell" style="background:#DBEAFE; color:#1E40AF">6</div>
+            <div class="heatmap-cell" style="background:#BFDBFE; color:#1E40AF">12</div>
+            <div class="heatmap-cell" style="background:#93C5FD; color:#1E3A8A">18</div>
+            <div class="heatmap-cell" style="background:#60A5FA">22</div>
+            <div class="heatmap-cell" style="background:#60A5FA">28</div>
+            <div class="heatmap-cell" style="background:#3B82F6">34</div>
+            <div class="heatmap-cell" style="background:#3B82F6">38</div>
+            <div class="heatmap-cell" style="background:#2563EB">42</div>
+            <div class="heatmap-cell" style="background:#1D4ED8">45</div>
+            <div class="heatmap-cell" style="background:#1E40AF">48</div>
+            <div class="heatmap-cell" style="background:#1E3A8A">52</div>
+            <div class="heatmap-cell" style="background:#172554">55</div>
+            <div class="heatmap-cell" style="background:#172554">58</div>
+            <div class="heatmap-cell" style="background:#172554">52</div>
+          </div>
+          <div style="display:flex; gap:12px; margin-top:14px; font-size:11px; color:#6B7280; align-items:center">
+            <span>Densité :</span>
+            <span><span style="display:inline-block; width:14px; height:14px; background:#F0F1F5; vertical-align:middle; margin-right:5px"></span>< 5</span>
+            <span><span style="display:inline-block; width:14px; height:14px; background:#DBEAFE; vertical-align:middle; margin-right:5px"></span>5-15</span>
+            <span><span style="display:inline-block; width:14px; height:14px; background:#3B82F6; vertical-align:middle; margin-right:5px"></span>30-50</span>
+            <span><span style="display:inline-block; width:14px; height:14px; background:#1E40AF; vertical-align:middle; margin-right:5px"></span>50-70</span>
+            <span><span style="display:inline-block; width:14px; height:14px; background:#172554; vertical-align:middle; margin-right:5px"></span>70+</span>
+            <span style="margin-left:auto"><strong>📌 Pic : Samedi 21h (98 sessions)</strong></span>
+          </div>
+        </div>
+
+        <div class="row-2-eq">
+          <div class="chart-card">
+            <div class="chart-title">
+              <h3>Types de séances</h3>
+              <div class="meta">4 217 sessions</div>
+            </div>
+            <div class="donut-container">
+              <div class="donut">
+                <svg viewBox="0 0 100 100">
+                  <!-- Répétition 52% -->
+                  <circle cx="50" cy="50" r="40" fill="none" stroke="#2C5BFF" stroke-width="14"
+                    stroke-dasharray="130.6 251.2" stroke-dashoffset="0" />
+                  <!-- Enregistrement 28% -->
+                  <circle cx="50" cy="50" r="40" fill="none" stroke="#7B5CFF" stroke-width="14"
+                    stroke-dasharray="70.3 251.2" stroke-dashoffset="-130.6" />
+                  <!-- Mixage 12% -->
+                  <circle cx="50" cy="50" r="40" fill="none" stroke="#F59E0B" stroke-width="14"
+                    stroke-dasharray="30.1 251.2" stroke-dashoffset="-200.9" />
+                  <!-- Voix 5% -->
+                  <circle cx="50" cy="50" r="40" fill="none" stroke="#10B981" stroke-width="14"
+                    stroke-dasharray="12.6 251.2" stroke-dashoffset="-231" />
+                  <!-- Podcast 3% -->
+                  <circle cx="50" cy="50" r="40" fill="none" stroke="#06B6D4" stroke-width="14"
+                    stroke-dasharray="7.5 251.2" stroke-dashoffset="-243.6" />
+                </svg>
+                <div class="donut-center">
+                  <div class="donut-total">4 217</div>
+                  <div class="donut-label">Sessions</div>
+                </div>
+              </div>
+              <div class="donut-legend">
+                <div class="donut-legend-item"><span class="donut-legend-dot" style="background:#2C5BFF"></span><span class="donut-legend-label">🎸 Répétition</span><span class="donut-legend-value">2 193 · 52%</span></div>
+                <div class="donut-legend-item"><span class="donut-legend-dot" style="background:#7B5CFF"></span><span class="donut-legend-label">🎚️ Enregistrement</span><span class="donut-legend-value">1 181 · 28%</span></div>
+                <div class="donut-legend-item"><span class="donut-legend-dot" style="background:#F59E0B"></span><span class="donut-legend-label">🎛️ Mixage</span><span class="donut-legend-value">506 · 12%</span></div>
+                <div class="donut-legend-item"><span class="donut-legend-dot" style="background:#10B981"></span><span class="donut-legend-label">🎤 Voix</span><span class="donut-legend-value">211 · 5%</span></div>
+                <div class="donut-legend-item"><span class="donut-legend-dot" style="background:#06B6D4"></span><span class="donut-legend-label">🎧 Podcast</span><span class="donut-legend-value">126 · 3%</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="chart-card">
+            <div class="chart-title">
+              <h3>Statut paiements</h3>
+              <div class="meta">4 217 réservations</div>
+            </div>
+            <table>
+              <thead><tr><th>Statut</th><th>Nb</th><th>%</th><th>CA</th></tr></thead>
+              <tbody>
+                <tr><td><span class="badge badge-green">Confirmées</span></td><td>3 669</td><td>87%</td><td><strong style="color:var(--green)">142 380€</strong></td></tr>
+                <tr><td><span class="badge badge-orange">En attente</span></td><td>211</td><td>5%</td><td>7 880€</td></tr>
+                <tr><td><span class="badge badge-red">Annulées</span></td><td>337</td><td>8%</td><td>0€ (remboursées)</td></tr>
+              </tbody>
+            </table>
+            <div style="margin-top:12px; padding:10px 12px; background:var(--green-light); border-radius:6px; font-size:11px; color:#065F46">
+              ✅ Taux de confirmation : <strong>87%</strong> (au-dessus de la moy. SaaS 75%)
+            </div>
+            <div style="margin-top:8px; padding:10px 12px; background:var(--orange-light); border-radius:6px; font-size:11px; color:#92400E">
+              ⚠️ <strong>337 annulations</strong> = 8% de churn opérationnel. Améliorer flexibilité d'annulation pourrait baisser ce taux.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ====================================================== -->
+    <!-- PAGE 4 — CLIENTS -->
+    <!-- ====================================================== -->
+    <div class="page" id="p4">
+      <div class="page-grid">
+
+        <div class="kpi-row cols-4">
+          <div class="kpi-card violet">
+            <div class="kpi-label">Total Clients</div>
+            <div class="kpi-value">1 247</div>
+            <div class="kpi-change up">↑ +187 ce mois</div>
+          </div>
+          <div class="kpi-card green">
+            <div class="kpi-label">LTV Moyenne</div>
+            <div class="kpi-value">287<span class="kpi-value-suffix">€</span></div>
+            <div class="kpi-change up">↑ +24€ vs n-1</div>
+          </div>
+          <div class="kpi-card orange">
+            <div class="kpi-label">Taux Récurrence</div>
+            <div class="kpi-value">68<span class="kpi-value-suffix">%</span></div>
+            <div class="kpi-change up">↑ +6 pts vs n-1</div>
+          </div>
+          <div class="kpi-card cyan">
+            <div class="kpi-label">Sessions/Client (moy)</div>
+            <div class="kpi-value">3,4</div>
+            <div class="kpi-change up">↑ +0,5 vs n-1</div>
+          </div>
+        </div>
+
+        <div class="row-2">
+          <div class="chart-card">
+            <div class="chart-title">
+              <h3>Top 10 clients par CA</h3>
+              <div class="meta">tri décroissant</div>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Client</th>
+                  <th>Tenant</th>
+                  <th>Sessions</th>
+                  <th>Heures</th>
+                  <th>CA total</th>
+                  <th>Dernière visite</th>
+                  <th>RFM</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>Lucas Maurel</strong><br><span style="color:#9CA3AF; font-size:11px">VIP ⭐</span></td><td>Canal 93</td><td>34</td><td>72h</td><td><strong style="color:var(--green)">2 340€</strong></td><td>3 mai 2026</td><td><span class="badge badge-green">Champion</span></td></tr>
+                <tr><td><strong>Sarah Cohen</strong></td><td>Studio Bleu</td><td>28</td><td>58h</td><td><strong style="color:var(--green)">1 890€</strong></td><td>2 mai 2026</td><td><span class="badge badge-green">Champion</span></td></tr>
+                <tr><td><strong>Mehdi Bouab</strong></td><td>Le Tamanoir</td><td>22</td><td>48h</td><td><strong style="color:var(--green)">1 550€</strong></td><td>1 mai 2026</td><td><span class="badge badge-green">Champion</span></td></tr>
+                <tr><td><strong>Julie Lambert</strong></td><td>BGA Studios</td><td>19</td><td>42h</td><td><strong style="color:var(--green)">1 280€</strong></td><td>30 avr 2026</td><td><span class="badge badge-violet">Loyaliste</span></td></tr>
+                <tr><td><strong>Thomas Dubois</strong></td><td>Format Son</td><td>17</td><td>36h</td><td><strong style="color:var(--green)">1 120€</strong></td><td>29 avr 2026</td><td><span class="badge badge-violet">Loyaliste</span></td></tr>
+                <tr><td><strong>Aïcha Diallo</strong></td><td>Studiomatic</td><td>15</td><td>32h</td><td><strong style="color:var(--green)">980€</strong></td><td>28 avr 2026</td><td><span class="badge badge-violet">Loyaliste</span></td></tr>
+                <tr><td><strong>Pierre Roussel</strong></td><td>L'Atelier 73</td><td>13</td><td>28h</td><td><strong style="color:var(--green)">820€</strong></td><td>25 avr 2026</td><td><span class="badge badge-blue">Régulier</span></td></tr>
+                <tr><td><strong>Léa Martinez</strong></td><td>Mamagaya</td><td>12</td><td>24h</td><td><strong style="color:var(--green)">740€</strong></td><td>22 avr 2026</td><td><span class="badge badge-blue">Régulier</span></td></tr>
+                <tr><td><strong>Karim Hassan</strong></td><td>Le Hangar</td><td>11</td><td>22h</td><td><strong style="color:var(--green)">680€</strong></td><td>18 avr 2026</td><td><span class="badge badge-orange">À risque</span></td></tr>
+                <tr><td><strong>Marie Dupont</strong></td><td>Son & Lumière</td><td>10</td><td>20h</td><td><strong style="color:var(--green)">620€</strong></td><td>15 avr 2026</td><td><span class="badge badge-orange">À risque</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="chart-card">
+            <div class="chart-title">
+              <h3>Segmentation RFM</h3>
+              <div class="meta">1 247 clients · score R+F+M</div>
+            </div>
+            <div class="bar-chart">
+              <div class="bar-row">
+                <div class="bar-label">⭐ Champions</div>
+                <div class="bar-track"><div class="bar-fill" style="width:34%; background:#10B981">150 clients</div></div>
+                <div class="bar-value">12%</div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">💎 Loyalistes</div>
+                <div class="bar-track"><div class="bar-fill" style="width:80%; background:#7B5CFF">349</div></div>
+                <div class="bar-value">28%</div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">📈 Réguliers</div>
+                <div class="bar-track"><div class="bar-fill" style="width:100%; background:#3B82F6">437</div></div>
+                <div class="bar-value">35%</div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">⚠️ À risque</div>
+                <div class="bar-track"><div class="bar-fill" style="width:51%; background:#F59E0B">224</div></div>
+                <div class="bar-value">18%</div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">❌ Perdus</div>
+                <div class="bar-track"><div class="bar-fill" style="width:20%; background:#EF4444">87</div></div>
+                <div class="bar-value">7%</div>
+              </div>
+            </div>
+            <div style="margin-top:14px; padding:10px 12px; background:var(--violet-light); border-radius:6px; font-size:11px; color:#5B21B6">
+              🎯 <strong>Action</strong> : les <strong>150 Champions</strong> génèrent 38% du CA. Lance un programme fidélité pour les retenir et activer leur viralité.
+            </div>
+          </div>
+        </div>
+
+        <div class="row-2-eq">
+          <div class="chart-card">
+            <div class="chart-title">
+              <h3>Distribution durée des sessions</h3>
+              <div class="meta">heures réservées par session</div>
+            </div>
+            <div class="bar-chart">
+              <div class="bar-row">
+                <div class="bar-label">< 1h</div>
+                <div class="bar-track"><div class="bar-fill" style="width:8%; background:#EF4444">8%</div></div>
+                <div class="bar-value">337</div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">1-2h</div>
+                <div class="bar-track"><div class="bar-fill" style="width:32%; background:#F59E0B">32%</div></div>
+                <div class="bar-value">1 349</div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">2-3h</div>
+                <div class="bar-track"><div class="bar-fill" style="width:38%; background:#3B82F6">38%</div></div>
+                <div class="bar-value">1 602</div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">3-4h</div>
+                <div class="bar-track"><div class="bar-fill" style="width:15%; background:#7B5CFF">15%</div></div>
+                <div class="bar-value">632</div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-label">4h+</div>
+                <div class="bar-track"><div class="bar-fill" style="width:7%; background:#10B981">7%</div></div>
+                <div class="bar-value">295</div>
+              </div>
+            </div>
+            <div style="margin-top:12px; padding:10px 12px; background:var(--blue-light); border-radius:6px; font-size:11px; color:#1E40AF">
+              📊 70% des sessions durent 1-3h. Forfait <strong>Pack 10h à -15%</strong> = match parfait → opportunité d'engagement.
+            </div>
+          </div>
+
+          <div class="chart-card">
+            <div class="chart-title">
+              <h3>Insights AI · Recommandations</h3>
+              <div class="meta">généré par Claude Haiku 4.5</div>
+            </div>
+            <ul style="list-style:none; padding:0; font-size:12px; color:#374151">
+              <li style="padding:10px 0; border-bottom:1px solid #E5E7EB">
+                💡 <strong>Samedi 21h = créneau premium</strong><br>
+                <span style="color:#6B7280; font-size:11px">98 sessions × prix moyen 38€. Augmenter à 45€ générerait +700€/semaine sans impacter le remplissage (élasticité prix faible).</span>
+              </li>
+              <li style="padding:10px 0; border-bottom:1px solid #E5E7EB">
+                💡 <strong>Pack 10h pertinent</strong><br>
+                <span style="color:#6B7280; font-size:11px">85% des Champions cumulent >10h/mois. Lancer un Pack 10h à 350€ (au lieu de 380€) → -8% revenu unitaire mais +25% rétention attendue.</span>
+              </li>
+              <li style="padding:10px 0; border-bottom:1px solid #E5E7EB">
+                💡 <strong>224 clients "À risque" à réactiver</strong><br>
+                <span style="color:#6B7280; font-size:11px">Pas vus depuis 60+ jours. Email automatisé avec offre -20% → ROI estimé : 47 clients récupérés × LTV 287€ = 13 489€.</span>
+              </li>
+              <li style="padding:10px 0">
+                💡 <strong>Canal 93 sur-utilise studios</strong><br>
+                <span style="color:#6B7280; font-size:11px">Tenant Pro à 199€ avec 87 sessions/mois et 184h. Passer en Custom (350€) = +151€ MRR sans friction.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CASE STUDY FOOTER -->
+<section class="case-footer">
+  <div class="case-footer-inner">
+    <div>
+      <h2>Vous cherchez un <span>UX Designer + Power BI</span> ?</h2>
+      <p>Combo rare : design produit + maîtrise data viz. Disponible pour missions freelance UX/BI sur Paris/IDF ou télétravail.</p>
+      <p style="margin-top: 10px;"><strong style="color:#fff">TJM 500€/jour · Disponible immédiatement</strong></p>
+      <a href="mailto:dikengadesign@gmail.com?subject=Mission%20UX%2FBI%20-%20Power%20BI" class="case-cta-btn">📩 Me contacter</a>
+    </div>
+    <div class="case-insights">
+      <div class="case-insight"><strong>3 insights monétisables</strong> livrés par le dashboard :</div>
+      <div class="case-insight">💡 <strong>Samedi 21h = créneau premium</strong> — augmenter prix +15% = <span class="case-insight-num">+700€/semaine</span></div>
+      <div class="case-insight">💡 <strong>224 clients à risque</strong> à réactiver via email auto = <span class="case-insight-num">13 489€</span> de CA récupérable</div>
+      <div class="case-insight">💡 <strong>Canal 93 sous-tarifé</strong> — passage Pro→Custom = <span class="case-insight-num">+151€ MRR</span> sans friction</div>
+      <div class="case-insight" style="margin-top: 8px;">📂 Cas d'étude complet : process design, choix UX, mesures DAX commentées sur demande.</div>
+    </div>
+  </div>
+</section>
+
+<script>
+function showPage(id, el) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  if (el) el.classList.add('active');
+
+  const titles = {
+    'p1': "Vue d'ensemble — Performance globale",
+    'p2': "Tenants — Performance par client",
+    'p3': "Réservations — Activité opérationnelle",
+    'p4': "Clients — Comportement utilisateurs"
+  };
+  document.getElementById('page-title').textContent = titles[id];
+}
+</script>
+
+</body>
+</html>
