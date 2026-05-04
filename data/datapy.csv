@@ -1,0 +1,43 @@
+Type,Element,Categorie,Niveau,Score
+Specialisation,Python,Langage,Expert,5
+Specialisation,JavaScript,Langage,Expert,5
+Specialisation,R,Langage,Avance,4
+Specialisation,Node.js,Framework,Expert,5
+Specialisation,JEE,Framework,Avance,4
+Specialisation,Front-End,Developpement,Expert,5
+Specialisation,FullStack,Developpement,Expert,5
+Specialisation,DevOps,Operations,Expert,5
+Specialisation,Data Management,Data,Expert,5
+Specialisation,Data Visualization,Data,Expert,5
+Specialisation,Intelligence artificielle,IA,Expert,5
+Specialisation,IA embarquee,IA,Avance,4
+Specialisation,Assistants conversationnels,IA,Avance,4
+Specialisation,AI Integration,IA,Expert,5
+Specialisation,Alexa,IA,Avance,4
+Specialisation,Google Home,IA,Avance,4
+Specialisation,Informatique industrielle,Domaine,Avance,4
+Specialisation,CRM Automation,Automatisation,Expert,5
+Specialisation,Back Office Automation,Automatisation,Expert,5
+Service,DataOps,Data,Principal,5
+Service,Data Engineering,Data,Principal,5
+Service,Developpement Full Stack,Developpement,Principal,5
+Service,Agilite,Methodologie,Principal,4
+Service,Intelligence Artificielle,IA,Principal,5
+Service,Automatisation,Data,Principal,4
+Valeur,Bienveillance,Humaine,Forte,5
+Valeur,Confiance,Humaine,Forte,5
+Valeur,Equilibre,Humaine,Forte,4
+Valeur,Engagement,Professionnelle,Forte,5
+Valeur,Innovation,Strategique,Forte,5
+Valeur,Respect ecologique,RSE,Forte,4
+Valeur,Responsabilite sociale,RSE,Forte,4
+Implantation,Paris,Siege,Principal,5
+Implantation,Toulouse,Bureau,Secondaire,3
+KPI,Annee fondation,Histoire,Reference,2019
+KPI,Anciennete,Histoire,Reference,7
+KPI,Effectif estime,RH,Reference,30
+KPI,Membres LinkedIn,Reseau,Reference,20
+KPI,Abonnes LinkedIn,Reseau,Reference,2627
+KPI,Nombre bureaux,Implantation,Reference,2
+KPI,Nombre services,Offre,Reference,6
+KPI,Nombre specialisations,Tech,Reference,19
