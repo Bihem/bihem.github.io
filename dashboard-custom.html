@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Service Dashboard Power BI · Dikenga Design</title>
+<meta name="description" content="Je conçois et développe votre dashboard Power BI custom à partir de vos données. Forfait 1200-2500€ selon scope. UX Designer + DAX avancé. Livraison 2-3 semaines.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Dikenga Design">
+<link rel="canonical" href="https://dikengadesign.fr/dashboard-custom.html">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dikengadesign.fr/dashboard-custom.html">
+<meta property="og:title" content="Dashboard Power BI custom — Dikenga Design">
+<meta property="og:description" content="UX Designer + Power BI. Je conçois votre dashboard sur-mesure. Forfait 1200-2500€.">
+<meta property="og:image" content="https://dikengadesign.fr/mockup-studiobooking-bi.webp">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+@font-face{font-family:'Suisse Intl';src:url('https://cdn.prod.website-files.com/6772f6efe246aaaa73ad2a98/67784f5e4c3068c2e2f22e60_SuisseIntl-Regular.otf')format('opentype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Suisse Intl';src:url('https://cdn.prod.website-files.com/6772f6efe246aaaa73ad2a98/67784f815ee57b4c18bdae11_SuisseIntl-Light.otf')format('opentype');font-weight:300;font-style:normal;font-display:swap}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #1D1B1B;
+  --bg2: #252323;
+  --bg3: #2E2B2B;
+  --white: #FFFFFF;
+  --dim: rgba(255, 255, 255, 0.55);
+  --line: rgba(255, 255, 255, 0.1);
+  --blue: #2C5BFF;
+  --violet: #7B5CFF;
+  --green: #10B981;
+  --F: 'Space Grotesk', sans-serif;
+  --SI: 'Suisse Intl', sans-serif;
+}
+
+html { background: var(--bg); scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: var(--SI);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(29, 27, 27, 0.85);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-inner {
+  max-width: 1280px; margin: 0 auto;
+  padding: 18px 32px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.nav-logo {
+  font-family: var(--F);
+  font-size: 17px; font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.nav-links { display: flex; gap: 28px; align-items: center; font-size: 13px; }
+.nav-links a { color: var(--dim); transition: color 0.2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--white); }
+.nav-cta {
+  background: var(--white);
+  color: var(--bg) !important;
+  padding: 9px 20px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+/* HERO */
+.hero {
+  padding: 100px 32px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -150px; right: -150px;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(44, 91, 255, 0.18) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-inner {
+  max-width: 1100px; margin: 0 auto;
+  position: relative; z-index: 1;
+}
+.hero-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 14px;
+  background: rgba(44, 91, 255, 0.15);
+  border: 1px solid rgba(44, 91, 255, 0.3);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #93C5FD;
+  margin-bottom: 28px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.hero h1 {
+  font-family: var(--SI);
+  font-size: clamp(48px, 7vw, 88px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 32px;
+  max-width: 960px;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--blue);
+}
+.hero .lede {
+  font-size: 19px;
+  color: var(--dim);
+  max-width: 680px;
+  margin-bottom: 40px;
+  line-height: 1.7;
+}
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--white);
+  color: var(--bg);
+  padding: 18px 36px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 15px;
+  transition: transform 0.2s;
+  margin-right: 12px;
+}
+.hero-cta:hover { transform: translateY(-2px); }
+.hero-cta-secondary {
+  display: inline-flex; align-items: center; gap: 10px;
+  border: 1px solid var(--line);
+  color: var(--white);
+  padding: 18px 36px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 15px;
+  transition: background 0.2s;
+}
+.hero-cta-secondary:hover { background: var(--bg3); }
+
+/* SECTIONS */
+.section {
+  padding: 100px 32px;
+  border-top: 1px solid var(--line);
+}
+.section-inner {
+  max-width: 1100px; margin: 0 auto;
+}
+.section-label {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--blue);
+  margin-bottom: 16px;
+}
+.section h2 {
+  font-family: var(--SI);
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+  max-width: 800px;
+}
+.section h2 em { font-style: italic; color: var(--blue); }
+.section .lede {
+  font-size: 18px;
+  color: var(--dim);
+  max-width: 700px;
+  margin-bottom: 56px;
+}
+
+/* WHO IT'S FOR */
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+.audience-card {
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 28px;
+  transition: all 0.2s;
+}
+.audience-card:hover {
+  border-color: rgba(44, 91, 255, 0.4);
+  transform: translateY(-3px);
+}
+.audience-card-icon {
+  font-size: 32px;
+  margin-bottom: 14px;
+}
+.audience-card h3 {
+  font-family: var(--F);
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.audience-card p {
+  font-size: 14px;
+  color: var(--dim);
+  line-height: 1.55;
+}
+
+/* PROCESS */
+.process {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px;
+}
+.process-step {
+  position: relative;
+}
+.process-step-num {
+  font-family: var(--F);
+  font-size: 56px;
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--blue), var(--violet));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+.process-step h3 {
+  font-family: var(--F);
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.process-step p {
+  font-size: 14px;
+  color: var(--dim);
+  line-height: 1.55;
+}
+.process-step .duration {
+  font-size: 11px;
+  color: var(--blue);
+  font-weight: 600;
+  margin-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* PRICING */
+.pricing-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.pricing-card {
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 36px 28px;
+  position: relative;
+  transition: all 0.2s;
+}
+.pricing-card:hover {
+  border-color: rgba(44, 91, 255, 0.4);
+  transform: translateY(-3px);
+}
+.pricing-card.popular {
+  border-color: rgba(44, 91, 255, 0.5);
+  background: linear-gradient(145deg, rgba(44,91,255,0.08), var(--bg2));
+}
+.pricing-card.popular::before {
+  content: 'POPULAIRE';
+  position: absolute;
+  top: -10px; right: 24px;
+  background: var(--blue);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+.pricing-card h3 {
+  font-family: var(--F);
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.pricing-card .price {
+  font-family: var(--F);
+  font-size: 42px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 16px 0;
+}
+.pricing-card .price .currency {
+  color: var(--dim);
+  font-size: 24px;
+}
+.pricing-card .price .unit {
+  font-size: 14px;
+  color: var(--dim);
+  font-weight: 400;
+}
+.pricing-card .desc {
+  font-size: 13px;
+  color: var(--dim);
+  margin-bottom: 24px;
+  min-height: 40px;
+}
+.pricing-card ul {
+  list-style: none;
+  margin-bottom: 28px;
+}
+.pricing-card ul li {
+  padding: 8px 0;
+  padding-left: 24px;
+  position: relative;
+  font-size: 13px;
+  color: var(--white);
+  border-bottom: 1px solid var(--line);
+}
+.pricing-card ul li:last-child { border-bottom: none; }
+.pricing-card ul li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--green);
+  font-weight: 700;
+}
+.pricing-card .btn-pricing {
+  display: block;
+  text-align: center;
+  background: var(--white);
+  color: var(--bg);
+  padding: 14px 24px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 14px;
+  transition: transform 0.2s;
+}
+.pricing-card .btn-pricing:hover { transform: translateY(-2px); }
+.pricing-card.popular .btn-pricing {
+  background: var(--blue);
+  color: white;
+}
+
+/* CASE STUDY */
+.case-showcase {
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 48px;
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.case-showcase img {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+}
+.case-showcase h3 {
+  font-family: var(--F);
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.case-showcase p {
+  font-size: 15px;
+  color: var(--dim);
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+.case-showcase-stats {
+  display: flex;
+  gap: 24px;
+  margin: 20px 0 24px;
+}
+.case-showcase-stats div strong {
+  font-family: var(--F);
+  font-size: 26px;
+  font-weight: 600;
+  display: block;
+  background: linear-gradient(135deg, var(--blue), var(--violet));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.case-showcase-stats div span {
+  font-size: 11px;
+  color: var(--dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.case-showcase a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--blue);
+  font-weight: 600;
+  font-size: 14px;
+  border-bottom: 1px solid var(--blue);
+  padding-bottom: 2px;
+}
+
+@media (max-width: 768px) {
+  .case-showcase { grid-template-columns: 1fr; padding: 28px; gap: 28px; }
+  .nav-links a:not(.nav-cta) { display: none; }
+}
+
+/* FAQ */
+.faq-list { max-width: 800px; margin: 0 auto; }
+.faq-item {
+  border-bottom: 1px solid var(--line);
+  padding: 24px 0;
+  cursor: pointer;
+}
+.faq-question {
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: var(--F);
+  font-size: 17px; font-weight: 500;
+}
+.faq-question::after {
+  content: '+';
+  font-size: 24px;
+  color: var(--blue);
+  transition: transform 0.2s;
+}
+.faq-item.open .faq-question::after { transform: rotate(45deg); }
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  font-size: 14px;
+  color: var(--dim);
+  line-height: 1.7;
+  transition: max-height 0.3s, padding-top 0.3s;
+}
+.faq-item.open .faq-answer { max-height: 200px; padding-top: 14px; }
+
+/* CTA */
+.cta-final {
+  padding: 100px 32px;
+  background: linear-gradient(180deg, transparent, rgba(44, 91, 255, 0.08));
+  text-align: center;
+  border-top: 1px solid var(--line);
+}
+.cta-final h2 {
+  font-family: var(--SI);
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  line-height: 1.1;
+}
+.cta-final h2 em { font-style: italic; color: var(--blue); }
+.cta-final p {
+  font-size: 17px;
+  color: var(--dim);
+  margin-bottom: 32px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cta-buttons {
+  display: flex; gap: 14px; justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* FOOTER */
+footer {
+  padding: 40px 32px;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  color: var(--dim);
+  font-size: 13px;
+}
+footer a { color: var(--blue); }
+footer p { margin-bottom: 6px; }
+
+@media (max-width: 768px) {
+  .hero { padding: 60px 20px 40px; }
+  .section { padding: 60px 20px; }
+  .cta-final { padding: 60px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Dikenga.</a>
+    <div class="nav-links">
+      <a href="/projets.html">Projets</a>
+      <a href="/a-propos.html">À propos</a>
+      <a href="/tarifs.html">Tarifs</a>
+      <a href="/dashboard-custom.html" class="active">Power BI</a>
+      <a href="/contact.html" class="nav-cta">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-pill">📊 Service Power BI · Forfait</div>
+    <h1>Votre dashboard Power BI custom, <em>conçu</em> et <em>livré</em> en 2-3 semaines.</h1>
+    <p class="lede">UX Designer + DAX avancé. Je transforme vos données brutes en cockpit décisionnel actionnable. Forfait clé en main, sans engagement régie.</p>
+    <a href="#tarifs" class="hero-cta">Voir les forfaits →</a>
+    <a href="https://calendly.com/dikengadesign" target="_blank" class="hero-cta-secondary">📅 Réserver 30 min gratuites</a>
+  </div>
+</header>
+
+<!-- AUDIENCE -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label">Pour qui</div>
+    <h2>Vous avez de la <em>data</em>. Vous voulez en tirer du <em>sens</em>.</h2>
+    <p class="lede">Si vous reconnaissez votre situation dans une de ces 4 cases, je peux vous aider.</p>
+
+    <div class="audience-grid">
+      <div class="audience-card">
+        <div class="audience-card-icon">🏢</div>
+        <h3>SaaS B2B en croissance</h3>
+        <p>Vous avez un produit live, des données dans Stripe + votre DB, mais pas de vue consolidée business. Le tableau de bord interne montre les chiffres bruts, pas les insights.</p>
+      </div>
+      <div class="audience-card">
+        <div class="audience-card-icon">🎵</div>
+        <h3>SMAC / structure culturelle</h3>
+        <p>Vous devez justifier vos chiffres aux subventions / au conseil. Excel ne suffit plus. Vous voulez un dashboard pro qui parle à vos financeurs.</p>
+      </div>
+      <div class="audience-card">
+        <div class="audience-card-icon">🛒</div>
+        <h3>E-commerce ou marketplace</h3>
+        <p>Shopify / WooCommerce ne suffit plus. Vous voulez croiser ventes, clients, produits, marketing dans une vue unique avec recommandations actionnables.</p>
+      </div>
+      <div class="audience-card">
+        <div class="audience-card-icon">🎯</div>
+        <h3>Studio / agence</h3>
+        <p>Vous gérez des projets / sessions / clients dans plusieurs outils (Notion, Toggl, Stripe). Un dashboard unifié = gain de temps + meilleure décision.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE SHOWCASE -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label">Cas d'étude</div>
+    <h2>Dashboard StudioBooking · <em>4 pages</em>, 35+ mesures DAX</h2>
+    <p class="lede">Réalisé pour StudioBooking, mon SaaS B2B. Vrai cas, vraies données, vrais insights monétisables livrés.</p>
+
+    <div class="case-showcase">
+      <a href="studiobooking-bi.html"><img src="mockup-studiobooking-bi.webp" alt="Dashboard Power BI StudioBooking"></a>
+      <div>
+        <h3>StudioBooking BI</h3>
+        <p>Dashboard analytique 4 pages avec 35+ mesures DAX, segmentation RFM, AI Insights via Anthropic Claude. Modèle relationnel propre + theme Power BI custom.</p>
+        <div class="case-showcase-stats">
+          <div><strong>4</strong><span>pages</span></div>
+          <div><strong>35+</strong><span>mesures DAX</span></div>
+          <div><strong>3</strong><span>insights livrés</span></div>
+        </div>
+        <a href="studiobooking-bi.html">Voir le dashboard live →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label">Comment ça marche</div>
+    <h2>5 étapes, <em>2-3 semaines</em>, livrable utilisable dès jour 1.</h2>
+
+    <div class="process">
+      <div class="process-step">
+        <div class="process-step-num">01</div>
+        <h3>Discovery (gratuit)</h3>
+        <p>30 min en visio. On parle de votre activité, vos données, vos questions clés. Je vous dis honnêtement si Power BI est la bonne réponse.</p>
+        <div class="duration">30 min · gratuit</div>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">02</div>
+        <h3>Audit data</h3>
+        <p>Analyse de vos sources (DB, API, Excel, Stripe, etc.). Modèle de données proposé. Maquettes Figma des 3-5 pages. Validation avant dev.</p>
+        <div class="duration">3-5 jours</div>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">03</div>
+        <h3>Build dashboard</h3>
+        <p>Connexion sources, modèle relationnel, mesures DAX, design Power BI custom (theme JSON). Itérations en cours via partage Power BI Service.</p>
+        <div class="duration">7-10 jours</div>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">04</div>
+        <h3>Livraison + formation</h3>
+        <p>Fichier .pbix livré. Session 1h pour vous former à la lecture et aux ajustements simples. Documentation complète des mesures.</p>
+        <div class="duration">2 jours</div>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">05</div>
+        <h3>Suivi 30 jours</h3>
+        <p>Garantie : 30 jours après livraison, je corrige tout bug ou ajuste les visuels. Support email illimité.</p>
+        <div class="duration">30 jours inclus</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section" id="tarifs">
+  <div class="section-inner">
+    <div class="section-label">Forfaits</div>
+    <h2>Trois forfaits, <em>tout inclus.</em></h2>
+    <p class="lede">Pas de régie au jour. Vous savez ce que vous payez, je vous livre dans le délai annoncé.</p>
+
+    <div class="pricing-cards">
+      <div class="pricing-card">
+        <h3>Essentiel</h3>
+        <div class="price"><span class="currency">€</span>1 200<span class="unit"> HT</span></div>
+        <p class="desc">Dashboard 1 page, 10-15 mesures DAX, 1 source de données.</p>
+        <ul>
+          <li>Maquette Figma + validation</li>
+          <li>1 page Power BI custom</li>
+          <li>10-15 mesures DAX</li>
+          <li>1 source (DB, CSV, ou API)</li>
+          <li>Theme JSON personnalisé</li>
+          <li>Formation 1h</li>
+          <li>Suivi 30 jours</li>
+          <li>Livraison : 1 semaine</li>
+        </ul>
+        <a href="mailto:dikengadesign@gmail.com?subject=Forfait%20Essentiel%20-%20Dashboard%20Power%20BI" class="btn-pricing">Choisir Essentiel</a>
+      </div>
+
+      <div class="pricing-card popular">
+        <h3>Pro</h3>
+        <div class="price"><span class="currency">€</span>1 800<span class="unit"> HT</span></div>
+        <p class="desc">Dashboard 3 pages, 25+ mesures DAX, multi-sources, AI Insights.</p>
+        <ul>
+          <li>Maquette Figma + validation</li>
+          <li>3 pages Power BI custom</li>
+          <li>25+ mesures DAX (time intelligence)</li>
+          <li>Multi-sources (DB + API + Excel)</li>
+          <li>Theme JSON personnalisé</li>
+          <li>AI Insights (Claude API) ou Smart Narrative</li>
+          <li>Formation 1h + documentation</li>
+          <li>Suivi 30 jours</li>
+          <li>Livraison : 2 semaines</li>
+        </ul>
+        <a href="mailto:dikengadesign@gmail.com?subject=Forfait%20Pro%20-%20Dashboard%20Power%20BI" class="btn-pricing">Choisir Pro</a>
+      </div>
+
+      <div class="pricing-card">
+        <h3>Enterprise</h3>
+        <div class="price"><span class="currency">€</span>2 500<span class="unit"> HT</span></div>
+        <p class="desc">Dashboard 5+ pages, 50+ mesures, RLS, automatisations.</p>
+        <ul>
+          <li>Maquettes Figma complètes</li>
+          <li>5+ pages Power BI</li>
+          <li>50+ mesures DAX avancées</li>
+          <li>RLS (Row-Level Security)</li>
+          <li>What-if parameters</li>
+          <li>AI Insights + automatisations</li>
+          <li>Publication Power BI Service</li>
+          <li>Formation 2h + doc complète</li>
+          <li>Suivi 60 jours</li>
+          <li>Livraison : 3 semaines</li>
+        </ul>
+        <a href="mailto:dikengadesign@gmail.com?subject=Forfait%20Enterprise%20-%20Dashboard%20Power%20BI" class="btn-pricing">Choisir Enterprise</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label">FAQ</div>
+    <h2>Questions <em>fréquentes.</em></h2>
+
+    <div class="faq-list">
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question">Je n'ai pas Power BI, comment ça marche ?</div>
+        <div class="faq-answer">Power BI Desktop est gratuit (Windows). Pour publier en ligne (partager avec votre équipe) il faut une licence Power BI Pro à 14€/mois/utilisateur. Je vous accompagne dans le setup.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question">Mes données sont sensibles. Sécurité ?</div>
+        <div class="faq-answer">Je travaille uniquement sur vos données via accès lecture seule. Je peux signer un NDA. Le dashboard final tourne chez vous (Power BI Desktop) ou sur votre tenant Power BI Service — je n'ai pas d'accès permanent.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question">Mes données viennent de plusieurs outils. Possible ?</div>
+        <div class="faq-answer">Oui. Power BI peut se connecter à : Stripe, Supabase/PostgreSQL/MySQL, Google Sheets, Notion, Airtable, Excel, REST API custom, etc. Je gère l'intégration multi-sources sans surcoût (forfait Pro/Enterprise).</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question">Le forfait inclut-il la formation de mon équipe ?</div>
+        <div class="faq-answer">Une session de 1h (Pro) ou 2h (Enterprise) pour vous + vos collaborateurs. J'enregistre la session sur Loom pour rejouer plus tard. Documentation écrite des mesures DAX incluse.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question">Si je veux ajouter des choses plus tard ?</div>
+        <div class="faq-answer">Avenant sur devis (TJM 500€/jour). Petites modifs (1 mesure, 1 visuel) gratuites pendant 30 jours après livraison. Refonte plus large = nouveau forfait.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question">Puis-je avoir un Tableau / Looker Studio à la place ?</div>
+        <div class="faq-answer">Oui pour Looker Studio (gratuit, +0€). Pour Tableau, je connais l'outil mais Power BI reste 30% plus rapide à développer pour moi. À discuter en discovery.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <h2>Une <em>data</em>. Un <em>cockpit</em>. <em>2 semaines.</em></h2>
+  <p>30 min de discovery gratuites. Je vous dis si je peux vous aider, et combien ça coûte précisément. Pas d'engagement.</p>
+  <div class="cta-buttons">
+    <a href="https://calendly.com/dikengadesign" target="_blank" class="hero-cta">📅 Réserver 30 min gratuites</a>
+    <a href="mailto:dikengadesign@gmail.com?subject=Dashboard%20Power%20BI%20-%20Demande%20de%20devis" class="hero-cta-secondary">📩 Demander un devis</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>Dikenga Design</strong> — UI/UX Designer freelance Paris</p>
+  <p><a href="https://dikengadesign.fr">dikengadesign.fr</a> · <a href="mailto:dikengadesign@gmail.com">dikengadesign@gmail.com</a></p>
+  <p style="margin-top: 16px; opacity: 0.6;">SIRET 92355896900015 · TVA non applicable, art. 293 B du CGI</p>
+</footer>
+
+</body>
+</html>
