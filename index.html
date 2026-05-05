@@ -460,12 +460,12 @@ body.leaving{animation:body-exit 0.35s cubic-bezier(.4,0,.2,1) forwards}
 .mq-voir{font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:1;transition:opacity .3s;font-family:var(--SI);color:var(--white);text-decoration:none;white-space:nowrap}
 .mq-voir:hover{opacity:.6}
 
-/* ── CYLINDRE 3D ROTATIF (responsive, hauteur uniforme, ratio naturel, espacés) */
-.mq-cyl-wrap{display:flex;justify-content:center;align-items:center;height:clamp(240px,42vw,420px);padding:20px 0;perspective:clamp(1600px,180vw,2800px)}
-.mq-cylinder{width:1px;height:1px;position:relative;transform-style:preserve-3d;animation:mqCylRot 42s linear infinite;will-change:transform}
+/* ── CYLINDRE 3D ROTATIF (panneaux uniformes, responsive) */
+.mq-cyl-wrap{display:flex;justify-content:center;align-items:center;height:clamp(280px,38vw,420px);padding:20px 0;perspective:clamp(1600px,180vw,2800px)}
+.mq-cylinder{position:relative;transform-style:preserve-3d;animation:mqCylRot 38s linear infinite;will-change:transform}
 .mq-cylinder:hover{animation-play-state:paused}
-@keyframes mqCylRot{from{transform:rotateY(0) rotateX(-6deg)}to{transform:rotateY(-360deg) rotateX(-6deg)}}
-.mq-panel{position:absolute;background:transparent;overflow:hidden;cursor:pointer;display:block;text-decoration:none;top:0;backface-visibility:hidden}
+@keyframes mqCylRot{from{transform:rotateY(0) rotateX(-4deg)}to{transform:rotateY(-360deg) rotateX(-4deg)}}
+.mq-panel{position:absolute;background:transparent;overflow:hidden;cursor:pointer;display:block;text-decoration:none;left:0;top:0;backface-visibility:hidden}
 .mq-panel img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;pointer-events:none;transition:filter .35s ease}
 .mq-panel:hover img{filter:brightness(1.1)}
 
@@ -1965,32 +1965,23 @@ body.light .reel-arrow svg path{stroke:#000000}
     var panels=cyl.querySelectorAll('.mq-panel');
     var N=panels.length;
     var vw=Math.max(window.innerWidth,document.documentElement.clientWidth||0);
-    // Échelle continue : H suit la largeur, r aussi
-    var H=Math.round(clamp(vw*0.17,130,240));
-    var r=Math.round(clamp(vw*0.58,360,820));
+    // Panneaux uniformes ratio 4:3, scalent avec le viewport
+    var W=Math.round(clamp(vw*0.22,180,320));
+    var H=Math.round(W*3/4);
+    // r calculé pour que les panneaux se touchent exactement (cylindre solide)
+    var r=Math.round(W/(2*Math.tan(Math.PI/N)));
+    cyl.style.width=W+'px';
+    cyl.style.height=H+'px';
     panels.forEach(function(p,i){
-      var img=p.querySelector('img');
-      var natW=img.naturalWidth||4;
-      var natH=img.naturalHeight||3;
-      var w=Math.round((natW/natH)*H);
       var angle=(i*360/N);
-      p.style.width=w+'px';
+      p.style.width=W+'px';
       p.style.height=H+'px';
-      p.style.left=(-w/2)+'px';
-      p.style.top=(-H/2)+'px';
       p.style.transform='rotateY('+angle+'deg) translateZ('+r+'px)';
     });
   }
   function init(){
     var cyl=document.getElementById('mqCylinder');
     if(!cyl)return;
-    var imgs=cyl.querySelectorAll('img');
-    var loaded=0,total=imgs.length;
-    function checkAll(){loaded++;if(loaded>=total)placeCyl();}
-    imgs.forEach(function(img){
-      if(img.complete&&img.naturalWidth)checkAll();
-      else{img.addEventListener('load',checkAll);img.addEventListener('error',checkAll);}
-    });
     placeCyl();
   }
   if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
