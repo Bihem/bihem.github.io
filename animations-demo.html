@@ -184,11 +184,11 @@ body{background:var(--bg);color:var(--white);font-family:var(--F);overflow-x:hid
 
 /* V14 — CYLINDRE 8 FACES (images entières, sans crop) */
 .v14-wrap{display:flex;justify-content:center;align-items:center;perspective:2400px;height:620px;padding:40px}
-.v14-cylinder{width:380px;height:260px;position:relative;transform-style:preserve-3d;animation:v14rot 32s linear infinite}
+.v14-cylinder{width:400px;height:300px;position:relative;transform-style:preserve-3d;animation:v14rot 32s linear infinite}
 .v14-cylinder:hover{animation-play-state:paused}
 @keyframes v14rot{from{transform:rotateY(0) rotateX(-6deg)}to{transform:rotateY(-360deg) rotateX(-6deg)}}
-.v14-panel{position:absolute;width:380px;height:260px;background:#0a0a0a;outline:1px solid rgba(255,255,255,0.06);box-shadow:0 0 30px rgba(0,0,0,0.4);display:flex;align-items:center;justify-content:center;padding:20px}
-.v14-panel img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;pointer-events:none}
+.v14-panel{position:absolute;width:400px;height:300px;background:transparent;overflow:hidden}
+.v14-panel img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;pointer-events:none;image-rendering:auto;filter:none}
 
 /* V15 — CONVEYOR 3D */
 .v15-wrap{perspective:1200px;height:480px;overflow:hidden;display:flex;align-items:center}
@@ -243,8 +243,8 @@ body{background:var(--bg);color:var(--white);font-family:var(--F);overflow-x:hid
 
 /* mobile */
 @media(max-width:680px){
-  .v14-cylinder{width:230px;height:160px}
-  .v14-panel{width:230px;height:160px;padding:10px}
+  .v14-cylinder{width:240px;height:180px}
+  .v14-panel{width:240px;height:180px}
   .v15-card,.v16-card,.v18-card{width:200px;height:140px}
   .v17-helix{width:140px;height:380px}
   .v17-node{width:120px;height:80px;left:10px}
@@ -787,8 +787,8 @@ function makeCard(p,cls){
 (()=>{
   const cyl=document.getElementById('v14cyl');
   const N=8;
-  // r = (panelWidth/2) / tan(π/N) — pour 380px de largeur sur 8 panneaux
-  const r=460;
+  // r = (panelWidth/2) / tan(π/N) — pour 400px de largeur sur 8 panneaux
+  const r=485;
   const items=projects.slice(0,N);
   cyl.innerHTML=items.map((p,i)=>{
     const angle=(i*360/N);
