@@ -102,18 +102,19 @@ body{background:var(--bg);color:var(--white);font-family:var(--F);overflow-x:hid
 /* ════════════════════════════════════════════════════════
    VARIANT 7 — 3D CUBES (rotating, all faces show projects)
    ════════════════════════════════════════════════════════ */
-.v7-wrap{display:flex;justify-content:center;align-items:center;gap:60px;perspective:2000px;height:520px;padding:30px;flex-wrap:wrap}
-.v7-cube{width:240px;height:240px;position:relative;transform-style:preserve-3d;animation:v7rot 14s linear infinite}
-.v7-cube:nth-child(2){animation-duration:18s;animation-delay:-3s}
-.v7-cube:nth-child(3){animation-duration:11s;animation-delay:-6s}
-@keyframes v7rot{from{transform:rotateY(0) rotateX(-8deg)}to{transform:rotateY(-360deg) rotateX(-8deg)}}
-.v7-face{position:absolute;width:240px;height:240px;background:#000;background-size:cover;background-position:center;box-shadow:inset 0 0 60px rgba(0,0,0,0.7);outline:1px solid rgba(255,255,255,0.05)}
-.v7-front{transform:translateZ(120px)}
-.v7-back{transform:rotateY(180deg) translateZ(120px)}
-.v7-right{transform:rotateY(90deg) translateZ(120px)}
-.v7-left{transform:rotateY(-90deg) translateZ(120px)}
-.v7-top{transform:rotateX(90deg) translateZ(120px);background:linear-gradient(135deg,#1D1B1B,#2E2B2B);display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:700}
-.v7-bottom{transform:rotateX(-90deg) translateZ(120px);background:linear-gradient(135deg,#2E2B2B,#1D1B1B)}
+.v7-wrap{display:flex;justify-content:center;align-items:center;gap:80px;perspective:2400px;height:620px;padding:40px;flex-wrap:wrap}
+.v7-cube{width:300px;height:300px;position:relative;transform-style:preserve-3d;animation:v7rot 22s linear infinite}
+.v7-cube:nth-child(2){animation-duration:26s;animation-delay:-5s}
+.v7-cube:nth-child(3){animation-duration:18s;animation-delay:-9s}
+.v7-cube:hover{animation-play-state:paused}
+@keyframes v7rot{from{transform:rotateY(0) rotateX(-12deg)}to{transform:rotateY(-360deg) rotateX(-12deg)}}
+.v7-face{position:absolute;width:300px;height:300px;background:#000;background-size:cover;background-position:center;box-shadow:inset 0 0 60px rgba(0,0,0,0.4);outline:1px solid rgba(255,255,255,0.06)}
+.v7-front{transform:translateZ(150px)}
+.v7-back{transform:rotateY(180deg) translateZ(150px)}
+.v7-right{transform:rotateY(90deg) translateZ(150px)}
+.v7-left{transform:rotateY(-90deg) translateZ(150px)}
+.v7-top{transform:rotateX(90deg) translateZ(150px);background:linear-gradient(135deg,#1D1B1B,#2E2B2B);display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;letter-spacing:.18em;text-transform:uppercase;font-weight:700}
+.v7-bottom{transform:rotateX(-90deg) translateZ(150px);background:linear-gradient(135deg,#2E2B2B,#1D1B1B)}
 
 /* ════════════════════════════════════════════════════════
    VARIANT 8 — TUNNEL Z (cards flying towards viewer)
@@ -131,27 +132,28 @@ body{background:var(--bg);color:var(--white);font-family:var(--F);overflow-x:hid
 /* ════════════════════════════════════════════════════════
    VARIANT 9 — WAVE SINE (cards bob up/down while scrolling)
    ════════════════════════════════════════════════════════ */
-.v9-wrap{overflow:hidden;padding:60px 0;perspective:1000px}
-.v9-track{display:flex;gap:24px;width:max-content;animation:v9scroll 30s linear infinite;will-change:transform}
+.v9-wrap{overflow:hidden;padding:100px 0;perspective:1200px}
+.v9-track{display:flex;gap:40px;width:max-content;animation:v9scroll 38s linear infinite;will-change:transform;align-items:center;height:340px}
 @keyframes v9scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.v9-card{width:280px;height:200px;flex-shrink:0;background-size:cover;background-position:center;background-color:#000;animation:v9bob 4s ease-in-out infinite;transition:transform .4s ease}
-.v9-card:nth-child(2n){animation-delay:-1s}
-.v9-card:nth-child(3n){animation-delay:-2s}
-.v9-card:nth-child(4n){animation-delay:-3s}
-@keyframes v9bob{0%,100%{transform:translateY(-15px) rotate(-1deg)}50%{transform:translateY(15px) rotate(1deg)}}
+.v9-card{width:340px;height:240px;flex-shrink:0;background-size:cover;background-position:center;background-color:#000;animation:v9bob 5.5s ease-in-out infinite;transition:transform .4s ease;box-shadow:0 18px 40px rgba(0,0,0,.4)}
+.v9-card:nth-child(2n){animation-delay:-0.9s}
+.v9-card:nth-child(3n){animation-delay:-1.8s}
+.v9-card:nth-child(4n){animation-delay:-2.7s}
+.v9-card:nth-child(5n){animation-delay:-3.6s}
+@keyframes v9bob{0%,100%{transform:translateY(-40px) rotate(-2deg)}50%{transform:translateY(40px) rotate(2deg)}}
 .v9-card:hover{transform:translateY(0) rotate(0) scale(1.08);z-index:5;animation-play-state:paused}
 
 /* ════════════════════════════════════════════════════════
    VARIANT 10 — DIAGONAL CROSS (rows crossing X-pattern)
    ════════════════════════════════════════════════════════ */
-.v10-wrap{position:relative;height:480px;overflow:hidden}
-.v10-row{position:absolute;left:0;right:0;display:flex;gap:18px;width:max-content;will-change:transform}
-.v10-row-a{top:60px;animation:v10A 22s linear infinite;transform:rotate(-8deg)}
-.v10-row-b{bottom:60px;animation:v10B 26s linear infinite;transform:rotate(8deg)}
-@keyframes v10A{from{transform:translateX(0) rotate(-8deg)}to{transform:translateX(-50%) rotate(-8deg)}}
-@keyframes v10B{from{transform:translateX(-50%) rotate(8deg)}to{transform:translateX(0) rotate(8deg)}}
-.v10-card{width:260px;height:170px;background-size:cover;background-position:center;background-color:#000;flex-shrink:0;transition:transform .4s ease}
-.v10-card:hover{transform:scale(1.08);z-index:5}
+.v10-wrap{position:relative;min-height:680px;display:flex;justify-content:center;align-items:center;padding:40px 0;perspective:1400px}
+.v10-orbit{position:relative;width:600px;height:600px;transform-style:preserve-3d}
+.v10-card{position:absolute;top:50%;left:50%;width:200px;height:140px;background-size:cover;background-position:center;background-color:#000;will-change:transform;box-shadow:0 14px 30px rgba(0,0,0,.4);transition:filter .3s ease, opacity .3s ease}
+.v10-card:hover{filter:brightness(1.15)}
+@media(max-width:680px){
+  .v10-orbit{width:90vw;height:90vw}
+  .v10-card{width:130px;height:90px}
+}
 
 /* ════════════════════════════════════════════════════════
    VARIANT 11 — POLAROID SCATTER (random rotation pile)
@@ -179,6 +181,75 @@ body{background:var(--bg);color:var(--white);font-family:var(--F);overflow-x:hid
 .v13-wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding:50px 28px;min-height:560px;cursor:none;position:relative}
 .v13-cursor{position:fixed;width:60px;height:60px;border-radius:50%;border:1.5px solid #fff;pointer-events:none;transform:translate(-50%,-50%);z-index:99;mix-blend-mode:difference;transition:width .3s,height .3s,opacity .3s;opacity:0}
 .v13-card{aspect-ratio:4/3;background-size:cover;background-position:center;background-color:#000;transition:transform .25s cubic-bezier(.22,1,.36,1)}
+
+/* V14 — CYLINDRE 8 FACES */
+.v14-wrap{display:flex;justify-content:center;align-items:center;perspective:2000px;height:560px;padding:30px}
+.v14-cylinder{width:280px;height:280px;position:relative;transform-style:preserve-3d;animation:v14rot 32s linear infinite}
+.v14-cylinder:hover{animation-play-state:paused}
+@keyframes v14rot{from{transform:rotateY(0) rotateX(-6deg)}to{transform:rotateY(-360deg) rotateX(-6deg)}}
+.v14-panel{position:absolute;width:280px;height:280px;background:#000;background-size:cover;background-position:center;outline:1px solid rgba(255,255,255,0.04);box-shadow:inset 0 0 50px rgba(0,0,0,0.3)}
+
+/* V15 — CONVEYOR 3D */
+.v15-wrap{perspective:1200px;height:480px;overflow:hidden;display:flex;align-items:center}
+.v15-stage{transform:rotateX(38deg);transform-style:preserve-3d;width:100%}
+.v15-track{display:flex;gap:30px;width:max-content;animation:v15roll 26s linear infinite;will-change:transform;padding:30px 0}
+@keyframes v15roll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.v15-card{width:300px;height:200px;background-size:cover;background-position:center;background-color:#000;flex-shrink:0;box-shadow:0 30px 60px rgba(0,0,0,0.5);transition:transform .4s ease}
+.v15-card:hover{transform:translateZ(40px) scale(1.05);z-index:5}
+
+/* V16 — GLITCH RGB */
+.v16-wrap{overflow:hidden;padding:60px 0;background:#000}
+.v16-track{display:flex;gap:24px;width:max-content;animation:v16scroll 22s linear infinite;will-change:transform}
+@keyframes v16scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.v16-card{width:300px;height:210px;background-size:cover;background-position:center;background-color:#000;flex-shrink:0;position:relative;animation:v16glitch 3s steps(2,end) infinite}
+.v16-card::before,.v16-card::after{content:'';position:absolute;inset:0;background-size:cover;background-position:center;background-image:inherit;mix-blend-mode:screen;pointer-events:none}
+.v16-card::before{filter:hue-rotate(0deg) saturate(2) brightness(.9);transform:translate(-3px,0);opacity:.4}
+.v16-card::after{filter:hue-rotate(180deg) saturate(2) brightness(.9);transform:translate(3px,0);opacity:.4}
+@keyframes v16glitch{0%,90%,100%{transform:translateX(0)}92%{transform:translateX(-3px)}94%{transform:translateX(3px)}96%{transform:translateX(-2px)}}
+
+/* V17 — HELIX DNA */
+.v17-wrap{display:flex;justify-content:center;align-items:center;perspective:1600px;height:600px;padding:30px}
+.v17-helix{position:relative;width:200px;height:500px;transform-style:preserve-3d;animation:v17rot 24s linear infinite}
+@keyframes v17rot{from{transform:rotateY(0)}to{transform:rotateY(360deg)}}
+.v17-node{position:absolute;width:160px;height:110px;left:20px;background:#000;background-size:cover;background-position:center;transform-style:preserve-3d;box-shadow:0 12px 30px rgba(0,0,0,0.5)}
+
+/* V18 — DOMINO CASCADE */
+.v18-wrap{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:14px;padding:60px 30px;min-height:560px;perspective:1200px}
+.v18-card{width:200px;height:140px;background:#000;background-size:cover;background-position:center;animation:v18drop 8s ease-in-out infinite;opacity:0;transform-origin:bottom center;box-shadow:0 12px 24px rgba(0,0,0,0.4)}
+@keyframes v18drop{
+  0%{opacity:0;transform:translateY(-200px) rotateZ(-20deg) scale(.9)}
+  10%{opacity:1;transform:translateY(0) rotateZ(0) scale(1)}
+  85%{opacity:1;transform:translateY(0) rotateZ(0) scale(1)}
+  95%{opacity:0;transform:translateY(40px) rotateZ(15deg) scale(.95)}
+  100%{opacity:0}
+}
+
+/* V19 — SLOT MACHINE */
+.v19-wrap{display:flex;justify-content:center;align-items:center;gap:20px;padding:50px 30px;min-height:480px;background:linear-gradient(135deg,#1a1818,#252323);border-radius:0}
+.v19-reel{width:240px;height:300px;overflow:hidden;background:#000;border:2px solid rgba(255,255,255,0.08);position:relative}
+.v19-reel::before,.v19-reel::after{content:'';position:absolute;left:0;right:0;height:80px;z-index:2;pointer-events:none}
+.v19-reel::before{top:0;background:linear-gradient(to bottom,#000 0%,transparent 100%)}
+.v19-reel::after{bottom:0;background:linear-gradient(to top,#000 0%,transparent 100%)}
+.v19-strip{display:flex;flex-direction:column;animation:v19spin 3.5s cubic-bezier(.22,1,.36,1) infinite;will-change:transform}
+.v19-reel:nth-child(2) .v19-strip{animation-duration:4.2s;animation-delay:.2s}
+.v19-reel:nth-child(3) .v19-strip{animation-duration:5s;animation-delay:.4s}
+@keyframes v19spin{0%{transform:translateY(0)}80%,100%{transform:translateY(-50%)}}
+.v19-cell{width:240px;height:300px;flex-shrink:0;background-size:cover;background-position:center;background-color:#000}
+
+/* V20 — BUBBLE FLOAT */
+.v20-wrap{position:relative;height:580px;overflow:hidden;background:radial-gradient(ellipse at center,#252323 0%,#1D1B1B 100%)}
+.v20-bubble{position:absolute;width:180px;height:120px;background:#000;background-size:cover;background-position:center;border-radius:0;will-change:transform;box-shadow:0 14px 30px rgba(0,0,0,0.5);transition:transform .25s ease}
+
+/* mobile */
+@media(max-width:680px){
+  .v14-cylinder{width:180px;height:180px}
+  .v14-panel{width:180px;height:180px}
+  .v15-card,.v16-card,.v18-card{width:200px;height:140px}
+  .v17-helix{width:140px;height:380px}
+  .v17-node{width:120px;height:80px;left:10px}
+  .v19-reel{width:130px;height:200px}
+  .v19-cell{width:130px;height:200px}
+}
 
 /* mobile */
 @media(max-width:680px){
@@ -213,7 +284,14 @@ footer a{color:#fff;text-decoration:none;border-bottom:1px solid var(--white)}
   <a href="#v7">7. Cubes 3D ★</a>
   <a href="#v8">8. Tunnel Z</a>
   <a href="#v9">9. Wave Sine</a>
-  <a href="#v10">10. Diagonal Cross</a>
+  <a href="#v10">10. Orbite Circulaire ★</a>
+  <a href="#v14">14. Cylindre 8 faces</a>
+  <a href="#v15">15. Conveyor 3D</a>
+  <a href="#v16">16. Glitch RGB</a>
+  <a href="#v17">17. Helix DNA</a>
+  <a href="#v18">18. Domino Cascade</a>
+  <a href="#v19">19. Slot Machine</a>
+  <a href="#v20">20. Bubble Float</a>
   <a href="#v11">11. Polaroid Scatter</a>
   <a href="#v12">12. Pendulum</a>
   <a href="#v13">13. Magnetic Grid</a>
@@ -356,14 +434,13 @@ footer a{color:#fff;text-decoration:none;border-bottom:1px solid var(--white)}
   <div class="variant-head">
     <div>
       <div class="variant-num">Variante 10</div>
-      <h2 class="variant-title">Diagonal Cross</h2>
-      <p class="variant-desc">2 rangées qui se croisent en X (l'une inclinée -8°, l'autre +8°, sens opposés). Géométrique, audacieux.</p>
+      <h2 class="variant-title">Orbite Circulaire</h2>
+      <p class="variant-desc">Les images défilent en cercle continu autour d'un point central. Effet "carrousel planétaire" — toutes tes œuvres tournent en orbite.</p>
     </div>
     <button class="pick-btn" onclick="pick(10)">Je choisis celle-ci →</button>
   </div>
   <div class="v10-wrap">
-    <div class="v10-row v10-row-a" id="v10a"></div>
-    <div class="v10-row v10-row-b" id="v10b"></div>
+    <div class="v10-orbit" id="v10orbit"></div>
   </div>
 </section>
 
@@ -405,6 +482,97 @@ footer a{color:#fff;text-decoration:none;border-bottom:1px solid var(--white)}
   </div>
   <div class="v13-wrap" id="v13wrap"></div>
   <div class="v13-cursor" id="v13cursor"></div>
+</section>
+
+<!-- V14 — Cylindre 8 faces -->
+<section class="variant" id="v14">
+  <div class="variant-head">
+    <div>
+      <div class="variant-num">Variante 14</div>
+      <h2 class="variant-title">Cylindre 8 faces</h2>
+      <p class="variant-desc">Un cylindre 3D unique à 8 panneaux, plus lent et plus large que les cubes. Chaque image visible plus longtemps.</p>
+    </div>
+    <button class="pick-btn" onclick="pick(14)">Je choisis celle-ci →</button>
+  </div>
+  <div class="v14-wrap"><div class="v14-cylinder" id="v14cyl"></div></div>
+</section>
+
+<!-- V15 — Conveyor 3D -->
+<section class="variant" id="v15">
+  <div class="variant-head">
+    <div>
+      <div class="variant-num">Variante 15</div>
+      <h2 class="variant-title">Conveyor 3D</h2>
+      <p class="variant-desc">Tapis roulant en perspective 38°. Les cards défilent comme sur un convoyeur d'usine futuriste.</p>
+    </div>
+    <button class="pick-btn" onclick="pick(15)">Je choisis celle-ci →</button>
+  </div>
+  <div class="v15-wrap"><div class="v15-stage"><div class="v15-track" id="v15t"></div></div></div>
+</section>
+
+<!-- V16 — Glitch RGB -->
+<section class="variant" id="v16">
+  <div class="variant-head">
+    <div>
+      <div class="variant-num">Variante 16</div>
+      <h2 class="variant-title">Glitch RGB</h2>
+      <p class="variant-desc">Marquee avec aberration chromatique RGB et micro-glitchs périodiques. Vibe cyberpunk / Y2K.</p>
+    </div>
+    <button class="pick-btn" onclick="pick(16)">Je choisis celle-ci →</button>
+  </div>
+  <div class="v16-wrap"><div class="v16-track" id="v16t"></div></div>
+</section>
+
+<!-- V17 — Helix DNA -->
+<section class="variant" id="v17">
+  <div class="variant-head">
+    <div>
+      <div class="variant-num">Variante 17</div>
+      <h2 class="variant-title">Helix DNA</h2>
+      <p class="variant-desc">Double hélice ADN qui tourne sur l'axe Y. 2 brins de cards entrelacées.</p>
+    </div>
+    <button class="pick-btn" onclick="pick(17)">Je choisis celle-ci →</button>
+  </div>
+  <div class="v17-wrap"><div class="v17-helix" id="v17h"></div></div>
+</section>
+
+<!-- V18 — Domino Cascade -->
+<section class="variant" id="v18">
+  <div class="variant-head">
+    <div>
+      <div class="variant-num">Variante 18</div>
+      <h2 class="variant-title">Domino Cascade</h2>
+      <p class="variant-desc">Les cards apparaissent en chute séquencée puis disparaissent en bascule. Loop infinie.</p>
+    </div>
+    <button class="pick-btn" onclick="pick(18)">Je choisis celle-ci →</button>
+  </div>
+  <div class="v18-wrap" id="v18wrap"></div>
+</section>
+
+<!-- V19 — Slot Machine -->
+<section class="variant" id="v19">
+  <div class="variant-head">
+    <div>
+      <div class="variant-num">Variante 19</div>
+      <h2 class="variant-title">Slot Machine</h2>
+      <p class="variant-desc">3 rouleaux verticaux qui spinnent comme une machine à sous. Chaque rouleau s'arrête à un timing différent.</p>
+    </div>
+    <button class="pick-btn" onclick="pick(19)">Je choisis celle-ci →</button>
+  </div>
+  <div class="v19-wrap" id="v19wrap"></div>
+</section>
+
+<!-- V20 — Bubble Float -->
+<section class="variant" id="v20">
+  <div class="variant-head">
+    <div>
+      <div class="variant-num">Variante 20</div>
+      <h2 class="variant-title">Bubble Float</h2>
+      <p class="variant-desc">Cards qui flottent en mouvement Brownien aléatoire dans un espace radial. Hover : la card s'agrandit et s'éclaircit.</p>
+    </div>
+    <button class="pick-btn" onclick="pick(20)">Je choisis celle-ci →</button>
+  </div>
+  <div class="v20-wrap" id="v20wrap"></div>
 </section>
 
 <footer>
@@ -534,12 +702,31 @@ function makeCard(p,cls){
   t.innerHTML=[...projects,...projects].map(p=>makeCard(p,'v9-card')).join('');
 })();
 
-// V10 — Diagonal Cross
+// V10 — Orbite Circulaire
 (()=>{
-  const a=document.getElementById('v10a'),b=document.getElementById('v10b');
-  const splitA=projects.slice(0,6),splitB=projects.slice(5);
-  a.innerHTML=[...splitA,...splitA].map(p=>makeCard(p,'v10-card')).join('');
-  b.innerHTML=[...splitB,...splitB,...splitB].map(p=>makeCard(p,'v10-card')).join('');
+  const orbit=document.getElementById('v10orbit');
+  orbit.innerHTML=projects.map(p=>`<div class="v10-card" style="background-image:url('${p.img}')"></div>`).join('');
+  const cards=orbit.querySelectorAll('.v10-card');
+  const N=cards.length;
+  let rot=0;
+  function tick(){
+    rot+=0.18;
+    cards.forEach((c,i)=>{
+      const ang=(rot+(i*360/N))*Math.PI/180;
+      const isMobile=window.innerWidth<680;
+      const r=isMobile?(window.innerWidth*0.35):240;
+      const x=Math.cos(ang)*r;
+      const y=Math.sin(ang)*r;
+      const z=Math.sin(ang)*40;
+      const cw=isMobile?65:100, ch=isMobile?45:70;
+      const scale=0.78+(0.22*((Math.sin(ang)+1)/2));
+      c.style.transform=`translate(${x-cw}px,${y-ch}px) scale(${scale})`;
+      c.style.opacity=0.55+0.45*((Math.sin(ang)+1)/2);
+      c.style.zIndex=Math.round(z);
+    });
+    requestAnimationFrame(tick);
+  }
+  tick();
 })();
 
 // V11 — Polaroid Scatter
@@ -590,6 +777,105 @@ function makeCard(p,cls){
         }
       });
     }
+    requestAnimationFrame(tick);
+  }
+  tick();
+})();
+
+// V14 — Cylindre 8 faces
+(()=>{
+  const cyl=document.getElementById('v14cyl');
+  const N=8;
+  const r=340;
+  const items=projects.slice(0,N);
+  cyl.innerHTML=items.map((p,i)=>{
+    const angle=(i*360/N);
+    return `<div class="v14-panel" style="background-image:url('${p.img}');transform:rotateY(${angle}deg) translateZ(${r}px)"></div>`;
+  }).join('');
+})();
+
+// V15 — Conveyor 3D
+(()=>{
+  const t=document.getElementById('v15t');
+  t.innerHTML=[...projects,...projects].map(p=>makeCard(p,'v15-card')).join('');
+})();
+
+// V16 — Glitch RGB
+(()=>{
+  const t=document.getElementById('v16t');
+  t.innerHTML=[...projects,...projects].map(p=>makeCard(p,'v16-card')).join('');
+})();
+
+// V17 — Helix DNA
+(()=>{
+  const h=document.getElementById('v17h');
+  const N=projects.length;
+  const radius=120;
+  const heightSpan=440;
+  const nodes=projects.map((p,i)=>{
+    const angle=(i*60);
+    const y=(i*(heightSpan/(N-1)))-(heightSpan/2);
+    const z=Math.cos(angle*Math.PI/180)*radius;
+    const x=Math.sin(angle*Math.PI/180)*radius;
+    return `<div class="v17-node" style="background-image:url('${p.img}');top:calc(50% + ${y}px);transform:translate(${x}px,0) translateZ(${z}px) rotateY(${-angle}deg)"></div>`;
+  }).join('');
+  h.innerHTML=nodes;
+})();
+
+// V18 — Domino Cascade
+(()=>{
+  const wrap=document.getElementById('v18wrap');
+  wrap.innerHTML=projects.map((p,i)=>`<div class="v18-card" style="background-image:url('${p.img}');animation-delay:${(i*0.4).toFixed(2)}s"></div>`).join('');
+})();
+
+// V19 — Slot Machine
+(()=>{
+  const wrap=document.getElementById('v19wrap');
+  const reels=[
+    [projects[0],projects[3],projects[6],projects[9],projects[1],projects[4],projects[7],projects[0]],
+    [projects[1],projects[4],projects[7],projects[10],projects[2],projects[5],projects[8],projects[1]],
+    [projects[2],projects[5],projects[8],projects[0],projects[3],projects[6],projects[9],projects[2]]
+  ];
+  wrap.innerHTML=reels.map(reel=>`
+    <div class="v19-reel"><div class="v19-strip">
+      ${reel.map(p=>`<div class="v19-cell" style="background-image:url('${p.img}')"></div>`).join('')}
+    </div></div>
+  `).join('');
+})();
+
+// V20 — Bubble Float
+(()=>{
+  const wrap=document.getElementById('v20wrap');
+  wrap.innerHTML=projects.map(p=>`<div class="v20-bubble" style="background-image:url('${p.img}')"></div>`).join('');
+  const bubbles=wrap.querySelectorAll('.v20-bubble');
+  const wRect=()=>wrap.getBoundingClientRect();
+  const state=[...bubbles].map(()=>{
+    const r=wRect();
+    return {
+      x:Math.random()*(r.width-180),
+      y:Math.random()*(r.height-120),
+      vx:(Math.random()-0.5)*0.6,
+      vy:(Math.random()-0.5)*0.6
+    };
+  });
+  bubbles.forEach((b,i)=>{
+    b.addEventListener('mouseenter',()=>{b.style.transform=`translate(${state[i].x}px,${state[i].y}px) scale(1.15)`;b.style.zIndex=10;b.style.filter='brightness(1.2)'});
+    b.addEventListener('mouseleave',()=>{b.style.zIndex='';b.style.filter=''});
+  });
+  function tick(){
+    const r=wRect();
+    state.forEach((s,i)=>{
+      s.vx+=(Math.random()-0.5)*0.05;
+      s.vy+=(Math.random()-0.5)*0.05;
+      s.vx=Math.max(-1.2,Math.min(1.2,s.vx));
+      s.vy=Math.max(-1.2,Math.min(1.2,s.vy));
+      s.x+=s.vx;s.y+=s.vy;
+      if(s.x<0){s.x=0;s.vx=Math.abs(s.vx)}
+      if(s.x>r.width-180){s.x=r.width-180;s.vx=-Math.abs(s.vx)}
+      if(s.y<0){s.y=0;s.vy=Math.abs(s.vy)}
+      if(s.y>r.height-120){s.y=r.height-120;s.vy=-Math.abs(s.vy)}
+      if(!bubbles[i].matches(':hover'))bubbles[i].style.transform=`translate(${s.x}px,${s.y}px)`;
+    });
     requestAnimationFrame(tick);
   }
   tick();
