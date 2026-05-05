@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dikenga — Démos animations Projets</title>
+<style>
+:root{
+  --bg:#1D1B1B;--white:#FFFFFF;--dim:rgba(255,255,255,0.55);
+  --line:rgba(255,255,255,0.1);
+  --F:'Space Grotesk',-apple-system,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--white);font-family:var(--F);overflow-x:hidden}
+
+.demo-header{padding:80px 28px 40px;text-align:center;border-bottom:1px solid var(--line)}
+.demo-h1{font-size:clamp(28px,3.5vw,42px);font-weight:700;text-transform:uppercase;letter-spacing:-0.02em;line-height:1}
+.demo-sub{margin-top:14px;color:var(--dim);font-size:14px;letter-spacing:.06em}
+.demo-nav{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;padding:30px 20px;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(29,27,27,0.95);backdrop-filter:blur(12px);z-index:50}
+.demo-nav a{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);text-decoration:none;padding:8px 14px;border:1px solid var(--line);border-radius:999px;transition:all .3s}
+.demo-nav a:hover{color:#fff;border-color:#fff}
+
+.variant{padding:80px 0 100px;border-bottom:1px solid var(--line);overflow:hidden}
+.variant-head{padding:0 28px;margin-bottom:40px;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
+.variant-num{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);margin-bottom:8px;font-weight:500}
+.variant-title{font-size:clamp(24px,3vw,38px);font-weight:700;text-transform:uppercase;letter-spacing:-0.02em;line-height:.95}
+.variant-desc{font-size:14px;color:var(--dim);max-width:480px;line-height:1.5}
+.pick-btn{padding:12px 22px;background:#fff;color:#000;border:none;border-radius:999px;font-family:var(--F);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;cursor:pointer;transition:opacity .3s}
+.pick-btn:hover{opacity:.8}
+
+/* ════════════════════════════════════════════════════════
+   VARIANT 1 — DIAGONAL DOUBLE (current)
+   ════════════════════════════════════════════════════════ */
+.v1-stage{transform:rotate(-3deg);transform-origin:center;width:114%;margin-left:-7%;
+  -webkit-mask-image:linear-gradient(to right,transparent 0,#000 6%,#000 94%,transparent 100%);
+  mask-image:linear-gradient(to right,transparent 0,#000 6%,#000 94%,transparent 100%);}
+.v1-row{overflow:hidden;margin:10px 0}
+.v1-track{display:flex;gap:20px;width:max-content;will-change:transform}
+.v1-track-a{animation:v1A 28s linear infinite}
+.v1-track-b{animation:v1B 24s linear infinite}
+@keyframes v1A{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+@keyframes v1B{from{transform:translate3d(-50%,0,0)}to{transform:translate3d(0,0,0)}}
+.v1-card{width:300px;height:210px;background:#000;flex-shrink:0;background-size:cover;background-position:center;transition:transform .55s cubic-bezier(.22,1,.36,1)}
+.v1-card:hover{transform:translateY(-8px) scale(1.04);z-index:5;box-shadow:0 24px 60px rgba(0,0,0,.5)}
+
+/* ════════════════════════════════════════════════════════
+   VARIANT 2 — 3D COVERFLOW
+   ════════════════════════════════════════════════════════ */
+.v2-wrap{perspective:1600px;height:380px;overflow:hidden;position:relative}
+.v2-track{display:flex;gap:24px;height:100%;align-items:center;animation:v2scroll 40s linear infinite;width:max-content;padding:0 50%;transform-style:preserve-3d}
+@keyframes v2scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.v2-card{width:340px;height:240px;background:#000;flex-shrink:0;background-size:cover;background-position:center;transform:rotateY(-25deg) translateZ(-50px);box-shadow:0 30px 60px rgba(0,0,0,.5);transition:transform .6s cubic-bezier(.22,1,.36,1)}
+.v2-card:nth-child(even){transform:rotateY(25deg) translateZ(-50px)}
+.v2-card:hover{transform:rotateY(0) translateZ(60px) scale(1.05);z-index:10}
+
+/* ════════════════════════════════════════════════════════
+   VARIANT 3 — MARQUEE SKEW + VELOCITY
+   ════════════════════════════════════════════════════════ */
+.v3-wrap{overflow:hidden;padding:30px 0}
+.v3-track{display:flex;gap:0;width:max-content;animation:v3scroll 22s linear infinite;will-change:transform;transform:skewX(-6deg)}
+@keyframes v3scroll{from{transform:translateX(0) skewX(-6deg)}to{transform:translateX(-50%) skewX(-6deg)}}
+.v3-card{width:340px;height:240px;flex-shrink:0;background-size:cover;background-position:center;background-color:#000;margin:0 8px;transition:transform .5s cubic-bezier(.22,1,.36,1)}
+.v3-card:hover{transform:skewX(6deg) scale(1.06);z-index:5}
+
+/* ════════════════════════════════════════════════════════
+   VARIANT 4 — VERTICAL COLUMNS
+   ════════════════════════════════════════════════════════ */
+.v4-wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:0 28px;height:520px;overflow:hidden;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 8%,#000 92%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent 0,#000 8%,#000 92%,transparent 100%);}
+.v4-col{display:flex;flex-direction:column;gap:16px;will-change:transform}
+.v4-col:nth-child(1){animation:v4down 22s linear infinite}
+.v4-col:nth-child(2){animation:v4up 26s linear infinite}
+.v4-col:nth-child(3){animation:v4down 30s linear infinite}
+.v4-col:nth-child(4){animation:v4up 24s linear infinite}
+@keyframes v4up{from{transform:translateY(0)}to{transform:translateY(-50%)}}
+@keyframes v4down{from{transform:translateY(-50%)}to{transform:translateY(0)}}
+.v4-card{width:100%;aspect-ratio:4/3;background:#000;background-size:cover;background-position:center;flex-shrink:0;transition:transform .4s ease}
+.v4-card:hover{transform:scale(1.04);z-index:5}
+
+/* ════════════════════════════════════════════════════════
+   VARIANT 5 — MOUSE DRIFT (no autoplay)
+   ════════════════════════════════════════════════════════ */
+.v5-wrap{overflow:hidden;padding:20px 0;position:relative;cursor:none}
+.v5-hint{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);pointer-events:none;z-index:1;opacity:.5}
+.v5-track{display:flex;gap:24px;width:max-content;will-change:transform;padding:0 30px}
+.v5-card{width:340px;height:240px;flex-shrink:0;background-size:cover;background-position:center;background-color:#000;transition:transform .8s cubic-bezier(.22,1,.36,1)}
+.v5-card:hover{transform:scale(1.06);z-index:5;box-shadow:0 20px 50px rgba(0,0,0,.5)}
+
+/* ════════════════════════════════════════════════════════
+   VARIANT 6 — STACK PEEL (single big card auto-cycling)
+   ════════════════════════════════════════════════════════ */
+.v6-wrap{display:flex;justify-content:center;align-items:center;height:520px;position:relative;perspective:1600px}
+.v6-stack{position:relative;width:560px;height:380px;transform-style:preserve-3d}
+.v6-card{position:absolute;inset:0;background:#000;background-size:cover;background-position:center;border-radius:0;transition:opacity 1s ease, transform 1.2s cubic-bezier(.22,1,.36,1);box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.v6-card.active{opacity:1;transform:translateZ(0) rotateY(0) scale(1);z-index:3}
+.v6-card.behind{opacity:.4;transform:translateZ(-80px) translateX(-30px) rotateY(8deg) scale(.92);z-index:2}
+.v6-card.way-behind{opacity:.15;transform:translateZ(-160px) translateX(-60px) rotateY(14deg) scale(.84);z-index:1}
+.v6-card.gone{opacity:0;transform:translateZ(120px) translateX(80px) rotateY(-20deg) scale(1.1);z-index:0;pointer-events:none}
+.v6-name{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);text-align:center;font-weight:500}
+
+/* mobile */
+@media(max-width:680px){
+  .v1-card,.v2-card,.v3-card,.v5-card{width:240px;height:170px}
+  .v4-wrap{grid-template-columns:repeat(2,1fr);height:480px}
+  .v6-stack{width:90vw;height:60vw}
+}
+
+footer{padding:60px 28px;text-align:center;color:var(--dim);font-size:12px}
+footer a{color:#fff;text-decoration:none;border-bottom:1px solid var(--white)}
+</style>
+</head>
+<body>
+
+<div class="demo-header">
+  <h1 class="demo-h1">Animations — Démos</h1>
+  <p class="demo-sub">6 variantes pour la section "Projets en vedette" · Choisis ton préférée</p>
+</div>
+
+<nav class="demo-nav">
+  <a href="#v1">1. Diagonal Double (actuel)</a>
+  <a href="#v2">2. Coverflow 3D</a>
+  <a href="#v3">3. Skew Marquee</a>
+  <a href="#v4">4. Colonnes verticales</a>
+  <a href="#v5">5. Drift Souris</a>
+  <a href="#v6">6. Stack Peel</a>
+</nav>
+
+<!-- VARIANT 1 -->
+<section class="variant" id="v1">
+  <div class="variant-head">
+    <div>
+      <div class="variant-num">Variante 01 · Actuelle</div>
+      <h2 class="variant-title">Diagonal Double</h2>
+      <p class="variant-desc">2 rangées en sens opposés, légère rotation -3°, masque fade aux bords. Sensation de flux continu et d'inclinaison dynamique.</p>
+    </div>
+    <button class="pick-btn" onclick="pick(1)">Je choisis celle-ci →</button>
+  </div>
+  <div class="v1-stage">
+    <div class="v1-row"><div class="v1-track v1-track-a" id="v1tA"></div></div>
+    <div class="v1-row"><div class="v1-track v1-track-b" id="v1tB"></div></div>
+  </div>
+</section>
+
+<!-- VARIANT 2 -->
+<section class="variant" id="v2">
+  <div class="variant-head">
+    <div>
+      <div class="variant-num">Variante 02</div>
+      <h2 class="variant-title">Coverflow 3D</h2>
+      <p class="variant-desc">Cards alternées en perspective rotative, façon Apple. Hover redresse la card. Sensation premium et cinématique.</p>
+    </div>
+    <button class="pick-btn" onclick="pick(2)">Je choisis celle-ci →</button>
+  </div>
+  <div class="v2-wrap">
+    <div class="v2-track" id="v2t"></div>
+  </div>
+</section>
+
+<!-- VARIANT 3 -->
+<section class="variant" id="v3">
+  <div class="variant-head">
+    <div>
+      <div class="variant-num">Variante 03</div>
+      <h2 class="variant-title">Skew Marquee</h2>
+      <p class="variant-desc">Single row inclinée -6°, défile rapide (22s). Hover redresse la card en + 6°. Look éditorial / magazine.</p>
+    </div>
+    <button class="pick-btn" onclick="pick(3)">Je choisis celle-ci →</button>
+  </div>
+  <div class="v3-wrap">
+    <div class="v3-track" id="v3t"></div>
+  </div>
+</section>
+
+<!-- VARIANT 4 -->
+<section class="variant" id="v4">
+  <div class="variant-head">
+    <div>
+      <div class="variant-num">Variante 04</div>
+      <h2 class="variant-title">Colonnes verticales</h2>
+      <p class="variant-desc">4 colonnes verticales défilant à des vitesses différentes (alterné haut/bas). Donne l'impression d'un mur vivant en mouvement.</p>
+    </div>
+    <button class="pick-btn" onclick="pick(4)">Je choisis celle-ci →</button>
+  </div>
+  <div class="v4-wrap">
+    <div class="v4-col" id="v4c1"></div>
+    <div class="v4-col" id="v4c2"></div>
+    <div class="v4-col" id="v4c3"></div>
+    <div class="v4-col" id="v4c4"></div>
+  </div>
+</section>
+
+<!-- VARIANT 5 -->
+<section class="variant" id="v5">
+  <div class="variant-head">
+    <div>
+      <div class="variant-num">Variante 05 · Awwwards style</div>
+      <h2 class="variant-title">Drift Souris</h2>
+      <p class="variant-desc">Pas d'autoplay. Les cards se déplacent uniquement quand tu bouges la souris dans la section. Très signature, control total au visiteur. (Bouge ta souris dans la zone)</p>
+    </div>
+    <button class="pick-btn" onclick="pick(5)">Je choisis celle-ci →</button>
+  </div>
+  <div class="v5-wrap" id="v5wrap">
+    <div class="v5-hint">↔ Bouge la souris</div>
+    <div class="v5-track" id="v5t"></div>
+  </div>
+</section>
+
+<!-- VARIANT 6 -->
+<section class="variant" id="v6">
+  <div class="variant-head">
+    <div>
+      <div class="variant-num">Variante 06</div>
+      <h2 class="variant-title">Stack Peel</h2>
+      <p class="variant-desc">Une seule grande card centrée. Auto-cycle toutes les 3.5s avec effet de pelée 3D vers la droite. Met chaque projet en valeur, façon "moodboard premium".</p>
+    </div>
+    <button class="pick-btn" onclick="pick(6)">Je choisis celle-ci →</button>
+  </div>
+  <div class="v6-wrap" id="v6wrap"></div>
+</section>
+
+<footer>
+  <p>Dikenga Design · démo animations Projets en vedette · <a href="index.html">retour au site</a></p>
+</footer>
+
+<script>
+const projects = [
+  {img:'mockup-mamagaya.webp',name:'Mamagaya',cat:'UI · App Mobile'},
+  {img:'mockup-adidas.webp',name:'Adidas Harden',cat:'UI · E-commerce'},
+  {img:'mockup-barnes.webp',name:'BARNES CarJager',cat:'UI · Automobile'},
+  {img:'mockup-logotype.webp',name:'Logotype Design',cat:'Identité'},
+  {img:'mockup-nike-bleu.webp',name:'Nike Collection',cat:'UI · Sport'},
+  {img:'mockup-nike-rouge.webp',name:'Nike Air Max',cat:'UI · Sport'},
+  {img:'logo-daflon.webp',name:'Daflon Community',cat:'Identité'},
+  {img:'logo-carole.webp',name:'Carole Grantz',cat:'Identité'},
+  {img:'logo-don.webp',name:'DON',cat:'Identité'},
+  {img:'logo-bihem.webp',name:'Bihem',cat:'Identité'},
+  {img:'logo-unr.webp',name:'UNR',cat:'Identité'}
+];
+
+function makeCard(p,cls){
+  return `<div class="${cls}" style="background-image:url('${p.img}')" title="${p.name} — ${p.cat}"></div>`;
+}
+
+// V1 — diagonal double
+(()=>{
+  const tA=document.getElementById('v1tA'),tB=document.getElementById('v1tB');
+  const splitA=projects.slice(0,6),splitB=projects.slice(6);
+  tA.innerHTML=[...splitA,...splitA].map(p=>makeCard(p,'v1-card')).join('');
+  tB.innerHTML=[...splitB,...splitB,...splitB.slice(0,2)].map(p=>makeCard(p,'v1-card')).join('');
+})();
+
+// V2 — coverflow
+(()=>{
+  const t=document.getElementById('v2t');
+  t.innerHTML=[...projects,...projects].map(p=>makeCard(p,'v2-card')).join('');
+})();
+
+// V3 — skew
+(()=>{
+  const t=document.getElementById('v3t');
+  t.innerHTML=[...projects,...projects].map(p=>makeCard(p,'v3-card')).join('');
+})();
+
+// V4 — vertical columns
+(()=>{
+  const cols=[1,2,3,4].map(i=>document.getElementById('v4c'+i));
+  const split=[projects.slice(0,3),projects.slice(3,6),projects.slice(6,9),projects.slice(9,11).concat(projects[0])];
+  cols.forEach((c,i)=>{
+    c.innerHTML=[...split[i],...split[i]].map(p=>makeCard(p,'v4-card')).join('');
+  });
+})();
+
+// V5 — mouse drift
+(()=>{
+  const wrap=document.getElementById('v5wrap');
+  const track=document.getElementById('v5t');
+  track.innerHTML=[...projects,...projects].map(p=>makeCard(p,'v5-card')).join('');
+  let targetX=0,currentX=0;
+  const totalW=()=>track.scrollWidth;
+  wrap.addEventListener('mousemove',e=>{
+    const r=wrap.getBoundingClientRect();
+    const ratio=(e.clientX-r.left)/r.width;
+    targetX=-ratio*(totalW()-r.width)*0.5;
+  });
+  function animate(){
+    currentX+=(targetX-currentX)*0.08;
+    track.style.transform='translate3d('+currentX+'px,0,0)';
+    requestAnimationFrame(animate);
+  }
+  animate();
+})();
+
+// V6 — stack peel
+(()=>{
+  const wrap=document.getElementById('v6wrap');
+  wrap.innerHTML=projects.map((p,i)=>`
+    <div class="v6-card" style="background-image:url('${p.img}')" data-name="${p.name}">
+      <div class="v6-name">${p.name} · ${p.cat}</div>
+    </div>`).join('');
+  const cards=wrap.querySelectorAll('.v6-card');
+  let cur=0;
+  function update(){
+    cards.forEach((c,i)=>{
+      c.classList.remove('active','behind','way-behind','gone');
+      const diff=(i-cur+cards.length)%cards.length;
+      if(diff===0)c.classList.add('active');
+      else if(diff===1)c.classList.add('behind');
+      else if(diff===2)c.classList.add('way-behind');
+      else c.classList.add('gone');
+    });
+  }
+  update();
+  setInterval(()=>{cur=(cur+1)%cards.length;update();},3500);
+})();
+
+function pick(n){
+  alert(`✓ Tu as choisi la variante ${n}.\n\nDis-le moi dans le chat et je l'applique sur dikengadesign.fr immédiatement.`);
+}
+</script>
+</body>
+</html>
