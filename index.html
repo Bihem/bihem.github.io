@@ -460,20 +460,20 @@ body.leaving{animation:body-exit 0.35s cubic-bezier(.4,0,.2,1) forwards}
 .mq-voir{font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:1;transition:opacity .3s;font-family:var(--SI);color:var(--white);text-decoration:none;white-space:nowrap}
 .mq-voir:hover{opacity:.6}
 
-/* ── CYLINDRE 3D ROTATIF (11 projets) */
-.mq-cyl-wrap{display:flex;justify-content:center;align-items:center;height:380px;padding:20px 0;perspective:2400px}
-.mq-cylinder{width:320px;height:240px;position:relative;transform-style:preserve-3d;animation:mqCylRot 38s linear infinite;will-change:transform}
+/* ── CYLINDRE 3D ROTATIF (hauteur uniforme, ratio naturel, espacés) */
+.mq-cyl-wrap{display:flex;justify-content:center;align-items:center;height:400px;padding:20px 0;perspective:2800px}
+.mq-cylinder{width:1px;height:240px;position:relative;transform-style:preserve-3d;animation:mqCylRot 42s linear infinite;will-change:transform}
 .mq-cylinder:hover{animation-play-state:paused}
 @keyframes mqCylRot{from{transform:rotateY(0) rotateX(-6deg)}to{transform:rotateY(-360deg) rotateX(-6deg)}}
-.mq-panel{position:absolute;width:320px;height:240px;background:transparent;overflow:hidden;cursor:pointer;display:flex;align-items:center;justify-content:center;text-decoration:none}
-.mq-panel img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;object-position:center;display:block;pointer-events:none;transition:filter .35s ease,transform .55s cubic-bezier(.22,1,.36,1)}
+.mq-panel{position:absolute;height:240px;background:transparent;overflow:hidden;cursor:pointer;display:block;text-decoration:none;top:0;backface-visibility:hidden}
+.mq-panel img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;pointer-events:none;transition:filter .35s ease}
 .mq-panel:hover img{filter:brightness(1.1)}
 
 @media(max-width:680px){
   .mq-section{padding:72px 0 80px}
-  .mq-cyl-wrap{height:280px}
-  .mq-cylinder{width:220px;height:165px}
-  .mq-panel{width:220px;height:165px}
+  .mq-cyl-wrap{height:260px}
+  .mq-cylinder{height:150px}
+  .mq-panel{height:150px}
 }
 .projects{border-top:1px solid var(--line)}
 .projects-head{
@@ -1967,14 +1967,34 @@ body.light .reel-arrow svg path{stroke:#000000}
     var panels=cyl.querySelectorAll('.mq-panel');
     var N=panels.length;
     var isMobile=window.innerWidth<680;
-    var panelW=isMobile?220:320;
-    var r=Math.round(panelW/(2*Math.tan(Math.PI/N)));
+    var H=isMobile?150:240;
+    // Rayon généreux pour que les panneaux soient bien espacés (pas collés)
+    var r=isMobile?460:760;
     panels.forEach(function(p,i){
+      var img=p.querySelector('img');
+      var natW=img.naturalWidth||4;
+      var natH=img.naturalHeight||3;
+      var w=Math.round((natW/natH)*H);
       var angle=(i*360/N);
+      p.style.width=w+'px';
+      p.style.height=H+'px';
+      p.style.left=(-w/2)+'px';
       p.style.transform='rotateY('+angle+'deg) translateZ('+r+'px)';
     });
   }
-  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',placeCyl);}else{placeCyl();}
+  function init(){
+    var cyl=document.getElementById('mqCylinder');
+    if(!cyl)return;
+    var imgs=cyl.querySelectorAll('img');
+    var loaded=0,total=imgs.length;
+    function checkAll(){loaded++;if(loaded>=total)placeCyl();}
+    imgs.forEach(function(img){
+      if(img.complete&&img.naturalWidth)checkAll();
+      else{img.addEventListener('load',checkAll);img.addEventListener('error',checkAll);}
+    });
+    placeCyl();
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
   window.addEventListener('resize',placeCyl);
 })();
 </script>
