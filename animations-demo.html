@@ -182,12 +182,13 @@ body{background:var(--bg);color:var(--white);font-family:var(--F);overflow-x:hid
 .v13-cursor{position:fixed;width:60px;height:60px;border-radius:50%;border:1.5px solid #fff;pointer-events:none;transform:translate(-50%,-50%);z-index:99;mix-blend-mode:difference;transition:width .3s,height .3s,opacity .3s;opacity:0}
 .v13-card{aspect-ratio:4/3;background-size:cover;background-position:center;background-color:#000;transition:transform .25s cubic-bezier(.22,1,.36,1)}
 
-/* V14 — CYLINDRE 8 FACES */
-.v14-wrap{display:flex;justify-content:center;align-items:center;perspective:2000px;height:560px;padding:30px}
-.v14-cylinder{width:280px;height:280px;position:relative;transform-style:preserve-3d;animation:v14rot 32s linear infinite}
+/* V14 — CYLINDRE 8 FACES (images entières, sans crop) */
+.v14-wrap{display:flex;justify-content:center;align-items:center;perspective:2400px;height:620px;padding:40px}
+.v14-cylinder{width:380px;height:260px;position:relative;transform-style:preserve-3d;animation:v14rot 32s linear infinite}
 .v14-cylinder:hover{animation-play-state:paused}
 @keyframes v14rot{from{transform:rotateY(0) rotateX(-6deg)}to{transform:rotateY(-360deg) rotateX(-6deg)}}
-.v14-panel{position:absolute;width:280px;height:280px;background:#000;background-size:cover;background-position:center;outline:1px solid rgba(255,255,255,0.04);box-shadow:inset 0 0 50px rgba(0,0,0,0.3)}
+.v14-panel{position:absolute;width:380px;height:260px;background:#0a0a0a;outline:1px solid rgba(255,255,255,0.06);box-shadow:0 0 30px rgba(0,0,0,0.4);display:flex;align-items:center;justify-content:center;padding:20px}
+.v14-panel img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;pointer-events:none}
 
 /* V15 — CONVEYOR 3D */
 .v15-wrap{perspective:1200px;height:480px;overflow:hidden;display:flex;align-items:center}
@@ -242,8 +243,8 @@ body{background:var(--bg);color:var(--white);font-family:var(--F);overflow-x:hid
 
 /* mobile */
 @media(max-width:680px){
-  .v14-cylinder{width:180px;height:180px}
-  .v14-panel{width:180px;height:180px}
+  .v14-cylinder{width:230px;height:160px}
+  .v14-panel{width:230px;height:160px;padding:10px}
   .v15-card,.v16-card,.v18-card{width:200px;height:140px}
   .v17-helix{width:140px;height:380px}
   .v17-node{width:120px;height:80px;left:10px}
@@ -782,15 +783,16 @@ function makeCard(p,cls){
   tick();
 })();
 
-// V14 — Cylindre 8 faces
+// V14 — Cylindre 8 faces (images en taille réelle, sans crop)
 (()=>{
   const cyl=document.getElementById('v14cyl');
   const N=8;
-  const r=340;
+  // r = (panelWidth/2) / tan(π/N) — pour 380px de largeur sur 8 panneaux
+  const r=460;
   const items=projects.slice(0,N);
   cyl.innerHTML=items.map((p,i)=>{
     const angle=(i*360/N);
-    return `<div class="v14-panel" style="background-image:url('${p.img}');transform:rotateY(${angle}deg) translateZ(${r}px)"></div>`;
+    return `<div class="v14-panel" style="transform:rotateY(${angle}deg) translateZ(${r}px)"><img src="${p.img}" alt="${p.name}"></div>`;
   }).join('');
 })();
 
