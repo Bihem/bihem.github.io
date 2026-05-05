@@ -454,14 +454,14 @@ body.leaving{animation:body-exit 0.35s cubic-bezier(.4,0,.2,1) forwards}
 
 /* ═══════════════ PROJECTS ═══════════════ */
 /* ── MARQUEE PROJETS */
-.mq-section{border-top:1px solid var(--line);padding:96px 0 110px;overflow:hidden;perspective:2400px}
+.mq-section{border-top:1px solid var(--line);padding:96px 0 110px}
 .mq-header{display:flex;align-items:flex-end;justify-content:space-between;padding:0 28px;margin-bottom:48px}
 .mq-title{font-size:clamp(32px,4vw,52px);font-weight:700;text-transform:uppercase;letter-spacing:-0.03em;line-height:.95}
 .mq-voir{font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:1;transition:opacity .3s;font-family:var(--SI);color:var(--white);text-decoration:none;white-space:nowrap}
 .mq-voir:hover{opacity:.6}
 
 /* ── CYLINDRE 3D 8 FACES (images entières, sans crop) */
-.mq-cyl-wrap{display:flex;justify-content:center;align-items:center;perspective:2400px;height:620px;padding:40px 0}
+.mq-cyl-wrap{display:flex;justify-content:center;align-items:center;perspective:2400px;height:620px;padding:40px}
 .mq-cylinder{width:400px;height:300px;position:relative;transform-style:preserve-3d;animation:mqCylRot 32s linear infinite;will-change:transform}
 .mq-cylinder:hover{animation-play-state:paused}
 @keyframes mqCylRot{from{transform:rotateY(0) rotateX(-6deg)}to{transform:rotateY(-360deg) rotateX(-6deg)}}
