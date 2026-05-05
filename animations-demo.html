@@ -99,11 +99,97 @@ body{background:var(--bg);color:var(--white);font-family:var(--F);overflow-x:hid
 .v6-card.gone{opacity:0;transform:translateZ(120px) translateX(80px) rotateY(-20deg) scale(1.1);z-index:0;pointer-events:none}
 .v6-name{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);text-align:center;font-weight:500}
 
+/* ════════════════════════════════════════════════════════
+   VARIANT 7 — 3D CUBES (rotating, all faces show projects)
+   ════════════════════════════════════════════════════════ */
+.v7-wrap{display:flex;justify-content:center;align-items:center;gap:60px;perspective:2000px;height:520px;padding:30px;flex-wrap:wrap}
+.v7-cube{width:240px;height:240px;position:relative;transform-style:preserve-3d;animation:v7rot 14s linear infinite}
+.v7-cube:nth-child(2){animation-duration:18s;animation-delay:-3s}
+.v7-cube:nth-child(3){animation-duration:11s;animation-delay:-6s}
+@keyframes v7rot{from{transform:rotateY(0) rotateX(-8deg)}to{transform:rotateY(-360deg) rotateX(-8deg)}}
+.v7-face{position:absolute;width:240px;height:240px;background:#000;background-size:cover;background-position:center;box-shadow:inset 0 0 60px rgba(0,0,0,0.7);outline:1px solid rgba(255,255,255,0.05)}
+.v7-front{transform:translateZ(120px)}
+.v7-back{transform:rotateY(180deg) translateZ(120px)}
+.v7-right{transform:rotateY(90deg) translateZ(120px)}
+.v7-left{transform:rotateY(-90deg) translateZ(120px)}
+.v7-top{transform:rotateX(90deg) translateZ(120px);background:linear-gradient(135deg,#1D1B1B,#2E2B2B);display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:700}
+.v7-bottom{transform:rotateX(-90deg) translateZ(120px);background:linear-gradient(135deg,#2E2B2B,#1D1B1B)}
+
+/* ════════════════════════════════════════════════════════
+   VARIANT 8 — TUNNEL Z (cards flying towards viewer)
+   ════════════════════════════════════════════════════════ */
+.v8-wrap{perspective:1200px;height:520px;overflow:hidden;position:relative;display:flex;justify-content:center;align-items:center}
+.v8-stage{transform-style:preserve-3d;position:relative;width:300px;height:200px}
+.v8-card{position:absolute;inset:0;background:#000;background-size:cover;background-position:center;animation:v8fly 6s linear infinite;opacity:0;box-shadow:0 30px 80px rgba(0,0,0,0.5)}
+@keyframes v8fly{
+  0%{transform:translateZ(-1500px) translateY(-50px);opacity:0}
+  20%{opacity:1}
+  85%{opacity:1}
+  100%{transform:translateZ(400px) translateY(50px);opacity:0}
+}
+
+/* ════════════════════════════════════════════════════════
+   VARIANT 9 — WAVE SINE (cards bob up/down while scrolling)
+   ════════════════════════════════════════════════════════ */
+.v9-wrap{overflow:hidden;padding:60px 0;perspective:1000px}
+.v9-track{display:flex;gap:24px;width:max-content;animation:v9scroll 30s linear infinite;will-change:transform}
+@keyframes v9scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.v9-card{width:280px;height:200px;flex-shrink:0;background-size:cover;background-position:center;background-color:#000;animation:v9bob 4s ease-in-out infinite;transition:transform .4s ease}
+.v9-card:nth-child(2n){animation-delay:-1s}
+.v9-card:nth-child(3n){animation-delay:-2s}
+.v9-card:nth-child(4n){animation-delay:-3s}
+@keyframes v9bob{0%,100%{transform:translateY(-15px) rotate(-1deg)}50%{transform:translateY(15px) rotate(1deg)}}
+.v9-card:hover{transform:translateY(0) rotate(0) scale(1.08);z-index:5;animation-play-state:paused}
+
+/* ════════════════════════════════════════════════════════
+   VARIANT 10 — DIAGONAL CROSS (rows crossing X-pattern)
+   ════════════════════════════════════════════════════════ */
+.v10-wrap{position:relative;height:480px;overflow:hidden}
+.v10-row{position:absolute;left:0;right:0;display:flex;gap:18px;width:max-content;will-change:transform}
+.v10-row-a{top:60px;animation:v10A 22s linear infinite;transform:rotate(-8deg)}
+.v10-row-b{bottom:60px;animation:v10B 26s linear infinite;transform:rotate(8deg)}
+@keyframes v10A{from{transform:translateX(0) rotate(-8deg)}to{transform:translateX(-50%) rotate(-8deg)}}
+@keyframes v10B{from{transform:translateX(-50%) rotate(8deg)}to{transform:translateX(0) rotate(8deg)}}
+.v10-card{width:260px;height:170px;background-size:cover;background-position:center;background-color:#000;flex-shrink:0;transition:transform .4s ease}
+.v10-card:hover{transform:scale(1.08);z-index:5}
+
+/* ════════════════════════════════════════════════════════
+   VARIANT 11 — POLAROID SCATTER (random rotation pile)
+   ════════════════════════════════════════════════════════ */
+.v11-wrap{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:30px;padding:60px 30px;perspective:1200px;min-height:560px}
+.v11-card{width:240px;height:280px;background:#fff;padding:14px 14px 50px;box-shadow:0 12px 30px rgba(0,0,0,.4);transition:transform .55s cubic-bezier(.22,1,.36,1),box-shadow .55s ease,z-index 0s linear .55s;position:relative}
+.v11-card:hover{transform:rotate(0) scale(1.18) translateY(-30px);z-index:99;box-shadow:0 40px 80px rgba(0,0,0,.6);transition:transform .55s cubic-bezier(.22,1,.36,1),box-shadow .55s ease,z-index 0s}
+.v11-img{width:100%;height:200px;background-size:cover;background-position:center;background-color:#000}
+.v11-name{margin-top:14px;font-family:'DM Serif Display',serif;color:#1D1B1B;font-size:14px;text-align:center;font-style:italic;letter-spacing:.02em}
+
+/* ════════════════════════════════════════════════════════
+   VARIANT 12 — PENDULUM (back-and-forth swing)
+   ════════════════════════════════════════════════════════ */
+.v12-wrap{overflow:hidden;padding:40px 0;
+  -webkit-mask-image:linear-gradient(to right,transparent 0,#000 8%,#000 92%,transparent 100%);
+  mask-image:linear-gradient(to right,transparent 0,#000 8%,#000 92%,transparent 100%);}
+.v12-track{display:flex;gap:18px;width:max-content;animation:v12swing 8s ease-in-out infinite;will-change:transform}
+@keyframes v12swing{0%{transform:translateX(-30%)}50%{transform:translateX(30%)}100%{transform:translateX(-30%)}}
+.v12-card{width:300px;height:210px;background-size:cover;background-position:center;background-color:#000;flex-shrink:0;transition:transform .4s ease}
+.v12-card:hover{transform:scale(1.06);z-index:5}
+
+/* ════════════════════════════════════════════════════════
+   VARIANT 13 — MAGNETIC GRID (cursor pulls cards)
+   ════════════════════════════════════════════════════════ */
+.v13-wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding:50px 28px;min-height:560px;cursor:none;position:relative}
+.v13-cursor{position:fixed;width:60px;height:60px;border-radius:50%;border:1.5px solid #fff;pointer-events:none;transform:translate(-50%,-50%);z-index:99;mix-blend-mode:difference;transition:width .3s,height .3s,opacity .3s;opacity:0}
+.v13-card{aspect-ratio:4/3;background-size:cover;background-position:center;background-color:#000;transition:transform .25s cubic-bezier(.22,1,.36,1)}
+
 /* mobile */
 @media(max-width:680px){
-  .v1-card,.v2-card,.v3-card,.v5-card{width:240px;height:170px}
+  .v1-card,.v2-card,.v3-card,.v5-card,.v9-card,.v10-card,.v12-card{width:240px;height:170px}
   .v4-wrap{grid-template-columns:repeat(2,1fr);height:480px}
   .v6-stack{width:90vw;height:60vw}
+  .v7-cube{width:160px;height:160px}
+  .v7-face{width:160px;height:160px}
+  .v7-front{transform:translateZ(80px)}.v7-back{transform:rotateY(180deg) translateZ(80px)}.v7-right{transform:rotateY(90deg) translateZ(80px)}.v7-left{transform:rotateY(-90deg) translateZ(80px)}.v7-top{transform:rotateX(90deg) translateZ(80px)}.v7-bottom{transform:rotateX(-90deg) translateZ(80px)}
+  .v13-wrap{grid-template-columns:repeat(2,1fr);cursor:auto}
+  .v13-cursor{display:none}
 }
 
 footer{padding:60px 28px;text-align:center;color:var(--dim);font-size:12px}
@@ -124,6 +210,13 @@ footer a{color:#fff;text-decoration:none;border-bottom:1px solid var(--white)}
   <a href="#v4">4. Colonnes verticales</a>
   <a href="#v5">5. Drift Souris</a>
   <a href="#v6">6. Stack Peel</a>
+  <a href="#v7">7. Cubes 3D ★</a>
+  <a href="#v8">8. Tunnel Z</a>
+  <a href="#v9">9. Wave Sine</a>
+  <a href="#v10">10. Diagonal Cross</a>
+  <a href="#v11">11. Polaroid Scatter</a>
+  <a href="#v12">12. Pendulum</a>
+  <a href="#v13">13. Magnetic Grid</a>
 </nav>
 
 <!-- VARIANT 1 -->
@@ -219,6 +312,101 @@ footer a{color:#fff;text-decoration:none;border-bottom:1px solid var(--white)}
   <div class="v6-wrap" id="v6wrap"></div>
 </section>
 
+<!-- VARIANT 7 — 3D CUBES -->
+<section class="variant" id="v7">
+  <div class="variant-head">
+    <div>
+      <div class="variant-num">Variante 07 · ★ Ta demande</div>
+      <h2 class="variant-title">Cubes 3D rotatifs</h2>
+      <p class="variant-desc">3 cubes 3D qui tournent en continu sur l'axe Y. Chaque face montre un projet (4 projets visibles par cube). Vitesses différentes pour un effet vivant. Hyper signature.</p>
+    </div>
+    <button class="pick-btn" onclick="pick(7)">Je choisis celle-ci →</button>
+  </div>
+  <div class="v7-wrap" id="v7wrap"></div>
+</section>
+
+<!-- VARIANT 8 — TUNNEL Z -->
+<section class="variant" id="v8">
+  <div class="variant-head">
+    <div>
+      <div class="variant-num">Variante 08</div>
+      <h2 class="variant-title">Tunnel 3D</h2>
+      <p class="variant-desc">Les cards arrivent depuis le fond et te foncent dessus, puis disparaissent. Effet "défilement de portfolio cinématique".</p>
+    </div>
+    <button class="pick-btn" onclick="pick(8)">Je choisis celle-ci →</button>
+  </div>
+  <div class="v8-wrap"><div class="v8-stage" id="v8stage"></div></div>
+</section>
+
+<!-- VARIANT 9 — WAVE SINE -->
+<section class="variant" id="v9">
+  <div class="variant-head">
+    <div>
+      <div class="variant-num">Variante 09</div>
+      <h2 class="variant-title">Wave Sine</h2>
+      <p class="variant-desc">Les cards défilent horizontalement mais ondulent en vague (haut/bas). Mouvement organique, vivant, ludique.</p>
+    </div>
+    <button class="pick-btn" onclick="pick(9)">Je choisis celle-ci →</button>
+  </div>
+  <div class="v9-wrap"><div class="v9-track" id="v9t"></div></div>
+</section>
+
+<!-- VARIANT 10 — DIAGONAL CROSS -->
+<section class="variant" id="v10">
+  <div class="variant-head">
+    <div>
+      <div class="variant-num">Variante 10</div>
+      <h2 class="variant-title">Diagonal Cross</h2>
+      <p class="variant-desc">2 rangées qui se croisent en X (l'une inclinée -8°, l'autre +8°, sens opposés). Géométrique, audacieux.</p>
+    </div>
+    <button class="pick-btn" onclick="pick(10)">Je choisis celle-ci →</button>
+  </div>
+  <div class="v10-wrap">
+    <div class="v10-row v10-row-a" id="v10a"></div>
+    <div class="v10-row v10-row-b" id="v10b"></div>
+  </div>
+</section>
+
+<!-- VARIANT 11 — POLAROID SCATTER -->
+<section class="variant" id="v11">
+  <div class="variant-head">
+    <div>
+      <div class="variant-num">Variante 11</div>
+      <h2 class="variant-title">Polaroid Scatter</h2>
+      <p class="variant-desc">Pas de défilement. Cards façon polaroïd dispersées avec rotations aléatoires. Hover : la card se centre, s'agrandit et remonte. Look studio créatif / mood board.</p>
+    </div>
+    <button class="pick-btn" onclick="pick(11)">Je choisis celle-ci →</button>
+  </div>
+  <div class="v11-wrap" id="v11wrap"></div>
+</section>
+
+<!-- VARIANT 12 — PENDULUM -->
+<section class="variant" id="v12">
+  <div class="variant-head">
+    <div>
+      <div class="variant-num">Variante 12</div>
+      <h2 class="variant-title">Pendulum Swing</h2>
+      <p class="variant-desc">La rangée balance lentement gauche↔droite comme un pendule (8s par cycle), pas de défilement infini. Repos visuel + élégance.</p>
+    </div>
+    <button class="pick-btn" onclick="pick(12)">Je choisis celle-ci →</button>
+  </div>
+  <div class="v12-wrap"><div class="v12-track" id="v12t"></div></div>
+</section>
+
+<!-- VARIANT 13 — MAGNETIC GRID -->
+<section class="variant" id="v13">
+  <div class="variant-head">
+    <div>
+      <div class="variant-num">Variante 13</div>
+      <h2 class="variant-title">Magnetic Grid</h2>
+      <p class="variant-desc">Pas d'autoplay. Grille de 12 cards. Le curseur magnétise les cards proches (elles se déplacent légèrement vers ta souris). Style awwwards interactif.</p>
+    </div>
+    <button class="pick-btn" onclick="pick(13)">Je choisis celle-ci →</button>
+  </div>
+  <div class="v13-wrap" id="v13wrap"></div>
+  <div class="v13-cursor" id="v13cursor"></div>
+</section>
+
 <footer>
   <p>Dikenga Design · démo animations Projets en vedette · <a href="index.html">retour au site</a></p>
 </footer>
@@ -312,6 +500,99 @@ function makeCard(p,cls){
   }
   update();
   setInterval(()=>{cur=(cur+1)%cards.length;update();},3500);
+})();
+
+// V7 — 3D Cubes
+(()=>{
+  const wrap=document.getElementById('v7wrap');
+  const groups=[
+    [projects[0],projects[1],projects[2],projects[3]],
+    [projects[4],projects[5],projects[6],projects[7]],
+    [projects[8],projects[9],projects[10],projects[0]]
+  ];
+  wrap.innerHTML=groups.map(g=>`
+    <div class="v7-cube">
+      <div class="v7-face v7-front" style="background-image:url('${g[0].img}')"></div>
+      <div class="v7-face v7-right" style="background-image:url('${g[1].img}')"></div>
+      <div class="v7-face v7-back" style="background-image:url('${g[2].img}')"></div>
+      <div class="v7-face v7-left" style="background-image:url('${g[3].img}')"></div>
+      <div class="v7-face v7-top">DIKENGA</div>
+      <div class="v7-face v7-bottom"></div>
+    </div>
+  `).join('');
+})();
+
+// V8 — Tunnel Z
+(()=>{
+  const stage=document.getElementById('v8stage');
+  stage.innerHTML=projects.map((p,i)=>`<div class="v8-card" style="background-image:url('${p.img}');animation-delay:${(i*0.55).toFixed(2)}s"></div>`).join('');
+})();
+
+// V9 — Wave Sine
+(()=>{
+  const t=document.getElementById('v9t');
+  t.innerHTML=[...projects,...projects].map(p=>makeCard(p,'v9-card')).join('');
+})();
+
+// V10 — Diagonal Cross
+(()=>{
+  const a=document.getElementById('v10a'),b=document.getElementById('v10b');
+  const splitA=projects.slice(0,6),splitB=projects.slice(5);
+  a.innerHTML=[...splitA,...splitA].map(p=>makeCard(p,'v10-card')).join('');
+  b.innerHTML=[...splitB,...splitB,...splitB].map(p=>makeCard(p,'v10-card')).join('');
+})();
+
+// V11 — Polaroid Scatter
+(()=>{
+  const wrap=document.getElementById('v11wrap');
+  wrap.innerHTML=projects.map((p,i)=>{
+    const rot=(((i*47)%23)-11);
+    return `<div class="v11-card" style="transform:rotate(${rot}deg)">
+      <div class="v11-img" style="background-image:url('${p.img}')"></div>
+      <div class="v11-name">${p.name}</div>
+    </div>`;
+  }).join('');
+})();
+
+// V12 — Pendulum
+(()=>{
+  const t=document.getElementById('v12t');
+  t.innerHTML=[...projects,...projects.slice(0,4)].map(p=>makeCard(p,'v12-card')).join('');
+})();
+
+// V13 — Magnetic Grid
+(()=>{
+  const wrap=document.getElementById('v13wrap');
+  const cursor=document.getElementById('v13cursor');
+  const cards=[...projects,projects[0]];
+  wrap.innerHTML=cards.map(p=>makeCard(p,'v13-card')).join('');
+  const cardEls=wrap.querySelectorAll('.v13-card');
+  let mx=0,my=0,inside=false;
+  wrap.addEventListener('mouseenter',()=>{inside=true;cursor.style.opacity='1'});
+  wrap.addEventListener('mouseleave',()=>{
+    inside=false;cursor.style.opacity='0';
+    cardEls.forEach(c=>c.style.transform='');
+  });
+  wrap.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+  function tick(){
+    if(inside){
+      cursor.style.left=mx+'px';cursor.style.top=my+'px';
+      cardEls.forEach(c=>{
+        const r=c.getBoundingClientRect();
+        const cx=r.left+r.width/2,cy=r.top+r.height/2;
+        const dx=mx-cx,dy=my-cy;
+        const dist=Math.hypot(dx,dy);
+        if(dist<260){
+          const f=(260-dist)/260;
+          c.style.transform=`translate(${dx*f*0.18}px,${dy*f*0.18}px) scale(${1+f*0.06})`;
+        }else{
+          c.style.transform='';
+        }
+      });
+    }
+    requestAnimationFrame(tick);
+  }
+  tick();
 })();
 
 function pick(n){
