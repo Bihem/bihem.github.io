@@ -672,7 +672,7 @@ function makeCard(p,cls){
   setInterval(()=>{cur=(cur+1)%cards.length;update();},3500);
 })();
 
-// V7 — 3D Cubes
+// V7 — 3D Cubes (4 faces only, top/bottom removed for clean look)
 (()=>{
   const wrap=document.getElementById('v7wrap');
   const groups=[
@@ -686,8 +686,6 @@ function makeCard(p,cls){
       <div class="v7-face v7-right" style="background-image:url('${g[1].img}')"></div>
       <div class="v7-face v7-back" style="background-image:url('${g[2].img}')"></div>
       <div class="v7-face v7-left" style="background-image:url('${g[3].img}')"></div>
-      <div class="v7-face v7-top">DIKENGA</div>
-      <div class="v7-face v7-bottom"></div>
     </div>
   `).join('');
 })();
