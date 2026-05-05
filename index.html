@@ -454,19 +454,70 @@ body.leaving{animation:body-exit 0.35s cubic-bezier(.4,0,.2,1) forwards}
 
 /* ═══════════════ PROJECTS ═══════════════ */
 /* ── MARQUEE PROJETS */
-.mq-section{border-top:1px solid var(--line);padding:80px 0 80px;overflow:hidden}
-.mq-header{display:flex;align-items:flex-end;justify-content:space-between;padding:0 28px;margin-bottom:40px}
+.mq-section{border-top:1px solid var(--line);padding:96px 0 110px;overflow:hidden;perspective:1400px}
+.mq-header{display:flex;align-items:flex-end;justify-content:space-between;padding:0 28px;margin-bottom:48px}
 .mq-title{font-size:clamp(32px,4vw,52px);font-weight:700;text-transform:uppercase;letter-spacing:-0.03em;line-height:.95}
 .mq-voir{font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:1;transition:opacity .3s;font-family:var(--SI);color:var(--white);text-decoration:none;white-space:nowrap}
 .mq-voir:hover{opacity:.6}
-.mq-outer{overflow:hidden;width:100%}
-.mq-track{display:flex;gap:0;width:max-content;animation:marqueeScroll 35s linear infinite;will-change:transform;-webkit-backface-visibility:hidden;backface-visibility:hidden}
-.mq-outer:hover .mq-track{animation-play-state:paused}
-@keyframes marqueeScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.mq-card{width:380px;height:290px;border-radius:0;overflow:hidden;position:relative;flex-shrink:0;display:block;text-decoration:none;color:var(--white)}
-.mq-img{width:100%;height:100%;background-size:cover;background-position:center;transition:transform .7s cubic-bezier(.22,1,.36,1)}
-.mq-card:hover .mq-img{transform:scale(1.06)}
-.mq-info{display:none}
+
+/* ── DIAGONAL DOUBLE-ROW MARQUEE (pro motion) */
+.mq-stage{
+  transform:rotate(-3deg);transform-origin:center;
+  width:114%;margin-left:-7%;
+  -webkit-mask-image:linear-gradient(to right,transparent 0,#000 6%,#000 94%,transparent 100%);
+  mask-image:linear-gradient(to right,transparent 0,#000 6%,#000 94%,transparent 100%);
+  padding:8px 0;
+}
+.mq-row{overflow:hidden;width:100%;margin:10px 0}
+.mq-track{display:flex;gap:20px;width:max-content;will-change:transform;-webkit-backface-visibility:hidden;backface-visibility:hidden}
+.mq-track-a{animation:mqScrollA 44s linear infinite}
+.mq-track-b{animation:mqScrollB 38s linear infinite}
+.mq-row:hover .mq-track{animation-play-state:paused}
+@keyframes mqScrollA{0%{transform:translate3d(0,0,0)}100%{transform:translate3d(-50%,0,0)}}
+@keyframes mqScrollB{0%{transform:translate3d(-50%,0,0)}100%{transform:translate3d(0,0,0)}}
+
+.mq-card{
+  width:340px;height:240px;border-radius:14px;
+  overflow:hidden;position:relative;flex-shrink:0;
+  display:block;text-decoration:none;color:var(--white);background:#000;
+  box-shadow:0 4px 22px rgba(0,0,0,0.20);
+  transition:transform .55s cubic-bezier(.22,1,.36,1), box-shadow .55s ease, filter .4s ease;
+  transform-style:preserve-3d;
+}
+.mq-card:hover{
+  transform:translateY(-10px) scale(1.045);
+  box-shadow:0 28px 70px rgba(0,0,0,0.55), 0 10px 22px rgba(0,0,0,0.30);
+  z-index:5;
+}
+.mq-img{width:100%;height:100%;background-size:cover;background-position:center;transition:transform 1s cubic-bezier(.22,1,.36,1)}
+.mq-card:hover .mq-img{transform:scale(1.08)}
+.mq-row:has(.mq-card:hover) .mq-card:not(:hover){filter:blur(2px) saturate(.75) brightness(.7)}
+
+.mq-info{
+  position:absolute;left:0;right:0;bottom:0;padding:18px 20px 16px;
+  display:flex;flex-direction:column;gap:5px;
+  background:linear-gradient(180deg,transparent 0%,rgba(0,0,0,0.75) 55%,rgba(0,0,0,0.92) 100%);
+  opacity:0;transform:translateY(10px);
+  transition:opacity .45s ease, transform .55s cubic-bezier(.22,1,.36,1);
+  pointer-events:none;
+}
+.mq-card:hover .mq-info{opacity:1;transform:translateY(0)}
+.mq-cat{font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.72);font-family:var(--F);font-weight:500}
+.mq-name{font-size:19px;font-weight:600;font-family:var(--F);color:#fff;letter-spacing:-0.01em;line-height:1.15}
+
+@media(max-width:680px){
+  .mq-section{padding:72px 0 80px}
+  .mq-stage{transform:rotate(-2deg);width:120%;margin-left:-10%}
+  .mq-card{width:230px;height:170px;border-radius:10px}
+  .mq-name{font-size:15px}
+  .mq-track-a{animation-duration:34s}
+  .mq-track-b{animation-duration:30s}
+}
+@media(prefers-reduced-motion:reduce){
+  .mq-track-a,.mq-track-b{animation:none}
+  .mq-stage{transform:none}
+  .mq-card:hover{transform:translateY(-4px)}
+}
 .projects{border-top:1px solid var(--line)}
 .projects-head{
   padding:80px 28px 40px;
@@ -1935,97 +1986,106 @@ body.light .reel-arrow svg path{stroke:#000000}
     <h2 class="mq-title">Projets<br>en vedette</h2>
     <a href="projets.html" class="mq-voir" onclick="goToProjects(event)">Voir tous →</a>
   </div>
-  <div class="mq-outer">
-    <div class="mq-track">
-      <a href="projets.html" class="mq-card" onclick="goToProjects(event)">
-        <div class="mq-img" style="background-image:url('mockup-mamagaya.webp')"></div>
-        <div class="mq-info"><span class="mq-cat">UI Design · App Mobile</span><span class="mq-name">Mamagaya</span></div>
-      </a>
-      <a href="projets.html" class="mq-card" onclick="goToProjects(event)">
-        <div class="mq-img" style="background-image:url('mockup-adidas.webp')"></div>
-        <div class="mq-info"><span class="mq-cat">UI Design · E-commerce</span><span class="mq-name">Adidas Harden</span></div>
-      </a>
-      <a href="projets.html" class="mq-card" onclick="goToProjects(event)">
-        <div class="mq-img" style="background-image:url('mockup-barnes.webp')"></div>
-        <div class="mq-info"><span class="mq-cat">UI Design · Automobile</span><span class="mq-name">BARNES CarJager</span></div>
-      </a>
-      <a href="projets.html" class="mq-card" onclick="goToProjects(event)">
-        <div class="mq-img" style="background-image:url('mockup-logotype.webp')"></div>
-        <div class="mq-info"><span class="mq-cat">Identité · Branding</span><span class="mq-name">Logotype Design</span></div>
-      </a>
-      <a href="projets.html" class="mq-card" onclick="goToProjects(event)">
-        <div class="mq-img" style="background-image:url('mockup-nike-bleu.webp')"></div>
-        <div class="mq-info"><span class="mq-cat">UI Design · Sport</span><span class="mq-name">Nike Collection</span></div>
-      </a>
-      <a href="projets.html" class="mq-card" onclick="goToProjects(event)">
-        <div class="mq-img" style="background-image:url('mockup-nike-rouge.webp')"></div>
-        <div class="mq-info"><span class="mq-cat">UI Design · Sport</span><span class="mq-name">Nike Air Max</span></div>
-      </a>
-      <a href="projets.html" class="mq-card" onclick="goToProjects(event)">
-        <div class="mq-img" style="background-image:url('logo-daflon.webp')"></div>
-        <div class="mq-info"><span class="mq-cat">Identité · Branding</span><span class="mq-name">Daflon Community</span></div>
-      </a>
-      <a href="projets.html" class="mq-card" onclick="goToProjects(event)">
-        <div class="mq-img" style="background-image:url('logo-carole.webp')"></div>
-        <div class="mq-info"><span class="mq-cat">Identité · Branding</span><span class="mq-name">Carole Grantz Paris</span></div>
-      </a>
-      <a href="projets.html" class="mq-card" onclick="goToProjects(event)">
-        <div class="mq-img" style="background-image:url('logo-don.webp')"></div>
-        <div class="mq-info"><span class="mq-cat">Identité · Monogramme</span><span class="mq-name">DON</span></div>
-      </a>
-      <a href="projets.html" class="mq-card" onclick="goToProjects(event)">
-        <div class="mq-img" style="background-image:url('logo-bihem.webp')"></div>
-        <div class="mq-info"><span class="mq-cat">Identité · Logo</span><span class="mq-name">Bihem</span></div>
-      </a>
-      <a href="projets.html" class="mq-card" onclick="goToProjects(event)">
-        <div class="mq-img" style="background-image:url('logo-unr.webp')"></div>
-        <div class="mq-info"><span class="mq-cat">Identité · Monogramme</span><span class="mq-name">UNR</span></div>
-      </a>
-      <!-- duplicate pour boucle infinie -->
-      <a href="projets.html" class="mq-card" aria-hidden="true" onclick="goToProjects(event)">
-        <div class="mq-img" style="background-image:url('mockup-mamagaya.webp')"></div>
-        <div class="mq-info"><span class="mq-cat">UI Design · App Mobile</span><span class="mq-name">Mamagaya</span></div>
-      </a>
-      <a href="projets.html" class="mq-card" aria-hidden="true" onclick="goToProjects(event)">
-        <div class="mq-img" style="background-image:url('mockup-adidas.webp')"></div>
-        <div class="mq-info"><span class="mq-cat">UI Design · E-commerce</span><span class="mq-name">Adidas Harden</span></div>
-      </a>
-      <a href="projets.html" class="mq-card" aria-hidden="true" onclick="goToProjects(event)">
-        <div class="mq-img" style="background-image:url('mockup-barnes.webp')"></div>
-        <div class="mq-info"><span class="mq-cat">UI Design · Automobile</span><span class="mq-name">BARNES CarJager</span></div>
-      </a>
-      <a href="projets.html" class="mq-card" aria-hidden="true" onclick="goToProjects(event)">
-        <div class="mq-img" style="background-image:url('mockup-logotype.webp')"></div>
-        <div class="mq-info"><span class="mq-cat">Identité · Branding</span><span class="mq-name">Logotype Design</span></div>
-      </a>
-      <a href="projets.html" class="mq-card" aria-hidden="true" onclick="goToProjects(event)">
-        <div class="mq-img" style="background-image:url('mockup-nike-bleu.webp')"></div>
-        <div class="mq-info"><span class="mq-cat">UI Design · Sport</span><span class="mq-name">Nike Collection</span></div>
-      </a>
-      <a href="projets.html" class="mq-card" aria-hidden="true" onclick="goToProjects(event)">
-        <div class="mq-img" style="background-image:url('mockup-nike-rouge.webp')"></div>
-        <div class="mq-info"><span class="mq-cat">UI Design · Sport</span><span class="mq-name">Nike Air Max</span></div>
-      </a>
-      <a href="projets.html" class="mq-card" aria-hidden="true" onclick="goToProjects(event)">
-        <div class="mq-img" style="background-image:url('logo-daflon.webp')"></div>
-        <div class="mq-info"><span class="mq-cat">Identité · Branding</span><span class="mq-name">Daflon Community</span></div>
-      </a>
-      <a href="projets.html" class="mq-card" aria-hidden="true" onclick="goToProjects(event)">
-        <div class="mq-img" style="background-image:url('logo-carole.webp')"></div>
-        <div class="mq-info"><span class="mq-cat">Identité · Branding</span><span class="mq-name">Carole Grantz Paris</span></div>
-      </a>
-      <a href="projets.html" class="mq-card" aria-hidden="true" onclick="goToProjects(event)">
-        <div class="mq-img" style="background-image:url('logo-don.webp')"></div>
-        <div class="mq-info"><span class="mq-cat">Identité · Monogramme</span><span class="mq-name">DON</span></div>
-      </a>
-      <a href="projets.html" class="mq-card" aria-hidden="true" onclick="goToProjects(event)">
-        <div class="mq-img" style="background-image:url('logo-bihem.webp')"></div>
-        <div class="mq-info"><span class="mq-cat">Identité · Logo</span><span class="mq-name">Bihem</span></div>
-      </a>
-      <a href="projets.html" class="mq-card" aria-hidden="true" onclick="goToProjects(event)">
-        <div class="mq-img" style="background-image:url('logo-unr.webp')"></div>
-        <div class="mq-info"><span class="mq-cat">Identité · Monogramme</span><span class="mq-name">UNR</span></div>
-      </a>
+  <div class="mq-stage">
+    <!-- ROW A — scrolls right→left, mix UI + Identité -->
+    <div class="mq-row">
+      <div class="mq-track mq-track-a">
+        <a href="projets.html" class="mq-card" onclick="goToProjects(event)">
+          <div class="mq-img" style="background-image:url('mockup-mamagaya.webp')"></div>
+          <div class="mq-info"><span class="mq-cat">UI Design · App Mobile</span><span class="mq-name">Mamagaya</span></div>
+        </a>
+        <a href="projets.html" class="mq-card" onclick="goToProjects(event)">
+          <div class="mq-img" style="background-image:url('mockup-barnes.webp')"></div>
+          <div class="mq-info"><span class="mq-cat">UI Design · Automobile</span><span class="mq-name">BARNES CarJager</span></div>
+        </a>
+        <a href="projets.html" class="mq-card" onclick="goToProjects(event)">
+          <div class="mq-img" style="background-image:url('logo-daflon.webp')"></div>
+          <div class="mq-info"><span class="mq-cat">Identité · Branding</span><span class="mq-name">Daflon Community</span></div>
+        </a>
+        <a href="projets.html" class="mq-card" onclick="goToProjects(event)">
+          <div class="mq-img" style="background-image:url('mockup-nike-bleu.webp')"></div>
+          <div class="mq-info"><span class="mq-cat">UI Design · Sport</span><span class="mq-name">Nike Collection</span></div>
+        </a>
+        <a href="projets.html" class="mq-card" onclick="goToProjects(event)">
+          <div class="mq-img" style="background-image:url('logo-don.webp')"></div>
+          <div class="mq-info"><span class="mq-cat">Identité · Monogramme</span><span class="mq-name">DON</span></div>
+        </a>
+        <a href="projets.html" class="mq-card" onclick="goToProjects(event)">
+          <div class="mq-img" style="background-image:url('mockup-logotype.webp')"></div>
+          <div class="mq-info"><span class="mq-cat">Identité · Branding</span><span class="mq-name">Logotype Design</span></div>
+        </a>
+        <!-- duplicate -->
+        <a href="projets.html" class="mq-card" aria-hidden="true" onclick="goToProjects(event)">
+          <div class="mq-img" style="background-image:url('mockup-mamagaya.webp')"></div>
+          <div class="mq-info"><span class="mq-cat">UI Design · App Mobile</span><span class="mq-name">Mamagaya</span></div>
+        </a>
+        <a href="projets.html" class="mq-card" aria-hidden="true" onclick="goToProjects(event)">
+          <div class="mq-img" style="background-image:url('mockup-barnes.webp')"></div>
+          <div class="mq-info"><span class="mq-cat">UI Design · Automobile</span><span class="mq-name">BARNES CarJager</span></div>
+        </a>
+        <a href="projets.html" class="mq-card" aria-hidden="true" onclick="goToProjects(event)">
+          <div class="mq-img" style="background-image:url('logo-daflon.webp')"></div>
+          <div class="mq-info"><span class="mq-cat">Identité · Branding</span><span class="mq-name">Daflon Community</span></div>
+        </a>
+        <a href="projets.html" class="mq-card" aria-hidden="true" onclick="goToProjects(event)">
+          <div class="mq-img" style="background-image:url('mockup-nike-bleu.webp')"></div>
+          <div class="mq-info"><span class="mq-cat">UI Design · Sport</span><span class="mq-name">Nike Collection</span></div>
+        </a>
+        <a href="projets.html" class="mq-card" aria-hidden="true" onclick="goToProjects(event)">
+          <div class="mq-img" style="background-image:url('logo-don.webp')"></div>
+          <div class="mq-info"><span class="mq-cat">Identité · Monogramme</span><span class="mq-name">DON</span></div>
+        </a>
+        <a href="projets.html" class="mq-card" aria-hidden="true" onclick="goToProjects(event)">
+          <div class="mq-img" style="background-image:url('mockup-logotype.webp')"></div>
+          <div class="mq-info"><span class="mq-cat">Identité · Branding</span><span class="mq-name">Logotype Design</span></div>
+        </a>
+      </div>
+    </div>
+    <!-- ROW B — scrolls left→right (opposite direction) -->
+    <div class="mq-row">
+      <div class="mq-track mq-track-b">
+        <a href="projets.html" class="mq-card" onclick="goToProjects(event)">
+          <div class="mq-img" style="background-image:url('mockup-adidas.webp')"></div>
+          <div class="mq-info"><span class="mq-cat">UI Design · E-commerce</span><span class="mq-name">Adidas Harden</span></div>
+        </a>
+        <a href="projets.html" class="mq-card" onclick="goToProjects(event)">
+          <div class="mq-img" style="background-image:url('logo-carole.webp')"></div>
+          <div class="mq-info"><span class="mq-cat">Identité · Branding</span><span class="mq-name">Carole Grantz Paris</span></div>
+        </a>
+        <a href="projets.html" class="mq-card" onclick="goToProjects(event)">
+          <div class="mq-img" style="background-image:url('mockup-nike-rouge.webp')"></div>
+          <div class="mq-info"><span class="mq-cat">UI Design · Sport</span><span class="mq-name">Nike Air Max</span></div>
+        </a>
+        <a href="projets.html" class="mq-card" onclick="goToProjects(event)">
+          <div class="mq-img" style="background-image:url('logo-bihem.webp')"></div>
+          <div class="mq-info"><span class="mq-cat">Identité · Logo</span><span class="mq-name">Bihem</span></div>
+        </a>
+        <a href="projets.html" class="mq-card" onclick="goToProjects(event)">
+          <div class="mq-img" style="background-image:url('logo-unr.webp')"></div>
+          <div class="mq-info"><span class="mq-cat">Identité · Monogramme</span><span class="mq-name">UNR</span></div>
+        </a>
+        <!-- duplicate -->
+        <a href="projets.html" class="mq-card" aria-hidden="true" onclick="goToProjects(event)">
+          <div class="mq-img" style="background-image:url('mockup-adidas.webp')"></div>
+          <div class="mq-info"><span class="mq-cat">UI Design · E-commerce</span><span class="mq-name">Adidas Harden</span></div>
+        </a>
+        <a href="projets.html" class="mq-card" aria-hidden="true" onclick="goToProjects(event)">
+          <div class="mq-img" style="background-image:url('logo-carole.webp')"></div>
+          <div class="mq-info"><span class="mq-cat">Identité · Branding</span><span class="mq-name">Carole Grantz Paris</span></div>
+        </a>
+        <a href="projets.html" class="mq-card" aria-hidden="true" onclick="goToProjects(event)">
+          <div class="mq-img" style="background-image:url('mockup-nike-rouge.webp')"></div>
+          <div class="mq-info"><span class="mq-cat">UI Design · Sport</span><span class="mq-name">Nike Air Max</span></div>
+        </a>
+        <a href="projets.html" class="mq-card" aria-hidden="true" onclick="goToProjects(event)">
+          <div class="mq-img" style="background-image:url('logo-bihem.webp')"></div>
+          <div class="mq-info"><span class="mq-cat">Identité · Logo</span><span class="mq-name">Bihem</span></div>
+        </a>
+        <a href="projets.html" class="mq-card" aria-hidden="true" onclick="goToProjects(event)">
+          <div class="mq-img" style="background-image:url('logo-unr.webp')"></div>
+          <div class="mq-info"><span class="mq-cat">Identité · Monogramme</span><span class="mq-name">UNR</span></div>
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -2059,15 +2119,13 @@ body.light .reel-arrow svg path{stroke:#000000}
       </p>
       <div class="about-pills rv d3">
         <span class="about-pill">Figma</span>
-        <span class="about-pill">Power BI</span>
-        <span class="about-pill">DAX</span>
-        <span class="about-pill">SQL</span>
-        <span class="about-pill">Webflow</span>
         <span class="about-pill">Illustrator</span>
         <span class="about-pill">Photoshop</span>
         <span class="about-pill">After Effects</span>
+        <span class="about-pill">n8n</span>
         <span class="about-pill">IA & No-code</span>
         <span class="about-pill">Claude Code</span>
+        <span class="about-pill">InDesign</span>
       </div>
       <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap">
         <button onclick="goToContact(event)" class="about-cta rv d4">Travailler ensemble →</button>
