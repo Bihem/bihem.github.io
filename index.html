@@ -460,17 +460,17 @@ body.leaving{animation:body-exit 0.35s cubic-bezier(.4,0,.2,1) forwards}
 .mq-voir{font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:1;transition:opacity .3s;font-family:var(--SI);color:var(--white);text-decoration:none;white-space:nowrap}
 .mq-voir:hover{opacity:.6}
 
-/* ── CYLINDRE 3D ROTATIF (panneaux uniformes, responsive) */
-.mq-cyl-wrap{display:flex;justify-content:center;align-items:center;height:clamp(280px,38vw,420px);padding:20px 0;perspective:clamp(1600px,180vw,2800px)}
-.mq-cylinder{position:relative;transform-style:preserve-3d;animation:mqCylRot 38s linear infinite;will-change:transform}
+/* ── CYLINDRE 3D 8 FACES (images entières, sans crop) */
+.mq-cyl-wrap{display:flex;justify-content:center;align-items:center;perspective:2400px;height:620px;padding:40px 0}
+.mq-cylinder{width:400px;height:300px;position:relative;transform-style:preserve-3d;animation:mqCylRot 32s linear infinite;will-change:transform}
 .mq-cylinder:hover{animation-play-state:paused}
-@keyframes mqCylRot{from{transform:rotateY(0) rotateX(-4deg)}to{transform:rotateY(-360deg) rotateX(-4deg)}}
-.mq-panel{position:absolute;background:transparent;overflow:hidden;cursor:pointer;display:block;text-decoration:none;left:0;top:0;backface-visibility:hidden}
-.mq-panel img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;pointer-events:none;transition:filter .35s ease}
+@keyframes mqCylRot{from{transform:rotateY(0) rotateX(-6deg)}to{transform:rotateY(-360deg) rotateX(-6deg)}}
+.mq-panel{position:absolute;width:400px;height:300px;background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;text-decoration:none;left:0;top:0}
+.mq-panel img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;pointer-events:none;transition:filter .35s ease}
 .mq-panel:hover img{filter:brightness(1.1)}
 
 @media(max-width:980px){.mq-section{padding:80px 0 90px}}
-@media(max-width:680px){.mq-section{padding:64px 0 72px}}
+@media(max-width:680px){.mq-section{padding:64px 0 72px}.mq-cyl-wrap{height:460px;padding:20px 0}.mq-cylinder{width:240px;height:180px}.mq-panel{width:240px;height:180px}}
 @media(max-width:480px){.mq-section{padding:52px 0 64px}}
 .projects{border-top:1px solid var(--line)}
 .projects-head{
@@ -1950,32 +1950,21 @@ body.light .reel-arrow svg path{stroke:#000000}
       <a href="projets.html" class="mq-panel" onclick="goToProjects(event)" data-i="5"><img src="mockup-nike-rouge.webp" alt="Nike Air Max"></a>
       <a href="projets.html" class="mq-panel" onclick="goToProjects(event)" data-i="6"><img src="logo-daflon.webp" alt="Daflon Community"></a>
       <a href="projets.html" class="mq-panel" onclick="goToProjects(event)" data-i="7"><img src="logo-carole.webp" alt="Carole Grantz Paris"></a>
-      <a href="projets.html" class="mq-panel" onclick="goToProjects(event)" data-i="8"><img src="logo-don.webp" alt="DON"></a>
-      <a href="projets.html" class="mq-panel" onclick="goToProjects(event)" data-i="9"><img src="logo-bihem.webp" alt="Bihem"></a>
-      <a href="projets.html" class="mq-panel" onclick="goToProjects(event)" data-i="10"><img src="logo-unr.webp" alt="UNR"></a>
     </div>
   </div>
 </section>
 <script>
 (function(){
-  function clamp(v,a,b){return Math.max(a,Math.min(b,v));}
   function placeCyl(){
     var cyl=document.getElementById('mqCylinder');
     if(!cyl)return;
     var panels=cyl.querySelectorAll('.mq-panel');
     var N=panels.length;
-    var vw=Math.max(window.innerWidth,document.documentElement.clientWidth||0);
-    // Panneaux uniformes ratio 4:3, scalent avec le viewport
-    var W=Math.round(clamp(vw*0.22,180,320));
-    var H=Math.round(W*3/4);
-    // r calculé pour que les panneaux se touchent exactement (cylindre solide)
-    var r=Math.round(W/(2*Math.tan(Math.PI/N)));
-    cyl.style.width=W+'px';
-    cyl.style.height=H+'px';
+    var isMobile=window.innerWidth<=680;
+    var W=isMobile?240:400;
+    var r=Math.round(W/(2*Math.tan(Math.PI/N))) + 3;
     panels.forEach(function(p,i){
       var angle=(i*360/N);
-      p.style.width=W+'px';
-      p.style.height=H+'px';
       p.style.transform='rotateY('+angle+'deg) translateZ('+r+'px)';
     });
   }
