@@ -423,6 +423,31 @@ body.light .step-desc{color:#555}
   .span-12,.span-8,.span-7,.span-6,.span-5,.span-4,.span-3{grid-column:span 12}
   .dsb-side{position:static;top:auto}
 }
+@media(max-width:680px){
+  .dsb{padding:0 16px 48px;gap:24px}
+  .dsb-card{padding:20px}
+  .dsb-side{gap:24px}
+  .dsb-brand-logo{width:40px;height:40px;font-size:16px}
+  .dsb-brand-name{font-size:20px}
+  .col-grid{grid-template-columns:repeat(auto-fit,minmax(64px,1fr));gap:8px}
+  .typ-row{grid-template-columns:50px 1fr;gap:12px}
+  .icn-grid{grid-template-columns:repeat(4,1fr)}
+  .btn-table{grid-template-columns:64px 1fr;gap:10px}
+  .btn-table .btn-th{display:none}
+  .btn-table .btn-th.left{display:block;text-align:left;font-size:9px}
+  .btn-table .btn-cell{padding:4px}
+  .scr-grid{grid-template-columns:repeat(2,1fr);gap:18px}
+  .alrt-stack{gap:8px}
+  .alrt-body{font-size:11px}
+}
+@media(max-width:480px){
+  .dsb{padding:0 12px 40px}
+  .dsb-card{padding:16px;border-radius:12px}
+  .col-grid{grid-template-columns:repeat(auto-fit,minmax(56px,1fr))}
+  .icn-grid{grid-template-columns:repeat(4,1fr);gap:6px}
+  .icn-cell svg{width:18px;height:18px}
+  .nav-mob{padding:10px 8px}
+}
 
 /* COULEURS */
 .col-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(80px,1fr));gap:12px}
