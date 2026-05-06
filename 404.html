@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<script>if(localStorage.getItem('dikenga-theme')==='light'){document.documentElement.style.background='#FFFFFF';}else{document.documentElement.style.background='#1D1B1B';}</script>
+<script>if(localStorage.getItem('dikenga-theme')==='dark'){document.documentElement.style.background='#1D1B1B';}else{document.documentElement.style.background='#FFFFFF';}</script>
 <title>Page introuvable — Dikenga Design</title>
 <meta name="robots" content="noindex, follow"/>
 <link rel="canonical" href="https://dikengadesign.fr/404.html"/>
@@ -50,7 +50,7 @@ body.light .btn-back:hover{border-color:#000;color:#000}
 (function(){
   const stored = localStorage.getItem('dikenga-theme');
   const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const useDark = stored ? stored === 'dark' : true;
+  const useDark = stored ? stored === 'dark' : false;
   if(!useDark) document.body.classList.add('light');
 })();
 /* Auto-redirect après 10s */
