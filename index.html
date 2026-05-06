@@ -469,9 +469,13 @@ body.leaving{animation:body-exit 0.35s cubic-bezier(.4,0,.2,1) forwards}
 .mq-panel img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;pointer-events:none;transition:filter .35s ease}
 .mq-panel:hover img{filter:brightness(1.1)}
 
-@media(max-width:980px){.mq-section{padding:80px 0 90px}}
-@media(max-width:680px){.mq-section{padding:64px 0 72px}.mq-cyl-wrap{height:460px;padding:20px 0}.mq-cylinder{width:240px;height:180px}.mq-panel{width:240px;height:180px}}
-@media(max-width:480px){.mq-section{padding:52px 0 64px}}
+@media(max-width:980px){.mq-section{padding:80px 0 90px}.mq-header{flex-direction:column;align-items:flex-start;gap:16px}.mq-header .services-sub,.mq-header p{text-align:left!important;max-width:100%!important}}
+@media(max-width:680px){.mq-section{padding:64px 0 72px}.mq-cyl-wrap{height:380px;padding:10px 0}.mq-cylinder{width:200px;height:150px}.mq-panel{width:200px;height:150px}.mq-header{padding:0 20px;margin-bottom:32px}.mq-title{font-size:clamp(28px,8vw,40px)}}
+@media(max-width:480px){.mq-section{padding:52px 0 64px}.mq-cyl-wrap{height:320px}.mq-cylinder{width:170px;height:130px}.mq-panel{width:170px;height:130px}}
+
+/* ── SECTORS responsive */
+@media(max-width:980px){.sectors-section{padding:80px 0 40px!important;margin-top:40px!important}.sector-card{padding:28px 22px!important}}
+@media(max-width:680px){.sectors-section{padding:60px 0 32px!important;margin-top:32px!important}.sectors-grid{grid-template-columns:1fr!important}.sector-card{padding:24px 20px!important}.sector-card h3{font-size:18px!important}}
 .projects{border-top:1px solid var(--line)}
 .projects-head{
   padding:80px 28px 40px;
@@ -2047,7 +2051,7 @@ body.light .reel-arrow svg path{stroke:#000000}
 <section class="mq-section" id="logos" style="border-top:1px solid var(--line);padding-top:80px">
   <div class="mq-header rv">
     <h2 class="mq-title">Aussi des<br>logos.</h2>
-    <p class="services-sub" style="max-width:420px;text-align:right">En complément du product design, je conçois des logotypes et identités visuelles pour mes clients qui en ont besoin.</p>
+    <p class="services-sub" style="max-width:420px;text-align:right;align-self:flex-end">En complément du product design, je conçois des logotypes et identités visuelles pour mes clients qui en ont besoin.</p>
   </div>
   <div class="mq-cyl-wrap">
     <div class="mq-cylinder" id="logoCylinder">
