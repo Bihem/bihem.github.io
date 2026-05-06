@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<script>if(localStorage.getItem('dikenga-theme')==='light'){document.documentElement.style.background='#FFFFFF';document.documentElement.style.setProperty('--bg','#FFFFFF');}else{document.documentElement.style.background='#1D1B1B';document.documentElement.style.setProperty('--bg','#1D1B1B');}</script>
+<script>if(localStorage.getItem('dikenga-theme')==='dark'){document.documentElement.style.background='#1D1B1B';document.documentElement.style.setProperty('--bg','#1D1B1B');}else{document.documentElement.style.background='#FFFFFF';document.documentElement.style.setProperty('--bg','#FFFFFF');}</script>
 <style>html{background:transparent}
 .site-video-bg{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.13;z-index:0;pointer-events:none;mix-blend-mode:screen}
 body.light .site-video-bg{opacity:0.06;mix-blend-mode:multiply}
@@ -397,7 +397,7 @@ function goHome(e){
 
 (function(){
   const stored = localStorage.getItem('dikenga-theme');
-  const useDark = stored ? stored === 'dark' : true;
+  const useDark = stored ? stored === 'dark' : false;
   if(!useDark){
     document.documentElement.style.setProperty('--bg','#FFFFFF');
     document.documentElement.style.setProperty('--white','#000000');
