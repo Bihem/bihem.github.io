@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<title>Tennis Booking — Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased}
+html,body{background:#F4F2EE}
+body{font-family:'Inter',system-ui,Arial,sans-serif;color:#0F1A0E;padding:48px}
+
+:root{
+  --green-light:#D8F35A;
+  --green:#A8D820;
+  --green-mid:#5DA834;
+  --green-deep:#1F4A1B;
+  --green-bg:#F2F8E5;
+  --sky:#7BB8E6;
+  --orange:#F4A261;
+  --red:#E63946;
+  --warn:#F59E0B;
+  --info:#3B82F6;
+  --ok:#16A34A;
+  --txt:#0F1A0E;
+  --txt2:#5C6157;
+  --line:#E5E2DA;
+  --surf:#FAF9F5;
+  --white:#FFFFFF;
+}
+
+.poster{
+  width:1920px;
+  background:#FFFFFF;
+  border:1px solid var(--line);
+  border-radius:24px;
+  padding:60px 64px 80px;
+  display:grid;
+  grid-template-columns:300px 1fr;
+  grid-template-rows:auto auto;
+  gap:44px;
+  position:relative;
+}
+
+/* HEADER */
+.head{grid-column:1 / -1;display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1px solid var(--line);padding-bottom:32px}
+.brand{display:flex;align-items:center;gap:18px}
+.brand-logo{
+  width:64px;height:64px;border-radius:16px;
+  background:var(--green-deep);color:var(--green-light);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:30px;letter-spacing:-0.04em;
+  position:relative;
+}
+.brand-logo::after{
+  content:'';position:absolute;width:14px;height:14px;
+  background:var(--green-light);border-radius:50%;
+  bottom:8px;right:8px;
+  box-shadow:inset -2px -2px 0 rgba(0,0,0,.08);
+}
+.brand-text .brand-name{font-size:32px;font-weight:700;letter-spacing:-0.02em;line-height:1;color:var(--txt)}
+.brand-text .brand-tag{font-size:14px;color:var(--txt2);margin-top:6px;font-weight:500}
+
+.head-title{flex:1;text-align:center;padding:0 32px}
+.head-title-h{font-size:42px;font-weight:700;letter-spacing:-0.02em;line-height:1;color:var(--txt)}
+.head-title-tag{font-size:11px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--txt2);margin-top:12px}
+
+.head-meta{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.head-meta .v{font-family:'JetBrains Mono','Courier New',monospace;font-size:11px;color:var(--txt2)}
+.head-meta .badge{padding:6px 14px;border-radius:100px;background:var(--green-light);color:var(--green-deep);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase}
+
+/* SIDEBAR */
+.side{display:flex;flex-direction:column;gap:28px}
+.side-block .h{font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--txt2);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.side-block .h::before{content:'';display:block;width:24px;height:2px;background:var(--green)}
+
+.princ{display:flex;flex-direction:column;gap:14px}
+.princ-item{display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:flex-start}
+.princ-icon{
+  width:26px;height:26px;border-radius:50%;background:var(--green-light);color:var(--green-deep);
+  display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0;
+}
+.princ-title{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:3px}
+.princ-desc{font-size:12px;color:var(--txt2);line-height:1.5}
+
+.toc{display:flex;flex-direction:column;gap:6px}
+.toc-item{font-size:13px;font-weight:500;color:var(--txt2);display:flex;align-items:center;gap:10px}
+.toc-item::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--green)}
+
+/* MAIN GRID */
+.main{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:min-content;gap:14px;align-content:start}
+.card{background:var(--surf);border:1px solid var(--line);border-radius:16px;padding:20px}
+.card .title{font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--txt2);margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px}
+.card .title::after{content:'';flex:1;height:1px;background:transparent}
+.card .sub{font-size:10px;font-weight:700;letter-spacing:0.08em;color:var(--txt2);margin:12px 0 8px;text-transform:uppercase}
+
+.span-12{grid-column:span 12}
+.span-7{grid-column:span 7}
+.span-6{grid-column:span 6}
+.span-5{grid-column:span 5}
+.span-4{grid-column:span 4}
+.span-3{grid-column:span 3}
+.span-2{grid-column:span 2}
+
+/* COLORS */
+.col-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.col-item{display:flex;flex-direction:column;gap:6px}
+.col-sw{width:100%;aspect-ratio:1.2/1;border-radius:10px;border:1px solid var(--line);position:relative;overflow:hidden}
+.col-name{font-size:10px;font-weight:700;color:var(--txt)}
+.col-meta{font-family:'JetBrains Mono','Courier New',monospace;font-size:9px;color:var(--txt2)}
+
+/* TYPO */
+.typ{display:flex;flex-direction:column;gap:10px}
+.typ-row{display:grid;grid-template-columns:60px 1fr;gap:14px;align-items:baseline;padding-bottom:8px;border-bottom:1px dashed var(--line)}
+.typ-row:last-child{border-bottom:none}
+.typ-aa{font-weight:700;color:var(--txt);line-height:1}
+.typ-meta-h{font-size:12px;font-weight:700;color:var(--txt);margin-bottom:2px}
+.typ-meta-d{font-family:'JetBrains Mono','Courier New',monospace;font-size:9px;color:var(--txt2)}
+
+/* RADIUS */
+.radius-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.radius-item{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+.radius-shape{width:48px;height:48px;background:var(--green-deep)}
+.radius-name{font-size:10px;font-weight:700;color:var(--txt)}
+.radius-val{font-family:'JetBrains Mono','Courier New',monospace;font-size:9px;color:var(--txt2)}
+
+/* ICONS */
+.icn-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.icn{aspect-ratio:1/1;background:var(--white);border:1px solid var(--line);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--txt)}
+.icn svg{width:20px;height:20px}
+
+/* BUTTONS */
+.btn-grid{display:grid;grid-template-columns:70px repeat(3,1fr);gap:10px;align-items:center}
+.btn-th{font-size:9px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--txt2);text-align:center}
+.btn-th.left{text-align:left}
+.btn-cell{display:flex;align-items:center;justify-content:center;padding:4px}
+.t-btn{display:inline-flex;align-items:center;gap:6px;padding:11px 22px;border-radius:100px;font-family:'Inter';font-size:12px;font-weight:700;border:1px solid;text-decoration:none;letter-spacing:0.01em}
+.t-btn-primary{background:var(--green-deep);color:var(--green-light);border-color:var(--green-deep)}
+.t-btn-primary.hover{background:#0F2F0D}
+.t-btn-primary.disabled{background:#C5C9C0;color:var(--white);border-color:transparent}
+.t-btn-accent{background:var(--green-light);color:var(--green-deep);border-color:var(--green-light)}
+.t-btn-accent.hover{background:var(--green)}
+.t-btn-accent.disabled{background:#EAEEDC;color:#9DA38F;border-color:transparent}
+.t-btn-ghost{background:transparent;color:var(--green-deep);border-color:var(--green-deep)}
+.t-btn-ghost.hover{background:var(--green-bg)}
+.t-btn-ghost.disabled{color:#A8AC9F;border-color:#D5D8CC}
+
+/* INPUT */
+.form-stack{display:flex;flex-direction:column;gap:10px}
+.form-label{font-size:11px;font-weight:600;color:var(--txt2);display:block;margin-bottom:6px}
+.form-input{width:100%;padding:12px 14px;border-radius:12px;background:var(--white);border:1.5px solid var(--line);color:var(--txt);font-family:'Inter';font-size:13px;outline:none;font-weight:500}
+.form-input::placeholder{color:#A8AC9F}
+.form-input.active{border-color:var(--green-deep)}
+.form-input.error{border-color:var(--red)}
+.form-error{font-size:10px;color:var(--red);margin-top:4px;font-weight:500}
+
+/* CHECK / RADIO */
+.chk-row{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--txt);margin-bottom:8px;font-weight:500}
+.chk-box{width:18px;height:18px;border:1.5px solid #C5C9C0;border-radius:5px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:var(--white)}
+.chk-box.checked{background:var(--green-deep);border-color:var(--green-deep)}
+.chk-box.checked::after{content:'';width:10px;height:10px;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='%23D8F35A' stroke-width='2'><path d='M2 6l3 3 5-6'/></svg>") center/contain no-repeat}
+.rdo-box{width:18px;height:18px;border:1.5px solid #C5C9C0;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:var(--white)}
+.rdo-box.checked{border-color:var(--green-deep);background:var(--green-deep)}
+.rdo-box.checked::after{content:'';width:8px;height:8px;background:var(--green-light);border-radius:50%}
+
+/* CARD COURT */
+.tcard{padding:14px;background:var(--white);border:1px solid var(--line);border-radius:16px;display:flex;gap:12px;align-items:center}
+.tcard-img{width:70px;height:70px;border-radius:12px;background:linear-gradient(135deg,var(--sky) 0%,var(--green) 100%);flex-shrink:0;position:relative;overflow:hidden}
+.tcard-img::after{content:'';position:absolute;width:24px;height:24px;background:var(--green-light);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);box-shadow:inset -3px -3px 0 rgba(0,0,0,.1)}
+.tcard-body{flex:1}
+.tcard-h{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:3px;letter-spacing:-0.01em}
+.tcard-meta{font-size:11px;color:var(--txt2);font-weight:500;display:flex;align-items:center;gap:6px;margin-bottom:6px}
+.tcard-stars{color:var(--warn);font-size:10px}
+.tcard-price{font-size:16px;font-weight:800;color:var(--green-deep)}
+.tcard-price small{font-size:10px;font-weight:600;color:var(--txt2)}
+
+/* BADGES */
+.bdg-stack{display:flex;flex-direction:column;gap:6px}
+.bdg{display:inline-flex;align-items:center;padding:5px 12px;border-radius:100px;font-size:11px;font-weight:700;border:1px solid;align-self:flex-start}
+.bdg-disp{background:var(--green-bg);color:var(--green-deep);border-color:#C8E6A1}
+.bdg-resv{background:#FEF3C7;color:#92400E;border-color:#FDE68A}
+.bdg-comp{background:#FEE2E2;color:#991B1B;border-color:#FECACA}
+.bdg-pro{background:var(--green-deep);color:var(--green-light);border-color:var(--green-deep)}
+.bdg-new{background:#DBEAFE;color:#1E40AF;border-color:#BFDBFE}
+
+/* CHIPS */
+.chip-row{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-flex;align-items:center;padding:7px 14px;border-radius:100px;font-size:11px;font-weight:600;border:1.5px solid var(--line);color:var(--txt);background:var(--white)}
+.chip.active{background:var(--green-deep);color:var(--green-light);border-color:var(--green-deep)}
+
+/* ALERTS */
+.alrt{display:flex;align-items:flex-start;gap:10px;padding:12px 14px;border-radius:12px;border:1px solid;margin-bottom:8px}
+.alrt-icon{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;color:var(--white)}
+.alrt-body{flex:1;font-size:11px;line-height:1.4}
+.alrt-h{font-weight:700;color:var(--txt);margin-bottom:1px;font-size:12px}
+.alrt-p{color:var(--txt2)}
+.alrt-ok{background:var(--green-bg);border-color:#C8E6A1}
+.alrt-ok .alrt-icon{background:var(--ok)}
+.alrt-warn{background:#FEF9E7;border-color:#FCE7B5}
+.alrt-warn .alrt-icon{background:var(--warn)}
+.alrt-err{background:#FEEBEB;border-color:#FBC8C8}
+.alrt-err .alrt-icon{background:var(--red)}
+
+/* PHONES */
+.scr-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:6px}
+.scr{display:flex;flex-direction:column;align-items:center;gap:8px}
+.scr-frame{
+  width:100%;aspect-ratio:0.485/1;
+  background:var(--white);
+  border:8px solid #1A1A1A;
+  border-radius:32px;
+  padding:0;display:flex;flex-direction:column;
+  position:relative;overflow:hidden;
+  box-shadow:0 4px 14px rgba(0,0,0,.08);
+}
+.scr-notch{height:18px;background:#1A1A1A;display:flex;justify-content:center;align-items:flex-end;padding-bottom:2px}
+.scr-notch-pill{width:60px;height:6px;background:#000;border-radius:100px}
+.scr-content{flex:1;padding:14px 12px 12px;display:flex;flex-direction:column;gap:8px}
+.scr-statusbar{display:flex;justify-content:space-between;font-size:8px;font-weight:700;color:var(--txt);margin-bottom:4px}
+.scr-h{font-size:13px;font-weight:800;color:var(--txt);letter-spacing:-0.01em;line-height:1.1}
+.scr-sub{font-size:9px;color:var(--txt2);font-weight:500;margin-top:1px}
+
+.scr-pill{display:inline-flex;align-items:center;gap:4px;padding:5px 10px;border-radius:100px;font-size:9px;font-weight:700;background:var(--green-deep);color:var(--green-light);align-self:flex-start}
+.scr-search{padding:8px 10px;background:#F2F0EA;border-radius:10px;font-size:9px;color:var(--txt2);display:flex;align-items:center;gap:6px}
+.scr-search-icn{width:11px;height:11px;background:var(--txt2);border-radius:50%;flex-shrink:0;opacity:.5}
+
+.scr-cards{display:flex;flex-direction:column;gap:7px}
+.scr-cardlet{padding:8px;background:#F8F7F2;border-radius:10px;display:flex;gap:8px;align-items:center}
+.scr-cardlet-img{width:36px;height:36px;border-radius:8px;background:linear-gradient(135deg,var(--sky),var(--green));flex-shrink:0;position:relative}
+.scr-cardlet-img::after{content:'';position:absolute;width:12px;height:12px;background:var(--green-light);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%)}
+.scr-cardlet-body{flex:1;min-width:0}
+.scr-cardlet-h{font-size:9px;font-weight:700;color:var(--txt);margin-bottom:1px}
+.scr-cardlet-m{font-size:7px;color:var(--txt2);font-weight:600}
+.scr-cardlet-p{font-size:10px;font-weight:800;color:var(--green-deep)}
+
+.scr-cta{padding:9px;background:var(--green-deep);color:var(--green-light);font-size:10px;font-weight:800;border-radius:100px;text-align:center;margin-top:auto;letter-spacing:0.02em}
+.scr-cta-2{padding:9px;background:var(--green-light);color:var(--green-deep);font-size:10px;font-weight:800;border-radius:100px;text-align:center;margin-top:auto;letter-spacing:0.02em}
+
+.scr-tabbar{display:flex;justify-content:space-around;padding:6px 0 4px;border-top:1px solid var(--line);background:var(--white)}
+.scr-tab{display:flex;flex-direction:column;align-items:center;gap:1px;font-size:7px;color:var(--txt2);font-weight:700}
+.scr-tab.act{color:var(--green-deep)}
+.scr-tab-icn{width:14px;height:14px;border-radius:3px;background:currentColor;opacity:.7}
+
+.scr-name{font-size:11px;font-weight:700;color:var(--txt)}
+
+/* HERO PHONE */
+.scr-hero-bg{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,var(--sky) 0%,#A8D1F0 60%,var(--green) 100%);
+}
+.scr-hero-ball{
+  position:absolute;width:48px;height:48px;border-radius:50%;
+  background:radial-gradient(circle at 30% 30%,var(--green-light) 0%,var(--green) 70%,var(--green-mid) 100%);
+  top:18%;right:14%;
+  box-shadow:0 4px 12px rgba(168,216,32,0.5);
+}
+.scr-hero-ball::after{
+  content:'';position:absolute;inset:0;border-radius:50%;
+  background:radial-gradient(circle at 50% 30%,transparent 30%,rgba(255,255,255,0.2) 35%,transparent 40%);
+}
+.scr-hero-content{position:absolute;bottom:0;left:0;right:0;padding:14px;color:var(--white)}
+.scr-hero-h{font-size:18px;font-weight:800;letter-spacing:-0.02em;line-height:1;color:var(--white);margin-bottom:8px;text-shadow:0 2px 8px rgba(0,0,0,0.3)}
+.scr-hero-cta{padding:9px;background:var(--green-light);color:var(--green-deep);font-size:11px;font-weight:800;border-radius:100px;text-align:center;letter-spacing:0.02em;margin-top:8px}
+
+/* MAP scr */
+.scr-map{flex:1;background:#E8F0E0;position:relative;overflow:hidden;border-radius:6px}
+.scr-map::before{
+  content:'';position:absolute;inset:0;
+  background:
+    linear-gradient(45deg,transparent 30%,rgba(168,216,32,0.15) 30%,rgba(168,216,32,0.15) 35%,transparent 35%),
+    linear-gradient(-45deg,transparent 60%,rgba(91,168,52,0.1) 60%,rgba(91,168,52,0.1) 65%,transparent 65%);
+}
+.scr-map-pin{position:absolute;top:40%;left:50%;transform:translate(-50%,-100%);width:24px;height:24px;background:var(--green-deep);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.scr-map-pin::after{content:'';position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:var(--green-deep)}
+.scr-map-pin-dot{width:10px;height:10px;background:var(--green-light);border-radius:50%}
+
+/* FOOTER */
+.foot{position:absolute;bottom:24px;left:64px;right:64px;display:flex;justify-content:space-between;align-items:center;font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#9DA38F}
+.foot strong{color:var(--green-deep)}
+</style>
+</head>
+<body>
+<div class="poster">
+
+  <!-- HEADER -->
+  <div class="head">
+    <div class="brand">
+      <div class="brand-logo">T</div>
+      <div class="brand-text">
+        <div class="brand-name">Tennis Booking</div>
+        <div class="brand-tag">Match Booking App · Design System v1.0</div>
+      </div>
+    </div>
+    <div class="head-title">
+      <div class="head-title-h">Design System.</div>
+      <div class="head-title-tag">application — réservation de courts de tennis</div>
+    </div>
+    <div class="head-meta">
+      <div class="badge">v1.0.0</div>
+      <div class="v">06.05.2026</div>
+      <div class="v">designed by Dikenga.</div>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside class="side">
+    <div class="side-block">
+      <div class="h">Principes</div>
+      <div class="princ">
+        <div class="princ-item"><div class="princ-icon">1</div><div><div class="princ-title">Énergie</div><div class="princ-desc">Vert éclatant qui évoque la balle de tennis et le terrain.</div></div></div>
+        <div class="princ-item"><div class="princ-icon">2</div><div><div class="princ-title">Clarté</div><div class="princ-desc">Hiérarchie nette, parcours sans friction du choix au paiement.</div></div></div>
+        <div class="princ-item"><div class="princ-icon">3</div><div><div class="princ-title">Mouvement</div><div class="princ-desc">Animations légères, transitions fluides, sensation sportive.</div></div></div>
+        <div class="princ-item"><div class="princ-icon">4</div><div><div class="princ-title">Accessibilité</div><div class="princ-desc">Contrastes WCAG 2.2 AA, taille tactile ≥ 44px partout.</div></div></div>
+      </div>
+    </div>
+
+    <div class="side-block">
+      <div class="h">Sommaire</div>
+      <div class="toc">
+        <span class="toc-item">Couleurs</span>
+        <span class="toc-item">Typographie</span>
+        <span class="toc-item">Icônes & Radius</span>
+        <span class="toc-item">Boutons</span>
+        <span class="toc-item">Formulaires</span>
+        <span class="toc-item">Cartes & Badges</span>
+        <span class="toc-item">Filtres / Chips</span>
+        <span class="toc-item">Alertes</span>
+        <span class="toc-item">Écrans clés</span>
+      </div>
+    </div>
+
+    <div class="side-block">
+      <div class="h">Stack</div>
+      <div class="toc">
+        <span class="toc-item">Figma · prototypage</span>
+        <span class="toc-item">Auto-layout 8pt</span>
+        <span class="toc-item">Variables &amp; tokens</span>
+        <span class="toc-item">React Native ready</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- COLORS -->
+    <div class="card span-5">
+      <div class="title">Couleurs</div>
+      <div class="sub">Palette principale — Tennis</div>
+      <div class="col-grid">
+        <div class="col-item"><div class="col-sw" style="background:#D8F35A"></div><span class="col-name">Tennis Light</span><span class="col-meta">#D8F35A</span></div>
+        <div class="col-item"><div class="col-sw" style="background:#A8D820"></div><span class="col-name">Tennis</span><span class="col-meta">#A8D820</span></div>
+        <div class="col-item"><div class="col-sw" style="background:#5DA834"></div><span class="col-name">Court</span><span class="col-meta">#5DA834</span></div>
+        <div class="col-item"><div class="col-sw" style="background:#1F4A1B"></div><span class="col-name">Deep</span><span class="col-meta">#1F4A1B</span></div>
+      </div>
+      <div class="sub">Neutres &amp; sémantiques</div>
+      <div class="col-grid">
+        <div class="col-item"><div class="col-sw" style="background:#FFFFFF;border:1px solid #E5E2DA"></div><span class="col-name">White</span><span class="col-meta">#FFFFFF</span></div>
+        <div class="col-item"><div class="col-sw" style="background:#0F1A0E"></div><span class="col-name">Text</span><span class="col-meta">#0F1A0E</span></div>
+        <div class="col-item"><div class="col-sw" style="background:#16A34A"></div><span class="col-name">Succès</span><span class="col-meta">#16A34A</span></div>
+        <div class="col-item"><div class="col-sw" style="background:#F59E0B"></div><span class="col-name">Warning</span><span class="col-meta">#F59E0B</span></div>
+        <div class="col-item"><div class="col-sw" style="background:#E63946"></div><span class="col-name">Erreur</span><span class="col-meta">#E63946</span></div>
+        <div class="col-item"><div class="col-sw" style="background:#3B82F6"></div><span class="col-name">Info</span><span class="col-meta">#3B82F6</span></div>
+        <div class="col-item"><div class="col-sw" style="background:#7BB8E6"></div><span class="col-name">Sky</span><span class="col-meta">#7BB8E6</span></div>
+        <div class="col-item"><div class="col-sw" style="background:#F4A261"></div><span class="col-name">Accent</span><span class="col-meta">#F4A261</span></div>
+      </div>
+    </div>
+
+    <!-- TYPO -->
+    <div class="card span-4">
+      <div class="title">Typographie · Inter</div>
+      <div class="typ">
+        <div class="typ-row"><span class="typ-aa" style="font-size:34px">Aa</span><div><div class="typ-meta-h">Display</div><div class="typ-meta-d">42 / 800 · -0.03em</div></div></div>
+        <div class="typ-row"><span class="typ-aa" style="font-size:26px;font-weight:700">Aa</span><div><div class="typ-meta-h">H1</div><div class="typ-meta-d">28 / 700</div></div></div>
+        <div class="typ-row"><span class="typ-aa" style="font-size:18px;font-weight:700">Aa</span><div><div class="typ-meta-h">H2</div><div class="typ-meta-d">18 / 700</div></div></div>
+        <div class="typ-row"><span class="typ-aa" style="font-size:14px;font-weight:500">Aa</span><div><div class="typ-meta-h">Body</div><div class="typ-meta-d">14 / 500</div></div></div>
+        <div class="typ-row"><span class="typ-aa" style="font-size:11px;font-weight:600">Aa</span><div><div class="typ-meta-h">Caption / Label</div><div class="typ-meta-d">11 / 600 · 0.16em</div></div></div>
+      </div>
+    </div>
+
+    <!-- ICONS + RADIUS -->
+    <div class="card span-3">
+      <div class="title">Icônes</div>
+      <div class="icn-grid">
+        <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12L12 3l9 9"/><path d="M5 10v10h14V10"/></svg></div>
+        <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12c4 4 14 4 18 0M3 12c4-4 14-4 18 0M12 3c4 4 4 14 0 18M12 3c-4 4-4 14 0 18"/></svg></div>
+        <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="10" r="3"/><path d="M12 2C7.6 2 4 5.6 4 10c0 5 8 12 8 12s8-7 8-12c0-4.4-3.6-8-8-8z"/></svg></div>
+        <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="6" width="16" height="14" rx="2"/><path d="M4 10h16M9 6V3M15 6V3"/></svg></div>
+        <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="6"/><path d="M16 16l4 4"/></svg></div>
+        <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="9" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg></div>
+        <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2L12 16.6 5.7 21l2.3-7.2L2 9.4h7.6L12 2z"/></svg></div>
+        <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12h18M3 6h18M3 18h18"/></svg></div>
+      </div>
+      <div class="sub">Radius</div>
+      <div class="radius-grid">
+        <div class="radius-item"><div class="radius-shape" style="border-radius:6px"></div><span class="radius-name">SM</span><span class="radius-val">6</span></div>
+        <div class="radius-item"><div class="radius-shape" style="border-radius:12px"></div><span class="radius-name">MD</span><span class="radius-val">12</span></div>
+        <div class="radius-item"><div class="radius-shape" style="border-radius:18px"></div><span class="radius-name">LG</span><span class="radius-val">18</span></div>
+        <div class="radius-item"><div class="radius-shape" style="border-radius:100px"></div><span class="radius-name">PILL</span><span class="radius-val">100</span></div>
+        <div class="radius-item"><div class="radius-shape" style="border-radius:50%"></div><span class="radius-name">FULL</span><span class="radius-val">50%</span></div>
+      </div>
+    </div>
+
+    <!-- BUTTONS -->
+    <div class="card span-7">
+      <div class="title">Boutons</div>
+      <div class="btn-grid">
+        <div class="btn-th left"></div>
+        <div class="btn-th">Normal</div>
+        <div class="btn-th">Survol / Pressed</div>
+        <div class="btn-th">Désactivé</div>
+
+        <div class="btn-th left">Primaire</div>
+        <div class="btn-cell"><span class="t-btn t-btn-primary">Réserver</span></div>
+        <div class="btn-cell"><span class="t-btn t-btn-primary hover">Réserver</span></div>
+        <div class="btn-cell"><span class="t-btn t-btn-primary disabled">Réserver</span></div>
+
+        <div class="btn-th left">Accent</div>
+        <div class="btn-cell"><span class="t-btn t-btn-accent">Inscrit</span></div>
+        <div class="btn-cell"><span class="t-btn t-btn-accent hover">Inscrit</span></div>
+        <div class="btn-cell"><span class="t-btn t-btn-accent disabled">Inscrit</span></div>
+
+        <div class="btn-th left">Ghost</div>
+        <div class="btn-cell"><span class="t-btn t-btn-ghost">Voir détail</span></div>
+        <div class="btn-cell"><span class="t-btn t-btn-ghost hover">Voir détail</span></div>
+        <div class="btn-cell"><span class="t-btn t-btn-ghost disabled">Voir détail</span></div>
+      </div>
+    </div>
+
+    <!-- FORM + CHECK -->
+    <div class="card span-3">
+      <div class="title">Formulaire</div>
+      <div class="form-stack">
+        <div><label class="form-label">État par défaut</label><input class="form-input" placeholder="Rechercher un court..."/></div>
+        <div><label class="form-label">État actif</label><input class="form-input active" value="Stade Roland-Garros"/></div>
+        <div><label class="form-label">Avec erreur</label><input class="form-input error" value="-"/><div class="form-error">Adresse invalide.</div></div>
+      </div>
+    </div>
+
+    <div class="card span-2">
+      <div class="title">Sélection</div>
+      <div class="sub">Checkbox</div>
+      <div class="chk-row"><span class="chk-box checked"></span>Court couvert</div>
+      <div class="chk-row"><span class="chk-box"></span>Éclairage</div>
+      <div class="sub">Radio</div>
+      <div class="chk-row"><span class="rdo-box checked"></span>Simple</div>
+      <div class="chk-row"><span class="rdo-box"></span>Double</div>
+    </div>
+
+    <!-- CARTE COURT -->
+    <div class="card span-3">
+      <div class="title">Carte — Court de tennis</div>
+      <div class="tcard">
+        <div class="tcard-img"></div>
+        <div class="tcard-body">
+          <div class="tcard-h">Cour Marathon</div>
+          <div class="tcard-meta"><span class="tcard-stars">★★★★★</span> · 4.8 (24 avis)</div>
+          <div class="tcard-price">150 €<small> / heure</small></div>
+        </div>
+      </div>
+      <div style="height:8px"></div>
+      <div class="tcard">
+        <div class="tcard-img"></div>
+        <div class="tcard-body">
+          <div class="tcard-h">Cour McLaire</div>
+          <div class="tcard-meta"><span class="tcard-stars">★★★★☆</span> · 4.2 (12 avis)</div>
+          <div class="tcard-price">100 €<small> / heure</small></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BADGES -->
+    <div class="card span-2">
+      <div class="title">Badges</div>
+      <div class="bdg-stack">
+        <span class="bdg bdg-disp">Disponible</span>
+        <span class="bdg bdg-resv">Réservé</span>
+        <span class="bdg bdg-comp">Complet</span>
+        <span class="bdg bdg-pro">Pro</span>
+        <span class="bdg bdg-new">Nouveau</span>
+      </div>
+    </div>
+
+    <!-- FILTERS -->
+    <div class="card span-3">
+      <div class="title">Filtres / Chips</div>
+      <div class="chip-row">
+        <span class="chip active">Tous</span>
+        <span class="chip">Couverts</span>
+        <span class="chip">Outdoor</span>
+        <span class="chip">≤ 50€</span>
+        <span class="chip">Pro</span>
+        <span class="chip">Avec coach</span>
+        <span class="chip">Disponible auj.</span>
+      </div>
+      <div class="sub">Niveau</div>
+      <div class="chip-row">
+        <span class="chip">Débutant</span>
+        <span class="chip active">Intermédiaire</span>
+        <span class="chip">Avancé</span>
+        <span class="chip">Compét.</span>
+      </div>
+    </div>
+
+    <!-- ALERTS -->
+    <div class="card span-4">
+      <div class="title">Alertes</div>
+      <div class="alrt alrt-ok"><span class="alrt-icon">✓</span><div class="alrt-body"><div class="alrt-h">Réservation confirmée</div><div class="alrt-p">Cour Marathon · samedi 18:00 · 1h.</div></div></div>
+      <div class="alrt alrt-warn"><span class="alrt-icon">!</span><div class="alrt-body"><div class="alrt-h">Pluie annoncée</div><div class="alrt-p">Le court extérieur risque d'être indisponible.</div></div></div>
+      <div class="alrt alrt-err"><span class="alrt-icon">×</span><div class="alrt-body"><div class="alrt-h">Paiement échoué</div><div class="alrt-p">Vérifiez votre carte ou réessayez plus tard.</div></div></div>
+    </div>
+
+    <!-- ÉCRANS -->
+    <div class="card span-12">
+      <div class="title">Écrans clés — Parcours utilisateur</div>
+      <div class="scr-grid">
+
+        <!-- HERO ONBOARDING -->
+        <div class="scr">
+          <div class="scr-frame">
+            <div class="scr-notch"><div class="scr-notch-pill"></div></div>
+            <div style="position:relative;flex:1">
+              <div class="scr-hero-bg"></div>
+              <div class="scr-hero-ball"></div>
+              <div class="scr-hero-content">
+                <div class="scr-hero-h">Tout votre tennis en un.</div>
+                <div style="font-size:9px;color:rgba(255,255,255,0.9);margin-bottom:10px">Réservez courts, coachs et matchs en un clic.</div>
+                <div class="scr-hero-cta">Inscrit</div>
+              </div>
+            </div>
+          </div>
+          <span class="scr-name">01 — Onboarding</span>
+        </div>
+
+        <!-- HOME LISTE -->
+        <div class="scr">
+          <div class="scr-frame">
+            <div class="scr-notch"><div class="scr-notch-pill"></div></div>
+            <div class="scr-content">
+              <div style="display:flex;justify-content:space-between;align-items:center"><div><div style="font-size:8px;color:#5C6157;font-weight:600">Bonjour,</div><div class="scr-h" style="font-size:11px">Mes-Reves 👋</div></div><div style="width:24px;height:24px;border-radius:50%;background:#D8F35A"></div></div>
+              <div class="scr-pill">📍 Paris, Île-de-France</div>
+              <div class="scr-search"><span class="scr-search-icn"></span>Rechercher un court...</div>
+              <div style="display:flex;gap:4px;flex-wrap:wrap"><span style="padding:3px 8px;border-radius:100px;background:#1F4A1B;color:#D8F35A;font-size:7px;font-weight:700">Tous</span><span style="padding:3px 8px;border-radius:100px;background:#F2F0EA;color:#0F1A0E;font-size:7px;font-weight:600">Couverts</span><span style="padding:3px 8px;border-radius:100px;background:#F2F0EA;color:#0F1A0E;font-size:7px;font-weight:600">≤ 50€</span></div>
+              <div class="scr-cards">
+                <div class="scr-cardlet"><div class="scr-cardlet-img"></div><div class="scr-cardlet-body"><div class="scr-cardlet-h">Cour Marathon</div><div class="scr-cardlet-m">★ 4.8 · 1.2 km</div></div><div class="scr-cardlet-p">150€</div></div>
+                <div class="scr-cardlet"><div class="scr-cardlet-img"></div><div class="scr-cardlet-body"><div class="scr-cardlet-h">Cour McLaire</div><div class="scr-cardlet-m">★ 4.2 · 2.1 km</div></div><div class="scr-cardlet-p">100€</div></div>
+                <div class="scr-cardlet"><div class="scr-cardlet-img"></div><div class="scr-cardlet-body"><div class="scr-cardlet-h">Roland-Garros</div><div class="scr-cardlet-m">★ 5.0 · 3.8 km</div></div><div class="scr-cardlet-p">220€</div></div>
+              </div>
+            </div>
+            <div class="scr-tabbar">
+              <div class="scr-tab act"><div class="scr-tab-icn"></div>Home</div>
+              <div class="scr-tab"><div class="scr-tab-icn"></div>Carte</div>
+              <div class="scr-tab"><div class="scr-tab-icn"></div>Réserv.</div>
+              <div class="scr-tab"><div class="scr-tab-icn"></div>Profil</div>
+            </div>
+          </div>
+          <span class="scr-name">02 — Liste des courts</span>
+        </div>
+
+        <!-- MAP -->
+        <div class="scr">
+          <div class="scr-frame">
+            <div class="scr-notch"><div class="scr-notch-pill"></div></div>
+            <div class="scr-content">
+              <div class="scr-h" style="font-size:11px">Disponibilité</div>
+              <div class="scr-search"><span class="scr-search-icn"></span>Auteuil, Paris 16</div>
+              <div class="scr-map">
+                <div class="scr-map-pin"><div class="scr-map-pin-dot"></div></div>
+              </div>
+              <div class="scr-cardlet" style="background:white;border:1px solid #E5E2DA"><div class="scr-cardlet-img"></div><div class="scr-cardlet-body"><div class="scr-cardlet-h">Match's Singles</div><div class="scr-cardlet-m">aujourd'hui · 18:00</div></div><div class="scr-cardlet-p">85€</div></div>
+              <div class="scr-cta">Réserver →</div>
+            </div>
+            <div class="scr-tabbar">
+              <div class="scr-tab"><div class="scr-tab-icn"></div>Home</div>
+              <div class="scr-tab act"><div class="scr-tab-icn"></div>Carte</div>
+              <div class="scr-tab"><div class="scr-tab-icn"></div>Réserv.</div>
+              <div class="scr-tab"><div class="scr-tab-icn"></div>Profil</div>
+            </div>
+          </div>
+          <span class="scr-name">03 — Carte / Disponibilité</span>
+        </div>
+
+        <!-- BOOK + CONFIRM -->
+        <div class="scr">
+          <div class="scr-frame">
+            <div class="scr-notch"><div class="scr-notch-pill"></div></div>
+            <div class="scr-content">
+              <div class="scr-h" style="font-size:11px">Réservation</div>
+              <div style="padding:10px;background:#F8F7F2;border-radius:10px;display:flex;flex-direction:column;gap:6px">
+                <div style="display:flex;justify-content:space-between;font-size:9px"><span style="color:#5C6157;font-weight:600">Court</span><span style="font-weight:700">Cour Marathon</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:9px"><span style="color:#5C6157;font-weight:600">Date</span><span style="font-weight:700">Sam. 11 Mai</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:9px"><span style="color:#5C6157;font-weight:600">Horaire</span><span style="font-weight:700">18:00 — 19:00</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:9px"><span style="color:#5C6157;font-weight:600">Type</span><span style="font-weight:700">Simple</span></div>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0"><span style="font-size:9px;color:#5C6157;font-weight:600">Total</span><span style="font-size:18px;font-weight:800;color:#1F4A1B">150 €</span></div>
+              <div class="alrt alrt-ok" style="padding:8px;margin-bottom:0"><span class="alrt-icon" style="width:14px;height:14px;font-size:8px">✓</span><div class="alrt-body" style="font-size:9px"><div class="alrt-h" style="font-size:10px">Réservation OK</div></div></div>
+              <div class="scr-cta">Confirmer →</div>
+            </div>
+          </div>
+          <span class="scr-name">04 — Confirmation</span>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="foot">
+    <span><strong>TENNIS BOOKING</strong> — Design System v1.0</span>
+    <span>WCAG 2.2 AA · Auto-layout · Tokens W3C</span>
+    <span>designed by Dikenga.</span>
+  </div>
+
+</div>
+</body>
+</html>
