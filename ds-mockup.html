@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<title>DS Mockup</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0F0E0E;font-family:'Space Grotesk',system-ui,Arial,sans-serif;-webkit-font-smoothing:antialiased;color:#fff;padding:40px}
+.frame{width:1600px;height:1000px;background:#1D1B1B;border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:48px;display:grid;grid-template-columns:1.3fr 1fr;grid-template-rows:auto 1fr;gap:32px;position:relative;overflow:hidden}
+.frame::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent)}
+
+/* HEADER */
+.head{grid-column:1 / -1;display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:28px}
+.head-l .head-tag{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.55);display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.head-l .head-tag::before{content:'';width:24px;height:1px;background:rgba(255,255,255,.55)}
+.head-l h1{font-size:48px;font-weight:500;letter-spacing:-0.02em;line-height:1.05;margin-bottom:12px}
+.head-l .head-sub{font-size:14px;color:rgba(255,255,255,.55);max-width:560px;line-height:1.5}
+.head-r{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.head-r .badge{padding:6px 14px;border-radius:100px;border:1px solid rgba(255,255,255,.15);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.head-r .v{font-family:'Courier New',monospace;font-size:11px;color:rgba(255,255,255,.4)}
+
+/* LEFT COLUMN */
+.col-l{display:flex;flex-direction:column;gap:28px}
+.section{background:#252323;border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:24px}
+.section h2{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.section h2::before{content:attr(data-num);font-size:11px;font-weight:600;letter-spacing:.06em;color:rgba(255,255,255,.35);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:2px 8px}
+
+/* COLORS */
+.col-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:10px}
+.swatch{display:flex;flex-direction:column;gap:8px}
+.swatch-bg{width:100%;aspect-ratio:1/1;border-radius:8px;border:1px solid rgba(255,255,255,.08)}
+.swatch-name{font-size:10px;font-weight:600;color:#fff}
+.swatch-meta{font-family:'Courier New',monospace;font-size:9px;color:rgba(255,255,255,.5)}
+
+/* TYPE */
+.type-stack{display:flex;flex-direction:column;gap:14px}
+.type-row{display:grid;grid-template-columns:110px 1fr;gap:18px;align-items:baseline;padding-bottom:12px;border-bottom:1px dashed rgba(255,255,255,.08)}
+.type-row:last-child{border-bottom:none;padding-bottom:0}
+.type-meta{font-family:'Courier New',monospace;font-size:10px;color:rgba(255,255,255,.5);padding-top:4px}
+.type-h1{font-size:42px;font-weight:500;letter-spacing:-0.02em}
+.type-h2{font-size:28px;font-weight:500;letter-spacing:-0.02em}
+.type-h3{font-size:18px;font-weight:500;letter-spacing:-0.01em}
+.type-body{font-size:14px;font-weight:400;line-height:1.4}
+.type-label{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+
+/* RIGHT COLUMN */
+.col-r{display:flex;flex-direction:column;gap:28px}
+
+/* RADIUS */
+.radius-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.radius-item{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
+.radius-shape{width:54px;height:54px;background:#fff;border:1px solid rgba(0,0,0,.05)}
+.radius-name{font-size:10px;font-weight:600;color:#fff}
+.radius-val{font-family:'Courier New',monospace;font-size:9px;color:rgba(255,255,255,.5)}
+
+/* COMPONENTS */
+.comp-section{background:#252323;border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:24px;flex:1;display:flex;flex-direction:column;gap:20px}
+.comp-row{padding:18px 16px;background:#1D1B1B;border:1px solid rgba(255,255,255,.06);border-radius:10px}
+.comp-label{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:14px}
+.comp-stage{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:100px;background:#fff;color:#1D1B1B;font-size:12px;font-weight:600;border:1px solid #fff}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:100px;background:transparent;color:#fff;font-size:12px;font-weight:600;border:1px solid rgba(255,255,255,.15)}
+.btn-pill-sm{display:inline-flex;align-items:center;padding:7px 16px;border-radius:100px;background:transparent;color:#fff;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(255,255,255,.15)}
+.tag{display:inline-flex;align-items:center;padding:6px 12px;border-radius:100px;background:#2E2B2B;color:#fff;font-size:11px;font-weight:500;border:1px solid rgba(255,255,255,.08)}
+.badge{display:inline-flex;align-items:center;padding:4px 9px;border-radius:6px;background:rgba(255,255,255,.04);color:rgba(255,255,255,.55);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(255,255,255,.08)}
+
+/* CARD COMPONENT */
+.demo-card{padding:18px;background:#252323;border:1px solid rgba(255,255,255,.08);border-radius:12px}
+.demo-card-cat{font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:10px}
+.demo-card-h{font-size:14px;font-weight:500;color:#fff;margin-bottom:6px;letter-spacing:-0.01em}
+.demo-card-p{font-size:11px;color:rgba(255,255,255,.55);line-height:1.5;margin-bottom:14px}
+.demo-card-foot{display:flex;justify-content:space-between;padding-top:10px;border-top:1px solid rgba(255,255,255,.08);font-size:10px}
+
+/* FOOTER MARK */
+.foot{position:absolute;bottom:24px;left:48px;right:48px;display:flex;justify-content:space-between;align-items:center;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35)}
+</style>
+</head>
+<body>
+<div class="frame">
+
+  <div class="head">
+    <div class="head-l">
+      <div class="head-tag">Design System · Live Showcase</div>
+      <h1>Dikenga. System.<br/><span style="color:rgba(255,255,255,.5)">Tokens, Components, Principles.</span></h1>
+      <div class="head-sub">Le système qui fait tourner dikengadesign.fr — et que je livre à mes clients product teams en fin de mission.</div>
+    </div>
+    <div class="head-r">
+      <div class="badge">v1.0.0</div>
+      <div class="v">06.05.2026</div>
+      <div class="v">design-system.html</div>
+    </div>
+  </div>
+
+  <!-- LEFT COL -->
+  <div class="col-l">
+
+    <div class="section">
+      <h2 data-num="01">Color Tokens · 7</h2>
+      <div class="col-grid">
+        <div class="swatch"><div class="swatch-bg" style="background:#1D1B1B"></div><span class="swatch-name">--bg</span><span class="swatch-meta">#1D1B1B</span></div>
+        <div class="swatch"><div class="swatch-bg" style="background:#252323"></div><span class="swatch-name">--bg2</span><span class="swatch-meta">#252323</span></div>
+        <div class="swatch"><div class="swatch-bg" style="background:#2E2B2B"></div><span class="swatch-name">--bg3</span><span class="swatch-meta">#2E2B2B</span></div>
+        <div class="swatch"><div class="swatch-bg" style="background:#FFFFFF"></div><span class="swatch-name">--white</span><span class="swatch-meta">#FFFFFF</span></div>
+        <div class="swatch"><div class="swatch-bg" style="background:#B8B4B4"></div><span class="swatch-name">--off</span><span class="swatch-meta">#B8B4B4</span></div>
+        <div class="swatch"><div class="swatch-bg" style="background:rgba(255,255,255,.55)"></div><span class="swatch-name">--dim</span><span class="swatch-meta">w/.55</span></div>
+        <div class="swatch"><div class="swatch-bg" style="background:rgba(255,255,255,.1)"></div><span class="swatch-name">--line</span><span class="swatch-meta">w/.10</span></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 data-num="02">Type Scale · 5 levels</h2>
+      <div class="type-stack">
+        <div class="type-row"><div class="type-meta">H1 / 42<br/>500 / -0.02em</div><div class="type-h1">Display Heading</div></div>
+        <div class="type-row"><div class="type-meta">H2 / 28<br/>500 / -0.02em</div><div class="type-h2">Section Heading</div></div>
+        <div class="type-row"><div class="type-meta">H3 / 18<br/>500 / -0.01em</div><div class="type-h3">Sub-section Title</div></div>
+        <div class="type-row"><div class="type-meta">Body / 14<br/>400 / 1.4 lh</div><div class="type-body">Texte courant pour les paragraphes longs et descriptions de projet.</div></div>
+        <div class="type-row"><div class="type-meta">Label / 10<br/>600 / 0.16em</div><div class="type-label">SECTION LABEL · UPPERCASE</div></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 data-num="03">Radius Tokens · 5</h2>
+      <div class="radius-grid">
+        <div class="radius-item"><div class="radius-shape" style="border-radius:6px"></div><span class="radius-name">--r-sm</span><span class="radius-val">6px</span></div>
+        <div class="radius-item"><div class="radius-shape" style="border-radius:12px"></div><span class="radius-name">--r-md</span><span class="radius-val">12px</span></div>
+        <div class="radius-item"><div class="radius-shape" style="border-radius:20px"></div><span class="radius-name">--r-lg</span><span class="radius-val">20px</span></div>
+        <div class="radius-item"><div class="radius-shape" style="border-radius:100px"></div><span class="radius-name">--r-pill</span><span class="radius-val">100px</span></div>
+        <div class="radius-item"><div class="radius-shape" style="border-radius:50%"></div><span class="radius-name">--r-full</span><span class="radius-val">50%</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RIGHT COL -->
+  <div class="col-r">
+
+    <div class="comp-section">
+      <h2 data-num="04" style="font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55);display:flex;align-items:center;gap:10px;margin-bottom:0">Components · 8 core</h2>
+
+      <div class="comp-row">
+        <div class="comp-label">Button — primary / secondary / pill</div>
+        <div class="comp-stage">
+          <span class="btn-primary">Premier échange →</span>
+          <span class="btn-secondary">Voir case studies</span>
+          <span class="btn-pill-sm">Thème</span>
+        </div>
+      </div>
+
+      <div class="comp-row">
+        <div class="comp-label">Tag · Badge</div>
+        <div class="comp-stage">
+          <span class="tag">Figma</span>
+          <span class="tag">Design System</span>
+          <span class="tag">UX Research</span>
+          <span class="badge">SaaS B2B</span>
+          <span class="badge">2026</span>
+        </div>
+      </div>
+
+      <div class="comp-row">
+        <div class="comp-label">Card — Project / Article</div>
+        <div class="demo-card">
+          <div class="demo-card-cat">Design System · Product Team</div>
+          <div class="demo-card-h">StudioBooking</div>
+          <div class="demo-card-p">SaaS B2B — design system Figma complet, 40+ composants, dev handoff structuré.</div>
+          <div class="demo-card-foot"><span style="color:rgba(255,255,255,.5)">6 mai 2026</span><span style="color:#fff">→</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="foot">
+    <span>DIKENGA. — Design System v1.0</span>
+    <span>WCAG 2.2 AA · Atomic Design · Tokens W3C</span>
+    <span>dikengadesign.fr/design-system</span>
+  </div>
+
+</div>
+</body>
+</html>
