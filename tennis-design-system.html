@@ -247,17 +247,11 @@ body{font-family:'Inter',system-ui,Arial,sans-serif;color:#0F1A0E;padding:48px}
 /* HERO PHONE */
 .scr-hero-bg{
   position:absolute;inset:0;
-  background:linear-gradient(180deg,var(--sky) 0%,#A8D1F0 60%,var(--green) 100%);
+  background:url('tennis-hero-girl.jpg') center 30%/cover no-repeat;
 }
-.scr-hero-ball{
-  position:absolute;width:48px;height:48px;border-radius:50%;
-  background:radial-gradient(circle at 30% 30%,var(--green-light) 0%,var(--green) 70%,var(--green-mid) 100%);
-  top:18%;right:14%;
-  box-shadow:0 4px 12px rgba(168,216,32,0.5);
-}
-.scr-hero-ball::after{
-  content:'';position:absolute;inset:0;border-radius:50%;
-  background:radial-gradient(circle at 50% 30%,transparent 30%,rgba(255,255,255,0.2) 35%,transparent 40%);
+.scr-hero-bg::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 0%,transparent 50%,rgba(0,0,0,0.5) 100%);
 }
 .scr-hero-content{position:absolute;bottom:0;left:0;right:0;padding:14px;color:var(--white)}
 .scr-hero-h{font-size:18px;font-weight:800;letter-spacing:-0.02em;line-height:1;color:var(--white);margin-bottom:8px;text-shadow:0 2px 8px rgba(0,0,0,0.3)}
@@ -524,10 +518,9 @@ body{font-family:'Inter',system-ui,Arial,sans-serif;color:#0F1A0E;padding:48px}
             <div class="scr-notch"><div class="scr-notch-pill"></div></div>
             <div style="position:relative;flex:1">
               <div class="scr-hero-bg"></div>
-              <div class="scr-hero-ball"></div>
               <div class="scr-hero-content">
                 <div class="scr-hero-h">Tout votre tennis en un.</div>
-                <div style="font-size:9px;color:rgba(255,255,255,0.9);margin-bottom:10px">Réservez courts, coachs et matchs en un clic.</div>
+                <div style="font-size:9px;color:rgba(255,255,255,0.95);margin-bottom:10px;text-shadow:0 1px 4px rgba(0,0,0,0.3)">Réservez courts, coachs et matchs en un clic.</div>
                 <div class="scr-hero-cta">Inscrit</div>
               </div>
             </div>
