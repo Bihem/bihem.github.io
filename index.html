@@ -461,11 +461,11 @@ body.leaving{animation:body-exit 0.35s cubic-bezier(.4,0,.2,1) forwards}
 .mq-voir:hover{opacity:.6}
 
 /* ── CYLINDRE 3D 8 FACES (images entières, sans crop) */
-.mq-cyl-wrap{display:flex;justify-content:center;align-items:center;perspective:2400px;height:620px;padding:40px}
-.mq-cylinder{width:400px;height:300px;position:relative;transform-style:preserve-3d;animation:mqCylRot 32s linear infinite;will-change:transform}
+.mq-cyl-wrap{display:flex;justify-content:center;align-items:center;perspective:2800px;height:760px;padding:40px}
+.mq-cylinder{width:560px;height:400px;position:relative;transform-style:preserve-3d;animation:mqCylRot 32s linear infinite;will-change:transform}
 .mq-cylinder:hover{animation-play-state:paused}
 @keyframes mqCylRot{from{transform:rotateY(0) rotateX(-6deg)}to{transform:rotateY(-360deg) rotateX(-6deg)}}
-.mq-panel{position:absolute;width:400px;height:300px;background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;text-decoration:none;left:0;top:0}
+.mq-panel{position:absolute;width:560px;height:400px;background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;text-decoration:none;left:0;top:0}
 .mq-panel img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;pointer-events:none;transition:filter .35s ease}
 .mq-panel:hover img{filter:brightness(1.1)}
 
@@ -1959,7 +1959,7 @@ body.light .reel-arrow svg path{stroke:#000000}
     var panels=cyl.querySelectorAll('.mq-panel');
     var N=panels.length;
     var isMobile=window.innerWidth<=680;
-    var W=isMobile?240:400;
+    var W=isMobile?240:560;
     var r=Math.round(W/(2*Math.tan(Math.PI/N))) + 3;
     panels.forEach(function(p,i){
       var angle=(i*360/N);
@@ -2070,7 +2070,7 @@ body.light .reel-arrow svg path{stroke:#000000}
     var panels=cyl.querySelectorAll('.mq-panel');
     var N=panels.length;
     var isMobile=window.innerWidth<=680;
-    var W=isMobile?240:400;
+    var W=isMobile?240:560;
     var r=Math.round(W/(2*Math.tan(Math.PI/N))) + 3;
     panels.forEach(function(p,i){
       var angle=(i*360/N);
