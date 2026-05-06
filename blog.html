@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<script>(function(){var s=localStorage.getItem('dikenga-theme');var dark=s?s==='dark':true;var bg=dark?'#1D1B1B':'#FFFFFF';document.documentElement.style.background=bg;document.documentElement.style.setProperty('--bg',bg);if(!dark)document.documentElement.classList.add('pre-light');})();</script>
+<script>(function(){var s=localStorage.getItem('dikenga-theme');var dark=s?s==='dark':false;var bg=dark?'#1D1B1B':'#FFFFFF';document.documentElement.style.background=bg;document.documentElement.style.setProperty('--bg',bg);if(!dark)document.documentElement.classList.add('pre-light');})();</script>
 <style>html{background:transparent}
 .site-video-bg{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.13;z-index:0;pointer-events:none;mix-blend-mode:screen;}
 body.light .site-video-bg{opacity:0.06;mix-blend-mode:multiply}
@@ -577,7 +577,7 @@ body.light .footer-lnk:hover{color:#000}
 (function(){
   const stored = localStorage.getItem('dikenga-theme');
   const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const useDark = stored ? stored === 'dark' : true;
+  const useDark = stored ? stored === 'dark' : false;
   if(!useDark) document.body.classList.add('light');
   if(!stored && window.matchMedia){
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
