@@ -2043,6 +2043,51 @@ body.light .reel-arrow svg path{stroke:#000000}
   </div>
 </section>
 
+<!-- ═══════ LOGOS CYLINDER ═══════ -->
+<section class="mq-section" id="logos" style="border-top:1px solid var(--line);padding-top:80px">
+  <div class="mq-header rv">
+    <h2 class="mq-title">Aussi des<br>logos.</h2>
+    <p class="services-sub" style="max-width:420px;text-align:right">En complément du product design, je conçois des logotypes et identités visuelles pour mes clients qui en ont besoin.</p>
+  </div>
+  <div class="mq-cyl-wrap">
+    <div class="mq-cylinder" id="logoCylinder">
+      <a href="projets.html" class="mq-panel" onclick="goToProjects(event)" data-i="0"><img src="logo-daflon.webp" alt="Logo Daflon Community"></a>
+      <a href="projets.html" class="mq-panel" onclick="goToProjects(event)" data-i="1"><img src="logo-don.webp" alt="Logo Don"></a>
+      <a href="projets.html" class="mq-panel" onclick="goToProjects(event)" data-i="2"><img src="logo-carole.webp" alt="Logo Carole Grantz Paris"></a>
+      <a href="projets.html" class="mq-panel" onclick="goToProjects(event)" data-i="3"><img src="mockup-logotype.webp" alt="Logotype Showcase"></a>
+    </div>
+  </div>
+</section>
+<script>
+(function(){
+  function placeLogoCyl(){
+    var cyl=document.getElementById('logoCylinder');
+    if(!cyl)return;
+    var panels=cyl.querySelectorAll('.mq-panel');
+    var N=panels.length;
+    var isMobile=window.innerWidth<=680;
+    var W=isMobile?240:400;
+    var r=Math.round(W/(2*Math.tan(Math.PI/N))) + 3;
+    panels.forEach(function(p,i){
+      var angle=(i*360/N);
+      p.style.transform='rotateY('+angle+'deg) translateZ('+r+'px)';
+    });
+    cyl.dataset.r=r;
+  }
+  placeLogoCyl();
+  window.addEventListener('resize',placeLogoCyl);
+
+  var logoCyl=document.getElementById('logoCylinder');
+  if(logoCyl){
+    var rot=0;
+    setInterval(function(){
+      rot-=0.25;
+      logoCyl.style.transform='rotateY('+rot+'deg)';
+    },40);
+  }
+})();
+</script>
+
 <!-- ═══════ SERVICES + TARIFS ═══════ -->
 <section class="services" id="services">
   <div class="services-head rv">
