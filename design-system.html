@@ -377,302 +377,478 @@ body.light .step-desc{color:#555}
     Accueil
   </a>
   <div class="page-label">Design System</div>
-  <h1 class="page-heading">Le système qui fait tourner ce site.</h1>
-  <p class="page-sub">Tokens, composants et principes qui garantissent la cohérence de dikengadesign.fr. Aussi un cas pratique de ce que je livre à mes clients product teams.</p>
+  <h1 class="page-heading">Dikenga. System.</h1>
+  <p class="page-sub">Le système complet qui fait tourner dikengadesign.fr — tokens, composants, principes. Tout sur une page, comme une vraie library Figma.</p>
 </header>
 
-<!-- ═══════ DESIGN SYSTEM SHOWCASE ═══════ -->
+<!-- ═══════ DESIGN SYSTEM BOARD (Sendy-style) ═══════ -->
 <style>
-.ds-section{max-width:1200px;margin:0 auto;padding:0 24px 80px}
-.ds-section h2{font-family:var(--F);font-size:clamp(28px,3.4vw,40px);font-weight:500;letter-spacing:-0.02em;margin:0 0 12px}
-.ds-section .ds-sub{font-size:15px;color:var(--dim);max-width:680px;margin:0 0 40px;line-height:1.6}
-.ds-section .ds-label{font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--dim);margin-bottom:14px;display:flex;align-items:center;gap:10px}
-.ds-section .ds-label::before{content:'';display:inline-block;width:24px;height:1px;background:var(--dim)}
+.dsb{max-width:1640px;margin:0 auto;padding:0 32px 96px;display:grid;grid-template-columns:260px 1fr;gap:32px}
+@media(max-width:1024px){.dsb{grid-template-columns:1fr;padding:0 20px 64px}}
 
-/* Color tokens */
-.ds-colors{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}
-.ds-color{display:flex;flex-direction:column;gap:10px}
-.ds-color-swatch{width:100%;aspect-ratio:1.6/1;border-radius:8px;border:1px solid var(--line)}
-.ds-color-name{font-size:13px;font-weight:600;color:var(--white)}
-.ds-color-meta{font-family:'Courier New',monospace;font-size:11px;color:var(--dim);line-height:1.5}
+/* ── SIDEBAR ── */
+.dsb-side{position:sticky;top:80px;align-self:start;display:flex;flex-direction:column;gap:32px;font-family:var(--F)}
+.dsb-brand{display:flex;align-items:center;gap:12px}
+.dsb-brand-logo{width:46px;height:46px;background:var(--white);color:var(--bg);border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;letter-spacing:-0.04em}
+.dsb-brand-name{font-size:24px;font-weight:600;letter-spacing:-0.02em}
+.dsb-brand-tag{font-size:13px;color:var(--dim);margin-top:6px}
+.dsb-block .dsb-h{font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--dim);margin-bottom:14px}
+.dsb-text{font-size:13px;color:var(--off);line-height:1.6}
+.dsb-princ{display:flex;flex-direction:column;gap:14px}
+.dsb-princ-item{display:grid;grid-template-columns:24px 1fr;gap:12px;align-items:flex-start}
+.dsb-princ-icon{width:20px;height:20px;border-radius:50%;background:var(--white);color:var(--bg);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:2px}
+.dsb-princ-title{font-size:13px;font-weight:600;color:var(--white);margin-bottom:4px}
+.dsb-princ-desc{font-size:12px;color:var(--dim);line-height:1.5}
+.dsb-toc{list-style:none;display:flex;flex-direction:column;gap:4px;padding:0;margin:0}
+.dsb-toc a{display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:8px;color:var(--dim);text-decoration:none;font-size:13px;font-weight:500;transition:background .15s,color .15s}
+.dsb-toc a:hover{background:rgba(255,255,255,.04);color:var(--white)}
+.dsb-toc a.active{background:rgba(255,255,255,.06);color:var(--white)}
+.dsb-toc-dot{width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.5}
 
-/* Typography scale */
-.ds-type{display:flex;flex-direction:column;gap:24px}
-.ds-type-row{display:grid;grid-template-columns:120px 1fr;gap:24px;align-items:baseline;padding-bottom:20px;border-bottom:1px solid var(--line)}
-.ds-type-meta{font-family:'Courier New',monospace;font-size:11px;color:var(--dim);padding-top:6px}
-.ds-type-sample{color:var(--white);line-height:1.2}
-.ds-type-sample-1{font-size:clamp(40px,6vw,72px);font-weight:500;letter-spacing:-0.02em}
-.ds-type-sample-2{font-size:clamp(28px,3.4vw,40px);font-weight:500;letter-spacing:-0.02em}
-.ds-type-sample-3{font-size:22px;font-weight:500;letter-spacing:-0.01em}
-.ds-type-sample-4{font-size:17px;font-weight:400;line-height:1.5}
-.ds-type-sample-5{font-size:14px;font-weight:400;color:var(--dim);line-height:1.6}
-.ds-type-sample-6{font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--dim)}
+/* ── BOARD CONTENT ── */
+.dsb-main{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;align-content:start}
+.dsb-card{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:24px}
+.dsb-card-h{font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--dim);margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.dsb-card-sub{font-size:11px;font-weight:600;letter-spacing:0.06em;color:var(--dim);margin:14px 0 10px;text-transform:uppercase}
 
-/* Spacing tokens */
-.ds-spacing{display:flex;flex-direction:column;gap:14px}
-.ds-spacing-row{display:grid;grid-template-columns:140px 1fr;gap:24px;align-items:center;padding:8px 0}
-.ds-spacing-bar{height:24px;background:var(--white);border-radius:3px}
-.ds-spacing-meta{font-family:'Courier New',monospace;font-size:11px;color:var(--dim)}
+/* spans */
+.span-12{grid-column:span 12}
+.span-8{grid-column:span 8}
+.span-7{grid-column:span 7}
+.span-6{grid-column:span 6}
+.span-5{grid-column:span 5}
+.span-4{grid-column:span 4}
+.span-3{grid-column:span 3}
+@media(max-width:1024px){
+  .span-12,.span-8,.span-7,.span-6,.span-5,.span-4,.span-3{grid-column:span 12}
+  .dsb-side{position:static;top:auto}
+}
 
-/* Radius tokens */
-.ds-radius{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px}
-.ds-radius-item{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
-.ds-radius-shape{width:80px;height:80px;background:var(--white);border:1px solid var(--line)}
-.ds-radius-name{font-size:13px;font-weight:600;color:var(--white)}
-.ds-radius-val{font-family:'Courier New',monospace;font-size:11px;color:var(--dim)}
+/* COULEURS */
+.col-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(80px,1fr));gap:12px}
+.col-item{display:flex;flex-direction:column;gap:6px}
+.col-sw{width:100%;aspect-ratio:1.1/1;border-radius:8px;border:1px solid var(--line)}
+.col-name{font-size:10px;font-weight:600;color:var(--white)}
+.col-hex{font-family:'Courier New',monospace;font-size:9px;color:var(--dim)}
 
-/* Components */
-.ds-comp{padding:36px 28px;background:var(--bg2);border:1px solid var(--line);border-radius:12px;margin-bottom:24px}
-.ds-comp-title{font-size:13px;font-weight:600;color:var(--white);margin-bottom:6px}
-.ds-comp-desc{font-size:13px;color:var(--dim);margin-bottom:24px;line-height:1.6}
-.ds-comp-stage{display:flex;flex-wrap:wrap;gap:14px;align-items:center;padding:32px 24px;background:var(--bg);border:1px solid var(--line);border-radius:8px;margin-bottom:14px}
-.ds-comp-code{font-family:'Courier New',monospace;font-size:11px;color:var(--dim);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:14px;overflow-x:auto;line-height:1.6;white-space:pre}
+/* TYPO */
+.typ-stack{display:flex;flex-direction:column;gap:14px}
+.typ-row{display:grid;grid-template-columns:64px 1fr;gap:18px;align-items:baseline;padding-bottom:12px;border-bottom:1px dashed var(--line)}
+.typ-row:last-child{border-bottom:none;padding-bottom:0}
+.typ-aa{font-family:var(--F);font-weight:500;color:var(--white);line-height:1}
+.typ-meta-h{font-size:13px;font-weight:600;color:var(--white);margin-bottom:2px}
+.typ-meta-d{font-family:'Courier New',monospace;font-size:10px;color:var(--dim)}
 
-/* Sample components */
-.ds-btn-primary{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:100px;background:var(--white);color:var(--bg);font-family:var(--F);font-size:13px;font-weight:600;text-decoration:none;border:1px solid var(--white);cursor:pointer;transition:opacity .2s}
-.ds-btn-primary:hover{opacity:.85}
-.ds-btn-secondary{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:100px;background:transparent;color:var(--white);font-family:var(--F);font-size:13px;font-weight:600;text-decoration:none;border:1px solid var(--line);cursor:pointer;transition:border-color .2s}
-.ds-btn-secondary:hover{border-color:rgba(255,255,255,0.3)}
-.ds-btn-pill-sm{display:inline-flex;align-items:center;gap:6px;padding:8px 20px;border-radius:100px;background:transparent;color:var(--white);font-family:var(--F);font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;border:1px solid var(--line);cursor:pointer}
-.ds-tag{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:100px;background:var(--bg3);color:var(--white);font-size:12px;font-weight:500;border:1px solid var(--line)}
-.ds-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:6px;background:rgba(255,255,255,.06);color:var(--dim);font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;border:1px solid var(--line)}
-.ds-card{padding:24px;background:var(--bg2);border:1px solid var(--line);border-radius:12px;max-width:340px}
-.ds-card-cat{font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--dim);margin-bottom:14px}
-.ds-card-h{font-family:var(--F);font-size:18px;font-weight:500;color:var(--white);margin:0 0 10px;letter-spacing:-0.01em}
-.ds-card-p{font-size:13px;color:var(--dim);line-height:1.6;margin:0 0 18px}
-.ds-card-foot{display:flex;justify-content:space-between;align-items:center;padding-top:14px;border-top:1px solid var(--line);font-size:12px}
+/* ICÔNES */
+.icn-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.icn-cell{aspect-ratio:1/1;background:var(--bg);border:1px solid var(--line);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--white)}
+.icn-cell svg{width:20px;height:20px}
+.icn-meta{font-size:11px;color:var(--dim);margin-top:14px;line-height:1.6}
 
-/* Principles grid */
-.ds-principles{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
-.ds-principle{background:var(--bg);padding:32px 28px}
-.ds-principle-num{font-family:var(--F);font-size:14px;font-weight:600;color:var(--dim);margin-bottom:14px}
-.ds-principle-h{font-family:var(--F);font-size:18px;font-weight:500;margin:0 0 10px;letter-spacing:-0.01em;color:var(--white)}
-.ds-principle-p{font-size:13px;color:var(--dim);line-height:1.6;margin:0}
+/* BOUTONS */
+.btn-table{display:grid;grid-template-columns:80px repeat(3,1fr);gap:12px;align-items:center}
+.btn-th{font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--dim);text-align:center}
+.btn-th.left{text-align:left}
+.btn-cell{display:flex;align-items:center;justify-content:center;padding:6px}
+.dsbtn{display:inline-flex;align-items:center;gap:6px;padding:10px 18px;border-radius:100px;font-family:var(--F);font-size:12px;font-weight:600;border:1px solid;cursor:pointer;text-decoration:none}
+.dsbtn-primary{background:var(--white);color:var(--bg);border-color:var(--white)}
+.dsbtn-primary.hover{opacity:.85}
+.dsbtn-primary.disabled{background:rgba(255,255,255,.2);color:rgba(255,255,255,.4);border-color:transparent;cursor:not-allowed}
+.dsbtn-secondary{background:transparent;color:var(--white);border-color:var(--line)}
+.dsbtn-secondary.hover{border-color:rgba(255,255,255,.4)}
+.dsbtn-secondary.disabled{color:rgba(255,255,255,.3);border-color:rgba(255,255,255,.05);cursor:not-allowed}
+.dsbtn-text{background:transparent;color:var(--white);border-color:transparent;padding:10px 6px;text-decoration:underline}
+.dsbtn-text.hover{color:rgba(255,255,255,.7)}
+.dsbtn-text.disabled{color:rgba(255,255,255,.3);text-decoration:none;cursor:not-allowed}
 
-/* Audit grid */
-.ds-audit{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
-.ds-audit-card{padding:24px;background:var(--bg2);border:1px solid var(--line);border-radius:12px}
-.ds-audit-status{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:6px;font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:12px}
-.ds-audit-ok{background:rgba(76,175,80,0.1);color:#7BC97D;border:1px solid rgba(76,175,80,0.25)}
-.ds-audit-warn{background:rgba(255,152,0,0.1);color:#FFB74D;border:1px solid rgba(255,152,0,0.25)}
-.ds-audit-h{font-size:14px;font-weight:600;color:var(--white);margin:0 0 8px}
-.ds-audit-p{font-size:13px;color:var(--dim);line-height:1.6;margin:0}
+/* FORM */
+.form-stack{display:flex;flex-direction:column;gap:14px}
+.form-label{font-size:11px;font-weight:500;color:var(--dim);margin-bottom:6px;display:block}
+.form-input{width:100%;padding:12px 14px;border-radius:8px;background:var(--bg);border:1px solid var(--line);color:var(--white);font-family:var(--F);font-size:13px;outline:none}
+.form-input::placeholder{color:rgba(255,255,255,.3)}
+.form-input.active{border-color:var(--white)}
+.form-input.error{border-color:#FF6B6B}
+.form-error{font-size:11px;color:#FF6B6B;margin-top:6px}
 
-body.light .ds-color-swatch,body.light .ds-radius-shape{border-color:rgba(0,0,0,0.1)}
-body.light .ds-color-name,body.light .ds-radius-name,body.light .ds-comp-title,body.light .ds-card-h,body.light .ds-principle-h,body.light .ds-audit-h,body.light .ds-type-sample{color:#000}
-body.light .ds-spacing-bar{background:#000}
-body.light .ds-radius-shape{background:#000}
-body.light .ds-btn-primary{background:#000;color:#fff;border-color:#000}
-body.light .ds-btn-secondary,body.light .ds-btn-pill-sm{color:#000}
-body.light .ds-card,body.light .ds-comp,body.light .ds-audit-card{background:rgba(0,0,0,0.03)}
+/* CHECKBOX & RADIO */
+.chk-stack{display:flex;flex-direction:column;gap:14px}
+.chk-row{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--white)}
+.chk-box{width:18px;height:18px;border:1.5px solid var(--line);border-radius:5px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.chk-box.checked{background:var(--white);border-color:var(--white)}
+.chk-box.checked::after{content:'';width:10px;height:10px;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='%231D1B1B' stroke-width='2'><path d='M2 6l3 3 5-6'/></svg>") center/contain no-repeat}
+.rdo-box{width:18px;height:18px;border:1.5px solid var(--line);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.rdo-box.checked{border-color:var(--white)}
+.rdo-box.checked::after{content:'';width:9px;height:9px;background:var(--white);border-radius:50%}
+
+/* CARTE */
+.dscard{padding:14px;background:var(--bg);border:1px solid var(--line);border-radius:12px}
+.dscard-img{width:100%;aspect-ratio:1.6/1;border-radius:8px;background:linear-gradient(135deg,#252323 0%,#2E2B2B 100%);display:flex;align-items:center;justify-content:center;margin-bottom:14px;position:relative}
+.dscard-img::after{content:'STUDIOBOOKING';position:absolute;font-family:var(--F);font-size:14px;font-weight:600;letter-spacing:0.18em;color:rgba(255,255,255,.4)}
+.dscard-cat{font-size:9px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--dim);margin-bottom:8px}
+.dscard-h{font-size:14px;font-weight:500;color:var(--white);margin-bottom:6px;letter-spacing:-0.01em}
+.dscard-p{font-size:11px;color:var(--dim);line-height:1.5;margin-bottom:12px}
+.dscard-foot{display:flex;justify-content:space-between;align-items:center;padding-top:10px;border-top:1px solid var(--line);font-size:10px}
+
+/* BADGES */
+.bdg-stack{display:flex;flex-direction:column;gap:10px}
+.bdg{display:inline-flex;align-items:center;padding:5px 12px;border-radius:100px;font-size:11px;font-weight:600;border:1px solid;align-self:flex-start}
+.bdg-success{background:rgba(123,201,125,.1);color:#7BC97D;border-color:rgba(123,201,125,.25)}
+.bdg-warning{background:rgba(255,183,77,.1);color:#FFB74D;border-color:rgba(255,183,77,.25)}
+.bdg-error{background:rgba(255,107,107,.1);color:#FF6B6B;border-color:rgba(255,107,107,.25)}
+.bdg-info{background:rgba(108,154,231,.1);color:#6C9AE7;border-color:rgba(108,154,231,.25)}
+.bdg-neutral{background:rgba(255,255,255,.05);color:var(--white);border-color:var(--line)}
+
+/* ALERTES */
+.alrt-stack{display:flex;flex-direction:column;gap:10px}
+.alrt{display:flex;align-items:flex-start;gap:12px;padding:12px 14px;border-radius:10px;border:1px solid}
+.alrt-icon{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0}
+.alrt-body{flex:1;font-size:12px;line-height:1.5}
+.alrt-h{font-weight:600;color:var(--white);margin-bottom:2px}
+.alrt-p{color:var(--dim)}
+.alrt-close{color:var(--dim);font-size:14px;line-height:1}
+.alrt-success{background:rgba(123,201,125,.06);border-color:rgba(123,201,125,.2)}
+.alrt-success .alrt-icon{background:#7BC97D;color:var(--bg)}
+.alrt-warning{background:rgba(255,183,77,.06);border-color:rgba(255,183,77,.2)}
+.alrt-warning .alrt-icon{background:#FFB74D;color:var(--bg)}
+.alrt-error{background:rgba(255,107,107,.06);border-color:rgba(255,107,107,.2)}
+.alrt-error .alrt-icon{background:#FF6B6B;color:var(--bg)}
+.alrt-info{background:rgba(108,154,231,.06);border-color:rgba(108,154,231,.2)}
+.alrt-info .alrt-icon{background:#6C9AE7;color:var(--bg)}
+
+/* ONGLETS */
+.tbs{display:flex;border-bottom:1px solid var(--line);margin-bottom:18px}
+.tbs-item{padding:10px 16px;font-size:12px;font-weight:500;color:var(--dim);border-bottom:2px solid transparent;cursor:pointer}
+.tbs-item.active{color:var(--white);border-bottom-color:var(--white)}
+.tbs-content{padding:18px;background:var(--bg);border:1px solid var(--line);border-radius:10px}
+.tbs-content h4{font-size:14px;font-weight:500;color:var(--white);margin-bottom:8px;letter-spacing:-0.01em}
+.tbs-content p{font-size:12px;color:var(--dim);line-height:1.6;margin:0}
+
+/* NAVIGATION */
+.nav-mob{display:flex;justify-content:space-around;align-items:center;padding:14px 18px;background:var(--bg);border:1px solid var(--line);border-radius:14px}
+.nav-mob-item{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:9px;color:var(--dim);font-weight:600;letter-spacing:0.06em;text-transform:uppercase}
+.nav-mob-item.active{color:var(--white)}
+.nav-mob-icn{width:22px;height:22px;display:flex;align-items:center;justify-content:center;color:currentColor}
+.nav-mob-fab{width:44px;height:44px;border-radius:50%;background:var(--white);color:var(--bg);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:300;margin:-22px 0 -8px}
+.brd{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--dim);margin-top:18px;flex-wrap:wrap}
+.brd-sep{opacity:.4}
+.brd-cur{color:var(--white)}
+
+/* ÉCRANS */
+.scr-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin-top:8px}
+.scr{display:flex;flex-direction:column;align-items:center;gap:10px}
+.scr-frame{width:100%;aspect-ratio:0.55/1;background:var(--bg);border:1px solid var(--line);border-radius:18px;padding:14px;display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden}
+.scr-statusbar{display:flex;justify-content:space-between;font-size:8px;font-weight:600;color:var(--white);opacity:.7}
+.scr-h{font-size:11px;font-weight:600;color:var(--white);letter-spacing:-0.01em;line-height:1.2}
+.scr-row{padding:8px 10px;background:var(--bg2);border-radius:6px;border:1px solid var(--line);font-size:9px;color:var(--white);display:flex;align-items:center;gap:6px}
+.scr-row-icn{width:14px;height:14px;border-radius:4px;background:var(--bg3);flex-shrink:0}
+.scr-block{padding:8px 10px;background:var(--bg2);border-radius:6px;border:1px solid var(--line);display:flex;flex-direction:column;gap:4px}
+.scr-block-l{font-size:8px;color:var(--dim);font-weight:600;letter-spacing:0.06em;text-transform:uppercase}
+.scr-block-v{font-size:11px;color:var(--white);font-weight:500}
+.scr-cta{padding:8px;background:var(--white);color:var(--bg);font-size:9px;font-weight:600;border-radius:6px;text-align:center}
+.scr-tag{font-size:7px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--dim);margin-top:auto;text-align:center}
+.scr-name{font-size:11px;font-weight:500;color:var(--white)}
+
+/* light mode adjustments */
+body.light .dsb-card,body.light .dscard,body.light .icn-cell,body.light .form-input,body.light .scr-frame,body.light .scr-row,body.light .scr-block,body.light .nav-mob,body.light .tbs-content{background:rgba(0,0,0,.02)}
+body.light .col-name,body.light .typ-aa,body.light .typ-meta-h,body.light .dscard-h,body.light .dsb-princ-title,body.light .scr-h,body.light .scr-block-v,body.light .alrt-h,body.light .nav-mob-item.active{color:#000}
+body.light .icn-cell{color:#000}
+body.light .dsb-brand-logo{background:#000;color:#fff}
+body.light .dsbtn-primary{background:#000;color:#fff;border-color:#000}
+body.light .dscard-img{background:linear-gradient(135deg,#f5f5f5 0%,#e8e8e8 100%)}
+body.light .dscard-img::after{color:rgba(0,0,0,.3)}
+body.light .nav-mob-fab,body.light .scr-cta{background:#000;color:#fff}
+body.light .chk-box.checked,body.light .rdo-box.checked::after{background:#000}
+body.light .chk-box.checked{border-color:#000}
+body.light .rdo-box.checked{border-color:#000}
+body.light .tbs-item.active{color:#000;border-bottom-color:#000}
 </style>
 
-<!-- ═══ INTRO ═══ -->
-<section class="about" style="padding-bottom:40px">
-  <div class="about-grid rv">
-    <div>
-      <p class="about-intro">
-        Un design system n'est pas un fichier Figma joli.<br/>
-        <strong>C'est l'ensemble des règles partagées</strong> qui permettent à une équipe de construire vite, sans dette visuelle.
-      </p>
-      <p class="about-para">
-        Cette page documente le système réel qui fait tourner dikengadesign.fr : tokens couleurs, type-scale, spacing, radius, composants. Elle sert aussi d'exemple concret du livrable que je donne à mes clients en fin de mission Design System (4 semaines de travail).
-      </p>
-      <p class="about-para">
-        Trois principes structurent l'ensemble : <strong>sobriété</strong> (peu de composants, beaucoup de réutilisation), <strong>cohérence</strong> (un seul nom par composant, jamais de doublon), <strong>évolutivité</strong> (chaque token dérivable en JSON pour le dev front).
-      </p>
-      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:32px">
-        <a href="methodologie.html" class="about-cta">Voir la méthodologie →</a>
-        <a href="index.html#contact" class="about-cta" style="border-color:var(--line)">Premier échange gratuit</a>
+<main class="dsb">
+
+  <!-- ═══ SIDEBAR ═══ -->
+  <aside class="dsb-side">
+    <div class="dsb-brand">
+      <div class="dsb-brand-logo">D</div>
+      <div>
+        <div class="dsb-brand-name">Dikenga</div>
+        <div class="dsb-brand-tag">Design System v1.0</div>
       </div>
     </div>
-    <div class="about-skills rv d1">
-      <div class="skill-group">
-        <div class="skill-group-label">Format de livraison</div>
-        <div class="skill-tags">
-          <span class="skill-tag">Library Figma</span>
-          <span class="skill-tag">Tokens JSON (W3C)</span>
-          <span class="skill-tag">Documentation Notion</span>
-          <span class="skill-tag">Specs Figma Dev Mode</span>
-        </div>
+
+    <div class="dsb-block">
+      <div class="dsb-h">À propos</div>
+      <p class="dsb-text">Le Design System de dikengadesign.fr — un système sobre, dark par défaut, conçu pour les product teams qui livrent des SaaS B2B et des interfaces complexes. Tokens, composants et règles partagés entre design et dev.</p>
+    </div>
+
+    <div class="dsb-block">
+      <div class="dsb-h">Principes</div>
+      <div class="dsb-princ">
+        <div class="dsb-princ-item"><div class="dsb-princ-icon">1</div><div><div class="dsb-princ-title">Sobriété</div><div class="dsb-princ-desc">Moins de tokens, plus de réutilisation.</div></div></div>
+        <div class="dsb-princ-item"><div class="dsb-princ-icon">2</div><div><div class="dsb-princ-title">Cohérence</div><div class="dsb-princ-desc">Un nom, un usage. Aucun doublon.</div></div></div>
+        <div class="dsb-princ-item"><div class="dsb-princ-icon">3</div><div><div class="dsb-princ-title">Hiérarchie</div><div class="dsb-princ-desc">Le contraste avant le décor.</div></div></div>
+        <div class="dsb-princ-item"><div class="dsb-princ-icon">4</div><div><div class="dsb-princ-title">Accessibilité</div><div class="dsb-princ-desc">WCAG 2.2 AA par défaut.</div></div></div>
       </div>
-      <div class="skill-group">
-        <div class="skill-group-label">Composants livrés</div>
-        <div class="skill-tags">
-          <span class="skill-tag">Button (4 variantes)</span>
-          <span class="skill-tag">Input / Form</span>
-          <span class="skill-tag">Card</span>
-          <span class="skill-tag">Modal</span>
-          <span class="skill-tag">Table</span>
-          <span class="skill-tag">Navigation</span>
-          <span class="skill-tag">Badge / Tag</span>
-        </div>
+    </div>
+
+    <div class="dsb-block">
+      <div class="dsb-h">Sommaire</div>
+      <ul class="dsb-toc">
+        <li><a href="#couleurs" class="active"><span class="dsb-toc-dot"></span>Couleurs</a></li>
+        <li><a href="#typo"><span class="dsb-toc-dot"></span>Typographie</a></li>
+        <li><a href="#icones"><span class="dsb-toc-dot"></span>Icônes</a></li>
+        <li><a href="#composants"><span class="dsb-toc-dot"></span>Composants</a></li>
+        <li><a href="#alertes"><span class="dsb-toc-dot"></span>Alertes & Badges</a></li>
+        <li><a href="#nav"><span class="dsb-toc-dot"></span>Navigation</a></li>
+        <li><a href="#ecrans"><span class="dsb-toc-dot"></span>Exemples d'écrans</a></li>
+      </ul>
+    </div>
+
+    <div class="dsb-block">
+      <div class="dsb-h">Version</div>
+      <p class="dsb-text">v1.0 · 6 mai 2026<br/><a href="methodologie.html" style="color:var(--white);text-decoration:underline">Voir la méthodologie →</a></p>
+    </div>
+  </aside>
+
+  <!-- ═══ MAIN BOARD ═══ -->
+  <div class="dsb-main">
+
+    <!-- COULEURS -->
+    <div class="dsb-card span-5" id="couleurs">
+      <div class="dsb-card-h">Couleurs</div>
+      <div class="dsb-card-sub">Palette principale</div>
+      <div class="col-grid">
+        <div class="col-item"><div class="col-sw" style="background:#1D1B1B"></div><span class="col-name">--bg</span><span class="col-hex">#1D1B1B</span></div>
+        <div class="col-item"><div class="col-sw" style="background:#252323"></div><span class="col-name">--bg2</span><span class="col-hex">#252323</span></div>
+        <div class="col-item"><div class="col-sw" style="background:#2E2B2B"></div><span class="col-name">--bg3</span><span class="col-hex">#2E2B2B</span></div>
+        <div class="col-item"><div class="col-sw" style="background:#FFFFFF"></div><span class="col-name">--white</span><span class="col-hex">#FFFFFF</span></div>
       </div>
-      <div class="skill-group">
-        <div class="skill-group-label">Standards respectés</div>
-        <div class="skill-tags">
-          <span class="skill-tag">WCAG 2.2 AA</span>
-          <span class="skill-tag">Atomic Design</span>
-          <span class="skill-tag">Design Tokens W3C</span>
+      <div class="dsb-card-sub">Couleurs sémantiques</div>
+      <div class="col-grid">
+        <div class="col-item"><div class="col-sw" style="background:#7BC97D"></div><span class="col-name">Succès</span><span class="col-hex">#7BC97D</span></div>
+        <div class="col-item"><div class="col-sw" style="background:#FFB74D"></div><span class="col-name">Warning</span><span class="col-hex">#FFB74D</span></div>
+        <div class="col-item"><div class="col-sw" style="background:#FF6B6B"></div><span class="col-name">Erreur</span><span class="col-hex">#FF6B6B</span></div>
+        <div class="col-item"><div class="col-sw" style="background:#6C9AE7"></div><span class="col-name">Info</span><span class="col-hex">#6C9AE7</span></div>
+      </div>
+    </div>
+
+    <!-- TYPOGRAPHIE -->
+    <div class="dsb-card span-4" id="typo">
+      <div class="dsb-card-h">Typographie</div>
+      <div class="typ-stack">
+        <div class="typ-row"><span class="typ-aa" style="font-size:36px">Aa</span><div><div class="typ-meta-h">H1 / Bold</div><div class="typ-meta-d">42px · 500 · -0.02em</div></div></div>
+        <div class="typ-row"><span class="typ-aa" style="font-size:30px">Aa</span><div><div class="typ-meta-h">H2 / Semibold</div><div class="typ-meta-d">28px · 500 · -0.02em</div></div></div>
+        <div class="typ-row"><span class="typ-aa" style="font-size:22px">Aa</span><div><div class="typ-meta-h">H3 / Medium</div><div class="typ-meta-d">18px · 500 · -0.01em</div></div></div>
+        <div class="typ-row"><span class="typ-aa" style="font-size:16px;font-weight:400">Aa</span><div><div class="typ-meta-h">Body / Regular</div><div class="typ-meta-d">14px · 400 · 1.4 lh</div></div></div>
+        <div class="typ-row"><span class="typ-aa" style="font-size:12px;font-weight:400">Aa</span><div><div class="typ-meta-h">Petite / Label</div><div class="typ-meta-d">11px · 600 · 0.16em</div></div></div>
+      </div>
+    </div>
+
+    <!-- ICÔNES -->
+    <div class="dsb-card span-3" id="icones">
+      <div class="dsb-card-h">Icônes</div>
+      <div class="icn-grid">
+        <div class="icn-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12L12 3l9 9"/><path d="M5 10v10h14V10"/></svg></div>
+        <div class="icn-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="6" width="16" height="14" rx="2"/><path d="M4 10h16M9 6V4M15 6V4"/></svg></div>
+        <div class="icn-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg></div>
+        <div class="icn-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="9" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg></div>
+        <div class="icn-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 6h14M5 12h14M5 18h14"/></svg></div>
+        <div class="icn-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="6"/><path d="M16 16l4 4"/></svg></div>
+        <div class="icn-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg></div>
+        <div class="icn-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></div>
+        <div class="icn-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></div>
+        <div class="icn-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      </div>
+      <div class="icn-meta">Style : Line<br/>Épaisseur : 1.5px<br/>Coins : arrondis</div>
+    </div>
+
+    <!-- COMPOSANTS / BOUTONS -->
+    <div class="dsb-card span-7" id="composants">
+      <div class="dsb-card-h">Composants — Boutons</div>
+      <div class="btn-table">
+        <div class="btn-th left"></div>
+        <div class="btn-th">Normal</div>
+        <div class="btn-th">Survol</div>
+        <div class="btn-th">Désactivé</div>
+
+        <div class="btn-th left">Primaire</div>
+        <div class="btn-cell"><span class="dsbtn dsbtn-primary">Commander</span></div>
+        <div class="btn-cell"><span class="dsbtn dsbtn-primary hover">Commander</span></div>
+        <div class="btn-cell"><span class="dsbtn dsbtn-primary disabled">Commander</span></div>
+
+        <div class="btn-th left">Secondaire</div>
+        <div class="btn-cell"><span class="dsbtn dsbtn-secondary">Annuler</span></div>
+        <div class="btn-cell"><span class="dsbtn dsbtn-secondary hover">Annuler</span></div>
+        <div class="btn-cell"><span class="dsbtn dsbtn-secondary disabled">Annuler</span></div>
+
+        <div class="btn-th left">Texte</div>
+        <div class="btn-cell"><span class="dsbtn dsbtn-text">En savoir plus</span></div>
+        <div class="btn-cell"><span class="dsbtn dsbtn-text hover">En savoir plus</span></div>
+        <div class="btn-cell"><span class="dsbtn dsbtn-text disabled">En savoir plus</span></div>
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <div class="dsb-card span-3">
+      <div class="dsb-card-h">Champ de formulaire</div>
+      <div class="form-stack">
+        <div>
+          <label class="form-label">État par défaut</label>
+          <input class="form-input" placeholder="Adresse e-mail"/>
+        </div>
+        <div>
+          <label class="form-label">État actif</label>
+          <input class="form-input active" value="contact@dikenga.fr"/>
+        </div>
+        <div>
+          <label class="form-label">Avec erreur</label>
+          <input class="form-input error" value="invalid"/>
+          <div class="form-error">Veuillez entrer une adresse valide.</div>
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ═══ TOKENS ═══ -->
-<section class="ds-section">
-  <div class="ds-label rv">01 — Foundations</div>
-  <h2 class="rv">Tokens couleurs</h2>
-  <p class="ds-sub rv">Palette resserrée : 1 background neutre, 3 niveaux de surface, 1 blanc pur, 2 niveaux de texte secondaire, 1 ligne. Tout le reste du contraste se fait par opacité.</p>
-  <div class="ds-colors rv d1">
-    <div class="ds-color"><div class="ds-color-swatch" style="background:#1D1B1B"></div><span class="ds-color-name">--bg</span><span class="ds-color-meta">#1D1B1B<br/>Background principal · dark</span></div>
-    <div class="ds-color"><div class="ds-color-swatch" style="background:#252323"></div><span class="ds-color-name">--bg2</span><span class="ds-color-meta">#252323<br/>Surface élevée · cards</span></div>
-    <div class="ds-color"><div class="ds-color-swatch" style="background:#2E2B2B"></div><span class="ds-color-name">--bg3</span><span class="ds-color-meta">#2E2B2B<br/>Surface plus haute · tags</span></div>
-    <div class="ds-color"><div class="ds-color-swatch" style="background:#FFFFFF"></div><span class="ds-color-name">--white</span><span class="ds-color-meta">#FFFFFF<br/>Texte primaire · CTA</span></div>
-    <div class="ds-color"><div class="ds-color-swatch" style="background:#B8B4B4"></div><span class="ds-color-name">--off</span><span class="ds-color-meta">#B8B4B4<br/>Texte off-white</span></div>
-    <div class="ds-color"><div class="ds-color-swatch" style="background:rgba(255,255,255,0.55)"></div><span class="ds-color-name">--dim</span><span class="ds-color-meta">rgba(white, .55)<br/>Texte secondaire · meta</span></div>
-    <div class="ds-color"><div class="ds-color-swatch" style="background:rgba(255,255,255,0.1)"></div><span class="ds-color-name">--line</span><span class="ds-color-meta">rgba(white, .1)<br/>Bordures · séparateurs</span></div>
-  </div>
-</section>
-
-<!-- ═══ TYPE ═══ -->
-<section class="ds-section">
-  <div class="ds-label rv">02 — Foundations</div>
-  <h2 class="rv">Typographie</h2>
-  <p class="ds-sub rv">Une seule famille primaire (<strong>Space Grotesk</strong>), une famille texte longue (<strong>Suisse Intl</strong>). 6 niveaux. Le contraste se fait par taille et poids — pas par couleur.</p>
-  <div class="ds-type rv d1">
-    <div class="ds-type-row"><div class="ds-type-meta">H1<br/>72/56/40 · 500</div><div class="ds-type-sample ds-type-sample-1">Display H1</div></div>
-    <div class="ds-type-row"><div class="ds-type-meta">H2<br/>40/32/28 · 500</div><div class="ds-type-sample ds-type-sample-2">Section H2</div></div>
-    <div class="ds-type-row"><div class="ds-type-meta">H3<br/>22 · 500</div><div class="ds-type-sample ds-type-sample-3">Sub-section H3</div></div>
-    <div class="ds-type-row"><div class="ds-type-meta">Body<br/>17/16 · 400</div><div class="ds-type-sample ds-type-sample-4">Texte de paragraphe — pour les longues lectures, articles, descriptions de projet.</div></div>
-    <div class="ds-type-row"><div class="ds-type-meta">Small<br/>14 · 400</div><div class="ds-type-sample ds-type-sample-5">Texte secondaire pour metadata, légendes, descriptions courtes.</div></div>
-    <div class="ds-type-row"><div class="ds-type-meta">Label<br/>11 · 600 / 0.14em</div><div class="ds-type-sample ds-type-sample-6">SECTION LABEL · UPPERCASE</div></div>
-  </div>
-</section>
-
-<!-- ═══ SPACING ═══ -->
-<section class="ds-section">
-  <div class="ds-label rv">03 — Foundations</div>
-  <h2 class="rv">Spacing</h2>
-  <p class="ds-sub rv">Échelle 4pt — multiples de 4 uniquement. Limite à 8 valeurs réutilisées partout pour éviter les "padding 17px" et les irrégularités à l'œil.</p>
-  <div class="ds-spacing rv d1">
-    <div class="ds-spacing-row"><div class="ds-spacing-meta">--sp-1 · 4px</div><div class="ds-spacing-bar" style="width:4px"></div></div>
-    <div class="ds-spacing-row"><div class="ds-spacing-meta">--sp-2 · 8px</div><div class="ds-spacing-bar" style="width:8px"></div></div>
-    <div class="ds-spacing-row"><div class="ds-spacing-meta">--sp-3 · 12px</div><div class="ds-spacing-bar" style="width:12px"></div></div>
-    <div class="ds-spacing-row"><div class="ds-spacing-meta">--sp-4 · 16px</div><div class="ds-spacing-bar" style="width:16px"></div></div>
-    <div class="ds-spacing-row"><div class="ds-spacing-meta">--sp-6 · 24px</div><div class="ds-spacing-bar" style="width:24px"></div></div>
-    <div class="ds-spacing-row"><div class="ds-spacing-meta">--sp-8 · 32px</div><div class="ds-spacing-bar" style="width:32px"></div></div>
-    <div class="ds-spacing-row"><div class="ds-spacing-meta">--sp-12 · 48px</div><div class="ds-spacing-bar" style="width:48px"></div></div>
-    <div class="ds-spacing-row"><div class="ds-spacing-meta">--sp-16 · 64px</div><div class="ds-spacing-bar" style="width:64px"></div></div>
-  </div>
-</section>
-
-<!-- ═══ RADIUS ═══ -->
-<section class="ds-section">
-  <div class="ds-label rv">04 — Foundations</div>
-  <h2 class="rv">Radius</h2>
-  <p class="ds-sub rv">4 valeurs canoniques. Le "pill" (100px) est réservé aux CTA et aux tags. Le "full" (50%) aux avatars et points de statut.</p>
-  <div class="ds-radius rv d1">
-    <div class="ds-radius-item"><div class="ds-radius-shape" style="border-radius:6px"></div><span class="ds-radius-name">--r-sm</span><span class="ds-radius-val">6px · badges, micro</span></div>
-    <div class="ds-radius-item"><div class="ds-radius-shape" style="border-radius:12px"></div><span class="ds-radius-name">--r-md</span><span class="ds-radius-val">12px · cards (défaut)</span></div>
-    <div class="ds-radius-item"><div class="ds-radius-shape" style="border-radius:20px"></div><span class="ds-radius-name">--r-lg</span><span class="ds-radius-val">20px · hero, modales</span></div>
-    <div class="ds-radius-item"><div class="ds-radius-shape" style="border-radius:100px"></div><span class="ds-radius-name">--r-pill</span><span class="ds-radius-val">100px · CTA, tags</span></div>
-    <div class="ds-radius-item"><div class="ds-radius-shape" style="border-radius:50%"></div><span class="ds-radius-name">--r-full</span><span class="ds-radius-val">50% · avatars, dots</span></div>
-  </div>
-</section>
-
-<!-- ═══ COMPONENTS ═══ -->
-<section class="ds-section">
-  <div class="ds-label rv">05 — Components</div>
-  <h2 class="rv">Composants core</h2>
-  <p class="ds-sub rv">8 composants couvrent 90% du site. Chacun a un rôle unique et un nom unique — pas de "Button2" ni de "Card-old".</p>
-
-  <div class="ds-comp rv d1">
-    <div class="ds-comp-title">Button — Primary</div>
-    <div class="ds-comp-desc">Action principale, une seule par section. Toujours blanc sur dark, noir sur light. Radius pill.</div>
-    <div class="ds-comp-stage"><a class="ds-btn-primary" href="#">Premier échange gratuit →</a></div>
-  </div>
-
-  <div class="ds-comp rv d2">
-    <div class="ds-comp-title">Button — Secondary</div>
-    <div class="ds-comp-desc">Action contextuelle, hiérarchie inférieure. Border seulement, pas de remplissage.</div>
-    <div class="ds-comp-stage"><a class="ds-btn-secondary" href="#">Voir les case studies</a></div>
-  </div>
-
-  <div class="ds-comp rv d3">
-    <div class="ds-comp-title">Button — Pill small (nav, theme)</div>
-    <div class="ds-comp-desc">Boutons utilitaires uppercase pour la navigation et les toggles.</div>
-    <div class="ds-comp-stage"><a class="ds-btn-pill-sm" href="#">Thème</a><a class="ds-btn-pill-sm" href="#">FR · 12:00</a></div>
-  </div>
-
-  <div class="ds-comp rv">
-    <div class="ds-comp-title">Tag</div>
-    <div class="ds-comp-desc">Étiquettes pour skills, secteurs, catégories. Réutilisables partout.</div>
-    <div class="ds-comp-stage"><span class="ds-tag">Figma</span><span class="ds-tag">Design System</span><span class="ds-tag">UX Research</span><span class="ds-tag">SaaS B2B</span></div>
-  </div>
-
-  <div class="ds-comp rv d1">
-    <div class="ds-comp-title">Badge / Label</div>
-    <div class="ds-comp-desc">Indicateurs courts, métadonnées, statuts.</div>
-    <div class="ds-comp-stage"><span class="ds-badge">UI · Design System</span><span class="ds-badge">2026</span><span class="ds-badge">Live</span></div>
-  </div>
-
-  <div class="ds-comp rv d2">
-    <div class="ds-comp-title">Card</div>
-    <div class="ds-comp-desc">Conteneur générique pour projets, articles, secteurs. Toujours radius 12px, padding 24px, border 1px line.</div>
-    <div class="ds-comp-stage" style="display:block">
-      <div class="ds-card">
-        <div class="ds-card-cat">Design System · Product Team</div>
-        <h3 class="ds-card-h">StudioBooking</h3>
-        <p class="ds-card-p">SaaS B2B de réservation pour studios musicaux — design system Figma complet, 40+ composants, dev handoff structuré.</p>
-        <div class="ds-card-foot"><span style="color:var(--dim)">6 mai 2026</span><span style="color:var(--white)">→</span></div>
+    <!-- CHECKBOX RADIO -->
+    <div class="dsb-card span-2">
+      <div class="dsb-card-h">Sélection</div>
+      <div class="dsb-card-sub">Checkbox</div>
+      <div class="chk-stack">
+        <div class="chk-row"><span class="chk-box checked"></span>Sélectionnée</div>
+        <div class="chk-row"><span class="chk-box"></span>Non sélectionnée</div>
+      </div>
+      <div class="dsb-card-sub" style="margin-top:18px">Radio</div>
+      <div class="chk-stack">
+        <div class="chk-row"><span class="rdo-box checked"></span>Sélectionnée</div>
+        <div class="chk-row"><span class="rdo-box"></span>Non sélectionnée</div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ═══ PRINCIPES ═══ -->
-<section class="ds-section">
-  <div class="ds-label rv">06 — Principles</div>
-  <h2 class="rv">Les 6 principes du système</h2>
-  <p class="ds-sub rv">Les règles auxquelles je reviens à chaque décision — quand je dois choisir entre deux variantes, c'est l'une de ces 6 qui tranche.</p>
-  <div class="ds-principles rv d1">
-    <div class="ds-principle"><div class="ds-principle-num">01 — Sobriété</div><h3 class="ds-principle-h">Moins, mais mieux.</h3><p class="ds-principle-p">7 couleurs, 4 radius, 8 espacements, 8 composants. Si une nouvelle valeur veut entrer, une autre doit sortir.</p></div>
-    <div class="ds-principle"><div class="ds-principle-num">02 — Cohérence</div><h3 class="ds-principle-h">Un nom, un usage.</h3><p class="ds-principle-p">Pas de Button2 ni de Card-v2. Quand un composant évolue, c'est lui qui change — jamais un duplicata.</p></div>
-    <div class="ds-principle"><div class="ds-principle-num">03 — Hiérarchie</div><h3 class="ds-principle-h">Le contraste avant le décor.</h3><p class="ds-principle-p">Tailles, poids et opacités font la hiérarchie. Pas de bordures inutiles, pas de couleurs accent qui distraient.</p></div>
-    <div class="ds-principle"><div class="ds-principle-num">04 — Accessibilité</div><h3 class="ds-principle-h">WCAG 2.2 AA par défaut.</h3><p class="ds-principle-p">Contraste minimum 4.5:1 sur le texte, 3:1 sur les UI. Focus visible. Tailles touchables ≥ 44×44px.</p></div>
-    <div class="ds-principle"><div class="ds-principle-num">05 — Évolutivité</div><h3 class="ds-principle-h">Tokens dérivables.</h3><p class="ds-principle-p">Chaque token CSS a un équivalent JSON / Tailwind. Un changement central propage partout — Figma + code.</p></div>
-    <div class="ds-principle"><div class="ds-principle-num">06 — Documentation vivante</div><h3 class="ds-principle-h">Si ce n'est pas écrit, ça n'existe pas.</h3><p class="ds-principle-p">Chaque composant a un "quand utiliser", "quand ne PAS utiliser", "états et variantes". À jour ou retiré.</p></div>
-  </div>
-</section>
+    <!-- CARTE PROJET -->
+    <div class="dsb-card span-3">
+      <div class="dsb-card-h">Carte — Projet</div>
+      <div class="dscard">
+        <div class="dscard-img"></div>
+        <div class="dscard-cat">Design System · SaaS B2B</div>
+        <div class="dscard-h">StudioBooking</div>
+        <div class="dscard-p">SaaS B2B de réservation pour studios musicaux. 40+ composants Figma, dev handoff complet.</div>
+        <div class="dscard-foot"><span style="color:var(--dim)">2026</span><span class="dsbtn dsbtn-primary" style="padding:6px 14px;font-size:11px">Voir →</span></div>
+      </div>
+    </div>
 
-<!-- ═══ AUDIT ═══ -->
-<section class="ds-section">
-  <div class="ds-label rv">07 — Audit du système actuel</div>
-  <h2 class="rv">Ce que ce site respecte (et ce qu'il faut encore corriger)</h2>
-  <p class="ds-sub rv">Honnêteté > marketing. Voici l'état réel du design system du site, ce qui tient et les dettes restant à traiter.</p>
-  <div class="ds-audit rv d1">
-    <div class="ds-audit-card"><span class="ds-audit-status ds-audit-ok">✓ OK</span><h3 class="ds-audit-h">Palette couleurs verrouillée</h3><p class="ds-audit-p">7 tokens, utilisés partout via variables CSS. Aucune couleur hardcodée hors palette détectée à l'audit.</p></div>
-    <div class="ds-audit-card"><span class="ds-audit-status ds-audit-ok">✓ OK</span><h3 class="ds-audit-h">Famille typographique unique</h3><p class="ds-audit-p">Space Grotesk + Suisse Intl partout. Pas de fonts perdues dans des CSS isolés.</p></div>
-    <div class="ds-audit-card"><span class="ds-audit-status ds-audit-ok">✓ OK</span><h3 class="ds-audit-h">Composants Button cohérents</h3><p class="ds-audit-p">3 variantes claires (primary, secondary, pill-sm). Réutilisées sans duplication sur les 5 pages publiques.</p></div>
-    <div class="ds-audit-card"><span class="ds-audit-status ds-audit-warn">⚠ À corriger</span><h3 class="ds-audit-h">Radius inconsistants</h3><p class="ds-audit-p">8 valeurs détectées dans la codebase (3px, 6px, 8px, 10px, 12px, 16px, 20px, 100px). À ramener aux 5 tokens canoniques.</p></div>
-    <div class="ds-audit-card"><span class="ds-audit-status ds-audit-warn">⚠ À corriger</span><h3 class="ds-audit-h">Type-scale dispersée</h3><p class="ds-audit-p">13 tailles brutes utilisées (8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 22, 64). À regrouper sur 6 niveaux H1→Label.</p></div>
-    <div class="ds-audit-card"><span class="ds-audit-status ds-audit-warn">⚠ À corriger</span><h3 class="ds-audit-h">Spacing à tokeniser</h3><p class="ds-audit-p">Pas de variables --sp-* en CSS aujourd'hui. Tout est en inline. À extraire dans :root pour vrai contrat front/design.</p></div>
-  </div>
-</section>
+    <!-- BADGES -->
+    <div class="dsb-card span-2" id="alertes">
+      <div class="dsb-card-h">Badge / Label</div>
+      <div class="bdg-stack">
+        <span class="bdg bdg-success">Livré</span>
+        <span class="bdg bdg-info">En cours</span>
+        <span class="bdg bdg-warning">En attente</span>
+        <span class="bdg bdg-error">Annulé</span>
+        <span class="bdg bdg-neutral">Nouveau</span>
+      </div>
+    </div>
 
-<!-- ═══ CTA ═══ -->
-<section class="ds-section" style="text-align:center">
-  <div class="ds-label rv" style="justify-content:center">Concrètement</div>
-  <h2 class="rv">Vous voulez le même livrable pour votre produit ?</h2>
-  <p class="ds-sub rv" style="margin-left:auto;margin-right:auto;text-align:center">4 semaines de travail, library Figma + tokens JSON + documentation Notion. Forfait Design System : 12 000€ HT.</p>
-  <div class="rv d1" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:24px">
-    <a href="index.html#contact" class="ds-btn-primary">Démarrer un audit gratuit →</a>
-    <a href="methodologie.html" class="ds-btn-secondary">Voir la méthodologie</a>
-  </div>
-</section>
+    <!-- ALERTES -->
+    <div class="dsb-card span-4">
+      <div class="dsb-card-h">Alertes</div>
+      <div class="alrt-stack">
+        <div class="alrt alrt-success"><span class="alrt-icon">✓</span><div class="alrt-body"><div class="alrt-h">Succès</div><div class="alrt-p">Votre commande a été livrée.</div></div><span class="alrt-close">×</span></div>
+        <div class="alrt alrt-warning"><span class="alrt-icon">!</span><div class="alrt-body"><div class="alrt-h">Attention</div><div class="alrt-p">Vérifiez l'adresse de livraison.</div></div><span class="alrt-close">×</span></div>
+        <div class="alrt alrt-error"><span class="alrt-icon">×</span><div class="alrt-body"><div class="alrt-h">Erreur</div><div class="alrt-p">Une erreur est survenue.</div></div><span class="alrt-close">×</span></div>
+        <div class="alrt alrt-info"><span class="alrt-icon">i</span><div class="alrt-body"><div class="alrt-h">Information</div><div class="alrt-p">Votre colis est en cours d'acheminement.</div></div></div>
+      </div>
+    </div>
 
+    <!-- ONGLETS -->
+    <div class="dsb-card span-3">
+      <div class="dsb-card-h">Onglets (Tabs)</div>
+      <div class="tbs">
+        <div class="tbs-item active">Informations</div>
+        <div class="tbs-item">Livraison</div>
+        <div class="tbs-item">Avis</div>
+      </div>
+      <div class="tbs-content">
+        <h4>Titre de la section</h4>
+        <p>Contenu de la section informations. Détails importants pour l'utilisateur.</p>
+      </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <div class="dsb-card span-5" id="nav">
+      <div class="dsb-card-h">Navigation</div>
+      <div class="dsb-card-sub">Barre de navigation (mobile)</div>
+      <div class="nav-mob">
+        <div class="nav-mob-item active"><div class="nav-mob-icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12L12 3l9 9"/><path d="M5 10v10h14V10"/></svg></div>Accueil</div>
+        <div class="nav-mob-item"><div class="nav-mob-icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="6" width="16" height="14" rx="2"/></svg></div>Projets</div>
+        <div class="nav-mob-fab">+</div>
+        <div class="nav-mob-item"><div class="nav-mob-icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 8h14v9H7l-2 2V8z"/></svg></div>Messages</div>
+        <div class="nav-mob-item"><div class="nav-mob-icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="9" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg></div>Profil</div>
+      </div>
+      <div class="dsb-card-sub" style="margin-top:18px">Breadcrumb</div>
+      <div class="brd"><span>Accueil</span><span class="brd-sep">›</span><span>Projets</span><span class="brd-sep">›</span><span class="brd-cur">Design System</span></div>
+    </div>
+
+    <!-- ÉCRANS -->
+    <div class="dsb-card span-12" id="ecrans">
+      <div class="dsb-card-h">Exemples d'écrans</div>
+      <div class="scr-grid">
+
+        <div class="scr">
+          <div class="scr-frame">
+            <div class="scr-statusbar"><span>9:41</span><span>●●●● 5G</span></div>
+            <div class="scr-h">Bonjour Mes-Reves.<br/>Bienvenue.</div>
+            <div class="scr-row"><span class="scr-row-icn"></span>Démarrer un projet</div>
+            <div class="scr-row"><span class="scr-row-icn"></span>Voir mes audits</div>
+            <div class="scr-row"><span class="scr-row-icn"></span>Mes design systems</div>
+            <div class="scr-cta">Premier échange →</div>
+            <div class="scr-tag">Accueil</div>
+          </div>
+          <span class="scr-name">Accueil</span>
+        </div>
+
+        <div class="scr">
+          <div class="scr-frame">
+            <div class="scr-statusbar"><span>9:41</span><span>●●●● 5G</span></div>
+            <div class="scr-h">Audit UX</div>
+            <div class="scr-block"><span class="scr-block-l">Statut</span><span class="scr-block-v">En cours · J+1</span></div>
+            <div class="scr-block"><span class="scr-block-l">Frictions</span><span class="scr-block-v">12 identifiées</span></div>
+            <div class="scr-block"><span class="scr-block-l">Score</span><span class="scr-block-v">62 / 100</span></div>
+            <div class="scr-cta">Voir le rapport →</div>
+            <div class="scr-tag">Détail audit</div>
+          </div>
+          <span class="scr-name">Audit</span>
+        </div>
+
+        <div class="scr">
+          <div class="scr-frame">
+            <div class="scr-statusbar"><span>9:41</span><span>●●●● 5G</span></div>
+            <div class="scr-h">Design System</div>
+            <div class="scr-block"><span class="scr-block-l">Tokens</span><span class="scr-block-v">7 couleurs · 5 radius</span></div>
+            <div class="scr-block"><span class="scr-block-l">Composants</span><span class="scr-block-v">8 core · variantes ok</span></div>
+            <div class="scr-block"><span class="scr-block-l">Adoption</span><span class="scr-block-v">12 / 12 écrans</span></div>
+            <div class="scr-cta">Library Figma →</div>
+            <div class="scr-tag">DS Adoption</div>
+          </div>
+          <span class="scr-name">Design System</span>
+        </div>
+
+        <div class="scr">
+          <div class="scr-frame">
+            <div class="scr-statusbar"><span>9:41</span><span>●●●● 5G</span></div>
+            <div class="scr-h">Mes-Reves B.<br/><span style="font-weight:400;color:var(--dim);font-size:9px">UI/UX Designer</span></div>
+            <div class="scr-row"><span class="scr-row-icn"></span>Mes informations</div>
+            <div class="scr-row"><span class="scr-row-icn"></span>Mes adresses</div>
+            <div class="scr-row"><span class="scr-row-icn"></span>Paiements</div>
+            <div class="scr-row"><span class="scr-row-icn"></span>Paramètres</div>
+            <div class="scr-row"><span class="scr-row-icn"></span>Déconnexion</div>
+            <div class="scr-tag">Profil</div>
+          </div>
+          <span class="scr-name">Profil</span>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</main>
 <!-- ═══════ FOOTER ═══════ -->
 <footer class="footer">
   <div class="footer-inner">
