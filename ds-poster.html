@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<title>Dikenga · Design System Poster</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased}
+html,body{background:#F5F4F2}
+body{font-family:'Space Grotesk',system-ui,Arial,sans-serif;color:#111111;padding:48px}
+
+.poster{
+  width:1920px;height:1180px;
+  background:#FFFFFF;
+  border:1px solid #E5E4E2;
+  border-radius:24px;
+  padding:60px 64px 56px;
+  display:grid;
+  grid-template-columns:300px 1fr;
+  grid-template-rows:auto 1fr;
+  gap:44px;
+  position:relative;
+  overflow:hidden;
+}
+
+/* HEADER FULL-WIDTH */
+.head{grid-column:1 / -1;display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1px solid #E5E4E2;padding-bottom:32px}
+.brand{display:flex;align-items:center;gap:18px}
+.brand-logo{
+  width:60px;height:60px;border-radius:14px;
+  background:#111;color:#fff;display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:26px;letter-spacing:-0.04em;
+}
+.brand-text .brand-name{font-size:32px;font-weight:600;letter-spacing:-0.02em;line-height:1}
+.brand-text .brand-tag{font-size:14px;color:#6B6B6B;margin-top:6px}
+.head-title{flex:1;text-align:center;padding:0 32px}
+.head-title-tag{font-size:11px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#6B6B6B;margin-bottom:8px}
+.head-title-h{font-size:38px;font-weight:500;letter-spacing:-0.02em;line-height:1.1}
+.head-title-h em{font-style:normal;color:#9B9B9B}
+.head-meta{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.head-meta .v{font-family:'Courier New',monospace;font-size:11px;color:#6B6B6B}
+.head-meta .badge{padding:6px 14px;border-radius:100px;border:1px solid #E5E4E2;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#111}
+
+/* SIDEBAR */
+.side{display:flex;flex-direction:column;gap:28px}
+.side-block .h{font-size:11px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#6B6B6B;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.side-block .h::before{content:'';display:block;width:24px;height:1px;background:#9B9B9B}
+.side-text{font-size:13px;color:#3F3F3F;line-height:1.6}
+
+.princ{display:flex;flex-direction:column;gap:14px}
+.princ-item{display:grid;grid-template-columns:24px 1fr;gap:12px;align-items:flex-start}
+.princ-icon{
+  width:22px;height:22px;border-radius:50%;background:#111;color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;
+}
+.princ-title{font-size:13px;font-weight:600;color:#111;margin-bottom:3px}
+.princ-desc{font-size:12px;color:#6B6B6B;line-height:1.5}
+
+.toc{display:flex;flex-direction:column;gap:6px}
+.toc-item{font-size:13px;font-weight:500;color:#3F3F3F;display:flex;align-items:center;gap:10px}
+.toc-item::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:#111;opacity:.4}
+
+/* MAIN GRID */
+.main{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:min-content;gap:14px;align-content:start}
+.card{background:#FAFAF8;border:1px solid #EBEAE7;border-radius:14px;padding:18px}
+.card .title{font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#6B6B6B;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid #EBEAE7}
+.card .sub{font-size:10px;font-weight:600;letter-spacing:0.06em;color:#6B6B6B;margin:10px 0 8px;text-transform:uppercase}
+
+.span-12{grid-column:span 12}
+.span-7{grid-column:span 7}
+.span-6{grid-column:span 6}
+.span-5{grid-column:span 5}
+.span-4{grid-column:span 4}
+.span-3{grid-column:span 3}
+
+/* COLORS */
+.col-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.col-item{display:flex;flex-direction:column;gap:6px}
+.col-sw{width:100%;aspect-ratio:1.2/1;border-radius:8px;border:1px solid #EBEAE7}
+.col-name{font-size:10px;font-weight:600;color:#111}
+.col-meta{font-family:'Courier New',monospace;font-size:9px;color:#6B6B6B}
+
+/* TYPO */
+.typ{display:flex;flex-direction:column;gap:10px}
+.typ-row{display:grid;grid-template-columns:60px 1fr;gap:14px;align-items:baseline;padding-bottom:8px;border-bottom:1px dashed #EBEAE7}
+.typ-row:last-child{border-bottom:none}
+.typ-aa{font-weight:500;color:#111;line-height:1}
+.typ-meta-h{font-size:12px;font-weight:600;color:#111;margin-bottom:2px}
+.typ-meta-d{font-family:'Courier New',monospace;font-size:9px;color:#6B6B6B}
+
+/* RADIUS */
+.radius-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.radius-item{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+.radius-shape{width:48px;height:48px;background:#111;border:1px solid #111}
+.radius-name{font-size:10px;font-weight:600;color:#111}
+.radius-val{font-family:'Courier New',monospace;font-size:9px;color:#6B6B6B}
+
+/* ICONS */
+.icn-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.icn{aspect-ratio:1/1;background:#FFFFFF;border:1px solid #EBEAE7;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#111}
+.icn svg{width:18px;height:18px}
+
+/* BUTTONS */
+.btn-grid{display:grid;grid-template-columns:60px repeat(3,1fr);gap:10px;align-items:center}
+.btn-th{font-size:9px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#6B6B6B;text-align:center}
+.btn-th.left{text-align:left}
+.btn-cell{display:flex;align-items:center;justify-content:center;padding:4px}
+.dsbtn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:100px;font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:600;border:1px solid;text-decoration:none}
+.dsbtn-primary{background:#111;color:#fff;border-color:#111}
+.dsbtn-primary.hover{opacity:.85}
+.dsbtn-primary.disabled{background:#D5D5D5;color:#9B9B9B;border-color:transparent}
+.dsbtn-secondary{background:transparent;color:#111;border-color:#D5D5D5}
+.dsbtn-secondary.hover{border-color:#9B9B9B}
+.dsbtn-secondary.disabled{color:#B5B5B5;border-color:#EBEAE7}
+.dsbtn-text{background:transparent;color:#111;border-color:transparent;text-decoration:underline;padding:8px 4px}
+.dsbtn-text.disabled{color:#B5B5B5;text-decoration:none}
+
+/* FORM */
+.form-stack{display:flex;flex-direction:column;gap:8px}
+.form-label{font-size:10px;font-weight:500;color:#6B6B6B;display:block;margin-bottom:4px}
+.form-input{width:100%;padding:10px 12px;border-radius:8px;background:#fff;border:1px solid #D5D5D5;color:#111;font-family:'Space Grotesk';font-size:12px;outline:none}
+.form-input::placeholder{color:#B5B5B5}
+.form-input.active{border-color:#111}
+.form-input.error{border-color:#E53E3E}
+.form-error{font-size:10px;color:#E53E3E;margin-top:4px}
+
+/* CHECK/RADIO */
+.chk-row{display:flex;align-items:center;gap:8px;font-size:12px;color:#111;margin-bottom:8px}
+.chk-box{width:16px;height:16px;border:1.5px solid #D5D5D5;border-radius:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.chk-box.checked{background:#111;border-color:#111}
+.chk-box.checked::after{content:'';width:9px;height:9px;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='white' stroke-width='2'><path d='M2 6l3 3 5-6'/></svg>") center/contain no-repeat}
+.rdo-box{width:16px;height:16px;border:1.5px solid #D5D5D5;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.rdo-box.checked{border-color:#111}
+.rdo-box.checked::after{content:'';width:8px;height:8px;background:#111;border-radius:50%}
+
+/* CARD COMP */
+.dscard{padding:12px;background:#fff;border:1px solid #EBEAE7;border-radius:10px}
+.dscard-img{width:100%;aspect-ratio:1.6/1;border-radius:6px;background:linear-gradient(135deg,#FAFAF8 0%,#EBEAE7 100%);display:flex;align-items:center;justify-content:center;margin-bottom:10px;font-size:13px;font-weight:600;letter-spacing:0.18em;color:#9B9B9B}
+.dscard-cat{font-size:9px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#6B6B6B;margin-bottom:6px}
+.dscard-h{font-size:13px;font-weight:600;color:#111;margin-bottom:4px;letter-spacing:-0.01em}
+.dscard-p{font-size:11px;color:#6B6B6B;line-height:1.5;margin-bottom:10px}
+.dscard-foot{display:flex;justify-content:space-between;align-items:center;padding-top:8px;border-top:1px solid #EBEAE7;font-size:10px;color:#6B6B6B}
+
+/* BADGES */
+.bdg{display:inline-flex;align-items:center;padding:4px 10px;border-radius:100px;font-size:10px;font-weight:600;border:1px solid;margin-bottom:6px;align-self:flex-start}
+.bdg-success{background:#EAF6E9;color:#2A8A2A;border-color:#C8E5C7}
+.bdg-warning{background:#FCF3E5;color:#A86F1A;border-color:#F0DFC0}
+.bdg-error{background:#FBE9E9;color:#B33A3A;border-color:#F0C8C8}
+.bdg-info{background:#E8EFFC;color:#1F4FB3;border-color:#CFDBF5}
+.bdg-neutral{background:#F4F3F1;color:#3F3F3F;border-color:#E5E4E2}
+.bdg-stack{display:flex;flex-direction:column;gap:4px}
+
+/* ALERTS */
+.alrt{display:flex;align-items:flex-start;gap:8px;padding:8px 10px;border-radius:8px;border:1px solid;margin-bottom:6px;font-size:11px}
+.alrt-icon{width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;color:#fff}
+.alrt-body{flex:1;line-height:1.4}
+.alrt-h{font-weight:600;color:#111;margin-bottom:1px}
+.alrt-p{color:#6B6B6B}
+.alrt-success{background:#EAF6E9;border-color:#C8E5C7}
+.alrt-success .alrt-icon{background:#2A8A2A}
+.alrt-warning{background:#FCF3E5;border-color:#F0DFC0}
+.alrt-warning .alrt-icon{background:#D4920A}
+.alrt-error{background:#FBE9E9;border-color:#F0C8C8}
+.alrt-error .alrt-icon{background:#D23B3B}
+.alrt-info{background:#E8EFFC;border-color:#CFDBF5}
+.alrt-info .alrt-icon{background:#3460C9}
+
+/* TABS */
+.tbs{display:flex;border-bottom:1px solid #EBEAE7;margin-bottom:10px}
+.tbs-item{padding:7px 12px;font-size:11px;font-weight:500;color:#6B6B6B;border-bottom:2px solid transparent}
+.tbs-item.active{color:#111;border-bottom-color:#111}
+.tbs-content{padding:10px;background:#fff;border:1px solid #EBEAE7;border-radius:6px}
+.tbs-content h4{font-size:12px;font-weight:600;color:#111;margin-bottom:4px;letter-spacing:-0.01em}
+.tbs-content p{font-size:11px;color:#6B6B6B;line-height:1.5;margin:0}
+
+/* NAV MOB */
+.nav-mob{display:flex;justify-content:space-around;align-items:center;padding:10px 12px;background:#fff;border:1px solid #EBEAE7;border-radius:12px}
+.nav-mob-item{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:8px;color:#6B6B6B;font-weight:600;letter-spacing:0.06em;text-transform:uppercase}
+.nav-mob-item.active{color:#111}
+.nav-mob-icn{width:18px;height:18px;display:flex;align-items:center;justify-content:center;color:currentColor}
+.nav-mob-icn svg{width:18px;height:18px}
+.nav-mob-fab{width:36px;height:36px;border-radius:50%;background:#111;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:300;margin:-18px 0 -6px}
+
+/* SCREENS */
+.scr-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:6px}
+.scr{display:flex;flex-direction:column;align-items:center;gap:6px}
+.scr-frame{width:100%;aspect-ratio:0.55/1;background:#fff;border:1px solid #E5E4E2;border-radius:14px;padding:10px;display:flex;flex-direction:column;gap:6px;overflow:hidden}
+.scr-statusbar{display:flex;justify-content:space-between;font-size:7px;font-weight:600;color:#111;opacity:.7}
+.scr-h{font-size:10px;font-weight:600;color:#111;letter-spacing:-0.01em;line-height:1.2}
+.scr-row{padding:6px 8px;background:#FAFAF8;border-radius:5px;border:1px solid #EBEAE7;font-size:8px;color:#111;display:flex;align-items:center;gap:5px}
+.scr-row-icn{width:11px;height:11px;border-radius:3px;background:#EBEAE7;flex-shrink:0}
+.scr-block{padding:6px 8px;background:#FAFAF8;border-radius:5px;border:1px solid #EBEAE7;display:flex;flex-direction:column;gap:2px}
+.scr-block-l{font-size:7px;color:#6B6B6B;font-weight:600;letter-spacing:0.06em;text-transform:uppercase}
+.scr-block-v{font-size:9px;color:#111;font-weight:500}
+.scr-cta{padding:6px;background:#111;color:#fff;font-size:8px;font-weight:600;border-radius:5px;text-align:center}
+.scr-name{font-size:9px;font-weight:500;color:#111}
+
+/* FOOTER MARK */
+.foot{position:absolute;bottom:24px;left:64px;right:64px;display:flex;justify-content:space-between;align-items:center;font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#9B9B9B}
+</style>
+</head>
+<body>
+<div class="poster">
+
+  <!-- HEADER -->
+  <div class="head">
+    <div class="brand">
+      <div class="brand-logo">D</div>
+      <div class="brand-text">
+        <div class="brand-name">Dikenga.</div>
+        <div class="brand-tag">Design System v1.0</div>
+      </div>
+    </div>
+    <div class="head-title">
+      <div class="head-title-tag">— Le système qui fait tourner le site —</div>
+      <div class="head-title-h">Tokens, composants, principes. <em>Tout sur une page.</em></div>
+    </div>
+    <div class="head-meta">
+      <div class="badge">v1.0.0</div>
+      <div class="v">06.05.2026</div>
+      <div class="v">dikengadesign.fr/design-system</div>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside class="side">
+    <div class="side-block">
+      <div class="h">À propos</div>
+      <p class="side-text">Un système sobre, light par défaut, conçu pour les product teams qui livrent des SaaS B2B et des interfaces complexes. Tokens, composants et règles partagés entre design et dev.</p>
+    </div>
+    <div class="side-block">
+      <div class="h">Principes</div>
+      <div class="princ">
+        <div class="princ-item"><div class="princ-icon">1</div><div><div class="princ-title">Sobriété</div><div class="princ-desc">Moins de tokens, plus de réutilisation.</div></div></div>
+        <div class="princ-item"><div class="princ-icon">2</div><div><div class="princ-title">Cohérence</div><div class="princ-desc">Un nom, un usage. Aucun doublon.</div></div></div>
+        <div class="princ-item"><div class="princ-icon">3</div><div><div class="princ-title">Hiérarchie</div><div class="princ-desc">Le contraste avant le décor.</div></div></div>
+        <div class="princ-item"><div class="princ-icon">4</div><div><div class="princ-title">Accessibilité</div><div class="princ-desc">WCAG 2.2 AA par défaut.</div></div></div>
+      </div>
+    </div>
+    <div class="side-block">
+      <div class="h">Sommaire</div>
+      <div class="toc">
+        <span class="toc-item">Couleurs</span>
+        <span class="toc-item">Typographie</span>
+        <span class="toc-item">Icônes</span>
+        <span class="toc-item">Composants</span>
+        <span class="toc-item">Alertes & badges</span>
+        <span class="toc-item">Navigation</span>
+        <span class="toc-item">Exemples d'écrans</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN GRID -->
+  <div class="main">
+
+    <!-- COLORS -->
+    <div class="card span-5">
+      <div class="title">Couleurs</div>
+      <div class="sub">Palette principale</div>
+      <div class="col-grid">
+        <div class="col-item"><div class="col-sw" style="background:#FFFFFF"></div><span class="col-name">Background</span><span class="col-meta">#FFFFFF</span></div>
+        <div class="col-item"><div class="col-sw" style="background:#FAFAF8"></div><span class="col-name">Surface</span><span class="col-meta">#FAFAF8</span></div>
+        <div class="col-item"><div class="col-sw" style="background:#111111"></div><span class="col-name">Text Primary</span><span class="col-meta">#111111</span></div>
+        <div class="col-item"><div class="col-sw" style="background:#6B6B6B"></div><span class="col-name">Text Dim</span><span class="col-meta">#6B6B6B</span></div>
+      </div>
+      <div class="sub">Couleurs sémantiques</div>
+      <div class="col-grid">
+        <div class="col-item"><div class="col-sw" style="background:#2A8A2A"></div><span class="col-name">Succès</span><span class="col-meta">#2A8A2A</span></div>
+        <div class="col-item"><div class="col-sw" style="background:#D4920A"></div><span class="col-name">Warning</span><span class="col-meta">#D4920A</span></div>
+        <div class="col-item"><div class="col-sw" style="background:#D23B3B"></div><span class="col-name">Erreur</span><span class="col-meta">#D23B3B</span></div>
+        <div class="col-item"><div class="col-sw" style="background:#3460C9"></div><span class="col-name">Info</span><span class="col-meta">#3460C9</span></div>
+      </div>
+    </div>
+
+    <!-- TYPO -->
+    <div class="card span-4">
+      <div class="title">Typographie · Space Grotesk</div>
+      <div class="typ">
+        <div class="typ-row"><span class="typ-aa" style="font-size:32px">Aa</span><div><div class="typ-meta-h">H1 / Bold</div><div class="typ-meta-d">42px · 500</div></div></div>
+        <div class="typ-row"><span class="typ-aa" style="font-size:24px">Aa</span><div><div class="typ-meta-h">H2 / Semibold</div><div class="typ-meta-d">28px · 500</div></div></div>
+        <div class="typ-row"><span class="typ-aa" style="font-size:18px">Aa</span><div><div class="typ-meta-h">H3 / Medium</div><div class="typ-meta-d">18px · 500</div></div></div>
+        <div class="typ-row"><span class="typ-aa" style="font-size:14px;font-weight:400">Aa</span><div><div class="typ-meta-h">Body / Regular</div><div class="typ-meta-d">14px · 400</div></div></div>
+        <div class="typ-row"><span class="typ-aa" style="font-size:11px;font-weight:400">Aa</span><div><div class="typ-meta-h">Petite / Label</div><div class="typ-meta-d">11px · 600</div></div></div>
+      </div>
+    </div>
+
+    <!-- ICONS + RADIUS -->
+    <div class="card span-3">
+      <div class="title">Icônes · Line 1.5px</div>
+      <div class="icn-grid">
+        <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12L12 3l9 9"/><path d="M5 10v10h14V10"/></svg></div>
+        <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="6" width="16" height="14" rx="2"/></svg></div>
+        <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg></div>
+        <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="9" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg></div>
+        <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 6h14M5 12h14M5 18h14"/></svg></div>
+        <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="6"/><path d="M16 16l4 4"/></svg></div>
+        <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg></div>
+        <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></div>
+        <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></div>
+        <div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      </div>
+      <div class="sub">Radius</div>
+      <div class="radius-grid">
+        <div class="radius-item"><div class="radius-shape" style="border-radius:4px"></div><span class="radius-name">SM</span><span class="radius-val">4px</span></div>
+        <div class="radius-item"><div class="radius-shape" style="border-radius:8px"></div><span class="radius-name">MD</span><span class="radius-val">8px</span></div>
+        <div class="radius-item"><div class="radius-shape" style="border-radius:14px"></div><span class="radius-name">LG</span><span class="radius-val">14px</span></div>
+        <div class="radius-item"><div class="radius-shape" style="border-radius:100px"></div><span class="radius-name">PILL</span><span class="radius-val">100</span></div>
+        <div class="radius-item"><div class="radius-shape" style="border-radius:50%"></div><span class="radius-name">FULL</span><span class="radius-val">50%</span></div>
+      </div>
+    </div>
+
+    <!-- BUTTONS -->
+    <div class="card span-7">
+      <div class="title">Composants — Boutons</div>
+      <div class="btn-grid">
+        <div class="btn-th left"></div>
+        <div class="btn-th">Normal</div>
+        <div class="btn-th">Survol</div>
+        <div class="btn-th">Désactivé</div>
+
+        <div class="btn-th left">Primaire</div>
+        <div class="btn-cell"><span class="dsbtn dsbtn-primary">Commander</span></div>
+        <div class="btn-cell"><span class="dsbtn dsbtn-primary hover">Commander</span></div>
+        <div class="btn-cell"><span class="dsbtn dsbtn-primary disabled">Commander</span></div>
+
+        <div class="btn-th left">Secondaire</div>
+        <div class="btn-cell"><span class="dsbtn dsbtn-secondary">Annuler</span></div>
+        <div class="btn-cell"><span class="dsbtn dsbtn-secondary hover">Annuler</span></div>
+        <div class="btn-cell"><span class="dsbtn dsbtn-secondary disabled">Annuler</span></div>
+
+        <div class="btn-th left">Texte</div>
+        <div class="btn-cell"><span class="dsbtn dsbtn-text">En savoir plus</span></div>
+        <div class="btn-cell"><span class="dsbtn dsbtn-text">En savoir plus</span></div>
+        <div class="btn-cell"><span class="dsbtn dsbtn-text disabled">En savoir plus</span></div>
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <div class="card span-3">
+      <div class="title">Champ de formulaire</div>
+      <div class="form-stack">
+        <div><label class="form-label">État par défaut</label><input class="form-input" placeholder="Adresse e-mail"/></div>
+        <div><label class="form-label">État actif</label><input class="form-input active" value="contact@dikenga.fr"/></div>
+        <div><label class="form-label">Avec erreur</label><input class="form-input error" value="invalid"/><div class="form-error">Adresse invalide.</div></div>
+      </div>
+    </div>
+
+    <!-- CHECK/RADIO -->
+    <div class="card span-2">
+      <div class="title">Sélection</div>
+      <div class="sub">Checkbox</div>
+      <div class="chk-row"><span class="chk-box checked"></span>Cochée</div>
+      <div class="chk-row"><span class="chk-box"></span>Non cochée</div>
+      <div class="sub">Radio</div>
+      <div class="chk-row"><span class="rdo-box checked"></span>Sélectionnée</div>
+      <div class="chk-row"><span class="rdo-box"></span>Vide</div>
+    </div>
+
+    <!-- CARD -->
+    <div class="card span-3">
+      <div class="title">Carte — Projet</div>
+      <div class="dscard">
+        <div class="dscard-img">STUDIOBOOKING</div>
+        <div class="dscard-cat">Design System · SaaS B2B</div>
+        <div class="dscard-h">StudioBooking</div>
+        <div class="dscard-p">SaaS B2B de réservation studios. 40+ composants Figma.</div>
+        <div class="dscard-foot"><span>2026</span><span style="color:#111;font-weight:600">Voir →</span></div>
+      </div>
+    </div>
+
+    <!-- BADGES -->
+    <div class="card span-2">
+      <div class="title">Badges</div>
+      <div class="bdg-stack">
+        <span class="bdg bdg-success">Livré</span>
+        <span class="bdg bdg-info">En cours</span>
+        <span class="bdg bdg-warning">En attente</span>
+        <span class="bdg bdg-error">Annulé</span>
+        <span class="bdg bdg-neutral">Nouveau</span>
+      </div>
+    </div>
+
+    <!-- ALERTS -->
+    <div class="card span-4">
+      <div class="title">Alertes</div>
+      <div class="alrt alrt-success"><span class="alrt-icon">✓</span><div class="alrt-body"><div class="alrt-h">Succès</div><div class="alrt-p">Votre commande a été livrée.</div></div></div>
+      <div class="alrt alrt-warning"><span class="alrt-icon">!</span><div class="alrt-body"><div class="alrt-h">Attention</div><div class="alrt-p">Vérifiez l'adresse de livraison.</div></div></div>
+      <div class="alrt alrt-error"><span class="alrt-icon">×</span><div class="alrt-body"><div class="alrt-h">Erreur</div><div class="alrt-p">Une erreur est survenue.</div></div></div>
+      <div class="alrt alrt-info"><span class="alrt-icon">i</span><div class="alrt-body"><div class="alrt-h">Information</div><div class="alrt-p">Colis en cours d'acheminement.</div></div></div>
+    </div>
+
+    <!-- TABS -->
+    <div class="card span-3">
+      <div class="title">Onglets</div>
+      <div class="tbs">
+        <div class="tbs-item active">Informations</div>
+        <div class="tbs-item">Livraison</div>
+        <div class="tbs-item">Avis</div>
+      </div>
+      <div class="tbs-content"><h4>Titre de la section</h4><p>Contenu détaillé de la section informations.</p></div>
+    </div>
+
+    <!-- NAV MOBILE -->
+    <div class="card span-5">
+      <div class="title">Navigation mobile</div>
+      <div class="nav-mob">
+        <div class="nav-mob-item active"><div class="nav-mob-icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12L12 3l9 9"/><path d="M5 10v10h14V10"/></svg></div>Accueil</div>
+        <div class="nav-mob-item"><div class="nav-mob-icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="6" width="16" height="14" rx="2"/></svg></div>Projets</div>
+        <div class="nav-mob-fab">+</div>
+        <div class="nav-mob-item"><div class="nav-mob-icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 8h14v9H7l-2 2V8z"/></svg></div>Messages</div>
+        <div class="nav-mob-item"><div class="nav-mob-icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="9" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg></div>Profil</div>
+      </div>
+    </div>
+
+    <!-- SCREENS -->
+    <div class="card span-12">
+      <div class="title">Exemples d'écrans</div>
+      <div class="scr-grid">
+        <div class="scr">
+          <div class="scr-frame">
+            <div class="scr-statusbar"><span>9:41</span><span>●●●● 5G</span></div>
+            <div class="scr-h">Bonjour Mes-Reves.</div>
+            <div class="scr-row"><span class="scr-row-icn"></span>Démarrer un projet</div>
+            <div class="scr-row"><span class="scr-row-icn"></span>Voir mes audits</div>
+            <div class="scr-row"><span class="scr-row-icn"></span>Mes design systems</div>
+            <div class="scr-cta">Premier échange →</div>
+          </div>
+          <span class="scr-name">Accueil</span>
+        </div>
+        <div class="scr">
+          <div class="scr-frame">
+            <div class="scr-statusbar"><span>9:41</span><span>●●●● 5G</span></div>
+            <div class="scr-h">Audit UX</div>
+            <div class="scr-block"><span class="scr-block-l">Statut</span><span class="scr-block-v">En cours · J+1</span></div>
+            <div class="scr-block"><span class="scr-block-l">Frictions</span><span class="scr-block-v">12 identifiées</span></div>
+            <div class="scr-block"><span class="scr-block-l">Score</span><span class="scr-block-v">62 / 100</span></div>
+            <div class="scr-cta">Voir le rapport →</div>
+          </div>
+          <span class="scr-name">Audit</span>
+        </div>
+        <div class="scr">
+          <div class="scr-frame">
+            <div class="scr-statusbar"><span>9:41</span><span>●●●● 5G</span></div>
+            <div class="scr-h">Design System</div>
+            <div class="scr-block"><span class="scr-block-l">Tokens</span><span class="scr-block-v">7 couleurs</span></div>
+            <div class="scr-block"><span class="scr-block-l">Composants</span><span class="scr-block-v">8 core</span></div>
+            <div class="scr-block"><span class="scr-block-l">Adoption</span><span class="scr-block-v">12/12 écrans</span></div>
+            <div class="scr-cta">Library Figma →</div>
+          </div>
+          <span class="scr-name">Design System</span>
+        </div>
+        <div class="scr">
+          <div class="scr-frame">
+            <div class="scr-statusbar"><span>9:41</span><span>●●●● 5G</span></div>
+            <div class="scr-h">Profil</div>
+            <div class="scr-row"><span class="scr-row-icn"></span>Mes informations</div>
+            <div class="scr-row"><span class="scr-row-icn"></span>Mes adresses</div>
+            <div class="scr-row"><span class="scr-row-icn"></span>Paiements</div>
+            <div class="scr-row"><span class="scr-row-icn"></span>Paramètres</div>
+            <div class="scr-row"><span class="scr-row-icn"></span>Déconnexion</div>
+          </div>
+          <span class="scr-name">Profil</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="foot">
+    <span>DIKENGA. — Design System v1.0</span>
+    <span>WCAG 2.2 AA · Atomic Design · Tokens W3C</span>
+    <span>dikengadesign.fr</span>
+  </div>
+
+</div>
+</body>
+</html>
