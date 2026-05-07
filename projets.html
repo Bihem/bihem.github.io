@@ -241,6 +241,64 @@ body.light #cring{border-color:rgba(0,0,0,0.85)}
 .ag-dot{background:rgba(15,17,22,.25);border-color:rgba(15,17,22,.4)}
 .ag-dot.active{background:#0E0F12}
 
+/* StudioBooking case study */
+.sb-case{
+  font-family:var(--SI);
+  margin-top:32px;
+  padding-top:32px;
+  border-top:1px solid var(--line);
+}
+.sb-case-block + .sb-case-block{margin-top:24px}
+.sb-case-label{
+  display:inline-block;
+  font-size:10px;font-weight:500;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--dim);
+  margin-bottom:10px;
+}
+.sb-case-text{
+  font-size:15px;font-weight:300;
+  line-height:1.65;color:var(--white);
+  margin:0;
+}
+.sb-case-text strong{font-weight:500;color:var(--white)}
+.sb-feats{
+  display:grid;grid-template-columns:1fr 1fr;gap:14px 28px;
+  margin-top:8px;
+  list-style:none;padding:0;
+}
+.sb-feats li{
+  font-size:14px;font-weight:300;line-height:1.55;color:var(--white);
+  padding-left:16px;position:relative;
+}
+.sb-feats li::before{
+  content:"";position:absolute;left:0;top:9px;
+  width:5px;height:5px;border-radius:50%;background:var(--white);
+}
+.sb-feats li b{font-weight:500}
+.sb-stats{
+  display:flex;flex-wrap:wrap;gap:24px 40px;
+  margin-top:14px;
+}
+.sb-stat strong{
+  display:block;font-size:28px;font-weight:400;
+  letter-spacing:-.02em;color:var(--white);line-height:1;
+}
+.sb-stat span{
+  display:block;font-size:11px;font-weight:400;
+  text-transform:uppercase;letter-spacing:.12em;
+  color:var(--dim);margin-top:6px;
+}
+@media (max-width:760px){
+  .sb-feats{grid-template-columns:1fr}
+}
+body.light .sb-case-text,
+body.light .sb-feats li,
+body.light .sb-feats li b,
+body.light .sb-case-text strong,
+body.light .sb-stat strong{color:#0E0F12}
+body.light .sb-feats li::before{background:#0E0F12}
+
 /* Info side */
 .proj-info-side{
   display:flex;flex-direction:column;justify-content:flex-end;
@@ -658,8 +716,38 @@ body.light .proj-info-side{background:#FFFFFF}
             Product Design · SaaS B2B · 2026
           </div>
           <h2 class="proj-name rv d1">StudioBooking</h2>
-          <p class="proj-desc rv d2">SaaS de réservation pour studios musicaux. Trois vues clés du back-office : tableau de bord, gestion des réservations et planning hebdomadaire.</p>
-          <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:24px">
+          <p class="proj-desc rv d2">SaaS de réservation pensé pour les SMAC, studios de répétition et lieux culturels français.</p>
+
+          <div class="sb-case rv d2">
+            <div class="sb-case-block">
+              <div class="sb-case-label">Le problème</div>
+              <p class="sb-case-text">Les salles de musique perdent <strong>8h par semaine</strong> à gérer leurs réservations par téléphone, SMS ou tableur. <strong>15 à 20%</strong> des créneaux finissent en no-shows non payés. Les outils US (Calendly, Acuity) ne couvrent pas leurs besoins : multi-studios, sessions longues, résidences artistiques, billetterie concerts.</p>
+            </div>
+
+            <div class="sb-case-block">
+              <div class="sb-case-label">Ce qu'on a construit</div>
+              <ul class="sb-feats">
+                <li><b>Réservation publique 24/7</b> — lien partageable, paiement Stripe, zéro téléphone.</li>
+                <li><b>Acompte automatique</b> — encaissé à la résa, no-shows divisés par 3.</li>
+                <li><b>Dashboard temps réel</b> — sessions, recettes, occupation, multi-studios.</li>
+                <li><b>Billetterie concerts</b> — vente de billets + QR code à l'entrée, intégrée.</li>
+                <li><b>Résidences artistiques</b> — suivi projets longs (unique sur le marché FR).</li>
+                <li><b>Marque blanche</b> — logo, couleurs, domaine perso. StudioBooking invisible.</li>
+              </ul>
+            </div>
+
+            <div class="sb-case-block">
+              <div class="sb-case-label">L'impact</div>
+              <div class="sb-stats">
+                <div class="sb-stat"><strong>−6h</strong><span>par semaine</span></div>
+                <div class="sb-stat"><strong>÷3</strong><span>no-shows</span></div>
+                <div class="sb-stat"><strong>&lt;1h</strong><span>mise en ligne</span></div>
+                <div class="sb-stat"><strong>0,4 mois</strong><span>retour sur investissement</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:32px">
             <a href="mockup-studiobooking.html" class="proj-cta rv d3">
               Voir tous les mockups
               <span class="proj-cta-arr">→</span>
