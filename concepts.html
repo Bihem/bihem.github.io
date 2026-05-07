@@ -1,0 +1,709 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1280">
+<title>Concepts UI/UX — Mockups apps & sites · Dikenga Design</title>
+<meta name="description" content="Concepts UI/UX par Dikenga Design — 3 applications mobiles iPhone 17 et 3 sites web. Style Behance moderne, présentation portfolio.">
+<meta name="robots" content="index, follow">
+<style>
+:root{
+  --F: 'Inter', 'Suisse Intl', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --M: 'JetBrains Mono', ui-monospace, monospace;
+  --S: 'DM Serif Display', Georgia, serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{font-family:var(--F);background:#0A0A0B;color:#fff;-webkit-font-smoothing:antialiased;letter-spacing:-.005em}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+/* ============= LAYOUT WRAPPER ============= */
+.page{max-width:1320px;margin:0 auto;padding:48px 24px 96px}
+
+/* ============= TOP BAR ============= */
+.topnav{display:flex;align-items:center;justify-content:space-between;padding:16px 0 64px;color:#9D9DA6;font-size:12px;letter-spacing:.18em;text-transform:uppercase}
+.topnav a{color:#9D9DA6;border-bottom:1px solid rgba(255,255,255,.12);padding-bottom:2px;transition:color .2s}
+.topnav a:hover{color:#fff}
+
+/* ============= HERO ============= */
+.hero{padding:32px 0 80px;display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:end}
+.hero-text h1{font-family:var(--S);font-weight:400;font-size:clamp(42px,6vw,84px);line-height:.98;letter-spacing:-.03em}
+.hero-text h1 em{font-style:italic;color:#A4A4AC}
+.hero-text p{margin-top:24px;color:#9D9DA6;font-size:15px;line-height:1.7;max-width:520px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-end;color:#9D9DA6;font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+.hero-meta b{display:block;color:#fff;font-size:14px;font-weight:500;letter-spacing:0;text-transform:none;margin-top:6px}
+
+/* ============= SECTION TITLES ============= */
+.sec{margin:96px 0 36px;display:flex;align-items:baseline;justify-content:space-between;gap:24px;border-top:1px solid rgba(255,255,255,.1);padding-top:28px}
+.sec-num{font-family:var(--M);color:#6F7180;font-size:12px;letter-spacing:.16em}
+.sec-title{font-family:var(--S);font-size:clamp(28px,3vw,42px);font-weight:400;letter-spacing:-.02em}
+.sec-tag{color:#9D9DA6;font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+
+/* ============= IPHONE 17 FRAME ============= */
+.iphone{
+  position:relative;width:320px;aspect-ratio:9/19.5;
+  background:#0A0A0B;border-radius:48px;
+  padding:8px;
+  box-shadow:
+    0 0 0 1.5px #2C2C30,
+    0 0 0 7px #161618,
+    0 0 0 8.5px #28282C,
+    0 30px 60px -10px rgba(0,0,0,.6),
+    0 18px 36px -18px rgba(0,0,0,.5);
+}
+.iphone-screen{
+  position:relative;width:100%;height:100%;
+  border-radius:42px;overflow:hidden;
+  background:#000;
+}
+.iphone-island{
+  position:absolute;top:10px;left:50%;transform:translateX(-50%);
+  width:108px;height:30px;
+  background:#000;border-radius:16px;z-index:10;
+}
+.iphone-island::after{
+  content:"";position:absolute;right:10px;top:50%;transform:translateY(-50%);
+  width:9px;height:9px;border-radius:50%;
+  background:radial-gradient(circle at 35% 35%,#1f3340 0%,#000 65%);
+}
+.iphone-status{
+  position:absolute;top:0;left:0;right:0;height:50px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 26px 0;color:#fff;font-size:15px;font-weight:600;z-index:5;
+  letter-spacing:-.02em;
+}
+.iphone-status .right{display:flex;align-items:center;gap:6px;font-size:11px}
+.iphone-status .signal{display:inline-flex;gap:1.5px}
+.iphone-status .signal i{width:3px;background:currentColor;border-radius:1px}
+.iphone-status .signal i:nth-child(1){height:4px}
+.iphone-status .signal i:nth-child(2){height:6px}
+.iphone-status .signal i:nth-child(3){height:8px}
+.iphone-status .signal i:nth-child(4){height:10px}
+.iphone-status .battery{width:24px;height:11px;border:1px solid currentColor;border-radius:3px;position:relative;padding:1px}
+.iphone-status .battery::after{content:"";position:absolute;right:-3px;top:3px;width:2px;height:5px;background:currentColor;border-radius:0 1px 1px 0}
+.iphone-status .battery::before{content:"";display:block;width:80%;height:100%;background:currentColor;border-radius:1px}
+.iphone-status.dark{color:#fff}
+.iphone-status.light{color:#000}
+
+/* ============= MOBILE — ROW LAYOUT ============= */
+.mobile-row{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+  align-items:start;
+}
+.mobile-card{position:relative}
+.mobile-card .ph-bg{
+  position:absolute;inset:-40px -40px -60px -40px;border-radius:32px;z-index:-1;
+}
+.mobile-card .ph-frame{display:flex;justify-content:center;padding:48px 0 32px;border-radius:24px}
+.mobile-card.bg-noir .ph-frame{background:linear-gradient(180deg,#1B1B1E,#0F0F11);border:1px solid rgba(255,255,255,.06)}
+.mobile-card.bg-pulse .ph-frame{background:linear-gradient(180deg,#FF5A36,#D43A1A)}
+.mobile-card.bg-vinyl .ph-frame{background:linear-gradient(180deg,#3E2A22,#1A0E08)}
+.mobile-card .meta{display:flex;flex-direction:column;gap:8px;padding:24px 4px 0}
+.mobile-card .meta .num{font-family:var(--M);color:#6F7180;font-size:11px;letter-spacing:.18em}
+.mobile-card .meta .nm{font-family:var(--S);font-size:28px;letter-spacing:-.01em}
+.mobile-card .meta .ds{color:#9D9DA6;font-size:13px;line-height:1.55}
+.mobile-card .meta .pal{display:flex;gap:6px;margin-top:8px}
+.mobile-card .meta .pal span{width:18px;height:18px;border-radius:50%;border:1px solid rgba(255,255,255,.1)}
+
+/* ============= APP — NORA (banking, dark) ============= */
+.app-nora{position:absolute;inset:0;background:#0E0E11;color:#fff;font-size:11px}
+.app-nora .top{padding:60px 22px 14px;display:flex;align-items:center;justify-content:space-between}
+.app-nora .top .av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#9F7BFF,#5B2EFF);display:grid;place-items:center;font-weight:700;font-size:13px}
+.app-nora .top .bell{width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.1);display:grid;place-items:center;font-size:14px}
+.app-nora .greet{padding:6px 22px;color:#9097A8;font-size:11px}
+.app-nora .greet b{display:block;color:#fff;font-size:18px;font-weight:600;margin-top:2px}
+.app-nora .card{
+  margin:18px 22px;padding:22px;border-radius:22px;
+  background:linear-gradient(135deg,#7B5BFF 0%,#3D24CC 60%,#1B0E66 100%);
+  position:relative;overflow:hidden;
+}
+.app-nora .card::after{
+  content:"";position:absolute;right:-30px;top:-30px;
+  width:140px;height:140px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.18),transparent 60%);
+}
+.app-nora .card .lbl{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.app-nora .card .val{font-size:30px;font-weight:600;letter-spacing:-.02em;margin-top:6px}
+.app-nora .card .sub{margin-top:14px;font-size:11px;color:rgba(255,255,255,.85);display:flex;justify-content:space-between}
+.app-nora .actions{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:6px 22px 18px}
+.app-nora .actions div{aspect-ratio:1;background:#16161B;border-radius:14px;display:grid;place-items:center;font-size:14px;border:1px solid rgba(255,255,255,.05)}
+.app-nora .actions div span{position:absolute;font-size:9px;color:#9097A8;margin-top:34px}
+.app-nora .actions div b{margin-bottom:24px}
+.app-nora .sect{padding:8px 22px 0;display:flex;justify-content:space-between;align-items:center;font-size:12px}
+.app-nora .sect b{font-weight:500}
+.app-nora .sect span{color:#9097A8;font-size:10px}
+.app-nora .tx{padding:14px 22px}
+.app-nora .tx .row{display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.app-nora .tx .row:last-child{border-bottom:0}
+.app-nora .tx .ic{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-size:14px}
+.app-nora .tx .ic.ic1{background:#1F2A3D;color:#7DB7FF}
+.app-nora .tx .ic.ic2{background:#33231F;color:#FF8A66}
+.app-nora .tx .ic.ic3{background:#1F3326;color:#7DEFA1}
+.app-nora .tx .nm{flex:1}
+.app-nora .tx .nm b{display:block;font-weight:500;font-size:12px}
+.app-nora .tx .nm s{text-decoration:none;font-size:10px;color:#9097A8}
+.app-nora .tx .am{font-weight:600;font-size:12px}
+.app-nora .tx .am.up{color:#7DEFA1}
+.app-nora .tx .am.dn{color:#fff}
+.app-nora .tabs{position:absolute;left:14px;right:14px;bottom:14px;background:#16161B;border-radius:22px;padding:10px;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;border:1px solid rgba(255,255,255,.06)}
+.app-nora .tabs div{aspect-ratio:1;display:grid;place-items:center;font-size:14px;color:#5B6172;border-radius:14px}
+.app-nora .tabs div.on{background:#fff;color:#0E0E11}
+
+/* ============= APP — PULSE (fitness, gradient) ============= */
+.app-pulse{position:absolute;inset:0;background:linear-gradient(180deg,#FF5A36 0%,#FF7A4A 18%,#FCFCFC 22%);color:#0E0E11;font-size:11px}
+.app-pulse .top{padding:60px 22px 12px;display:flex;align-items:center;justify-content:space-between;color:#fff}
+.app-pulse .top .av{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.2);border:1.5px solid #fff;font-weight:700;font-size:12px;display:grid;place-items:center}
+.app-pulse .top .ic{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.2);border:1.5px solid #fff;display:grid;place-items:center;font-size:13px}
+.app-pulse .greet{padding:0 22px 10px;color:#fff;font-size:13px}
+.app-pulse .greet b{display:block;font-size:22px;font-weight:600;margin-top:2px;letter-spacing:-.02em}
+.app-pulse .ring-card{margin:0 18px;padding:18px;background:#fff;border-radius:24px;display:grid;grid-template-columns:1fr 1.2fr;gap:14px;align-items:center;box-shadow:0 12px 24px rgba(0,0,0,.08)}
+.app-pulse .ring{width:90px;height:90px;border-radius:50%;background:conic-gradient(#FF5A36 0deg 270deg,#FFE5DD 270deg 360deg);display:grid;place-items:center}
+.app-pulse .ring::after{content:"";position:absolute;width:64px;height:64px;border-radius:50%;background:#fff}
+.app-pulse .ring b{position:relative;z-index:2;font-size:20px;font-weight:700;letter-spacing:-.02em}
+.app-pulse .ring s{position:absolute;text-decoration:none;z-index:2;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#7E7E84;margin-top:30px}
+.app-pulse .ring-info b{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#7E7E84;font-weight:600}
+.app-pulse .ring-info h3{font-size:16px;font-weight:600;margin:4px 0 6px;letter-spacing:-.01em}
+.app-pulse .ring-info p{font-size:11px;color:#7E7E84;line-height:1.5}
+.app-pulse .stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 18px}
+.app-pulse .stats div{background:#fff;padding:14px;border-radius:18px;border:1px solid #F0EFEC}
+.app-pulse .stats div small{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#7E7E84;font-weight:600}
+.app-pulse .stats div b{display:block;font-size:22px;font-weight:700;margin-top:4px;letter-spacing:-.02em}
+.app-pulse .stats div s{display:block;text-decoration:none;color:#FF5A36;font-size:10px;font-weight:600;margin-top:2px}
+.app-pulse .chart{margin:0 18px;padding:18px;background:#0E0E11;color:#fff;border-radius:22px}
+.app-pulse .chart .top2{display:flex;justify-content:space-between;align-items:center}
+.app-pulse .chart .top2 b{font-weight:600;font-size:12px}
+.app-pulse .chart .top2 s{text-decoration:none;color:#9097A8;font-size:10px}
+.app-pulse .chart .bars{display:flex;align-items:flex-end;gap:8px;margin-top:14px;height:60px}
+.app-pulse .chart .bars div{flex:1;background:linear-gradient(180deg,#FF5A36,#FF7A4A);border-radius:6px}
+.app-pulse .chart .bars div:nth-child(1){height:40%}
+.app-pulse .chart .bars div:nth-child(2){height:60%}
+.app-pulse .chart .bars div:nth-child(3){height:30%}
+.app-pulse .chart .bars div:nth-child(4){height:80%}
+.app-pulse .chart .bars div:nth-child(5){height:55%;background:linear-gradient(180deg,#fff,#aaa)}
+.app-pulse .chart .bars div:nth-child(6){height:70%}
+.app-pulse .chart .bars div:nth-child(7){height:45%}
+.app-pulse .chart .lbls{display:flex;justify-content:space-between;margin-top:8px;font-size:9px;color:#9097A8;letter-spacing:.06em}
+.app-pulse .tabs{position:absolute;left:14px;right:14px;bottom:14px;background:#fff;border-radius:24px;padding:10px;display:grid;grid-template-columns:repeat(4,1fr);box-shadow:0 12px 24px rgba(0,0,0,.1)}
+.app-pulse .tabs div{aspect-ratio:1;display:grid;place-items:center;font-size:14px;color:#9097A8;border-radius:16px}
+.app-pulse .tabs div.on{background:#FF5A36;color:#fff}
+
+/* ============= APP — VINYL (music, dark earth tones) ============= */
+.app-vinyl{position:absolute;inset:0;background:#1A0E08;color:#F4ECE2;font-size:11px}
+.app-vinyl .top{padding:60px 22px 12px;display:flex;align-items:center;justify-content:space-between}
+.app-vinyl .top .ic{width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.1);display:grid;place-items:center;font-size:14px}
+.app-vinyl .nowplaying{padding:0 22px}
+.app-vinyl .cover{
+  width:100%;aspect-ratio:1;border-radius:18px;
+  background:
+    radial-gradient(circle at 30% 25%,#E8916F 0%,transparent 50%),
+    radial-gradient(circle at 75% 70%,#7C3F2C 0%,transparent 60%),
+    linear-gradient(135deg,#3E2A22,#1A0E08);
+  position:relative;overflow:hidden;
+  box-shadow:0 16px 32px rgba(0,0,0,.4);
+}
+.app-vinyl .cover::after{
+  content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:30%;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,#1A0E08 30%,#0A0604 100%);
+  border:8px solid #2A1810;
+}
+.app-vinyl .cover::before{
+  content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:8%;aspect-ratio:1;border-radius:50%;background:#E8916F;z-index:2;
+}
+.app-vinyl .info{padding:18px 22px 8px}
+.app-vinyl .info .ar{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(244,236,226,.6)}
+.app-vinyl .info .ti{font-family:var(--S);font-size:24px;font-weight:400;letter-spacing:-.01em;margin:4px 0 2px;color:#fff}
+.app-vinyl .info .al{font-size:11px;color:rgba(244,236,226,.7)}
+.app-vinyl .progress{padding:8px 22px}
+.app-vinyl .progress .bar{height:3px;background:rgba(244,236,226,.15);border-radius:2px;position:relative}
+.app-vinyl .progress .bar::after{content:"";position:absolute;left:0;top:0;width:42%;height:100%;background:#E8916F;border-radius:2px}
+.app-vinyl .progress .bar::before{content:"";position:absolute;left:42%;top:50%;transform:translate(-50%,-50%);width:9px;height:9px;border-radius:50%;background:#E8916F}
+.app-vinyl .progress .times{display:flex;justify-content:space-between;margin-top:6px;font-size:9px;color:rgba(244,236,226,.5);font-family:var(--M)}
+.app-vinyl .controls{display:flex;align-items:center;justify-content:space-between;padding:6px 32px 14px}
+.app-vinyl .controls div{font-size:14px;color:rgba(244,236,226,.5)}
+.app-vinyl .controls .play{
+  width:54px;height:54px;border-radius:50%;background:#E8916F;color:#1A0E08;
+  display:grid;place-items:center;font-size:18px;font-weight:700;
+  box-shadow:0 8px 16px rgba(232,145,111,.35);
+}
+.app-vinyl .queue{position:absolute;left:14px;right:14px;bottom:14px;background:rgba(244,236,226,.06);backdrop-filter:blur(8px);border-radius:18px;padding:12px 14px;display:flex;align-items:center;gap:10px;border:1px solid rgba(244,236,226,.08)}
+.app-vinyl .queue .mini{width:36px;height:36px;border-radius:8px;background:linear-gradient(135deg,#7C3F2C,#3E2A22)}
+.app-vinyl .queue .nx{flex:1}
+.app-vinyl .queue .nx s{display:block;text-decoration:none;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(244,236,226,.5)}
+.app-vinyl .queue .nx b{display:block;font-size:12px;font-weight:500;margin-top:2px;color:#fff}
+.app-vinyl .queue .arr{font-size:14px;color:rgba(244,236,226,.5)}
+
+/* ============= MAC FRAME (single screen) ============= */
+.mac{
+  width:100%;max-width:1180px;margin:0 auto;
+  background:#1B1B1E;
+  border-radius:18px;
+  padding:14px;
+  box-shadow:
+    0 0 0 1px #2C2C30,
+    0 30px 60px -15px rgba(0,0,0,.5);
+  position:relative;
+}
+.mac::after{
+  content:"";position:absolute;top:5px;left:50%;transform:translateX(-50%);
+  width:60px;height:18px;background:#0E0E11;border-radius:0 0 12px 12px;z-index:5;
+}
+.mac::before{
+  content:"";position:absolute;top:9px;left:50%;transform:translateX(-50%);
+  width:6px;height:6px;border-radius:50%;
+  background:radial-gradient(circle at 35% 35%,#1f3340 0%,#000 65%);
+  z-index:6;
+}
+.mac-screen{
+  border-radius:6px;overflow:hidden;background:#fff;
+  aspect-ratio:16/10;position:relative;
+}
+.mac-bar{
+  position:absolute;top:0;left:0;right:0;height:34px;
+  background:#EBEEF4;display:flex;align-items:center;padding:0 14px;gap:10px;
+  border-bottom:1px solid rgba(0,0,0,.06);z-index:3;
+}
+.mac-bar .dot{width:11px;height:11px;border-radius:50%}
+.mac-bar .d1{background:#FF5F57}.mac-bar .d2{background:#FEBC2E}.mac-bar .d3{background:#28C840}
+.mac-bar .url{margin-left:14px;background:#fff;border-radius:6px;padding:5px 12px;font-size:11px;color:#5A6072;font-family:var(--M);max-width:380px;flex:1}
+
+/* ============= DESKTOP CASE — META ============= */
+.desktop-meta{display:grid;grid-template-columns:auto 1fr auto;gap:32px;align-items:end;padding:36px 0 14px}
+.desktop-meta .num{font-family:var(--M);color:#6F7180;font-size:12px;letter-spacing:.16em}
+.desktop-meta .info h3{font-family:var(--S);font-weight:400;font-size:36px;letter-spacing:-.02em;line-height:1}
+.desktop-meta .info p{margin-top:10px;color:#9D9DA6;font-size:14px;line-height:1.6;max-width:560px}
+.desktop-meta .pal{display:flex;gap:6px;align-items:center}
+.desktop-meta .pal span{width:22px;height:22px;border-radius:50%;border:1px solid rgba(255,255,255,.1)}
+
+/* ============= SITE — ATLAS (analytics dashboard) ============= */
+.site-atlas{padding-top:34px;height:100%;background:#F7F8FB;color:#0E0E11;font-size:11px;display:grid;grid-template-columns:200px 1fr;font-family:var(--F)}
+.site-atlas .side{background:#fff;border-right:1px solid rgba(15,17,22,.06);padding:18px 14px}
+.site-atlas .brand{font-weight:800;font-size:14px;letter-spacing:-.01em;margin-bottom:18px}
+.site-atlas .brand b{color:#3A6BFF}
+.site-atlas .nav-g{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#9099AB;padding:10px 8px 4px}
+.site-atlas .nv{display:flex;align-items:center;gap:8px;padding:7px 8px;border-radius:6px;font-size:11px;color:#3F4350;cursor:pointer}
+.site-atlas .nv.on{background:#EEF3FF;color:#3A6BFF;font-weight:500}
+.site-atlas .main{padding:18px 22px;overflow:hidden}
+.site-atlas .h1{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.site-atlas .h1 h1{font-size:18px;font-weight:600;letter-spacing:-.01em}
+.site-atlas .h1 .filt{display:flex;gap:6px}
+.site-atlas .h1 .filt span{font-size:10px;padding:5px 10px;border-radius:6px;background:#fff;border:1px solid rgba(15,17,22,.06);color:#3F4350}
+.site-atlas .h1 .filt span.on{background:#0E0E11;color:#fff;border-color:#0E0E11}
+.site-atlas .kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
+.site-atlas .kpi div{background:#fff;border:1px solid rgba(15,17,22,.05);border-radius:10px;padding:12px}
+.site-atlas .kpi div small{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#7A7F8C;font-weight:600}
+.site-atlas .kpi div b{display:block;font-size:18px;font-weight:700;margin-top:4px;letter-spacing:-.01em}
+.site-atlas .kpi div s{font-size:9px;text-decoration:none;color:#10B981;font-weight:600;margin-top:1px;display:block}
+.site-atlas .row{display:grid;grid-template-columns:1.6fr 1fr;gap:10px}
+.site-atlas .row > div{background:#fff;border:1px solid rgba(15,17,22,.05);border-radius:10px;padding:14px}
+.site-atlas .ch h4{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#7A7F8C;margin-bottom:10px}
+.site-atlas .ch svg{width:100%;height:90px}
+.site-atlas .ls h4{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#7A7F8C;margin-bottom:10px}
+.site-atlas .ls .it{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(15,17,22,.04);font-size:11px}
+.site-atlas .ls .it:last-child{border-bottom:0}
+.site-atlas .ls .it b{font-weight:500;font-size:10px}
+.site-atlas .ls .it span{color:#7A7F8C;font-size:10px}
+
+/* ============= SITE — NOIR (fashion ecommerce) ============= */
+.site-noir{padding-top:34px;height:100%;background:#FBFAF7;color:#0A0A0B;font-family:var(--F);overflow:hidden;position:relative}
+.site-noir .nav{display:flex;justify-content:space-between;align-items:center;padding:18px 32px;font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+.site-noir .nav .lg{font-family:var(--S);font-size:18px;letter-spacing:-.02em;text-transform:none;font-weight:400}
+.site-noir .nav ul{display:flex;gap:22px;list-style:none}
+.site-noir .nav .ic{display:flex;gap:14px;font-size:14px}
+.site-noir .hero2{display:grid;grid-template-columns:1fr 1.2fr;gap:24px;padding:0 32px;align-items:end;height:62%}
+.site-noir .hero-l h1{font-family:var(--S);font-size:46px;line-height:.95;letter-spacing:-.03em;font-weight:400}
+.site-noir .hero-l h1 em{font-style:italic;color:#7A7F8C}
+.site-noir .hero-l p{margin-top:14px;color:#5A6072;font-size:11px;line-height:1.7;max-width:280px}
+.site-noir .hero-l .cta{display:inline-flex;align-items:center;gap:10px;margin-top:18px;padding:10px 20px;background:#0A0A0B;color:#fff;border-radius:999px;font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.site-noir .hero-r{
+  height:100%;border-radius:14px;
+  background:
+    linear-gradient(180deg,rgba(0,0,0,.0),rgba(0,0,0,.25)),
+    linear-gradient(135deg,#D4C5B0 0%,#8B6F4E 60%,#3D2C19 100%);
+  position:relative;overflow:hidden;
+}
+.site-noir .hero-r::after{
+  content:"";position:absolute;inset:20% 25% 5% 25%;
+  background:radial-gradient(ellipse at 50% 50%,rgba(0,0,0,.18) 0%,transparent 70%);
+}
+.site-noir .hero-r .tag{position:absolute;top:18px;right:18px;background:rgba(255,255,255,.85);backdrop-filter:blur(8px);padding:6px 14px;border-radius:999px;font-size:9px;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
+.site-noir .hero-r .price{position:absolute;left:18px;bottom:18px;color:#fff;font-family:var(--S);font-size:30px;letter-spacing:-.02em}
+.site-noir .hero-r .price small{display:block;font-family:var(--F);font-size:9px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;color:rgba(255,255,255,.85);margin-bottom:2px}
+.site-noir .strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:20px 32px;background:#fff;border-top:1px solid rgba(0,0,0,.05)}
+.site-noir .strip .it{aspect-ratio:1;border-radius:10px;background:#F0EAE2;position:relative}
+.site-noir .strip .it:nth-child(1){background:linear-gradient(135deg,#3D2C19,#8B6F4E)}
+.site-noir .strip .it:nth-child(2){background:linear-gradient(135deg,#8B6F4E,#D4C5B0)}
+.site-noir .strip .it:nth-child(3){background:linear-gradient(135deg,#1B1B1E,#3D3A36)}
+.site-noir .strip .it:nth-child(4){background:linear-gradient(135deg,#A89171,#D4C5B0)}
+.site-noir .strip .it::after{content:"";position:absolute;left:8px;bottom:8px;width:16px;height:16px;border-radius:50%;background:rgba(255,255,255,.85);background-image:radial-gradient(circle,#0A0A0B 30%,transparent 35%);background-size:6px;background-position:center;background-repeat:no-repeat}
+
+/* ============= SITE — STUDIO (creative agency) ============= */
+.site-studio{padding-top:34px;height:100%;background:#0A0A0B;color:#F4ECE2;overflow:hidden;font-family:var(--F);position:relative}
+.site-studio .nav{display:flex;justify-content:space-between;align-items:center;padding:18px 32px;font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+.site-studio .nav .lg{font-family:var(--S);font-size:18px;text-transform:none;letter-spacing:-.02em}
+.site-studio .nav ul{display:flex;gap:22px;list-style:none;color:#9D9DA6}
+.site-studio .nav ul li.on{color:#F4ECE2}
+.site-studio .nav .cta{padding:8px 16px;border:1px solid #F4ECE2;border-radius:999px;color:#F4ECE2}
+.site-studio .stage{padding:18px 32px}
+.site-studio .stage h1{font-family:var(--S);font-size:78px;line-height:.92;letter-spacing:-.04em;font-weight:400}
+.site-studio .stage h1 em{font-style:italic;color:#7E7E84}
+.site-studio .stage h1 .dot{display:inline-block;width:14px;height:14px;border-radius:50%;background:#FF5A36;vertical-align:middle;margin:0 4px}
+.site-studio .stage .lead{display:flex;justify-content:space-between;align-items:flex-end;margin-top:18px}
+.site-studio .stage .lead p{max-width:280px;color:#9D9DA6;font-size:11px;line-height:1.6}
+.site-studio .stage .lead .scroll{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#9D9DA6}
+.site-studio .work{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:14px 32px}
+.site-studio .work .it{aspect-ratio:4/3;border-radius:10px;background:#161618;position:relative;overflow:hidden;border:1px solid rgba(244,236,226,.08)}
+.site-studio .work .it:nth-child(1){background:linear-gradient(135deg,#1B1B1E,#0E0E11)}
+.site-studio .work .it:nth-child(1)::after{content:"";position:absolute;inset:18%;border-radius:8px;background:linear-gradient(135deg,#FF5A36,#7B5BFF)}
+.site-studio .work .it:nth-child(2){background:#F4ECE2;color:#0A0A0B}
+.site-studio .work .it:nth-child(2)::after{content:"01";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:var(--S);font-size:80px;color:#0A0A0B;opacity:.08}
+.site-studio .work .it:nth-child(2)::before{content:"";position:absolute;inset:auto 18% 18% 18%;height:30%;background:linear-gradient(135deg,#0A0A0B,#3D3A36);border-radius:6px}
+.site-studio .work .it:nth-child(3){background:linear-gradient(135deg,#1B1B1E,#0E0E11)}
+.site-studio .work .it:nth-child(3)::after{content:"";position:absolute;inset:auto 0 0 0;height:60%;background:radial-gradient(ellipse at 50% 100%,#FF5A36 0%,transparent 70%)}
+.site-studio .work .it .lbl{position:absolute;left:14px;top:14px;font-size:9px;letter-spacing:.18em;text-transform:uppercase;z-index:2;color:#F4ECE2}
+.site-studio .work .it:nth-child(2) .lbl{color:#0A0A0B}
+.site-studio .work .it .yr{position:absolute;right:14px;top:14px;font-family:var(--M);font-size:9px;color:rgba(244,236,226,.5);z-index:2}
+.site-studio .work .it:nth-child(2) .yr{color:rgba(10,10,11,.5)}
+
+/* ============= COLOR SYSTEMS BAR ============= */
+.systems{margin-top:80px;padding-top:36px;border-top:1px solid rgba(255,255,255,.1);display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.systems > div{aspect-ratio:1;border-radius:10px;display:flex;flex-direction:column;justify-content:flex-end;padding:14px;font-family:var(--M);font-size:10px;letter-spacing:.06em;color:rgba(255,255,255,.85)}
+.systems b{display:block;color:#fff;letter-spacing:.16em;text-transform:uppercase;font-size:9px;margin-bottom:2px}
+
+/* ============= FOOT ============= */
+.foot{margin-top:80px;padding-top:32px;border-top:1px solid rgba(255,255,255,.1);text-align:center;color:#6F7180;font-size:13px}
+.foot a{color:#A6A6AD;border-bottom:1px solid rgba(255,255,255,.16);padding-bottom:1px}
+.foot a:hover{color:#fff}
+
+@media (max-width:980px){
+  .hero{grid-template-columns:1fr}
+  .mobile-row{grid-template-columns:1fr;gap:48px}
+  .iphone{margin:0 auto}
+  .desktop-meta{grid-template-columns:1fr;gap:14px}
+  .systems{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <nav class="topnav">
+    <a href="projets.html">← Retour aux projets</a>
+    <span>Concepts UI/UX · 2026</span>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Concepts<br><em>mobiles &amp; web.</em></h1>
+      <p>Trois applications conçues pour iPhone 17 et trois sites web présentés sur écran Mac. Direction artistique, typographie, palette et système d'icônes — pensés comme des produits réels.</p>
+    </div>
+    <div class="hero-meta">
+      <div>Direction<br><b>UI · UX · Branding</b></div>
+      <div>Outils<br><b>Figma · Webflow</b></div>
+      <div>Année<br><b>2026</b></div>
+    </div>
+  </section>
+
+  <!-- ============ MOBILE ============ -->
+  <div class="sec">
+    <span class="sec-num">01 / Mobile</span>
+    <h2 class="sec-title">3 applications · iPhone 17</h2>
+    <span class="sec-tag">Fintech · Fitness · Music</span>
+  </div>
+
+  <div class="mobile-row">
+
+    <!-- NORA -->
+    <div class="mobile-card bg-noir">
+      <div class="ph-frame">
+        <div class="iphone">
+          <div class="iphone-screen">
+            <div class="app-nora">
+              <div class="iphone-status dark"><span>9:41</span><span class="right"><span class="signal"><i></i><i></i><i></i><i></i></span><span style="font-size:10px">5G</span><span class="battery"></span></span></div>
+              <div class="iphone-island"></div>
+              <div class="top">
+                <div class="av">N</div>
+                <div class="bell">🔔</div>
+              </div>
+              <div class="greet">Bonjour,<b>Nora</b></div>
+              <div class="card">
+                <div class="lbl">Solde principal</div>
+                <div class="val">12 480,30 €</div>
+                <div class="sub"><span>•••• 4892</span><span>↑ +2,4%</span></div>
+              </div>
+              <div class="actions">
+                <div><b>↗</b><span>Envoyer</span></div>
+                <div><b>↙</b><span>Recevoir</span></div>
+                <div><b>+</b><span>Recharger</span></div>
+                <div><b>≡</b><span>Plus</span></div>
+              </div>
+              <div class="sect"><b>Activité récente</b><span>Voir tout</span></div>
+              <div class="tx">
+                <div class="row"><div class="ic ic1">N</div><div class="nm"><b>Netflix</b><s>Abonnement · Hier</s></div><div class="am dn">−15,99 €</div></div>
+                <div class="row"><div class="ic ic2">U</div><div class="nm"><b>Uber</b><s>Transport · Hier</s></div><div class="am dn">−24,80 €</div></div>
+                <div class="row"><div class="ic ic3">E</div><div class="nm"><b>Salaire</b><s>Virement · 5 mai</s></div><div class="am up">+3 200,00 €</div></div>
+              </div>
+              <div class="tabs">
+                <div class="on">⌂</div><div>↻</div><div>⊞</div><div>👤</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="meta">
+        <span class="num">01 — Fintech</span>
+        <span class="nm">Nora.</span>
+        <span class="ds">Néobanque mobile — gestion de compte, virements instantanés, suivi de dépenses temps réel.</span>
+        <div class="pal"><span style="background:#7B5BFF"></span><span style="background:#3D24CC"></span><span style="background:#0E0E11"></span><span style="background:#7DEFA1"></span></div>
+      </div>
+    </div>
+
+    <!-- PULSE -->
+    <div class="mobile-card bg-pulse">
+      <div class="ph-frame">
+        <div class="iphone">
+          <div class="iphone-screen">
+            <div class="app-pulse">
+              <div class="iphone-status light"><span>9:41</span><span class="right"><span class="signal"><i></i><i></i><i></i><i></i></span><span style="font-size:10px">5G</span><span class="battery"></span></span></div>
+              <div class="iphone-island"></div>
+              <div class="top">
+                <div class="av">L</div>
+                <div class="ic">⚙</div>
+              </div>
+              <div class="greet">Bonjour Léa,<b>Prête à courir ?</b></div>
+              <div class="ring-card">
+                <div class="ring"><b>75%</b><s>Objectif</s></div>
+                <div class="ring-info">
+                  <b>Aujourd'hui</b>
+                  <h3>7 245 / 10 000 pas</h3>
+                  <p>Encore 2 755 pas pour ta moyenne hebdo.</p>
+                </div>
+              </div>
+              <div class="stats">
+                <div><small>Calories</small><b>478</b><s>↑ +12% vs hier</s></div>
+                <div><small>Fréq. cardio</small><b>72 bpm</b><s>Repos optimal</s></div>
+              </div>
+              <div class="chart">
+                <div class="top2"><b>Cette semaine</b><s>Voir →</s></div>
+                <div class="bars"><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                <div class="lbls"><span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span><span>D</span></div>
+              </div>
+              <div class="tabs">
+                <div class="on">⌂</div><div>+</div><div>📊</div><div>👤</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="meta">
+        <span class="num">02 — Fitness</span>
+        <span class="nm">Pulse.</span>
+        <span class="ds">Coach santé personnel — suivi pas, fréquence cardiaque, objectifs hebdomadaires et plan d'entraînement.</span>
+        <div class="pal"><span style="background:#FF5A36"></span><span style="background:#FFE5DD"></span><span style="background:#0E0E11"></span><span style="background:#FBFAF7"></span></div>
+      </div>
+    </div>
+
+    <!-- VINYL -->
+    <div class="mobile-card bg-vinyl">
+      <div class="ph-frame">
+        <div class="iphone">
+          <div class="iphone-screen">
+            <div class="app-vinyl">
+              <div class="iphone-status dark"><span>9:41</span><span class="right"><span class="signal"><i></i><i></i><i></i><i></i></span><span style="font-size:10px">5G</span><span class="battery"></span></span></div>
+              <div class="iphone-island"></div>
+              <div class="top">
+                <div class="ic">↓</div>
+                <div class="ic">⋯</div>
+              </div>
+              <div class="nowplaying">
+                <div class="cover"></div>
+              </div>
+              <div class="info">
+                <div class="ar">Now playing</div>
+                <h2 class="ti">Ember Light</h2>
+                <div class="al">Ezra Cole · Wildwood EP</div>
+              </div>
+              <div class="progress">
+                <div class="bar"></div>
+                <div class="times"><span>1:42</span><span>−2:38</span></div>
+              </div>
+              <div class="controls">
+                <div>↻</div>
+                <div>⏮</div>
+                <div class="play">▶</div>
+                <div>⏭</div>
+                <div>≡</div>
+              </div>
+              <div class="queue">
+                <div class="mini"></div>
+                <div class="nx"><s>À suivre</s><b>Slow Mountain — Ezra Cole</b></div>
+                <div class="arr">→</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="meta">
+        <span class="num">03 — Music</span>
+        <span class="nm">Vinyl.</span>
+        <span class="ds">Streaming musical haut de gamme — interface focalisée sur l'œuvre, lecture continue, queue intelligente.</span>
+        <div class="pal"><span style="background:#E8916F"></span><span style="background:#7C3F2C"></span><span style="background:#3E2A22"></span><span style="background:#1A0E08"></span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============ DESKTOP ============ -->
+  <div class="sec">
+    <span class="sec-num">02 / Web</span>
+    <h2 class="sec-title">3 sites web · écran Mac</h2>
+    <span class="sec-tag">SaaS · E-commerce · Agence</span>
+  </div>
+
+  <!-- ATLAS -->
+  <div class="desktop-meta">
+    <span class="num">04 — SaaS analytics</span>
+    <div class="info"><h3>Atlas.</h3><p>Plateforme analytics B2B pour équipes data — KPIs temps réel, segmentation utilisateurs et exports automatiques.</p></div>
+    <div class="pal"><span style="background:#3A6BFF"></span><span style="background:#0E0E11"></span><span style="background:#F7F8FB"></span><span style="background:#10B981"></span></div>
+  </div>
+  <div class="mac">
+    <div class="mac-screen">
+      <div class="mac-bar"><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span><span class="url">app.atlas.io / dashboard</span></div>
+      <div class="site-atlas">
+        <aside class="side">
+          <div class="brand">Atl<b>as.</b></div>
+          <div class="nav-g">Workspace</div>
+          <div class="nv on">⊟ Dashboard</div>
+          <div class="nv">📊 Analytics</div>
+          <div class="nv">👥 Audiences</div>
+          <div class="nv">📈 Funnels</div>
+          <div class="nv">⚡ Events</div>
+          <div class="nav-g">Settings</div>
+          <div class="nv">⚙ Préférences</div>
+          <div class="nv">🔔 Alertes</div>
+          <div class="nv">💳 Facturation</div>
+        </aside>
+        <main class="main">
+          <div class="h1"><h1>Dashboard</h1><div class="filt"><span>24h</span><span class="on">7 jours</span><span>30 jours</span><span>3 mois</span></div></div>
+          <div class="kpi">
+            <div><small>Utilisateurs actifs</small><b>48 720</b><s>↑ 12,4%</s></div>
+            <div><small>Sessions</small><b>187 220</b><s>↑ 8,1%</s></div>
+            <div><small>Conversion</small><b>4,82%</b><s>↑ 0,6 pts</s></div>
+            <div><small>Revenus</small><b>284 K€</b><s>↑ 18,9%</s></div>
+          </div>
+          <div class="row">
+            <div class="ch">
+              <h4>Trafic — 7 derniers jours</h4>
+              <svg viewBox="0 0 400 100" preserveAspectRatio="none">
+                <defs><linearGradient id="atlasGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3A6BFF" stop-opacity="0.3"/><stop offset="100%" stop-color="#3A6BFF" stop-opacity="0"/></linearGradient></defs>
+                <path d="M0,72 C30,68 50,52 80,46 C110,40 130,58 160,50 C190,42 210,28 240,30 C270,32 290,18 320,22 C350,26 370,12 400,16 L400,100 L0,100 Z" fill="url(#atlasGrad)"/>
+                <path d="M0,72 C30,68 50,52 80,46 C110,40 130,58 160,50 C190,42 210,28 240,30 C270,32 290,18 320,22 C350,26 370,12 400,16" stroke="#3A6BFF" stroke-width="2" fill="none"/>
+              </svg>
+            </div>
+            <div class="ls">
+              <h4>Top pages</h4>
+              <div class="it"><b>/pricing</b><span>12 480 vues</span></div>
+              <div class="it"><b>/features/analytics</b><span>9 280 vues</span></div>
+              <div class="it"><b>/blog/data-stack</b><span>7 145 vues</span></div>
+              <div class="it"><b>/onboarding</b><span>5 920 vues</span></div>
+              <div class="it"><b>/integrations</b><span>4 380 vues</span></div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <!-- NOIR -->
+  <div class="desktop-meta">
+    <span class="num">05 — E-commerce</span>
+    <div class="info"><h3>Noir.</h3><p>Boutique en ligne mode haut de gamme — direction artistique éditoriale, photographie produit grand format.</p></div>
+    <div class="pal"><span style="background:#0A0A0B"></span><span style="background:#FBFAF7"></span><span style="background:#8B6F4E"></span><span style="background:#D4C5B0"></span></div>
+  </div>
+  <div class="mac">
+    <div class="mac-screen">
+      <div class="mac-bar"><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span><span class="url">noir-paris.com / collection</span></div>
+      <div class="site-noir">
+        <nav class="nav">
+          <span class="lg">Noir.</span>
+          <ul><li>Femme</li><li>Homme</li><li>Accessoires</li><li>Journal</li></ul>
+          <span class="ic"><span>⌕</span><span>♡</span><span>🛍</span></span>
+        </nav>
+        <div class="hero2">
+          <div class="hero-l">
+            <h1>Hiver<br><em>2026.</em><br>Sept&nbsp;pièces.</h1>
+            <p>Une garde-robe essentielle, pensée pour durer. Coupes nettes, matières nobles, finitions à la main.</p>
+            <span class="cta">Découvrir →</span>
+          </div>
+          <div class="hero-r">
+            <span class="tag">Nouvelle saison</span>
+            <div class="price"><small>Manteau Sienne</small>820 €</div>
+          </div>
+        </div>
+        <div class="strip">
+          <div class="it"></div>
+          <div class="it"></div>
+          <div class="it"></div>
+          <div class="it"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STUDIO -->
+  <div class="desktop-meta">
+    <span class="num">06 — Agence créative</span>
+    <div class="info"><h3>Studio Onyx.</h3><p>Site portfolio agence créative — direction typographique forte, grille immersive, palette tendue.</p></div>
+    <div class="pal"><span style="background:#0A0A0B"></span><span style="background:#F4ECE2"></span><span style="background:#FF5A36"></span><span style="background:#7B5BFF"></span></div>
+  </div>
+  <div class="mac">
+    <div class="mac-screen">
+      <div class="mac-bar"><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span><span class="url">studio-onyx.fr</span></div>
+      <div class="site-studio">
+        <nav class="nav">
+          <span class="lg">Onyx</span>
+          <ul><li class="on">Travaux</li><li>Studio</li><li>Journal</li><li>Contact</li></ul>
+          <span class="cta">Démarrer un projet →</span>
+        </nav>
+        <div class="stage">
+          <h1>Identités<em>&nbsp;qui</em><br>marquent<span class="dot"></span><em>&nbsp;les</em><br>esprits.</h1>
+          <div class="lead">
+            <p>Studio Onyx accompagne les marques ambitieuses dans leur direction artistique, branding et expérience produit.</p>
+            <span class="scroll">Scroll ↓</span>
+          </div>
+        </div>
+        <div class="work">
+          <div class="it"><span class="lbl">Branding</span><span class="yr">2026</span></div>
+          <div class="it"><span class="lbl">Web design</span><span class="yr">2026</span></div>
+          <div class="it"><span class="lbl">Direction artistique</span><span class="yr">2025</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ COLOR SYSTEMS ============ -->
+  <div class="sec">
+    <span class="sec-num">03 / Système</span>
+    <h2 class="sec-title">Palette globale</h2>
+    <span class="sec-tag">6 directions chromatiques</span>
+  </div>
+  <div class="systems">
+    <div style="background:linear-gradient(135deg,#7B5BFF,#3D24CC)"><b>Nora</b>Violet · Indigo</div>
+    <div style="background:linear-gradient(135deg,#FF5A36,#FF7A4A)"><b>Pulse</b>Orange · Sunset</div>
+    <div style="background:linear-gradient(135deg,#3E2A22,#1A0E08);color:#E8916F"><b style="color:#E8916F">Vinyl</b>Earth · Terracotta</div>
+    <div style="background:linear-gradient(135deg,#3A6BFF,#1B47CC)"><b>Atlas</b>Bleu · Tech</div>
+    <div style="background:linear-gradient(135deg,#0A0A0B,#3D3A36);color:#D4C5B0"><b style="color:#D4C5B0">Noir</b>Camel · Encre</div>
+    <div style="background:linear-gradient(135deg,#0A0A0B,#FF5A36)"><b>Onyx</b>Black · Flame</div>
+  </div>
+
+  <div class="foot">
+    <p>Concepts UI/UX par <a href="index.html">Dikenga Design</a> — 2026</p>
+    <p style="margin-top:8px"><a href="projets.html">← Retour aux projets</a> · <a href="contact.html">Démarrer un projet →</a></p>
+  </div>
+
+</div>
+
+</body>
+</html>
