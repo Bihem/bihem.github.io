@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1200">
+<title>StudioBooking — Mockups admin · Dikenga Design</title>
+<meta name="description" content="Mockups admin StudioBooking — Tableau de bord, Réservations, Calendrier. Cas client SaaS B2B conçu par Dikenga Design.">
+<meta name="robots" content="index, follow">
+<style>
+:root{
+  --bg:#F4F6FB; --panel:#FFFFFF; --ink:#0E0F12; --ink2:#3F4350; --mute:#7A7F8C; --line:rgba(15,17,22,.08);
+  --pri:#2563EB; --pri2:#1D4FD7; --pri-ink:#FFFFFF;
+  --c-blue:linear-gradient(180deg,#DDE9FF,#EAF2FF); --c-violet:linear-gradient(180deg,#EFEAFF,#F4F0FF);
+  --c-green:linear-gradient(180deg,#DCF7E8,#E9FAEF); --c-orange:linear-gradient(180deg,#FFE6D1,#FFF1DE);
+  --c-pink:linear-gradient(180deg,#FFE3EC,#FFEEF3); --c-mint:linear-gradient(180deg,#D9F4F0,#E6F8F3);
+  --shadow:0 10px 30px rgba(15,17,22,.06), 0 2px 6px rgba(15,17,22,.04);
+  --rad:18px;
+  --F:'Inter','Suisse Intl', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#0B0B0E;color:var(--ink);font-family:var(--F);-webkit-font-smoothing:antialiased}
+
+/* Showcase wrapper (dark portfolio frame) */
+.wrap{max-width:1320px;margin:0 auto;padding:64px 24px 96px}
+.intro{color:#E7E7EA;text-align:center;margin-bottom:48px}
+.intro h1{font-size:42px;letter-spacing:-.02em;margin:0 0 12px;font-weight:700}
+.intro p{color:#A6A6AD;font-size:16px;line-height:1.6;max-width:680px;margin:0 auto}
+.intro .crumb{display:inline-flex;gap:8px;align-items:center;color:#9D9DA6;font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:16px}
+.intro .crumb a{color:#9D9DA6;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.12)}
+.intro .crumb a:hover{color:#fff}
+
+.section-title{display:flex;align-items:baseline;gap:14px;color:#fff;margin:64px 0 18px}
+.section-title .num{font-size:13px;letter-spacing:.2em;color:#6F7180}
+.section-title h2{margin:0;font-size:24px;letter-spacing:-.01em;font-weight:600}
+.section-title .tag{margin-left:auto;font-size:12px;color:#9D9DA6;border:1px solid rgba(255,255,255,.12);padding:4px 10px;border-radius:999px}
+
+/* Browser frame */
+.frame{background:var(--bg);border-radius:16px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.45), 0 4px 12px rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.06)}
+.bar{display:flex;align-items:center;gap:8px;padding:12px 14px;background:#EBEEF4;border-bottom:1px solid rgba(15,17,22,.06)}
+.dot{width:11px;height:11px;border-radius:50%}
+.d1{background:#FF5F57}.d2{background:#FEBC2E}.d3{background:#28C840}
+.url{margin-left:14px;background:#fff;border:1px solid rgba(15,17,22,.08);border-radius:8px;padding:6px 12px;font-size:12px;color:#5A6072;flex:1;max-width:520px}
+
+/* Admin shell */
+.shell{display:grid;grid-template-columns:240px 1fr;min-height:740px}
+.side{background:var(--panel);border-right:1px solid var(--line);padding:22px 14px}
+.brand{font-weight:800;font-size:18px;letter-spacing:-.01em;padding:6px 8px 18px}
+.brand b{color:var(--pri)}
+.studio-badge{font-size:11px;letter-spacing:.16em;color:var(--mute);padding:0 8px 18px}
+.nav-group{font-size:11px;letter-spacing:.18em;color:#9099AB;padding:10px 12px 6px;text-transform:uppercase}
+.nav a{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;text-decoration:none;color:var(--ink);font-size:14px;font-weight:500}
+.nav a.active{background:#EFF4FF;color:var(--pri)}
+.nav a:hover{background:#F5F7FB}
+.nav span.ico{width:22px;text-align:center}
+
+.main{padding:22px 28px 36px;background:var(--bg)}
+.toplink{display:flex;align-items:center;gap:14px;background:linear-gradient(180deg,#E9EFFF,#F2F5FF);border:1px solid #DCE5FB;border-radius:14px;padding:14px 18px;margin-bottom:18px;font-size:13px;color:#3A4459}
+.toplink b{color:var(--pri);letter-spacing:.06em}
+.toplink .urlbox{flex:1;background:#fff;border:1px solid #D8E1F4;border-radius:10px;padding:8px 12px;font-family:ui-monospace,monospace;font-size:13px;color:#1F2937}
+.toplink .btns{display:flex;gap:8px}
+.toplink button{background:#fff;border:1px solid #D8E1F4;border-radius:999px;padding:6px 14px;font-size:12px;color:#3A4459;cursor:pointer}
+.toplink button.primary{background:#EAF1FF;border-color:#C7D7F7;color:var(--pri)}
+
+.h-row{display:flex;align-items:center;gap:14px;background:#fff;border-radius:14px;padding:18px 22px;border:1px solid var(--line);margin-bottom:18px}
+.h-row h1{margin:0;font-size:22px;font-weight:700;letter-spacing:-.01em}
+.pill{font-size:12px;background:#F0E7FF;color:#6E45D6;padding:4px 10px;border-radius:999px;font-weight:600}
+.h-row .right{margin-left:auto;display:flex;align-items:center;gap:10px}
+.iconbtn{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:16px;cursor:pointer}
+.cta{background:linear-gradient(180deg,#3a74f7,#1f51d6);color:#fff;border:0;border-radius:999px;padding:9px 18px;font-weight:600;font-size:14px;cursor:pointer;box-shadow:0 6px 18px rgba(31,81,214,.35)}
+
+.date{color:var(--mute);font-size:13px;margin:6px 4px 14px}
+
+/* KPI grid */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:14px}
+.kpis2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;max-width:calc(50% - 7px)}
+.kpi{border-radius:var(--rad);padding:18px 18px 22px;border:1px solid var(--line);position:relative;overflow:hidden}
+.kpi .lbl{font-size:11px;letter-spacing:.18em;color:#5A6072;text-transform:uppercase;font-weight:600}
+.kpi .val{font-size:42px;font-weight:700;letter-spacing:-.02em;line-height:1.05;margin:14px 0 4px;color:var(--ink)}
+.kpi .sub{font-size:13px;color:var(--mute)}
+.kpi.b1{background:var(--c-blue)}.kpi.b2{background:var(--c-violet)}.kpi.b3{background:var(--c-green)}.kpi.b4{background:var(--c-orange)}
+.kpi.b5{background:var(--c-pink)}.kpi.b6{background:var(--c-mint)}
+
+/* Sessions table */
+.panel{background:#fff;border:1px solid var(--line);border-radius:var(--rad);overflow:hidden}
+.panel-h{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--line);font-weight:600}
+.panel-h .count{color:var(--mute);font-weight:500;font-size:13px}
+.tbl{width:100%;border-collapse:collapse}
+.tbl th{font-size:11px;letter-spacing:.16em;color:#7A7F8C;text-transform:uppercase;font-weight:600;text-align:left;padding:14px 18px;border-bottom:1px solid var(--line)}
+.tbl td{padding:14px 18px;border-bottom:1px solid rgba(15,17,22,.04);font-size:14px;color:var(--ink2)}
+.tbl tr:last-child td{border-bottom:0}
+.badge{display:inline-block;padding:4px 10px;border-radius:8px;font-size:12px;font-weight:600}
+.b-ok{background:#D1FAE5;color:#065F46}
+.b-pend{background:#FEF3C7;color:#92400E}
+.b-canc{background:#FEE2E2;color:#991B1B}
+.act{color:var(--pri);font-size:13px;cursor:pointer}
+
+/* Reservations toolbar */
+.toolbar{display:flex;gap:10px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:var(--rad);padding:14px;margin-bottom:14px}
+.select{appearance:none;background:#F5F7FB;border:1px solid var(--line);border-radius:10px;padding:8px 30px 8px 12px;font-size:13px;color:var(--ink);cursor:pointer;background-image:linear-gradient(45deg,transparent 50%,#7A7F8C 50%),linear-gradient(135deg,#7A7F8C 50%,transparent 50%);background-position:calc(100% - 16px) 50%,calc(100% - 12px) 50%;background-size:4px 4px,4px 4px;background-repeat:no-repeat}
+.search{flex:1;background:#F5F7FB;border:1px solid var(--line);border-radius:10px;padding:8px 12px;font-size:13px}
+.export{margin-left:auto;background:#F5F7FB;border:1px solid var(--line);border-radius:10px;padding:8px 14px;font-size:13px;cursor:pointer;font-weight:500}
+
+/* Calendar */
+.calbar{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:var(--rad);padding:14px;margin-bottom:14px}
+.calbar .nav-arr{width:34px;height:34px;border-radius:10px;border:1px solid var(--line);background:#F5F7FB;cursor:pointer;font-size:14px}
+.calbar .range{font-weight:600;font-size:14px;padding:0 10px}
+.calbar .today{background:#F5F7FB;border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:13px;cursor:pointer}
+.calbar .date-input{background:#F5F7FB;border:1px solid var(--line);border-radius:10px;padding:7px 10px;font-size:13px;font-family:inherit}
+.calbar .seg{display:inline-flex;background:#F5F7FB;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.calbar .seg button{background:transparent;border:0;padding:7px 14px;font-size:13px;cursor:pointer;color:var(--ink2);font-family:inherit}
+.calbar .seg button.on{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
+.calbar .ical{margin-left:auto;background:#F5F7FB;border:1px solid var(--line);border-radius:10px;padding:7px 14px;font-size:13px;cursor:pointer;font-weight:500}
+.legend{display:flex;gap:16px;padding:0 4px 12px;font-size:13px;color:var(--ink2)}
+.legend .swatch{display:inline-block;width:14px;height:14px;border-radius:4px;margin-right:6px;vertical-align:-3px}
+
+.cal{background:#fff;border:1px solid var(--line);border-radius:var(--rad);overflow:hidden}
+.cal-head{display:grid;grid-template-columns:60px repeat(7,1fr);background:#F8FAFE}
+.cal-head .day{padding:14px 10px;border-right:1px solid var(--line);font-size:11px;letter-spacing:.18em;color:#7A7F8C;text-transform:uppercase}
+.cal-head .day .num{font-size:22px;letter-spacing:-.01em;color:var(--ink);font-weight:700;margin-top:4px}
+.cal-head .day.today .num{color:var(--pri)}
+.cal-grid{display:grid;grid-template-columns:60px repeat(7,1fr);position:relative}
+.cal-time{padding:10px 8px;text-align:right;font-size:11px;color:#9099AB;border-right:1px solid var(--line);border-bottom:1px dashed rgba(15,17,22,.05);height:48px;box-sizing:border-box}
+.cal-cell{border-right:1px solid var(--line);border-bottom:1px dashed rgba(15,17,22,.05);height:48px;position:relative}
+.evt{position:absolute;left:4px;right:4px;border-radius:8px;padding:6px 8px;font-size:12px;line-height:1.2;color:#fff;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.08)}
+.evt.studio{background:linear-gradient(180deg,#3a74f7,#2456D6)}
+.evt.bill{background:linear-gradient(180deg,#F59E0B,#D97706)}
+.evt small{display:block;font-weight:600;font-size:11px;opacity:.85;margin-bottom:2px}
+
+/* footer */
+.foot{margin-top:48px;text-align:center;color:#6F7180;font-size:13px}
+.foot a{color:#A6A6AD;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.16)}
+.foot a:hover{color:#fff}
+
+@media (max-width: 900px){
+  .shell{grid-template-columns:1fr}
+  .side{display:none}
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .kpis2{max-width:100%}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="intro">
+    <div class="crumb"><a href="projets.html">← Retour aux projets</a> · StudioBooking</div>
+    <h1>StudioBooking — Mockups admin</h1>
+    <p>Aperçu des 3 vues principales du back-office : Tableau de bord, Réservations et Calendrier. Données présentées à des fins de démonstration.</p>
+  </div>
+
+  <!-- ============ DASHBOARD ============ -->
+  <div class="section-title">
+    <span class="num">01</span>
+    <h2>Tableau de bord</h2>
+    <span class="tag">Vue d'ensemble · KPIs · Sessions du jour</span>
+  </div>
+  <div class="frame">
+    <div class="bar">
+      <span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span>
+      <span class="url">studiobooking.fr/admin#dashboard</span>
+    </div>
+    <div class="shell">
+      <aside class="side">
+        <div class="brand">Studio<b>Booking</b></div>
+        <div class="studio-badge">DIKENGA STUDIO</div>
+        <div class="nav-group">Principal</div>
+        <nav class="nav">
+          <a class="active"><span class="ico">📊</span> Tableau de bord</a>
+          <a><span class="ico">📅</span> Réservations</a>
+          <a><span class="ico">🗓️</span> Calendrier</a>
+        </nav>
+        <div class="nav-group">Gestion</div>
+        <nav class="nav">
+          <a><span class="ico">🎸</span> Studios</a>
+          <a><span class="ico">👥</span> Membres</a>
+          <a><span class="ico">📈</span> Statistiques</a>
+          <a><span class="ico">🎟️</span> Promos &amp; Packs</a>
+          <a><span class="ico">🎫</span> Billetterie</a>
+        </nav>
+        <div class="nav-group">Config</div>
+        <nav class="nav">
+          <a><span class="ico">⚙️</span> Paramètres</a>
+          <a><span class="ico">💳</span> Abonnement</a>
+          <a><span class="ico">🔗</span> Ma page publique</a>
+        </nav>
+      </aside>
+      <main class="main">
+        <div class="toplink">
+          <b>🔗 VOTRE LIEN CLIENT</b>
+          <span class="urlbox">studiobooking.fr/book/dikengastudio</span>
+          <span class="btns">
+            <button>Copier</button>
+            <button>QR</button>
+            <button class="primary">Ouvrir →</button>
+          </span>
+        </div>
+        <div class="h-row">
+          <h1>Tableau de bord</h1>
+          <span class="pill">Plan Starter</span>
+          <div class="right">
+            <button class="iconbtn">🎨</button>
+            <button class="iconbtn">☀️</button>
+            <button class="cta">+ Nouvelle réservation</button>
+          </div>
+        </div>
+        <div class="date">jeudi 7 mai 2026</div>
+        <div class="kpis">
+          <div class="kpi b1"><div class="lbl">Sessions aujourd'hui</div><div class="val">14</div><div class="sub">10 confirmées</div></div>
+          <div class="kpi b2"><div class="lbl">Cette semaine</div><div class="val">47</div><div class="sub">sessions</div></div>
+          <div class="kpi b3"><div class="lbl">Revenus ce mois</div><div class="val">6 280€</div><div class="sub">acomptes</div></div>
+          <div class="kpi b4"><div class="lbl">Taux occupation</div><div class="val">78%</div><div class="sub">studios</div></div>
+        </div>
+        <div class="kpis2" style="margin-bottom:18px">
+          <div class="kpi b5"><div class="lbl">Taux de conversion</div><div class="val">64%</div><div class="sub">visites → réservations</div></div>
+          <div class="kpi b6"><div class="lbl">Panier moyen</div><div class="val">89€</div><div class="sub">par réservation</div></div>
+        </div>
+        <div class="panel">
+          <div class="panel-h"><span>📅 Sessions d'aujourd'hui</span><span class="count">7 sessions</span></div>
+          <table class="tbl">
+            <thead><tr><th>Heure</th><th>Studio</th><th>Artiste</th><th>Type</th><th>Durée</th><th>Statut</th><th>Actions</th></tr></thead>
+            <tbody>
+              <tr><td>09:00 → 10:30</td><td>Studio A</td><td>Léa Marchand</td><td>🎤 Enregistrement</td><td>1h30</td><td><span class="badge b-ok">Confirmée</span></td><td class="act">Voir →</td></tr>
+              <tr><td>10:30 → 12:00</td><td>Studio B</td><td>Kévin Dupré</td><td>🎸 Répétition</td><td>1h30</td><td><span class="badge b-ok">Confirmée</span></td><td class="act">Voir →</td></tr>
+              <tr><td>13:00 → 14:00</td><td>Studio A</td><td>Camille Roux</td><td>🎤 Enregistrement</td><td>1h</td><td><span class="badge b-ok">Confirmée</span></td><td class="act">Voir →</td></tr>
+              <tr><td>14:00 → 16:00</td><td>Studio C</td><td>Tristan Léger</td><td>🎵 Mixage</td><td>2h</td><td><span class="badge b-ok">Confirmée</span></td><td class="act">Voir →</td></tr>
+              <tr><td>16:00 → 17:00</td><td>Studio A</td><td>Amélie Costa</td><td>🎸 Répétition</td><td>1h</td><td><span class="badge b-pend">En attente</span></td><td class="act">Voir →</td></tr>
+              <tr><td>17:00 → 19:00</td><td>Studio B</td><td>Mehdi Lasri</td><td>🎤 Enregistrement</td><td>2h</td><td><span class="badge b-ok">Confirmée</span></td><td class="act">Voir →</td></tr>
+              <tr><td>19:00 → 20:30</td><td>Studio C</td><td>Julien Faure</td><td>🎸 Répétition</td><td>1h30</td><td><span class="badge b-ok">Confirmée</span></td><td class="act">Voir →</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- ============ RESERVATIONS ============ -->
+  <div class="section-title">
+    <span class="num">02</span>
+    <h2>Réservations</h2>
+    <span class="tag">Liste filtrable · Export CSV · Statuts</span>
+  </div>
+  <div class="frame">
+    <div class="bar">
+      <span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span>
+      <span class="url">studiobooking.fr/admin#reservations</span>
+    </div>
+    <div class="shell">
+      <aside class="side">
+        <div class="brand">Studio<b>Booking</b></div>
+        <div class="studio-badge">DIKENGA STUDIO</div>
+        <div class="nav-group">Principal</div>
+        <nav class="nav">
+          <a><span class="ico">📊</span> Tableau de bord</a>
+          <a class="active"><span class="ico">📅</span> Réservations</a>
+          <a><span class="ico">🗓️</span> Calendrier</a>
+        </nav>
+        <div class="nav-group">Gestion</div>
+        <nav class="nav">
+          <a><span class="ico">🎸</span> Studios</a>
+          <a><span class="ico">👥</span> Membres</a>
+          <a><span class="ico">📈</span> Statistiques</a>
+          <a><span class="ico">🎟️</span> Promos &amp; Packs</a>
+          <a><span class="ico">🎫</span> Billetterie</a>
+        </nav>
+        <div class="nav-group">Config</div>
+        <nav class="nav">
+          <a><span class="ico">⚙️</span> Paramètres</a>
+          <a><span class="ico">💳</span> Abonnement</a>
+          <a><span class="ico">🔗</span> Ma page publique</a>
+        </nav>
+      </aside>
+      <main class="main">
+        <div class="h-row">
+          <h1>Réservations</h1>
+          <span class="pill">Plan Starter</span>
+          <div class="right">
+            <button class="iconbtn">🎨</button>
+            <button class="iconbtn">☀️</button>
+            <button class="cta">+ Nouvelle réservation</button>
+          </div>
+        </div>
+        <div class="toolbar">
+          <select class="select"><option>Tous les statuts</option></select>
+          <select class="select"><option>Tous les studios</option></select>
+          <input class="search" placeholder="Rechercher un artiste, une référence...">
+          <button class="export">📊 Export CSV</button>
+        </div>
+        <div class="panel">
+          <table class="tbl">
+            <thead><tr><th>Réf.</th><th>Date / Heure</th><th>Studio</th><th>Artiste</th><th>Type</th><th>Ingé son</th><th>Durée</th><th>Total</th><th>Acompte</th><th>Statut</th></tr></thead>
+            <tbody>
+              <tr><td style="color:var(--pri);font-weight:600">SB-MOG2HT3</td><td>07/05/2026<br><small style="color:var(--mute)">09:00 → 10:30</small></td><td>Studio A</td><td>Léa Marchand</td><td>🎤 Enregistrement</td><td>Marc</td><td>1h30</td><td><b>112€</b></td><td>50€</td><td><span class="badge b-ok">Confirmée</span></td></tr>
+              <tr><td style="color:var(--pri);font-weight:600">SB-MOG73V</td><td>07/05/2026<br><small style="color:var(--mute)">10:30 → 12:00</small></td><td>Studio B</td><td>Kévin Dupré</td><td>🎸 Répétition</td><td>—</td><td>1h30</td><td><b>54€</b></td><td>20€</td><td><span class="badge b-ok">Confirmée</span></td></tr>
+              <tr><td style="color:var(--pri);font-weight:600">SB-N2P88X</td><td>07/05/2026<br><small style="color:var(--mute)">13:00 → 14:00</small></td><td>Studio A</td><td>Camille Roux</td><td>🎤 Enregistrement</td><td>Jean</td><td>1h</td><td><b>78€</b></td><td>30€</td><td><span class="badge b-ok">Confirmée</span></td></tr>
+              <tr><td style="color:var(--pri);font-weight:600">SB-FZ5W4M</td><td>07/05/2026<br><small style="color:var(--mute)">14:00 → 16:00</small></td><td>Studio C</td><td>Tristan Léger</td><td>🎵 Mixage</td><td>Marc</td><td>2h</td><td><b>180€</b></td><td>90€</td><td><span class="badge b-ok">Confirmée</span></td></tr>
+              <tr><td style="color:var(--pri);font-weight:600">SB-Q3RBKE</td><td>07/05/2026<br><small style="color:var(--mute)">16:00 → 17:00</small></td><td>Studio A</td><td>Amélie Costa</td><td>🎸 Répétition</td><td>—</td><td>1h</td><td><b>42€</b></td><td>0€</td><td><span class="badge b-pend">En attente</span></td></tr>
+              <tr><td style="color:var(--pri);font-weight:600">SB-V8KR2P</td><td>07/05/2026<br><small style="color:var(--mute)">17:00 → 19:00</small></td><td>Studio B</td><td>Mehdi Lasri</td><td>🎤 Enregistrement</td><td>Jean</td><td>2h</td><td><b>156€</b></td><td>78€</td><td><span class="badge b-ok">Confirmée</span></td></tr>
+              <tr><td style="color:var(--pri);font-weight:600">SB-DH7N1A</td><td>08/05/2026<br><small style="color:var(--mute)">10:00 → 12:00</small></td><td>Studio C</td><td>Sarah Benzema</td><td>🎵 Mixage</td><td>Marc</td><td>2h</td><td><b>180€</b></td><td>90€</td><td><span class="badge b-ok">Confirmée</span></td></tr>
+              <tr><td style="color:var(--pri);font-weight:600">SB-XL9MG6</td><td>08/05/2026<br><small style="color:var(--mute)">14:30 → 16:00</small></td><td>Studio A</td><td>Hugo Rivière</td><td>🎤 Enregistrement</td><td>Jean</td><td>1h30</td><td><b>112€</b></td><td>50€</td><td><span class="badge b-pend">En attente</span></td></tr>
+              <tr><td style="color:var(--pri);font-weight:600">SB-KR4Y8T</td><td>08/05/2026<br><small style="color:var(--mute)">19:00 → 21:00</small></td><td>Studio B</td><td>Naël Aboubakar</td><td>🎸 Répétition</td><td>—</td><td>2h</td><td><b>72€</b></td><td>30€</td><td><span class="badge b-ok">Confirmée</span></td></tr>
+              <tr><td style="color:var(--pri);font-weight:600">SB-BC2L5D</td><td>09/05/2026<br><small style="color:var(--mute)">11:00 → 13:00</small></td><td>Studio C</td><td>Inès Vasseur</td><td>🎵 Mixage</td><td>Marc</td><td>2h</td><td><b>180€</b></td><td>0€</td><td><span class="badge b-canc">Annulée</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- ============ CALENDAR ============ -->
+  <div class="section-title">
+    <span class="num">03</span>
+    <h2>Calendrier</h2>
+    <span class="tag">Vue semaine · Drag &amp; drop · Export iCal</span>
+  </div>
+  <div class="frame">
+    <div class="bar">
+      <span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span>
+      <span class="url">studiobooking.fr/admin#calendar</span>
+    </div>
+    <div class="shell">
+      <aside class="side">
+        <div class="brand">Studio<b>Booking</b></div>
+        <div class="studio-badge">DIKENGA STUDIO</div>
+        <div class="nav-group">Principal</div>
+        <nav class="nav">
+          <a><span class="ico">📊</span> Tableau de bord</a>
+          <a><span class="ico">📅</span> Réservations</a>
+          <a class="active"><span class="ico">🗓️</span> Calendrier</a>
+        </nav>
+        <div class="nav-group">Gestion</div>
+        <nav class="nav">
+          <a><span class="ico">🎸</span> Studios</a>
+          <a><span class="ico">👥</span> Membres</a>
+          <a><span class="ico">📈</span> Statistiques</a>
+          <a><span class="ico">🎟️</span> Promos &amp; Packs</a>
+          <a><span class="ico">🎫</span> Billetterie</a>
+        </nav>
+        <div class="nav-group">Config</div>
+        <nav class="nav">
+          <a><span class="ico">⚙️</span> Paramètres</a>
+          <a><span class="ico">💳</span> Abonnement</a>
+          <a><span class="ico">🔗</span> Ma page publique</a>
+        </nav>
+      </aside>
+      <main class="main">
+        <div class="h-row">
+          <h1>Calendrier</h1>
+          <span class="pill">Plan Starter</span>
+          <div class="right">
+            <button class="iconbtn">🎨</button>
+            <button class="iconbtn">☀️</button>
+            <button class="cta">+ Nouvelle réservation</button>
+          </div>
+        </div>
+        <div class="calbar">
+          <button class="nav-arr">←</button>
+          <span class="range">4 mai — 10 mai 2026</span>
+          <button class="nav-arr">→</button>
+          <button class="today">Aujourd'hui</button>
+          <input type="text" class="date-input" value="07/05/2026">
+          <span class="seg"><button class="on">Semaine</button><button>Mois</button></span>
+          <button class="ical">📅 Exporter iCal</button>
+        </div>
+        <div class="legend">
+          <span><span class="swatch" style="background:#3a74f7"></span>Réservation studio</span>
+          <span><span class="swatch" style="background:#F59E0B"></span>Événement billetterie</span>
+        </div>
+        <div class="cal">
+          <div class="cal-head">
+            <div></div>
+            <div class="day">Lun<div class="num">4</div></div>
+            <div class="day">Mar<div class="num">5</div></div>
+            <div class="day">Mer<div class="num">6</div></div>
+            <div class="day today">Jeu<div class="num">7</div></div>
+            <div class="day">Ven<div class="num">8</div></div>
+            <div class="day">Sam<div class="num">9</div></div>
+            <div class="day">Dim<div class="num">10</div></div>
+          </div>
+          <div class="cal-grid" id="grid">
+            <!-- 12 hour rows × 8 cols -->
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <div class="foot">
+    <p>StudioBooking — Cas client SaaS B2B · <a href="https://studiobooking.fr" target="_blank">Voir le produit live</a></p>
+    <p style="margin-top:8px"><a href="projets.html">← Retour aux projets</a> · <a href="index.html">Dikenga Design</a></p>
+  </div>
+</div>
+
+<script>
+(() => {
+  const grid = document.getElementById('grid');
+  const hours = ['09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00'];
+  // build grid
+  hours.forEach(h => {
+    const t = document.createElement('div'); t.className='cal-time'; t.textContent=h; grid.appendChild(t);
+    for (let i=0;i<7;i++){ const c=document.createElement('div'); c.className='cal-cell'; grid.appendChild(c); }
+  });
+  // events: {dayCol(0-6 mon..sun), startH(0..11), durH, label, sub, kind}
+  const evts = [
+    [0, 1, 1.5, 'Léa Marchand', 'Studio A · Enregistrement', 'studio'],
+    [0, 4, 2, 'Tristan Léger', 'Studio C · Mixage', 'studio'],
+    [1, 2, 1, 'Camille Roux', 'Studio A · Enregistrement', 'studio'],
+    [1, 7, 1, 'Amélie Costa', 'Studio A · Répétition', 'studio'],
+    [2, 1, 2, 'Sarah Benzema', 'Studio C · Mixage', 'studio'],
+    [2, 5, 1.5, 'Hugo Rivière', 'Studio A · Enregistrement', 'studio'],
+    [3, 0, 1.5, 'Léa Marchand', 'Studio A · Enregistrement', 'studio'],
+    [3, 1.5, 1.5, 'Kévin Dupré', 'Studio B · Répétition', 'studio'],
+    [3, 4, 2, 'Tristan Léger', 'Studio C · Mixage', 'studio'],
+    [3, 8, 2, 'Mehdi Lasri', 'Studio B · Enregistrement', 'studio'],
+    [4, 2, 2, 'Inès Vasseur', 'Studio C · Mixage', 'studio'],
+    [4, 8, 2, 'Naël Aboubakar', 'Studio B · Répétition', 'studio'],
+    [5, 1, 3, 'Sound Check Live', 'Salle · Billetterie', 'bill'],
+    [5, 6, 4, 'Concert Open Mic', 'Salle · Billetterie', 'bill'],
+    [6, 5, 5, 'Concert Soul Night', 'Salle · Billetterie', 'bill'],
+  ];
+  const colW = (grid.clientWidth - 60) / 7;
+  // place events absolutely inside grid
+  evts.forEach(([day, sh, dur, label, sub, kind]) => {
+    const e = document.createElement('div');
+    e.className = 'evt ' + kind;
+    e.innerHTML = `<small>${sub}</small>${label}`;
+    const top = 4 + sh * 48;
+    const height = dur * 48 - 4;
+    const left = 60 + day * colW + 2;
+    const width = colW - 6;
+    e.style.top = top + 'px';
+    e.style.height = height + 'px';
+    e.style.left = left + 'px';
+    e.style.width = width + 'px';
+    grid.appendChild(e);
+  });
+  // Reposition on resize
+  window.addEventListener('resize', () => {
+    const cw = (grid.clientWidth - 60) / 7;
+    grid.querySelectorAll('.evt').forEach((e, i) => {
+      const [day,sh,dur] = evts[i];
+      e.style.left = (60 + day * cw + 2) + 'px';
+      e.style.width = (cw - 6) + 'px';
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
