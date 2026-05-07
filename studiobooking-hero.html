@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1600">
+<title>StudioBooking — Hero mockup · Dikenga Design</title>
+<meta name="description" content="Mockup hero StudioBooking SaaS B2B — composition 3D premium. Cas client Dikenga Design.">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --F:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  --S:'Instrument Serif',Georgia,serif;
+  --M:'JetBrains Mono',ui-monospace,monospace;
+  --pri:#3A6BFF;
+  --pri-glow:rgba(58,107,255,.35);
+  --bg:#050507;
+  --paper:#0E0E12;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{
+  background:var(--bg);color:#fff;font-family:var(--F);min-height:100vh;
+  -webkit-font-smoothing:antialiased;letter-spacing:-.005em;overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+
+/* ============= PAGE ============= */
+.page{
+  min-height:100vh;position:relative;overflow:hidden;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  padding:120px 64px;
+}
+.page::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 40% at 50% 30%,rgba(58,107,255,.18),transparent 60%),
+    radial-gradient(ellipse 80% 50% at 50% 100%,rgba(91,46,255,.08),transparent 60%);
+  pointer-events:none;
+}
+.page::after{
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);
+  background-size:48px 48px;
+  mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,#000 30%,transparent 80%);
+  -webkit-mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,#000 30%,transparent 80%);
+  pointer-events:none;
+}
+
+/* ============= TOPBAR ============= */
+.topbar{
+  position:absolute;top:0;left:0;right:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:24px 48px;color:rgba(255,255,255,.55);
+  font-family:var(--M);font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+}
+.topbar a{color:inherit;border-bottom:1px solid rgba(255,255,255,.15);padding-bottom:1px;transition:color .25s}
+.topbar a:hover{color:#fff}
+.topbar .br{font-family:var(--S);font-size:20px;letter-spacing:-.02em;text-transform:none;color:#fff;font-style:italic}
+
+/* ============= TITLE ============= */
+.intro{position:relative;z-index:2;text-align:center;margin-bottom:48px}
+.intro .eyebrow{
+  display:inline-flex;align-items:center;gap:14px;
+  font-family:var(--M);font-size:11px;letter-spacing:.22em;
+  color:rgba(255,255,255,.55);text-transform:uppercase;margin-bottom:24px;
+}
+.intro .eyebrow::before,.intro .eyebrow::after{content:"";width:32px;height:1px;background:rgba(255,255,255,.2)}
+.intro h1{
+  font-family:var(--S);font-weight:400;
+  font-size:clamp(64px,7vw,108px);line-height:.95;letter-spacing:-.035em;
+  max-width:1100px;margin:0 auto;
+}
+.intro h1 em{font-style:italic;color:rgba(255,255,255,.5)}
+.intro h1 .dot{
+  display:inline-block;width:.32em;height:.32em;border-radius:50%;
+  background:linear-gradient(135deg,#5C9DFF,#3A6BFF);
+  margin:0 .04em;vertical-align:middle;transform:translateY(-.18em);
+  box-shadow:0 12px 32px var(--pri-glow);
+}
+.intro p{
+  margin-top:24px;color:rgba(255,255,255,.55);font-size:14px;
+  letter-spacing:-.005em;max-width:580px;margin-left:auto;margin-right:auto;line-height:1.7;
+}
+
+/* ============= 3D STAGE ============= */
+.stage{
+  position:relative;z-index:2;
+  width:100%;max-width:1380px;
+  perspective:2400px;
+  perspective-origin:50% 30%;
+  margin-top:24px;
+}
+.stage::before{
+  content:"";position:absolute;inset:-80px;
+  background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(58,107,255,.25),transparent 70%);
+  filter:blur(60px);pointer-events:none;z-index:-1;
+}
+
+/* ============= IMAC / DISPLAY ============= */
+.imac{
+  position:relative;
+  transform:rotateY(-13deg) rotateX(-3deg) rotateZ(-.5deg);
+  transform-style:preserve-3d;
+  filter:drop-shadow(0 80px 100px rgba(0,0,0,.6)) drop-shadow(0 30px 50px rgba(0,0,0,.5));
+}
+.imac-bezel{
+  background:linear-gradient(180deg,#1B1B1F 0%,#0E0E11 100%);
+  border-radius:30px;
+  padding:24px 24px 32px;
+  position:relative;
+  box-shadow:
+    inset 0 0 0 1.5px rgba(255,255,255,.07),
+    inset 0 -3px 0 rgba(0,0,0,.6),
+    inset 0 2px 0 rgba(255,255,255,.05);
+}
+.imac-bezel::after{
+  content:"";position:absolute;left:50%;bottom:13px;transform:translateX(-50%);
+  width:120px;height:5px;border-radius:0 0 8px 8px;
+  background:linear-gradient(180deg,#0A0A0E,#000);
+  box-shadow:inset 0 1px 0 rgba(0,0,0,.8);
+}
+.imac-screen{
+  position:relative;border-radius:14px;overflow:hidden;background:#08080B;
+  aspect-ratio:16/10;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.04);
+}
+.imac-screen-glare{
+  position:absolute;inset:0;pointer-events:none;z-index:50;
+  background:linear-gradient(115deg,rgba(255,255,255,.06) 0%,transparent 30%,transparent 70%,rgba(255,255,255,.02) 100%);
+}
+.imac-stand{
+  position:absolute;left:50%;bottom:-110px;transform:translateX(-50%) rotateX(60deg);
+  width:300px;height:120px;
+  background:linear-gradient(180deg,#1B1B1F 0%,#0A0A0E 100%);
+  border-radius:0 0 24px 24px;
+  box-shadow:
+    inset 0 1.5px 0 rgba(255,255,255,.05),
+    0 30px 60px rgba(0,0,0,.6);
+  z-index:-1;
+}
+.imac-base{
+  position:absolute;left:50%;bottom:-148px;transform:translateX(-50%);
+  width:520px;height:18px;
+  background:radial-gradient(ellipse at 50% 50%,#1B1B1F 0%,#0A0A0E 80%);
+  border-radius:50%;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.05),
+    0 40px 80px rgba(0,0,0,.7);
+  z-index:-2;
+}
+.imac-stand::after{
+  content:"";position:absolute;inset:0;border-radius:0 0 24px 24px;
+  background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,.6) 100%);
+}
+
+/* ============= STUDIOBOOKING DASHBOARD ============= */
+.sb{
+  width:100%;height:100%;background:#08080B;color:#fff;
+  display:grid;grid-template-columns:230px 1fr;
+  font-family:var(--F);font-size:11px;
+  position:relative;overflow:hidden;
+}
+.sb::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(ellipse 50% 40% at 30% 20%,rgba(58,107,255,.12),transparent 55%);
+  pointer-events:none;
+}
+.sb .side{
+  background:#0A0A0E;border-right:1px solid rgba(255,255,255,.04);
+  padding:22px 14px;display:flex;flex-direction:column;gap:1px;position:relative;z-index:1;
+}
+.sb .brand{display:flex;align-items:center;gap:10px;padding:6px 8px 18px}
+.sb .brand .lo{
+  width:30px;height:30px;border-radius:9px;
+  background:linear-gradient(135deg,#5C9DFF,#3A6BFF);
+  display:grid;place-items:center;color:#fff;font-weight:800;font-size:14px;
+  box-shadow:0 6px 12px var(--pri-glow),inset 0 1px 0 rgba(255,255,255,.25);
+}
+.sb .brand b{font-weight:700;font-size:14px;letter-spacing:-.02em;color:#fff;line-height:1.1}
+.sb .brand b em{font-style:normal;color:#5C9DFF}
+.sb .brand small{display:block;font-family:var(--M);font-size:9px;color:rgba(255,255,255,.4);letter-spacing:.06em;margin-top:1px;text-transform:uppercase}
+.sb .nav-g{font-family:var(--M);font-size:9px;letter-spacing:.18em;color:rgba(255,255,255,.4);text-transform:uppercase;padding:14px 8px 6px}
+.sb .nv{
+  display:flex;align-items:center;gap:10px;
+  padding:8px 10px;border-radius:8px;
+  color:rgba(255,255,255,.65);font-size:12px;font-weight:500;letter-spacing:-.005em;
+}
+.sb .nv:hover{background:rgba(255,255,255,.03);color:#fff}
+.sb .nv.on{
+  background:linear-gradient(135deg,rgba(92,157,255,.16),rgba(58,107,255,.06));
+  color:#fff;border:1px solid rgba(92,157,255,.22);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
+}
+.sb .nv .badge{margin-left:auto;background:#3A6BFF;color:#fff;font-size:9px;font-weight:600;padding:1px 6px;border-radius:999px}
+.sb .nv .ix{margin-left:auto;font-family:var(--M);font-size:9px;color:rgba(255,255,255,.4);padding:1px 5px;background:rgba(255,255,255,.04);border-radius:3px}
+.sb .ws-foot{margin-top:auto;padding:14px 8px;border-top:1px solid rgba(255,255,255,.04);display:flex;align-items:center;gap:10px}
+.sb .ws-foot .av{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,#5C9DFF,#3A6BFF);display:grid;place-items:center;font-weight:800;font-size:11px;color:#fff}
+.sb .ws-foot .info b{display:block;font-size:11px;font-weight:500;letter-spacing:-.005em}
+.sb .ws-foot .info s{display:block;text-decoration:none;font-size:9px;color:rgba(255,255,255,.4);font-family:var(--M);letter-spacing:.04em;margin-top:1px}
+
+/* MAIN */
+.sb .main{padding:22px 28px;overflow:hidden;position:relative;z-index:1}
+.sb .topr{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.sb .crumb{font-family:var(--M);font-size:10px;color:rgba(255,255,255,.4);letter-spacing:.04em;text-transform:uppercase}
+.sb .crumb b{color:#fff;font-weight:500}
+.sb .actions{display:flex;gap:8px;align-items:center}
+.sb .actions .ic{width:30px;height:30px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);display:grid;place-items:center;color:rgba(255,255,255,.7)}
+.sb .actions .pr{
+  padding:8px 14px;font-size:11px;font-weight:600;border-radius:8px;
+  background:linear-gradient(135deg,#5C9DFF,#3A6BFF);color:#fff;
+  display:flex;align-items:center;gap:6px;
+  box-shadow:0 6px 14px var(--pri-glow),inset 0 1px 0 rgba(255,255,255,.2);
+  letter-spacing:-.005em;
+}
+.sb h1{
+  font-family:var(--S);font-weight:400;font-size:42px;letter-spacing:-.03em;
+  line-height:1;margin-bottom:6px;
+}
+.sb h1 em{font-style:italic;color:rgba(255,255,255,.5)}
+.sb .h-sub{
+  display:flex;align-items:center;gap:14px;
+  font-family:var(--M);font-size:10px;color:rgba(255,255,255,.45);
+  letter-spacing:.06em;margin-bottom:18px;text-transform:uppercase;
+}
+.sb .h-sub .live{display:inline-flex;align-items:center;gap:6px;color:#7DEFA1}
+.sb .h-sub .live::before{content:"";width:5px;height:5px;border-radius:50%;background:#7DEFA1;box-shadow:0 0 8px #7DEFA1}
+
+.sb .seg{display:inline-flex;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);border-radius:8px;padding:3px;margin-bottom:14px}
+.sb .seg span{padding:6px 12px;font-size:11px;font-weight:500;color:rgba(255,255,255,.55);border-radius:6px;letter-spacing:-.005em}
+.sb .seg span.on{background:rgba(255,255,255,.08);color:#fff}
+
+/* KPI GRID — 4 + 2 layout, big hero card */
+.kpis{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:12px;margin-bottom:14px;height:280px}
+.k{position:relative;border-radius:18px;padding:20px;overflow:hidden;border:1px solid rgba(255,255,255,.06)}
+.k::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,rgba(255,255,255,.04),transparent 60%);pointer-events:none}
+.k .lbl{font-family:var(--M);font-size:9px;letter-spacing:.16em;color:rgba(255,255,255,.55);text-transform:uppercase;display:flex;align-items:center;gap:6px;font-weight:600}
+.k .lbl::before{content:"";width:5px;height:5px;border-radius:50%;background:#7DEFA1;box-shadow:0 0 6px #7DEFA1}
+.k .lbl .ic{margin-left:auto;width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.06);display:grid;place-items:center}
+.k .val{font-family:var(--S);font-weight:400;letter-spacing:-.035em;line-height:.92;color:#fff;margin-top:14px}
+.k .sub{margin-top:10px;display:flex;align-items:center;justify-content:space-between;color:rgba(255,255,255,.5);font-size:11px;letter-spacing:-.005em}
+.k .sub .delta{padding:4px 10px;border-radius:999px;background:rgba(125,239,161,.16);color:#7DEFA1;font-weight:600;font-size:10px;letter-spacing:.04em;font-family:var(--M)}
+.k .spark{margin-top:12px;display:flex;align-items:flex-end;gap:3px;height:34px}
+.k .spark div{flex:1;background:linear-gradient(180deg,rgba(255,255,255,.85),rgba(255,255,255,.2));border-radius:2px}
+
+/* HERO KPI — big featured */
+.k.hero{
+  grid-row:1 / 3;grid-column:1 / 2;
+  background:linear-gradient(135deg,#5C9DFF 0%,#3A6BFF 50%,#1A47DC 100%);
+  color:#fff;border-color:rgba(255,255,255,.18);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 24px 48px rgba(58,107,255,.3);
+}
+.k.hero::after{
+  content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.25),transparent 60%);pointer-events:none;
+}
+.k.hero .lbl{color:rgba(255,255,255,.8)}
+.k.hero .lbl::before{background:#fff;box-shadow:0 0 8px #fff}
+.k.hero .lbl .ic{background:rgba(255,255,255,.15)}
+.k.hero .val{font-size:96px;letter-spacing:-.045em;margin-top:18px}
+.k.hero .val small{font-size:36px;font-weight:400;color:rgba(255,255,255,.7)}
+.k.hero .sub{color:rgba(255,255,255,.85);font-size:12px;margin-top:auto}
+.k.hero .sub .delta{background:rgba(255,255,255,.18);color:#fff}
+.k.hero .arr{position:absolute;right:18px;top:18px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.18);display:grid;place-items:center;backdrop-filter:blur(8px)}
+.k.hero .ring{margin-top:14px;display:flex;align-items:center;gap:14px}
+.k.hero .ring .donut{
+  width:96px;height:96px;border-radius:50%;
+  background:conic-gradient(#fff 0deg 252deg,rgba(255,255,255,.2) 252deg 360deg);
+  display:grid;place-items:center;position:relative;
+}
+.k.hero .ring .donut::before{content:"";position:absolute;inset:14px;border-radius:50%;background:#3A6BFF}
+.k.hero .ring .donut span{position:relative;z-index:2;font-family:var(--S);font-size:24px;letter-spacing:-.02em}
+.k.hero .ring .legend{display:flex;flex-direction:column;gap:6px;font-size:11px;letter-spacing:-.005em}
+.k.hero .ring .legend i{width:8px;height:8px;border-radius:50%;background:#fff;display:inline-block;margin-right:6px;vertical-align:middle}
+.k.hero .ring .legend i.dim{background:rgba(255,255,255,.3)}
+.k.hero .ring .legend small{display:block;color:rgba(255,255,255,.7);font-size:10px;font-family:var(--M);letter-spacing:.04em;margin-top:1px}
+
+.k.b1{background:linear-gradient(135deg,rgba(40,40,46,.6),rgba(20,20,24,.6))}
+.k.b1 .val{font-size:42px;margin-top:18px}
+.k.b2{background:linear-gradient(135deg,rgba(40,40,46,.6),rgba(20,20,24,.6))}
+.k.b2 .val{font-size:42px;margin-top:18px}
+.k.b3{background:linear-gradient(135deg,rgba(40,40,46,.6),rgba(20,20,24,.6))}
+.k.b3 .val{font-size:42px;margin-top:18px}
+.k.b4{background:linear-gradient(135deg,rgba(40,40,46,.6),rgba(20,20,24,.6))}
+.k.b4 .val{font-size:42px;margin-top:18px}
+.k.b5{background:linear-gradient(135deg,rgba(40,40,46,.6),rgba(20,20,24,.6))}
+.k.b5 .val{font-size:42px;margin-top:18px}
+
+/* CHART + LIST row */
+.row2{display:grid;grid-template-columns:1.6fr 1fr;gap:12px}
+.panel{
+  background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);
+  border-radius:18px;padding:18px 20px;position:relative;overflow:hidden;
+}
+.panel h4{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:600;letter-spacing:-.005em;margin-bottom:14px}
+.panel h4 .meta{font-family:var(--M);font-size:9px;color:rgba(255,255,255,.4);letter-spacing:.06em;font-weight:400;text-transform:uppercase}
+.panel h4 .meta b{color:#fff;font-weight:500;margin-left:6px}
+.panel.chart-panel{padding:18px 20px 14px}
+.chart-panel svg{width:100%;height:120px;display:block;margin-top:6px}
+
+/* Today's sessions list */
+.tx-list .it{
+  display:grid;grid-template-columns:55px 1fr 1fr 60px 80px;gap:10px;align-items:center;
+  padding:10px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:11px;
+}
+.tx-list .it:last-child{border-bottom:0}
+.tx-list .it .t{font-family:var(--M);font-size:10px;color:rgba(255,255,255,.55);letter-spacing:.04em}
+.tx-list .it .nm b{display:block;font-weight:500;font-size:12px;letter-spacing:-.005em;color:#fff}
+.tx-list .it .nm s{display:block;text-decoration:none;font-size:10px;color:rgba(255,255,255,.4);margin-top:1px}
+.tx-list .it .ty{font-size:10px;color:rgba(255,255,255,.55);letter-spacing:.02em}
+.tx-list .it .pill{padding:3px 8px;border-radius:5px;font-size:9px;font-weight:600;letter-spacing:.04em;text-align:center}
+.tx-list .it .pill.ok{background:rgba(125,239,161,.16);color:#7DEFA1}
+.tx-list .it .pill.pn{background:rgba(255,184,69,.16);color:#FFB845}
+.tx-list .it .am{font-family:var(--S);font-size:14px;letter-spacing:-.02em;text-align:right;color:#fff}
+
+/* Footer cite */
+.foot-cite{
+  position:relative;z-index:2;margin-top:160px;
+  display:flex;align-items:center;justify-content:space-between;
+  width:100%;max-width:1380px;padding:0 12px;
+  font-family:var(--M);font-size:11px;letter-spacing:.18em;
+  color:rgba(255,255,255,.45);text-transform:uppercase;
+}
+.foot-cite a{color:rgba(255,255,255,.7);border-bottom:1px solid rgba(255,255,255,.15);padding-bottom:1px;transition:color .25s}
+.foot-cite a:hover{color:#fff}
+
+@media (max-width:1100px){
+  .imac{transform:none}
+  .imac-stand,.imac-base{display:none}
+  .page{padding:96px 24px}
+  .kpis{grid-template-columns:1fr 1fr;grid-template-rows:auto;height:auto}
+  .k.hero{grid-row:auto;grid-column:1 / -1;height:auto}
+  .k.hero .val{font-size:64px}
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <header class="topbar">
+    <a href="projets.html">← Projets</a>
+    <span class="br">StudioBooking.</span>
+    <span><a href="https://studiobooking.fr" target="_blank">studiobooking.fr ↗</a></span>
+  </header>
+
+  <section class="intro">
+    <div class="eyebrow">Cas client SaaS B2B · Hero mockup</div>
+    <h1>Le tableau<em>&nbsp;de bord</em><br>qui simplifie tout<span class="dot"></span></h1>
+    <p>StudioBooking centralise réservations, billetterie, paiements et planning pour les SMAC, studios de répétition et lieux culturels français. Direction artistique &amp; UI par Dikenga Design.</p>
+  </section>
+
+  <div class="stage">
+    <div class="imac">
+      <div class="imac-bezel">
+        <div class="imac-screen">
+          <div class="sb">
+            <aside class="side">
+              <div class="brand">
+                <span class="lo">S</span>
+                <span><b>Studio<em>Booking</em></b><small>Dikenga Studio</small></span>
+              </div>
+              <div class="nav-g">Principal</div>
+              <div class="nv on"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Tableau de bord<span class="ix">D</span></div>
+              <div class="nv"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Réservations<span class="badge">7</span></div>
+              <div class="nv"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="9" y1="4" x2="9" y2="22"/></svg>Calendrier</div>
+              <div class="nav-g">Gestion</div>
+              <div class="nv"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82"/></svg>Studios</div>
+              <div class="nv"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>Membres</div>
+              <div class="nv"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 17 9 11 13 15 21 7"/></svg>Statistiques</div>
+              <div class="nv"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>Billetterie</div>
+              <div class="nav-g">Compte</div>
+              <div class="nv"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82"/></svg>Paramètres</div>
+              <div class="nv"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/></svg>Abonnement</div>
+              <div class="ws-foot">
+                <div class="av">D</div>
+                <div class="info"><b>Dikenga Studio</b><s>Plan Pro · 199€/mois</s></div>
+              </div>
+            </aside>
+            <main class="main">
+              <div class="topr">
+                <div class="crumb"><b>Workspace</b> / Dikenga Studio / Tableau de bord</div>
+                <div class="actions">
+                  <span class="ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+                  <span class="ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></span>
+                  <span class="pr"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Nouvelle réservation</span>
+                </div>
+              </div>
+              <h1>Tableau de bord<em>&nbsp;produit.</em></h1>
+              <div class="h-sub">
+                <span>Jeudi 7 mai 2026</span>
+                <span class="live">Synchronisé · maintenant</span>
+              </div>
+              <div class="seg"><span>24h</span><span class="on">7 jours</span><span>30 jours</span><span>3 mois</span></div>
+
+              <div class="kpis">
+                <!-- HERO CARD -->
+                <div class="k hero">
+                  <div class="lbl">Sessions aujourd'hui<span class="ic"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+                  <div class="val">14<small> / 18</small></div>
+                  <div class="ring">
+                    <div class="donut"><span>78%</span></div>
+                    <div class="legend">
+                      <span><i></i><b>10 confirmées</b><small>Acompte encaissé</small></span>
+                      <span><i class="dim"></i><b>3 en attente</b><small>Confirmation J-1</small></span>
+                      <span><i class="dim"></i><b>1 en cours</b><small>Studio C · 14h</small></span>
+                    </div>
+                  </div>
+                  <div class="sub" style="margin-top:18px"><span>Studios A · B · C</span><span class="delta">↑ 78% taux occupation</span></div>
+                </div>
+                <!-- 5 OTHER KPIs -->
+                <div class="k b1">
+                  <div class="lbl">Cette semaine</div>
+                  <div class="val">47</div>
+                  <div class="sub"><span>sessions</span><span class="delta">↑ 18%</span></div>
+                </div>
+                <div class="k b2">
+                  <div class="lbl">Revenus mois</div>
+                  <div class="val">6 280<small style="font-size:24px;color:rgba(255,255,255,.5)"> €</small></div>
+                  <div class="sub"><span>acomptes</span><span class="delta">↑ 24%</span></div>
+                </div>
+                <div class="k b3">
+                  <div class="lbl">Taux conversion</div>
+                  <div class="val">64<small style="font-size:24px;color:rgba(255,255,255,.5)">%</small></div>
+                  <div class="sub"><span>visites → résa</span><span class="delta">↑ 0,6 pts</span></div>
+                </div>
+                <div class="k b4">
+                  <div class="lbl">Panier moyen</div>
+                  <div class="val">89<small style="font-size:24px;color:rgba(255,255,255,.5)"> €</small></div>
+                  <div class="sub"><span>par réservation</span><span class="delta">↑ 12%</span></div>
+                </div>
+                <div class="k b5">
+                  <div class="lbl">No-shows</div>
+                  <div class="val">2<small style="font-size:24px;color:rgba(255,255,255,.5)"> %</small></div>
+                  <div class="sub"><span>vs 15% benchmark</span><span class="delta">↓ 13 pts</span></div>
+                </div>
+              </div>
+
+              <div class="row2">
+                <div class="panel chart-panel">
+                  <h4>Réservations · 7 jours <span class="meta">Source <b>StudioBooking</b></span></h4>
+                  <svg viewBox="0 0 600 120" preserveAspectRatio="none">
+                    <defs>
+                      <linearGradient id="sbGrad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#5C9DFF" stop-opacity="0.35"/>
+                        <stop offset="100%" stop-color="#5C9DFF" stop-opacity="0"/>
+                      </linearGradient>
+                      <linearGradient id="sbLine" x1="0" y1="0" x2="1" y2="0">
+                        <stop offset="0%" stop-color="#5C9DFF"/>
+                        <stop offset="100%" stop-color="#3A6BFF"/>
+                      </linearGradient>
+                    </defs>
+                    <line x1="0" y1="32" x2="600" y2="32" stroke="rgba(255,255,255,.04)" stroke-dasharray="2,3"/>
+                    <line x1="0" y1="64" x2="600" y2="64" stroke="rgba(255,255,255,.05)" stroke-dasharray="2,3"/>
+                    <line x1="0" y1="96" x2="600" y2="96" stroke="rgba(255,255,255,.04)" stroke-dasharray="2,3"/>
+                    <path d="M0,86 C40,80 70,68 100,60 C140,52 170,72 210,64 C250,56 280,38 320,40 C360,42 390,22 430,26 C470,30 500,12 540,16 C580,20 600,8 600,8 L600,120 L0,120 Z" fill="url(#sbGrad)"/>
+                    <path d="M0,86 C40,80 70,68 100,60 C140,52 170,72 210,64 C250,56 280,38 320,40 C360,42 390,22 430,26 C470,30 500,12 540,16 C580,20 600,8 600,8" stroke="url(#sbLine)" stroke-width="2.5" fill="none"/>
+                    <circle cx="540" cy="16" r="5" fill="#5C9DFF"/>
+                    <circle cx="540" cy="16" r="11" fill="#5C9DFF" opacity="0.2"/>
+                    <text x="548" y="10" font-family="JetBrains Mono" font-size="9" fill="#5C9DFF">14 résa</text>
+                  </svg>
+                </div>
+                <div class="panel">
+                  <h4>Sessions du jour <span class="meta"><b>7</b> · 3 confirmées</span></h4>
+                  <div class="tx-list">
+                    <div class="it"><span class="t">09:00</span><div class="nm"><b>Léa Marchand</b><s>Studio A</s></div><span class="ty">🎤 Enreg.</span><span class="pill ok">OK</span><span class="am">112 €</span></div>
+                    <div class="it"><span class="t">10:30</span><div class="nm"><b>Kévin Dupré</b><s>Studio B</s></div><span class="ty">🎸 Répét.</span><span class="pill ok">OK</span><span class="am">54 €</span></div>
+                    <div class="it"><span class="t">14:00</span><div class="nm"><b>Tristan Léger</b><s>Studio C</s></div><span class="ty">🎵 Mixage</span><span class="pill ok">OK</span><span class="am">180 €</span></div>
+                    <div class="it"><span class="t">16:00</span><div class="nm"><b>Amélie Costa</b><s>Studio A</s></div><span class="ty">🎸 Répét.</span><span class="pill pn">Att.</span><span class="am">42 €</span></div>
+                    <div class="it"><span class="t">19:00</span><div class="nm"><b>Julien Faure</b><s>Studio C</s></div><span class="ty">🎸 Répét.</span><span class="pill ok">OK</span><span class="am">72 €</span></div>
+                  </div>
+                </div>
+              </div>
+
+            </main>
+          </div>
+          <div class="imac-screen-glare"></div>
+        </div>
+      </div>
+      <div class="imac-stand"></div>
+      <div class="imac-base"></div>
+    </div>
+  </div>
+
+  <div class="foot-cite">
+    <span><a href="projets.html">← Retour aux projets</a></span>
+    <span>Hero mockup · StudioBooking · Dikenga Design 2026</span>
+    <span><a href="https://studiobooking.fr" target="_blank">studiobooking.fr ↗</a></span>
+  </div>
+
+</div>
+
+</body>
+</html>
