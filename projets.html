@@ -230,6 +230,16 @@ body.light #cring{border-color:rgba(0,0,0,0.85)}
   cursor:pointer;transition:background .3s;
 }
 .ag-dot.active{background:#fff}
+.sb-label{
+  position:absolute;top:18px;left:18px;z-index:2;
+  background:rgba(255,255,255,.92);backdrop-filter:blur(8px);
+  color:#0E0F12;font-size:11px;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;
+  padding:8px 14px;border-radius:999px;
+  border:1px solid rgba(15,17,22,.08);
+}
+.ag-dot{background:rgba(15,17,22,.25);border-color:rgba(15,17,22,.4)}
+.ag-dot.active{background:#0E0F12}
 
 /* Info side */
 .proj-info-side{
@@ -627,35 +637,31 @@ body.light .proj-info-side{background:#FFFFFF}
   <!-- 01 — StudioBooking -->
   <article class="proj-item">
     <div class="proj-item-inner reverse">
-      <a href="mockup-studiobooking.html" class="proj-img" style="cursor:pointer;">
-        <div class="proj-img-bg" style="background-image:url('mockup-sb-dashboard.webp');background-size:cover;background-position:center top;background-color:#F4F6FB"></div>
-      </a>
+      <div class="proj-img" style="background:#F4F6FB;padding:6%">
+        <div class="proj-img-gallery" id="sbGallery">
+          <div class="ag-slide active" style="background-image:url('mockup-sb-dashboard.webp')"></div>
+          <div class="ag-slide" style="background-image:url('mockup-sb-reservations.webp')"></div>
+          <div class="ag-slide" style="background-image:url('mockup-sb-calendrier.webp')"></div>
+          <div class="ag-dots">
+            <span class="ag-dot active" data-i="0"></span>
+            <span class="ag-dot" data-i="1"></span>
+            <span class="ag-dot" data-i="2"></span>
+          </div>
+          <div class="sb-label" id="sbLabel">Tableau de bord</div>
+        </div>
+      </div>
       <div class="proj-info-side">
         <div class="proj-num rv">01</div>
         <div>
           <div class="proj-tag rv d1">
             <span class="proj-tag-dot"></span>
-            Product Design · Web App · Design System · 2026
+            Product Design · SaaS B2B · 2026
           </div>
           <h2 class="proj-name rv d1">StudioBooking</h2>
-          <p class="proj-desc rv d2">SaaS B2B de réservation pour studios musicaux — conçu de A à Z sous Figma avec design system complet, composants documentés et dev handoff structuré pour l'équipe d'intégration.</p>
-          <div class="proj-case rv d2">
-            <div class="proj-case-row">
-              <div class="proj-case-label prob">Problème</div>
-              <div class="proj-case-text">Produit multi-pages nécessitant une cohérence visuelle stricte entre 12 écrans, un dashboard admin complexe et une interface publique — sans design system, chaque écran partait dans une direction différente.</div>
-            </div>
-            <div class="proj-case-row">
-              <div class="proj-case-label sol">Solution</div>
-              <div class="proj-case-text">Design system Figma complet : 40+ composants (boutons, formulaires, modales, tableaux), tokens couleurs/typo, auto-layout systématique et annotations dev. Prototype haute fidélité livré avant développement.</div>
-            </div>
-            <div class="proj-case-row">
-              <div class="proj-case-label res">Résultat</div>
-              <div class="proj-case-text">MVP livré et en production en 8 semaines. Time-to-launch divisé par 2 grâce au design system livré avant dev. Cohérence garantie sur 12 écrans — zéro régression visuelle au lancement. 50+ studios démarchés en France au démarrage commercial.</div>
-            </div>
-          </div>
-          <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+          <p class="proj-desc rv d2">SaaS de réservation pour studios musicaux. Trois vues clés du back-office : tableau de bord, gestion des réservations et planning hebdomadaire.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:24px">
             <a href="mockup-studiobooking.html" class="proj-cta rv d3">
-              Voir les mockups admin
+              Voir tous les mockups
               <span class="proj-cta-arr">→</span>
             </a>
             <a href="https://studiobooking.fr" target="_blank" rel="noopener noreferrer" class="proj-cta rv d3" style="background:transparent;border:1px solid currentColor">
@@ -664,7 +670,7 @@ body.light .proj-info-side{background:#FFFFFF}
             </a>
           </div>
           <div class="proj-meta-row rv d3">
-            <div class="proj-meta-item"><strong>Product Design</strong> · Figma · Design System</div>
+            <div class="proj-meta-item"><strong>Figma</strong> · Design System · Webflow</div>
             <div class="proj-meta-item"><strong>2026</strong></div>
           </div>
         </div>
@@ -1036,6 +1042,23 @@ function adidasGo(n){
   adidasDots[adidasIdx].classList.add('active');
 }
 setInterval(()=>{ adidasGo((adidasIdx+1) % adidasSlides.length); }, 3500);
+
+/* ── STUDIOBOOKING GALLERY */
+let sbIdx = 0;
+const sbSlides = document.querySelectorAll('#sbGallery .ag-slide');
+const sbDots   = document.querySelectorAll('#sbGallery .ag-dot');
+const sbLabels = ['Tableau de bord','Réservations','Calendrier'];
+const sbLabel  = document.getElementById('sbLabel');
+function sbGo(n){
+  sbSlides[sbIdx].classList.remove('active');
+  sbDots[sbIdx].classList.remove('active');
+  sbIdx = n;
+  sbSlides[sbIdx].classList.add('active');
+  sbDots[sbIdx].classList.add('active');
+  if(sbLabel) sbLabel.textContent = sbLabels[sbIdx];
+}
+sbDots.forEach((d,i)=>d.addEventListener('click',e=>{e.stopPropagation();sbGo(i);}));
+setInterval(()=>{ sbGo((sbIdx+1) % sbSlides.length); }, 3500);
 </script>
 </body>
 </html>
