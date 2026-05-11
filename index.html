@@ -204,8 +204,12 @@
   --off:#B8B4B4;
   --dim:rgba(255,255,255,0.55);
   --line:rgba(255,255,255,0.1);
-  --F:'Space Grotesk',Arial,sans-serif;
+  --F:'Space Grotesk','Helvetica Neue',Helvetica,Arial,sans-serif;
   --r:12px;
+  --a1:#5B7FFF;
+  --a2:#FF7A3D;
+  --a3:#36C89B;
+  --a4:#A97CFF;
 }
 
 html{font-size:16px;overflow-x:hidden;scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
@@ -633,7 +637,7 @@ body.leaving{animation:body-exit 0.35s cubic-bezier(.4,0,.2,1) forwards}
 .about-body{
   font-family:'Suisse Intl',var(--F);
   font-size:clamp(16px,1.9vw,21px);font-weight:300;color:var(--white);
-  line-height:1.75;margin-bottom:32px;
+  line-height:1.75;margin-bottom:32px;max-width:65ch;
 }
 .about-body+.about-body{margin-top:-16px}
 .about-pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:44px;margin-top:32px}
@@ -891,10 +895,10 @@ body.leaving{animation:body-exit 0.35s cubic-bezier(.4,0,.2,1) forwards}
   color:var(--white);
 }
 .tcard-item::before{content:'→';font-weight:700;font-size:10px;flex-shrink:0;margin-top:1px}
-.tcard-item:nth-child(1)::before{color:#3B82F6}
-.tcard-item:nth-child(2)::before{color:#F59E0B}
-.tcard-item:nth-child(3)::before{color:#10B981}
-.tcard-item:nth-child(4)::before{color:#8B5CF6}
+.tcard-item:nth-child(1)::before{color:var(--a1)}
+.tcard-item:nth-child(2)::before{color:var(--a2)}
+.tcard-item:nth-child(3)::before{color:var(--a3)}
+.tcard-item:nth-child(4)::before{color:var(--a4)}
 .tcard-cta{
   display:inline-flex;align-items:center;justify-content:center;
   font-family:var(--F);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;
@@ -935,15 +939,15 @@ body.leaving{animation:body-exit 0.35s cubic-bezier(.4,0,.2,1) forwards}
   transition:color .7s cubic-bezier(.22,1,.36,1);
 }
 /* couleurs uniques par chiffre au scroll */
-.process-step:nth-child(1).num-active .process-num{color:#3B82F6}
-.process-step:nth-child(2).num-active .process-num{color:#F59E0B}
-.process-step:nth-child(3).num-active .process-num{color:#10B981}
-.process-step:nth-child(4).num-active .process-num{color:#8B5CF6}
+.process-step:nth-child(1).num-active .process-num{color:var(--a1)}
+.process-step:nth-child(2).num-active .process-num{color:var(--a2)}
+.process-step:nth-child(3).num-active .process-num{color:var(--a3)}
+.process-step:nth-child(4).num-active .process-num{color:var(--a4)}
 /* couleurs au hover */
-.process-step:nth-child(1):hover .process-num{color:#3B82F6}
-.process-step:nth-child(2):hover .process-num{color:#F59E0B}
-.process-step:nth-child(3):hover .process-num{color:#10B981}
-.process-step:nth-child(4):hover .process-num{color:#8B5CF6}
+.process-step:nth-child(1):hover .process-num{color:var(--a1)}
+.process-step:nth-child(2):hover .process-num{color:var(--a2)}
+.process-step:nth-child(3):hover .process-num{color:var(--a3)}
+.process-step:nth-child(4):hover .process-num{color:var(--a4)}
 .process-name{font-size:18px;font-weight:700;text-transform:uppercase;letter-spacing:-0.01em;margin-bottom:12px}
 .process-desc{font-family:'Suisse Intl',var(--F);font-size:17px;font-weight:300;color:var(--dim);line-height:1.75}
 
@@ -1008,7 +1012,7 @@ body.leaving{animation:body-exit 0.35s cubic-bezier(.4,0,.2,1) forwards}
 .clients-item{
   padding:0 32px;font-size:12px;font-weight:700;
   letter-spacing:0.18em;text-transform:uppercase;
-  color:rgba(255,255,255,.45);white-space:nowrap;
+  color:rgba(255,255,255,.65);white-space:nowrap;
   display:flex;align-items:center;transition:color .2s;
 }
 .clients-item:hover{color:var(--dim)}
@@ -1143,9 +1147,9 @@ body.light .contact-icon-insta,body.light .contact-icon-linkedin{background:tran
 
 /* ═══════════════ FOOTER ═══════════════ */
 .footer{padding:28px;border-top:1px solid var(--line);background:rgba(0,0,0,0.82);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
-.footer-copy{font-size:10px;font-weight:500;color:var(--dim);text-transform:uppercase;letter-spacing:0.1em}
+.footer-copy{font-size:12px;font-weight:500;color:var(--dim);text-transform:uppercase;letter-spacing:0.1em}
 .footer-links{display:flex;gap:24px}
-.footer-lnk{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;color:var(--dim);transition:color .2s}
+.footer-lnk{font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;color:var(--dim);transition:color .2s}
 .footer-lnk:hover{color:var(--white)}
 
 /* ═══════════════ FLOATS ═══════════════ */
@@ -1428,7 +1432,7 @@ body.light .contact-icon-insta,body.light .contact-icon-linkedin{background:tran
 
 
 /* ══════════════════ THÈME CLAIR ══════════════════ */
-body.light{color:#000000}
+body.light{background:#F7F6F5!important;color:#1A1818}
 
 /* ── THEME CLAIR — PROJETS */
 body.light .mq-section{background:transparent;border-color:rgba(0,0,0,0.1)}
@@ -1446,7 +1450,7 @@ body.light #cdot{background:#000000}
 body.light #cring{border-color:#000000}
 
 /* ── MENU */
-body.light .menu{background:#FFFFFF;border-color:rgba(0,0,0,0.1)}
+body.light .menu{background:#F7F6F5;border-color:rgba(0,0,0,0.1)}
 body.light .menu-link{color:#000000;border-color:rgba(0,0,0,0.1)}
 body.light .menu-link:hover{color:#000000}
 body.light .menu-link:last-child{border-color:rgba(0,0,0,0.1);border-bottom-color:rgba(0,0,0,0.1)}
@@ -1466,24 +1470,24 @@ body.light .proj-badge{border-color:rgba(0,0,0,0.2);background:rgba(0,0,0,0.05);
 body.light .proj-more{color:#000000;border-color:#000000}
 body.light .projects-count{color:#000000}
 
-/* ── CONTACT & TARIFS — BLANC PUR */
+/* ── CONTACT & TARIFS — FOND CHAUD */
 body.light .contact-panel,
 body.light .tarifs-panel,
 body.light .all-proj-panel{
-  background:#FFFFFF !important;
+  background:#F7F6F5 !important;
   backdrop-filter:none !important;
   -webkit-backdrop-filter:none !important;
 }
 body.light .contact-panel-close-btn{color:#000000;border-color:rgba(0,0,0,0.2)}
-body.light .contact{background:#FFFFFF}
-body.light .contact-h,body.light .contact-sup{color:#000000}
-body.light .contact-item{border-color:rgba(0,0,0,0.1);background:#FFFFFF;color:#000000}
-body.light .contact-item:hover{background:#F2F2F2;border-color:rgba(0,0,0,0.2)}
-body.light .contact-item-ico{border-color:rgba(0,0,0,0.15);background:#F2F2F2}
-body.light .contact-item-label{color:#000000}
-body.light .form-group label{color:#000000}
-body.light .form-group input,body.light .form-group textarea,body.light .form-group select{background:#FFFFFF;border-color:rgba(0,0,0,0.2);color:#000000}
-body.light .form-submit{background:#000000;color:#FFFFFF}
+body.light .contact{background:#F7F6F5}
+body.light .contact-h,body.light .contact-sup{color:#1A1818}
+body.light .contact-item{border-color:rgba(0,0,0,0.1);background:#EDECEA;color:#1A1818}
+body.light .contact-item:hover{background:#E3E1DE;border-color:rgba(0,0,0,0.2)}
+body.light .contact-item-ico{border-color:rgba(0,0,0,0.15);background:#E3E1DE}
+body.light .contact-item-label{color:#1A1818}
+body.light .form-group label{color:#1A1818}
+body.light .form-group input,body.light .form-group textarea,body.light .form-group select{background:#EDECEA;border-color:rgba(0,0,0,0.15);color:#1A1818}
+body.light .form-submit{background:#1A1818;color:#FFFFFF}
 
 /* ── TARIFS CARDS */
 /* tarifs light */
@@ -1496,10 +1500,10 @@ body.light .tcard-delai{color:#000000}
 body.light .tcard-delai strong{color:#000000}
 body.light .tcard-item{color:#000000}
 /* keep colored bullets on light theme */
-body.light .tcard-item:nth-child(1)::before{color:#3B82F6}
-body.light .tcard-item:nth-child(2)::before{color:#F59E0B}
-body.light .tcard-item:nth-child(3)::before{color:#10B981}
-body.light .tcard-item:nth-child(4)::before{color:#8B5CF6}
+body.light .tcard-item:nth-child(1)::before{color:var(--a1)}
+body.light .tcard-item:nth-child(2)::before{color:var(--a2)}
+body.light .tcard-item:nth-child(3)::before{color:var(--a3)}
+body.light .tcard-item:nth-child(4)::before{color:var(--a4)}
 body.light .tcard-cta{color:#000000;border-color:#000000;background:none}
 body.light .tcard-cta:hover{background:#000000;color:#FFFFFF}
 /* carte populaire — reste sombre pour ressortir */
@@ -1900,8 +1904,8 @@ body.light .reel-arrow svg path{stroke:#000000}
         <a href="#projets"  class="menu-link" onclick="closeMenu(event)" data-i18n="nav_projects">Projets</a>
         <a href="#about"    class="menu-link" onclick="closeMenu(event)" data-i18n="nav_about">À propos</a>
         <a href="#services" class="menu-link" onclick="closeMenu(event)" data-i18n="nav_services">Services</a>
-        <a href="#" class="menu-link" onclick="closeMenu(event);openTarifsPanel();" data-i18n="nav_pricing">Tarifs</a>
-        <a href="#" class="menu-link" onclick="closeMenu(event);goToContact(event);" data-i18n="nav_contact">Contact</a>
+        <a href="tarifs.html" class="menu-link" onclick="closeMenu(event);openTarifsPanel();" data-i18n="nav_pricing">Tarifs</a>
+        <a href="contact.html" class="menu-link" onclick="closeMenu(event);goToContact(event);" data-i18n="nav_contact">Contact</a>
         <a href="blog.html" class="menu-link">Blog</a>
       </nav>
       <button class="menu-close" id="menuClose" data-i18n="menu_close">Fermer</button>
