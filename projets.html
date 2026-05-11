@@ -31,12 +31,12 @@ body.light .site-video-bg{opacity:0.06;mix-blend-mode:multiply}
 @media(max-width:768px){html,body{overflow-x:hidden!important}}
 </style>
 <title>Projets — Dikenga. | Portfolio UI/UX Designer Paris</title>
-<meta name="description" content="Projets UI/UX de Dikenga, designer freelance Paris : design system Figma, interfaces product design, application SaaS, dev handoff. Sous-traitance agences."/>
+<meta name="description" content="Portfolio UI/UX de Dikenga, designer freelance Paris : design system Figma, interfaces product design, SaaS B2B, dev handoff. 6 études de cas avec résultats mesurables."/>
 <meta name="robots" content="index, follow"/>
 <meta name="author" content="Dikenga"/>
-<meta name="keywords" content="portfolio UI UX designer Paris, design system figma, product design freelance, case study designer interface, dev handoff, sous-traitance agence UX"/>
+<meta name="keywords" content="portfolio UI UX designer Paris, design system figma, product design freelance, case study designer interface, dev handoff"/>
 <meta property="og:title" content="Projets — Dikenga. | UI Design · Design System · Figma"/>
-<meta property="og:description" content="Projets UI/UX de Dikenga : design system Figma, interfaces product design, SaaS B2B. Sous-traitance agences et product teams Paris."/>
+<meta property="og:description" content="Portfolio UI/UX de Dikenga : design system Figma, interfaces product design, SaaS B2B. Études de cas avec résultats mesurables."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://dikengadesign.fr/projets.html"/>
 <meta property="og:image" content="https://dikengadesign.fr/og-image.jpg"/>
@@ -604,11 +604,19 @@ body.light .proj-info-side{background:#FFFFFF}
   .proj-lb-info{padding:40px 20px 60px}
   .proj-lb-name{font-size:clamp(36px,10vw,56px)}
 }
+.skip-link{position:absolute;top:-100px;left:16px;z-index:9999;background:#fff;color:#1D1B1B;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;text-decoration:none;transition:top .2s}
+.skip-link:focus{top:16px}
+:focus-visible{outline:2px solid #fff;outline-offset:3px;border-radius:3px}
+body.light :focus-visible{outline:2px solid #000}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}
+  #cdot,#cring{display:none!important}
+}
 </style>
 </head>
 <body>
 <!-- VIDEO FOND GLOBAL -->
-<video class="site-video-bg" autoplay muted loop playsinline preload="auto"
+<video class="site-video-bg" autoplay muted loop playsinline preload="none" aria-hidden="true"
   oncanplay="this.play()" onloadeddata="this.play()">
   <source src="hero-bg.mp4" type="video/mp4">
 </video>
@@ -618,8 +626,11 @@ body.light .proj-info-side{background:#FFFFFF}
 <div id="cdot"></div>
 <div id="cring"></div>
 
+<!-- SKIP LINK -->
+<a href="#contenu-principal" class="skip-link">Passer au contenu</a>
+
 <!-- ── NAV -->
-<nav class="nav" id="mainNav">
+<nav class="nav" id="mainNav" aria-label="Navigation principale">
   <a href="index.html" class="nav-logo" onclick="goBackHome(event)">
     <svg viewBox="0 0 320 120" fill="none" xmlns="http://www.w3.org/2000/svg">
       <ellipse cx="152" cy="60" rx="144" ry="52" stroke="white" stroke-width="7" fill="none"/>
@@ -648,7 +659,7 @@ body.light .proj-info-side{background:#FFFFFF}
 </header>
 
 <!-- ── PROJECTS LIST -->
-<main class="projects-list">
+<main class="projects-list" id="contenu-principal">
 
   <!-- 00 — Design System Dikenga (showcase live) -->
   <article class="proj-item">
