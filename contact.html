@@ -299,12 +299,20 @@ body.light .check-box{border-color:rgba(0,0,0,0.35)}
 body.light .check-row input[type=checkbox]:checked+.check-box{background:#000000;border-color:#000000}
 body.light .check-row input[type=checkbox]:checked+.check-box::after{content:'✓';font-size:10px;color:#FFFFFF;font-weight:700}
 body.light .check-label{color:#000000}
+.skip-link{position:absolute;top:-100px;left:16px;z-index:9999;background:#fff;color:#1D1B1B;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;text-decoration:none;transition:top .2s}
+.skip-link:focus{top:16px}
+:focus-visible{outline:2px solid var(--white);outline-offset:3px;border-radius:3px}
+body.light :focus-visible{outline:2px solid #000}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}
+  #cdot,#cring{display:none!important}
+}
 </style>
 <script data-goatcounter="https://dikenga.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
 <!-- VIDEO FOND GLOBAL -->
-<video class="site-video-bg" autoplay muted loop playsinline>
+<video class="site-video-bg" autoplay muted loop playsinline preload="none" aria-hidden="true">
   <source src="hero-bg.mp4" type="video/mp4">
 </video>
 
@@ -313,8 +321,11 @@ body.light .check-label{color:#000000}
 <div id="cdot"></div>
 <div id="cring"></div>
 
+<!-- SKIP LINK -->
+<a href="#contenu-principal" class="skip-link">Passer au contenu</a>
+
 <!-- NAV -->
-<nav class="nav">
+<nav class="nav" aria-label="Navigation principale">
   <a href="index.html" class="nav-logo" onclick="goHome(event)">
     <svg viewBox="0 0 320 120" fill="none" xmlns="http://www.w3.org/2000/svg">
       <ellipse cx="152" cy="60" rx="144" ry="52" stroke="white" stroke-width="7" fill="none"/>
@@ -328,6 +339,7 @@ body.light .check-label{color:#000000}
   <a href="index.html" class="nav-back" onclick="goHome(event)">← Accueil</a>
 </nav>
 
+<main id="contenu-principal">
 <div class="wrap">
 
   <!-- LEFT -->
@@ -443,6 +455,8 @@ body.light .check-label{color:#000000}
   </div>
 
 </div>
+
+</main><!-- /contenu-principal -->
 
 <!-- ── FOOTER -->
 <footer style="border-top:1px solid var(--line);padding:24px 48px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
