@@ -18,7 +18,7 @@
 <meta property="og:image:height" content="630"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://dikengadesign.fr/og-image.jpg"/>
-<meta name="keywords" content="UI UX designer freelance Paris, design system figma Paris, sous-traitance agence UX, designer interface freelance, dev handoff figma, product design freelance, Dikenga design"/>
+<meta name="keywords" content="UI UX designer freelance Paris, design system figma Paris, designer interface freelance, dev handoff figma, product design freelance, Dikenga design"/>
 <meta name="geo.region" content="FR-IDF"/>
 <meta name="geo.placename" content="Paris, France"/>
 <link rel="canonical" href="https://dikengadesign.fr/"/>
@@ -35,12 +35,7 @@
       "url": "https://dikengadesign.fr/",
       "name": "Dikenga Design",
       "description": "UI/UX Designer freelance Paris — interfaces, identités visuelles, sites web",
-      "inLanguage": "fr-FR",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://dikengadesign.fr/?s={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
+      "inLanguage": "fr-FR"
     },
     {
       "@type": "Person",
@@ -1013,7 +1008,7 @@ body.leaving{animation:body-exit 0.35s cubic-bezier(.4,0,.2,1) forwards}
 .clients-item{
   padding:0 32px;font-size:12px;font-weight:700;
   letter-spacing:0.18em;text-transform:uppercase;
-  color:rgba(255,255,255,.18);white-space:nowrap;
+  color:rgba(255,255,255,.45);white-space:nowrap;
   display:flex;align-items:center;transition:color .2s;
 }
 .clients-item:hover{color:var(--dim)}
@@ -1595,11 +1590,11 @@ body.light .svc-mobile-desc,body.light .process-desc,body.light .talseume-desc,b
 .avail-badge{
   display:inline-flex;align-items:center;gap:6px;
   font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;
-  color:#10B981;border:1px solid rgba(16,185,129,0.35);
+  color:#0FCA85;border:1px solid rgba(15,202,133,0.35);
   border-radius:100px;padding:5px 12px;flex-shrink:0;
 }
 .avail-dot{
-  width:6px;height:6px;border-radius:50%;background:#10B981;flex-shrink:0;
+  width:6px;height:6px;border-radius:50%;background:#0FCA85;flex-shrink:0;
   animation:pulse-avail 2.2s ease-in-out infinite;
 }
 @keyframes pulse-avail{
@@ -1615,6 +1610,29 @@ body.light .avail-dot{background:#059669}
   color:var(--dim);margin-top:16px;display:flex;align-items:center;gap:8px;
 }
 .reply-hint::before{content:'⚡';font-size:11px}
+
+/* ── SKIP LINK */
+.skip-link{position:absolute;top:-100px;left:16px;z-index:9999;background:var(--white);color:var(--bg);padding:10px 20px;border-radius:8px;font-family:var(--F);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;text-decoration:none;transition:top .2s}
+.skip-link:focus{top:16px}
+body.light .skip-link{background:#000000;color:#FFFFFF}
+
+/* ── VISUALLY HIDDEN */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* ── FOCUS VISIBLE */
+:focus-visible{outline:2px solid var(--white);outline-offset:3px;border-radius:3px}
+body.light :focus-visible{outline:2px solid #000000}
+
+/* ── REDUCED MOTION */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;scroll-behavior:auto!important}
+  .mq-cylinder{animation:none!important}
+  .marquee-track,.clients-track{animation:none!important}
+  #cdot,#cring{display:none!important}
+  .rv{opacity:1!important;transform:none!important}
+  .hero-word-inner{transform:translateY(0)!important}
+  .hero-sub,.hero-cta,.hero-scroll{opacity:1!important;transform:none!important}
+}
 
 /* ── PAGE TRANSITION */
 .page-transition{
@@ -1814,7 +1832,7 @@ body.light .reel-arrow svg path{stroke:#000000}
 <body>
 
 <!-- VIDEO FOND GLOBAL -->
-<video class="hero-video-bg" autoplay muted loop playsinline preload="auto">
+<video class="hero-video-bg" autoplay muted loop playsinline preload="none" aria-hidden="true">
   <source src="hero-bg.mp4" type="video/mp4">
 </video>
 
@@ -1830,8 +1848,11 @@ body.light .reel-arrow svg path{stroke:#000000}
 <div id="cring"></div>
 
 
+<!-- SKIP LINK -->
+<a href="#contenu-principal" class="skip-link">Passer au contenu</a>
+
 <!-- ═══════ NAV ═══════ -->
-<nav class="nav">
+<nav class="nav" aria-label="Navigation principale">
   <a href="#" class="nav-logo">
     <svg viewBox="0 0 320 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Dikenga.">
       <ellipse cx="152" cy="60" rx="144" ry="52" stroke="white" stroke-width="7" fill="none"/>
@@ -1840,7 +1861,7 @@ body.light .reel-arrow svg path{stroke:#000000}
   </a>
   <div class="nav-right">
     <span class="nav-time" id="navtime">FR · --:--</span>
-    <button class="nav-btn" id="menuOpen">Menu</button>
+    <button class="nav-btn" id="menuOpen" aria-expanded="false" aria-controls="menuOverlay" aria-label="Ouvrir le menu de navigation">Menu</button>
   </div>
 </nav>
 
@@ -1875,7 +1896,7 @@ body.light .reel-arrow svg path{stroke:#000000}
     </div>
     <!-- RIGHT: navigation -->
     <div>
-      <nav class="menu-links">
+      <nav class="menu-links" aria-label="Liens de navigation">
         <a href="#projets"  class="menu-link" onclick="closeMenu(event)" data-i18n="nav_projects">Projets</a>
         <a href="#about"    class="menu-link" onclick="closeMenu(event)" data-i18n="nav_about">À propos</a>
         <a href="#services" class="menu-link" onclick="closeMenu(event)" data-i18n="nav_services">Services</a>
@@ -1888,8 +1909,11 @@ body.light .reel-arrow svg path{stroke:#000000}
   </div>
 </div>
 
+<main id="contenu-principal">
+
 <!-- ═══════ HERO ═══════ -->
 <section class="hero">
+  <h1 class="sr-only">UI/UX Designer Freelance Paris — Interfaces qui convertissent</h1>
   <div class="hero-words">
     <div class="hero-word"><span class="hero-word-inner" style="transition-delay:.28s">UI/UX Design</span></div>
     <div class="hero-word"><span class="hero-word-inner" style="transition-delay:.42s">& Identité.</span></div>
@@ -1947,13 +1971,13 @@ body.light .reel-arrow svg path{stroke:#000000}
   </div>
   <div class="mq-cyl-wrap">
     <div class="mq-cylinder" id="mqCylinder">
-      <a href="projets.html" class="mq-panel" onclick="goToProjects(event)" data-i="0"><img src="dikenga-design-system-poster.png" alt="Design System Dikenga"></a>
-      <a href="projets.html" class="mq-panel" onclick="goToProjects(event)" data-i="1"><img src="mockup-sb-dashboard.webp" alt="StudioBooking"></a>
-      <a href="projets.html" class="mq-panel" onclick="goToProjects(event)" data-i="2"><img src="mockup-barnes.webp" alt="BARNES CarJager"></a>
-      <a href="projets.html" class="mq-panel" onclick="goToProjects(event)" data-i="3"><img src="mockup-mamagaya.webp" alt="Mamagaya"></a>
-      <a href="projets.html" class="mq-panel" onclick="goToProjects(event)" data-i="4"><img src="tennis-splash-mockup.webp" alt="Tennis App — Splash"></a>
-      <a href="projets.html" class="mq-panel" onclick="goToProjects(event)" data-i="5"><img src="tennis-mockup-phone.webp" alt="Tennis App — Dashboard"></a>
-      <a href="projets.html" class="mq-panel" onclick="goToProjects(event)" data-i="6"><img src="tennis-design-system.webp" alt="Tennis App — Design System"></a>
+      <a href="projets.html" class="mq-panel" onclick="goToProjects(event)" data-i="0"><img src="dikenga-design-system-poster.png" alt="Design System Dikenga" loading="lazy"></a>
+      <a href="projets.html" class="mq-panel" onclick="goToProjects(event)" data-i="1"><img src="mockup-sb-dashboard.webp" alt="StudioBooking" loading="lazy"></a>
+      <a href="projets.html" class="mq-panel" onclick="goToProjects(event)" data-i="2"><img src="mockup-barnes.webp" alt="BARNES CarJager" loading="lazy"></a>
+      <a href="projets.html" class="mq-panel" onclick="goToProjects(event)" data-i="3"><img src="mockup-mamagaya.webp" alt="Mamagaya" loading="lazy"></a>
+      <a href="projets.html" class="mq-panel" onclick="goToProjects(event)" data-i="4"><img src="tennis-splash-mockup.webp" alt="Tennis App — Splash" loading="lazy"></a>
+      <a href="projets.html" class="mq-panel" onclick="goToProjects(event)" data-i="5"><img src="tennis-mockup-phone.webp" alt="Tennis App — Dashboard" loading="lazy"></a>
+      <a href="projets.html" class="mq-panel" onclick="goToProjects(event)" data-i="6"><img src="tennis-design-system.webp" alt="Tennis App — Design System" loading="lazy"></a>
     </div>
   </div>
 </section>
@@ -1988,7 +2012,7 @@ body.light .reel-arrow svg path{stroke:#000000}
 <section class="about" id="about">
   <div class="about-grid">
     <div class="about-photo rv">
-      <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:contain;position:absolute;inset:0"><source src="motion-droplets.mp4" type="video/mp4"></video>
+      <video autoplay muted loop playsinline preload="none" aria-hidden="true" style="width:100%;height:100%;object-fit:contain;position:absolute;inset:0"><source src="motion-droplets.mp4" type="video/mp4"></video>
       <div class="about-photo-placeholder" style="display:none">
         <svg viewBox="0 0 320 120" fill="none" xmlns="http://www.w3.org/2000/svg">
           <ellipse cx="152" cy="60" rx="144" ry="52" stroke="white" stroke-width="7" fill="none"/>
@@ -2644,6 +2668,8 @@ body.light .reel-arrow svg path{stroke:#000000}
 
 
 <!-- ═══════ FOOTER ═══════ -->
+</main><!-- /contenu-principal -->
+
 <footer class="footer">
   <span class="footer-copy">©2026 Dikenga.</span>
   <div class="footer-links">
@@ -3459,17 +3485,23 @@ document.getElementById('themeDark').addEventListener('click',function(){
 const menuOverlay = document.getElementById('menuOverlay');
 const menuBtn = document.getElementById('menuOpen');
 menuBtn.addEventListener('click',()=>{
-  menuOverlay.classList.toggle('open');
+  const isOpen = menuOverlay.classList.toggle('open');
+  menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  menuBtn.setAttribute('aria-label', isOpen ? 'Fermer le menu de navigation' : 'Ouvrir le menu de navigation');
 });
 document.getElementById('menuClose').addEventListener('click',()=>{
   menuOverlay.classList.remove('open');
   menuBtn.textContent = 'Menu';
+  menuBtn.setAttribute('aria-expanded', 'false');
+  menuBtn.setAttribute('aria-label', 'Ouvrir le menu de navigation');
 });
 function closeMenu(e){
   e.preventDefault();
   const href=e.currentTarget.getAttribute('href');
   menuOverlay.classList.remove('open');
   menuBtn.textContent = 'Menu';
+  menuBtn.setAttribute('aria-expanded', 'false');
+  menuBtn.setAttribute('aria-label', 'Ouvrir le menu de navigation');
   setTimeout(()=>{ if(href&&href!=='#') document.querySelector(href)?.scrollIntoView({behavior:'smooth'}); },500);
 }
 
@@ -3487,6 +3519,8 @@ function closeMenu(e){
     if(dy < -50 && dx < 80){
       menuOverlay.classList.remove('open');
       menuBtn.textContent='Menu';
+      menuBtn.setAttribute('aria-expanded','false');
+      menuBtn.setAttribute('aria-label','Ouvrir le menu de navigation');
     }
   },{passive:true});
 })();
