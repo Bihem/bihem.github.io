@@ -340,18 +340,28 @@ body.light .step-desc{color:#555}
   .nav{padding:16px 20px 0}
   .nav-logo svg{height:28px}
 }
+.skip-link{position:absolute;top:-100px;left:16px;z-index:9999;background:#fff;color:#1D1B1B;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;text-decoration:none;transition:top .2s}
+.skip-link:focus{top:16px}
+:focus-visible{outline:2px solid var(--white);outline-offset:3px;border-radius:3px}
+body.light :focus-visible{outline:2px solid #000}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}
+}
 </style>
 </head>
 <body>
 
 <!-- VIDEO FOND GLOBAL -->
-<video class="site-video-bg" autoplay muted loop playsinline preload="auto"
+<video class="site-video-bg" autoplay muted loop playsinline preload="none" aria-hidden="true"
   oncanplay="this.play()" onloadeddata="this.play()">
   <source src="hero-bg.mp4" type="video/mp4">
 </video>
 
+<!-- SKIP LINK -->
+<a href="#contenu-principal" class="skip-link">Passer au contenu</a>
+
 <!-- ═══════ NAV ═══════ -->
-<nav class="nav">
+<nav class="nav" aria-label="Navigation principale">
   <a href="index.html" class="nav-logo">
     <svg viewBox="0 0 320 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Dikenga.">
       <ellipse cx="152" cy="60" rx="144" ry="52" stroke="white" stroke-width="7" fill="none"/>
@@ -365,6 +375,8 @@ body.light .step-desc{color:#555}
     <button class="nav-btn" id="themeBtn" aria-label="Changer le thème">Thème</button>
   </div>
 </nav>
+
+<main id="contenu-principal">
 
 <!-- ═══════ PAGE HEADER ═══════ -->
 <header class="page-header">
@@ -503,6 +515,8 @@ body.light .step-desc{color:#555}
     </div>
   </div>
 </section>
+
+</main><!-- /contenu-principal -->
 
 <!-- ═══════ FOOTER ═══════ -->
 <footer class="footer">
