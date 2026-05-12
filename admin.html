@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-VNYL81F091"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-VNYL81F091');
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Dikenga — Back Office</title>
@@ -575,7 +567,7 @@ kbd{background:var(--bg3);padding:3px 8px;border-radius:5px;font-size:12px;borde
           </div>
           <div class="g2" style="margin-top:10px">
             <div class="f"><label>Clé API Brevo</label><input id="brevo_key" type="password" placeholder="xkeysib-••••••••" oninput="saveBrevoConfig()"></div>
-            <div class="f"><label>Votre email expéditeur</label><input id="brevo_email" placeholder="dikengadesign@gmail.com" oninput="saveBrevoConfig()"></div>
+            <div class="f"><label>Votre email expéditeur</label><input id="brevo_email" placeholder="uiuxmesreves@gmail.com" oninput="saveBrevoConfig()"></div>
           </div>
           <button class="btn btn-p" style="margin-top:12px" onclick="testBrevoConnection()">🔗 Tester la connexion Brevo</button>
         </div>
@@ -998,7 +990,7 @@ function saveBrevoConfig(){
 }
 function loadBrevoConfig(){
   document.getElementById('brevo_key').value   = localStorage.getItem('brevo_key')||'';
-  document.getElementById('brevo_email').value = localStorage.getItem('brevo_email')||'dikengadesign@gmail.com';
+  document.getElementById('brevo_email').value = localStorage.getItem('brevo_email')||'uiuxmesreves@gmail.com';
   updateBrevoBadge();
 }
 function updateBrevoBadge(){
@@ -1070,7 +1062,7 @@ function togglePreview(){
 
 async function sendTest(){
   const key   = localStorage.getItem('brevo_key')||'';
-  const from  = localStorage.getItem('brevo_email')||'dikengadesign@gmail.com';
+  const from  = localStorage.getItem('brevo_email')||'uiuxmesreves@gmail.com';
   const subj  = document.getElementById('nl_subject').value || '(Test sans objet)';
   const body  = document.getElementById('nl_body').value || '(Contenu vide)';
   if(!key){ showToast('⚠ Configure ta clé Brevo d\'abord'); return; }
@@ -1094,7 +1086,7 @@ async function sendTest(){
 
 async function sendNewsletter(){
   const key   = localStorage.getItem('brevo_key')||'';
-  const from  = localStorage.getItem('brevo_email')||'dikengadesign@gmail.com';
+  const from  = localStorage.getItem('brevo_email')||'uiuxmesreves@gmail.com';
   const subj  = document.getElementById('nl_subject').value;
   const body  = document.getElementById('nl_body').value;
   const fname = document.getElementById('nl_from').value || 'Dikenga Design';
