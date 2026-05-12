@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<script>if(localStorage.getItem('dikenga-theme')==='dark'){document.documentElement.style.background='#1D1B1B';document.documentElement.style.setProperty('--bg','#1D1B1B');}else{document.documentElement.style.background='#FFFFFF';document.documentElement.style.setProperty('--bg','#FFFFFF');}</script>
+<script>if(localStorage.getItem('dikenga-theme')==='light'){document.documentElement.style.background='#FFFFFF';document.documentElement.style.setProperty('--bg','#FFFFFF');}else{document.documentElement.style.background='#1D1B1B';document.documentElement.style.setProperty('--bg','#1D1B1B');}</script>
 <style>html{background:transparent}
 /* ── VIDEO FOND GLOBAL */
 .site-video-bg{
@@ -233,20 +233,23 @@ a,button{cursor:none;text-decoration:none;color:inherit}
   body{cursor:auto}
   a,button{cursor:auto}
 
-  .nav{padding:18px 20px}
+  .nav{padding:16px 20px;gap:12px}
   .nav-logo svg{height:22px}
+  .nav-time{display:none}
+  /* Cacher Blog + À propos sur mobile — garder logo + retour */
+  .nav > a:not(.nav-logo):not(.nav-back){display:none}
 
   .wrap{
     grid-template-columns:1fr;
-    padding-top:80px;
+    padding-top:72px;
   }
 
   .left{
     position:static;height:auto;
-    padding:40px 20px 48px;
+    padding:32px 20px 40px;
     border-bottom:1px solid var(--line);
   }
-  .headline{font-size:clamp(44px,12vw,72px);margin-bottom:32px}
+  .headline{font-size:clamp(40px,11vw,68px);margin-bottom:28px}
   .desc p{font-size:14px}
   .clinks{margin-top:32px}
   .clink{padding:12px 0}
@@ -523,7 +526,7 @@ function goHome(e){
 (function(){
   const stored = localStorage.getItem('dikenga-theme');
   const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const useDark = stored ? stored === 'dark' : false;
+  const useDark = stored ? stored === 'dark' : true;
   if(!useDark){
     document.documentElement.style.setProperty('--bg','#FFFFFF');
     document.documentElement.style.setProperty('--white','#000000');
