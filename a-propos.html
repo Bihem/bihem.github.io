@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<script>if(localStorage.getItem('dikenga-theme')==='dark'){document.documentElement.style.background='#1D1B1B';document.documentElement.style.setProperty('--bg','#1D1B1B');}else{document.documentElement.style.background='#FFFFFF';document.documentElement.style.setProperty('--bg','#FFFFFF');}</script>
+<script>if(localStorage.getItem('dikenga-theme')==='light'){document.documentElement.style.background='#FFFFFF';document.documentElement.style.setProperty('--bg','#FFFFFF');}else{document.documentElement.style.background='#1D1B1B';document.documentElement.style.setProperty('--bg','#1D1B1B');}</script>
 <style>html{background:transparent}
 .site-video-bg{
   position:fixed;inset:0;
@@ -336,10 +336,17 @@ body.light .step-desc{color:#555}
   .about{padding:60px 20px}
   .process{padding:0 20px 60px}
   .about-stats{grid-template-columns:repeat(2,1fr)}
-  .page-heading{font-size:clamp(44px,12vw,80px)}
+  /* process-steps : 1 colonne sur petit écran */
+  .process-steps{grid-template-columns:1fr}
+  .step{border-right:none!important;border-top:1px solid var(--line)}
+  .step:first-child{border-top:none}
+  .page-heading{font-size:clamp(40px,11vw,72px)}
   .footer-bot{flex-direction:column;align-items:flex-start;gap:12px}
-  .nav{padding:16px 20px 0}
-  .nav-logo svg{height:28px}
+  .nav{padding:14px 20px 0}
+  .nav-logo svg{height:26px}
+  /* Cacher liens nav secondaires sur mobile */
+  .nav-right .nav-time{display:none}
+  .nav-right > a:not(.nav-back){display:none}
 }
 .skip-link{position:absolute;top:-100px;left:16px;z-index:9999;background:#fff;color:#1D1B1B;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;text-decoration:none;transition:top .2s}
 .skip-link:focus{top:16px}
@@ -553,7 +560,7 @@ body.light :focus-visible{outline:2px solid #000}
 (function(){
   const stored = localStorage.getItem('dikenga-theme');
   const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const useDark = stored ? stored === 'dark' : false;
+  const useDark = stored ? stored === 'dark' : true;
   if(!useDark) document.body.classList.add('light');
   if(!stored && window.matchMedia){
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
