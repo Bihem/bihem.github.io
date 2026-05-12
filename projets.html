@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<script>if(localStorage.getItem('dikenga-theme')==='dark'){document.documentElement.style.background='#1D1B1B';document.documentElement.style.setProperty('--bg','#1D1B1B');}else{document.documentElement.style.background='#FFFFFF';document.documentElement.style.setProperty('--bg','#FFFFFF');}</script>
+<script>if(localStorage.getItem('dikenga-theme')==='light'){document.documentElement.style.background='#FFFFFF';document.documentElement.style.setProperty('--bg','#FFFFFF');}else{document.documentElement.style.background='#1D1B1B';document.documentElement.style.setProperty('--bg','#1D1B1B');}</script>
 <style>html{background:transparent}
 /* ── VIDEO FOND GLOBAL */
 .site-video-bg{
@@ -422,13 +422,16 @@ body.light .sb-feats li::before{background:#0E0F12}
   .nav{padding:14px 16px}
   .nav-center{display:none}
   .nav-time{display:none}
-  .page-header{padding:100px 16px 48px;gap:24px}
-  .page-title{font-size:clamp(42px,12vw,72px)}
-  .proj-img{height:70vw;min-height:280px}
+  /* Cacher Blog + À propos sur mobile */
+  .nav-right > a:not(.nav-cta){display:none}
+  .page-header{padding:90px 16px 40px;gap:20px}
+  .page-title{font-size:clamp(40px,11vw,68px)}
+  .proj-img{height:65vw;min-height:260px}
   .proj-info-side{padding:32px 16px 40px}
   .proj-name{font-size:clamp(26px,8vw,42px)}
-  .proj-desc{font-size:15px;margin-bottom:32px}
+  .proj-desc{font-size:15px;margin-bottom:28px}
   .footer{padding:24px 16px;flex-direction:column;gap:16px}
+  html,body{overflow-x:hidden!important}
 }
 /* ── CONTACT PANEL */
 .contact-panel{
@@ -1129,7 +1132,7 @@ document.querySelectorAll('.rv').forEach(el=>{
 (function(){
   const stored = localStorage.getItem('dikenga-theme');
   const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const useDark = stored ? stored === 'dark' : false;
+  const useDark = stored ? stored === 'dark' : true;
   if(!useDark){
     document.documentElement.style.setProperty('--bg','#FFFFFF');
     document.documentElement.style.setProperty('--bg2','#F2F2F2');
