@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<script>(function(){var s=localStorage.getItem('dikenga-theme');var dark=s?s==='dark':false;var bg=dark?'#1D1B1B':'#FFFFFF';document.documentElement.style.background=bg;document.documentElement.style.setProperty('--bg',bg);if(!dark)document.documentElement.classList.add('pre-light');})();</script>
+<script>(function(){var s=localStorage.getItem('dikenga-theme');var dark=s?s==='dark':true;var bg=dark?'#1D1B1B':'#FFFFFF';document.documentElement.style.background=bg;document.documentElement.style.setProperty('--bg',bg);if(!dark)document.documentElement.classList.add('pre-light');})();</script>
 <style>html{background:transparent}
 .site-video-bg{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.13;z-index:0;pointer-events:none;mix-blend-mode:screen;}
 body.light .site-video-bg{opacity:0.06;mix-blend-mode:multiply}
@@ -203,18 +203,30 @@ body.light .footer-lnk:hover{color:#000}
 
 /* MOBILE */
 @media(max-width:768px){
-  .nav{padding:16px 20px 0}
-  .nav-logo svg{height:28px}
-  .nav-time{display:block}
-  .page-header{padding:90px 20px 40px}
-  .blog-filters{padding:20px 20px 0}
+  .nav{padding:14px 20px 0}
+  .nav-logo svg{height:26px}
+  .nav-time{display:none}
+  .nav-right{gap:12px}
+  .page-header{padding:80px 20px 36px}
+  .page-heading{font-size:clamp(40px,11vw,68px)}
+  /* Filtres scrollables horizontalement */
+  .blog-filters{
+    padding:16px 20px 0;
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    gap:8px;
+  }
+  .blog-filters::-webkit-scrollbar{display:none}
+  .filter-btn{flex-shrink:0;white-space:nowrap}
   .blog-grid{grid-template-columns:1fr;padding:20px 20px 60px}
   .blog-card.featured{grid-column:span 1}
-  .newsletter{flex-direction:column;align-items:flex-start;padding:40px 20px}
+  .newsletter{flex-direction:column;align-items:flex-start;padding:36px 20px}
   .newsletter-form{flex-direction:column;width:100%}
   .newsletter-input{width:100%}
   .footer{padding:20px;flex-direction:column;align-items:flex-start;gap:12px}
-  .article-inner{padding:80px 20px 60px}
+  .article-inner{padding:72px 20px 60px}
   .article-close{top:16px;right:16px}
   .rv{opacity:1!important;transform:none!important;transition:none!important}
   html,body{overflow-x:hidden!important}
@@ -589,7 +601,7 @@ body.light .footer-lnk:hover{color:#000}
 (function(){
   const stored = localStorage.getItem('dikenga-theme');
   const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const useDark = stored ? stored === 'dark' : false;
+  const useDark = stored ? stored === 'dark' : true;
   if(!useDark) document.body.classList.add('light');
   if(!stored && window.matchMedia){
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
