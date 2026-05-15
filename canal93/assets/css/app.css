@@ -1656,6 +1656,22 @@ body.light-theme .footer-mega-cta {
 }
 .footer-brand h3 em { font-style: normal; color: var(--accent); }
 
+.footer-logo {
+  display: block;
+  height: 64px;
+  width: auto;
+  margin: var(--s-4) 0 var(--s-5);
+  filter: brightness(0) invert(1);
+  transition: filter var(--t-base-d) var(--ease-out), opacity var(--t-base-d) var(--ease-out);
+}
+.footer-logo:hover { opacity: 0.85; }
+body.light-theme .footer-logo {
+  filter: brightness(0);
+}
+@media (max-width: 640px) {
+  .footer-logo { height: 48px; }
+}
+
 .footer-brand p {
   color: var(--fg-soft);
   max-width: 40ch;
