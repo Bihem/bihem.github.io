@@ -12,7 +12,7 @@
     setTimeout(() => {
       loader?.classList.add('done');
       document.getElementById('hero')?.classList.add('loaded');
-    }, 480);
+    }, 1100);
   });
 
   // ============ HEADER SCROLL ============
