@@ -26,6 +26,8 @@ body {
   overflow-x: hidden;
   min-height: 100vh;
   position: relative;
+  transition: background-color 400ms cubic-bezier(0.22, 1, 0.36, 1),
+              color 400ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* GRAIN OVERLAY (subtle film grain) */
@@ -64,11 +66,12 @@ input, textarea, select { font: inherit; color: inherit; }
 
 .eyebrow {
   font-family: var(--f-mono);
-  font-size: var(--t-xxs);
+  font-size: var(--t-xs);
   font-weight: 500;
   letter-spacing: var(--tr-eyebrow);
   text-transform: uppercase;
   color: var(--fg-mute);
+  font-variant-numeric: tabular-nums;
 }
 
 .eyebrow .dot {
