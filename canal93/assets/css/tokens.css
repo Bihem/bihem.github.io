@@ -31,8 +31,8 @@
   --bg-card:       rgba(255,255,255,0.08);
   --bg-glass:      rgba(255,255,255,0.11);
   --fg:            var(--c-bone);
-  --fg-soft:       rgba(245,242,236,0.72);
-  --fg-mute:       rgba(245,242,236,0.45);
+  --fg-soft:       rgba(245,242,236,0.84);
+  --fg-mute:       rgba(245,242,236,0.55);
   --line:          rgba(245,242,236,0.28);
   --line-strong:   rgba(245,242,236,0.45);
   --accent:        var(--c-acid);
