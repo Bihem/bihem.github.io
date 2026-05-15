@@ -437,6 +437,26 @@
     });
   }
 
+  // ============ STICKY MOBILE CTA ============
+  const stickyCta = document.getElementById('stickyCta');
+  if (stickyCta) {
+    let lastY = 0;
+    const toggleSticky = () => {
+      const y = window.scrollY;
+      // Show after passing hero (~600px) AND when scrolling
+      if (y > 700) {
+        stickyCta.classList.add('show');
+        stickyCta.setAttribute('aria-hidden', 'false');
+      } else {
+        stickyCta.classList.remove('show');
+        stickyCta.setAttribute('aria-hidden', 'true');
+      }
+      lastY = y;
+    };
+    window.addEventListener('scroll', toggleSticky, { passive: true });
+    toggleSticky();
+  }
+
   // ============ BACK TO TOP ============
   const backTop = document.getElementById('backToTop');
   if (backTop) {
