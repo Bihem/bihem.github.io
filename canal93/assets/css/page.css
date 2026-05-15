@@ -45,6 +45,7 @@
 }
 .breadcrumb a { color: var(--fg-mute); transition: color var(--t-fast); }
 .breadcrumb a:hover { color: var(--accent); }
+.breadcrumb .parent { color: var(--fg-mute); cursor: default; }
 .breadcrumb .sep { opacity: 0.4; }
 .breadcrumb .current { color: var(--accent); }
 
