@@ -43,8 +43,12 @@
 .btn-primary {
   background: var(--accent);
   color: var(--c-black);
+  position: relative;
 }
-.btn-primary:hover { box-shadow: var(--sh-glow); }
+.btn-primary:hover {
+  box-shadow: 0 8px 32px rgba(198,244,50,0.4),
+              0 0 0 4px rgba(198,244,50,0.12);
+}
 
 .btn-flare {
   background: var(--accent-warm);
@@ -131,9 +135,14 @@
 }
 
 .card:hover {
-  transform: translateY(-6px);
-  border-color: var(--line-strong);
-  box-shadow: var(--sh-card);
+  transform: translateY(-8px);
+  border-color: var(--accent);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.5),
+              0 0 40px rgba(198,244,50,0.18);
+}
+body.light-theme .card:hover {
+  box-shadow: 0 24px 60px rgba(0,0,0,0.18),
+              0 0 40px rgba(198,244,50,0.25);
 }
 
 .card-media {
