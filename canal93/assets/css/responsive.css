@@ -320,13 +320,22 @@ img, video, iframe, svg { max-width: 100%; height: auto; }
   .marquee-track span { gap: var(--s-8); }
 }
 
-/* === BACK TO TOP mobile (already moved up via sticky CTA, refine here) === */
+/* === BACK TO TOP mobile : positionné au-dessus de la sticky CTA, sans chevauchement === */
+@media (max-width: 900px) {
+  .back-to-top {
+    width: 40px; height: 40px;
+    right: 16px;
+    /* sticky CTA fait ~70px ; on monte le back-to-top à 90px au-dessus pour clearance */
+    bottom: calc(86px + env(safe-area-inset-bottom));
+  }
+  .back-to-top svg { width: 15px; height: 15px; }
+}
 @media (max-width: 480px) {
   .back-to-top {
-    width: 42px; height: 42px;
-    right: 16px;
+    width: 36px; height: 36px;
+    right: 14px;
+    bottom: calc(78px + env(safe-area-inset-bottom));
   }
-  .back-to-top svg { width: 16px; height: 16px; }
 }
 
 /* === DOLLAR/EURO TABULAR FIGURES on small === */
