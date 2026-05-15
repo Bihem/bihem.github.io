@@ -1,0 +1,355 @@
+/* =========================================================
+   CANAL 93 — RESPONSIVE FIXES
+   Mobile-first overrides for small viewports + edge cases
+   ========================================================= */
+
+/* === Global : empêcher overflow horizontal === */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+* { min-width: 0; }
+img, video, iframe, svg { max-width: 100%; height: auto; }
+
+/* === Reduce gutter on very small screens (< 480px) === */
+@media (max-width: 480px) {
+  :root {
+    --gutter: 16px;
+  }
+}
+@media (max-width: 360px) {
+  :root {
+    --gutter: 12px;
+    --header-h: 64px;
+  }
+}
+
+/* === HEADER mobile === */
+@media (max-width: 480px) {
+  .brand-mark { width: 32px; height: 32px; font-size: 14px; border-radius: 8px; }
+  .brand-name { font-size: 15px; }
+  .brand-sub { font-size: 9px; }
+  .header-cta { gap: 8px; }
+  .icon-btn { width: 40px; height: 40px; }
+  .icon-btn svg { width: 16px; height: 16px; }
+  .burger { height: 40px !important; padding: 0 14px !important; font-size: 12px; }
+}
+@media (max-width: 360px) {
+  .brand-sub { display: none; }
+  .header-cta { gap: 6px; }
+  .icon-btn { width: 38px; height: 38px; }
+}
+
+/* === HERO mobile === */
+@media (max-width: 640px) {
+  .hero {
+    min-height: 88vh;
+    min-height: 88dvh;
+    padding-bottom: var(--s-10);
+  }
+  .hero-title {
+    font-size: clamp(1.85rem, 4.5vw + 1.2rem, 2.6rem) !important;
+    max-width: 100%;
+    margin-bottom: var(--s-5);
+  }
+  .hero-sub {
+    font-size: var(--t-sm);
+    margin-bottom: var(--s-6);
+  }
+  .hero-meta-bar {
+    margin-bottom: var(--s-6);
+    padding-bottom: var(--s-4);
+  }
+  .hero-meta-bar .meta-group { gap: var(--s-4); }
+  .hero-meta-bar .meta-item small { font-size: 9px; }
+  .hero-meta-bar .meta-item strong { font-size: 11px; }
+  .hero-meta-bar .badge { font-size: 10px; padding: 5px 9px; }
+  .hero-actions { gap: var(--s-2); margin-bottom: var(--s-10); flex-direction: column; align-items: stretch; }
+  .hero-actions .btn { padding: 14px 22px; font-size: 13px; justify-content: center; width: 100%; }
+  .hero-actions .btn-lg { padding: 15px 22px; }
+  .hero-scroll { display: none; }
+}
+@media (min-width: 480px) and (max-width: 640px) {
+  .hero-actions { flex-direction: row; }
+  .hero-actions .btn { flex: 1; min-width: 0; }
+}
+
+@media (max-width: 360px) {
+  .hero-title {
+    font-size: clamp(1.65rem, 6vw, 2.2rem) !important;
+  }
+  .hero-meta-bar { flex-direction: column; align-items: flex-start; gap: var(--s-3); }
+}
+
+/* === SECTIONS mobile === */
+@media (max-width: 640px) {
+  section { padding: var(--s-10) 0; }
+  .section-head { margin-bottom: var(--s-8); gap: var(--s-4); }
+  .section-head h2 {
+    font-size: clamp(1.5rem, 4vw + 0.8rem, 2.2rem) !important;
+    max-width: 100%;
+  }
+  .section-head .lede {
+    font-size: var(--t-sm);
+    max-width: 100%;
+  }
+}
+
+/* === EVENT FEATURED CARD === */
+@media (max-width: 900px) {
+  .event-featured {
+    display: block;
+  }
+  .event-featured .card-media {
+    aspect-ratio: 16/9;
+    min-height: 280px;
+  }
+  .event-featured-body {
+    padding: var(--s-6);
+    gap: var(--s-4);
+  }
+  .event-featured .event-card-bottom .artist {
+    font-size: clamp(1.6rem, 5vw, 2.5rem) !important;
+  }
+}
+
+/* === STUDIOS grid mobile === */
+@media (max-width: 480px) {
+  .studio-card { aspect-ratio: 4/5; }
+  .studio-name {
+    font-size: clamp(1.15rem, 4vw + 0.4rem, 1.6rem) !important;
+    word-break: normal !important;
+    hyphens: auto;
+  }
+}
+
+/* === Force titles to wrap on very small === */
+@media (max-width: 480px) {
+  h1, h2, h3 {
+    word-break: normal;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+  .timeline-item h3 { font-size: var(--t-sm); }
+}
+
+/* === PROGRAMMATION cards === */
+@media (max-width: 480px) {
+  .event-card-bottom .artist { font-size: clamp(1.3rem, 4vw + 0.6rem, 2rem); }
+  .prog-controls { gap: 6px; }
+  .chip { padding: 8px 14px; font-size: 11px; }
+}
+
+/* === TERRE HIP HOP card === */
+@media (max-width: 480px) {
+  .thh-card .card-media .thh-card-logo { width: 78% !important; height: 78% !important; }
+}
+
+/* === TIMELINE Actions culturelles === */
+@media (max-width: 640px) {
+  .timeline { padding-left: var(--s-6); }
+  .timeline-item::before { left: calc(-1 * var(--s-6) - 6px); }
+  .timeline-item h3 { font-size: var(--t-md); }
+}
+
+/* === STATS grid mobile === */
+@media (max-width: 640px) {
+  .stats-grid { gap: var(--s-4); }
+  .stat { padding-top: var(--s-3); }
+  .stat .num { font-size: clamp(1.6rem, 4vw + 0.8rem, 2.4rem) !important; }
+}
+
+/* === ABOUT (Le lieu) mobile === */
+@media (max-width: 768px) {
+  .about-text h2 {
+    font-size: clamp(1.6rem, 4vw + 0.9rem, 2.6rem) !important;
+  }
+}
+
+/* === NEWSLETTER mobile === */
+@media (max-width: 640px) {
+  .newsletter {
+    padding: var(--s-10) var(--gutter);
+    border-radius: var(--r-lg);
+  }
+  .newsletter h2 { font-size: clamp(1.4rem, 4vw + 0.8rem, 2rem) !important; }
+  .newsletter-form .input-group { flex-direction: column; }
+  .newsletter-form .input { width: 100%; }
+  .newsletter-form .btn { width: 100%; justify-content: center; }
+}
+
+/* === FOOTER mobile === */
+@media (max-width: 768px) {
+  .footer-mega-cta {
+    padding: var(--s-10) var(--s-5);
+    margin-bottom: var(--s-10);
+  }
+  .footer-mega-cta h2 { font-size: clamp(1.6rem, 5vw + 1rem, 2.6rem) !important; }
+  .footer-mega-cta p.sub { font-size: var(--t-sm); }
+  .footer-mega-cta .actions { flex-direction: column; }
+  .footer-mega-cta .actions .btn { width: 100%; justify-content: center; }
+  .footer-grid { gap: var(--s-8); }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: var(--s-3); text-align: left; }
+}
+
+/* === PAGE HERO (pages internes) mobile === */
+@media (max-width: 640px) {
+  .page-hero {
+    padding: calc(var(--header-h) + var(--s-8)) 0 var(--s-8);
+  }
+  .page-hero h1 {
+    font-size: clamp(1.7rem, 5vw + 0.8rem, 2.6rem) !important;
+    max-width: 100%;
+  }
+  .page-hero .lede { font-size: var(--t-sm); }
+  .page-hero-meta {
+    flex-direction: column;
+    gap: var(--s-3);
+    padding-top: var(--s-4);
+  }
+}
+
+/* === PAGE GRID layouts === */
+@media (max-width: 900px) {
+  .page-grid-2 { grid-template-columns: 1fr !important; gap: var(--s-6); }
+  .page-aside h3 { margin-bottom: var(--s-2); }
+}
+
+/* === INFO CARDS / DATE LIST mobile === */
+@media (max-width: 640px) {
+  .info-card { padding: var(--s-5); }
+  .info-card .title { font-size: var(--t-md); }
+  .date-item { padding: var(--s-4); gap: var(--s-3); }
+  .date-item .day strong { font-size: var(--t-xl); }
+}
+
+/* === PAGE CTA (call-to-action banners on internal pages) === */
+@media (max-width: 640px) {
+  .page-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--s-8) var(--s-5);
+  }
+  .page-cta h3 { font-size: var(--t-md); }
+  .page-cta p { font-size: var(--t-sm); }
+  .page-cta .actions { width: 100%; flex-direction: column; }
+  .page-cta .actions .btn { width: 100%; justify-content: center; }
+}
+
+/* === PRICE TABLE mobile === */
+@media (max-width: 640px) {
+  .price-table { grid-template-columns: 1fr !important; }
+  .price-table .cell {
+    border-bottom: 1px solid var(--line);
+    padding: var(--s-3) var(--s-4);
+    font-size: var(--t-xs);
+  }
+  .price-table .cell.head { padding: var(--s-2) var(--s-4); font-size: 10px; }
+  .price-table .price-row .cell.label { padding-top: var(--s-3); }
+}
+
+/* === MENU OVERLAY mobile === */
+@media (max-width: 768px) {
+  .overlay-nav { padding: var(--s-4) 0; }
+  .overlay-nav-head { margin-bottom: var(--s-6); }
+  .overlay-nav-body { gap: var(--s-6); }
+  .overlay-nav-col h4 { font-size: 10px; margin-bottom: var(--s-3); }
+  .overlay-nav-col a {
+    font-size: clamp(1.1rem, 3vw + 0.5rem, 1.4rem);
+    padding: 8px 0;
+  }
+  .overlay-nav-foot {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: var(--s-4);
+    gap: var(--s-3);
+  }
+  .overlay-nav-foot .contact { font-size: 10px; }
+}
+
+/* === SEARCH BAR mobile === */
+@media (max-width: 480px) {
+  .search-bar-inner { padding: var(--s-3) var(--gutter); gap: var(--s-2); }
+  .search-bar input { font-size: 16px; /* iOS 16px+ prevents zoom on focus */ height: 40px; }
+  .search-bar-close { width: 32px; height: 32px; }
+}
+
+/* === PHOTO SLIDER mobile === */
+@media (max-width: 640px) {
+  .photo-slide { width: 80vw; max-width: none; aspect-ratio: 4/5; }
+  .photo-slider-controls { flex-wrap: wrap; gap: var(--s-3); }
+  .photo-slider-progress { width: 100%; order: 3; }
+  .photo-slider-nav button { width: 40px; height: 40px; }
+}
+
+/* === MAP EMBED mobile === */
+@media (max-width: 640px) {
+  .map-embed { aspect-ratio: 4/3; }
+  .map-embed .map-overlay { top: var(--s-3); left: var(--s-3); padding: var(--s-2) var(--s-3); }
+  .map-embed .map-overlay strong { font-size: var(--t-xs); }
+  .map-embed .map-open { bottom: var(--s-3); right: var(--s-3); padding: 8px 12px; font-size: 11px; }
+}
+
+/* === TERRE HIP HOP detailed page mobile === */
+@media (max-width: 640px) {
+  .thh-inner { gap: var(--s-6); }
+  .thh-poster { max-width: 200px; }
+  .thh-body h2 { font-size: clamp(1.5rem, 4vw + 0.8rem, 2.2rem) !important; }
+  .thh-prizes { gap: var(--s-2); }
+  .thh-prize { padding: var(--s-3); min-height: 0; }
+  .thh-cta-bar { flex-direction: column; align-items: flex-start; padding: var(--s-4); }
+  .thh-cta-bar .btn { width: 100%; justify-content: center; }
+}
+
+/* === PARTNER LOGOS mobile === */
+@media (max-width: 480px) {
+  .partner-logos {
+    gap: 20px;
+    padding: var(--s-6) 0 var(--s-3);
+  }
+  .partner-logos img { height: 24px; max-width: 80px; }
+}
+
+/* === MARQUEE — slower on mobile for readability === */
+@media (max-width: 640px) {
+  .marquee-track {
+    font-size: var(--t-lg);
+    animation-duration: 48s;
+    gap: var(--s-8);
+  }
+  .marquee-track span { gap: var(--s-8); }
+}
+
+/* === BACK TO TOP mobile (already moved up via sticky CTA, refine here) === */
+@media (max-width: 480px) {
+  .back-to-top {
+    width: 42px; height: 42px;
+    right: 16px;
+  }
+  .back-to-top svg { width: 16px; height: 16px; }
+}
+
+/* === DOLLAR/EURO TABULAR FIGURES on small === */
+@media (max-width: 480px) {
+  .card-price, .price { font-size: var(--t-xs); }
+}
+
+/* === LANDSCAPE PHONE (mobile rotated) === */
+@media (max-height: 480px) and (orientation: landscape) {
+  .hero { min-height: 100vh; min-height: 100dvh; }
+  .hero-title { font-size: clamp(1.4rem, 3vw + 0.8rem, 2.2rem) !important; }
+  .hero-actions { margin-bottom: var(--s-6); }
+}
+
+/* === TABLET 768-1024 — refined === */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .hero-title { font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem) !important; }
+  .prog-grid { grid-template-columns: repeat(2, 1fr); }
+  .studios-grid { grid-template-columns: repeat(2, 1fr); }
+  .info-grid.cols-3 { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* === WIDE DESKTOP > 1440 === */
+@media (min-width: 1440px) {
+  :root { --gutter: clamp(40px, 5vw, 80px); }
+}
