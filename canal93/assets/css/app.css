@@ -1977,3 +1977,10 @@ body.light-theme .grid-bg .btn-ghost {
   letter-spacing: var(--tr-display);
   color: var(--accent);
 }
+
+.page-load-logo {
+  width: min(440px, 60vw);
+  height: auto;
+  object-fit: contain;
+  animation: gentle-breathe 3s ease-in-out infinite;
+}
