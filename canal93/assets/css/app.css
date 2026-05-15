@@ -55,9 +55,9 @@
 }
 .brand:hover .brand-mark { transform: rotate(0deg) scale(1.06); }
 
-/* Real Canal 93 logo image (top-left of hero/header) */
+/* Real Canal 93 logo image (à côté du C93) */
 .brand-logo {
-  height: 42px;
+  height: 32px;
   width: auto;
   display: block;
   filter: brightness(0) invert(1);
@@ -73,11 +73,14 @@ body.light-theme .brand-logo {
   filter: brightness(0);
 }
 
+@media (max-width: 640px) {
+  .brand-logo { height: 26px; }
+}
 @media (max-width: 480px) {
-  .brand-logo { height: 34px; }
+  .brand-logo { height: 22px; }
 }
 @media (max-width: 360px) {
-  .brand-logo { height: 30px; }
+  .brand-logo { display: none; }
 }
 
 .brand-name {
