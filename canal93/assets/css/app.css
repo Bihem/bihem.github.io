@@ -252,8 +252,9 @@ body.light-theme .search-bar { background: rgba(255,255,255,0.94); }
   line-height: 1;
 }
 @media (max-width: 480px) {
-  .menu-label { display: none; }
-  .burger { padding: 0; width: 44px; gap: 0; }
+  /* Garder le label MENU visible — plus clair qu'un cercle vide */
+  .menu-label { display: inline; font-size: 11px; }
+  .burger { padding: 0 14px; gap: 0; height: 40px; }
 }
 
 /* ============== OVERLAY MENU (slide from top, all viewports) ============== */
@@ -2046,7 +2047,7 @@ body.light-theme .sticky-cta a.secondary {
 /* Push the back-to-top up to avoid collision with sticky CTA on mobile */
 @media (max-width: 900px) {
   .back-to-top {
-    bottom: calc(76px + env(safe-area-inset-bottom));
+    bottom: calc(86px + env(safe-area-inset-bottom));
   }
 }
 
