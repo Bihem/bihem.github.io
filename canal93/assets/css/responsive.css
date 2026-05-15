@@ -301,6 +301,55 @@ img, video, iframe, svg { max-width: 100%; height: auto; }
   .thh-cta-bar .btn { width: 100%; justify-content: center; }
 }
 
+/* === TERRE HIP HOP — bloc intro logo + description (responsive) === */
+.thh-intro {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: var(--s-10);
+  align-items: center;
+}
+.thh-intro-logo {
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+.thh-intro-logo img {
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+  object-fit: contain;
+  mix-blend-mode: screen;
+  filter: drop-shadow(0 6px 20px rgba(0,0,0,0.5));
+  transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.thh-intro-logo img:hover { transform: scale(1.03); }
+body.light-theme .thh-intro-logo img {
+  mix-blend-mode: normal;
+  filter: invert(1) drop-shadow(0 6px 20px rgba(0,0,0,0.2));
+}
+
+@media (max-width: 768px) {
+  .thh-intro {
+    grid-template-columns: 1fr;
+    gap: var(--s-8);
+    text-align: center;
+  }
+  .thh-intro-logo img {
+    max-width: 280px;
+  }
+  .thh-intro .page-prose {
+    text-align: left;
+  }
+  .thh-intro .page-prose p {
+    max-width: 100%;
+  }
+}
+@media (max-width: 480px) {
+  .thh-intro-logo img {
+    max-width: 220px;
+  }
+}
+
 /* === PARTNER LOGOS mobile === */
 @media (max-width: 480px) {
   .partner-logos {
