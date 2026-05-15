@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0A0A0A" />
+  <title>Agenda &amp; Billetterie — Canal 93</title>
+  <meta name="description" content="Tous les concerts à venir au Canal 93. Yaniss Odua, Nayra, Samira Brahmia, Chazil, BLVR Festival. Billetterie en ligne Weezevent." />
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="assets/css/tokens.css" />
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/app.css" />
+  <link rel="stylesheet" href="assets/css/page.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23C6F432'/%3E%3Ctext x='32' y='44' font-family='sans-serif' font-weight='800' font-size='30' text-anchor='middle' fill='%230A0A0A'%3EC93%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a href="index.html" class="brand"><span class="brand-mark">C93</span><span><span class="brand-name">CANAL<span>.</span>93</span><span class="brand-sub">Bobigny · 93000</span></span></a>
+    <div class="header-cta">
+      <button class="icon-btn" id="searchBtn" aria-label="Rechercher" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+      <a href="espace-membre.html" class="icon-btn" aria-label="Espace membre"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg></a>
+      <button class="burger menu-trigger" id="burgerBtn" aria-label="Ouvrir le menu" aria-expanded="false"><span class="menu-label">Menu</span></button>
+    </div>
+  </div>
+</header>
+
+<div class="search-bar" id="searchBar" aria-hidden="true">
+  <div class="search-bar-inner">
+    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <form id="searchForm" style="display:contents;"><input type="search" id="searchInput" placeholder="Rechercher un concert, un studio, un artiste…" autocomplete="off" /></form>
+    <span class="search-bar-hint">↵ Entrée</span>
+    <button class="search-bar-close" id="searchClose" aria-label="Fermer la recherche"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+  </div>
+</div>
+
+<nav class="overlay-nav" id="overlayNav" aria-hidden="true">
+  <div class="overlay-nav-head">
+    <a href="index.html" class="brand"><span class="brand-mark">C93</span><span><span class="brand-name">CANAL<span>.</span>93</span></span></a>
+    <button class="overlay-nav-close" id="overlayClose" aria-label="Fermer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+  </div>
+  <div class="overlay-nav-body">
+    <div class="overlay-nav-col"><h4>01 — Programmation</h4><ul><li><a href="agenda.html">Agenda &amp; billetterie<span class="arrow">↗</span></a></li><li><a href="terre-hip-hop.html">Terre Hip Hop<span class="arrow">↗</span></a></li><li><a href="photos.html">Photos &amp; vidéos<span class="arrow">↗</span></a></li></ul></div>
+    <div class="overlay-nav-col"><h4>02 — Studios</h4><ul><li><a href="studios-repetition.html">Répétition<span class="arrow">↗</span></a></li><li><a href="studio-enregistrement.html">Enregistrement<span class="arrow">↗</span></a></li><li><a href="studio-danse.html">Danse<span class="arrow">↗</span></a></li><li><a href="grande-salle.html">Grande salle<span class="arrow">↗</span></a></li></ul></div>
+    <div class="overlay-nav-col"><h4>03 — Nos projets</h4><ul><li><a href="ateliers.html">Ateliers musique<span class="arrow">↗</span></a></li><li><a href="actions-culturelles.html">Actions culturelles<span class="arrow">↗</span></a></li><li><a href="residences.html">Résidences<span class="arrow">↗</span></a></li><li><a href="masterclass.html">Masterclass<span class="arrow">↗</span></a></li></ul></div>
+    <div class="overlay-nav-col"><h4>04 — Canal 93</h4><ul><li><a href="le-projet.html">Le projet<span class="arrow">↗</span></a></li><li><a href="le-lieu.html">Le lieu<span class="arrow">↗</span></a></li><li><a href="infos-pratiques.html">Infos pratiques<span class="arrow">↗</span></a></li><li><a href="contact.html">Contact<span class="arrow">↗</span></a></li><li><a href="fiches-techniques.html">Fiches techniques<span class="arrow">↗</span></a></li><li><a href="privatisation.html">Privatisation<span class="arrow">↗</span></a></li></ul></div>
+  </div>
+  <div class="overlay-nav-foot">
+    <div class="theme-toggle" role="group" aria-label="Thème"><button type="button" data-theme="dark" class="active" aria-pressed="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>Sombre</button><button type="button" data-theme="light" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>Clair</button></div>
+    <div class="contact"><span>63 av. Jean Jaurès · 93000 Bobigny</span><span><a href="tel:0149911050">01 49 91 10 50</a> · <a href="mailto:communication@canal93.net">communication@canal93.net</a></span></div>
+    <div class="socials"><a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a><a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7.5C13 6.5 13.5 6 14.5 6H17V2.2C16.5 2 15.4 2 14.3 2 11.6 2 10 3.6 10 6.5V10H7v4h3v8h3z"/></svg></a></div>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container page-hero-inner">
+    <nav class="breadcrumb" aria-label="Fil d'ariane"><a href="index.html">Canal 93</a><span class="sep">/</span><span class="current">Agenda &amp; Billetterie</span></nav>
+    <h1>Agenda &amp; <em>billetterie.</em></h1>
+    <p class="lede">Tous les concerts à venir au Canal 93 — réservation en ligne via Weezevent. Reggae, raï, rap, hip-hop : la saison mai → juin 2026 est ouverte.</p>
+    <div class="page-hero-meta"><div><small>Saison</small><strong>Mai → Juin 2026</strong></div><div><small>Tarif moyen</small><strong>Dès 13 €</strong></div><div><small>Capacité</small><strong>363 places · grande salle</strong></div><div><small>Billetterie</small><strong>my.weezevent.com</strong></div></div>
+  </div>
+</section>
+<main class="page-content"><div class="container">
+
+<section id="billetterie">
+  <div class="page-grid-2">
+    <aside class="page-aside">
+      <h3>01 — Prochaines dates</h3>
+      <p class="text-mute" style="font-size:var(--t-sm);">Billets en vente sur Weezevent. Ouverture des portes 20h, début 21h sauf indication contraire.</p>
+    </aside>
+    <div>
+      <div class="date-list">
+
+        <a class="date-item" href="https://my.weezevent.com/yaniss-odua-fnx" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
+          <div class="day"><strong>22</strong><small>Mai</small></div>
+          <div class="info"><h4>Yaniss Odua &amp; FNX feat. Trinity Rebel</h4><span>20h00 · Reggae · Grande salle</span></div>
+          <div class="meta">dès 13 €</div>
+        </a>
+
+        <a class="date-item" href="https://my.weezevent.com/nayra-haze-musazi" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
+          <div class="day"><strong>05</strong><small>Juin</small></div>
+          <div class="info"><h4>Nayra + Haze Musazi</h4><span>20h00 · Rap · Plateau découverte</span></div>
+          <div class="meta">dès 13 €</div>
+        </a>
+
+        <a class="date-item" href="https://my.weezevent.com/samira-brahmia-3" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
+          <div class="day"><strong>12</strong><small>Juin</small></div>
+          <div class="info"><h4>Samira Brahmia (Pink Casbah)</h4><span>20h00 · Raï Rock · Algérie/FR</span></div>
+          <div class="meta">dès 13 €</div>
+        </a>
+
+        <a class="date-item" href="https://my.weezevent.com/blvr-festival" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
+          <div class="day"><strong>—</strong><small>Juin</small></div>
+          <div class="info"><h4>BLVR du Rap Festival</h4><span>Rap indépendant · Festival hip-hop</span></div>
+          <div class="meta">dès 13 €</div>
+        </a>
+
+        <div class="date-item">
+          <div class="day"><strong>20</strong><small>Juin</small></div>
+          <div class="info"><h4>★ Grande finale — Terre Hip Hop Contest</h4><span>20h00 · Open mic + finale freestyle</span></div>
+          <div class="meta">Sur inscription</div>
+        </div>
+
+        <div class="date-item">
+          <div class="day"><strong>26</strong><small>Juin</small></div>
+          <div class="info"><h4>Chazil — Live Show</h4><span>20h00 · Raï · Grande salle</span></div>
+          <div class="meta">dès 13 €</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="page-cta">
+    <div>
+      <h3>Newsletter Canal 93</h3>
+      <p>Reçois les annonces avant tout le monde : nouveaux concerts, places en avant-première, masterclass, résidences.</p>
+    </div>
+    <div class="actions">
+      <a href="index.html#newsletter" class="btn btn-primary">M'inscrire</a>
+      <a href="index.html#terre-hip-hop" class="btn btn-ghost">Terre Hip Hop</a>
+    </div>
+  </div>
+</section>
+
+</div></main>
+<button class="back-to-top" id="backToTop" aria-label="Retour en haut" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom" style="border-top:none;padding-top:0;">
+      <span>© 2026 Canal 93 · Bobigny</span>
+      <span class="hide-mobile">63 av. Jean Jaurès · Métro L5 Pablo Picasso</span>
+      <span><a href="mailto:communication@canal93.net" class="text-soft">communication@canal93.net</a></span>
+    </div>
+    <div class="partner-logos" style="margin-top:32px;">
+      <img src="https://static.wixstatic.com/media/7bc4b7_5e331eee969b477ea0c351074c89f07f~mv2.png" alt="Ministère de la Culture" loading="lazy" />
+      <img src="https://static.wixstatic.com/media/7bc4b7_11480a1f14e4494ea46b49cfc21a166c~mv2.png" alt="Préfet IDF" loading="lazy" />
+      <img src="https://static.wixstatic.com/media/7bc4b7_664d4068555a4ae1bad727e011b3579b~mv2.png" alt="Ville de Bobigny" loading="lazy" />
+      <img src="https://static.wixstatic.com/media/7bc4b7_82772b1abd094faaaa177df68445256b~mv2.png" alt="Seine-Saint-Denis" loading="lazy" />
+      <img src="https://static.wixstatic.com/media/7bc4b7_18c0b300ddaa4732b8d901818bcbc18a~mv2.png" alt="CAF" loading="lazy" />
+      <img src="https://static.wixstatic.com/media/7bc4b7_5c0170379f1e41588dac2541fd6e2fa3~mv2.png" alt="FONPEPS" loading="lazy" />
+      <img src="https://static.wixstatic.com/media/7bc4b7_2bb5f091907c4ee69e135f23ef418da0~mv2.png" alt="CNM" loading="lazy" />
+      <img src="https://static.wixstatic.com/media/7bc4b7_a39e9d950d9b40c89c397d1ddbb21b2a~mv2.png" alt="AM Multitech" loading="lazy" />
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
