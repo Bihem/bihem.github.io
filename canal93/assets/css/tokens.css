@@ -1,0 +1,212 @@
+/* =========================================================
+   CANAL 93 — DESIGN TOKENS
+   Refonte juillet 2026 — Dikenga Design
+   ========================================================= */
+
+:root {
+  /* === COLOR PALETTE === */
+  --c-black:       #0A0A0A;
+  --c-ink:         #111111;
+  --c-charcoal:    #1A1A1A;
+  --c-graphite:    #232323;
+  --c-smoke:       #2E2E2E;
+  --c-dim:         #6B6B6B;
+  --c-mute:        #9A9A9A;
+  --c-bone:        #F5F2EC;
+  --c-paper:       #FAF8F3;
+  --c-white:       #FFFFFF;
+
+  /* Accent — energy */
+  --c-acid:        #C6F432;   /* néon vert principal */
+  --c-acid-dim:    #9CC820;
+  --c-flare:       #FF6B35;   /* orange live */
+  --c-flare-soft:  #FF8A5C;
+  --c-blood:       #E63946;   /* rouge live "ON AIR" */
+  --c-electric:    #6FE7FF;   /* bleu studio */
+
+  /* Semantic */
+  --bg:            var(--c-black);
+  --bg-alt:        var(--c-ink);
+  --bg-elev:       var(--c-charcoal);
+  --bg-card:       rgba(255,255,255,0.08);
+  --bg-glass:      rgba(255,255,255,0.11);
+  --fg:            var(--c-bone);
+  --fg-soft:       rgba(245,242,236,0.72);
+  --fg-mute:       rgba(245,242,236,0.45);
+  --line:          rgba(245,242,236,0.28);
+  --line-strong:   rgba(245,242,236,0.45);
+  --accent:        var(--c-acid);
+  --accent-warm:   var(--c-flare);
+  --danger:        var(--c-blood);
+
+  /* === TYPOGRAPHY === */
+  --f-display:     "Sora", "Inter", system-ui, sans-serif;
+  --f-body:        "Inter", system-ui, -apple-system, sans-serif;
+  --f-mono:        "JetBrains Mono", "SF Mono", Menlo, monospace;
+  --f-editorial:   "Sora", Georgia, serif;
+
+  /* Type scale (fluid clamp) — bumped +1 step for readability */
+  --t-xxs:  clamp(0.75rem, 0.72rem + 0.15vw, 0.82rem);
+  --t-xs:   clamp(0.88rem, 0.84rem + 0.2vw, 0.96rem);
+  --t-sm:   clamp(1rem, 0.95rem + 0.3vw, 1.1rem);
+  --t-base: clamp(1.1rem, 1.05rem + 0.35vw, 1.2rem);
+  --t-md:   clamp(1.25rem, 1.15rem + 0.5vw, 1.4rem);
+  --t-lg:   clamp(1.4rem, 1.22rem + 0.75vw, 1.65rem);
+  --t-xl:   clamp(1.8rem, 1.45rem + 1.65vw, 2.3rem);
+  --t-2xl:  clamp(2.1rem, 1.7rem + 2.2vw, 3rem);
+  --t-3xl:  clamp(2.8rem, 2.15rem + 3.4vw, 4.6rem);
+  --t-4xl:  clamp(3.5rem, 2.5rem + 5.2vw, 6.3rem);
+  --t-5xl:  clamp(4.4rem, 2.7rem + 8vw, 8.8rem);
+  --t-mega: clamp(5.2rem, 3.1rem + 10.5vw, 12rem);
+
+  /* Line heights */
+  --lh-tight:   0.92;
+  --lh-snug:    1.05;
+  --lh-normal:  1.45;
+  --lh-relaxed: 1.6;
+
+  /* Tracking */
+  --tr-tight:   -0.04em;
+  --tr-display: -0.045em;
+  --tr-eyebrow: 0.16em;
+  --tr-mono:    0.06em;
+
+  /* === SPACING === */
+  --s-0:   0;
+  --s-1:   4px;
+  --s-2:   8px;
+  --s-3:   12px;
+  --s-4:   16px;
+  --s-5:   20px;
+  --s-6:   24px;
+  --s-8:   32px;
+  --s-10:  40px;
+  --s-12:  48px;
+  --s-16:  64px;
+  --s-20:  80px;
+  --s-24:  96px;
+  --s-32:  128px;
+  --s-40:  160px;
+  --s-48:  192px;
+
+  /* === LAYOUT === */
+  --max-w:        1440px;
+  --max-w-tight:  1120px;
+  --max-w-prose:  680px;
+  --gutter:       clamp(20px, 4vw, 64px);
+  --header-h:     76px;
+
+  /* === RADII === */
+  --r-xs:  4px;
+  --r-sm:  8px;
+  --r-md:  14px;
+  --r-lg:  20px;
+  --r-xl:  28px;
+  --r-full: 999px;
+
+  /* === SHADOWS === */
+  --sh-soft:    0 2px 12px rgba(0,0,0,0.25);
+  --sh-card:    0 10px 30px rgba(0,0,0,0.45);
+  --sh-elev:    0 20px 60px rgba(0,0,0,0.55);
+  --sh-glow:    0 0 40px rgba(198,244,50,0.35);
+  --sh-flare:   0 0 60px rgba(255,107,53,0.4);
+
+  /* === MOTION === */
+  --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in:     cubic-bezier(0.55, 0, 0.68, 0.06);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --t-fast:      180ms;
+  --t-base-d:    320ms;
+  --t-slow:      520ms;
+  --t-stage:     900ms;
+
+  /* === Z-INDEX === */
+  --z-base:    1;
+  --z-sticky:  50;
+  --z-overlay: 80;
+  --z-modal:   100;
+  --z-toast:   150;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --t-fast: 0ms; --t-base-d: 0ms; --t-slow: 0ms; --t-stage: 0ms; }
+}
+
+/* ===== LIGHT THEME — NOIR & BLANC + VERT ACIDE ===== */
+body.light-theme {
+  --bg:            #FFFFFF;
+  --bg-alt:        #F5F5F5;
+  --bg-elev:       #FFFFFF;
+  --bg-card:       rgba(0,0,0,0.06);
+  --bg-glass:      rgba(0,0,0,0.08);
+  --fg:            #000000;
+  --fg-soft:       rgba(0,0,0,0.78);
+  --fg-mute:       rgba(0,0,0,0.5);
+  --line:          rgba(0,0,0,0.28);
+  --line-strong:   rgba(0,0,0,0.45);
+  /* Vert acide conservé pour les accents */
+  --accent:        #C6F432;
+  --c-acid:        #C6F432;
+}
+body.light-theme::after {
+  opacity: 0.04;
+  mix-blend-mode: multiply;
+}
+body.light-theme .hero-overlay {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.5) 60%, #FFFFFF 100%);
+}
+body.light-theme .hero-media img,
+body.light-theme .hero-media video {
+  filter: saturate(0.9) contrast(1.05) brightness(0.92);
+}
+body.light-theme .site-header.scrolled {
+  background: rgba(255,255,255,0.88);
+  border-bottom-color: var(--line);
+}
+body.light-theme .overlay-nav {
+  background: rgba(255,255,255,0.97);
+}
+body.light-theme .marquee { background: #FFFFFF; border-color: var(--line); }
+body.light-theme .marquee-track .sep,
+body.light-theme .eyebrow .dot { box-shadow: none; }
+body.light-theme .map-grid {
+  background-image:
+    linear-gradient(rgba(10,10,10,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10,10,10,0.06) 1px, transparent 1px);
+}
+body.light-theme .map-block { background: var(--c-bone); }
+body.light-theme .newsletter {
+  background: linear-gradient(135deg, #FFFFFF 0%, var(--c-bone) 60%);
+}
+body.light-theme .partner-logos img { filter: brightness(0) opacity(0.5); }
+body.light-theme .partner-logos img:hover { filter: brightness(0) opacity(1); }
+body.light-theme .page-hero {
+  background: #FFFFFF;
+}
+body.light-theme .page-hero::after {
+  background-image:
+    linear-gradient(rgba(10,10,10,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10,10,10,0.05) 1px, transparent 1px);
+}
+body.light-theme .page-cta {
+  background: #FAFAFA;
+  border: 1px solid var(--line);
+}
+body.light-theme .price-table .cell.head { background: rgba(0,0,0,0.04); }
+body.light-theme .thh {
+  background: #FFFFFF;
+}
+body.light-theme .newsletter {
+  background: linear-gradient(135deg, #FFFFFF 0%, #FAFAFA 60%);
+}
+body.light-theme .newsletter::before { display: none; }
+body.light-theme .site-footer { background: #FFFFFF; }
+body.light-theme .page-load { background: #FFFFFF; }
+body.light-theme .page-load-mark { color: #000000; }
+body.light-theme .thh-poster img.logo {
+  mix-blend-mode: normal;
+  filter: invert(1) drop-shadow(0 6px 20px rgba(0,0,0,0.2));
+}
+body.light-theme .site-footer { background: var(--c-bone); }
+body.light-theme .page-load { background: var(--c-bone); }
