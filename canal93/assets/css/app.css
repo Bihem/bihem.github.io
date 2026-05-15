@@ -1952,32 +1952,41 @@ body.light-theme .footer-mega-cta {
 .about-text h2 em { font-style: normal; color: var(--accent); }
 .about-text p { color: var(--fg-soft); line-height: var(--lh-relaxed); margin-bottom: var(--s-4); max-width: 56ch; }
 
-/* ============== PARTNER LOGOS ROW ============== */
+/* ============== PARTNER LOGOS ROW (monochrome premium) ============== */
 .partner-logos {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: clamp(20px, 4vw, 56px);
-  padding: var(--s-8) 0 var(--s-4);
+  gap: clamp(24px, 4.5vw, 64px);
+  padding: var(--s-10) 0 var(--s-6);
   margin-top: var(--s-8);
   border-top: 1px solid var(--line);
 }
 
 .partner-logos img {
-  height: 36px;
+  height: 44px;
   width: auto;
-  max-width: 120px;
+  max-width: 140px;
   filter: brightness(0) invert(1) opacity(0.55);
-  transition: filter var(--t-base-d) var(--ease-out), opacity var(--t-base-d) var(--ease-out);
+  transition: filter 380ms cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 380ms cubic-bezier(0.22, 1, 0.36, 1),
+              transform 380ms cubic-bezier(0.22, 1, 0.36, 1);
   object-fit: contain;
 }
 .partner-logos img:hover {
   filter: brightness(0) invert(1) opacity(1);
+  transform: translateY(-3px);
+}
+body.light-theme .partner-logos img {
+  filter: brightness(0) opacity(0.55);
+}
+body.light-theme .partner-logos img:hover {
+  filter: brightness(0) opacity(1);
 }
 
 @media (max-width: 640px) {
-  .partner-logos img { height: 28px; max-width: 90px; }
+  .partner-logos img { height: 32px; max-width: 100px; }
 }
 
 /* ============== STICKY MOBILE CTA BAR ============== */
