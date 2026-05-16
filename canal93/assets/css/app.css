@@ -1298,7 +1298,7 @@ body.light-theme .thh-card .card-media .thh-card-logo {
 }
 .event-featured .card-media { aspect-ratio: 4/5; }
 .event-featured .card-media img { object-position: center top; }
-.event-featured .event-card-bottom .artist { font-size: var(--t-2xl); }
+.event-featured .event-card-bottom .artist { font-size: var(--t-3xl); }
 
 /* Tablet + desktop : 2-col layout. Image dominante (plus large que body) — l'affiche reste
    l'élément principal visuel. En dessous (<768px) la responsive.css force display:block. */
