@@ -1638,11 +1638,7 @@ body.light-theme .footer-mega-cta {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--s-12);
-  margin-bottom: var(--s-16);
-}
-
-@media (min-width: 768px) {
-  .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; }
+  margin-bottom: var(--s-12);
 }
 
 .footer-brand h3 {
