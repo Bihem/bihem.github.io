@@ -2774,3 +2774,288 @@ body.light-theme .page-load-half { background: #FFFFFF; }
 body.light-theme .page-load-logo {
   filter: invert(1);
 }
+
+/* =========================================================
+   CONCERTS À L'AFFICHE — PREMIUM CINEMATIC PASS
+   Affiche moderne / Boiler Room / Cercle / Awwwards music
+   ========================================================= */
+
+/* ---- Card base : profondeur + perspective ---- */
+.event-card {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 700ms cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Idle micro-float — extrêmement subtil, donne du vivant */
+@keyframes card-float-a {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-3px); }
+}
+@keyframes card-float-b {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-4px); }
+}
+@keyframes card-float-c {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-2.5px); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .prog-grid > .event-card:not(.event-featured):not(:hover):nth-child(3n+1) {
+    animation: card-float-a 7.5s ease-in-out infinite;
+  }
+  .prog-grid > .event-card:not(.event-featured):not(:hover):nth-child(3n+2) {
+    animation: card-float-b 8.5s ease-in-out infinite;
+    animation-delay: -2s;
+  }
+  .prog-grid > .event-card:not(.event-featured):not(:hover):nth-child(3n) {
+    animation: card-float-c 9s ease-in-out infinite;
+    animation-delay: -4s;
+  }
+}
+
+/* ---- Card-media : zoom lent + ken-burns subtil ---- */
+.event-card .card-media {
+  position: relative;
+  overflow: hidden;
+}
+.event-card .card-media img {
+  transform: scale(1.04);
+  transition: transform 1800ms cubic-bezier(0.22, 1, 0.36, 1),
+              filter 1200ms cubic-bezier(0.22, 1, 0.36, 1);
+  filter: saturate(1.05) contrast(1.08) brightness(0.95);
+}
+
+/* Light sweep — réflexion lumineuse subtile permanente */
+.event-card .card-media::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(115deg,
+              transparent 0%,
+              transparent 38%,
+              rgba(255,255,255,0.08) 50%,
+              transparent 62%,
+              transparent 100%);
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 400ms ease-out;
+}
+
+/* Grain texture overlay sur card-media */
+.event-card .card-media::after {
+  background:
+    radial-gradient(ellipse at 70% 28%, rgba(198,244,50,0.10), transparent 55%),
+    radial-gradient(ellipse at 22% 88%, rgba(255,107,53,0.10), transparent 55%),
+    linear-gradient(180deg, transparent 35%, rgba(0,0,0,0.92) 100%);
+  transition: background 600ms ease-out;
+}
+
+/* ---- HOVER PREMIUM ---- */
+@media (hover: hover) {
+  .event-card:hover {
+    transform: translateY(-10px);
+    box-shadow:
+      0 32px 80px rgba(0,0,0,0.6),
+      0 0 60px rgba(198,244,50,0.22),
+      0 0 0 1px var(--accent);
+  }
+  .event-card:hover .card-media img {
+    transform: scale(1.12) translateY(-6px);
+    filter: saturate(1.18) contrast(1.15) brightness(1.05);
+  }
+  .event-card:hover .card-media::before {
+    transform: translateX(120%);
+    opacity: 1;
+  }
+  .event-card:hover .card-media::after {
+    background:
+      radial-gradient(ellipse at 70% 18%, rgba(198,244,50,0.28), transparent 50%),
+      radial-gradient(ellipse at 22% 88%, rgba(255,107,53,0.18), transparent 50%),
+      linear-gradient(180deg, transparent 25%, rgba(0,0,0,0.88) 100%);
+  }
+  /* Bottom info : décollage + lettrage */
+  .event-card:hover .event-card-bottom {
+    transform: translateY(-4px);
+  }
+  .event-card:hover .event-card-bottom .artist {
+    letter-spacing: -0.012em;
+    text-shadow: 0 6px 24px rgba(0,0,0,0.6);
+  }
+  .event-card:hover .event-card-bottom .genre {
+    color: var(--accent);
+    letter-spacing: 0.22em;
+  }
+  /* Date pill : éclat + rapprochement */
+  .event-card:hover .event-card-date {
+    border-color: var(--accent);
+    background: rgba(10,10,10,0.85);
+    box-shadow: 0 8px 24px rgba(198,244,50,0.18);
+  }
+  .event-card:hover .event-card-date strong {
+    text-shadow: 0 0 14px rgba(198,244,50,0.5);
+  }
+}
+
+.event-card-bottom {
+  transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.event-card-bottom .artist {
+  transition: letter-spacing 600ms cubic-bezier(0.22, 1, 0.36, 1),
+              text-shadow 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.event-card-bottom .genre {
+  transition: color 400ms ease-out, letter-spacing 400ms ease-out;
+}
+.event-card-date {
+  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 500ms ease-out,
+              background 500ms ease-out,
+              box-shadow 500ms ease-out;
+}
+.event-card-date strong {
+  transition: text-shadow 500ms ease-out;
+}
+
+/* ---- Typographie ÉDITORIALE pour la date pill ---- */
+.event-card-date {
+  padding: 12px 16px;
+  gap: 4px;
+  border-radius: 4px;
+  background: rgba(8,8,8,0.78);
+  border: 1px solid rgba(245,242,236,0.18);
+}
+.event-card-date strong {
+  font-family: var(--f-display);
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  font-variant-numeric: tabular-nums;
+  color: var(--fg);
+}
+.event-card-date::after {
+  content: "";
+  display: block;
+  width: 22px;
+  height: 1px;
+  background: var(--accent);
+  margin: 6px auto 4px;
+  opacity: 0.7;
+}
+.event-card-date small {
+  font-family: var(--f-mono);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--fg-mute);
+}
+
+/* ---- Genre + artiste : style affiche festival ---- */
+.event-card-bottom .genre {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(245,242,236,0.65);
+}
+.event-card-bottom .artist {
+  font-family: var(--f-display);
+  font-weight: 800;
+  font-size: clamp(1.45rem, 1.05rem + 1.4vw, 2.4rem);
+  line-height: 0.96;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  text-shadow: 0 4px 18px rgba(0,0,0,0.55);
+}
+
+/* ---- Card-foot : plus aéré ---- */
+.event-card-foot {
+  padding: var(--s-4) var(--s-5);
+  border-top: 1px solid rgba(245,242,236,0.06);
+  background: rgba(8,8,8,0.4);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.event-card-foot .card-price {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ---- FEATURED SLIDER : cursor-spotlight + premium frame ---- */
+.featured-slider {
+  position: relative;
+  isolation: isolate;
+}
+.featured-slider::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border-radius: var(--r-lg);
+  background: linear-gradient(135deg, rgba(198,244,50,0.22), transparent 40%, rgba(255,107,53,0.18) 90%);
+  opacity: 0;
+  transition: opacity 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.featured-slider:hover::before { opacity: 1; }
+
+.featured-slide .card-media {
+  position: relative;
+  overflow: hidden;
+}
+.featured-slide .card-media .spotlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background: radial-gradient(
+    600px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(255,255,255,0.18),
+    transparent 38%
+  );
+  opacity: 0;
+  transition: opacity 320ms ease-out;
+  mix-blend-mode: overlay;
+}
+.featured-slide:hover .card-media .spotlight { opacity: 1; }
+
+/* Subtle ken-burns on featured slide image */
+.featured-slide.active .card-media img {
+  animation: ken-burns 14s ease-in-out infinite alternate;
+}
+@keyframes ken-burns {
+  0%   { transform: scale(1.04) translate3d(0, 0, 0); }
+  100% { transform: scale(1.10) translate3d(-1.5%, -1.2%, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .featured-slide.active .card-media img { animation: none; }
+}
+
+/* ---- Section heading editorial accent ---- */
+#programmation .section-head h2 {
+  font-family: var(--f-display);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+#programmation .section-head h2 em::after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 60%;
+  background: var(--accent);
+  margin-top: 6px;
+  border-radius: 2px;
+  opacity: 0.85;
+}
+
+/* Wider gap between cards on desktop */
+@media (min-width: 1024px) {
+  .prog-grid { gap: var(--s-8); }
+}
