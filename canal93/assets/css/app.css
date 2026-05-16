@@ -1175,16 +1175,10 @@ body.light-theme .hero-grid-lines {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--s-6);
-  align-items: stretch;
 }
-.prog-grid > .event-card:not(.event-featured) {
-  display: flex;
-  flex-direction: column;
-}
-.prog-grid > .event-card:not(.event-featured) .card-media { flex: 1 1 auto; }
 @media (min-width: 640px) { .prog-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1024px) { .prog-grid { grid-template-columns: repeat(3, 1fr); } }
-@media (min-width: 1024px) { .prog-grid .event-featured { grid-column: span 2; } }
+.prog-grid .event-featured { grid-column: 1 / -1; }
 
 .event-card .card-media { aspect-ratio: 4/5; }
 
@@ -1317,6 +1311,99 @@ body.light-theme .thh-card .card-media .thh-card-logo {
   gap: var(--s-6);
   justify-content: center;
 }
+
+/* ============== FEATURED SLIDER (À l'affiche cycling) ============== */
+.featured-slider {
+  position: relative;
+  grid-column: 1 / -1;
+  margin-bottom: var(--s-4);
+}
+.featured-track {
+  position: relative;
+  width: 100%;
+}
+.featured-track > .featured-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px) scale(0.997);
+  transition: opacity 600ms cubic-bezier(0.22, 1, 0.36, 1),
+              transform 600ms cubic-bezier(0.22, 1, 0.36, 1),
+              visibility 600ms;
+  pointer-events: none;
+}
+.featured-track > .featured-slide:first-child {
+  position: relative;
+}
+.featured-slide .card-media,
+.featured-slide .card-media img {
+  width: 100%;
+  max-width: 100%;
+}
+.featured-slide .event-featured-body {
+  width: 100%;
+}
+.featured-track > .featured-slide.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.featured-dots {
+  position: absolute;
+  z-index: 3;
+  bottom: var(--s-5);
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background: rgba(10,10,10,0.55);
+  backdrop-filter: blur(10px) saturate(140%);
+  -webkit-backdrop-filter: blur(10px) saturate(140%);
+  border: 1px solid var(--line);
+  border-radius: var(--r-full);
+}
+@media (min-width: 1024px) {
+  .featured-dots { left: 25%; }
+}
+.fd-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.35);
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+  transition: background var(--t-fast), width var(--t-base) var(--ease-out);
+}
+.fd-dot:hover { background: rgba(255,255,255,0.6); }
+.fd-dot.active {
+  background: var(--accent);
+  width: 22px;
+  border-radius: 4px;
+}
+
+.featured-progress {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: rgba(255,255,255,0.06);
+  overflow: hidden;
+  z-index: 2;
+}
+.featured-progress span {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: var(--accent);
+  box-shadow: 0 0 10px rgba(198,244,50,0.6);
+  transition: width 0s linear;
+}
+.featured-slider[data-paused="true"] .featured-progress span { width: var(--p, 0%) !important; transition: none !important; }
 
 /* ============== TERRE HIP HOP CONTEST (compact, no orange) ============== */
 .thh {
