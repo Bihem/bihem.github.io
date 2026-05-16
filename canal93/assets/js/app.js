@@ -709,11 +709,23 @@
     let paused = false;
 
     const showAt = (i) => {
-      current = (i + slides.length) % slides.length;
-      slides.forEach((s, idx) => s.classList.toggle('active', idx === current));
-      dots.forEach((d, idx) => d.classList.toggle('active', idx === current));
+      const next = (i + slides.length) % slides.length;
+      if (next === current) return;
+      // Mark current as "was-active" so it slides down out of frame
+      slides.forEach((s, idx) => {
+        s.classList.remove('was-active');
+        if (idx === current) s.classList.add('was-active');
+      });
+      // Mark the new active
+      slides.forEach((s, idx) => s.classList.toggle('active', idx === next));
+      dots.forEach((d, idx) => d.classList.toggle('active', idx === next));
+      current = next;
       progressStart = performance.now();
       if (bar) bar.style.width = '0%';
+      // Clean was-active after transition so it's ready to come from top again
+      setTimeout(() => {
+        slides.forEach((s, idx) => { if (idx !== current) s.classList.remove('was-active'); });
+      }, 950);
     };
 
     const tickProgress = () => {
