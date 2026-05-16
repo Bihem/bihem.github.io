@@ -167,6 +167,8 @@
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-grid-lines"></div>
+    <div class="hero-grain" aria-hidden="true"></div>
+    <div class="hero-spotlight" aria-hidden="true"></div>
 
     <div class="container hero-content">
       <div class="hero-meta-bar reveal">
@@ -205,7 +207,7 @@
       <!-- Hero next-concerts mini strip -->
       <div class="hero-next reveal" data-delay="4" aria-label="Prochains concerts">
         <div class="hero-next-head">
-          <span class="eyebrow"><span class="dot live-dot"></span>Prochains rendez-vous</span>
+          <span class="eyebrow"><span class="dot live-dot"></span>Prochains rendez-vous<span class="waveform" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span></span>
           <a href="agenda.html" class="hero-next-all">Toute la saison <span aria-hidden="true">→</span></a>
         </div>
         <div class="hero-next-track">
@@ -314,9 +316,14 @@
               <span>Concert dans</span>
               <strong data-cd="2026-05-22T20:00:00">— : — : —</strong>
             </div>
-            <div class="flex gap-3" style="margin-top:8px;">
+            <div class="flex gap-3" style="margin-top:8px;flex-wrap:wrap;">
               <a href="https://my.weezevent.com/yaniss-odua-fnx" target="_blank" rel="noopener" class="btn btn-primary">Billetterie · dès 13 €</a>
-              <a href="agenda.html" class="btn btn-ghost">Détails</a>
+              <button type="button" class="btn btn-ghost btn-play" data-video="https://www.youtube.com/embed/YpKxxIeplVE?autoplay=1">
+                <span class="play-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                </span>
+                Voir le clip
+              </button>
             </div>
           </div>
         </article>
@@ -748,6 +755,16 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
   </button>
 
+  <!-- ========= VIDEO MODAL ========= -->
+  <div class="video-modal" id="videoModal" aria-hidden="true" role="dialog" aria-label="Lecteur vidéo">
+    <button class="video-modal-close" id="videoModalClose" aria-label="Fermer la vidéo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="video-modal-frame">
+      <iframe id="videoModalIframe" src="" title="Vidéo" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+
   <!-- ========= LIGHTBOX ========= -->
   <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Galerie photo">
     <button class="lightbox-close" id="lightboxClose" aria-label="Fermer">
@@ -771,7 +788,7 @@
   <!-- ========= SCRIPTS ========= -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="assets/js/app.js?v=2026-05-16e"></script>
+  <script src="assets/js/app.js?v=2026-05-16f"></script>
 
 </body>
 </html>
