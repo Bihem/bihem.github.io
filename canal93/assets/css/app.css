@@ -227,6 +227,11 @@ body.light-theme .search-bar { background: rgba(255,255,255,0.94); }
 }
 @media (max-width: 640px) { .search-bar-hint { display: none; } }
 
+/* Home link (replaces menu pill on internal pages) — same style as burger */
+.home-link {
+  text-decoration: none;
+}
+
 /* Menu trigger — accent acid green */
 .burger {
   display: inline-flex;
