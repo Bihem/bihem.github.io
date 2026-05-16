@@ -1296,20 +1296,33 @@ body.light-theme .thh-card .card-media .thh-card-logo {
 .event-featured {
   grid-column: 1 / -1;
 }
-.event-featured .card-media { aspect-ratio: 21/9; }
-.event-featured .event-card-bottom .artist { font-size: var(--t-4xl); }
+.event-featured .card-media { aspect-ratio: 4/5; }
+.event-featured .card-media img { object-position: center top; }
+.event-featured .event-card-bottom .artist { font-size: var(--t-2xl); }
 
+/* Tablet + desktop : 2-col layout (image étroite + body large) → carte compacte sans crop.
+   En dessous (<768px) la responsive.css force display:block (image full width, body dessous). */
+@media (min-width: 768px) {
+  .event-featured {
+    display: grid;
+    grid-template-columns: 1fr 1.35fr;
+    align-items: stretch;
+  }
+  .event-featured .card-media { aspect-ratio: auto; height: 100%; min-height: 280px; }
+}
 @media (min-width: 1024px) {
-  .event-featured { display: grid; grid-template-columns: 1.5fr 1fr; }
-  .event-featured .card-media { aspect-ratio: auto; height: 100%; min-height: 480px; }
+  .event-featured .card-media { min-height: 320px; }
 }
 
 .event-featured-body {
-  padding: var(--s-10);
+  padding: var(--s-6);
   display: flex;
   flex-direction: column;
-  gap: var(--s-6);
+  gap: var(--s-4);
   justify-content: center;
+}
+@media (min-width: 1024px) {
+  .event-featured-body { padding: var(--s-8); gap: var(--s-5); }
 }
 
 /* ============== FEATURED SLIDER (À l'affiche cycling) ============== */
@@ -1328,13 +1341,36 @@ body.light-theme .thh-card .card-media .thh-card-logo {
   position: absolute;
   inset: 0;
   width: 100%;
-  transform: translateY(-100%);
-  transition: transform 900ms cubic-bezier(0.76, 0, 0.24, 1);
+  opacity: 0;
+  transform: translateY(14px) scale(1.012);
+  transition: opacity 900ms cubic-bezier(0.22, 1, 0.36, 1),
+              transform 1300ms cubic-bezier(0.22, 1, 0.36, 1);
   pointer-events: none;
-  will-change: transform;
+  will-change: opacity, transform;
 }
 .featured-track > .featured-slide:first-child {
   position: relative;
+}
+
+/* Les slides du cycling slider ne doivent PAS hériter du scroll-reveal scrollScaleIn :
+   sinon les 4 slides apparaissent simultanément (opacity 1 forcée par l'animation forwards),
+   ce qui casse le slider. On annule l'animation et on laisse .active piloter opacity.
+   !important nécessaire car scrollScaleIn forwards persiste après son exécution. */
+body.js-anim .featured-track > .featured-slide,
+body.js-anim .featured-track > .featured-slide.anim-in {
+  animation: none !important;
+  opacity: 0 !important;
+  transform: translateY(14px) scale(1.012) !important;
+}
+body.js-anim .featured-track > .featured-slide.active,
+body.js-anim .featured-track > .featured-slide.active.anim-in {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+}
+body.js-anim .featured-track > .featured-slide.was-active,
+body.js-anim .featured-track > .featured-slide.was-active.anim-in {
+  opacity: 0 !important;
+  transform: translateY(-10px) scale(0.992) !important;
 }
 .featured-slide .card-media,
 .featured-slide .card-media img {
@@ -1346,14 +1382,37 @@ body.light-theme .thh-card .card-media .thh-card-logo {
 }
 /* Active slide visible at center */
 .featured-track > .featured-slide.active {
-  transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0) scale(1);
   pointer-events: auto;
   z-index: 2;
 }
-/* Slide already shown (going out) → glisse vers le bas */
+/* Slide already shown (going out) — cross-fade subtil */
 .featured-track > .featured-slide.was-active {
-  transform: translateY(100%);
+  opacity: 0;
+  transform: translateY(-10px) scale(0.992);
   z-index: 1;
+}
+
+/* Stagger reveal du contenu description quand la slide devient active */
+.featured-slide .event-featured-body > * {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+              transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.featured-slide.active .event-featured-body > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+.featured-slide.active .event-featured-body > *:nth-child(1) { transition-delay: 220ms; }
+.featured-slide.active .event-featured-body > *:nth-child(2) { transition-delay: 300ms; }
+.featured-slide.active .event-featured-body > *:nth-child(3) { transition-delay: 380ms; }
+.featured-slide.active .event-featured-body > *:nth-child(4) { transition-delay: 460ms; }
+.featured-slide.active .event-featured-body > *:nth-child(5) { transition-delay: 540ms; }
+.featured-slide.active .event-featured-body > *:nth-child(6) { transition-delay: 620ms; }
+@media (prefers-reduced-motion: reduce) {
+  .featured-slide .event-featured-body > * { opacity: 1; transform: none; transition: none; }
 }
 
 .featured-dots {
@@ -3453,11 +3512,18 @@ body.light-theme .page-load-logo {
   inset: -1px;
   z-index: -1;
   border-radius: var(--r-lg);
-  background: linear-gradient(135deg, rgba(198,244,50,0.22), transparent 40%, rgba(255,107,53,0.18) 90%);
+  background: linear-gradient(135deg, rgba(198,244,50,0.18), transparent 55%);
   opacity: 0;
   transition: opacity 700ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 .featured-slider:hover::before { opacity: 1; }
+
+/* Description body : pas de halo parasite — on neutralise le glow du dot et toute lueur résiduelle */
+.event-featured-body .eyebrow .dot {
+  box-shadow: none;
+  animation: none;
+  opacity: 0.85;
+}
 
 .featured-slide .card-media {
   position: relative;
