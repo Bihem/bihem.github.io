@@ -95,21 +95,36 @@ img, video, iframe, svg { max-width: 100%; height: auto; }
   }
 }
 
-/* === EVENT FEATURED CARD (mobile : aligné taille desktop) === */
-@media (max-width: 900px) {
+/* === EVENT FEATURED CARD ===
+   - Mobile (<768) : stacked, image full width aspect 4/5 (match natif image = pas de crop)
+   - Tablet (768-1023) + desktop (>=1024) : 2-col grid via app.css (image étroite à gauche)
+*/
+@media (max-width: 767px) {
   .event-featured {
-    display: block;
+    display: block !important;
   }
   .event-featured .card-media {
-    aspect-ratio: 21/9;
-    min-height: 360px;
+    aspect-ratio: 4/5;
+    min-height: 0;
+    height: auto !important;
+  }
+  .event-featured .card-media img {
+    object-fit: cover;
+    object-position: center;
   }
   .event-featured-body {
-    padding: var(--s-8);
-    gap: var(--s-5);
+    padding: var(--s-5);
+    gap: var(--s-4);
   }
   .event-featured .event-card-bottom .artist {
-    font-size: clamp(2rem, 6vw, 3rem) !important;
+    font-size: clamp(1.6rem, 4.8vw, 2.2rem) !important;
+  }
+}
+/* Tablet : padding body un poil moins large */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .event-featured-body {
+    padding: var(--s-6);
+    gap: var(--s-4);
   }
 }
 
