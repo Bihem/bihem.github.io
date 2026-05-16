@@ -188,8 +188,77 @@ img, video, iframe, svg { max-width: 100%; height: auto; }
   .footer-mega-cta p.sub { font-size: var(--t-sm); }
   .footer-mega-cta .actions { flex-direction: column; }
   .footer-mega-cta .actions .btn { width: 100%; justify-content: center; }
-  .footer-grid { gap: var(--s-8); }
-  .footer-bottom { flex-direction: column; align-items: flex-start; gap: var(--s-3); text-align: left; }
+  .footer-grid { gap: var(--s-8); margin-bottom: var(--s-10); }
+  .footer-brand { padding-bottom: var(--s-6); border-bottom: 1px solid var(--line); }
+  .footer-col { padding-bottom: var(--s-4); border-bottom: 1px solid var(--line); }
+  .footer-col:last-child { border-bottom: none; }
+  .footer-col h4 { margin-bottom: var(--s-3); }
+  .footer-col ul { gap: var(--s-2); }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: var(--s-3); text-align: left; font-size: 10px; }
+}
+
+/* === FOOTER LOGO — mieux dimensionné mobile === */
+@media (max-width: 640px) {
+  .footer-logo {
+    height: auto !important;
+    width: 70%;
+    max-width: 260px;
+    margin: var(--s-4) 0 var(--s-5);
+  }
+}
+@media (max-width: 480px) {
+  .footer-logo {
+    width: 78%;
+    max-width: 220px;
+  }
+  /* Pour les pages internes : logo centré */
+  .site-footer > .container > .footer-logo {
+    margin: 0 auto var(--s-6) !important;
+    width: 60%;
+    max-width: 200px;
+  }
+}
+@media (max-width: 360px) {
+  .footer-logo {
+    width: 88%;
+    max-width: 180px;
+  }
+}
+
+/* === FOOTER-BRAND mobile — ajustements === */
+@media (max-width: 640px) {
+  .footer-brand p {
+    font-size: var(--t-sm);
+    max-width: 100%;
+    line-height: 1.55;
+  }
+  .footer-brand .link-arrow {
+    font-size: var(--t-xs);
+    word-break: normal;
+    overflow-wrap: anywhere;
+  }
+}
+
+/* === Partner logos mobile : plus serré === */
+@media (max-width: 640px) {
+  .partner-logos {
+    gap: 18px 24px;
+    padding: var(--s-8) 0 var(--s-3);
+    justify-content: center;
+  }
+  .partner-logos img { height: 28px; max-width: 90px; }
+}
+@media (max-width: 360px) {
+  .partner-logos { gap: 14px 18px; }
+  .partner-logos img { height: 22px; max-width: 70px; }
+}
+
+/* === Socials du footer-mega — centrer mobile === */
+@media (max-width: 640px) {
+  .site-footer .socials {
+    justify-content: center;
+    margin-top: var(--s-4);
+  }
 }
 
 /* === PAGE HERO (pages internes) mobile === */
