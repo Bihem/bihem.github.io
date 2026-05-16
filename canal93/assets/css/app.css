@@ -1296,19 +1296,19 @@ body.light-theme .thh-card .card-media .thh-card-logo {
 .event-featured {
   grid-column: 1 / -1;
 }
-.event-featured .card-media { aspect-ratio: 21/9; }
-.event-featured .event-card-bottom .artist { font-size: var(--t-4xl); }
+.event-featured .card-media { aspect-ratio: 16/9; }
+.event-featured .event-card-bottom .artist { font-size: var(--t-3xl); }
 
 @media (min-width: 1024px) {
   .event-featured { display: grid; grid-template-columns: 1.5fr 1fr; }
-  .event-featured .card-media { aspect-ratio: auto; height: 100%; min-height: 480px; }
+  .event-featured .card-media { aspect-ratio: auto; height: 100%; min-height: 380px; }
 }
 
 .event-featured-body {
-  padding: var(--s-10);
+  padding: var(--s-7) var(--s-8);
   display: flex;
   flex-direction: column;
-  gap: var(--s-6);
+  gap: var(--s-4);
   justify-content: center;
 }
 
