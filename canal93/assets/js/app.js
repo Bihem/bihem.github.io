@@ -543,15 +543,80 @@
     });
   }
 
+  // ============ LIGHTBOX (photo gallery) ============
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightboxImg');
+  const lbNum = document.getElementById('lightboxNum');
+  const lbLabel = document.getElementById('lightboxLabel');
+  const lbClose = document.getElementById('lightboxClose');
+  const lbPrev = document.getElementById('lightboxPrev');
+  const lbNext = document.getElementById('lightboxNext');
+  if (lightbox && lbImg) {
+    // Collect ORIGINAL photo slides only (skip the cloned duplicates from photo slider)
+    const slidesRoot = document.getElementById('photoTrack');
+    const allSlides = slidesRoot ? [...slidesRoot.querySelectorAll('.photo-slide')] : [];
+    // Filter to slides that are NOT aria-hidden (clones have aria-hidden=true)
+    const origSlides = allSlides.filter(s => s.getAttribute('aria-hidden') !== 'true');
+    let lbIndex = 0;
+
+    const showAt = (i) => {
+      if (!origSlides.length) return;
+      lbIndex = (i + origSlides.length) % origSlides.length;
+      const slide = origSlides[lbIndex];
+      const img = slide.querySelector('img');
+      const num = slide.querySelector('.photo-slide-caption .num');
+      const label = slide.querySelector('.photo-slide-caption .label');
+      if (img) {
+        lbImg.src = img.src;
+        lbImg.alt = img.alt || '';
+      }
+      if (num) lbNum.textContent = num.textContent;
+      if (label) lbLabel.textContent = label.textContent;
+    };
+    const openLb = (i) => {
+      showAt(i);
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    };
+    const closeLb = () => {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
+    allSlides.forEach((slide) => {
+      slide.addEventListener('click', (e) => {
+        // Avoid triggering on drag (when user swipes the slider)
+        if (slide.dataset.dragging === 'true') return;
+        const origIndex = origSlides.indexOf(slide);
+        const idx = origIndex >= 0 ? origIndex : (allSlides.indexOf(slide) % origSlides.length);
+        openLb(idx);
+      });
+    });
+    lbClose?.addEventListener('click', closeLb);
+    lbPrev?.addEventListener('click', () => showAt(lbIndex - 1));
+    lbNext?.addEventListener('click', () => showAt(lbIndex + 1));
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLb();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLb();
+      else if (e.key === 'ArrowLeft') showAt(lbIndex - 1);
+      else if (e.key === 'ArrowRight') showAt(lbIndex + 1);
+    });
+  }
+
   // ============ MAGNETIC BUTTONS (desktop only) ============
   if (window.matchMedia('(hover:hover)').matches) {
     document.querySelectorAll('.btn-primary, .hero-actions .btn, .header-cta .icon-btn, .burger').forEach(btn => {
       const strength = btn.classList.contains('icon-btn') || btn.classList.contains('burger') ? 0.25 : 0.18;
+      // Combine magnetic offset with the hover lift (-2px y)
       btn.addEventListener('mousemove', (e) => {
         const rect = btn.getBoundingClientRect();
         const x = e.clientX - rect.left - rect.width / 2;
         const y = e.clientY - rect.top - rect.height / 2;
-        btn.style.transform = `translate(${x * strength}px, ${y * strength}px)`;
+        btn.style.transform = `translate(${x * strength}px, ${(y * strength) - 2}px)`;
       });
       btn.addEventListener('mouseleave', () => {
         btn.style.transform = '';
