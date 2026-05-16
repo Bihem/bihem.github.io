@@ -468,6 +468,95 @@
         onUpdate: () => { numEl.textContent = Math.round(obj.v) + suffix; }
       });
     });
+
+    // ============ PHASE 2 MOTION ============
+    // Hero-next concerts strip: stagger reveal from bottom
+    gsap.from('.hero-next-card', {
+      y: 28,
+      opacity: 0,
+      duration: 0.7,
+      stagger: 0.09,
+      ease: 'power3.out',
+      delay: 1.1
+    });
+
+    // Grid items stagger reveal (event cards, studio cards, info cards)
+    ['.prog-grid', '.studios-grid', '.info-grid'].forEach(sel => {
+      const grid = document.querySelector(sel);
+      if (!grid) return;
+      gsap.from(grid.children, {
+        y: 40,
+        opacity: 0,
+        duration: 0.7,
+        stagger: 0.08,
+        ease: 'power3.out',
+        scrollTrigger: { trigger: grid, start: 'top 82%' }
+      });
+    });
+
+    // Eyebrow numbers reveal (01 — Programmation etc)
+    gsap.utils.toArray('.section-head .eyebrow').forEach(eb => {
+      gsap.from(eb, {
+        x: -20,
+        opacity: 0,
+        duration: 0.6,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: eb, start: 'top 88%' }
+      });
+    });
+
+    // Studio card subtle parallax on image
+    gsap.utils.toArray('.studio-card img').forEach(img => {
+      gsap.to(img, {
+        yPercent: -6,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: img,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true
+        }
+      });
+    });
+
+    // Marquee scrolltrigger: speed up on scroll velocity
+    const marqueeEl = document.querySelector('.marquee-track');
+    if (marqueeEl) {
+      let scrollVel = 0;
+      ScrollTrigger.create({
+        onUpdate: (self) => {
+          scrollVel = Math.min(Math.abs(self.getVelocity() / 600), 4);
+          gsap.to(marqueeEl, { timeScale: 1 + scrollVel, overwrite: 'auto', duration: 0.4 });
+        }
+      });
+    }
+
+    // Timeline items: slide-in from left in sequence
+    gsap.utils.toArray('.timeline-item').forEach((item, i) => {
+      gsap.from(item, {
+        x: -30,
+        opacity: 0,
+        duration: 0.7,
+        ease: 'power3.out',
+        scrollTrigger: { trigger: item, start: 'top 85%' }
+      });
+    });
+  }
+
+  // ============ MAGNETIC BUTTONS (desktop only) ============
+  if (window.matchMedia('(hover:hover)').matches) {
+    document.querySelectorAll('.btn-primary, .hero-actions .btn, .header-cta .icon-btn, .burger').forEach(btn => {
+      const strength = btn.classList.contains('icon-btn') || btn.classList.contains('burger') ? 0.25 : 0.18;
+      btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        btn.style.transform = `translate(${x * strength}px, ${y * strength}px)`;
+      });
+      btn.addEventListener('mouseleave', () => {
+        btn.style.transform = '';
+      });
+    });
   }
 
   // ============ STICKY MOBILE CTA ============
