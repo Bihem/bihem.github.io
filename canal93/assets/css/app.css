@@ -1127,12 +1127,12 @@ body.light-theme .thh-card .card-media .thh-card-logo {
 .studio-name {
   font-family: var(--f-display);
   font-weight: 800;
-  font-size: clamp(1.5rem, 1.2rem + 0.9vw, 2rem);
+  font-size: clamp(1.25rem, 1rem + 0.7vw, 1.65rem);
   letter-spacing: var(--tr-display);
   text-transform: uppercase;
   line-height: 1;
-  margin: 4px 0 2px;
-  max-width: 14ch;
+  margin: 4px 0 6px;
+  max-width: 100%;
   word-break: keep-all;
 }
 
