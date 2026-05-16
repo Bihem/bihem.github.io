@@ -271,6 +271,9 @@ body.light-theme .search-bar { background: rgba(255,255,255,0.94); }
   letter-spacing: -0.01em;
   text-transform: uppercase;
   color: var(--c-black);
+  white-space: nowrap;
+  flex-shrink: 0;
+  text-decoration: none;
   transition: transform var(--t-fast), box-shadow var(--t-base-d);
 }
 .burger:hover {
@@ -303,11 +306,16 @@ body.light-theme .search-bar { background: rgba(255,255,255,0.94); }
 .menu-label {
   display: inline-block;
   line-height: 1;
+  transform: translateY(0.5px);
 }
 @media (max-width: 480px) {
-  /* Garder le label MENU visible — plus clair qu'un cercle vide */
-  .menu-label { display: inline; font-size: 11px; }
-  .burger { padding: 0 14px; gap: 0; height: 40px; }
+  /* Garder le label MENU/ACCUEIL visible — plus clair qu'un cercle vide */
+  .menu-label { display: inline; font-size: 11px; letter-spacing: 0.02em; }
+  .burger { padding: 0 12px; gap: 0; height: 40px; }
+}
+@media (max-width: 380px) {
+  .menu-label { font-size: 10.5px; }
+  .burger { padding: 0 10px; height: 38px; }
 }
 
 /* ============== OVERLAY MENU (slide-in side panel from right) ============== */
