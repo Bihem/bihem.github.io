@@ -140,19 +140,33 @@
 .page-prose p strong { color: var(--fg); font-weight: 600; }
 .page-prose ul { list-style: none; padding: 0; margin: 0 0 var(--s-5); display: flex; flex-direction: column; gap: var(--s-2); }
 .page-prose ul li {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--s-3);
-  padding-left: 0;
+  position: relative;
+  padding-left: calc(var(--s-3) + 14px);
+  line-height: var(--lh-relaxed);
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 .page-prose ul li::before {
   content: "";
+  position: absolute;
+  left: 0;
+  top: 0.65em;
   width: 6px; height: 6px;
-  margin-top: 9px;
   background: var(--accent);
   border-radius: 50%;
-  flex-shrink: 0;
 }
+.page-prose ul li strong { white-space: normal; }
+.page-prose a {
+  color: var(--fg);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+  word-break: break-word;
+  transition: color var(--t-fast);
+}
+.page-prose a:hover { color: var(--accent); }
 
 /* ============== INFO CARDS (workshops, residencies, etc.) ============== */
 .info-grid {
