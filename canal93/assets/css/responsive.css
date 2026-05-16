@@ -117,7 +117,7 @@ img, video, iframe, svg { max-width: 100%; height: auto; }
     gap: var(--s-4);
   }
   .event-featured .event-card-bottom .artist {
-    font-size: clamp(1.85rem, 5.5vw, 2.6rem) !important;
+    font-size: clamp(2.2rem, 7vw, 3.2rem) !important;
   }
 
   /* Fix mobile : track en grid pour que la hauteur s'aligne sur le slide LE PLUS HAUT.
