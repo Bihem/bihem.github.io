@@ -748,10 +748,30 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
   </button>
 
+  <!-- ========= LIGHTBOX ========= -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Galerie photo">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Fermer">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <button class="lightbox-nav prev" id="lightboxPrev" aria-label="Photo précédente">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 6l-6 6 6 6"/></svg>
+    </button>
+    <figure class="lightbox-figure">
+      <img id="lightboxImg" alt="" />
+      <figcaption id="lightboxCaption">
+        <span class="num" id="lightboxNum">01 / 20</span>
+        <span class="label" id="lightboxLabel">Canal 93</span>
+      </figcaption>
+    </figure>
+    <button class="lightbox-nav next" id="lightboxNext" aria-label="Photo suivante">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+  </div>
+
   <!-- ========= SCRIPTS ========= -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="assets/js/app.js?v=2026-05-16d"></script>
+  <script src="assets/js/app.js?v=2026-05-16e"></script>
 
 </body>
 </html>
