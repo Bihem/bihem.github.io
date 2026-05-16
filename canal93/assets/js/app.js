@@ -570,6 +570,112 @@
     });
   }
 
+  // ============ IMMERSIVE CONCERTS SHOWCASE ============
+  const showcase = document.getElementById('concertsShowcase');
+  const posterRail = document.getElementById('posterRail');
+  if (showcase && posterRail) {
+    const posters = [...posterRail.querySelectorAll('.poster')];
+    const total = posters.length;
+    const showcaseBg = document.getElementById('showcaseBg');
+    const counterCur = document.getElementById('showcaseCurrent');
+    const counterTot = document.getElementById('showcaseTotal');
+    const navPrev = document.getElementById('showcasePrev');
+    const navNext = document.getElementById('showcaseNext');
+
+    if (counterTot) counterTot.textContent = String(total).padStart(2, '0');
+
+    // Set initial per-poster --poster-color for ticket button + glow
+    posters.forEach(p => {
+      const c = p.dataset.color || 'var(--accent)';
+      p.style.setProperty('--poster-color', c);
+    });
+
+    let activeIdx = 0;
+    const setActive = (i) => {
+      activeIdx = Math.max(0, Math.min(total - 1, i));
+      posters.forEach((p, idx) => p.classList.toggle('is-active', idx === activeIdx));
+      if (counterCur) counterCur.textContent = String(activeIdx + 1).padStart(2, '0');
+      const color = posters[activeIdx]?.dataset.color || '#c6f432';
+      showcase.style.setProperty('--showcase-color', color);
+    };
+
+    // Detect active poster as the one closest to viewport center of rail
+    let raf = null;
+    const onScroll = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = null;
+        const railRect = posterRail.getBoundingClientRect();
+        const railCenterX = railRect.left + railRect.width / 2;
+        let best = 0;
+        let bestDist = Infinity;
+        posters.forEach((p, idx) => {
+          const r = p.getBoundingClientRect();
+          const cx = r.left + r.width / 2;
+          const d = Math.abs(cx - railCenterX);
+          if (d < bestDist) { bestDist = d; best = idx; }
+        });
+        if (best !== activeIdx) setActive(best);
+      });
+    };
+    posterRail.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+
+    const scrollToIndex = (i) => {
+      const target = posters[Math.max(0, Math.min(total - 1, i))];
+      if (!target) return;
+      const railRect = posterRail.getBoundingClientRect();
+      const targetRect = target.getBoundingClientRect();
+      const delta = (targetRect.left - railRect.left) - (railRect.width - targetRect.width) / 2;
+      posterRail.scrollBy({ left: delta, behavior: 'smooth' });
+    };
+
+    navPrev?.addEventListener('click', () => scrollToIndex(activeIdx - 1));
+    navNext?.addEventListener('click', () => scrollToIndex(activeIdx + 1));
+
+    // Click poster → scroll-center it
+    posters.forEach((p, idx) => {
+      p.addEventListener('click', (e) => {
+        if (e.target.closest('.p-ticket')) return; // don't intercept button
+        if (idx !== activeIdx) {
+          e.preventDefault();
+          scrollToIndex(idx);
+        }
+      });
+    });
+
+    // Keyboard arrows
+    showcase.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); scrollToIndex(activeIdx - 1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); scrollToIndex(activeIdx + 1); }
+    });
+
+    // Mouse parallax tilt on poster frames (desktop only)
+    if (window.matchMedia('(hover:hover)').matches) {
+      posters.forEach(p => {
+        const frame = p.querySelector('.poster-frame');
+        const img = p.querySelector('.poster-frame img');
+        p.addEventListener('mousemove', (e) => {
+          const r = p.getBoundingClientRect();
+          const x = (e.clientX - r.left) / r.width - 0.5;  // -0.5 .. 0.5
+          const y = (e.clientY - r.top) / r.height - 0.5;
+          if (frame) frame.style.transform = `perspective(900px) rotateY(${x * 6}deg) rotateX(${-y * 5}deg) translateY(-6px)`;
+          if (img) img.style.transformOrigin = `${50 + x * 10}% ${50 + y * 10}%`;
+        });
+        p.addEventListener('mouseleave', () => {
+          if (frame) frame.style.transform = '';
+          if (img) img.style.transformOrigin = '';
+        });
+      });
+    }
+
+    // Initial active = first poster, then center it via scroll
+    requestAnimationFrame(() => {
+      setActive(0);
+      onScroll();
+    });
+  }
+
   // ============ CURSOR SPOTLIGHT — featured slider ============
   if (window.matchMedia('(hover:hover)').matches) {
     document.querySelectorAll('.featured-slide .card-media').forEach(media => {
