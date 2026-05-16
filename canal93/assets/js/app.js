@@ -480,18 +480,45 @@
       delay: 1.1
     });
 
-    // Grid items stagger reveal (event cards, studio cards, info cards)
+    // Grid items stagger reveal (event cards, studio cards, info cards) — cinematic
     ['.prog-grid', '.studios-grid', '.info-grid'].forEach(sel => {
       const grid = document.querySelector(sel);
       if (!grid) return;
       const children = [...grid.children].filter(c => !c.classList.contains('featured-slider'));
       if (!children.length) return;
       gsap.fromTo(children,
-        { y: 40, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.7, stagger: 0.08, ease: 'power3.out',
-          scrollTrigger: { trigger: grid, start: 'top 82%' }
+        { y: 70, opacity: 0, scale: 0.97, filter: 'blur(6px)' },
+        { y: 0, opacity: 1, scale: 1, filter: 'blur(0px)',
+          duration: 1.2, stagger: 0.12,
+          ease: 'expo.out',
+          scrollTrigger: { trigger: grid, start: 'top 85%' }
         }
       );
+    });
+
+    // Featured slider reveal — slow cinematic
+    const fSliderEl = document.getElementById('featuredSlider');
+    if (fSliderEl) {
+      gsap.fromTo(fSliderEl,
+        { y: 80, opacity: 0, scale: 0.985 },
+        { y: 0, opacity: 1, scale: 1, duration: 1.4, ease: 'expo.out',
+          scrollTrigger: { trigger: fSliderEl, start: 'top 88%' }
+        }
+      );
+    }
+
+    // Subtle parallax on event-card images on scroll (mild)
+    gsap.utils.toArray('.prog-grid .event-card:not(.event-featured) .card-media img').forEach(img => {
+      gsap.to(img, {
+        yPercent: -5,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: img,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1.2
+        }
+      });
     });
 
     // Eyebrow numbers reveal (01 — Programmation etc)
@@ -539,6 +566,25 @@
         duration: 0.7,
         ease: 'power3.out',
         scrollTrigger: { trigger: item, start: 'top 85%' }
+      });
+    });
+  }
+
+  // ============ CURSOR SPOTLIGHT — featured slider ============
+  if (window.matchMedia('(hover:hover)').matches) {
+    document.querySelectorAll('.featured-slide .card-media').forEach(media => {
+      // Inject spotlight overlay
+      if (!media.querySelector('.spotlight')) {
+        const sp = document.createElement('div');
+        sp.className = 'spotlight';
+        media.appendChild(sp);
+      }
+      media.addEventListener('mousemove', (e) => {
+        const rect = media.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        media.style.setProperty('--mx', x + '%');
+        media.style.setProperty('--my', y + '%');
       });
     });
   }
