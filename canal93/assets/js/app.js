@@ -26,25 +26,40 @@
   };
   window.addEventListener('scroll', onScroll, { passive: true });
 
-  // ============ OVERLAY NAV ============
+  // ============ OVERLAY NAV (side panel) ============
   const burger = document.getElementById('burgerBtn');
   const closeBtn = document.getElementById('overlayClose');
   const overlay = document.getElementById('overlayNav');
+  // Ensure backdrop element exists
+  let backdrop = document.getElementById('overlayNavBackdrop');
+  if (!backdrop && overlay) {
+    backdrop = document.createElement('div');
+    backdrop.id = 'overlayNavBackdrop';
+    backdrop.className = 'overlay-nav-backdrop';
+    backdrop.setAttribute('aria-hidden', 'true');
+    overlay.parentNode.insertBefore(backdrop, overlay);
+  }
 
   const openNav = () => {
     overlay?.classList.add('open');
+    backdrop?.classList.add('open');
     overlay?.setAttribute('aria-hidden', 'false');
     burger?.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
   };
   const closeNav = () => {
     overlay?.classList.remove('open');
+    backdrop?.classList.remove('open');
     overlay?.setAttribute('aria-hidden', 'true');
     burger?.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
   };
 
   burger?.addEventListener('click', openNav);
+  backdrop?.addEventListener('click', closeNav);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay?.classList.contains('open')) closeNav();
+  });
 
   // Search button — slide-down inline search bar
   const searchBtn = document.getElementById('searchBtn');
