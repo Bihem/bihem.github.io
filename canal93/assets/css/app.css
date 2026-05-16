@@ -1127,13 +1127,16 @@ body.light-theme .thh-card .card-media .thh-card-logo {
 .studio-name {
   font-family: var(--f-display);
   font-weight: 800;
-  font-size: clamp(1.25rem, 1rem + 0.7vw, 1.65rem);
-  letter-spacing: var(--tr-display);
+  font-size: clamp(0.95rem, 0.85rem + 0.4vw, 1.4rem);
+  letter-spacing: -0.01em;
   text-transform: uppercase;
-  line-height: 1;
+  line-height: 1.05;
   margin: 4px 0 6px;
   max-width: 100%;
-  word-break: keep-all;
+  height: 1.05em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .studio-tags {
@@ -1141,6 +1144,8 @@ body.light-theme .thh-card .card-media .thh-card-logo {
   flex-wrap: wrap;
   gap: 6px;
   margin-top: var(--s-3);
+  max-height: 24px;
+  overflow: hidden;
 }
 
 .studio-tags span {
@@ -1167,6 +1172,23 @@ body.light-theme .thh-card .card-media .thh-card-logo {
   font-family: var(--f-mono);
   font-size: var(--t-sm);
   color: var(--accent);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+.studio-foot .link-arrow {
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-size: var(--t-xs);
+}
+@media (max-width: 540px) {
+  .studio-foot .link-arrow {
+    font-size: 0;
+  }
+  .studio-foot .link-arrow::after {
+    font-size: 1rem;
+  }
 }
 
 /* ============== GRID-BG (sections avec grille verticale subtile) ============== */
