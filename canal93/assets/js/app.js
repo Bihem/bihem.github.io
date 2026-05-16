@@ -543,6 +543,38 @@
     });
   }
 
+  // ============ VIDEO MODAL ============
+  const videoModal = document.getElementById('videoModal');
+  const videoIframe = document.getElementById('videoModalIframe');
+  const videoClose = document.getElementById('videoModalClose');
+  if (videoModal && videoIframe) {
+    const openVideo = (url) => {
+      videoIframe.src = url;
+      videoModal.classList.add('open');
+      videoModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    };
+    const closeVideo = () => {
+      videoModal.classList.remove('open');
+      videoModal.setAttribute('aria-hidden', 'true');
+      videoIframe.src = '';
+      document.body.style.overflow = '';
+    };
+    document.querySelectorAll('.btn-play[data-video]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openVideo(btn.dataset.video);
+      });
+    });
+    videoClose?.addEventListener('click', closeVideo);
+    videoModal.addEventListener('click', (e) => {
+      if (e.target === videoModal) closeVideo();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && videoModal.classList.contains('open')) closeVideo();
+    });
+  }
+
   // ============ LIGHTBOX (photo gallery) ============
   const lightbox = document.getElementById('lightbox');
   const lbImg = document.getElementById('lightboxImg');
