@@ -2281,6 +2281,17 @@ body.light-theme .footer-mega-cta {
   margin-bottom: var(--s-12);
 }
 
+/* Centrer tout le bloc Infos pratiques (logo + adresse + contacts) */
+.footer-brand {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.footer-brand .eyebrow,
+.footer-brand p { margin-left: auto; margin-right: auto; }
+.footer-brand .flex { align-items: center; }
+
 .footer-brand h3 {
   font-family: var(--f-display);
   font-weight: 800;
@@ -2340,7 +2351,7 @@ body.light-theme .footer-mega-cta {
 .footer-bottom {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
   gap: var(--s-4);
   padding-top: var(--s-6);
@@ -2350,11 +2361,13 @@ body.light-theme .footer-mega-cta {
   letter-spacing: var(--tr-eyebrow);
   text-transform: uppercase;
   color: var(--fg-mute);
+  text-align: center;
 }
 
 .socials {
   display: flex;
   gap: var(--s-3);
+  justify-content: center;
 }
 .socials a {
   width: 42px; height: 42px;
