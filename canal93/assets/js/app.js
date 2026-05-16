@@ -484,14 +484,14 @@
     ['.prog-grid', '.studios-grid', '.info-grid'].forEach(sel => {
       const grid = document.querySelector(sel);
       if (!grid) return;
-      gsap.from(grid.children, {
-        y: 40,
-        opacity: 0,
-        duration: 0.7,
-        stagger: 0.08,
-        ease: 'power3.out',
-        scrollTrigger: { trigger: grid, start: 'top 82%' }
-      });
+      const children = [...grid.children].filter(c => !c.classList.contains('featured-slider'));
+      if (!children.length) return;
+      gsap.fromTo(children,
+        { y: 40, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.7, stagger: 0.08, ease: 'power3.out',
+          scrollTrigger: { trigger: grid, start: 'top 82%' }
+        }
+      );
     });
 
     // Eyebrow numbers reveal (01 — Programmation etc)
@@ -541,6 +541,88 @@
         scrollTrigger: { trigger: item, start: 'top 85%' }
       });
     });
+  }
+
+  // ============ FEATURED SLIDER (À l'affiche cycling) ============
+  const fSlider = document.getElementById('featuredSlider');
+  if (fSlider) {
+    const slides = [...fSlider.querySelectorAll('.featured-slide')];
+    const dots = [...fSlider.querySelectorAll('.fd-dot')];
+    const bar = document.getElementById('featuredProgressBar');
+    const interval = parseInt(fSlider.dataset.autoplay || '5200', 10);
+    let current = 0;
+    let timer = null;
+    let progressStart = 0;
+    let rafId = null;
+    let paused = false;
+
+    const showAt = (i) => {
+      current = (i + slides.length) % slides.length;
+      slides.forEach((s, idx) => s.classList.toggle('active', idx === current));
+      dots.forEach((d, idx) => d.classList.toggle('active', idx === current));
+      progressStart = performance.now();
+      if (bar) bar.style.width = '0%';
+    };
+
+    const tickProgress = () => {
+      if (paused || !bar) { rafId = requestAnimationFrame(tickProgress); return; }
+      const elapsed = performance.now() - progressStart;
+      const pct = Math.min((elapsed / interval) * 100, 100);
+      bar.style.width = pct + '%';
+      rafId = requestAnimationFrame(tickProgress);
+    };
+
+    const start = () => {
+      stop();
+      timer = setInterval(() => { if (!paused) showAt(current + 1); }, interval);
+    };
+    const stop = () => { if (timer) { clearInterval(timer); timer = null; } };
+
+    dots.forEach(d => {
+      d.addEventListener('click', () => {
+        const i = parseInt(d.dataset.i, 10);
+        showAt(i);
+        start(); // restart timer
+      });
+    });
+
+    const setPaused = (p) => {
+      if (paused === p) return;
+      paused = p;
+      if (!paused) {
+        // Restart progress + timer cleanly when resuming
+        progressStart = performance.now();
+        if (bar) bar.style.width = '0%';
+        start();
+      }
+    };
+    // Pause on hover (desktop), and on tab not visible
+    fSlider.addEventListener('mouseenter', () => setPaused(true));
+    fSlider.addEventListener('mouseleave', () => setPaused(false));
+    document.addEventListener('visibilitychange', () => setPaused(document.hidden));
+
+    // Pause when out of viewport
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => setPaused(!e.isIntersecting));
+      }, { threshold: 0.25 });
+      io.observe(fSlider);
+    }
+
+    // Touch swipe support
+    let touchX = 0;
+    fSlider.addEventListener('touchstart', (e) => { touchX = e.touches[0].clientX; }, { passive: true });
+    fSlider.addEventListener('touchend', (e) => {
+      const dx = e.changedTouches[0].clientX - touchX;
+      if (Math.abs(dx) > 40) {
+        showAt(current + (dx < 0 ? 1 : -1));
+        start();
+      }
+    });
+
+    showAt(0);
+    start();
+    rafId = requestAnimationFrame(tickProgress);
   }
 
   // ============ VIDEO MODAL ============
