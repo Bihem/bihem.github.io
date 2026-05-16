@@ -26,7 +26,7 @@
   border-bottom-color: var(--line);
   box-shadow: 0 8px 32px rgba(0,0,0,0.18);
 }
-.site-header.scrolled .brand-mark { width: 34px; height: 34px; }
+.site-header.scrolled .brand-mark { width: 32px; height: 32px; font-size: 15px; }
 .site-header.scrolled .brand-logo { height: 26px; }
 body.light-theme .site-header.scrolled {
   background: rgba(255,255,255,0.85);
@@ -48,17 +48,21 @@ body.light-theme .site-header.scrolled {
 }
 
 .brand-mark {
-  width: 44px; height: 44px;
-  object-fit: contain;
-  filter: drop-shadow(0 0 14px rgba(198, 244, 50, 0.5));
-  transition: transform var(--t-base-d) var(--ease-bounce), filter var(--t-base-d) ease-out;
-  display: block;
-  flex: 0 0 auto;
+  width: 38px; height: 38px;
+  display: grid;
+  place-items: center;
+  background: var(--accent);
+  border-radius: 10px;
+  font-family: var(--f-display);
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--c-black);
+  letter-spacing: -0.05em;
+  transform: rotate(-3deg);
+  box-shadow: var(--sh-glow);
+  transition: transform var(--t-base-d) var(--ease-bounce);
 }
-.brand:hover .brand-mark {
-  transform: scale(1.06);
-  filter: drop-shadow(0 0 20px rgba(198, 244, 50, 0.75));
-}
+.brand:hover .brand-mark { transform: rotate(0deg) scale(1.06); }
 
 /* Real Canal 93 logo image (à côté du C93) */
 .brand-logo {
@@ -2290,18 +2294,19 @@ body.light-theme .footer-mega-cta {
 
 .footer-logo {
   display: block;
-  height: 64px;
+  height: 96px;
   width: auto;
   margin: var(--s-4) 0 var(--s-5);
-  filter: brightness(0) invert(1);
-  transition: filter var(--t-base-d) var(--ease-out), opacity var(--t-base-d) var(--ease-out);
+  filter: drop-shadow(0 0 18px rgba(198, 244, 50, 0.35));
+  transition: filter var(--t-base-d) var(--ease-out), opacity var(--t-base-d) var(--ease-out), transform var(--t-base-d) var(--ease-out);
 }
-.footer-logo:hover { opacity: 0.85; }
-body.light-theme .footer-logo {
-  filter: brightness(0);
+.footer-logo:hover {
+  opacity: 0.9;
+  transform: scale(1.04);
+  filter: drop-shadow(0 0 24px rgba(198, 244, 50, 0.55));
 }
 @media (max-width: 640px) {
-  .footer-logo { height: 48px; }
+  .footer-logo { height: 76px; }
 }
 
 .footer-brand p {
