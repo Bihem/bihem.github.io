@@ -26,7 +26,7 @@ img, video, iframe, svg { max-width: 100%; height: auto; }
 
 /* === HEADER mobile === */
 @media (max-width: 480px) {
-  .brand-mark { width: 36px; height: 36px; }
+  .brand-mark { width: 32px; height: 32px; font-size: 14px; border-radius: 8px; }
   .brand-name { font-size: 15px; }
   .brand-sub { font-size: 9px; }
   .header-cta { gap: 8px; }
