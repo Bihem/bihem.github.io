@@ -1296,37 +1296,20 @@ body.light-theme .thh-card .card-media .thh-card-logo {
 .event-featured {
   grid-column: 1 / -1;
 }
-.event-featured .card-media { aspect-ratio: 16/10; }
-.event-featured .event-card-bottom .artist { font-size: var(--t-2xl); }
+.event-featured .card-media { aspect-ratio: 21/9; }
+.event-featured .event-card-bottom .artist { font-size: var(--t-4xl); }
 
 @media (min-width: 1024px) {
-  .event-featured { display: grid; grid-template-columns: 1.4fr 1fr; }
-  .event-featured .card-media { aspect-ratio: auto; height: 100%; min-height: 300px; }
+  .event-featured { display: grid; grid-template-columns: 1.5fr 1fr; }
+  .event-featured .card-media { aspect-ratio: auto; height: 100%; min-height: 480px; }
 }
 
 .event-featured-body {
-  padding: var(--s-5) var(--s-6);
+  padding: var(--s-10);
   display: flex;
   flex-direction: column;
-  gap: var(--s-3);
+  gap: var(--s-6);
   justify-content: center;
-  font-size: 0.92em;
-}
-.event-featured-body p.text-soft {
-  font-size: 0.88rem !important;
-  line-height: 1.45 !important;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.event-featured-body .feature-list { font-size: 0.82em; gap: 4px; }
-.event-featured-body .countdown { padding: 6px 10px; font-size: 0.8em; }
-.event-featured-body .btn { padding: 10px 16px; font-size: 0.82rem; }
-@media (max-width: 640px) {
-  .event-featured-body .feature-list { display: none; }
-  .event-featured-body .countdown { display: none; }
-  .event-featured-body p.text-soft { -webkit-line-clamp: 2; }
 }
 
 /* ============== FEATURED SLIDER (À l'affiche cycling) ============== */
