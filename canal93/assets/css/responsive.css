@@ -95,21 +95,21 @@ img, video, iframe, svg { max-width: 100%; height: auto; }
   }
 }
 
-/* === EVENT FEATURED CARD === */
+/* === EVENT FEATURED CARD (mobile : aligné taille desktop) === */
 @media (max-width: 900px) {
   .event-featured {
     display: block;
   }
   .event-featured .card-media {
-    aspect-ratio: 16/9;
-    min-height: 280px;
+    aspect-ratio: 21/9;
+    min-height: 360px;
   }
   .event-featured-body {
-    padding: var(--s-6);
-    gap: var(--s-4);
+    padding: var(--s-8);
+    gap: var(--s-5);
   }
   .event-featured .event-card-bottom .artist {
-    font-size: clamp(1.6rem, 5vw, 2.5rem) !important;
+    font-size: clamp(2rem, 6vw, 3rem) !important;
   }
 }
 
