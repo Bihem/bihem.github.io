@@ -1300,18 +1300,18 @@ body.light-theme .thh-card .card-media .thh-card-logo {
 .event-featured .card-media img { object-position: center top; }
 .event-featured .event-card-bottom .artist { font-size: var(--t-2xl); }
 
-/* Tablet + desktop : 2-col layout (image étroite + body large) → carte compacte sans crop.
-   En dessous (<768px) la responsive.css force display:block (image full width, body dessous). */
+/* Tablet + desktop : 2-col layout. Image dominante (plus large que body) — l'affiche reste
+   l'élément principal visuel. En dessous (<768px) la responsive.css force display:block. */
 @media (min-width: 768px) {
   .event-featured {
     display: grid;
-    grid-template-columns: 1fr 1.35fr;
+    grid-template-columns: 1.4fr 1fr;
     align-items: stretch;
   }
-  .event-featured .card-media { aspect-ratio: auto; height: 100%; min-height: 280px; }
+  .event-featured .card-media { aspect-ratio: auto; height: 100%; min-height: 360px; }
 }
 @media (min-width: 1024px) {
-  .event-featured .card-media { min-height: 320px; }
+  .event-featured .card-media { min-height: 420px; }
 }
 
 .event-featured-body {
