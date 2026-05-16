@@ -760,9 +760,13 @@
         start();
       }
     };
-    // Pause on hover (desktop), and on tab not visible
-    fSlider.addEventListener('mouseenter', () => setPaused(true));
-    fSlider.addEventListener('mouseleave', () => setPaused(false));
+    // Pause on hover — UNIQUEMENT sur devices avec hover réel (souris).
+    // Sur iPhone/Android, mouseenter se déclenche au tap mais mouseleave ne fire jamais
+    // → slider en pause permanente. Le check (hover: hover) empêche ce bug mobile.
+    if (window.matchMedia && window.matchMedia('(hover: hover)').matches) {
+      fSlider.addEventListener('mouseenter', () => setPaused(true));
+      fSlider.addEventListener('mouseleave', () => setPaused(false));
+    }
     document.addEventListener('visibilitychange', () => setPaused(document.hidden));
 
     // Pause when out of viewport
