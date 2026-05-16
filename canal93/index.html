@@ -288,45 +288,136 @@
 
       <div class="prog-grid">
 
-        <!-- Featured event : Yaniss Odua · 22 mai -->
-        <article class="card event-card event-featured reveal" data-delay="1">
-          <div class="card-media">
-            <img src="https://static.wixstatic.com/media/7bc4b7_793c056502f64ca7a886d809d34c5e9b~mv2.png" alt="Yaniss Odua & FNX feat. Trinity Rebel" />
-            <div class="event-card-date">
-              <strong>22</strong>
-              <small>Mai 26</small>
-            </div>
-            <span class="event-card-badge badge badge-soon">À l'affiche</span>
-            <div class="event-card-bottom">
-              <span class="genre">Reggae · France</span>
-              <h3 class="artist">Yaniss Odua<br>& FNX</h3>
-            </div>
+        <!-- Featured slider : À l'affiche — défile auto entre les concerts à venir -->
+        <div class="featured-slider reveal" id="featuredSlider" data-autoplay="5200" data-delay="1">
+          <div class="featured-track" id="featuredTrack">
+
+            <!-- Slide 1 : Yaniss Odua -->
+            <article class="card event-card event-featured featured-slide active">
+              <div class="card-media">
+                <img src="https://static.wixstatic.com/media/7bc4b7_793c056502f64ca7a886d809d34c5e9b~mv2.png" alt="Yaniss Odua & FNX feat. Trinity Rebel" />
+                <div class="event-card-date"><strong>22</strong><small>Mai 26</small></div>
+                <span class="event-card-badge badge badge-soon">À l'affiche</span>
+                <div class="event-card-bottom">
+                  <span class="genre">Reggae · France</span>
+                  <h3 class="artist">Yaniss Odua<br>& FNX</h3>
+                </div>
+              </div>
+              <div class="event-featured-body">
+                <p class="eyebrow"><span class="dot"></span>Plateau Reggae · feat. Trinity Rebel</p>
+                <p class="text-soft" style="font-size:var(--t-md);line-height:1.55;">
+                  Yaniss Odua, figure majeure du reggae francophone depuis 20 ans, partage le plateau avec FNX et la légende Trinity Rebel.
+                </p>
+                <ul class="feature-list">
+                  <li>Grande salle · 363 places debout</li>
+                  <li>Ouverture des portes 20h00</li>
+                </ul>
+                <div class="countdown"><span>Concert dans</span><strong data-cd="2026-05-22T20:00:00">— : — : —</strong></div>
+                <div class="flex gap-3" style="margin-top:8px;flex-wrap:wrap;">
+                  <a href="https://my.weezevent.com/yaniss-odua-fnx" target="_blank" rel="noopener" class="btn btn-primary">Billetterie · dès 13 €</a>
+                  <button type="button" class="btn btn-ghost btn-play" data-video="https://www.youtube.com/embed/YpKxxIeplVE?autoplay=1">
+                    <span class="play-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+                    Voir le clip
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Slide 2 : Nayra + Haze Musazi -->
+            <article class="card event-card event-featured featured-slide">
+              <div class="card-media">
+                <img src="https://static.wixstatic.com/media/7bc4b7_26ee4f20d0ba4f9485f9d7817c453704~mv2.png" alt="NAYRA + HAZE MUSAZI" />
+                <div class="event-card-date"><strong>05</strong><small>Juin 26</small></div>
+                <span class="event-card-badge badge badge-soon">À l'affiche</span>
+                <div class="event-card-bottom">
+                  <span class="genre">Rap · Plateau</span>
+                  <h3 class="artist">Nayra<br>+ Haze Musazi</h3>
+                </div>
+              </div>
+              <div class="event-featured-body">
+                <p class="eyebrow"><span class="dot"></span>Plateau Rap · Scène émergente</p>
+                <p class="text-soft" style="font-size:var(--t-md);line-height:1.55;">
+                  Soirée rap avec Nayra et Haze Musazi — deux voix montantes de la scène francophone qui croisent leurs univers le temps d'un plateau.
+                </p>
+                <ul class="feature-list">
+                  <li>Grande salle · 363 places debout</li>
+                  <li>Ouverture des portes 20h00</li>
+                </ul>
+                <div class="countdown"><span>Concert dans</span><strong data-cd="2026-06-05T20:00:00">— : — : —</strong></div>
+                <div class="flex gap-3" style="margin-top:8px;flex-wrap:wrap;">
+                  <a href="https://my.weezevent.com/nayra-haze-musazi" target="_blank" rel="noopener" class="btn btn-primary">Billetterie · dès 13 €</a>
+                  <a href="agenda.html" class="btn btn-ghost">Détails</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Slide 3 : Samira Brahmia -->
+            <article class="card event-card event-featured featured-slide">
+              <div class="card-media">
+                <img src="https://static.wixstatic.com/media/7bc4b7_40b52d6da9cd457cbca4bd82d198e356~mv2.jpg" alt="Samira Brahmia Pink Casbah" />
+                <div class="event-card-date"><strong>12</strong><small>Juin 26</small></div>
+                <span class="event-card-badge badge badge-soon">À l'affiche</span>
+                <div class="event-card-bottom">
+                  <span class="genre">Raï Rock · Algérie/FR</span>
+                  <h3 class="artist">Samira<br>Brahmia</h3>
+                </div>
+              </div>
+              <div class="event-featured-body">
+                <p class="eyebrow"><span class="dot"></span>Pink Casbah · Raï Rock</p>
+                <p class="text-soft" style="font-size:var(--t-md);line-height:1.55;">
+                  Samira Brahmia revient avec son projet Pink Casbah — un raï rock vibrant qui fait dialoguer héritage algérien et énergie contemporaine.
+                </p>
+                <ul class="feature-list">
+                  <li>Grande salle · 363 places debout</li>
+                  <li>Ouverture des portes 20h00</li>
+                </ul>
+                <div class="countdown"><span>Concert dans</span><strong data-cd="2026-06-12T20:00:00">— : — : —</strong></div>
+                <div class="flex gap-3" style="margin-top:8px;flex-wrap:wrap;">
+                  <a href="https://my.weezevent.com/samira-brahmia-3" target="_blank" rel="noopener" class="btn btn-primary">Billetterie · dès 13 €</a>
+                  <a href="agenda.html" class="btn btn-ghost">Détails</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Slide 4 : Chazil -->
+            <article class="card event-card event-featured featured-slide">
+              <div class="card-media">
+                <img src="https://static.wixstatic.com/media/7bc4b7_a490a16c31a549a9a14503052f8b6ec3~mv2.png" alt="Chazil concert raï" />
+                <div class="event-card-date"><strong>26</strong><small>Juin 26</small></div>
+                <span class="event-card-badge badge badge-soon">À l'affiche</span>
+                <div class="event-card-bottom">
+                  <span class="genre">Raï · Live</span>
+                  <h3 class="artist">Chazil<br>Live Show</h3>
+                </div>
+              </div>
+              <div class="event-featured-body">
+                <p class="eyebrow"><span class="dot"></span>Raï · Live Show</p>
+                <p class="text-soft" style="font-size:var(--t-md);line-height:1.55;">
+                  Chazil clôture la saison avec un live show 100% raï — entre tradition et modernité, une énergie scénique unique.
+                </p>
+                <ul class="feature-list">
+                  <li>Grande salle · 363 places debout</li>
+                  <li>Ouverture des portes 20h00</li>
+                </ul>
+                <div class="countdown"><span>Concert dans</span><strong data-cd="2026-06-26T20:00:00">— : — : —</strong></div>
+                <div class="flex gap-3" style="margin-top:8px;flex-wrap:wrap;">
+                  <a href="agenda.html" class="btn btn-primary">Billetterie · dès 13 €</a>
+                  <a href="agenda.html" class="btn btn-ghost">Détails</a>
+                </div>
+              </div>
+            </article>
+
           </div>
-          <div class="event-featured-body">
-            <p class="eyebrow"><span class="dot"></span>Plateau Reggae · feat. Trinity Rebel</p>
-            <p class="text-soft" style="font-size:var(--t-md);line-height:1.55;">
-              Yaniss Odua, figure majeure du reggae francophone depuis 20 ans, partage le plateau avec FNX et la légende Trinity Rebel. Une soirée incontournable où se croisent reggae racine, dancehall et conscience.
-            </p>
-            <ul class="feature-list">
-              <li>Grande salle · 363 places debout</li>
-              <li>Ouverture des portes 20h00</li>
-              <li>Bar &amp; restauration sur place</li>
-            </ul>
-            <div class="countdown" id="countdownMain">
-              <span>Concert dans</span>
-              <strong data-cd="2026-05-22T20:00:00">— : — : —</strong>
-            </div>
-            <div class="flex gap-3" style="margin-top:8px;flex-wrap:wrap;">
-              <a href="https://my.weezevent.com/yaniss-odua-fnx" target="_blank" rel="noopener" class="btn btn-primary">Billetterie · dès 13 €</a>
-              <button type="button" class="btn btn-ghost btn-play" data-video="https://www.youtube.com/embed/YpKxxIeplVE?autoplay=1">
-                <span class="play-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                </span>
-                Voir le clip
-              </button>
-            </div>
+
+          <!-- Dots & progress -->
+          <div class="featured-dots" role="tablist" aria-label="Concerts à l'affiche">
+            <button class="fd-dot active" data-i="0" aria-label="Yaniss Odua · 22 mai"></button>
+            <button class="fd-dot" data-i="1" aria-label="Nayra · 05 juin"></button>
+            <button class="fd-dot" data-i="2" aria-label="Samira Brahmia · 12 juin"></button>
+            <button class="fd-dot" data-i="3" aria-label="Chazil · 26 juin"></button>
           </div>
-        </article>
+          <div class="featured-progress"><span id="featuredProgressBar"></span></div>
+        </div>
 
         <!-- 5 juin · NAYRA + HAZE MUSAZI · Rap -->
         <a href="https://my.weezevent.com/nayra-haze-musazi" target="_blank" rel="noopener" class="card event-card reveal" data-delay="2">
@@ -788,7 +879,7 @@
   <!-- ========= SCRIPTS ========= -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="assets/js/app.js?v=2026-05-16f"></script>
+  <script src="assets/js/app.js?v=2026-05-16i"></script>
 
 </body>
 </html>
