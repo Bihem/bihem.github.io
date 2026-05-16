@@ -40,20 +40,38 @@
     overlay.parentNode.insertBefore(backdrop, overlay);
   }
 
+  let savedScrollY = 0;
   const openNav = () => {
+    savedScrollY = window.scrollY;
     overlay?.classList.add('open');
     backdrop?.classList.add('open');
     overlay?.setAttribute('aria-hidden', 'false');
     burger?.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${savedScrollY}px`;
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.width = '100%';
   };
   const closeNav = () => {
     overlay?.classList.remove('open');
     backdrop?.classList.remove('open');
     overlay?.setAttribute('aria-hidden', 'true');
     burger?.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
+    const prevBehavior = document.documentElement.style.scrollBehavior;
+    document.documentElement.style.scrollBehavior = 'auto';
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    document.body.style.width = '';
+    window.scrollTo(0, savedScrollY);
+    requestAnimationFrame(() => {
+      document.documentElement.style.scrollBehavior = prevBehavior;
+    });
   };
+  // Block touchmove on backdrop so the page below doesn't scroll
+  backdrop?.addEventListener('touchmove', (e) => e.preventDefault(), { passive: false });
 
   burger?.addEventListener('click', openNav);
   backdrop?.addEventListener('click', closeNav);
