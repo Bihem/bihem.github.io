@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0A0B0E" />
+  <meta name="format-detection" content="telephone=no, email=no, address=no" />
+  <title>Billetterie · Canal 93 Admin</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="assets/css/admin.css" />
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/img/c93-icon-192.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/c93-favicon-32.png" />
+</head>
+<body>
+<div class="app">
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-head">
+    <a href="index.html" class="sidebar-brand"><span class="sidebar-brand-mark">C93</span><span class="sidebar-brand-text"><span class="sidebar-brand-name">Canal 93</span><span class="sidebar-brand-tag">Admin · v0.1</span></span></a>
+    <button class="sidebar-toggle" aria-label="Replier la sidebar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+  </div>
+  <nav class="sidebar-nav" aria-label="Navigation principale">
+    <span class="nav-group-title">Pilotage</span>
+    <a href="index.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>Dashboard</a>
+    <a href="events.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Événements<span class="nav-item-badge">12</span></a>
+    <a href="billetterie.html" class="nav-item active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9V7a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-2a2 2 0 0 0 0-4z"/><line x1="13" y1="5" x2="13" y2="19"/></svg>Billetterie</a>
+    <a href="studios.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="14" rx="6"/><line x1="12" y1="17" x2="12" y2="21"/><line x1="8" y1="21" x2="16" y2="21"/></svg>Studios</a>
+    <span class="nav-group-title">Contenu</span>
+    <a href="artistes.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Artistes</a>
+    <a href="cms.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>Actualités · CMS</a>
+    <a href="messages.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Messagerie<span class="nav-item-badge">7</span></a>
+    <span class="nav-group-title">Système</span>
+    <a href="users.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Utilisateurs & rôles</a>
+    <a href="settings.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>Paramètres</a>
+    <span class="nav-group-title">&nbsp;</span>
+    <a href="../index.html" class="nav-item" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Voir le site live</a>
+  </nav>
+  <div class="sidebar-foot"><div class="user-chip"><div class="user-avatar">MR</div><div class="user-info"><span class="user-name">Mes-Reves</span><span class="user-role">Super Admin</span></div><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--fg-mute);"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+</aside>
+<main class="main">
+<header class="topbar">
+  <button class="topbar-burger" aria-label="Ouvrir le menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  <label class="topbar-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-3.5-3.5"/></svg><input type="search" placeholder="Rechercher concert, artiste, studio, ticket…" /><span class="kbd">⌘ K</span></label>
+  <div class="topbar-actions">
+    <button class="icon-btn" aria-label="Notifications"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg><span class="dot"></span></button>
+    <button class="icon-btn" data-action="toggle-theme" aria-label="Thème"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+    <button class="topbar-cta" data-toast="Émission de ticket (démo)" data-toast-type="success"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Émettre un ticket</button>
+  </div>
+</header>
+<div class="content">
+<div class="page-head reveal-up">
+  <div class="page-head-text">
+    <nav class="crumbs"><a href="index.html">Canal 93</a><span class="sep">/</span><span class="current">Billetterie</span></nav>
+    <h1 class="page-title">Billetterie</h1>
+    <p class="page-sub">Ventes · QR · paiements · invitations · contrôle d'accès</p>
+  </div>
+</div>
+
+<section class="kpi-grid">
+  <article class="kpi reveal-up">
+    <div class="kpi-head"><span class="kpi-label">Billets vendus · 30j</span><div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 9V7a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-2a2 2 0 0 0 0-4z"/><line x1="13" y1="5" x2="13" y2="19"/></svg></div></div>
+    <div class="kpi-value"><span data-countup="1842" data-format="int">0</span></div>
+    <div class="kpi-foot"><span class="delta up">+18,4%</span><span class="kpi-sub">vs 30j</span></div>
+    <svg class="kpi-spark" data-spark="22,28,26,34,32,30,38,44,42,48,52,58"></svg>
+  </article>
+  <article class="kpi reveal-up">
+    <div class="kpi-head"><span class="kpi-label">Revenus billetterie</span><div class="kpi-icon warm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div></div>
+    <div class="kpi-value"><span data-countup="23946" data-format="money" data-money="1">0</span><span class="unit">€</span></div>
+    <div class="kpi-foot"><span class="delta up">+11,2%</span><span class="kpi-sub">net Stripe</span></div>
+    <svg class="kpi-spark" data-spark="18,22,20,26,30,28,34,38,42,46,44,52" data-color="#FF6B35"></svg>
+  </article>
+  <article class="kpi reveal-up">
+    <div class="kpi-head"><span class="kpi-label">Taux de conversion</span><div class="kpi-icon info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div></div>
+    <div class="kpi-value"><span data-countup="6.4" data-format="int">0</span><span class="unit">%</span></div>
+    <div class="kpi-foot"><span class="delta up">+0,8 pt</span><span class="kpi-sub">page → achat</span></div>
+    <svg class="kpi-spark" data-spark="4,4.2,4.5,5,5.3,5.6,6,6.1,6.3,6.2,6.4,6.4" data-color="#60A5FA"></svg>
+  </article>
+  <article class="kpi reveal-up">
+    <div class="kpi-head"><span class="kpi-label">Tickets scannés</span><div class="kpi-icon purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div></div>
+    <div class="kpi-value"><span data-countup="1284" data-format="int">0</span></div>
+    <div class="kpi-foot"><span class="delta flat">no-show 4,2%</span><span class="kpi-sub">3 derniers concerts</span></div>
+    <svg class="kpi-spark" data-spark="40,38,42,46,44,48,52,50,54,58,56,62" data-color="#A78BFA"></svg>
+  </article>
+</section>
+
+<section class="dash-grid">
+  <article class="card reveal-up">
+    <header class="card-head">
+      <div><h2 class="card-title">Ventes · 30 derniers jours</h2><span class="card-title-sub">Conversion · revenus · canaux</span></div>
+      <div class="tabs"><button class="tab active">Revenus</button><button class="tab">Tickets</button><button class="tab">Conversion</button></div>
+    </header>
+    <div class="chart-wrap">
+      <svg data-chart="120,180,160,220,200,260,300,280,360,420,400,480,520,580,540,620,680,720,760,820,800,860,920,980,1040,1080,1120,1180,1220,1280" data-labels="J-30,J-25,J-20,J-15,J-10,J-5,J0" data-colors="#C6F432"></svg>
+    </div>
+  </article>
+
+  <article class="card reveal-up">
+    <header class="card-head"><h2 class="card-title">Tarifs</h2><span class="card-title-sub">Configuration active</span></header>
+    <div class="card-body">
+      <div style="display:flex;flex-direction:column;gap:var(--s-3);">
+        <div class="flex items-center justify-between" style="padding:var(--s-3);background:var(--bg-elev-2);border-radius:var(--r-sm);"><div><div class="td-strong">Plein tarif</div><div class="text-mute" style="font-size:var(--t-xs);">Concerts grande salle</div></div><strong class="td-mono">15 €</strong></div>
+        <div class="flex items-center justify-between" style="padding:var(--s-3);background:var(--bg-elev-2);border-radius:var(--r-sm);"><div><div class="td-strong">Tarif réduit</div><div class="text-mute" style="font-size:var(--t-xs);">– 26 ans · étudiants</div></div><strong class="td-mono">13 €</strong></div>
+        <div class="flex items-center justify-between" style="padding:var(--s-3);background:var(--bg-elev-2);border-radius:var(--r-sm);border-left:2px solid var(--accent);"><div><div class="td-strong">Early Bird</div><div class="text-mute" style="font-size:var(--t-xs);">– 30 % · 30 j avant</div></div><strong class="td-mono">10 €</strong></div>
+        <div class="flex items-center justify-between" style="padding:var(--s-3);background:var(--bg-elev-2);border-radius:var(--r-sm);"><div><div class="td-strong">Balbynien</div><div class="text-mute" style="font-size:var(--t-xs);">Justificatif requis</div></div><strong class="td-mono">8 €</strong></div>
+        <div class="flex items-center justify-between" style="padding:var(--s-3);background:var(--bg-elev-2);border-radius:var(--r-sm);"><div><div class="td-strong">Invitation</div><div class="text-mute" style="font-size:var(--t-xs);">Liste invités · 24 places</div></div><strong class="td-mono">0 €</strong></div>
+      </div>
+    </div>
+    <footer class="card-foot"><button class="btn sm">+ Nouveau tarif</button><a href="#" class="text-mute" style="font-size:var(--t-xs);">Gérer →</a></footer>
+  </article>
+</section>
+
+<section class="card reveal-up">
+  <header class="card-head">
+    <div><h2 class="card-title">Commandes récentes</h2><span class="card-title-sub">8 dernières · Stripe</span></div>
+    <div class="flex gap-2"><button class="btn sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Export CSV</button></div>
+  </header>
+  <div class="table-wrap"><table class="table">
+    <thead><tr><th>#</th><th>Acheteur</th><th>Événement</th><th>Tarif</th><th>Qté</th><th>Montant</th><th>Canal</th><th>Statut</th><th></th></tr></thead>
+    <tbody>
+      <tr><td class="td-mono">#4827</td><td class="td-strong">Léa Bernard<br><small style="color:var(--fg-mute);font-size:11px;">lea.b@gmail.com</small></td><td>Yaniss Odua</td><td>Plein</td><td class="td-num">2</td><td class="td-num td-strong">30 €</td><td><span class="badge muted">Stripe</span></td><td><span class="badge success">Payé</span></td><td><div class="td-actions"><button class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></div></td></tr><tr><td class="td-mono">#4826</td><td class="td-strong">Marc Dupuis<br><small style="color:var(--fg-mute);font-size:11px;">marc.d@hotmail.fr</small></td><td>Nayra + Haze</td><td>Réduit</td><td class="td-num">1</td><td class="td-num td-strong">13 €</td><td><span class="badge muted">Stripe</span></td><td><span class="badge success">Payé</span></td><td><div class="td-actions"><button class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></div></td></tr><tr><td class="td-mono">#4825</td><td class="td-strong">Sarah Maza<br><small style="color:var(--fg-mute);font-size:11px;">smaza@me.com</small></td><td>Samira Brahmia</td><td>Plein × 4</td><td class="td-num">4</td><td class="td-num td-strong">60 €</td><td><span class="badge muted">Weezevent</span></td><td><span class="badge success">Payé</span></td><td><div class="td-actions"><button class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></div></td></tr><tr><td class="td-mono">#4824</td><td class="td-strong">Inès K.<br><small style="color:var(--fg-mute);font-size:11px;">ines.k@orange.fr</small></td><td>Yaniss Odua</td><td>Balbynien</td><td class="td-num">1</td><td class="td-num td-strong">8 €</td><td><span class="badge muted">Stripe</span></td><td><span class="badge success">Payé</span></td><td><div class="td-actions"><button class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></div></td></tr><tr><td class="td-mono">#4823</td><td class="td-strong">Théo Riv.<br><small style="color:var(--fg-mute);font-size:11px;">theo.riv@gmail.com</small></td><td>Chazil</td><td>Early Bird</td><td class="td-num">2</td><td class="td-num td-strong">20 €</td><td><span class="badge muted">Stripe</span></td><td><span class="badge success">Payé</span></td><td><div class="td-actions"><button class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></div></td></tr><tr><td class="td-mono">#4822</td><td class="td-strong">Karim B.<br><small style="color:var(--fg-mute);font-size:11px;">karim@protonmail.com</small></td><td>Nayra + Haze</td><td>Plein</td><td class="td-num">3</td><td class="td-num td-strong">45 €</td><td><span class="badge muted">Stripe</span></td><td><span class="badge warning">Remboursé</span></td><td><div class="td-actions"><button class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></div></td></tr><tr><td class="td-mono">#4821</td><td class="td-strong">Anonyme<br><small style="color:var(--fg-mute);font-size:11px;">—</small></td><td>Samira Brahmia</td><td>Plein</td><td class="td-num">2</td><td class="td-num td-strong">30 €</td><td><span class="badge muted">Stripe</span></td><td><span class="badge danger">Échoué</span></td><td><div class="td-actions"><button class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></div></td></tr><tr><td class="td-mono">#4820</td><td class="td-strong">Mehdi T.<br><small style="color:var(--fg-mute);font-size:11px;">mehdi.t@gmail.com</small></td><td>Terre Hip-Hop</td><td>Invitation</td><td class="td-num">1</td><td class="td-num td-strong">0 €</td><td><span class="badge muted">Manuel</span></td><td><span class="badge info">Émis</span></td><td><div class="td-actions"><button class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></div></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+</div>
+</main>
+</div>
+<script src="assets/js/admin.js"></script>
+</body>
+</html>
