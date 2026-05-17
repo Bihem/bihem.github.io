@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0A0B0E" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Connexion · Canal 93 Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="assets/css/admin.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/c93-favicon-32.png" />
+  <style>
+    .login-wrap {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: var(--s-5);
+      position: relative;
+      z-index: 1;
+    }
+    .login-card {
+      width: 100%;
+      max-width: 460px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--r-lg);
+      padding: var(--s-8);
+      box-shadow: var(--sh-lg);
+      animation: fadeUp 600ms var(--ease-out) both;
+    }
+    .login-mark {
+      width: 56px; height: 56px;
+      border-radius: var(--r-md);
+      background: var(--accent);
+      color: #0A0B0E;
+      display: grid;
+      place-items: center;
+      font-family: var(--f-display);
+      font-weight: 800;
+      font-size: 22px;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--s-5);
+      box-shadow: 0 8px 24px rgba(198,244,50,0.35);
+    }
+    .login-card h1 {
+      font-family: var(--f-display);
+      font-weight: 700;
+      font-size: var(--t-2xl);
+      letter-spacing: -0.02em;
+      margin: 0 0 var(--s-2);
+    }
+    .login-card p {
+      color: var(--fg-soft);
+      margin: 0 0 var(--s-6);
+      font-size: var(--t-md);
+    }
+    .login-form { display: flex; flex-direction: column; gap: var(--s-4); }
+    .login-error {
+      padding: var(--s-3);
+      background: var(--danger-soft);
+      border: 1px solid rgba(248,113,113,0.30);
+      border-radius: var(--r-sm);
+      color: var(--danger);
+      font-size: var(--t-sm);
+      display: none;
+    }
+    .login-error.show { display: block; animation: fadeIn 240ms var(--ease-out); }
+    .login-success {
+      padding: var(--s-3);
+      background: var(--success-soft);
+      border: 1px solid rgba(52,211,153,0.30);
+      border-radius: var(--r-sm);
+      color: var(--success);
+      font-size: var(--t-sm);
+      display: none;
+    }
+    .login-success.show { display: block; }
+    .help-block {
+      margin-top: var(--s-5);
+      padding: var(--s-4);
+      background: var(--bg-elev-2);
+      border-radius: var(--r-sm);
+      border-left: 2px solid var(--accent);
+      font-size: var(--t-xs);
+      color: var(--fg-soft);
+      line-height: 1.6;
+    }
+    .help-block a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+    .help-block code {
+      font-family: var(--f-mono);
+      font-size: 11px;
+      background: var(--surface-active);
+      padding: 2px 6px;
+      border-radius: 3px;
+      color: var(--fg);
+    }
+    .secondary-link {
+      display: block;
+      text-align: center;
+      margin-top: var(--s-5);
+      font-size: var(--t-xs);
+      color: var(--fg-mute);
+    }
+    .secondary-link a { color: var(--fg-mute); text-decoration: underline; text-underline-offset: 2px; }
+  </style>
+</head>
+<body>
+<div class="login-wrap">
+  <div class="login-card">
+    <div class="login-mark">C93</div>
+    <h1>Backoffice Canal 93</h1>
+    <p>Connecte-toi avec ton Personal Access Token GitHub pour éditer le site.</p>
+
+    <form class="login-form" id="loginForm" autocomplete="off">
+      <div class="field">
+        <label class="field-label" for="token">Personal Access Token (PAT)</label>
+        <input id="token" class="input" type="password" placeholder="ghp_xxxxxxxxxxxxxxxxxxxxxxxx" required autofocus />
+      </div>
+      <div class="login-error" id="err"></div>
+      <div class="login-success" id="ok"></div>
+      <button type="submit" class="btn primary lg" id="submit">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+        Se connecter
+      </button>
+    </form>
+
+    <div class="help-block">
+      <strong style="color:var(--fg);">Première connexion ?</strong><br>
+      Génère un token sur <a href="https://github.com/settings/tokens/new?scopes=repo&description=Canal93%20Admin" target="_blank" rel="noopener">github.com/settings/tokens</a> avec le scope <code>repo</code>, puis colle-le ici. Le token reste stocké uniquement dans ton navigateur (localStorage), jamais envoyé ailleurs.
+    </div>
+
+    <a href="../index.html" class="secondary-link">← Retour au site Canal 93</a>
+  </div>
+</div>
+
+<script src="assets/js/data-service.js"></script>
+<script>
+  // Si déjà connecté, rediriger
+  if (C93Data.getToken()) {
+    const next = new URLSearchParams(location.search).get('next') || 'index.html';
+    location.replace(next);
+  }
+
+  const form = document.getElementById('loginForm');
+  const errEl = document.getElementById('err');
+  const okEl = document.getElementById('ok');
+  const submitBtn = document.getElementById('submit');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    errEl.classList.remove('show'); okEl.classList.remove('show');
+    const token = document.getElementById('token').value.trim();
+    if (!token) return;
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<svg class="spin" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>Vérification…';
+    try {
+      const user = await C93Data.login(token);
+      okEl.textContent = `✓ Connecté en tant que ${user.login}. Redirection…`;
+      okEl.classList.add('show');
+      setTimeout(() => {
+        const next = new URLSearchParams(location.search).get('next') || 'index.html';
+        location.replace(next);
+      }, 700);
+    } catch (e) {
+      errEl.textContent = e.message;
+      errEl.classList.add('show');
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>Se connecter';
+    }
+  });
+</script>
+<style>
+.spin { animation: spin 800ms linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</body>
+</html>
