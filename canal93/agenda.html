@@ -115,45 +115,45 @@
       <p class="text-mute" style="font-size:var(--t-sm);">Billets en vente sur Weezevent. Ouverture des portes 20h, début 21h sauf indication contraire.</p>
     </aside>
     <div>
-      <div class="date-list">
-
-        <a class="date-item" href="https://my.weezevent.com/yaniss-odua-fnx" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
-          <div class="day"><strong>22</strong><small>Mai</small></div>
-          <div class="info"><h4>Yaniss Odua &amp; FNX feat. Trinity Rebel</h4><span>20h00 · Reggae · Grande salle</span></div>
-          <div class="meta">dès 13 €</div>
-        </a>
-
-        <a class="date-item" href="https://my.weezevent.com/nayra-haze-musazi" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
-          <div class="day"><strong>05</strong><small>Juin</small></div>
-          <div class="info"><h4>Nayra + Haze Musazi</h4><span>20h00 · Rap · Plateau découverte</span></div>
-          <div class="meta">dès 13 €</div>
-        </a>
-
-        <a class="date-item" href="https://my.weezevent.com/samira-brahmia-3" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
-          <div class="day"><strong>12</strong><small>Juin</small></div>
-          <div class="info"><h4>Samira Brahmia (Pink Casbah)</h4><span>20h00 · Raï Rock · Algérie/FR</span></div>
-          <div class="meta">dès 13 €</div>
-        </a>
-
-        <a class="date-item" href="https://my.weezevent.com/blvr-festival" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
-          <div class="day"><strong>—</strong><small>Juin</small></div>
-          <div class="info"><h4>BLVR du Rap Festival</h4><span>Rap indépendant · Festival hip-hop</span></div>
-          <div class="meta">dès 13 €</div>
-        </a>
-
-        <div class="date-item">
-          <div class="day"><strong>20</strong><small>Juin</small></div>
-          <div class="info"><h4>★ Grande finale — Terre Hip Hop Contest</h4><span>20h00 · Open mic + finale freestyle</span></div>
-          <div class="meta">Sur inscription</div>
-        </div>
-
-        <div class="date-item">
-          <div class="day"><strong>26</strong><small>Juin</small></div>
-          <div class="info"><h4>Chazil — Live Show</h4><span>20h00 · Raï · Grande salle</span></div>
-          <div class="meta">dès 13 €</div>
-        </div>
-
+      <div class="date-list" id="agendaList" data-agenda-loader>
+        <div class="date-item" style="opacity:0.5;"><div class="day"><strong>…</strong><small></small></div><div class="info"><h4>Chargement de l'agenda…</h4><span>Synchronisation avec le backoffice</span></div><div class="meta">—</div></div>
       </div>
+      <script>
+      (async () => {
+        const MONTHS_FR = ['Jan','Fév','Mar','Avr','Mai','Juin','Juil','Août','Sep','Oct','Nov','Déc'];
+        const today = new Date().toISOString().slice(0,10);
+        try {
+          const r = await fetch('data/events.json?v=' + Date.now(), { cache: 'no-store' });
+          if (!r.ok) throw new Error('events.json indisponible');
+          const data = await r.json();
+          const events = (data.events || [])
+            .filter(e => e.status === 'published' && (e.date || '') >= today)
+            .sort((a,b) => (a.date||'').localeCompare(b.date||''));
+          const list = document.getElementById('agendaList');
+          if (!events.length) {
+            list.innerHTML = '<div class="date-item"><div class="day"><strong>—</strong><small></small></div><div class="info"><h4>Aucun concert à venir</h4><span>Programmation en préparation. Reviens bientôt.</span></div><div class="meta"></div></div>';
+            return;
+          }
+          list.innerHTML = events.map(ev => {
+            const d = new Date(ev.date + 'T' + (ev.time || '20:00'));
+            const dd = String(d.getDate()).padStart(2,'0');
+            const mm = MONTHS_FR[d.getMonth()];
+            const subtitle = [ev.time ? (ev.time.replace(':','h')) : '', ev.genre, ev.venue || ''].filter(Boolean).join(' · ');
+            const meta = ev.price || '—';
+            const tag = ev.ticketUrl ? 'a' : 'div';
+            const attrs = ev.ticketUrl ? `href="${ev.ticketUrl}" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;"` : '';
+            return `<${tag} class="date-item" ${attrs}>
+              <div class="day"><strong>${dd}</strong><small>${mm}</small></div>
+              <div class="info"><h4>${escapeHtml(ev.title)}${ev.subtitle ? ' — ' + escapeHtml(ev.subtitle) : ''}</h4><span>${escapeHtml(subtitle)}</span></div>
+              <div class="meta">${escapeHtml(meta)}</div>
+            </${tag}>`;
+          }).join('');
+        } catch (e) {
+          document.getElementById('agendaList').innerHTML = '<div class="date-item"><div class="day"><strong>!</strong><small></small></div><div class="info"><h4>Agenda indisponible</h4><span>' + (e.message || '') + '</span></div><div class="meta"></div></div>';
+        }
+        function escapeHtml(s) { return (s == null ? '' : String(s)).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+      })();
+      </script>
     </div>
   </div>
 </section>
