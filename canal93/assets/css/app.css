@@ -3387,49 +3387,49 @@ body.light-theme .page-load-logo {
   transition: background 600ms ease-out;
 }
 
-/* ---- HOVER PREMIUM ---- */
+/* ---- HOVER PREMIUM (intensité réduite) ---- */
 @media (hover: hover) {
   .event-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-5px);
     box-shadow:
-      0 32px 80px rgba(0,0,0,0.6),
-      0 0 60px rgba(198,244,50,0.22),
+      0 20px 48px rgba(0,0,0,0.42),
+      0 0 32px rgba(198,244,50,0.12),
       0 0 0 1px var(--accent);
   }
   .event-card:hover .card-media img {
-    transform: scale(1.12) translateY(-6px);
-    filter: saturate(1.18) contrast(1.15) brightness(1.05);
+    transform: scale(1.06) translateY(-3px);
+    filter: saturate(1.08) contrast(1.06) brightness(1.02);
   }
   .event-card:hover .card-media::before {
     transform: translateX(120%);
-    opacity: 1;
+    opacity: 0.7;
   }
   .event-card:hover .card-media::after {
     background:
-      radial-gradient(ellipse at 70% 18%, rgba(198,244,50,0.28), transparent 50%),
-      radial-gradient(ellipse at 22% 88%, rgba(255,107,53,0.18), transparent 50%),
-      linear-gradient(180deg, transparent 25%, rgba(0,0,0,0.88) 100%);
+      radial-gradient(ellipse at 70% 18%, rgba(198,244,50,0.18), transparent 55%),
+      radial-gradient(ellipse at 22% 88%, rgba(255,107,53,0.12), transparent 55%),
+      linear-gradient(180deg, transparent 30%, rgba(0,0,0,0.90) 100%);
   }
-  /* Bottom info : décollage + lettrage */
+  /* Bottom info : décollage + lettrage (subtil) */
   .event-card:hover .event-card-bottom {
-    transform: translateY(-4px);
+    transform: translateY(-2px);
   }
   .event-card:hover .event-card-bottom .artist {
-    letter-spacing: -0.012em;
-    text-shadow: 0 6px 24px rgba(0,0,0,0.6);
+    letter-spacing: -0.008em;
+    text-shadow: 0 4px 16px rgba(0,0,0,0.45);
   }
   .event-card:hover .event-card-bottom .genre {
     color: var(--accent);
-    letter-spacing: 0.22em;
+    letter-spacing: 0.18em;
   }
-  /* Date pill : éclat + rapprochement */
+  /* Date pill : éclat doux */
   .event-card:hover .event-card-date {
     border-color: var(--accent);
-    background: rgba(10,10,10,0.85);
-    box-shadow: 0 8px 24px rgba(198,244,50,0.18);
+    background: rgba(10,10,10,0.82);
+    box-shadow: 0 5px 16px rgba(198,244,50,0.11);
   }
   .event-card:hover .event-card-date strong {
-    text-shadow: 0 0 14px rgba(198,244,50,0.5);
+    text-shadow: 0 0 9px rgba(198,244,50,0.32);
   }
 }
 
