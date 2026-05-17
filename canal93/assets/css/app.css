@@ -2313,23 +2313,16 @@ body.light-theme .footer-mega-cta {
 
 .footer-logo {
   display: block;
-  height: 160px;
+  height: 88px;
   width: auto;
   margin: var(--s-4) 0 var(--s-6);
-  filter: drop-shadow(0 0 24px rgba(198, 244, 50, 0.4));
+  filter: drop-shadow(0 0 18px rgba(198, 244, 50, 0.35));
   transition: filter var(--t-base-d) var(--ease-out), opacity var(--t-base-d) var(--ease-out), transform var(--t-base-d) var(--ease-out);
 }
 .footer-logo:hover {
-  opacity: 0.9;
+  opacity: 0.92;
   transform: scale(1.04);
-  filter: drop-shadow(0 0 32px rgba(198, 244, 50, 0.6));
-}
-@media (max-width: 640px) {
-  .footer-logo {
-    height: 44px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+  filter: drop-shadow(0 0 24px rgba(198, 244, 50, 0.55));
 }
 
 .footer-brand p {
