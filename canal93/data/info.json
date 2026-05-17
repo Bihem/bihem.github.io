@@ -1,0 +1,46 @@
+{
+  "updated": "2026-05-17T20:00:00Z",
+  "venue": {
+    "name": "Canal 93",
+    "tagline": "Lieu de musiques actuelles · Bobigny",
+    "description": "Salle de 363 places, 4 studios de répétition et 1 d'enregistrement, danse, ateliers, résidences. Depuis 2002.",
+    "address": "63 avenue Jean Jaurès",
+    "postalCode": "93000",
+    "city": "Bobigny",
+    "country": "France",
+    "latitude": 48.9106,
+    "longitude": 2.4453,
+    "capacity": 363,
+    "openedYear": 2002
+  },
+  "contact": {
+    "phoneReception": "01 49 91 10 50",
+    "phoneStudios": "01 48 91 47 74",
+    "emailMain": "communication@canal93.net",
+    "emailStudios": "regiestudio@canal93.net",
+    "emailMasterclass": "maadsterclass@canal93.net"
+  },
+  "transport": {
+    "metro": "L5 Bobigny–Pablo Picasso",
+    "bus": "301 · 147 · 322 · N13 · N45",
+    "tram": "T1",
+    "car": "Périphérique sortie Porte de Pantin · parking sur place"
+  },
+  "hours": {
+    "openingDays": "Mardi au samedi",
+    "studiosHours": "15h–22h",
+    "concertHours": "Selon programmation",
+    "ticketOfficeHours": "Mardi au vendredi 14h–18h"
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/canal93.bobigny",
+    "facebook": "https://www.facebook.com/Canal93.Bobigny",
+    "tiktok": "https://www.tiktok.com/@canal93.bobigny",
+    "youtube": "https://www.youtube.com/@canal93.bobigny"
+  },
+  "membership": {
+    "balbynien": 5,
+    "nonBalbynien": 10,
+    "currency": "EUR"
+  }
+}
