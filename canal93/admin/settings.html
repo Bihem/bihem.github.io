@@ -12,138 +12,336 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" />
   <link rel="stylesheet" href="assets/css/admin.css" />
   <link rel="icon" type="image/png" sizes="192x192" href="../assets/img/c93-icon-192.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/c93-favicon-32.png" />
+  <style>
+    .pricing-row { display: grid; grid-template-columns: 1fr 110px 90px 36px; gap: var(--s-2); align-items: center; padding: var(--s-2) 0; }
+    .pricing-row input { height: 32px; }
+    .save-bar { padding: var(--s-3) var(--s-5); border-radius: var(--r-sm); display: none; align-items: center; gap: var(--s-3); font-size: var(--t-sm); margin-top: var(--s-3); }
+    .save-bar.show { display: flex; }
+    .save-bar.loading { background: var(--accent-soft); color: var(--accent); }
+    .save-bar.success { background: var(--success-soft); color: var(--success); }
+    .save-bar.error { background: var(--danger-soft); color: var(--danger); }
+    .spin { animation: spin 800ms linear infinite; width: 14px; height: 14px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
 </head>
 <body>
-<div class="app">
-<aside class="sidebar" id="sidebar">
-  <div class="sidebar-head">
-    <a href="index.html" class="sidebar-brand"><span class="sidebar-brand-mark">C93</span><span class="sidebar-brand-text"><span class="sidebar-brand-name">Canal 93</span><span class="sidebar-brand-tag">Admin · v0.1</span></span></a>
-    <button class="sidebar-toggle" aria-label="Replier la sidebar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
-  </div>
-  <nav class="sidebar-nav" aria-label="Navigation principale">
-    <span class="nav-group-title">Pilotage</span>
-    <a href="index.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>Dashboard</a>
-    <a href="events.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Événements<span class="nav-item-badge">12</span></a>
-    <a href="billetterie.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9V7a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-2a2 2 0 0 0 0-4z"/><line x1="13" y1="5" x2="13" y2="19"/></svg>Billetterie</a>
-    <a href="studios.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="14" rx="6"/><line x1="12" y1="17" x2="12" y2="21"/><line x1="8" y1="21" x2="16" y2="21"/></svg>Studios</a>
-    <span class="nav-group-title">Contenu</span>
-    <a href="artistes.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Artistes</a>
-    <a href="cms.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>Actualités · CMS</a>
-    <a href="messages.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Messagerie<span class="nav-item-badge">7</span></a>
-    <span class="nav-group-title">Système</span>
-    <a href="users.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Utilisateurs & rôles</a>
-    <a href="settings.html" class="nav-item active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>Paramètres</a>
-    <span class="nav-group-title">&nbsp;</span>
-    <a href="../index.html" class="nav-item" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Voir le site live</a>
-  </nav>
-  <div class="sidebar-foot"><div class="user-chip"><div class="user-avatar">MR</div><div class="user-info"><span class="user-name">Mes-Reves</span><span class="user-role">Super Admin</span></div><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--fg-mute);"><polyline points="6 9 12 15 18 9"/></svg></div></div>
-</aside>
-<main class="main">
-<header class="topbar">
-  <button class="topbar-burger" aria-label="Ouvrir le menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
-  <label class="topbar-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-3.5-3.5"/></svg><input type="search" placeholder="Rechercher concert, artiste, studio, ticket…" /><span class="kbd">⌘ K</span></label>
-  <div class="topbar-actions">
-    <button class="icon-btn" aria-label="Notifications"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg><span class="dot"></span></button>
-    <button class="icon-btn" data-action="toggle-theme" aria-label="Thème"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
-    <button class="topbar-cta" data-toast="Modifications enregistrées" data-toast-type="success"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Sauvegarder</button>
-  </div>
-</header>
-<div class="content">
-<div class="page-head reveal-up">
-  <div class="page-head-text">
-    <nav class="crumbs"><a href="index.html">Canal 93</a><span class="sep">/</span><span class="current">Paramètres</span></nav>
-    <h1 class="page-title">Paramètres</h1>
-    <p class="page-sub">Identité · facturation · intégrations · sécurité · API</p>
-  </div>
-</div>
 
-<section style="display:grid;grid-template-columns:240px 1fr;gap:var(--s-5);" class="settings-layout">
-  <aside class="card reveal-up" style="padding:var(--s-3);height:fit-content;">
-    <div style="display:flex;flex-direction:column;gap:2px;">
-      <a class="nav-item active" href="#general"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1z"/></svg>Général</a>
-      <a class="nav-item" href="#billing"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Facturation</a>
-      <a class="nav-item" href="#integrations"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Intégrations</a>
-      <a class="nav-item" href="#notif"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/></svg>Notifications</a>
-      <a class="nav-item" href="#security"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Sécurité</a>
-      <a class="nav-item" href="#api"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>API &amp; webhooks</a>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-head">
+      <a href="index.html" class="sidebar-brand"><span class="sidebar-brand-mark">C93</span><span class="sidebar-brand-text"><span class="sidebar-brand-name">Canal 93</span><span class="sidebar-brand-tag">Admin · v0.2</span></span></a>
+      <button class="sidebar-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+    </div>
+    <nav class="sidebar-nav">
+      <span class="nav-group-title">Pilotage</span>
+      <a href="index.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>Dashboard</a>
+      <a href="events.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/></svg>Événements</a>
+      <a href="billetterie.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 9V7a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-2a2 2 0 0 0 0-4z"/></svg>Billetterie</a>
+      <a href="studios.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="3" width="12" height="14" rx="6"/></svg>Studios</a>
+      <span class="nav-group-title">Contenu</span>
+      <a href="artistes.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Artistes</a>
+      <a href="cms.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>Actualités · CMS</a>
+      <a href="messages.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Messagerie</a>
+      <span class="nav-group-title">Système</span>
+      <a href="users.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Utilisateurs &amp; rôles</a>
+      <a href="settings.html" class="nav-item active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1z"/></svg>Paramètres</a>
+      <a href="../infos-pratiques.html" class="nav-item" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Voir infos pratiques</a>
+    </nav>
+    <div class="sidebar-foot">
+      <div class="user-chip">
+        <div class="user-avatar" id="userAvatar">?</div>
+        <div class="user-info"><span class="user-name" id="userName">—</span><span class="user-role">Connecté GitHub</span></div>
+        <button class="icon-btn" id="logoutBtn" style="width:28px;height:28px;border:none;background:transparent;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></button>
+      </div>
     </div>
   </aside>
 
-  <div style="display:flex;flex-direction:column;gap:var(--s-5);">
-    <article class="card reveal-up" id="general">
-      <header class="card-head"><h2 class="card-title">Identité du lieu</h2></header>
-      <div class="card-body" style="display:grid;grid-template-columns:1fr 1fr;gap:var(--s-4);">
-        <div class="field"><label class="field-label">Nom public</label><input class="input" value="Canal 93" /></div>
-        <div class="field"><label class="field-label">Sous-titre</label><input class="input" value="Lieu de musiques actuelles · Bobigny" /></div>
-        <div class="field"><label class="field-label">Adresse</label><input class="input" value="63 avenue Jean Jaurès, 93000 Bobigny" /></div>
-        <div class="field"><label class="field-label">Téléphone accueil</label><input class="input" value="01 49 91 10 50" /></div>
-        <div class="field"><label class="field-label">Email principal</label><input class="input" value="communication@canal93.net" /></div>
-        <div class="field"><label class="field-label">Capacité grande salle</label><input class="input" value="363" /></div>
-        <div class="field" style="grid-column:1/-1;"><label class="field-label">Description courte</label><textarea class="textarea">Salle de 363 places, 4 studios de répétition et 1 d'enregistrement, danse, ateliers, résidences. Depuis 2002.</textarea></div>
+  <main class="main">
+    <header class="topbar">
+      <button class="topbar-burger"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+      <div style="flex:1;"></div>
+      <div class="topbar-actions">
+        <button class="icon-btn" data-action="toggle-theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
       </div>
-      <footer class="card-foot"><span class="text-mute" style="font-size:var(--t-xs);">Dernière sauvegarde · il y a 2h</span><div class="flex gap-2"><button class="btn">Annuler</button><button class="btn primary" data-toast="Modifications enregistrées">Enregistrer</button></div></footer>
-    </article>
+    </header>
 
-    <article class="card reveal-up" id="integrations">
-      <header class="card-head"><h2 class="card-title">Intégrations</h2><span class="card-title-sub">5 connectées · 2 disponibles</span></header>
-      <div class="card-body" style="display:grid;grid-template-columns:1fr 1fr;gap:var(--s-3);">
-        <div style="padding:var(--s-4);background:var(--bg-elev-2);border:1px solid var(--line);border-radius:var(--r-sm);display:flex;align-items:center;gap:var(--s-3);">
-          <div style="width:40px;height:40px;border-radius:var(--r-xs);background:#635BFF;display:grid;place-items:center;font-family:var(--f-display);font-weight:700;color:#fff;">S</div>
-          <div style="flex:1;"><div class="td-strong">Stripe</div><div class="text-mute" style="font-size:11px;">Paiements billetterie + studios</div></div>
-          <div class="switch on"></div>
-        </div><div style="padding:var(--s-4);background:var(--bg-elev-2);border:1px solid var(--line);border-radius:var(--r-sm);display:flex;align-items:center;gap:var(--s-3);">
-          <div style="width:40px;height:40px;border-radius:var(--r-xs);background:#F90;display:grid;place-items:center;font-family:var(--f-display);font-weight:700;color:#fff;">W</div>
-          <div style="flex:1;"><div class="td-strong">Weezevent</div><div class="text-mute" style="font-size:11px;">Billetterie miroir</div></div>
-          <div class="switch on"></div>
-        </div><div style="padding:var(--s-4);background:var(--bg-elev-2);border:1px solid var(--line);border-radius:var(--r-sm);display:flex;align-items:center;gap:var(--s-3);">
-          <div style="width:40px;height:40px;border-radius:var(--r-xs);background:#34A853;display:grid;place-items:center;font-family:var(--f-display);font-weight:700;color:#fff;">G</div>
-          <div style="flex:1;"><div class="td-strong">Google Calendar</div><div class="text-mute" style="font-size:11px;">Sync programmation</div></div>
-          <div class="switch on"></div>
-        </div><div style="padding:var(--s-4);background:var(--bg-elev-2);border:1px solid var(--line);border-radius:var(--r-sm);display:flex;align-items:center;gap:var(--s-3);">
-          <div style="width:40px;height:40px;border-radius:var(--r-xs);background:#FFE01B;display:grid;place-items:center;font-family:var(--f-display);font-weight:700;color:#000;">M</div>
-          <div style="flex:1;"><div class="td-strong">Mailchimp</div><div class="text-mute" style="font-size:11px;">Newsletter abonnés</div></div>
-          <div class="switch on"></div>
-        </div><div style="padding:var(--s-4);background:var(--bg-elev-2);border:1px solid var(--line);border-radius:var(--r-sm);display:flex;align-items:center;gap:var(--s-3);">
-          <div style="width:40px;height:40px;border-radius:var(--r-xs);background:#4A154B;display:grid;place-items:center;font-family:var(--f-display);font-weight:700;color:#fff;">#</div>
-          <div style="flex:1;"><div class="td-strong">Slack</div><div class="text-mute" style="font-size:11px;">Notifications équipe</div></div>
-          <div class="switch on"></div>
-        </div><div style="padding:var(--s-4);background:var(--bg-elev-2);border:1px solid var(--line);border-radius:var(--r-sm);display:flex;align-items:center;gap:var(--s-3);">
-          <div style="width:40px;height:40px;border-radius:var(--r-xs);background:#F22F46;display:grid;place-items:center;font-family:var(--f-display);font-weight:700;color:#fff;">T</div>
-          <div style="flex:1;"><div class="td-strong">Twilio</div><div class="text-mute" style="font-size:11px;">SMS rappels concert</div></div>
-          <div class="switch"></div>
-        </div><div style="padding:var(--s-4);background:var(--bg-elev-2);border:1px solid var(--line);border-radius:var(--r-sm);display:flex;align-items:center;gap:var(--s-3);">
-          <div style="width:40px;height:40px;border-radius:var(--r-xs);background:#000;display:grid;place-items:center;font-family:var(--f-display);font-weight:700;color:#fff;">N</div>
-          <div style="flex:1;"><div class="td-strong">Notion</div><div class="text-mute" style="font-size:11px;">Sync CMS articles</div></div>
-          <div class="switch"></div>
-        </div><div style="padding:var(--s-4);background:var(--bg-elev-2);border:1px solid var(--line);border-radius:var(--r-sm);display:flex;align-items:center;gap:var(--s-3);">
-          <div style="width:40px;height:40px;border-radius:var(--r-xs);background:#362D59;display:grid;place-items:center;font-family:var(--f-display);font-weight:700;color:#fff;">⚠</div>
-          <div style="flex:1;"><div class="td-strong">Sentry</div><div class="text-mute" style="font-size:11px;">Monitoring erreurs</div></div>
-          <div class="switch"></div>
+    <div class="content">
+      <div class="page-head reveal-up">
+        <div class="page-head-text">
+          <nav class="crumbs"><a href="index.html">Canal 93</a><span class="sep">/</span><span class="current">Paramètres</span></nav>
+          <h1 class="page-title">Paramètres</h1>
+          <p class="page-sub">Infos pratiques, transport, tarifs studios — synchronisés avec le site live</p>
         </div>
       </div>
-    </article>
 
-    <article class="card reveal-up" id="api">
-      <header class="card-head"><h2 class="card-title">API &amp; webhooks</h2><button class="btn sm">+ Token</button></header>
-      <div class="card-body">
-        <div class="table-wrap"><table class="table">
-          <thead><tr><th>Nom</th><th>Type</th><th>Dernière utilisation</th><th>Token</th><th></th></tr></thead>
-          <tbody>
-            <tr><td class="td-strong">Site canal93.com</td><td><span class="badge accent">Lecture</span></td><td class="td-mono">il y a 4 min</td><td class="td-mono" style="color:var(--fg-mute);">sk_live_•••••••••••••••N7k2</td><td><div class="td-actions"><button class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div></td></tr>
-            <tr><td class="td-strong">Webhook · Stripe</td><td><span class="badge info">Webhook</span></td><td class="td-mono">il y a 12 min</td><td class="td-mono" style="color:var(--fg-mute);">whsec_•••••••••••••••Hx8M</td><td><div class="td-actions"><button class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/></svg></button></div></td></tr>
-            <tr><td class="td-strong">Lecteur QR · scan</td><td><span class="badge purple">Scan</span></td><td class="td-mono">il y a 3j</td><td class="td-mono" style="color:var(--fg-mute);">scn_•••••••••••••••Q3vB</td><td><div class="td-actions"><button class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/></svg></button></div></td></tr>
-          </tbody>
-        </table></div>
+      <!-- Identité du lieu -->
+      <section class="card reveal-up" style="margin-bottom:var(--s-5);">
+        <header class="card-head"><h2 class="card-title">Identité du lieu</h2><span class="card-title-sub">data/info.json · venue</span></header>
+        <div class="card-body" id="infoForm" style="display:grid;grid-template-columns:1fr 1fr;gap:var(--s-4);">
+          <div class="empty" style="grid-column:1/-1;">Chargement…</div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section class="card reveal-up" style="margin-bottom:var(--s-5);">
+        <header class="card-head"><h2 class="card-title">Contact</h2><span class="card-title-sub">data/info.json · contact</span></header>
+        <div class="card-body" id="contactForm" style="display:grid;grid-template-columns:1fr 1fr;gap:var(--s-4);"></div>
+      </section>
+
+      <!-- Transport -->
+      <section class="card reveal-up" style="margin-bottom:var(--s-5);">
+        <header class="card-head"><h2 class="card-title">Transport &amp; horaires</h2><span class="card-title-sub">data/info.json · transport + hours</span></header>
+        <div class="card-body" id="transportForm" style="display:grid;grid-template-columns:1fr 1fr;gap:var(--s-4);"></div>
+      </section>
+
+      <!-- Réseaux sociaux -->
+      <section class="card reveal-up" style="margin-bottom:var(--s-5);">
+        <header class="card-head"><h2 class="card-title">Réseaux sociaux</h2><span class="card-title-sub">data/info.json · social</span></header>
+        <div class="card-body" id="socialForm" style="display:grid;grid-template-columns:1fr 1fr;gap:var(--s-4);"></div>
+      </section>
+
+      <div class="save-bar" id="saveBar"></div>
+      <div class="flex gap-2" style="justify-content:flex-end;margin-bottom:var(--s-7);">
+        <button class="btn" onclick="loadInfo()">Recharger</button>
+        <button class="btn primary" id="saveInfoBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+          Enregistrer toutes les infos
+        </button>
       </div>
-    </article>
-  </div>
-</section>
-<style>@media(max-width:900px){.settings-layout{grid-template-columns:1fr !important;}}</style>
 
+      <!-- Studios -->
+      <section class="card reveal-up" style="margin-bottom:var(--s-5);">
+        <header class="card-head">
+          <h2 class="card-title">Tarifs studios</h2>
+          <span class="card-title-sub">data/studios.json · grilles tarifaires</span>
+        </header>
+        <div class="card-body" id="studiosWrap">
+          <div class="empty">Chargement…</div>
+        </div>
+      </section>
+
+      <div class="save-bar" id="saveBarStudios"></div>
+      <div class="flex gap-2" style="justify-content:flex-end;">
+        <button class="btn" onclick="loadStudios()">Recharger</button>
+        <button class="btn primary" id="saveStudiosBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/></svg>
+          Enregistrer les tarifs studios
+        </button>
+      </div>
+
+    </div>
+  </main>
 </div>
-</main>
-</div>
+
+<script src="assets/js/data-service.js"></script>
 <script src="assets/js/admin.js"></script>
+<script>
+  if (!C93Data.requireAuth()) { /* redirected */ } else {
+
+  const userName = document.getElementById('userName');
+  const userAvatar = document.getElementById('userAvatar');
+  const logoutBtn = document.getElementById('logoutBtn');
+  const user = C93Data.getUser();
+  if (user) { userName.textContent = user.name || user.login; userAvatar.textContent = (user.login || 'U')[0].toUpperCase(); }
+  logoutBtn.addEventListener('click', (e) => { e.stopPropagation(); if (confirm('Se déconnecter ?')) C93Data.logout(); });
+
+  let info = null;
+  let studios = null;
+
+  function field(label, name, value, type = 'text', section = 'venue') {
+    const inp = type === 'textarea'
+      ? `<textarea class="textarea" data-name="${name}" data-section="${section}" rows="3">${(value == null ? '' : String(value)).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}</textarea>`
+      : `<input class="input" type="${type}" data-name="${name}" data-section="${section}" value="${(value == null ? '' : String(value)).replace(/"/g, '&quot;')}" />`;
+    return `<div class="field"><label class="field-label">${label}</label>${inp}</div>`;
+  }
+
+  async function loadInfo() {
+    document.getElementById('infoForm').innerHTML = '<div class="empty" style="grid-column:1/-1;"><div class="empty-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="spin"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg></div></div>';
+    try {
+      info = await C93Data.readJSON('data/info.json');
+      renderInfo();
+    } catch (e) {
+      document.getElementById('infoForm').innerHTML = `<div class="empty" style="grid-column:1/-1;color:var(--danger);">Erreur : ${e.message}</div>`;
+    }
+  }
+
+  function renderInfo() {
+    const v = info.venue || {};
+    document.getElementById('infoForm').innerHTML =
+      field('Nom public', 'name', v.name, 'text', 'venue') +
+      field('Tagline', 'tagline', v.tagline, 'text', 'venue') +
+      field('Adresse', 'address', v.address, 'text', 'venue') +
+      field('Code postal', 'postalCode', v.postalCode, 'text', 'venue') +
+      field('Ville', 'city', v.city, 'text', 'venue') +
+      field('Pays', 'country', v.country, 'text', 'venue') +
+      field('Latitude', 'latitude', v.latitude, 'number', 'venue') +
+      field('Longitude', 'longitude', v.longitude, 'number', 'venue') +
+      field('Capacité salle', 'capacity', v.capacity, 'number', 'venue') +
+      field('Année d\'ouverture', 'openedYear', v.openedYear, 'number', 'venue') +
+      `<div class="field" style="grid-column:1/-1;"><label class="field-label">Description</label><textarea class="textarea" data-name="description" data-section="venue" rows="3">${(v.description || '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}</textarea></div>`;
+
+    const c = info.contact || {};
+    document.getElementById('contactForm').innerHTML =
+      field('Téléphone accueil', 'phoneReception', c.phoneReception, 'text', 'contact') +
+      field('Téléphone studios', 'phoneStudios', c.phoneStudios, 'text', 'contact') +
+      field('Email principal', 'emailMain', c.emailMain, 'email', 'contact') +
+      field('Email studios', 'emailStudios', c.emailStudios, 'email', 'contact') +
+      field('Email masterclass', 'emailMasterclass', c.emailMasterclass, 'email', 'contact');
+
+    const t = info.transport || {}, h = info.hours || {};
+    document.getElementById('transportForm').innerHTML =
+      field('Métro', 'metro', t.metro, 'text', 'transport') +
+      field('Bus', 'bus', t.bus, 'text', 'transport') +
+      field('Tram', 'tram', t.tram, 'text', 'transport') +
+      field('Voiture / parking', 'car', t.car, 'text', 'transport') +
+      field('Jours d\'ouverture', 'openingDays', h.openingDays, 'text', 'hours') +
+      field('Horaires studios', 'studiosHours', h.studiosHours, 'text', 'hours') +
+      field('Horaires billetterie', 'ticketOfficeHours', h.ticketOfficeHours, 'text', 'hours');
+
+    const s = info.social || {};
+    document.getElementById('socialForm').innerHTML =
+      field('Instagram', 'instagram', s.instagram, 'url', 'social') +
+      field('Facebook', 'facebook', s.facebook, 'url', 'social') +
+      field('TikTok', 'tiktok', s.tiktok, 'url', 'social') +
+      field('YouTube', 'youtube', s.youtube, 'url', 'social');
+  }
+
+  function collectInfo() {
+    document.querySelectorAll('[data-section]').forEach(el => {
+      const section = el.dataset.section;
+      const name = el.dataset.name;
+      if (!info[section]) info[section] = {};
+      let v = el.value;
+      if (el.type === 'number') v = parseFloat(v) || 0;
+      info[section][name] = v;
+    });
+    info.updated = new Date().toISOString();
+    return info;
+  }
+
+  document.getElementById('saveInfoBtn').addEventListener('click', async () => {
+    const bar = document.getElementById('saveBar');
+    bar.className = 'save-bar show loading';
+    bar.innerHTML = '<svg class="spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>Push GitHub en cours…';
+    try {
+      const data = collectInfo();
+      await C93Data.writeJSON('data/info.json', data, 'update info.json');
+      bar.className = 'save-bar show success';
+      bar.innerHTML = '✓ Infos pratiques sauvegardées · live dans ~1-2 min';
+      window.c93Toast && c93Toast('Infos sauvegardées');
+      setTimeout(() => bar.classList.remove('show'), 4000);
+    } catch (e) {
+      bar.className = 'save-bar show error';
+      bar.innerHTML = '⚠ ' + e.message;
+    }
+  });
+
+  // ------ STUDIOS ------
+  async function loadStudios() {
+    document.getElementById('studiosWrap').innerHTML = '<div class="empty"><div class="empty-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="spin"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg></div></div>';
+    try {
+      studios = await C93Data.readJSON('data/studios.json');
+      renderStudios();
+    } catch (e) {
+      document.getElementById('studiosWrap').innerHTML = `<div class="empty" style="color:var(--danger);">Erreur : ${e.message}</div>`;
+    }
+  }
+
+  function renderStudios() {
+    const wrap = document.getElementById('studiosWrap');
+    wrap.innerHTML = '';
+    (studios.studios || []).forEach((st, idx) => {
+      const div = document.createElement('div');
+      div.style.cssText = 'padding:var(--s-4);background:var(--bg-elev-2);border-radius:var(--r-sm);margin-bottom:var(--s-4);';
+      div.innerHTML = `
+        <div class="flex items-center justify-between" style="margin-bottom:var(--s-3);">
+          <h3 class="card-title" style="font-size:var(--t-md);">${st.name}</h3>
+          <span class="badge muted">${st.type}</span>
+        </div>
+        <div class="field" style="margin-bottom:var(--s-3);"><label class="field-label">Description</label><textarea class="textarea" data-st="${idx}" data-fld="description" rows="2">${(st.description || '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}</textarea></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--s-3);margin-bottom:var(--s-4);">
+          <div class="field"><label class="field-label">Horaires</label><input class="input" data-st="${idx}" data-fld="schedule" value="${(st.schedule || '').replace(/"/g, '&quot;')}" /></div>
+          <div class="field"><label class="field-label">Téléphone</label><input class="input" data-st="${idx}" data-fld="phone" value="${(st.phone || '').replace(/"/g, '&quot;')}" /></div>
+        </div>
+        <div>
+          <label class="field-label" style="display:block;margin-bottom:var(--s-2);">Grille tarifaire</label>
+          <div data-pricing="${idx}">
+            ${(st.pricing || []).map((p, j) => `
+              <div class="pricing-row" data-row="${j}">
+                <input class="input" data-pf="label" value="${(p.label||'').replace(/"/g, '&quot;')}" placeholder="Solo · 15h–19h" />
+                <input class="input" type="number" step="0.01" data-pf="price" value="${p.price||0}" />
+                <input class="input" data-pf="unit" value="${(p.unit||'').replace(/"/g, '&quot;')}" placeholder="/h" />
+                <button class="icon-btn" data-remove="${j}" type="button" style="color:var(--danger);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+              </div>
+            `).join('')}
+          </div>
+          <button class="btn sm" data-add-pricing="${idx}" type="button" style="margin-top:var(--s-3);">+ Ajouter une ligne</button>
+        </div>
+      `;
+      wrap.appendChild(div);
+
+      // Bind remove
+      div.querySelectorAll('[data-remove]').forEach(b => {
+        b.addEventListener('click', () => {
+          const rIdx = parseInt(b.dataset.remove, 10);
+          studios.studios[idx].pricing.splice(rIdx, 1);
+          renderStudios();
+        });
+      });
+    });
+
+    // Bind add
+    wrap.querySelectorAll('[data-add-pricing]').forEach(b => {
+      b.addEventListener('click', () => {
+        const i = parseInt(b.dataset.addPricing, 10);
+        if (!studios.studios[i].pricing) studios.studios[i].pricing = [];
+        studios.studios[i].pricing.push({ label: '', price: 0, unit: '/h' });
+        renderStudios();
+      });
+    });
+  }
+
+  function collectStudios() {
+    document.querySelectorAll('[data-st]').forEach(el => {
+      const i = parseInt(el.dataset.st, 10);
+      const f = el.dataset.fld;
+      if (f) studios.studios[i][f] = el.value;
+    });
+    document.querySelectorAll('[data-pricing]').forEach(wrap => {
+      const i = parseInt(wrap.dataset.pricing, 10);
+      const rows = wrap.querySelectorAll('[data-row]');
+      studios.studios[i].pricing = [...rows].map(r => ({
+        label: r.querySelector('[data-pf="label"]').value,
+        price: parseFloat(r.querySelector('[data-pf="price"]').value) || 0,
+        unit: r.querySelector('[data-pf="unit"]').value,
+      }));
+    });
+    studios.updated = new Date().toISOString();
+    return studios;
+  }
+
+  document.getElementById('saveStudiosBtn').addEventListener('click', async () => {
+    const bar = document.getElementById('saveBarStudios');
+    bar.className = 'save-bar show loading';
+    bar.innerHTML = '<svg class="spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>Push GitHub en cours…';
+    try {
+      const data = collectStudios();
+      await C93Data.writeJSON('data/studios.json', data, 'update studios.json (tarifs)');
+      bar.className = 'save-bar show success';
+      bar.innerHTML = '✓ Tarifs studios sauvegardés · live dans ~1-2 min';
+      window.c93Toast && c93Toast('Tarifs studios sauvegardés');
+      setTimeout(() => bar.classList.remove('show'), 4000);
+    } catch (e) {
+      bar.className = 'save-bar show error';
+      bar.innerHTML = '⚠ ' + e.message;
+    }
+  });
+
+  window.loadInfo = loadInfo;
+  window.loadStudios = loadStudios;
+  loadInfo();
+  loadStudios();
+  }
+</script>
 </body>
 </html>
