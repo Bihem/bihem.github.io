@@ -1,0 +1,57 @@
+{
+  "updated": "2026-05-17T20:00:00Z",
+  "articles": [
+    {
+      "id": "art_bal_rai_2023",
+      "title": "Retour sur le Grand Bal Raï 2023",
+      "slug": "grand-bal-rai-2023",
+      "excerpt": "Une soirée mémorable avec Samira Brahmia et le Super Raï Band, devant une salle comble.",
+      "body": "Le grand bal raï 2023 restera dans les mémoires. Plus de 350 personnes dans la salle, une scène partagée par Samira Brahmia, le Super Raï Band et plusieurs invités surprises. Retour en images sur une soirée qui a fait vibrer Bobigny.\n\nLa programmation 2026 s'annonce dans la même veine, avec deux soirées raï confirmées en juin.",
+      "image": "https://static.wixstatic.com/media/7bc4b7_ef0c0e233996420ca0c15117db9e0125~mv2.jpg",
+      "category": "Récit",
+      "author": "Mes-Reves",
+      "publishedAt": "2026-05-12",
+      "status": "published",
+      "tags": ["rai", "live"]
+    },
+    {
+      "id": "art_maad_saison2",
+      "title": "MAAD'STERCLASS · saison 2 confirmée",
+      "slug": "maad-saison-2",
+      "excerpt": "Quatre dates en juin avec le Super Raï Band — pour pros et amateurs avancés.",
+      "body": "Après le succès du printemps, la MAAD'STERCLASS revient à Canal 93 pour une seconde saison.\n\nDates : 29/05, 30/05, 05/06 et 14/06. Inscription gratuite sur maadsterclass@canal93.net.",
+      "image": "https://static.wixstatic.com/media/7bc4b7_a85b9b13056048a89d9f41693defe178~mv2.jpg",
+      "category": "Annonce",
+      "author": "Communication",
+      "publishedAt": "2026-05-10",
+      "status": "published",
+      "tags": ["masterclass"]
+    },
+    {
+      "id": "art_terre_hh_prix",
+      "title": "Terre Hip-Hop Contest · les 5 prix dévoilés",
+      "slug": "terre-hip-hop-contest-prix",
+      "excerpt": "Showcase rémunéré, compile, émission TV, t-shirt collector et place pour la grande finale.",
+      "body": "Le Terre Hip-Hop Contest revient le 20 juin avec 5 prix à la clé :\n\n1. Showcase rémunéré + coaching scénique\n2. Compile « Élixir » (Sirop de la rue × @misere_record)\n3. Émission « Walkman » (@ugopofficiel)\n4. T-shirt collector (@talseumeclothing × Terre Hip-Hop)\n5. Place pour la grande finale du 20 juin\n\nInscriptions ouvertes sur communication@canal93.net.",
+      "image": "https://static.wixstatic.com/media/7bc4b7_a85b9b13056048a89d9f41693defe178~mv2.jpg",
+      "category": "Événement",
+      "author": "Communication",
+      "publishedAt": "2026-05-08",
+      "status": "published",
+      "tags": ["hip-hop", "contest"]
+    },
+    {
+      "id": "art_interview_treizes",
+      "title": "Interview · Treizes en résidence",
+      "slug": "interview-treizes",
+      "excerpt": "Le rappeur balbynien raconte sa résidence à Canal 93 et son projet d'EP.",
+      "body": "Rencontre avec Treizes, en résidence à Canal 93 pour les 6 prochains mois.\n\n« Canal 93 c'est ma maison. J'y ai répété pendant 3 ans avant de me lancer. Pouvoir y enregistrer mon premier EP, c'est un cadeau. »",
+      "image": "https://static.wixstatic.com/media/7bc4b7_94da87b4c6e14977af68bb1f9da8397e~mv2.jpg",
+      "category": "Interview",
+      "author": "Communication",
+      "publishedAt": "2026-05-05",
+      "status": "published",
+      "tags": ["rap", "residence"]
+    }
+  ]
+}
