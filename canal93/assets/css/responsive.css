@@ -233,31 +233,31 @@ img, video, iframe, svg { max-width: 100%; height: auto; }
   .footer-bottom { flex-direction: column; align-items: flex-start; gap: var(--s-3); text-align: left; font-size: 10px; }
 }
 
-/* === FOOTER LOGO — mieux dimensionné mobile === */
+/* === FOOTER LOGO — carré C93 dimensionné mobile === */
 @media (max-width: 640px) {
   .footer-logo {
-    height: auto !important;
-    width: 70%;
-    max-width: 260px;
-    margin: var(--s-4) 0 var(--s-5);
+    height: 64px;
+    width: auto;
+    margin: var(--s-4) auto var(--s-5);
   }
 }
 @media (max-width: 480px) {
   .footer-logo {
-    width: 78%;
-    max-width: 220px;
+    height: 56px;
   }
-  /* Pour les pages internes : logo centré */
+  /* Pages internes : logo footer centré */
   .site-footer > .container > .footer-logo {
     margin: 0 auto var(--s-6) !important;
-    width: 60%;
-    max-width: 200px;
+    height: 52px;
+    width: auto;
   }
 }
 @media (max-width: 360px) {
   .footer-logo {
-    width: 88%;
-    max-width: 180px;
+    height: 48px;
+  }
+  .site-footer > .container > .footer-logo {
+    height: 44px;
   }
 }
 
