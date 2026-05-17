@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0A0B0E" />
+  <meta name="format-detection" content="telephone=no, email=no, address=no" />
+  <title>Messagerie · Canal 93 Admin</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="assets/css/admin.css" />
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/img/c93-icon-192.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/c93-favicon-32.png" />
+</head>
+<body>
+<div class="app">
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-head">
+    <a href="index.html" class="sidebar-brand"><span class="sidebar-brand-mark">C93</span><span class="sidebar-brand-text"><span class="sidebar-brand-name">Canal 93</span><span class="sidebar-brand-tag">Admin · v0.1</span></span></a>
+    <button class="sidebar-toggle" aria-label="Replier la sidebar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+  </div>
+  <nav class="sidebar-nav" aria-label="Navigation principale">
+    <span class="nav-group-title">Pilotage</span>
+    <a href="index.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>Dashboard</a>
+    <a href="events.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Événements<span class="nav-item-badge">12</span></a>
+    <a href="billetterie.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9V7a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-2a2 2 0 0 0 0-4z"/><line x1="13" y1="5" x2="13" y2="19"/></svg>Billetterie</a>
+    <a href="studios.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="14" rx="6"/><line x1="12" y1="17" x2="12" y2="21"/><line x1="8" y1="21" x2="16" y2="21"/></svg>Studios</a>
+    <span class="nav-group-title">Contenu</span>
+    <a href="artistes.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Artistes</a>
+    <a href="cms.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>Actualités · CMS</a>
+    <a href="messages.html" class="nav-item active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Messagerie<span class="nav-item-badge">7</span></a>
+    <span class="nav-group-title">Système</span>
+    <a href="users.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Utilisateurs & rôles</a>
+    <a href="settings.html" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>Paramètres</a>
+    <span class="nav-group-title">&nbsp;</span>
+    <a href="../index.html" class="nav-item" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Voir le site live</a>
+  </nav>
+  <div class="sidebar-foot"><div class="user-chip"><div class="user-avatar">MR</div><div class="user-info"><span class="user-name">Mes-Reves</span><span class="user-role">Super Admin</span></div><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--fg-mute);"><polyline points="6 9 12 15 18 9"/></svg></div></div>
+</aside>
+<main class="main">
+<header class="topbar">
+  <button class="topbar-burger" aria-label="Ouvrir le menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  <label class="topbar-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-3.5-3.5"/></svg><input type="search" placeholder="Rechercher concert, artiste, studio, ticket…" /><span class="kbd">⌘ K</span></label>
+  <div class="topbar-actions">
+    <button class="icon-btn" aria-label="Notifications"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg><span class="dot"></span></button>
+    <button class="icon-btn" data-action="toggle-theme" aria-label="Thème"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+    <button class="topbar-cta" data-toast="Composer un message" data-toast-type="success"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Nouveau message</button>
+  </div>
+</header>
+<div class="content">
+<div class="page-head reveal-up">
+  <div class="page-head-text">
+    <nav class="crumbs"><a href="index.html">Canal 93</a><span class="sep">/</span><span class="current">Messagerie</span></nav>
+    <h1 class="page-title">Messagerie</h1>
+    <p class="page-sub">Booking · studios · contact · support · 7 nouveaux messages</p>
+  </div>
+</div>
+
+<section style="display:grid;grid-template-columns:340px 1fr;gap:var(--s-5);min-height:560px;" class="msg-layout">
+  <article class="card reveal-up" style="display:flex;flex-direction:column;">
+    <header class="card-head">
+      <h2 class="card-title">Boîte · 7 nouveaux</h2>
+      <button class="btn sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></button>
+    </header>
+    <div class="flex gap-2" style="padding:0 var(--s-4) var(--s-3);overflow-x:auto;">
+      <span class="chip active">Tout</span>
+      <span class="chip">Booking</span>
+      <span class="chip">Studios</span>
+      <span class="chip">Contact</span>
+      <span class="chip">Support</span>
+    </div>
+    <div class="feed" style="border-top:1px solid var(--line);">
+      <div class="feed-item" style="grid-template-columns:36px 1fr;">
+        <div class="user-avatar" style="background:linear-gradient(135deg,#C6F432,#FF6B35);">KB</div>
+        <div class="feed-body" style="gap:4px;">
+          <div class="flex items-center justify-between"><span class="td-strong" style="font-size:13px;">Karim Boudali</span><span class="feed-time">il y a 12 min</span></div>
+          <div style="font-size:11px;color:var(--fg-soft);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">Booking · MAAD juillet — proposition de date</div>
+          <div class="flex items-center gap-2"><span class="badge warm" style="height:18px;font-size:9px;">Booking</span><span class="badge accent" style="height:18px;font-size:9px;">Non lu</span></div>
+        </div>
+      </div><div class="feed-item" style="grid-template-columns:36px 1fr;">
+        <div class="user-avatar" style="background:linear-gradient(135deg,#A78BFA,#60A5FA);">IK</div>
+        <div class="feed-body" style="gap:4px;">
+          <div class="flex items-center justify-between"><span class="td-strong" style="font-size:13px;">Inès K.</span><span class="feed-time">il y a 38 min</span></div>
+          <div style="font-size:11px;color:var(--fg-soft);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">Demande studio enregistrement · solo voix</div>
+          <div class="flex items-center gap-2"><span class="badge purple" style="height:18px;font-size:9px;">Studios</span><span class="badge accent" style="height:18px;font-size:9px;">Non lu</span></div>
+        </div>
+      </div><div class="feed-item" style="grid-template-columns:36px 1fr;">
+        <div class="user-avatar" style="background:linear-gradient(135deg,#60A5FA,#A78BFA);">LB</div>
+        <div class="feed-body" style="gap:4px;">
+          <div class="flex items-center justify-between"><span class="td-strong" style="font-size:13px;">Léa Bernard</span><span class="feed-time">il y a 1h</span></div>
+          <div style="font-size:11px;color:var(--fg-soft);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">Question billetterie · Yaniss Odua</div>
+          <div class="flex items-center gap-2"><span class="badge info" style="height:18px;font-size:9px;">Contact</span></div>
+        </div>
+      </div><div class="feed-item" style="grid-template-columns:36px 1fr;">
+        <div class="user-avatar" style="background:linear-gradient(135deg,#FF6B35,#F87171);">TZ</div>
+        <div class="feed-body" style="gap:4px;">
+          <div class="flex items-center justify-between"><span class="td-strong" style="font-size:13px;">Treizes</span><span class="feed-time">il y a 2h</span></div>
+          <div style="font-size:11px;color:var(--fg-soft);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">Réservation Studio 3 · sam. 24/05</div>
+          <div class="flex items-center gap-2"><span class="badge purple" style="height:18px;font-size:9px;">Studios</span></div>
+        </div>
+      </div><div class="feed-item" style="grid-template-columns:36px 1fr;">
+        <div class="user-avatar" style="background:linear-gradient(135deg,#34D399,#C6F432);">MB</div>
+        <div class="feed-body" style="gap:4px;">
+          <div class="flex items-center justify-between"><span class="td-strong" style="font-size:13px;">Maire de Bobigny</span><span class="feed-time">hier</span></div>
+          <div style="font-size:11px;color:var(--fg-soft);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">Bilan financier T2 — demande de point</div>
+          <div class="flex items-center gap-2"><span class="badge muted" style="height:18px;font-size:9px;">Support</span></div>
+        </div>
+      </div><div class="feed-item" style="grid-template-columns:36px 1fr;">
+        <div class="user-avatar" style="background:linear-gradient(135deg,#60606A,#C6F432);">RT</div>
+        <div class="feed-body" style="gap:4px;">
+          <div class="flex items-center justify-between"><span class="td-strong" style="font-size:13px;">Régie tech</span><span class="feed-time">hier</span></div>
+          <div style="font-size:11px;color:var(--fg-soft);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">Console SSD · check préventif</div>
+          <div class="flex items-center gap-2"><span class="badge muted" style="height:18px;font-size:9px;">Support</span></div>
+        </div>
+      </div><div class="feed-item" style="grid-template-columns:36px 1fr;">
+        <div class="user-avatar" style="background:linear-gradient(135deg,#A78BFA,#FF6B35);">SM</div>
+        <div class="feed-body" style="gap:4px;">
+          <div class="flex items-center justify-between"><span class="td-strong" style="font-size:13px;">Sarah Maza</span><span class="feed-time">il y a 2j</span></div>
+          <div style="font-size:11px;color:var(--fg-soft);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">Privatisation soirée 14 sept.</div>
+          <div class="flex items-center gap-2"><span class="badge info" style="height:18px;font-size:9px;">Contact</span></div>
+        </div>
+      </div><div class="feed-item" style="grid-template-columns:36px 1fr;">
+        <div class="user-avatar" style="background:linear-gradient(135deg,#60A5FA,#34D399);">CB</div>
+        <div class="feed-body" style="gap:4px;">
+          <div class="flex items-center justify-between"><span class="td-strong" style="font-size:13px;">Compagnie BHV</span><span class="feed-time">il y a 3j</span></div>
+          <div style="font-size:11px;color:var(--fg-soft);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">Résidence danse · proposition</div>
+          <div class="flex items-center gap-2"><span class="badge warm" style="height:18px;font-size:9px;">Booking</span></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="card reveal-up" style="display:flex;flex-direction:column;">
+    <header class="card-head" style="align-items:flex-start;">
+      <div class="flex gap-3 items-center">
+        <div class="user-avatar" style="background:linear-gradient(135deg,#C6F432,#FF6B35);width:44px;height:44px;font-size:16px;">KB</div>
+        <div>
+          <h2 class="card-title" style="font-size:var(--t-md);">Karim Boudali · MAAD Studio</h2>
+          <span class="card-title-sub">karim@maadstudio.fr · répond en moyenne sous 2h</span>
+        </div>
+      </div>
+      <div class="flex gap-2">
+        <span class="badge warm">Booking</span>
+        <button class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/></svg></button>
+        <button class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg></button>
+      </div>
+    </header>
+    <div class="card-body" style="flex:1;display:flex;flex-direction:column;gap:var(--s-4);overflow-y:auto;max-height:480px;">
+      <div style="text-align:center;font-family:var(--f-mono);font-size:10px;color:var(--fg-mute);text-transform:uppercase;letter-spacing:.08em;">Hier · 16:42</div>
+      <div style="background:var(--bg-elev-2);padding:var(--s-3) var(--s-4);border-radius:var(--r-md);border-top-left-radius:4px;max-width:80%;align-self:flex-start;">
+        <div style="font-size:var(--t-sm);line-height:1.55;">Bonjour Canal 93, nous souhaiterions proposer une nouvelle masterclass en juillet, après le succès du printemps. Auriez-vous 2 dates dispo (idéalement un samedi) ? Nous sommes flexibles.</div>
+      </div>
+      <div style="background:var(--accent);color:#0A0B0E;padding:var(--s-3) var(--s-4);border-radius:var(--r-md);border-top-right-radius:4px;max-width:80%;align-self:flex-end;">
+        <div style="font-size:var(--t-sm);line-height:1.55;font-weight:500;">Hello Karim, ravi de vous relire ! Je regarde notre planning juillet et je reviens vers vous demain avec 2 propositions de dates.</div>
+      </div>
+      <div style="text-align:center;font-family:var(--f-mono);font-size:10px;color:var(--fg-mute);text-transform:uppercase;letter-spacing:.08em;">Aujourd'hui · 11:08</div>
+      <div style="background:var(--bg-elev-2);padding:var(--s-3) var(--s-4);border-radius:var(--r-md);border-top-left-radius:4px;max-width:80%;align-self:flex-start;">
+        <div style="font-size:var(--t-sm);line-height:1.55;">Parfait, merci ! On compte sur vous 🙏</div>
+      </div>
+    </div>
+    <footer class="card-foot" style="flex-direction:column;align-items:stretch;gap:var(--s-3);padding:var(--s-4);">
+      <div class="flex gap-2"><span class="chip">📅 Proposer 11 juillet</span><span class="chip">📅 Proposer 18 juillet</span><span class="chip">📅 Proposer 25 juillet</span></div>
+      <div class="flex gap-2 items-center" style="background:var(--bg-elev-2);border:1px solid var(--line);border-radius:var(--r-sm);padding:var(--s-2);">
+        <input type="text" class="input" style="border:none;background:transparent;height:auto;padding:var(--s-2);" placeholder="Répondre à Karim…" />
+        <button class="icon-btn" aria-label="Pièce jointe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg></button>
+        <button class="btn primary sm" data-toast="Message envoyé"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>Envoyer</button>
+      </div>
+    </footer>
+  </article>
+</section>
+<style>@media(max-width:900px){.msg-layout{grid-template-columns:1fr !important;}}</style>
+
+</div>
+</main>
+</div>
+<script src="assets/js/admin.js"></script>
+</body>
+</html>
