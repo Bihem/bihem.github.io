@@ -316,7 +316,7 @@
     recalc();
     window.addEventListener('resize', recalc);
 
-    const speed = 0.9; // px per frame ~ 54px/sec — défilement fluide visible
+    const speed = 1.1; // px per frame ~ 66px/sec — défilement fluide bien visible
     let rafId = null;
     let paused = false;
     let userInteracting = false;
@@ -362,16 +362,26 @@
       setTimeout(() => { paused = false; }, 700);
     });
 
-    // Pause on user interaction (drag / wheel / touch)
+    // Pause on user interaction — uniquement vrai swipe horizontal / wheel,
+    // pour ne pas freezer le défilement quand l'utilisateur scrolle la page verticalement
     let interactionTimeout = null;
-    const onInteract = () => {
+    let tStartX = 0, tStartY = 0;
+    const pauseFor = (ms = 1500) => {
       userInteracting = true;
       clearTimeout(interactionTimeout);
-      interactionTimeout = setTimeout(() => { userInteracting = false; }, 1200);
+      interactionTimeout = setTimeout(() => { userInteracting = false; }, ms);
     };
-    track.addEventListener('wheel', onInteract, { passive: true });
-    track.addEventListener('touchstart', onInteract, { passive: true });
-    track.addEventListener('touchmove', onInteract, { passive: true });
+    track.addEventListener('wheel', () => pauseFor(1500), { passive: true });
+    track.addEventListener('touchstart', (e) => {
+      tStartX = e.touches[0].clientX;
+      tStartY = e.touches[0].clientY;
+    }, { passive: true });
+    track.addEventListener('touchmove', (e) => {
+      const dx = Math.abs(e.touches[0].clientX - tStartX);
+      const dy = Math.abs(e.touches[0].clientY - tStartY);
+      // Vrai swipe horizontal : dx dominant et significatif
+      if (dx > 14 && dx > dy * 1.4) pauseFor(1500);
+    }, { passive: true });
 
     // Pause on hover (desktop)
     track.addEventListener('mouseenter', () => { paused = true; });
@@ -496,13 +506,13 @@
       );
     });
 
-    // Featured slider reveal — slow cinematic
+    // Featured slider reveal — rapide (la 1ère card doit apparaître vite, surtout mobile)
     const fSliderEl = document.getElementById('featuredSlider');
     if (fSliderEl) {
       gsap.fromTo(fSliderEl,
-        { y: 80, opacity: 0, scale: 0.985 },
-        { y: 0, opacity: 1, scale: 1, duration: 1.4, ease: 'expo.out',
-          scrollTrigger: { trigger: fSliderEl, start: 'top 88%' }
+        { y: 28, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.55, ease: 'power2.out',
+          scrollTrigger: { trigger: fSliderEl, start: 'top 100%' }
         }
       );
     }
