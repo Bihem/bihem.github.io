@@ -137,7 +137,12 @@
 
 <script src="assets/js/data-service.js"></script>
 <script>
-  // Si déjà connecté, rediriger
+  // MODE LOCAL : bypass auth — redirige direct vers le dashboard
+  if (C93Data.MODE === 'local') {
+    const next = new URLSearchParams(location.search).get('next') || 'index.html';
+    location.replace(next);
+  }
+  // MODE GITHUB : si déjà connecté, rediriger
   if (C93Data.getToken()) {
     const next = new URLSearchParams(location.search).get('next') || 'index.html';
     location.replace(next);
