@@ -1967,50 +1967,76 @@ body.light .reel-arrow svg path{stroke:#000000}
 <!-- ═══════ MARQUEE OUTILS ═══════ -->
 
 
-<!-- ═══════ PROJECTS ═══════ -->
-<section class="mq-section" id="projets">
-  <div class="mq-header rv">
-    <h2 class="mq-title">Projets<br>en vedette</h2>
-    <a href="projets.html" class="mq-voir" onclick="goToProjects(event)">Voir tous →</a>
+<!-- ═══════ PROJET VEDETTE ═══════ -->
+<style>
+.feat-section{border-top:1px solid var(--line);padding:96px 0 110px}
+.feat-header{display:flex;align-items:flex-end;justify-content:space-between;padding:0 28px;margin-bottom:48px}
+.feat-title{font-size:clamp(32px,4vw,52px);font-weight:700;text-transform:uppercase;letter-spacing:-0.03em;line-height:.95;color:var(--white)}
+.feat-voir{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-family:var(--SI);color:var(--white);text-decoration:none;white-space:nowrap;transition:opacity .3s}
+.feat-voir:hover{opacity:.6}
+.feat-grid{display:grid;grid-template-columns:380px 1fr;gap:64px;max-width:1280px;margin:0 auto;padding:0 28px;align-items:start}
+.feat-img{background:#0E0E10;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.45)}
+.feat-img img{display:block;width:100%;height:auto}
+.feat-info{display:flex;flex-direction:column;gap:24px}
+.feat-tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--SI);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.14em;color:var(--dim)}
+.feat-tag-dot{width:5px;height:5px;border-radius:50%;background:#7DDC8C}
+.feat-name{font-size:clamp(32px,4vw,56px);font-weight:700;line-height:1;letter-spacing:-0.02em;color:var(--white);margin:0}
+.feat-desc{font-family:var(--SI);font-size:16px;font-weight:300;line-height:1.65;color:var(--white);margin:0}
+.feat-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.feat-pill{font-family:var(--SI);font-size:11px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);border:1px solid var(--line);padding:6px 12px;border-radius:999px}
+.feat-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
+.feat-cta{display:inline-flex;align-items:center;gap:10px;font-family:var(--SI);font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--white);background:var(--white);color:#0E0E10;padding:14px 24px;border-radius:999px;text-decoration:none;transition:opacity .25s}
+.feat-cta:hover{opacity:.85}
+.feat-cta.ghost{background:transparent;color:var(--white);border:1px solid var(--line)}
+.feat-cta.ghost:hover{background:rgba(255,255,255,.06)}
+@media (max-width:900px){
+  .feat-grid{grid-template-columns:1fr;gap:40px;padding:0 24px}
+  .feat-img{max-width:340px;margin:0 auto}
+  .feat-section{padding:72px 0 88px}
+}
+body.light .feat-section{border-color:rgba(0,0,0,0.1)}
+body.light .feat-title,body.light .feat-name,body.light .feat-desc,body.light .feat-voir{color:#0E0E10}
+body.light .feat-pill{border-color:rgba(0,0,0,0.15);color:#444}
+body.light .feat-cta{background:#0E0E10;color:#fff}
+body.light .feat-cta.ghost{background:transparent;color:#0E0E10;border-color:rgba(0,0,0,0.2)}
+</style>
+<section class="feat-section" id="projets">
+  <div class="feat-header rv">
+    <h2 class="feat-title">Projet<br>en vedette</h2>
+    <a href="projets.html" class="feat-voir" onclick="goToProjects(event)">Voir tous →</a>
   </div>
-  <div class="mq-cyl-wrap">
-    <div class="mq-cylinder" id="mqCylinder">
-      <a href="projets.html" class="mq-panel" onclick="goToProjects(event)" data-i="0"><img src="dikenga-design-system-poster.png" alt="Design System Dikenga" loading="lazy"></a>
-      <a href="projets.html" class="mq-panel" onclick="goToProjects(event)" data-i="1"><img src="mockup-sb-dashboard.webp" alt="StudioBooking" loading="lazy"></a>
-      <a href="projets.html" class="mq-panel" onclick="goToProjects(event)" data-i="2"><img src="mockup-barnes.webp" alt="BARNES CarJager" loading="lazy"></a>
-      <a href="projets.html" class="mq-panel" onclick="goToProjects(event)" data-i="3"><img src="mockup-mamagaya.webp" alt="Mamagaya" loading="lazy"></a>
-      <a href="projets.html" class="mq-panel" onclick="goToProjects(event)" data-i="4"><img src="tennis-splash-mockup.webp" alt="Tennis App — Splash" loading="lazy"></a>
-      <a href="projets.html" class="mq-panel" onclick="goToProjects(event)" data-i="5"><img src="tennis-mockup-phone.webp" alt="Tennis App — Dashboard" loading="lazy"></a>
-      <a href="projets.html" class="mq-panel" onclick="goToProjects(event)" data-i="6"><img src="tennis-design-system.webp" alt="Tennis App — Design System" loading="lazy"></a>
+  <div class="feat-grid rv">
+    <div class="feat-img">
+      <img src="mockup-talseume-ecommerce.jpg?v=6" alt="Talseume — Boutique e-commerce" loading="lazy">
+    </div>
+    <div class="feat-info">
+      <div class="feat-tag">
+        <span class="feat-tag-dot"></span>
+        UI Design · E-commerce · Direction Artistique · 2026
+      </div>
+      <h3 class="feat-name">Talseume — Boutique e-commerce</h3>
+      <p class="feat-desc">Boutique streetwear éco-responsable conçue et développée de A à Z — design d'interface, direction artistique, intégration HTML/CSS/JS, paiement Stripe et hébergement Netlify. Coton bio GOTS et matériaux recyclés.</p>
+      <p class="feat-desc">Site 100% custom avec hero vidéo, lookbooks éditoriaux scroll-driven, grille produits avec badges éco, panier intégré, checkout Stripe et Klarna 3x sans frais. Mobile-first, performant, live sur talseume.com.</p>
+      <div class="feat-meta">
+        <span class="feat-pill">HTML · CSS · JS</span>
+        <span class="feat-pill">Figma</span>
+        <span class="feat-pill">Stripe</span>
+        <span class="feat-pill">Netlify</span>
+        <span class="feat-pill">Klarna</span>
+      </div>
+      <div class="feat-ctas">
+        <a href="https://talseume.com" target="_blank" rel="noopener noreferrer" class="feat-cta">
+          Voir la boutique
+          <span>↗</span>
+        </a>
+        <a href="projets.html" onclick="goToProjects(event)" class="feat-cta ghost">
+          Étude de cas complète
+          <span>→</span>
+        </a>
+      </div>
     </div>
   </div>
 </section>
-<script>
-(function(){
-  function placeCyl(){
-    var cyl=document.getElementById('mqCylinder');
-    if(!cyl)return;
-    var panels=cyl.querySelectorAll('.mq-panel');
-    var N=panels.length;
-    var isMobile=window.innerWidth<=680;
-    var W=isMobile?240:560;
-    var r=Math.round(W/(2*Math.tan(Math.PI/N))) + 3;
-    panels.forEach(function(p,i){
-      var angle=(i*360/N);
-      p.style.transform='rotateY('+angle+'deg) translateZ('+r+'px)';
-    });
-  }
-  function init(){
-    var cyl=document.getElementById('mqCylinder');
-    if(!cyl)return;
-    placeCyl();
-  }
-  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
-  var rt;
-  window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(placeCyl,80);});
-  window.addEventListener('orientationchange',placeCyl);
-})();
-</script>
 
 <!-- ═══════ ABOUT ═══════ -->
 <section class="about" id="about">
