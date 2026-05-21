@@ -671,6 +671,11 @@ body.light :focus-visible{outline:2px solid #000}
   #cdot,#cring{display:none!important}
 }
 </style>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VNYL81F091"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-VNYL81F091');</script>
+<!-- Auto-track CTAs (email / tel / WhatsApp / formulaire contact) -->
+<script>document.addEventListener('DOMContentLoaded',function(){function ev(n,p){if(window.gtag)gtag('event',n,p||{})}document.querySelectorAll('a[href^="mailto:"]').forEach(function(a){a.addEventListener('click',function(){ev('email_click',{event_category:'contact',event_label:a.getAttribute('href').replace('mailto:','')})})});document.querySelectorAll('a[href^="tel:"]').forEach(function(a){a.addEventListener('click',function(){ev('phone_click',{event_category:'contact',event_label:a.getAttribute('href').replace('tel:','')})})});document.querySelectorAll('a[href*="wa.me"]').forEach(function(a){a.addEventListener('click',function(){ev('whatsapp_click',{event_category:'contact'})})});var f=document.getElementById('contactForm');if(f)f.addEventListener('submit',function(){ev('generate_lead',{event_category:'conversion',event_label:'contact_form',value:1})})});</script>
 </head>
 <body>
 <!-- VIDEO FOND GLOBAL -->
