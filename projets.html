@@ -197,6 +197,49 @@ body.light #cring{border-color:rgba(0,0,0,0.85)}
 .proj-item-inner.reverse{direction:rtl}
 .proj-item-inner.reverse > *{direction:ltr}
 
+/* Talseume — image à gauche (320px, hauteur naturelle longue), infos à droite centrées verticalement */
+.proj-talseume{min-height:auto;padding:96px 0}
+.proj-talseume-inner{
+  display:grid;
+  grid-template-columns:1fr 440px;
+  gap:80px;
+  max-width:1320px;
+  margin:0 auto;
+  padding:0 64px;
+  align-items:center;
+}
+.proj-talseume-img{
+  background:#0E0E10;
+  overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,.45);
+}
+.proj-talseume-img img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+.proj-talseume-info{
+  display:flex;flex-direction:column;
+  padding:0;
+  max-width:560px;
+}
+.proj-talseume-info .proj-num{padding-bottom:20px}
+.proj-talseume-info .proj-name{margin-bottom:8px}
+.proj-talseume-info .proj-desc{margin-bottom:24px}
+.proj-talseume-info .proj-case{margin-top:24px}
+@media (max-width:900px){
+  .proj-talseume-inner{
+    grid-template-columns:1fr;
+    gap:40px;
+    padding:0 24px;
+  }
+  .proj-talseume-img{
+    max-width:340px;
+    margin:0 auto;
+  }
+  .proj-talseume{padding:48px 0}
+}
+
 /* Image side */
 .proj-img{
   position:relative;overflow:hidden;
@@ -664,14 +707,62 @@ body.light :focus-visible{outline:2px solid #000}
 <!-- ── PROJECTS LIST -->
 <main class="projects-list" id="contenu-principal">
 
-  <!-- 00 — Design System Dikenga (showcase live) -->
+  <!-- 01 — Talseume E-commerce -->
+  <article class="proj-item proj-talseume">
+    <div class="proj-talseume-inner">
+      <div class="proj-talseume-info">
+        <div class="proj-num rv">01</div>
+        <div>
+          <div class="proj-tag rv d1">
+            <span class="proj-tag-dot"></span>
+            UI Design · E-commerce · Direction Artistique · 2026
+          </div>
+          <h2 class="proj-name rv d1">Talseume — Boutique e-commerce</h2>
+          <p class="proj-desc rv d2">Boutique e-commerce streetwear éco-responsable conçue et développée de A à Z — design d'interface, direction artistique, intégration HTML/CSS/JS, paiement Stripe, hébergement Netlify. Coton bio GOTS et matériaux recyclés.</p>
+          <div class="proj-case rv d2">
+            <div class="proj-case-row">
+              <div class="proj-case-label prob">Problème</div>
+              <div class="proj-case-text">Lancer une marque streetwear avec un site e-commerce qui sort du moule Shopify standard — identité forte, parcours d'achat fluide, esthétique éditoriale qui valorise les produits et les valeurs éco-responsables.</div>
+            </div>
+            <div class="proj-case-row">
+              <div class="proj-case-label sol">Solution</div>
+              <div class="proj-case-text">Site 100% custom HTML/CSS/JS avec hero vidéo, lookbooks éditoriaux scroll-driven, grille produits avec badges GOTS/Bio/Recyclé, panier intégré, checkout Stripe et option Klarna 3x sans frais. Mobile-first et performant.</div>
+            </div>
+            <div class="proj-case-row">
+              <div class="proj-case-label res">Résultat</div>
+              <div class="proj-case-text">Site live sur talseume.com — drop SS26 en ligne, paiement Stripe + Klarna opérationnel, animations lookbook au scroll, déploiement Netlify. Une identité streetwear premium qui transmet l'engagement éco-responsable sans tomber dans le greenwashing.</div>
+            </div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:32px">
+            <a href="https://talseume.com" target="_blank" rel="noopener noreferrer" class="proj-cta rv d3">
+              Voir la boutique
+              <span class="proj-cta-arr">↗</span>
+            </a>
+            <a href="#" onclick="goToContact(event)" class="proj-cta rv d3" style="background:transparent;border:none;padding-left:4px">
+              Démarrer un projet
+              <span class="proj-cta-arr">→</span>
+            </a>
+          </div>
+          <div class="proj-meta-row rv d3">
+            <div class="proj-meta-item"><strong>UI Design</strong> · Figma · HTML/CSS/JS · Stripe</div>
+            <div class="proj-meta-item"><strong>2026</strong></div>
+          </div>
+        </div>
+      </div>
+      <div class="proj-talseume-img">
+        <img src="mockup-talseume-ecommerce.jpg?v=6" alt="Talseume — Boutique e-commerce" loading="lazy">
+      </div>
+    </div>
+  </article>
+
+  <!-- 02 — Design System Dikenga (showcase live) -->
   <article class="proj-item">
     <div class="proj-item-inner">
       <a href="design-system.html" class="proj-img" style="cursor:pointer">
         <div class="proj-img-bg" style="background-image:url('dikenga-design-system-poster.png');background-color:#F5F4F2;background-size:contain;background-repeat:no-repeat;background-position:center"></div>
       </a>
       <div class="proj-info-side">
-        <div class="proj-num rv">00</div>
+        <div class="proj-num rv">02</div>
         <div>
           <div class="proj-tag rv d1">
             <span class="proj-tag-dot"></span>
@@ -706,7 +797,7 @@ body.light :focus-visible{outline:2px solid #000}
     </div>
   </article>
 
-  <!-- 01 — StudioBooking -->
+  <!-- 03 — StudioBooking -->
   <article class="proj-item">
     <div class="proj-item-inner reverse">
       <div class="proj-img" style="background:#F4F6FB;padding:6%">
@@ -723,7 +814,7 @@ body.light :focus-visible{outline:2px solid #000}
         </div>
       </div>
       <div class="proj-info-side">
-        <div class="proj-num rv">01</div>
+        <div class="proj-num rv">03</div>
         <div>
           <div class="proj-tag rv d1">
             <span class="proj-tag-dot"></span>
@@ -780,14 +871,14 @@ body.light :focus-visible{outline:2px solid #000}
     </div>
   </article>
 
-  <!-- 02 — BARNES CarJager -->
+  <!-- 04 — BARNES CarJager -->
   <article class="proj-item">
     <div class="proj-item-inner reverse">
       <div class="proj-img">
         <div class="proj-img-bg" style="background-image:url('mockup-barnes.webp')"></div>
       </div>
       <div class="proj-info-side">
-        <div class="proj-num rv">02</div>
+        <div class="proj-num rv">04</div>
         <div>
           <div class="proj-tag rv d1">
             <span class="proj-tag-dot"></span>
@@ -822,14 +913,14 @@ body.light :focus-visible{outline:2px solid #000}
     </div>
   </article>
 
-  <!-- 03 — Mamagaya -->
+  <!-- 05 — Mamagaya -->
   <article class="proj-item">
     <div class="proj-item-inner">
       <div class="proj-img">
         <div class="proj-img-bg" style="background-image:url('mockup-mamagaya.webp')"></div>
       </div>
       <div class="proj-info-side">
-        <div class="proj-num rv">03</div>
+        <div class="proj-num rv">05</div>
         <div>
           <div class="proj-tag rv d1">
             <span class="proj-tag-dot"></span>
@@ -865,7 +956,7 @@ body.light :focus-visible{outline:2px solid #000}
   </article>
 
 
-  <!-- 04 — Nike UI Concept -->
+  <!-- 06 — Nike UI Concept -->
   <article class="proj-item">
     <div class="proj-item-inner reverse">
       <div class="proj-img" style="background:#0D1B8B;padding:0">
@@ -879,7 +970,7 @@ body.light :focus-visible{outline:2px solid #000}
         </div>
       </div>
       <div class="proj-info-side">
-        <div class="proj-num rv">04</div>
+        <div class="proj-num rv">06</div>
         <div>
           <div class="proj-tag rv d1">
             <span class="proj-tag-dot"></span>
@@ -910,7 +1001,7 @@ body.light :focus-visible{outline:2px solid #000}
     </div>
   </article>
 
-  <!-- 05 — Adidas Harden UI Concept -->
+  <!-- 07 — Adidas Harden UI Concept -->
   <article class="proj-item">
     <div class="proj-item-inner">
       <div class="proj-img" style="background:#F2F2F2;padding:0">
@@ -922,7 +1013,7 @@ body.light :focus-visible{outline:2px solid #000}
         </div>
       </div>
       <div class="proj-info-side">
-        <div class="proj-num rv">05</div>
+        <div class="proj-num rv">07</div>
         <div>
           <div class="proj-tag rv d1">
             <span class="proj-tag-dot"></span>
