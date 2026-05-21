@@ -230,7 +230,7 @@ body.light #cring{border-color:rgba(0,0,0,0.85)}
 @media (max-width:900px){
   .proj-talseume-inner{
     grid-template-columns:1fr;
-    gap:40px;
+    gap:0;
     padding:0;
   }
   .proj-talseume-img{
@@ -238,9 +238,17 @@ body.light #cring{border-color:rgba(0,0,0,0.85)}
     max-width:none;
     margin:0;
     order:-1;
+    aspect-ratio:3/4;
+    overflow:hidden;
   }
-  .proj-talseume-info{order:0;padding:0 24px}
-  .proj-talseume{padding:48px 0}
+  .proj-talseume-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:top center;
+  }
+  .proj-talseume-info{order:0;padding:48px 40px}
+  .proj-talseume{padding:0;border-bottom:1px solid var(--line)}
 }
 
 /* Image side */
