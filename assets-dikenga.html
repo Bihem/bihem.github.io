@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Dikenga — Assets Visuels</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#111;font-family:'Inter',sans-serif;padding:60px 40px;color:#fff}
+h2{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.2em;color:rgba(255,255,255,0.3);margin-bottom:32px;margin-top:60px}
+h2:first-child{margin-top:0}
+.row{display:flex;gap:32px;flex-wrap:wrap;margin-bottom:60px;align-items:flex-start}
+
+/* ── CARTE DE VISITE ── */
+.card-wrap{display:flex;flex-direction:column;gap:16px}
+.card-label{font-size:10px;text-transform:uppercase;letter-spacing:.15em;color:rgba(255,255,255,0.3)}
+
+/* RECTO */
+.bcard-front{
+  width:680px;height:400px;
+  background:#0D0D0D;
+  border-radius:20px;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  padding:52px 60px;
+  border:1px solid rgba(255,255,255,0.06);
+}
+.bcard-front::before{
+  content:'';position:absolute;
+  top:-160px;right:-160px;
+  width:420px;height:420px;
+  background:radial-gradient(circle, rgba(124,110,255,0.18) 0%, transparent 70%);
+  pointer-events:none;
+}
+.bcard-front::after{
+  content:'';position:absolute;
+  bottom:-100px;left:-80px;
+  width:300px;height:300px;
+  background:radial-gradient(circle, rgba(124,110,255,0.08) 0%, transparent 70%);
+  pointer-events:none;
+}
+.bcard-logo{
+  display:flex;align-items:center;gap:10px;
+}
+.bcard-dot{width:9px;height:9px;border-radius:50%;background:#7C6EFF;flex-shrink:0}
+.bcard-brand{font-size:22px;font-weight:800;letter-spacing:-.04em;color:#fff}
+.bcard-tagline{font-size:11px;color:rgba(255,255,255,0.35);letter-spacing:.06em;margin-top:4px;text-transform:uppercase}
+.bcard-name{font-size:44px;font-weight:900;letter-spacing:-.05em;line-height:1;color:#fff}
+.bcard-role{font-size:13px;color:rgba(255,255,255,0.45);margin-top:8px;font-weight:400;letter-spacing:.02em}
+.bcard-accent-line{
+  width:48px;height:2px;
+  background:linear-gradient(90deg,#7C6EFF,transparent);
+  margin-bottom:16px;
+}
+
+/* VERSO */
+.bcard-back{
+  width:680px;height:400px;
+  background:#0D0D0D;
+  border-radius:20px;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:52px 60px;
+  border:1px solid rgba(255,255,255,0.06);
+  gap:20px;
+}
+.bcard-back::before{
+  content:'';position:absolute;
+  bottom:-120px;right:-120px;
+  width:380px;height:380px;
+  background:radial-gradient(circle, rgba(124,110,255,0.15) 0%, transparent 70%);
+}
+.bcard-contact-row{display:flex;align-items:center;gap:14px}
+.bcard-icon{
+  width:36px;height:36px;border-radius:10px;
+  background:rgba(124,110,255,0.12);
+  border:1px solid rgba(124,110,255,0.2);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.bcard-icon svg{width:16px;height:16px}
+.bcard-info-label{font-size:10px;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:2px}
+.bcard-info-val{font-size:13px;font-weight:500;color:#fff}
+.bcard-divider{height:1px;background:rgba(255,255,255,0.05);margin:4px 0}
+.bcard-back-dot{
+  position:absolute;top:52px;right:60px;
+  width:9px;height:9px;border-radius:50%;background:#7C6EFF;
+}
+
+/* ── INSTAGRAM POSTS ── */
+.ig-grid{display:grid;grid-template-columns:repeat(2,540px);gap:32px}
+
+.ig-post{
+  width:540px;height:540px;
+  background:#0D0D0D;
+  border-radius:20px;
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;
+  justify-content:space-between;
+  padding:48px 48px 44px;
+  border:1px solid rgba(255,255,255,0.06);
+}
+
+/* Gradient orb */
+.ig-post .orb{
+  position:absolute;pointer-events:none;border-radius:50%;
+}
+.ig-post .orb-1{
+  top:-80px;right:-80px;
+  width:340px;height:340px;
+  background:radial-gradient(circle, rgba(124,110,255,0.22) 0%, transparent 65%);
+}
+.ig-post .orb-2{
+  bottom:-60px;left:-40px;
+  width:240px;height:240px;
+  background:radial-gradient(circle, rgba(124,110,255,0.10) 0%, transparent 65%);
+}
+
+.ig-top{display:flex;align-items:center;justify-content:space-between}
+.ig-brand{display:flex;align-items:center;gap:8px}
+.ig-brand-dot{width:7px;height:7px;border-radius:50%;background:#7C6EFF}
+.ig-brand-name{font-size:13px;font-weight:700;letter-spacing:-.02em}
+.ig-tag{
+  font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+  padding:5px 12px;border-radius:100px;
+  background:rgba(124,110,255,0.15);color:#7C6EFF;
+  border:1px solid rgba(124,110,255,0.25);
+}
+
+.ig-mid{flex:1;display:flex;flex-direction:column;justify-content:center;padding:20px 0}
+.ig-service{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.18em;color:rgba(255,255,255,0.35);margin-bottom:14px}
+.ig-title{font-size:38px;font-weight:900;letter-spacing:-.05em;line-height:1.05;color:#fff;margin-bottom:10px}
+.ig-desc{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.6;max-width:360px}
+
+.ig-price-row{display:flex;align-items:baseline;gap:6px;margin-top:20px}
+.ig-price-label{font-size:11px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:.1em}
+.ig-price{font-size:52px;font-weight:900;letter-spacing:-.06em;color:#fff;line-height:1}
+.ig-price-unit{font-size:14px;color:rgba(255,255,255,0.4);align-self:flex-end;padding-bottom:8px}
+
+.ig-bottom{display:flex;align-items:center;justify-content:space-between}
+.ig-features{display:flex;gap:8px;flex-wrap:wrap}
+.ig-feat{
+  font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;
+  padding:4px 10px;border-radius:6px;
+  background:rgba(255,255,255,0.06);
+  color:rgba(255,255,255,0.5);
+  border:1px solid rgba(255,255,255,0.06);
+}
+.ig-cta{
+  font-size:11px;font-weight:700;
+  padding:10px 18px;border-radius:10px;
+  background:#7C6EFF;color:#fff;
+  white-space:nowrap;
+  letter-spacing:.02em;
+}
+
+/* Accent line decor */
+.ig-post .accent-line{
+  position:absolute;
+  left:0;top:0;bottom:0;
+  width:3px;
+  background:linear-gradient(180deg,#7C6EFF 0%,transparent 100%);
+  border-radius:0 2px 2px 0;
+}
+
+/* Color variants */
+.ig-post.v2 .orb-1{background:radial-gradient(circle, rgba(124,110,255,0.28) 0%, transparent 65%)}
+.ig-post.v3 .ig-price{color:#7C6EFF}
+.ig-post.v4{background:#0A0A14}
+.ig-post.v4 .orb-1{background:radial-gradient(circle, rgba(124,110,255,0.32) 0%, transparent 65%)}
+
+/* Print hint */
+.print-note{
+  margin-top:60px;padding:20px 24px;
+  background:rgba(124,110,255,0.08);
+  border:1px solid rgba(124,110,255,0.15);
+  border-radius:12px;
+  font-size:12px;color:rgba(255,255,255,0.5);
+  line-height:1.7;
+}
+.print-note strong{color:#7C6EFF}
+</style>
+</head>
+<body>
+
+<!-- ══════════════ CARTE DE VISITE ══════════════ -->
+<h2>Carte de visite — Recto / Verso · 85×55mm</h2>
+
+<div class="row">
+
+  <!-- RECTO -->
+  <div class="card-wrap">
+    <div class="bcard-label">Recto</div>
+    <div class="bcard-front">
+      <div>
+        <div class="bcard-logo">
+          <div class="bcard-dot"></div>
+          <div class="bcard-brand">Dikenga.</div>
+        </div>
+        <div class="bcard-tagline">UI/UX · Branding · IA</div>
+      </div>
+      <div>
+        <div class="bcard-accent-line"></div>
+        <div class="bcard-name">DIKENGA</div>
+        <div class="bcard-role">UI/UX Designer · Brand Designer · No-Code & IA</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VERSO -->
+  <div class="card-wrap">
+    <div class="bcard-label">Verso</div>
+    <div class="bcard-back">
+      <div class="bcard-back-dot"></div>
+      <div class="bcard-contact-row">
+        <div class="bcard-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="rgba(124,110,255,0.9)" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <div class="bcard-info-label">Email</div>
+          <div class="bcard-info-val">contact@dikengadesign.fr</div>
+        </div>
+      </div>
+      <div class="bcard-divider"></div>
+      <div class="bcard-contact-row">
+        <div class="bcard-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="rgba(124,110,255,0.9)" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="rgba(124,110,255,0.9)" stroke="none"/></svg>
+        </div>
+        <div>
+          <div class="bcard-info-label">Instagram</div>
+          <div class="bcard-info-val">@Dikenga.design</div>
+        </div>
+      </div>
+      <div class="bcard-divider"></div>
+      <div class="bcard-contact-row">
+        <div class="bcard-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="rgba(124,110,255,0.9)" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <div>
+          <div class="bcard-info-label">Site web</div>
+          <div class="bcard-info-val">dikengadesign.fr</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════ INSTAGRAM POSTS ══════════════ -->
+<h2>Affiches Instagram Tarifs · 1080×1080px (affiché à 540px)</h2>
+
+<div class="ig-grid">
+
+  <!-- POST 1 — Logo & Identité -->
+  <div class="ig-post">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="accent-line"></div>
+    <div class="ig-top">
+      <div class="ig-brand"><div class="ig-brand-dot"></div><span class="ig-brand-name">Dikenga.</span></div>
+      <div class="ig-tag">Branding</div>
+    </div>
+    <div class="ig-mid">
+      <div class="ig-service">Logo & Identité Visuelle</div>
+      <div class="ig-title">Une marque<br>qui reste.</div>
+      <div class="ig-desc">Logo, charte graphique, identité complète — livrés en 5 à 10 jours.</div>
+      <div class="ig-price-row">
+        <div class="ig-price-label">Dès</div>
+        <div class="ig-price">300</div>
+        <div class="ig-price-unit">€</div>
+      </div>
+    </div>
+    <div class="ig-bottom">
+      <div class="ig-features">
+        <span class="ig-feat">Logo</span>
+        <span class="ig-feat">Charte</span>
+        <span class="ig-feat">Brand Guide</span>
+      </div>
+      <div class="ig-cta">Demander →</div>
+    </div>
+  </div>
+
+  <!-- POST 2 — Site Vitrine -->
+  <div class="ig-post v2">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="accent-line"></div>
+    <div class="ig-top">
+      <div class="ig-brand"><div class="ig-brand-dot"></div><span class="ig-brand-name">Dikenga.</span></div>
+      <div class="ig-tag">Web Design</div>
+    </div>
+    <div class="ig-mid">
+      <div class="ig-service">Site Web Vitrine</div>
+      <div class="ig-title">Votre site,<br>livré en 14j.</div>
+      <div class="ig-desc">Site sur-mesure, rapide, responsive — SEO de base inclus.</div>
+      <div class="ig-price-row">
+        <div class="ig-price-label">Dès</div>
+        <div class="ig-price">800</div>
+        <div class="ig-price-unit">€</div>
+      </div>
+    </div>
+    <div class="ig-bottom">
+      <div class="ig-features">
+        <span class="ig-feat">Responsive</span>
+        <span class="ig-feat">SEO</span>
+        <span class="ig-feat">Rapide</span>
+      </div>
+      <div class="ig-cta">Demander →</div>
+    </div>
+  </div>
+
+  <!-- POST 3 — UI/UX Design -->
+  <div class="ig-post v3">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="accent-line"></div>
+    <div class="ig-top">
+      <div class="ig-brand"><div class="ig-brand-dot"></div><span class="ig-brand-name">Dikenga.</span></div>
+      <div class="ig-tag">UI/UX</div>
+    </div>
+    <div class="ig-mid">
+      <div class="ig-service">Design d'Interface</div>
+      <div class="ig-title">L'expérience<br>qui convertit.</div>
+      <div class="ig-desc">Audit UX, wireframes, design UI complet — du concept au prototype.</div>
+      <div class="ig-price-row">
+        <div class="ig-price-label">Dès</div>
+        <div class="ig-price">400</div>
+        <div class="ig-price-unit">€</div>
+      </div>
+    </div>
+    <div class="ig-bottom">
+      <div class="ig-features">
+        <span class="ig-feat">Figma</span>
+        <span class="ig-feat">Prototype</span>
+        <span class="ig-feat">Design System</span>
+      </div>
+      <div class="ig-cta">Demander →</div>
+    </div>
+  </div>
+
+  <!-- POST 4 — Pack Lancement -->
+  <div class="ig-post v4">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="accent-line"></div>
+    <div class="ig-top">
+      <div class="ig-brand"><div class="ig-brand-dot"></div><span class="ig-brand-name">Dikenga.</span></div>
+      <div class="ig-tag" style="background:rgba(124,110,255,0.25);border-color:rgba(124,110,255,0.4)">⚡ Best seller</div>
+    </div>
+    <div class="ig-mid">
+      <div class="ig-service">Pack Lancement Complet</div>
+      <div class="ig-title">Tout pour<br>démarrer fort.</div>
+      <div class="ig-desc">Logo + Charte + Site vitrine 3–5 pages. Économisez 30% sur le prix séparé.</div>
+      <div class="ig-price-row">
+        <div class="ig-price-label">Dès</div>
+        <div class="ig-price" style="color:#7C6EFF">1200</div>
+        <div class="ig-price-unit">€</div>
+      </div>
+    </div>
+    <div class="ig-bottom">
+      <div class="ig-features">
+        <span class="ig-feat">Logo</span>
+        <span class="ig-feat">Site</span>
+        <span class="ig-feat">-30%</span>
+      </div>
+      <div class="ig-cta">Profiter →</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="print-note">
+  <strong>Comment exporter →</strong>
+  Fais clic droit sur chaque visuel → "Enregistrer l'image" ou utilise la touche <strong>Impr. écran</strong>.<br>
+  Pour une export HD : ouvre les DevTools (F12) → Device Toolbar → règle le zoom à 200% → screenshot.<br>
+  Format carte de visite : <strong>85×55mm · 300dpi</strong> — envoyer à un imprimeur (ex : vistaprint.fr ou helloprint.fr)<br>
+  Format Instagram : <strong>1080×1080px</strong> — les posts sont affichés à 50% ici (540px) mais exportés en taille réelle.
+</div>
+
+</body>
+</html>
