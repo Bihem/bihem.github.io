@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV — Mes-Reves Bouzanga · UI/UX Designer</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --noir: #0F0F0F;
+    --charcoal: #1D1B1B;
+    --accent: #C8A96E;
+    --accent2: #E8C98E;
+    --gris: #6B6B6B;
+    --gris-light: #B0B0B0;
+    --bg-side: #111111;
+    --bg-main: #FFFFFF;
+    --line: rgba(200,169,110,0.25);
+  }
+
+  html, body {
+    width: 210mm;
+    min-height: 297mm;
+    font-family: 'Inter', sans-serif;
+    background: #E8E8E8;
+    display: flex;
+    justify-content: center;
+  }
+
+  .cv-wrap {
+    width: 210mm;
+    min-height: 297mm;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-main);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  }
+
+  .cv-portfolio-banner {
+    width: 100%;
+    background: var(--charcoal);
+    padding: 13px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+  }
+
+  .cv-portfolio-label {
+    font-size: 9px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .cv-portfolio-url {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: -0.5px;
+  }
+
+  .cv-portfolio-url span {
+    color: rgba(255,255,255,0.5);
+    font-weight: 400;
+  }
+
+  .cv-portfolio-tag {
+    font-size: 9px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.45);
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 4px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+
+  .cv-columns {
+    display: flex;
+    flex: 1;
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    width: 72mm;
+    min-height: 297mm;
+    background: var(--bg-side);
+    color: #FFF;
+    padding: 36px 22px 36px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    flex-shrink: 0;
+  }
+
+  .sidebar-header {
+    text-align: center;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .avatar-ring {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    margin: 0 auto 14px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #252323;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: -1px;
+  }
+
+  .sidebar-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #FFF;
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+
+  .sidebar-title {
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+
+  .side-section-label {
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .side-section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* Contact */
+  .contact-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .contact-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 10px;
+    color: #CCC;
+    line-height: 1.4;
+  }
+
+  .contact-list .icon {
+    color: var(--accent);
+    font-size: 11px;
+    flex-shrink: 0;
+    width: 14px;
+    text-align: center;
+    margin-top: 1px;
+  }
+
+  /* Skills */
+  .skill-group {
+    margin-bottom: 14px;
+  }
+
+  .skill-group-name {
+    font-size: 9px;
+    color: var(--gris-light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+
+  .skill-tag {
+    display: inline-block;
+    background: rgba(200,169,110,0.12);
+    border: 1px solid rgba(200,169,110,0.2);
+    color: #DDD;
+    font-size: 9px;
+    padding: 3px 7px;
+    border-radius: 3px;
+    margin: 2px 2px 2px 0;
+    line-height: 1.4;
+  }
+
+  /* Skill bar */
+  .skill-bar-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 7px;
+  }
+
+  .skill-bar-name {
+    font-size: 10px;
+    color: #CCC;
+    width: 60px;
+    flex-shrink: 0;
+  }
+
+  .skill-bar-track {
+    flex: 1;
+    height: 3px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 2px;
+    margin-left: 8px;
+  }
+
+  .skill-bar-fill {
+    height: 100%;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+  }
+
+  /* Langues */
+  .lang-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+
+  .lang-name {
+    font-size: 10px;
+    color: #CCC;
+  }
+
+  .lang-dots {
+    display: flex;
+    gap: 4px;
+  }
+
+  .lang-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.12);
+  }
+
+  .lang-dot.on {
+    background: var(--accent);
+  }
+
+  /* ── MAIN ── */
+  .main {
+    flex: 1;
+    padding: 36px 28px 36px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+  }
+
+  .main-header {
+    padding-bottom: 20px;
+    border-bottom: 2px solid #F0F0F0;
+  }
+
+  .main-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--charcoal);
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+  }
+
+  .main-name span {
+    color: var(--accent);
+  }
+
+  .main-role {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--gris);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 4px;
+    margin-bottom: 12px;
+  }
+
+  .profil-text {
+    font-size: 10.5px;
+    color: #444;
+    line-height: 1.7;
+  }
+
+  .section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--charcoal);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 2px;
+    background: #F0F0F0;
+  }
+
+  .section-title .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  /* Experience */
+  .exp-item {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 18px;
+    position: relative;
+  }
+
+  .exp-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 19px;
+    top: 28px;
+    bottom: -10px;
+    width: 1px;
+    background: #EBEBEB;
+  }
+
+  .exp-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    background: #FFF;
+    flex-shrink: 0;
+    margin-top: 6px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .exp-line {
+    position: absolute;
+    left: 23px;
+    top: 14px;
+    bottom: -18px;
+    width: 1px;
+    background: #EBEBEB;
+  }
+
+  .exp-content {
+    flex: 1;
+  }
+
+  .exp-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 2px;
+  }
+
+  .exp-role {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--charcoal);
+    line-height: 1.3;
+  }
+
+  .exp-date {
+    font-size: 9px;
+    font-weight: 500;
+    color: var(--accent);
+    background: rgba(200,169,110,0.1);
+    padding: 2px 7px;
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .exp-company {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--gris);
+    margin-bottom: 6px;
+  }
+
+  .exp-company .location {
+    color: var(--gris-light);
+    font-weight: 400;
+  }
+
+  .exp-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .exp-bullets li {
+    font-size: 10px;
+    color: #555;
+    line-height: 1.5;
+    padding-left: 10px;
+    position: relative;
+  }
+
+  .exp-bullets li::before {
+    content: '›';
+    color: var(--accent);
+    position: absolute;
+    left: 0;
+    font-size: 12px;
+    line-height: 1.3;
+  }
+
+  /* Formation */
+  .edu-item {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  .edu-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    background: #F5F5F5;
+    border: 1px solid #E8E8E8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .edu-content {}
+
+  .edu-title {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--charcoal);
+    line-height: 1.3;
+    margin-bottom: 2px;
+  }
+
+  .edu-school {
+    font-size: 10px;
+    color: var(--gris);
+    margin-bottom: 2px;
+  }
+
+  .edu-date {
+    font-size: 9px;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* Projets clés */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .project-card {
+    background: #F9F9F9;
+    border: 1px solid #EFEFEF;
+    border-radius: 6px;
+    padding: 10px 12px;
+    border-left: 3px solid var(--accent);
+  }
+
+  .project-name {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 3px;
+  }
+
+  .project-desc {
+    font-size: 9.5px;
+    color: #666;
+    line-height: 1.5;
+  }
+
+  /* Print */
+  @media print {
+    html, body {
+      width: 210mm;
+      background: none;
+    }
+    .cv-wrap {
+      box-shadow: none;
+    }
+    @page {
+      size: A4;
+      margin: 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="cv-wrap">
+
+  <!-- PORTFOLIO BANNER -->
+  <div class="cv-portfolio-banner">
+    <div class="cv-portfolio-label">Portfolio</div>
+    <div class="cv-portfolio-url"><span>www.</span>dikengadesign<span>.fr</span></div>
+    <div class="cv-portfolio-tag">Disponible</div>
+  </div>
+
+  <div class="cv-columns">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="sidebar-header">
+      <div class="avatar-ring">MB</div>
+      <div class="sidebar-name">Mes-Reves<br>Bouzanga</div>
+      <div class="sidebar-title">UI/UX Designer · Freelance</div>
+    </div>
+
+    <!-- Contact -->
+    <div>
+      <div class="side-section-label">Contact</div>
+      <ul class="contact-list">
+        <li><span class="icon">✉</span> dikengadesign@gmail.com</li>
+        <li><span class="icon">✆</span> +33 7 67 53 70 59</li>
+        <li><span class="icon">⊕</span> dikengadesign.fr</li>
+        <li><span class="icon">◈</span> linkedin.com/in/dikengadesign</li>
+        <li><span class="icon">◎</span> Paris, Île-de-France</li>
+      </ul>
+    </div>
+
+    <!-- Outils -->
+    <div>
+      <div class="side-section-label">Outils</div>
+      <div class="skill-group">
+        <div class="skill-group-name">Design</div>
+        <span class="skill-tag">Figma</span>
+        <span class="skill-tag">Sketch</span>
+        <span class="skill-tag">Adobe XD</span>
+        <span class="skill-tag">Illustrator</span>
+        <span class="skill-tag">Photoshop</span>
+        <span class="skill-tag">InDesign</span>
+        <span class="skill-tag">After Effects</span>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-name">No-code / Web</div>
+        <span class="skill-tag">Webflow</span>
+        <span class="skill-tag">Framer</span>
+        <span class="skill-tag">HTML/CSS</span>
+        <span class="skill-tag">WordPress</span>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-name">Collaboration</div>
+        <span class="skill-tag">Notion</span>
+        <span class="skill-tag">Jira</span>
+        <span class="skill-tag">Slack</span>
+        <span class="skill-tag">Loom</span>
+      </div>
+    </div>
+
+    <!-- Compétences -->
+    <div>
+      <div class="side-section-label">Expertise</div>
+      <div class="skill-bar-row">
+        <div class="skill-bar-name">UI Design</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:96%"></div></div>
+      </div>
+      <div class="skill-bar-row">
+        <div class="skill-bar-name">UX Design</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:88%"></div></div>
+      </div>
+      <div class="skill-bar-row">
+        <div class="skill-bar-name">Design System</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:90%"></div></div>
+      </div>
+      <div class="skill-bar-row">
+        <div class="skill-bar-name">Branding</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:85%"></div></div>
+      </div>
+      <div class="skill-bar-row">
+        <div class="skill-bar-name">Webflow</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:80%"></div></div>
+      </div>
+      <div class="skill-bar-row">
+        <div class="skill-bar-name">Prototypage</div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:92%"></div></div>
+      </div>
+    </div>
+
+    <!-- Langues -->
+    <div>
+      <div class="side-section-label">Langues</div>
+      <div class="lang-row">
+        <div class="lang-name">Français</div>
+        <div class="lang-dots">
+          <div class="lang-dot on"></div><div class="lang-dot on"></div><div class="lang-dot on"></div><div class="lang-dot on"></div><div class="lang-dot on"></div>
+        </div>
+      </div>
+      <div class="lang-row">
+        <div class="lang-name">Anglais</div>
+        <div class="lang-dots">
+          <div class="lang-dot on"></div><div class="lang-dot on"></div><div class="lang-dot on"></div><div class="lang-dot on"></div><div class="lang-dot"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Soft skills -->
+    <div>
+      <div class="side-section-label">Soft Skills</div>
+      <span class="skill-tag">Autonomie</span>
+      <span class="skill-tag">Créativité</span>
+      <span class="skill-tag">Rigueur</span>
+      <span class="skill-tag">Écoute client</span>
+      <span class="skill-tag">Adaptabilité</span>
+      <span class="skill-tag">Gestion de projet</span>
+    </div>
+
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- Header -->
+    <div class="main-header">
+      <div class="main-name">Mes-Reves <span>Bouzanga</span></div>
+      <div class="main-role">UI/UX Designer · Graphiste · Freelance</div>
+      <p class="profil-text">
+        Designer graphique reconverti en UI/UX, fort de <strong>14 ans d'expérience</strong> en création visuelle et interfaces numériques.
+        Spécialisé dans la conception d'interfaces <strong>Figma production-ready</strong> et de <strong>design systems documentés</strong>
+        pour product teams, startups et agences. Habitué à travailler en autonomie sur des cycles complets :
+        recherche, wireframes, UI haute-fidélité, livraison développeur.
+      </p>
+    </div>
+
+    <!-- Expériences -->
+    <div>
+      <div class="section-title"><span class="dot"></span>Expériences professionnelles</div>
+
+      <!-- Freelance -->
+      <div class="exp-item">
+        <div class="exp-dot"></div>
+        <div class="exp-content">
+          <div class="exp-header">
+            <div class="exp-role">UI/UX Designer Freelance</div>
+            <div class="exp-date">2020 → Présent</div>
+          </div>
+          <div class="exp-company">Dikenga Design <span class="location">· Paris (remote & présentiel)</span></div>
+          <ul class="exp-bullets">
+            <li>Conception d'interfaces web/mobile en Figma — livrables production-ready pour les équipes dev</li>
+            <li>Création de design systems complets : tokens, composants, documentation Figma</li>
+            <li>Projets clients : BARNES International, Mamagaya Restaurant, Nike App Concept, StudioBooking SaaS</li>
+            <li>Audit UX, wireframing, prototypes interactifs et tests utilisateurs</li>
+            <li>Développement no-code Webflow / Framer pour landing pages et sites vitrine</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Agence Kreativ -->
+      <div class="exp-item">
+        <div class="exp-dot"></div>
+        <div class="exp-content">
+          <div class="exp-header">
+            <div class="exp-role">Graphiste / Webdesigner</div>
+            <div class="exp-date">2016 → 2020</div>
+          </div>
+          <div class="exp-company">TLS Group <span class="location">· Paris, 8e</span></div>
+          <ul class="exp-bullets">
+            <li>Création de supports de communication print et digitaux (affiches, brochures, newsletters)</li>
+            <li>Conception d'interfaces web sous Photoshop / XD puis migration vers Figma</li>
+            <li>Charte graphique et identité visuelle pour clients B2B, secteur services et finance</li>
+            <li>Collaboration avec les équipes marketing et les développeurs front-end</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Agence Pulse -->
+      <div class="exp-item">
+        <div class="exp-dot"></div>
+        <div class="exp-content">
+          <div class="exp-header">
+            <div class="exp-role">Graphiste Créatif</div>
+            <div class="exp-date">2014 → 2016</div>
+          </div>
+          <div class="exp-company">Agence Pulse Digital <span class="location">· Montreuil, 93</span></div>
+          <ul class="exp-bullets">
+            <li>Création de visuels pour campagnes réseaux sociaux, display et email marketing</li>
+            <li>Montage vidéo et motion design (Adobe After Effects, Premiere)</li>
+            <li>Production de templates print : flyers, kakémonos, catalogues produits</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Stage -->
+      <div class="exp-item">
+        <div class="exp-dot"></div>
+        <div class="exp-content">
+          <div class="exp-header">
+            <div class="exp-role">Stagiaire Graphiste</div>
+            <div class="exp-date">2012 → 2014</div>
+          </div>
+          <div class="exp-company">Studio Créa Paris <span class="location">· Paris, 11e</span></div>
+          <ul class="exp-bullets">
+            <li>Assistance à la création graphique : logo, charte graphique, supports print</li>
+            <li>Retouche photo, maquettes packaging, mise en page éditoriale</li>
+            <li>Maîtrise des outils Adobe CC : Illustrator, Photoshop, InDesign</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Formation -->
+    <div>
+      <div class="section-title"><span class="dot"></span>Formation</div>
+
+      <div class="edu-item">
+        <div class="edu-icon">🎓</div>
+        <div class="edu-content">
+          <div class="edu-title">Bachelor UI/UX Designer — Titre RNCP Niv. 6</div>
+          <div class="edu-school">Studi (École Supérieure du Digital) · En ligne</div>
+          <div class="edu-date">2018 → 2020</div>
+        </div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-icon">✏️</div>
+        <div class="edu-content">
+          <div class="edu-title">BTS Communication Visuelle option Multimédia</div>
+          <div class="edu-school">Lycée Jacques-Prévert · Boulogne-Billancourt</div>
+          <div class="edu-date">2010 → 2012</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Projets clés -->
+    <div>
+      <div class="section-title"><span class="dot"></span>Projets clés · Portfolio</div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-name">BARNES International</div>
+          <div class="project-desc">Refonte UI plateforme immobilier luxe — Design System Figma, 40+ composants, livraison dev-ready</div>
+        </div>
+        <div class="project-card">
+          <div class="project-name">StudioBooking SaaS</div>
+          <div class="project-desc">Conception UX/UI complète d'un SaaS de réservation de studios — Dashboard, calendrier, onboarding</div>
+        </div>
+        <div class="project-card">
+          <div class="project-name">Nike App Concept</div>
+          <div class="project-desc">Interface mobile e-commerce Nike — UI haut de gamme, animations micro-interactions Figma</div>
+        </div>
+        <div class="project-card">
+          <div class="project-name">Mamagaya Restaurant</div>
+          <div class="project-desc">Identité visuelle + site web Webflow — Branding, UI, déploiement no-code</div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  </div><!-- /.cv-columns -->
+
+</div>
+
+
+<!-- FLOATS — WhatsApp + Scroll Top -->
+<style>
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:700;width:48px;height:48px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,211,102,.35);transition:transform .2s;text-decoration:none}
+.wa-float:hover{transform:scale(1.1)}
+.wa-float svg{width:24px;height:24px;fill:white}
+.scroll-top-float{position:fixed;bottom:86px;right:28px;z-index:700;width:44px;height:44px;border-radius:50%;background:rgba(30,30,30,.85);border:1px solid rgba(255,255,255,.15);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;opacity:0;pointer-events:none;transform:translateY(10px);transition:opacity .3s,transform .3s,background .2s,color .2s;backdrop-filter:blur(8px);font-family:inherit}
+.scroll-top-float.vis{opacity:1;pointer-events:auto;transform:translateY(0)}
+.scroll-top-float:hover{background:#fff;color:#0E0E10}
+body.light .scroll-top-float{background:rgba(245,245,245,.9);border-color:rgba(0,0,0,0.1);color:#0E0E10}
+body.light .scroll-top-float:hover{background:#0E0E10;color:#fff}
+@media(max-width:640px){
+  .wa-float{bottom:16px;right:16px;width:42px;height:42px}
+  .scroll-top-float{bottom:70px;right:16px;width:38px;height:38px}
+}
+</style>
+<a href="https://wa.me/33767537059" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+<button class="scroll-top-float" aria-label="Retour en haut" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+(function(){
+  var b=document.querySelector('.scroll-top-float');
+  if(!b) return;
+  window.addEventListener('scroll',function(){b.classList.toggle('vis',window.scrollY>600);},{passive:true});
+})();
+</script>
+
+</body>
+</html>
