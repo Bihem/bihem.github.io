@@ -1172,25 +1172,35 @@ body.light .contact-icon-insta,body.light .contact-icon-linkedin{background:tran
 .scroll-top.vis{opacity:1;pointer-events:auto;transform:translateY(0)}
 .scroll-top:hover{background:var(--white);color:var(--bg)}
 
-/* Cookie */
-.cookie{
-  position:fixed;bottom:0;left:0;right:0;z-index:8000;
-  background:var(--bg2);border-top:1px solid var(--line);
-  padding:16px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;
-  transform:translateY(0);transition:transform .4s;
+/* ══ COOKIE BANNER — style Talseume ══ */
+#cookie-wrap{position:fixed;inset:0;z-index:8000;pointer-events:none;opacity:0;transition:opacity .35s}
+#cookie-wrap.show{opacity:1}
+#cookie-wrap.show .cookie-mini,#cookie-wrap.show .cookie-modal{pointer-events:auto}
+.cookie-mini,.cookie-modal{position:absolute;bottom:24px;width:380px;max-width:calc(50vw - 32px);min-height:230px;padding:26px 24px;display:flex;flex-direction:column;justify-content:space-between;z-index:2;font-family:var(--SI,'Suisse Intl','Inter',sans-serif)}
+.cookie-mini{left:24px;background:rgba(10,10,10,.96);backdrop-filter:blur(14px);color:#fff}
+.cookie-modal{right:24px;background:#fff;color:#0a0a0a;box-shadow:0 12px 40px rgba(0,0,0,.14)}
+.cookie-mini-head{font-size:11px;letter-spacing:.28em;text-transform:uppercase;font-weight:500;margin-bottom:12px;display:flex;align-items:center;gap:8px;color:#fff}
+.cookie-mini-text{font-size:12px;line-height:1.65;color:rgba(255,255,255,.72);font-weight:300;flex:1}
+.cookie-mini-links{display:flex;gap:18px;margin-top:14px}
+.cookie-mini-links a{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#fff;border-bottom:1px solid rgba(255,255,255,.45);padding-bottom:2px;cursor:pointer;transition:border-color .2s;text-decoration:none}
+.cookie-mini-links a.cookie-link-muted{color:rgba(255,255,255,.55);border-bottom-color:transparent}
+.cookie-mini-links a:hover{border-bottom-color:#fff;color:#fff}
+.cookie-title{font-size:15px;font-weight:500;letter-spacing:-.005em;color:#0a0a0a;margin-bottom:10px}
+.cookie-desc{font-size:12px;line-height:1.65;color:rgba(0,0,0,.65);font-weight:300;flex:1;margin:0}
+.cookie-desc a{color:#0a0a0a;border-bottom:1px solid #0a0a0a;padding-bottom:1px;text-decoration:none}
+.cookie-actions{display:flex;align-items:center;gap:10px;margin-top:14px;flex-wrap:wrap}
+.cookie-prefs{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#0a0a0a;border-bottom:1px solid #0a0a0a;padding-bottom:2px;margin-right:auto;cursor:pointer;transition:opacity .2s;text-decoration:none}
+.cookie-prefs:hover{opacity:.6}
+.cookie-btn{font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:400;padding:10px 16px;border:1px solid #0a0a0a;background:transparent;color:#0a0a0a;transition:.25s;font-family:inherit;cursor:pointer}
+.cookie-btn:hover{background:#0a0a0a;color:#fff}
+@media(max-width:900px){
+  .cookie-mini,.cookie-modal{position:fixed;left:16px;right:16px;width:auto;max-width:none;min-height:0}
+  .cookie-mini{bottom:auto;top:auto;display:none}
+  .cookie-modal{bottom:16px;padding:22px 20px}
+  .cookie-actions{flex-wrap:wrap;gap:12px;margin-top:16px}
+  .cookie-prefs{order:-1;width:100%;margin-right:0;margin-bottom:6px;text-align:left}
+  .cookie-btn{flex:1;text-align:center;padding:14px 16px}
 }
-.cookie.hidden{transform:translateY(100%);pointer-events:none}
-.cookie-text{font-size:12px;color:var(--dim);line-height:1.5;flex:1}
-.cookie-actions{display:flex;gap:8px;flex-shrink:0}
-.cookie-btn{
-  padding:8px 18px;border-radius:100px;font-size:11px;font-weight:600;
-  border:none;font-family:var(--F);letter-spacing:0.06em;text-transform:uppercase;
-  transition:background .2s;
-}
-.cookie-accept{background:var(--white);color:var(--bg)}
-.cookie-accept:hover{background:var(--off)}
-.cookie-refuse{background:rgba(255,255,255,.08);color:var(--dim)}
-.cookie-refuse:hover{background:rgba(255,255,255,.14)}
 
 /* ═══════════════ REVEAL ═══════════════ */
 .rv{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1);will-change:opacity,transform}
@@ -3031,12 +3041,25 @@ body.light .feat-cta.ghost{background:transparent;color:#0E0E10;border-color:rgb
 <!-- SCROLL TOP -->
 <button class="scroll-top" id="scrollTop" aria-label="Retour en haut">↑</button>
 
-<!-- COOKIE -->
-<div class="cookie" id="cookieBanner">
-  <p class="cookie-text">Ce site utilise des cookies pour améliorer votre expérience et analyser le trafic. En continuant, vous acceptez leur utilisation.</p>
-  <div class="cookie-actions">
-    <button class="cookie-btn cookie-accept" id="cookieAccept">Accepter</button>
-    <button class="cookie-btn cookie-refuse" id="cookieRefuse">Refuser</button>
+<!-- COOKIE BANNER — style Talseume -->
+<div id="cookie-wrap">
+  <div class="cookie-backdrop"></div>
+  <div class="cookie-mini">
+    <div class="cookie-mini-head">🍪 Cookie Policy</div>
+    <p class="cookie-mini-text">Nous utilisons des cookies et technologies similaires pour vous offrir la meilleure expérience possible. Pour en savoir plus, consultez notre politique de confidentialité.</p>
+    <div class="cookie-mini-links">
+      <a onclick="cookieDecide('accept')">Accepter</a>
+      <a class="cookie-link-muted" onclick="cookieDecide('refuse')">Refuser</a>
+    </div>
+  </div>
+  <div class="cookie-modal">
+    <h3 class="cookie-title">Consentement aux cookies</h3>
+    <p class="cookie-desc">Dikenga Design et ses partenaires utilisent des cookies et d'autres technologies pour personnaliser votre expérience, mesurer l'audience et améliorer le site. Nous n'utiliserons pas de cookies à ces fins sans votre consentement. En savoir plus dans notre <a href="mentions-legales.html">Politique de confidentialité</a>.</p>
+    <div class="cookie-actions">
+      <a class="cookie-prefs" onclick="cookieDecide('prefs')">Gérer vos préférences</a>
+      <button class="cookie-btn" onclick="cookieDecide('refuse')">Refuser</button>
+      <button class="cookie-btn" onclick="cookieDecide('accept')" style="background:#0a0a0a;color:#fff">Accepter</button>
+    </div>
   </div>
 </div>
 
@@ -3973,11 +3996,22 @@ window.addEventListener('pageshow', function(e){
   if(e.persisted){ document.body.classList.remove('leaving'); }
 });
 
-/* ── COOKIE */
-const banner=document.getElementById('cookieBanner');
-if(localStorage.getItem('cookie-ok'))banner.classList.add('hidden');
-document.getElementById('cookieAccept').addEventListener('click',()=>{localStorage.setItem('cookie-ok','1');banner.classList.add('hidden');});
-document.getElementById('cookieRefuse').addEventListener('click',()=>banner.classList.add('hidden'));
+/* ── COOKIE BANNER — style Talseume */
+function cookieDecide(choice){
+  localStorage.setItem('dk-cookies', choice);
+  const cw = document.getElementById('cookie-wrap');
+  cw?.classList.remove('show');
+  setTimeout(()=>cw?.remove(), 400);
+}
+(function(){
+  const cw = document.getElementById('cookie-wrap');
+  if(!cw) return;
+  if(!localStorage.getItem('dk-cookies')){
+    requestAnimationFrame(()=> cw.classList.add('show'));
+  }else{
+    cw.remove();
+  }
+})();
 
 </script>
 </body>
