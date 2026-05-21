@@ -201,9 +201,9 @@ body.light #cring{border-color:rgba(0,0,0,0.85)}
 .proj-talseume{min-height:auto;padding:96px 0}
 .proj-talseume-inner{
   display:grid;
-  grid-template-columns:540px 1fr;
-  gap:80px;
-  max-width:1400px;
+  grid-template-columns:680px 1fr;
+  gap:96px;
+  max-width:1500px;
   margin:0 auto;
   padding:0 64px;
   align-items:center;
@@ -935,7 +935,16 @@ body.light :focus-visible{outline:2px solid #000}
   <article class="proj-item">
     <div class="proj-item-inner">
       <div class="proj-img">
-        <div class="proj-img-bg" style="background-image:url('mockup-tennis-app.jpg');background-size:cover;background-position:center"></div>
+        <div class="proj-img-gallery" id="tennisGallery">
+          <div class="ag-slide active" style="background-image:url('mockup-tennis-app.jpg');background-size:contain;background-position:center;background-repeat:no-repeat"></div>
+          <div class="ag-slide" style="background-image:url('mockup-tennis-phone.jpg');background-size:contain;background-position:center;background-repeat:no-repeat"></div>
+          <div class="ag-slide" style="background-image:url('mockup-tennis-ds.jpg');background-size:contain;background-position:center;background-repeat:no-repeat"></div>
+          <div class="ag-dots">
+            <span class="ag-dot active" data-i="0" onclick="tennisGo(0)"></span>
+            <span class="ag-dot" data-i="1" onclick="tennisGo(1)"></span>
+            <span class="ag-dot" data-i="2" onclick="tennisGo(2)"></span>
+          </div>
+        </div>
       </div>
       <div class="proj-info-side">
         <div class="proj-num rv">05</div>
@@ -1271,18 +1280,21 @@ document.addEventListener('keydown',e=>{
   }
 });
 
-/* ── NIKE GALLERY */
-let nikeIdx = 0;
-const nikeSlides = document.querySelectorAll('#nikeGallery .ag-slide');
-const nikeDots   = document.querySelectorAll('#nikeGallery .ag-dot');
-function nikeGo(n){
-  nikeSlides[nikeIdx].classList.remove('active');
-  nikeDots[nikeIdx].classList.remove('active');
-  nikeIdx = n;
-  nikeSlides[nikeIdx].classList.add('active');
-  nikeDots[nikeIdx].classList.add('active');
+/* ── TENNIS GALLERY */
+let tennisIdx = 0;
+const tennisSlides = document.querySelectorAll('#tennisGallery .ag-slide');
+const tennisDots   = document.querySelectorAll('#tennisGallery .ag-dot');
+function tennisGo(n){
+  if (!tennisSlides.length) return;
+  tennisSlides[tennisIdx].classList.remove('active');
+  tennisDots[tennisIdx].classList.remove('active');
+  tennisIdx = n;
+  tennisSlides[tennisIdx].classList.add('active');
+  tennisDots[tennisIdx].classList.add('active');
 }
-setInterval(()=>{ nikeGo((nikeIdx+1) % nikeSlides.length); }, 3500);
+if (tennisSlides.length) {
+  setInterval(()=>{ tennisGo((tennisIdx+1) % tennisSlides.length); }, 3500);
+}
 
 /* ── ADIDAS GALLERY */
 let adidasIdx = 0;
