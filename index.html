@@ -1986,14 +1986,14 @@ body.light .reel-arrow svg path{stroke:#000000}
 .feat-title{font-size:clamp(32px,4vw,52px);font-weight:700;text-transform:uppercase;letter-spacing:-0.03em;line-height:.95;color:var(--white)}
 .feat-voir{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-family:var(--SI);color:var(--white);text-decoration:none;white-space:nowrap;transition:opacity .3s}
 .feat-voir:hover{opacity:.6}
-.feat-grid{display:grid;grid-template-columns:380px 1fr;gap:64px;max-width:1280px;margin:0 auto;padding:0 28px;align-items:start}
+.feat-grid{display:grid;grid-template-columns:1fr 380px;gap:64px;max-width:1280px;margin:0 auto;padding:0 28px;align-items:start}
 .feat-img{background:#0E0E10;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.45)}
 .feat-img img{display:block;width:100%;height:auto}
 .feat-info{display:flex;flex-direction:column;gap:24px}
 .feat-tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--SI);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.14em;color:var(--dim)}
 .feat-tag-dot{width:5px;height:5px;border-radius:50%;background:#7DDC8C}
-.feat-name{font-size:clamp(32px,4vw,56px);font-weight:700;line-height:1;letter-spacing:-0.02em;color:var(--white);margin:0}
-.feat-desc{font-family:var(--SI);font-size:16px;font-weight:300;line-height:1.65;color:var(--white);margin:0}
+.feat-name{font-size:clamp(22px,2.4vw,34px);font-weight:600;line-height:1.1;letter-spacing:-0.015em;color:var(--white);margin:0}
+.feat-desc{font-family:'Suisse Intl',var(--F);font-size:clamp(16px,1.9vw,21px);font-weight:300;color:var(--white);line-height:1.75;margin:0;max-width:65ch}
 .feat-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
 .feat-pill{font-family:var(--SI);font-size:11px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);border:1px solid var(--line);padding:6px 12px;border-radius:999px}
 .feat-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
@@ -2018,15 +2018,12 @@ body.light .feat-cta.ghost{background:transparent;color:#0E0E10;border-color:rgb
     <a href="projets.html" class="feat-voir" onclick="goToProjects(event)">Voir tous →</a>
   </div>
   <div class="feat-grid rv">
-    <div class="feat-img">
-      <img src="mockup-talseume-ecommerce.jpg?v=6" alt="Talseume — Boutique e-commerce" loading="lazy">
-    </div>
     <div class="feat-info">
       <div class="feat-tag">
         <span class="feat-tag-dot"></span>
         UI Design · E-commerce · Direction Artistique · 2026
       </div>
-      <h3 class="feat-name">Talseume — Boutique e-commerce</h3>
+      <h3 class="feat-name">Boutique e-commerce</h3>
       <p class="feat-desc">Boutique streetwear éco-responsable conçue et développée de A à Z — design d'interface, direction artistique, intégration HTML/CSS/JS, paiement Stripe et hébergement Netlify. Coton bio GOTS et matériaux recyclés.</p>
       <p class="feat-desc">Site 100% custom avec hero vidéo, lookbooks éditoriaux scroll-driven, grille produits avec badges éco, panier intégré, checkout Stripe et Klarna 3x sans frais. Mobile-first, performant, live sur talseume.com.</p>
       <div class="feat-meta">
@@ -2046,6 +2043,9 @@ body.light .feat-cta.ghost{background:transparent;color:#0E0E10;border-color:rgb
           <span>→</span>
         </a>
       </div>
+    </div>
+    <div class="feat-img">
+      <img src="mockup-talseume-ecommerce.jpg?v=6" alt="Talseume — Boutique e-commerce" loading="lazy">
     </div>
   </div>
 </section>
