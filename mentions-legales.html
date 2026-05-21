@@ -111,6 +111,11 @@
 }
 body.light .site-video-bg{opacity:0.06;mix-blend-mode:multiply}
 </style>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VNYL81F091"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-VNYL81F091');</script>
+<!-- Auto-track CTAs -->
+<script>document.addEventListener('DOMContentLoaded',function(){function ev(n,p){if(window.gtag)gtag('event',n,p||{})}document.querySelectorAll('a[href^="mailto:"]').forEach(function(a){a.addEventListener('click',function(){ev('email_click',{event_category:'contact',event_label:a.getAttribute('href').replace('mailto:','')})})});document.querySelectorAll('a[href^="tel:"]').forEach(function(a){a.addEventListener('click',function(){ev('phone_click',{event_category:'contact',event_label:a.getAttribute('href').replace('tel:','')})})});document.querySelectorAll('a[href*="wa.me"]').forEach(function(a){a.addEventListener('click',function(){ev('whatsapp_click',{event_category:'contact'})})})});</script>
 </head>
 <body>
 <!-- VIDEO FOND GLOBAL -->
