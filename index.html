@@ -3594,12 +3594,15 @@ document.getElementById('menuClose').addEventListener('click',()=>{
   menuBtn.setAttribute('aria-label', 'Ouvrir le menu de navigation');
 });
 function closeMenu(e){
-  e.preventDefault();
   const href=e.currentTarget.getAttribute('href');
   menuOverlay.classList.remove('open');
   menuBtn.textContent = 'Menu';
   menuBtn.setAttribute('aria-expanded', 'false');
   menuBtn.setAttribute('aria-label', 'Ouvrir le menu de navigation');
+  // Si lien externe (page .html ou URL) → laisser le browser naviguer
+  if (href && (href.endsWith('.html') || href.startsWith('http') || href.startsWith('/'))) return;
+  // Sinon (ancres internes #about, #services) → preventDefault + smooth scroll
+  e.preventDefault();
   setTimeout(()=>{ if(href&&href!=='#') document.querySelector(href)?.scrollIntoView({behavior:'smooth'}); },500);
 }
 
