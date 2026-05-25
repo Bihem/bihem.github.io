@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<script>if(localStorage.getItem('dikenga-theme')==='light'){document.documentElement.style.background='#FFFFFF';document.documentElement.style.setProperty('--bg','#FFFFFF');}else{document.documentElement.style.background='#1D1B1B';document.documentElement.style.setProperty('--bg','#1D1B1B');}</script>
+<style>html{background:transparent}
+/* ── VIDEO FOND GLOBAL */
+.site-video-bg{
+  position:fixed;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  opacity:0.13;
+  z-index:0;
+  pointer-events:none;
+  mix-blend-mode:screen;
+}
+body.light .site-video-bg{opacity:0.06;mix-blend-mode:multiply}
+@supports(view-transition-name:none){
+  @media not (max-width:768px){
+    @view-transition{navigation:auto}
+  }
+}
+::view-transition-old(root){animation:vt-out 0.25s ease both}
+::view-transition-new(root){animation:vt-in 0.25s ease both}
+@keyframes vt-out{to{opacity:0}}
+@keyframes vt-in{from{opacity:0}}
+@media(prefers-reduced-motion:reduce){
+  ::view-transition-old(root),::view-transition-new(root){animation:none!important}
+}
+@media(max-width:768px){html,body{overflow-x:hidden!important}}
+</style>
+<title>Audit UX gratuit — 30 min · Dikenga.</title>
+<meta name="description" content="Audit UX gratuit en 30 minutes. 5 axes : perf, conversion, SEO, accessibilité, mobile. Rapport actionnable + recommandations chiffrées."/>
+<meta name="robots" content="index, follow"/>
+<meta name="keywords" content="audit ux gratuit, audit site web paris, audit conversion ecommerce, designer freelance paris"/>
+<meta property="og:title" content="Audit UX gratuit — 30 min · Dikenga."/>
+<meta property="og:description" content="5 axes analysés. Rapport actionnable. Aucun engagement. 0 spam."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://dikengadesign.fr/audit-ux-gratuit.html"/>
+<meta property="og:image" content="https://dikengadesign.fr/og-image.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Audit UX gratuit — 30 min · Dikenga."/>
+<meta name="twitter:description" content="Contactez Dikenga pour votre projet de design UI/UX, identité visuelle ou site web."/>
+<meta name="twitter:image" content="https://dikengadesign.fr/og-image.jpg"/>
+<meta name="geo.region" content="FR-IDF"/>
+<meta name="geo.placename" content="Paris, France"/>
+<link rel="canonical" href="https://dikengadesign.fr/audit-ux-gratuit.html"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact — Dikenga Design",
+  "description": "Page de contact de Dikenga, designer UI/UX freelance Paris",
+  "url": "https://dikengadesign.fr/audit-ux-gratuit.html",
+  "inLanguage": "fr-FR",
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://dikengadesign.fr/"},
+      {"@type": "ListItem", "position": 2, "name": "Contact", "item": "https://dikengadesign.fr/audit-ux-gratuit.html"}
+    ]
+  }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+@font-face{font-family:'Suisse Intl';src:url('https://cdn.prod.website-files.com/6772f6efe246aaaa73ad2a98/67784f5e4c3068c2e2f22e60_SuisseIntl-Regular.otf')format('opentype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Suisse Intl';src:url('https://cdn.prod.website-files.com/6772f6efe246aaaa73ad2a98/67784f815ee57b4c18bdae11_SuisseIntl-Light.otf')format('opentype');font-weight:300;font-style:normal;font-display:swap}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#1D1B1B;
+  --white:#fff;
+  --dim:rgba(255,255,255,0.38);
+  --line:rgba(255,255,255,0.12);
+  --SI:'Suisse Intl','Space Grotesk',sans-serif;
+}
+html{min-height:100%;overflow-x:hidden;background:transparent}
+body{
+  background:var(--bg);
+  color:var(--white);font-family:var(--SI);font-weight:300;
+  -webkit-font-smoothing:antialiased;cursor:none;
+}
+a,button{cursor:none;text-decoration:none;color:inherit}
+/* ── ENTRÉE PAGE — désactivée */
+.page-enter{display:none}
+/* PAGE TRANSITION SORTIE */
+.page-transition{display:none}
+
+/* CURSOR */
+#cdot{position:fixed;z-index:9999;pointer-events:none;width:6px;height:6px;border-radius:50%;background:var(--white);transform:translate(-50%,-50%)}
+#cring{position:fixed;z-index:9998;pointer-events:none;width:32px;height:32px;border-radius:50%;border:1px solid rgba(255,255,255,0.4);transform:translate(-50%,-50%);transition:width .22s,height .22s}
+.cursor-grow #cring{width:50px;height:50px}
+
+/* NAV */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:800;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:26px 48px;
+}
+.nav-logo svg{height:28px;width:auto}
+.nav-time{font-size:10px;font-weight:300;letter-spacing:.1em;text-transform:uppercase;color:var(--white)}
+.nav-back{
+  display:flex;align-items:center;gap:8px;
+  font-size:11px;font-weight:300;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--white);transition:opacity .2s;
+}
+.nav-back:hover{opacity:.7}
+
+/* LAYOUT */
+.wrap{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  min-height:100vh;
+  padding-top:100px;
+}
+
+/* LEFT */
+.left{
+  padding:80px 60px 80px 48px;
+  display:flex;flex-direction:column;justify-content:space-between;
+  position:sticky;top:0;height:calc(100vh - 100px);overflow:hidden;
+}
+.left-top{}
+.headline{
+  font-family:var(--SI);
+  font-size:clamp(56px,6vw,100px);
+  font-weight:300;letter-spacing:-.04em;line-height:.9;
+  margin-bottom:52px;
+}
+.desc{display:flex;flex-direction:column;gap:18px;max-width:380px}
+.desc p{font-size:15px;font-weight:300;line-height:1.72;color:var(--white)}
+.desc a{border-bottom:1px solid rgba(255,255,255,.2);transition:border-color .2s}
+.desc a:hover{border-color:var(--white)}
+
+/* contact links */
+.clinks{margin-top:40px;display:flex;flex-direction:row;gap:14px;flex-wrap:wrap}
+.clink{
+  width:52px;height:52px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  border:1px solid var(--line);
+  color:var(--white);
+  background:rgba(255,255,255,0.05);
+  transition:background .2s,border-color .2s,transform .2s;
+  text-decoration:none;flex-shrink:0;
+}
+.clink:hover{background:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.35);transform:translateY(-3px)}
+.clink-insta,.clink-linkedin{border-color:transparent!important;background:none!important;padding:0;overflow:hidden}
+.clink-insta:hover,.clink-linkedin:hover{opacity:.85;transform:translateY(-3px);background:none!important}
+.clink-val{display:none}
+
+.left-foot{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--white)}
+
+/* RIGHT */
+.right{
+  padding:80px 48px 80px 60px;
+  border-left:1px solid var(--line);
+  display:flex;flex-direction:column;
+}
+.form-label{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--white);margin-bottom:44px}
+
+/* FORM GRID */
+.c-form{display:flex;flex-direction:column;gap:0}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:0 48px}
+
+/* FIELD */
+.field{
+  border-bottom:1px solid var(--line);
+  padding-top:26px;
+  transition:border-color .3s;
+}
+.field:focus-within{border-color:rgba(255,255,255,.4)}
+.field.full{grid-column:1/-1}
+
+.field label{
+  display:block;font-size:13px;font-weight:400;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--white);margin-bottom:14px;
+}
+
+.field input,
+.field textarea,
+.field select{
+  width:100%;background:none;border:none;outline:none;
+  font-family:var(--SI);font-size:22px;font-weight:300;
+  color:var(--white);padding:0 0 26px;
+  line-height:1.4;caret-color:var(--white);
+}
+.field textarea{resize:none;min-height:110px}
+.field select{appearance:none;-webkit-appearance:none}
+.field select option{background:#1D1B1B;color:var(--white)}
+.field input::placeholder,
+.field textarea::placeholder{color:rgba(255,255,255,.18)}
+.sel-wrap{position:relative}
+.sel-wrap::after{content:'↓';position:absolute;right:0;bottom:24px;font-size:13px;color:var(--white);pointer-events:none}
+
+/* BOTTOM */
+.form-foot{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:28px 0 0;flex-wrap:wrap;gap:16px;
+}
+.check-row{display:flex;align-items:center;gap:12px;cursor:none}
+.check-box{
+  width:18px;height:18px;border:1px solid rgba(255,255,255,.22);border-radius:3px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  transition:background .2s,border-color .2s;
+}
+.check-row input[type=checkbox]{display:none}
+.check-row input[type=checkbox]:checked+.check-box{background:var(--white);border-color:var(--white)}
+.check-row input[type=checkbox]:checked+.check-box::after{content:'✓';font-size:10px;color:#1D1B1B;font-weight:700}
+.check-label{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--white)}
+
+.btn-submit{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:18px 40px;border-radius:100px;
+  background:var(--white);color:#1D1B1B;
+  font-family:var(--SI);font-size:17px;font-weight:400;
+  letter-spacing:.1em;text-transform:uppercase;
+  border:none;transition:opacity .2s,transform .2s;
+}
+.btn-submit:hover{opacity:.85;transform:scale(1.02)}
+
+/* PAGE TRANSITIONS — handled via body animation */
+
+/* ── MOBILE */
+@media(max-width:900px){
+  #cdot,#cring{display:none}
+  body{cursor:auto}
+  a,button{cursor:auto}
+
+  .nav{padding:16px 20px;gap:12px}
+  .nav-logo svg{height:22px}
+  .nav-time{display:none}
+  /* Cacher Blog + À propos sur mobile — garder logo + retour */
+  .nav > a:not(.nav-logo):not(.nav-back){display:none}
+
+  .wrap{
+    grid-template-columns:1fr;
+    padding-top:72px;
+  }
+
+  .left{
+    position:static;height:auto;
+    padding:32px 20px 40px;
+    border-bottom:1px solid var(--line);
+  }
+  .headline{font-size:clamp(40px,11vw,68px);margin-bottom:28px}
+  .desc p{font-size:14px}
+  .clinks{margin-top:32px}
+  .clink{padding:12px 0}
+  .clink-val{font-size:11px}
+  .left-foot{margin-top:32px}
+
+  .right{
+    padding:40px 20px 80px;
+    border-left:none;
+  }
+  .row{grid-template-columns:1fr}
+  .field{padding-top:20px}
+  .field input,.field textarea,.field select{font-size:15px;padding:0 0 16px}
+  .field textarea{min-height:90px}
+
+  .form-foot{flex-direction:column;align-items:flex-start;gap:20px}
+}
+/* ── THEME CLAIR */
+body.light{
+  --white:#1A1818;
+  --dim:rgba(0,0,0,0.5);
+  --line:rgba(0,0,0,0.12);
+  color:#1A1818;
+  background:#F7F6F5;
+}
+body.light .nav-logo ellipse{stroke:#000000}
+body.light .nav-logo text{fill:#000000}
+body.light .nav-back{color:#000000}
+body.light .nav-time{color:rgba(0,0,0,0.5)}
+body.light .left{background:transparent}
+body.light .right{border-color:rgba(0,0,0,0.12);background:transparent}
+body.light .wrap{background:transparent}
+body.light .left-foot{color:rgba(0,0,0,0.5)}
+body.light .headline{color:#000000}
+body.light .desc p{color:rgba(0,0,0,0.75)}
+body.light .desc a{border-color:rgba(0,0,0,0.25)}
+body.light .desc a:hover{border-color:#000000}
+body.light .form-label{color:rgba(0,0,0,0.5)}
+body.light .field{border-color:rgba(0,0,0,0.15)}
+body.light .field:focus-within{border-color:rgba(0,0,0,0.4)}
+body.light .field label{color:rgba(0,0,0,0.6)}
+body.light .field input,body.light .field textarea,body.light .field select{color:#000000;background:transparent}
+body.light .field input::placeholder,body.light .field textarea::placeholder{color:rgba(0,0,0,0.25)}
+body.light .field select option{background:#FFFFFF;color:#000000}
+body.light .sel-wrap::after{color:#000000}
+body.light .clink{background:rgba(0,0,0,0.04);border-color:rgba(0,0,0,0.18);color:#000000}
+body.light .clink:hover{background:rgba(0,0,0,0.08);border-color:rgba(0,0,0,0.35)}
+body.light .btn-submit{background:#000000;color:#FFFFFF}
+body.light .check-box{border-color:rgba(0,0,0,0.35)}
+body.light .check-row input[type=checkbox]:checked+.check-box{background:#000000;border-color:#000000}
+body.light .check-row input[type=checkbox]:checked+.check-box::after{content:'✓';font-size:10px;color:#FFFFFF;font-weight:700}
+body.light .check-label{color:#000000}
+.skip-link{position:absolute;top:-100px;left:16px;z-index:9999;background:#fff;color:#1D1B1B;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;text-decoration:none;transition:top .2s}
+.skip-link:focus{top:16px}
+:focus-visible{outline:2px solid var(--white);outline-offset:3px;border-radius:3px}
+body.light :focus-visible{outline:2px solid #000}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}
+  #cdot,#cring{display:none!important}
+}
+</style>
+<script data-goatcounter="https://dikenga.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VNYL81F091"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-VNYL81F091');</script>
+<!-- Auto-track CTAs (email / tel / WhatsApp / formulaire contact) -->
+<script>document.addEventListener('DOMContentLoaded',function(){function ev(n,p){if(window.gtag)gtag('event',n,p||{})}document.querySelectorAll('a[href^="mailto:"]').forEach(function(a){a.addEventListener('click',function(){ev('email_click',{event_category:'contact',event_label:a.getAttribute('href').replace('mailto:','')})})});document.querySelectorAll('a[href^="tel:"]').forEach(function(a){a.addEventListener('click',function(){ev('phone_click',{event_category:'contact',event_label:a.getAttribute('href').replace('tel:','')})})});document.querySelectorAll('a[href*="wa.me"]').forEach(function(a){a.addEventListener('click',function(){ev('whatsapp_click',{event_category:'contact'})})});var f=document.getElementById('contactForm');if(f)f.addEventListener('submit',function(){ev('generate_lead',{event_category:'conversion',event_label:'contact_form',value:1})})});</script>
+</head>
+<body>
+<!-- VIDEO FOND GLOBAL -->
+<video class="site-video-bg" autoplay muted loop playsinline preload="none" aria-hidden="true">
+  <source src="hero-bg.mp4" type="video/mp4">
+</video>
+
+<div class="page-enter" id="pageEnter"></div>
+<div class="page-transition" id="pageTransition"></div>
+<div id="cdot"></div>
+<div id="cring"></div>
+
+<!-- SKIP LINK -->
+<a href="#contenu-principal" class="skip-link">Passer au contenu</a>
+
+<!-- NAV -->
+<nav class="nav" aria-label="Navigation principale">
+  <a href="index.html" class="nav-logo" onclick="goHome(event)">
+    <svg viewBox="0 0 320 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="152" cy="60" rx="144" ry="52" stroke="white" stroke-width="7" fill="none"/>
+      <text x="152" y="75" text-anchor="middle" font-family="'Space Grotesk',Arial,sans-serif" font-weight="700" font-size="46" fill="white" letter-spacing="-1">DIKENGA.</text>
+      <text x="303" y="22" font-family="'Space Grotesk',Arial,sans-serif" font-size="16" fill="white" font-weight="400">®</text>
+    </svg>
+  </a>
+  <span class="nav-time" id="navtime">FR · --:--</span>
+  <a href="blog.html" style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--dim);transition:color .2s" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--dim)'">Blog</a>
+  <a href="a-propos.html" style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--dim);transition:color .2s" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--dim)'">À propos</a>
+  <a href="index.html" class="nav-back" onclick="goHome(event)">← Accueil</a>
+</nav>
+
+<main id="contenu-principal">
+<div class="wrap">
+
+  <!-- LEFT -->
+  <div class="left">
+    <div class="left-top">
+      <h1 class="headline">Audit UX gratuit.<br>30 minutes.</h1>
+      <p style="font-size:14px;line-height:1.7;color:var(--dim);max-width:380px;margin-top:24px;margin-bottom:24px">
+        Tu reçois <strong style="color:var(--white)">un rapport actionnable</strong> sur 5 axes&nbsp;:
+      </p>
+      <ul style="list-style:none;padding:0;margin:0 0 32px;font-size:13px;line-height:1.9;color:var(--dim)">
+        <li>→ <strong style="color:var(--white)">Performance</strong> — Lighthouse, Core Web Vitals, TTFB</li>
+        <li>→ <strong style="color:var(--white)">Conversion</strong> — funnel, CTA, friction points</li>
+        <li>→ <strong style="color:var(--white)">SEO</strong> — meta tags, schema, sitemap, ranking</li>
+        <li>→ <strong style="color:var(--white)">Accessibilité</strong> — WCAG/RGAA, contraste, navigation</li>
+        <li>→ <strong style="color:var(--white)">Mobile</strong> — UX touch, layout, vitesse 4G</li>
+      </ul>
+      <p style="font-size:12px;line-height:1.7;color:var(--dim);max-width:380px">
+        <strong style="color:var(--white)">Aucun engagement.</strong> Tu décides après le rapport si tu veux continuer.<br>
+        Audit envoyé sous 48h.
+      </p>
+      <div class="clinks">
+        <!-- Email -->
+        <a href="mailto:contact@dikengadesign.fr" class="clink" title="Email">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <polyline points="2,4 12,13 22,4"/>
+          </svg>
+        </a>
+        <!-- Téléphone -->
+        <a href="tel:0767537059" class="clink" title="Téléphone">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6.6 10.8a15.2 15.2 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .6 3.6 1 1 0 0 1-.24 1L6.6 10.8z"/>
+          </svg>
+        </a>
+        <!-- Instagram -->
+        <a href="https://instagram.com/Dikenga.design" target="_blank" rel="noopener noreferrer" class="clink clink-insta" title="Instagram">
+          <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+            <defs>
+              <radialGradient id="ig2" cx="30%" cy="107%" r="150%">
+                <stop offset="0%" stop-color="#fdf497"/>
+                <stop offset="10%" stop-color="#fdf497"/>
+                <stop offset="30%" stop-color="#fd5949"/>
+                <stop offset="60%" stop-color="#d6249f"/>
+                <stop offset="90%" stop-color="#285AEB"/>
+              </radialGradient>
+            </defs>
+            <rect width="52" height="52" rx="26" fill="url(#ig2)"/>
+            <circle cx="26" cy="26" r="9" fill="none" stroke="white" stroke-width="2.2"/>
+            <circle cx="35.5" cy="16.5" r="2" fill="white"/>
+          </svg>
+        </a>
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/dikengadesign/" target="_blank" rel="noopener noreferrer" class="clink clink-linkedin" title="LinkedIn">
+          <svg width="52" height="52" viewBox="0 0 52 52" fill="white">
+            <rect width="52" height="52" rx="26" fill="#0A66C2"/>
+            <path d="M17 21h4v14h-4V21zm2-2a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zM35 29.2c0-4.2-2-6.2-5.2-6.2-1.7 0-3 .9-3.8 2.1V21H22v14h4v-7.3c0-1.8.9-2.9 2.5-2.9 1.5 0 2.5 1 2.5 2.9V35h4v-5.8z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="left-foot">©2026 Dikenga. — Paris, France</div>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="right">
+    <p class="form-label">Demander l'audit · 2 min</p>
+
+    <form class="c-form" id="contactForm" action="https://formspree.io/f/mdaproed" method="POST">
+      <input type="hidden" name="_subject" value="[AUDIT UX] Nouvelle demande d'audit gratuit"/>
+      <input type="hidden" name="_source" value="audit-ux-gratuit"/>
+
+      <div class="row">
+        <div class="field">
+          <label>Nom *</label>
+          <input type="text" name="nom" placeholder="Votre nom complet" required/>
+        </div>
+        <div class="field">
+          <label>Email pro *</label>
+          <input type="email" name="email" placeholder="vous@votreentreprise.com" required/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field full">
+          <label>URL du site à auditer *</label>
+          <input type="url" name="url_site" placeholder="https://votresite.com" required/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label>Type de business *</label>
+          <div class="sel-wrap">
+            <select name="type_business" required>
+              <option value="" disabled selected>Sélectionner</option>
+              <option>E-commerce</option>
+              <option>SaaS / Plateforme</option>
+              <option>Site vitrine / Marque</option>
+              <option>Marketplace</option>
+              <option>Application mobile</option>
+              <option>Autre</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label>Budget refonte estimé *</label>
+          <div class="sel-wrap">
+            <select name="budget" required>
+              <option value="" disabled selected>Sélectionner</option>
+              <option>&lt; 3 000 €</option>
+              <option>3 000 - 7 000 €</option>
+              <option>7 000 - 15 000 €</option>
+              <option>15 000 - 30 000 €</option>
+              <option>30 000 € +</option>
+              <option>Pas encore défini</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label>Délai souhaité</label>
+          <div class="sel-wrap">
+            <select name="delai">
+              <option value="" disabled selected>Sélectionner</option>
+              <option>Urgent (sous 1 mois)</option>
+              <option>1 à 3 mois</option>
+              <option>3 à 6 mois</option>
+              <option>Pas pressé</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label>Entreprise</label>
+          <input type="text" name="entreprise" placeholder="Nom de votre entreprise"/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field full">
+          <label>Sur quoi voulez-vous qu'on se concentre ?</label>
+          <textarea name="message" placeholder="Conversion qui plafonne ? Site lent ? Refonte complète ? Décrivez votre problème principal."></textarea>
+        </div>
+      </div>
+
+      <div class="form-foot">
+        <label class="check-row">
+          <input type="checkbox" name="newsletter"/>
+          <div class="check-box"></div>
+          <span class="check-label">Recevoir mes actualités</span>
+        </label>
+        <button type="submit" class="btn-submit" id="submitBtn">
+          Recevoir mon audit &nbsp;→
+        </button>
+      </div>
+    </form>
+  </div>
+
+</div>
+
+</main><!-- /contenu-principal -->
+
+<!-- ── FOOTER -->
+<footer style="border-top:1px solid var(--line);padding:24px 48px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+  <span style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--dim)">©2026 Dikenga.</span>
+  <div style="display:flex;gap:24px;flex-wrap:wrap">
+    <a href="mentions-legales.html" style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--dim);text-decoration:none;transition:color .2s" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--dim)'">Mentions légales</a>
+    <a href="a-propos.html" style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--dim);text-decoration:none;transition:color .2s" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--dim)'">À propos</a>
+    <a href="blog.html" style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--dim);text-decoration:none;transition:color .2s" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--dim)'">Blog</a>
+    <a href="projets.html" style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--dim);text-decoration:none;transition:color .2s" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--dim)'">Projets</a>
+  </div>
+</footer>
+
+<script>
+/* cursor */
+const dot=document.getElementById('cdot'),ring=document.getElementById('cring');
+let mx=window.innerWidth/2,my=window.innerHeight/2,rx=mx,ry=my;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+(function loop(){
+  dot.style.left=mx+'px';dot.style.top=my+'px';
+  rx+=(mx-rx)*.12;ry+=(my-ry)*.12;
+  ring.style.left=rx+'px';ring.style.top=ry+'px';
+  requestAnimationFrame(loop);
+})();
+document.querySelectorAll('a,button,label').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('cursor-grow'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('cursor-grow'));
+});
+
+/* clock */
+function tick(){
+  const n=new Date();
+  document.getElementById('navtime').textContent='FR · '+String(n.getHours()).padStart(2,'0')+':'+String(n.getMinutes()).padStart(2,'0');
+}
+tick();setInterval(tick,1000);
+
+/* checkbox */
+document.querySelectorAll('.check-row').forEach(row=>{
+  row.addEventListener('click',()=>{const cb=row.querySelector('input[type=checkbox]');if(cb)cb.checked=!cb.checked});
+});
+
+/* form */
+document.getElementById('contactForm').addEventListener('submit',async function(e){
+  e.preventDefault();
+  const btn=document.getElementById('submitBtn');
+  btn.textContent='Envoi…';btn.disabled=true;
+  try{
+    const res=await fetch(this.action,{method:'POST',body:new FormData(this),headers:{Accept:'application/json'}});
+    btn.textContent=res.ok?'Message reçu ✓':'Erreur — réessayez';
+    if(res.ok)this.reset();
+    else btn.disabled=false;
+  }catch{btn.textContent='Erreur — réessayez';btn.disabled=false;}
+});
+
+/* révèle la page */
+(function(){const e=document.getElementById('pageEnter');if(e)e.style.display='none';})();
+
+/* retour accueil — overlay slide bas */
+function goHome(e){
+  e.preventDefault();
+  window.location.href='index.html';
+}
+
+/* ── THEME — restaurer depuis localStorage ou préférence système */
+(function(){
+  const stored = localStorage.getItem('dikenga-theme');
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const useDark = stored ? stored === 'dark' : true;
+  if(!useDark){
+    document.documentElement.style.setProperty('--bg','#FFFFFF');
+    document.documentElement.style.setProperty('--white','#000000');
+    document.documentElement.style.setProperty('--dim','rgba(0,0,0,0.5)');
+    document.documentElement.style.setProperty('--line','rgba(0,0,0,0.1)');
+    document.body.classList.add('light');
+    document.querySelector('html').style.background = '#FFFFFF';
+  }
+  if(!stored && window.matchMedia){
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+      if(!localStorage.getItem('dikenga-theme')) location.reload();
+    });
+  }
+})();
+</script>
+
+<!-- FLOATS — WhatsApp + Scroll Top -->
+<style>
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:700;width:48px;height:48px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,211,102,.35);transition:transform .2s;text-decoration:none}
+.wa-float:hover{transform:scale(1.1)}
+.wa-float svg{width:24px;height:24px;fill:white}
+.scroll-top-float{position:fixed;bottom:86px;right:28px;z-index:700;width:44px;height:44px;border-radius:50%;background:rgba(30,30,30,.85);border:1px solid rgba(255,255,255,.15);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;opacity:0;pointer-events:none;transform:translateY(10px);transition:opacity .3s,transform .3s,background .2s,color .2s;backdrop-filter:blur(8px);font-family:inherit}
+.scroll-top-float.vis{opacity:1;pointer-events:auto;transform:translateY(0)}
+.scroll-top-float:hover{background:#fff;color:#0E0E10}
+body.light .scroll-top-float{background:rgba(245,245,245,.9);border-color:rgba(0,0,0,0.1);color:#0E0E10}
+body.light .scroll-top-float:hover{background:#0E0E10;color:#fff}
+@media(max-width:640px){
+  .wa-float{bottom:16px;right:16px;width:42px;height:42px}
+  .scroll-top-float{bottom:70px;right:16px;width:38px;height:38px}
+}
+</style>
+<a href="https://wa.me/33767537059" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+<button class="scroll-top-float" aria-label="Retour en haut" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+(function(){
+  var b=document.querySelector('.scroll-top-float');
+  if(!b) return;
+  window.addEventListener('scroll',function(){b.classList.toggle('vis',window.scrollY>600);},{passive:true});
+})();
+</script>
+
+</body>
+</html>
