@@ -413,6 +413,61 @@ body.light .sb-feats li::before{background:#0E0F12}
 .proj-case-row:last-child .proj-case-text{
   color:var(--white);font-weight:400;
 }
+
+/* ── PRICING TABLE — Talseume vs concurrence */
+.proj-pricing{
+  max-width:680px;margin:36px 0 32px;
+  border:1px solid var(--line);border-radius:12px;
+  overflow:hidden;
+}
+.proj-pricing-head{
+  padding:18px 22px;border-bottom:1px solid var(--line);
+  display:flex;flex-direction:column;gap:4px;
+}
+.proj-pricing-title{
+  font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#10B981;
+}
+.proj-pricing-sub{
+  font-family:'Suisse Intl',var(--SI);font-size:13px;font-weight:300;color:var(--dim);line-height:1.5;
+}
+.proj-pricing-table{
+  display:grid;
+  grid-template-columns:2fr 1.2fr 1.2fr 1.4fr;
+  font-family:'Suisse Intl',var(--SI);
+}
+.proj-pricing-table > div{
+  padding:11px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);
+  font-size:12.5px;font-weight:300;color:var(--white);line-height:1.45;
+}
+.proj-pricing-table > div:nth-child(4n){border-right:none}
+.proj-pricing-table > div:nth-last-child(-n+4){border-bottom:none}
+.proj-pricing-hd{
+  font-size:9.5px !important;font-weight:700 !important;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--dim) !important;
+  background:rgba(255,255,255,.02);
+  padding-top:14px !important;padding-bottom:14px !important;
+}
+.proj-pricing-hd.tls{color:#10B981 !important;background:rgba(16,185,129,.08)}
+.proj-pricing-cell-tls{background:rgba(16,185,129,.04);font-weight:400 !important}
+.proj-pricing-total{
+  font-weight:700 !important;font-size:14px !important;
+  background:rgba(255,255,255,.03);
+}
+.proj-pricing-total.tls-total{
+  background:rgba(16,185,129,.12);color:#10B981 !important;
+}
+.proj-pricing-note{
+  padding:14px 22px;border-top:1px solid var(--line);
+  font-family:'Suisse Intl',var(--SI);font-size:11.5px;font-weight:300;color:var(--dim);line-height:1.6;
+  background:rgba(0,0,0,.2);
+}
+@media(max-width:768px){
+  .proj-pricing{margin:28px 0 24px}
+  .proj-pricing-table{grid-template-columns:1.6fr 1fr 1fr 1.1fr}
+  .proj-pricing-table > div{padding:10px 10px;font-size:11px}
+  .proj-pricing-hd{font-size:8.5px !important}
+  .proj-pricing-total{font-size:12px !important}
+}
 .proj-cta{
   display:inline-flex;align-items:center;gap:12px;
   font-family:var(--SI);font-size:11px;font-weight:400;
@@ -749,9 +804,63 @@ body.light :focus-visible{outline:2px solid #000}
             </div>
             <div class="proj-case-row">
               <div class="proj-case-label res">Résultat</div>
-              <div class="proj-case-text">Site live sur talseume.com — drop SS26 en ligne, paiement Stripe + Klarna opérationnel, animations lookbook au scroll, déploiement Netlify. Une identité streetwear premium qui transmet l'engagement éco-responsable sans tomber dans le greenwashing.</div>
+              <div class="proj-case-text">Site live sur talseume.com — drop SS26 en ligne, paiement Stripe + Klarna opérationnel, hébergement Cloudflare edge (300+ datacenters), chat IA intégré, monitoring automatique. Stack tech au niveau des marques streetwear US à plusieurs M€ de CA.</div>
             </div>
           </div>
+
+          <!-- ─── PRICING TABLE — vs concurrence ─── -->
+          <div class="proj-pricing rv d3">
+            <div class="proj-pricing-head">
+              <div class="proj-pricing-title">Économies pour le client · coûts mensuels</div>
+              <div class="proj-pricing-sub">Ce que coûte ce système chaque mois — comparé à un Shopify standard ou un développement Next.js custom équivalent.</div>
+            </div>
+            <div class="proj-pricing-table">
+              <!-- Header -->
+              <div class="proj-pricing-hd">Poste</div>
+              <div class="proj-pricing-hd tls">Système Dikenga</div>
+              <div class="proj-pricing-hd">Shopify Basic</div>
+              <div class="proj-pricing-hd">Next.js custom</div>
+              <!-- Row 1 -->
+              <div>Hébergement / plateforme</div>
+              <div class="proj-pricing-cell-tls">~0 € (CF free tier)</div>
+              <div>29 €/mois</div>
+              <div>50-200 €/mois</div>
+              <!-- Row 2 -->
+              <div>Frais de transaction</div>
+              <div class="proj-pricing-cell-tls">1,4% + 0,25€ (Stripe)</div>
+              <div>2,9% + 0,30€</div>
+              <div>1,4% + 0,25€</div>
+              <!-- Row 3 -->
+              <div>Apps / fonctionnalités</div>
+              <div class="proj-pricing-cell-tls">Tout inclus (custom)</div>
+              <div>+50-150 €/mois</div>
+              <div>Dev custom (1 fois)</div>
+              <!-- Row 4 -->
+              <div>Email transactionnel</div>
+              <div class="proj-pricing-cell-tls">~9 €/mois (Brevo)</div>
+              <div>Inclus mais limité</div>
+              <div>30-50 €/mois</div>
+              <!-- Row 5 -->
+              <div>Storage / CDN assets</div>
+              <div class="proj-pricing-cell-tls">~1 €/mois (R2)</div>
+              <div>Inclus</div>
+              <div>10-30 €/mois</div>
+              <!-- Row 6 -->
+              <div>IA chat support</div>
+              <div class="proj-pricing-cell-tls">~0 € (free tier)</div>
+              <div>+30-100 €/mois</div>
+              <div>+20-50 €/mois</div>
+              <!-- TOTAL -->
+              <div class="proj-pricing-total">TOTAL mensuel</div>
+              <div class="proj-pricing-total tls-total">~10-15 €/mois</div>
+              <div class="proj-pricing-total">80-180 €/mois</div>
+              <div class="proj-pricing-total">100-300 €/mois</div>
+            </div>
+            <div class="proj-pricing-note">
+              Soit <strong>5 à 20 fois moins cher</strong> qu'une solution standard, avec en plus une performance edge (LCP &lt; 100ms partout dans le monde), un système de paiement Stripe Apple Pay / Klarna intégré, un chat IA, et un monitoring automatique des pannes.
+            </div>
+          </div>
+
           <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:32px">
             <a href="https://talseume.com" target="_blank" rel="noopener noreferrer" class="proj-cta rv d3">
               Voir la boutique
