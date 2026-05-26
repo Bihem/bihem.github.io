@@ -421,14 +421,14 @@ body.light .sb-feats li::before{background:#0E0F12}
   overflow:hidden;
 }
 .proj-pricing-head{
-  padding:18px 22px;border-bottom:1px solid var(--line);
-  display:flex;flex-direction:column;gap:4px;
+  padding:22px 26px;border-bottom:1px solid var(--line);
+  display:flex;flex-direction:column;gap:6px;
 }
 .proj-pricing-title{
-  font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#10B981;
+  font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#10B981;
 }
 .proj-pricing-sub{
-  font-family:'Suisse Intl',var(--SI);font-size:13px;font-weight:300;color:var(--dim);line-height:1.5;
+  font-family:'Suisse Intl',var(--SI);font-size:15px;font-weight:300;color:var(--dim);line-height:1.55;
 }
 .proj-pricing-table{
   display:grid;
@@ -436,37 +436,40 @@ body.light .sb-feats li::before{background:#0E0F12}
   font-family:'Suisse Intl',var(--SI);
 }
 .proj-pricing-table > div{
-  padding:11px 14px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);
-  font-size:12.5px;font-weight:300;color:var(--white);line-height:1.45;
+  padding:14px 18px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);
+  font-size:14.5px;font-weight:300;color:var(--white);line-height:1.5;
 }
 .proj-pricing-table > div:nth-child(4n){border-right:none}
 .proj-pricing-table > div:nth-last-child(-n+4){border-bottom:none}
 .proj-pricing-hd{
-  font-size:9.5px !important;font-weight:700 !important;
+  font-size:11px !important;font-weight:700 !important;
   letter-spacing:.12em;text-transform:uppercase;color:var(--dim) !important;
   background:rgba(255,255,255,.02);
-  padding-top:14px !important;padding-bottom:14px !important;
+  padding-top:16px !important;padding-bottom:16px !important;
 }
 .proj-pricing-hd.tls{color:#10B981 !important;background:rgba(16,185,129,.08)}
 .proj-pricing-cell-tls{background:rgba(16,185,129,.04);font-weight:400 !important}
 .proj-pricing-total{
-  font-weight:700 !important;font-size:14px !important;
+  font-weight:700 !important;font-size:16px !important;
   background:rgba(255,255,255,.03);
 }
 .proj-pricing-total.tls-total{
   background:rgba(16,185,129,.12);color:#10B981 !important;
 }
 .proj-pricing-note{
-  padding:14px 22px;border-top:1px solid var(--line);
-  font-family:'Suisse Intl',var(--SI);font-size:11.5px;font-weight:300;color:var(--dim);line-height:1.6;
+  padding:17px 26px;border-top:1px solid var(--line);
+  font-family:'Suisse Intl',var(--SI);font-size:13.5px;font-weight:300;color:var(--dim);line-height:1.65;
   background:rgba(0,0,0,.2);
 }
 @media(max-width:768px){
   .proj-pricing{margin:28px 0 24px}
   .proj-pricing-table{grid-template-columns:1.6fr 1fr 1fr 1.1fr}
-  .proj-pricing-table > div{padding:10px 10px;font-size:11px}
-  .proj-pricing-hd{font-size:8.5px !important}
-  .proj-pricing-total{font-size:12px !important}
+  .proj-pricing-table > div{padding:11px 11px;font-size:12px}
+  .proj-pricing-hd{font-size:9.5px !important}
+  .proj-pricing-total{font-size:13px !important}
+  .proj-pricing-sub{font-size:13px}
+  .proj-pricing-note{font-size:12px;padding:13px 18px}
+  .proj-pricing-head{padding:17px 20px}
 }
 .proj-cta{
   display:inline-flex;align-items:center;gap:12px;
