@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-05-28T19:41:38.868272",
+  "updated_at": "2026-05-28T23:39:47.865472",
   "summary": {
     "total": 4,
     "active": 1,
@@ -23,7 +23,7 @@
       "plan": "starter",
       "status": "trial",
       "paying": false,
-      "trial_ends_at": null,
+      "trial_ends_at": "2026-05-09T13:41:27.742+00:00",
       "created_at": "2026-04-25T13:41:27.742+00:00"
     },
     {
@@ -32,7 +32,7 @@
       "plan": "starter",
       "status": "trial",
       "paying": false,
-      "trial_ends_at": null,
+      "trial_ends_at": "2026-05-28T09:46:27.76+00:00",
       "created_at": "2026-04-28T09:46:27.76+00:00"
     },
     {
@@ -41,8 +41,59 @@
       "plan": "starter",
       "status": "trial",
       "paying": false,
-      "trial_ends_at": null,
-      "created_at": "2026-05-01T00:00:00+00:00"
+      "trial_ends_at": "2026-05-31T16:12:22.657+00:00",
+      "created_at": "2026-05-01T16:12:22.658+00:00"
+    }
+  ],
+  "all_tenants": [
+    {
+      "slug": "canal93",
+      "name": "Canal 93",
+      "status": "active",
+      "paying": false,
+      "internal": false
+    },
+    {
+      "slug": "mesrevesbouzanga",
+      "name": "Mes-reves Bouzanga",
+      "status": "trial",
+      "paying": false,
+      "internal": true
+    },
+    {
+      "slug": "dok",
+      "name": "dok",
+      "status": "trial",
+      "paying": false,
+      "internal": false
+    },
+    {
+      "slug": "dikengastudio",
+      "name": "dik",
+      "status": "suspended",
+      "paying": false,
+      "internal": true
+    },
+    {
+      "slug": "studiotest99",
+      "name": "Studio Test Dev",
+      "status": "suspended",
+      "paying": false,
+      "internal": true
+    },
+    {
+      "slug": "flavo",
+      "name": "Flavo",
+      "status": "trial",
+      "paying": false,
+      "internal": false
+    },
+    {
+      "slug": "bgastudios",
+      "name": "BGA STUDIOS",
+      "status": "trial",
+      "paying": false,
+      "internal": false
     }
   ],
   "version": "1.0"
