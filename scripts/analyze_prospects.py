@@ -214,6 +214,8 @@ def init_db():
         cols = [r[1] for r in c.execute("PRAGMA table_info(prospects)")]
         if 'source' not in cols:
             c.execute("ALTER TABLE prospects ADD COLUMN source TEXT DEFAULT 'ddg'")
+        if 'phone' not in cols:
+            c.execute("ALTER TABLE prospects ADD COLUMN phone TEXT")
 
 def log_event(pid, event, data=None):
     try:
@@ -671,6 +673,32 @@ TECH_PATTERNS = {
 EMAIL_RE = re.compile(
     r'[a-zA-Z0-9._%+\-]{2,}@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,6}', re.IGNORECASE)
 
+# Regex téléphone FR : 06, 07, 01-05, +33, 0033
+PHONE_RE = re.compile(
+    r'(?:'
+    r'(?:\+33|0033)\s?[1-9](?:[\s.\-]?\d{2}){4}'
+    r'|'
+    r'0[1-9](?:[\s.\-]?\d{2}){4}'
+    r')',
+    re.IGNORECASE
+)
+
+def find_phone_in_html(html):
+    """Extrait le premier numéro de téléphone FR trouvé dans le HTML."""
+    if not html:
+        return None
+    for m in PHONE_RE.finditer(html):
+        raw = m.group(0).strip()
+        # Normaliser : enlever espaces/points/tirets
+        digits = re.sub(r'[\s.\-]', '', raw)
+        # Reformater : XX XX XX XX XX
+        if digits.startswith('+33') or digits.startswith('0033'):
+            digits = '0' + re.sub(r'^(\+33|0033)', '', digits)
+        if len(digits) == 10:
+            return ' '.join(digits[i:i+2] for i in range(0, 10, 2))
+        return raw
+    return None
+
 def detect_tech(html):
     h = html.lower()
     for tech, patterns in TECH_PATTERNS.items():
@@ -777,9 +805,14 @@ def enrich_domain(domain, source='ddg'):
     time.sleep(0.8)
     home_em = _extract_emails(html)
     em      = _best_email(home_em) if home_em else find_email_for_domain(domain)
+    phone   = find_phone_in_html(html)
+    # Si pas de téléphone sur la homepage, chercher sur /contact
+    if not phone:
+        contact_html = fetch(f"https://{domain}/contact", timeout=8) or ''
+        phone = find_phone_in_html(contact_html)
     company = domain.split('.')[0].replace('-', ' ').replace('_', ' ').capitalize()
-    return {'domain': domain, 'company': company, 'email': em, 'tech': tech,
-            'perf_mobile': ps['perf_mobile'], 'lcp': ps['lcp'],
+    return {'domain': domain, 'company': company, 'email': em, 'phone': phone,
+            'tech': tech, 'perf_mobile': ps['perf_mobile'], 'lcp': ps['lcp'],
             'issues': ps['issues'], 'source': source}
 
 # ═══════════════════════════════════════════════════════════
@@ -1176,11 +1209,11 @@ def export_dashboard_json():
             GROUP BY date_added ORDER BY date_added
         """).fetchall()]
 
-        # Derniers 20 prospects
+        # Derniers 30 prospects — email + phone en clair
         recent = [dict(r) for r in c.execute("""
             SELECT domain, company, tech, score, source, status,
-              date_step1, replied, email
-            FROM prospects ORDER BY date_added DESC, id DESC LIMIT 20
+              date_step1, replied, email, phone
+            FROM prospects ORDER BY date_added DESC, id DESC LIMIT 30
         """).fetchall()]
 
         # Stats du jour
@@ -1192,12 +1225,6 @@ def export_dashboard_json():
               SUM(CASE WHEN date_step1 LIKE ? AND sequence_step>=1 THEN 1 ELSE 0 END) emailed
             FROM prospects WHERE date_added=?
         """, (today + '%', today)).fetchone())
-
-    # Masquer les emails dans recent (privacy)
-    for r in recent:
-        if r.get('email'):
-            parts = r['email'].split('@')
-            r['email'] = parts[0][:3] + '***@' + parts[1] if len(parts) == 2 else '***'
 
     data = {
         'updated_at': datetime.now().isoformat(),
@@ -1254,10 +1281,11 @@ def main():
                 with get_conn() as c:
                     c.execute("""
                         INSERT OR IGNORE INTO prospects
-                          (domain,company,email,tech,perf_mobile,lcp,issues,
+                          (domain,company,email,phone,tech,perf_mobile,lcp,issues,
                            score,source,status,date_added,date_analyzed)
-                        VALUES (?,?,?,?,?,?,?,?,?,?,?,?)
+                        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)
                     """, (data['domain'], data['company'], data['email'],
+                          data.get('phone'),
                           data['tech'], data['perf_mobile'], data['lcp'],
                           json.dumps(data['issues']),
                           sc, source, status,
