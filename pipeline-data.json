@@ -1,6 +1,7 @@
 {
-  "updated_at": "2026-05-28T13:49:58.557119",
-  "version": "v5",
+  "updated_at": "2026-05-28T14:15:50.956550",
+  "version": "v6",
+  "warmup_mode": false,
   "funnel": {
     "total": 39,
     "with_email": 8,
@@ -56,6 +57,12 @@
       "replied": 0
     }
   ],
+  "today": {
+    "analyzed": 39,
+    "with_email": 8,
+    "with_phone": 15,
+    "emailed": 6
+  },
   "recent": [
     {
       "domain": "wpweb.fr",
@@ -417,5 +424,43 @@
       "email": null,
       "phone": null
     }
-  ]
+  ],
+  "icp_distribution": [
+    {
+      "category": "ecommerce_premium",
+      "label": "E-commerce Premium",
+      "count": 32,
+      "pct": 82
+    },
+    {
+      "category": "mode_luxe",
+      "label": "Mode & Luxe",
+      "count": 3,
+      "pct": 8
+    },
+    {
+      "category": "immobilier",
+      "label": "Immobilier & Archi",
+      "count": 2,
+      "pct": 5
+    },
+    {
+      "category": "streetwear_premium",
+      "label": "Streetwear Premium",
+      "count": 1,
+      "pct": 3
+    },
+    {
+      "category": "cabinet_b2b",
+      "label": "Cabinet B2B",
+      "count": 1,
+      "pct": 3
+    }
+  ],
+  "temperature": {
+    "hot": 1,
+    "warm": 18,
+    "cold": 20,
+    "avg_ai_score": 50
+  }
 }
