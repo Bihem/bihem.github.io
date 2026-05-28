@@ -1,68 +1,69 @@
 <!DOCTYPE html>
-<html lang="fr" data-theme="dark">
+<html lang="fr" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Dikenga Acquisition OS</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 
-/* ── Tokens dark ── */
+/* ── Tokens light (défaut) ── */
 :root{
-  --bg:#08080a;--sidebar:#0e0e12;--card:#131318;--card2:#18181f;
-  --border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.1);
-  --text:#f0f0f5;--dim:rgba(240,240,245,0.45);--dim2:rgba(240,240,245,0.28);
-  --surface:rgba(255,255,255,0.055);--surface2:rgba(255,255,255,0.03);
-  --accent:#6366f1;--accent-dim:rgba(99,102,241,0.18);--accent-glow:rgba(99,102,241,0.3);
-  --green:#22c55e;--green-dim:rgba(34,197,94,0.15);
-  --orange:#f59e0b;--orange-dim:rgba(245,158,11,0.15);
-  --red:#ef4444;--red-dim:rgba(239,68,68,0.15);
-  --blue:#3b82f6;--blue-dim:rgba(59,130,246,0.15);
-  --hot:#f43f5e;--hot-dim:rgba(244,63,94,0.14);
-  --warm:#f59e0b;--warm-dim:rgba(245,158,11,0.13);
-  --cold:#64748b;--cold-dim:rgba(100,116,139,0.18);
-  --sb-w:220px;--top-h:56px;
-  --radius:10px;--radius2:7px;
+  --bg:#FAFAF7;--surface:#FFFFFF;--card:#FFFFFF;--card2:#F2F2EF;
+  --border:#E8E6E1;--border2:#D0CEC8;
+  --text:#0A0A0A;--dim:#6B6B6B;--dim2:#9B9B9B;
+  --accent:#C4FF3D;--accent-text:#0A0A0A;
+  --accent-dim:rgba(196,255,61,.12);--accent-glow:rgba(196,255,61,.35);
+  --green:#16A34A;--green-dim:rgba(22,163,74,.1);
+  --orange:#F59E0B;--orange-dim:rgba(245,158,11,.1);
+  --red:#DC2626;--red-dim:rgba(220,38,38,.1);
+  --blue:#3B82F6;--blue-dim:rgba(59,130,246,.1);
+  --hot:#DC2626;--hot-dim:rgba(220,38,38,.1);
+  --warm:#F59E0B;--warm-dim:rgba(245,158,11,.1);
+  --cold:#6B6B6B;--cold-dim:rgba(107,107,107,.12);
+  --sb-w:240px;--top-h:60px;
+  --radius:14px;--radius2:8px;
+  --F:'Inter',-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;
+  --Fc:'Bebas Neue','Inter',sans-serif;
 }
-[data-theme="light"]{
-  --bg:#f1f1f6;--sidebar:#ffffff;--card:#ffffff;--card2:#f6f6fb;
-  --border:rgba(0,0,0,0.07);--border2:rgba(0,0,0,0.13);
-  --text:#0f0f14;--dim:rgba(15,15,20,0.48);--dim2:rgba(15,15,20,0.3);
-  --surface:rgba(0,0,0,0.045);--surface2:rgba(0,0,0,0.025);
-  --accent:#4f46e5;--accent-dim:rgba(79,70,229,0.1);--accent-glow:rgba(79,70,229,0.2);
-  --green:#16a34a;--green-dim:rgba(22,163,74,0.1);
-  --orange:#d97706;--orange-dim:rgba(217,119,6,0.1);
-  --red:#dc2626;--red-dim:rgba(220,38,38,0.1);
-  --blue:#2563eb;--blue-dim:rgba(37,99,235,0.1);
-  --hot:#e11d48;--hot-dim:rgba(225,29,72,0.09);
-  --warm:#d97706;--warm-dim:rgba(217,119,6,0.09);
-  --cold:#475569;--cold-dim:rgba(71,85,105,0.12);
+/* ── Tokens dark ── */
+[data-theme="dark"]{
+  --bg:#0A0A0A;--surface:#141414;--card:#141414;--card2:#1A1A1A;
+  --border:#1F1F1F;--border2:#2C2C2C;
+  --text:#FAFAF7;--dim:#8A8A8A;--dim2:#555555;
+  --green:#22C55E;--green-dim:rgba(34,197,94,.12);
+  --orange:#F59E0B;--orange-dim:rgba(245,158,11,.12);
+  --red:#EF4444;--red-dim:rgba(239,68,68,.12);
+  --blue:#3B82F6;--blue-dim:rgba(59,130,246,.12);
+  --hot:#EF4444;--hot-dim:rgba(239,68,68,.12);
+  --warm:#F59E0B;--warm-dim:rgba(245,158,11,.12);
+  --cold:#6B6B6B;--cold-dim:rgba(107,107,107,.15);
 }
 
-body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--text);
-  font-size:15px;line-height:1.55;overflow:hidden;height:100vh}
+body{font-family:var(--F);background:var(--bg);color:var(--text);
+  font-size:14px;line-height:1.55;overflow:hidden;height:100vh}
 
 /* ══ GATE ══ */
 #gate{position:fixed;inset:0;background:var(--bg);display:flex;
-  align-items:center;justify-content:center;z-index:999;
-  transition:opacity .3s}
-.gate-card{background:var(--card);border:1px solid var(--border2);
-  border-radius:18px;padding:52px 44px 44px;width:340px;text-align:center;
-  box-shadow:0 24px 80px rgba(0,0,0,.5)}
-.gate-logo{font-size:22px;font-weight:700;letter-spacing:.08em;margin-bottom:4px}
-.gate-logo span{color:var(--accent)}
-.gate-sub{font-size:12px;color:var(--dim);margin-bottom:32px;letter-spacing:.04em}
-#gate-pw{width:100%;background:var(--surface);border:1px solid var(--border2);
+  align-items:center;justify-content:center;z-index:999;transition:opacity .3s}
+.gate-card{background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:52px 44px 44px;width:360px;text-align:center;
+  box-shadow:0 8px 40px rgba(0,0,0,.06)}
+.gate-logo{font-family:var(--Fc);font-size:38px;letter-spacing:.06em;margin-bottom:4px;color:var(--text)}
+.gate-logo span{background:var(--accent);color:var(--accent-text);padding:1px 8px;
+  border-radius:5px;font-size:22px;vertical-align:middle;margin-left:4px}
+.gate-sub{font-size:10px;color:var(--dim);margin-bottom:32px;letter-spacing:.1em;text-transform:uppercase}
+#gate-pw{width:100%;background:var(--bg);border:1px solid var(--border);
   color:var(--text);padding:12px 14px;border-radius:var(--radius2);font-size:14px;
   font-family:inherit;outline:none;text-align:center;letter-spacing:.1em;
   margin-bottom:12px;transition:border-color .2s}
-#gate-pw:focus{border-color:var(--accent)}
-#gate-btn{width:100%;background:var(--accent);color:#fff;border:none;padding:13px;
-  border-radius:var(--radius2);font-size:14px;font-weight:600;font-family:inherit;
-  cursor:pointer;transition:opacity .15s}
-#gate-btn:hover{opacity:.88}
+#gate-pw:focus{border-color:var(--border2)}
+#gate-btn{width:100%;background:var(--accent);color:var(--accent-text);border:none;padding:13px;
+  border-radius:var(--radius2);font-size:13px;font-weight:700;font-family:inherit;
+  cursor:pointer;transition:opacity .15s;letter-spacing:.06em;text-transform:uppercase}
+#gate-btn:hover{opacity:.85}
 .gate-err{font-size:12px;color:var(--red);margin-top:10px;min-height:16px}
 
 /* ══ APP LAYOUT ══ */
@@ -70,188 +71,201 @@ body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--tex
 
 /* ══ SIDEBAR ══ */
 #sidebar{position:fixed;left:0;top:0;bottom:0;width:var(--sb-w);
-  background:var(--sidebar);border-right:1px solid var(--border);
+  background:var(--surface);border-right:1px solid var(--border);
   display:flex;flex-direction:column;z-index:100;
   transition:transform .22s cubic-bezier(.4,0,.2,1)}
-.sb-brand{padding:20px 18px 14px;display:flex;align-items:center;gap:8px;
+.sb-brand{padding:20px 20px 16px;display:flex;align-items:center;gap:10px;
   border-bottom:1px solid var(--border)}
-.sb-logo{font-size:15px;font-weight:700;letter-spacing:.1em;color:var(--text)}
-.sb-tag{font-size:10px;font-weight:600;letter-spacing:.12em;color:var(--accent);
-  background:var(--accent-dim);border:1px solid var(--accent-glow);
-  padding:2px 7px;border-radius:20px}
-.sb-section{padding:20px 10px 6px;font-size:10px;font-weight:600;
-  letter-spacing:.1em;color:var(--dim2);text-transform:uppercase}
-.sb-nav{display:flex;flex-direction:column;gap:2px;padding:0 8px}
+.sb-logo{font-family:var(--Fc);font-size:22px;letter-spacing:.06em;color:var(--text)}
+.sb-tag{font-size:10px;font-weight:700;letter-spacing:.08em;
+  background:var(--accent);color:var(--accent-text);
+  padding:2px 7px;border-radius:4px;text-transform:uppercase}
+.sb-section{padding:20px 20px 6px;font-size:10px;font-weight:700;
+  letter-spacing:.12em;color:var(--dim2);text-transform:uppercase}
+.sb-nav{display:flex;flex-direction:column;gap:1px;padding:0 10px}
 .nav-item{display:flex;align-items:center;gap:10px;padding:10px 12px;
   border-radius:var(--radius2);cursor:pointer;border:none;background:transparent;
-  color:var(--dim);font-size:14px;font-family:inherit;font-weight:400;
+  color:var(--dim);font-size:13px;font-family:inherit;font-weight:400;
   text-align:left;width:100%;transition:background .15s,color .15s;position:relative}
-.nav-item:hover{background:var(--surface);color:var(--text)}
-.nav-item.active{background:var(--accent-dim);color:var(--accent);font-weight:500}
-.nav-item.active .nav-ico{color:var(--accent)}
-.nav-ico{font-size:15px;width:18px;text-align:center;flex-shrink:0;opacity:.8}
+/* Left-pip indicator (Talseume style) */
+.nav-item::before{content:'';display:inline-block;width:3px;height:18px;
+  background:transparent;border-radius:2px;flex-shrink:0;
+  margin-left:-12px;margin-right:9px;transition:background .15s}
+.nav-item:hover{background:var(--bg);color:var(--text)}
+.nav-item.active{background:var(--bg);color:var(--text);font-weight:500}
+.nav-item.active::before{background:var(--accent)}
+.nav-ico{font-size:14px;width:16px;text-align:center;flex-shrink:0;opacity:.6}
+.nav-item.active .nav-ico,.nav-item:hover .nav-ico{opacity:1}
 .nav-badge{margin-left:auto;font-size:10px;font-weight:600;
-  background:var(--surface);color:var(--dim);
-  padding:1px 6px;border-radius:20px;font-family:'DM Mono',monospace}
+  background:var(--bg);color:var(--dim);padding:1px 7px;border-radius:20px}
 .nav-badge.hot-badge{background:var(--hot-dim);color:var(--hot)}
 .nav-ext{margin-left:auto;font-size:11px;color:var(--dim2)}
-.sb-footer{margin-top:auto;padding:14px 18px;border-top:1px solid var(--border)}
+.sb-footer{margin-top:auto;padding:16px 20px;border-top:1px solid var(--border)}
 .live-dot{display:inline-block;width:7px;height:7px;border-radius:50%;
-  background:var(--green);margin-right:7px;
-  animation:pulse 2s infinite}
+  background:var(--green);margin-right:7px;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 .sb-status{font-size:11.5px;color:var(--dim);margin-bottom:4px}
 .sb-upd{font-size:10px;color:var(--dim2)}
 
-/* ══ TOP BAR ══ */
+/* ══ TOP BAR (Talseume style) ══ */
 #topbar{position:fixed;left:var(--sb-w);right:0;top:0;height:var(--top-h);
-  background:var(--bg);border-bottom:1px solid var(--border);
-  display:flex;align-items:center;gap:12px;padding:0 20px;z-index:90}
-.tb-left{display:flex;align-items:center;gap:12px;flex-shrink:0}
+  background:var(--surface);border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:14px;padding:0 24px;z-index:90;
+  transition:left .22s cubic-bezier(.4,0,.2,1)}
+.tb-left{display:flex;align-items:center;gap:14px;flex-shrink:0}
 #sb-toggle{background:transparent;border:none;color:var(--dim);cursor:pointer;
   font-size:18px;padding:4px;border-radius:6px;transition:color .15s}
 #sb-toggle:hover{color:var(--text)}
-.tb-breadcrumb{font-size:16px;font-weight:600;color:var(--text)}
-.tb-center{flex:1;max-width:420px;margin:0 auto}
-.tb-search{position:relative}
-.tb-search input{width:100%;background:var(--surface);border:1px solid var(--border);
-  color:var(--text);padding:8px 14px 8px 36px;border-radius:8px;font-size:13px;
+/* Breadcrumb Talseume */
+.bc{font-size:13px;color:var(--dim);letter-spacing:.01em}
+.bc strong{color:var(--text);font-weight:600}
+.bc-sep{color:var(--dim2);margin:0 6px}
+.tb-center{flex:1}
+.tb-search{position:relative;max-width:360px}
+.tb-search input{width:100%;background:var(--bg);border:1px solid var(--border);
+  color:var(--text);padding:8px 14px 8px 36px;border-radius:var(--radius2);font-size:12.5px;
   font-family:inherit;outline:none;transition:border-color .2s}
 .tb-search::before{content:'⌕';position:absolute;left:12px;top:50%;
   transform:translateY(-50%);color:var(--dim2);font-size:16px;pointer-events:none}
 .tb-search input:focus{border-color:var(--border2)}
 .tb-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
-.tb-ai-btn{background:var(--accent);color:#fff;border:none;padding:8px 14px;
-  border-radius:var(--radius2);font-size:12.5px;font-weight:600;font-family:inherit;
-  cursor:pointer;display:flex;align-items:center;gap:6px;transition:opacity .15s}
-.tb-ai-btn:hover{opacity:.88}
+.tb-ai-btn{background:var(--accent);color:var(--accent-text);border:none;padding:8px 16px;
+  border-radius:var(--radius2);font-size:11.5px;font-weight:700;font-family:inherit;
+  cursor:pointer;display:flex;align-items:center;gap:6px;transition:opacity .15s;
+  letter-spacing:.05em;text-transform:uppercase}
+.tb-ai-btn:hover{opacity:.85}
 .tb-icon-btn{background:transparent;border:1px solid var(--border);color:var(--dim);
-  width:34px;height:34px;border-radius:var(--radius2);cursor:pointer;font-size:14px;
+  width:36px;height:36px;border-radius:var(--radius2);cursor:pointer;font-size:14px;
   transition:color .15s,border-color .15s;display:flex;align-items:center;justify-content:center}
 .tb-icon-btn:hover{color:var(--text);border-color:var(--border2)}
 
 /* ══ MAIN CONTENT ══ */
 #content{position:fixed;left:var(--sb-w);right:0;top:var(--top-h);bottom:0;
-  overflow-y:auto;overflow-x:hidden;padding:24px 28px 40px;
+  overflow-y:auto;overflow-x:hidden;padding:28px 32px 48px;
   transition:left .22s cubic-bezier(.4,0,.2,1)}
 .view{display:none}
 .view.active{display:block}
-.view-header{margin-bottom:22px}
-.view-title{font-size:26px;font-weight:600;margin-bottom:6px}
-.view-sub{font-size:14px;color:var(--dim)}
+.view-header{margin-bottom:24px}
+/* Talseume section titles: Bebas Neue 42px uppercase */
+.view-title{font-family:var(--Fc);font-size:42px;letter-spacing:.02em;
+  text-transform:uppercase;line-height:1;margin-bottom:8px}
+.view-sub{font-size:13px;color:var(--dim)}
 
 /* ══ KPI GRID ══ */
-.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-bottom:22px}
-.kpi-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
-  padding:18px 20px 16px;transition:border-color .2s}
-.kpi-card:hover{border-color:var(--border2)}
-.kpi-label{font-size:12px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;
-  color:var(--dim2);margin-bottom:12px}
-.kpi-value{font-size:42px;font-weight:600;font-family:'DM Mono',monospace;line-height:1;margin-bottom:8px}
-.kpi-sub{font-size:13px;color:var(--dim)}
-.kpi-card.accent .kpi-value{color:var(--accent)}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px;margin-bottom:24px}
+.kpi-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:20px 22px 18px;transition:border-color .2s,box-shadow .2s}
+.kpi-card:hover{border-color:var(--border2);box-shadow:0 2px 12px rgba(0,0,0,.04)}
+.kpi-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--dim2);margin-bottom:10px}
+/* Talseume KPI values: Bebas Neue */
+.kpi-value{font-family:var(--Fc);font-size:40px;line-height:1;letter-spacing:.01em;margin-bottom:6px}
+.kpi-sub{font-size:12px;color:var(--dim)}
+/* Accent card: lime bg with dark text */
+.kpi-card.accent{background:var(--accent);border-color:transparent}
+.kpi-card.accent .kpi-value{color:#0A0A0A}
+.kpi-card.accent .kpi-label,.kpi-card.accent .kpi-sub{color:rgba(0,0,0,.55)}
 .kpi-card.hot-c .kpi-value{color:var(--hot)}
 .kpi-card.warm-c .kpi-value{color:var(--warm)}
 .kpi-card.green-c .kpi-value{color:var(--green)}
 
 /* ══ CARDS ══ */
-.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
-.card-title{font-size:11.5px;font-weight:700;margin-bottom:18px;color:var(--dim2);
-  letter-spacing:.07em;text-transform:uppercase}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+.card-title{font-size:10px;font-weight:700;margin-bottom:18px;color:var(--dim2);
+  letter-spacing:.1em;text-transform:uppercase}
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
 .three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:16px}
 
-/* ══ TABLE ══ */
+/* ══ TABLE (Talseume specs) ══ */
 .tbl-wrap{overflow-x:auto;border-radius:var(--radius);border:1px solid var(--border)}
-table{width:100%;border-collapse:collapse;background:var(--card)}
-th{font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;
-  color:var(--dim2);padding:11px 16px;text-align:left;
+table{width:100%;border-collapse:collapse;background:var(--surface)}
+th{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--dim2);padding:11px 20px;text-align:left;background:var(--bg);
   border-bottom:1px solid var(--border);white-space:nowrap;cursor:pointer;
   user-select:none;transition:color .15s}
 th:hover{color:var(--dim)}
-th.sort-asc::after{content:' ↑';color:var(--accent)}
-th.sort-desc::after{content:' ↓';color:var(--accent)}
-td{padding:11px 16px;border-bottom:1px solid var(--border);font-size:14px;
+th.sort-asc::after{content:' ↑';color:var(--text)}
+th.sort-desc::after{content:' ↓';color:var(--text)}
+td{padding:14px 20px;border-bottom:1px solid var(--border);font-size:13px;
   vertical-align:middle;white-space:nowrap}
 tr:last-child td{border-bottom:none}
-tr:hover td{background:var(--surface2)}
+tr:hover td{background:var(--bg)}
 .domain-cell{font-weight:500;max-width:160px;overflow:hidden;text-overflow:ellipsis}
 .domain-link{color:var(--text);text-decoration:none;transition:color .15s}
-.domain-link:hover{color:var(--accent)}
+.domain-link:hover{color:var(--dim)}
 
 /* ══ AI SCORE BAR ══ */
 .score-wrap{display:flex;align-items:center;gap:8px;min-width:110px}
-.score-num{font-family:'DM Mono',monospace;font-size:14px;font-weight:600;
-  width:28px;text-align:right;flex-shrink:0}
-.score-bar-bg{flex:1;height:6px;border-radius:3px;background:var(--surface);overflow:hidden}
-.score-bar-fill{height:100%;border-radius:3px;transition:width .4s}
+.score-num{font-size:13px;font-weight:700;width:28px;text-align:right;flex-shrink:0}
+.score-bar-bg{flex:1;height:4px;border-radius:2px;background:var(--border);overflow:hidden}
+.score-bar-fill{height:100%;border-radius:2px;transition:width .4s}
 
 /* ══ BADGES ══ */
 .badge{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;
-  border-radius:20px;font-size:12px;font-weight:500;white-space:nowrap}
-.badge-hot{background:var(--hot-dim);color:var(--hot);border:1px solid rgba(244,63,94,.2)}
+  border-radius:20px;font-size:11px;font-weight:600;white-space:nowrap}
+.badge-hot{background:var(--hot-dim);color:var(--hot);border:1px solid rgba(220,38,38,.2)}
 .badge-warm{background:var(--warm-dim);color:var(--warm);border:1px solid rgba(245,158,11,.2)}
-.badge-cold{background:var(--cold-dim);color:var(--cold);border:1px solid rgba(100,116,139,.2)}
-.badge-queued{background:rgba(99,102,241,.12);color:var(--accent);border:1px solid rgba(99,102,241,.2)}
+.badge-cold{background:var(--cold-dim);color:var(--cold);border:1px solid rgba(107,107,107,.2)}
+.badge-queued{background:var(--accent-dim);color:var(--text);border:1px solid var(--accent-glow)}
 .badge-emailed{background:var(--blue-dim);color:var(--blue);border:1px solid rgba(59,130,246,.2)}
-.badge-replied{background:var(--green-dim);color:var(--green);border:1px solid rgba(34,197,94,.2)}
-.badge-bounced{background:var(--red-dim);color:var(--red);border:1px solid rgba(239,68,68,.2)}
-.badge-no_email{background:var(--surface);color:var(--dim);border:1px solid var(--border)}
-.badge-low_score{background:var(--surface);color:var(--dim2);border:1px solid var(--border)}
-.badge-optout{background:var(--red-dim);color:var(--red);border:1px solid rgba(239,68,68,.15);opacity:.7}
-.badge-icp{background:var(--surface);color:var(--dim);border:1px solid var(--border);font-size:10.5px}
-.tech-tag{background:var(--surface);border:1px solid var(--border);padding:2px 8px;
-  border-radius:4px;font-size:11.5px;color:var(--dim)}
+.badge-replied{background:var(--green-dim);color:var(--green);border:1px solid rgba(22,163,74,.2)}
+.badge-bounced{background:var(--red-dim);color:var(--red);border:1px solid rgba(220,38,38,.2)}
+.badge-no_email{background:var(--bg);color:var(--dim);border:1px solid var(--border)}
+.badge-low_score{background:var(--bg);color:var(--dim2);border:1px solid var(--border)}
+.badge-optout{background:var(--red-dim);color:var(--red);border:1px solid rgba(220,38,38,.15);opacity:.7}
+.badge-icp{background:var(--bg);color:var(--dim);border:1px solid var(--border);font-size:10.5px}
+.tech-tag{background:var(--bg);border:1px solid var(--border);padding:2px 8px;
+  border-radius:4px;font-size:11px;color:var(--dim)}
 
 /* ══ INTENT SIGNAL ══ */
 .signal-pill{display:inline-flex;align-items:center;gap:5px;
   padding:2px 8px;border-radius:20px;font-size:11px}
-.signal-high{background:var(--hot-dim);color:var(--hot);border:1px solid rgba(244,63,94,.18)}
-.signal-medium{background:var(--orange-dim);color:var(--orange);border:1px solid rgba(245,158,11,.18)}
-.signal-low{background:var(--surface);color:var(--dim);border:1px solid var(--border)}
+.signal-high{background:var(--hot-dim);color:var(--hot);border:1px solid rgba(220,38,38,.15)}
+.signal-medium{background:var(--orange-dim);color:var(--orange);border:1px solid rgba(245,158,11,.15)}
+.signal-low{background:var(--bg);color:var(--dim);border:1px solid var(--border)}
 
 /* ══ PIPELINE STAGES ══ */
 .stages-wrap{display:flex;gap:10px;overflow-x:auto;padding-bottom:8px;margin-bottom:20px}
 .stage-col{min-width:180px;flex-shrink:0}
 .stage-header{padding:8px 12px;border-radius:var(--radius2) var(--radius2) 0 0;
-  border:1px solid var(--border);border-bottom:none;font-size:11px;font-weight:600;
-  letter-spacing:.04em;display:flex;justify-content:space-between;align-items:center}
-.stage-count{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;
-  padding:1px 7px;border-radius:20px;background:var(--surface)}
-.stage-body{background:var(--card);border:1px solid var(--border);border-radius:0 0 var(--radius2) var(--radius2);
+  border:1px solid var(--border);border-bottom:none;font-size:10px;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;
+  display:flex;justify-content:space-between;align-items:center}
+.stage-count{font-size:11px;font-weight:700;
+  padding:1px 7px;border-radius:20px;background:var(--bg)}
+.stage-body{background:var(--surface);border:1px solid var(--border);
+  border-radius:0 0 var(--radius2) var(--radius2);
   padding:8px;min-height:80px;display:flex;flex-direction:column;gap:6px}
-.stage-card{background:var(--surface);border:1px solid var(--border);border-radius:6px;
+.stage-card{background:var(--bg);border:1px solid var(--border);border-radius:6px;
   padding:8px 10px;font-size:12px}
-.stage-card-domain{font-weight:500;margin-bottom:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.stage-card-domain{font-weight:600;margin-bottom:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .stage-card-meta{font-size:10.5px;color:var(--dim)}
 
 /* ══ FUNNEL ══ */
 .funnel-wrap{display:flex;flex-direction:column;gap:4px}
 .funnel-row{display:flex;align-items:center;gap:10px}
-.funnel-label{width:90px;font-size:11.5px;color:var(--dim);text-align:right;flex-shrink:0}
-.funnel-bar-wrap{flex:1;background:var(--surface);border-radius:4px;height:22px;overflow:hidden}
+.funnel-label{width:90px;font-size:11px;color:var(--dim);text-align:right;flex-shrink:0}
+.funnel-bar-wrap{flex:1;background:var(--bg);border-radius:4px;height:22px;overflow:hidden}
 .funnel-bar{height:100%;border-radius:4px;display:flex;align-items:center;
-  padding-left:10px;font-size:11px;font-weight:500;transition:width .5s}
-.funnel-n{font-family:'DM Mono',monospace;font-size:11.5px;width:32px;
-  text-align:right;flex-shrink:0;color:var(--dim)}
+  padding-left:10px;font-size:11px;font-weight:600;transition:width .5s}
+.funnel-n{font-size:11px;font-weight:700;width:32px;text-align:right;flex-shrink:0;color:var(--dim)}
 
 /* ══ ICP DISTRIBUTION ══ */
 .icp-bar{display:flex;flex-direction:column;gap:8px}
 .icp-row{display:flex;align-items:center;gap:10px}
 .icp-label{width:150px;font-size:12px;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.icp-bg{flex:1;background:var(--surface);border-radius:3px;height:6px}
+.icp-bg{flex:1;background:var(--bg);border-radius:3px;height:5px}
 .icp-fill{height:100%;border-radius:3px;background:var(--accent)}
-.icp-pct{width:30px;text-align:right;font-size:11.5px;color:var(--dim);
-  font-family:'DM Mono',monospace}
+.icp-pct{width:30px;text-align:right;font-size:11px;color:var(--dim)}
 
 /* ══ ACTIVITY FEED ══ */
 .feed-list{display:flex;flex-direction:column;gap:0}
-.feed-item{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--border)}
+.feed-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--border)}
 .feed-item:last-child{border-bottom:none}
-.feed-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.feed-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:5px}
 .feed-body{flex:1;min-width:0}
-.feed-main{font-size:14px;margin-bottom:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.feed-meta{font-size:12px;color:var(--dim2)}
+.feed-main{font-size:13px;margin-bottom:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.feed-meta{font-size:11px;color:var(--dim2)}
 
 /* ══ CHART CONTAINERS ══ */
 .chart-wrap{position:relative;width:100%;height:200px}
@@ -259,8 +273,8 @@ tr:hover td{background:var(--surface2)}
 
 /* ══ FILTERS BAR ══ */
 .filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
-.filter-bar select,.filter-bar input{background:var(--card);border:1px solid var(--border);
-  color:var(--text);padding:7px 12px;border-radius:var(--radius2);font-size:12.5px;
+.filter-bar select,.filter-bar input{background:var(--surface);border:1px solid var(--border);
+  color:var(--text);padding:8px 12px;border-radius:var(--radius2);font-size:12.5px;
   font-family:inherit;outline:none;transition:border-color .2s;cursor:pointer}
 .filter-bar select:focus,.filter-bar input:focus{border-color:var(--border2)}
 .filter-bar input{min-width:220px}
@@ -269,55 +283,56 @@ tr:hover td{background:var(--surface2)}
 /* ══ COPY CELL ══ */
 .copy-cell{display:flex;align-items:center;gap:6px;cursor:pointer;max-width:180px}
 .copy-cell:hover .copy-ico{opacity:1}
-.copy-ico{opacity:0;transition:opacity .15s;font-size:12px;color:var(--accent)}
+.copy-ico{opacity:0;transition:opacity .15s;font-size:12px;color:var(--dim)}
 .copy-cell.copied .copy-ico::before{content:'✓'}
 .copy-cell.copied .copy-ico{opacity:1;color:var(--green)}
 
 /* ══ SEQUENCES ══ */
 .seq-flow{display:flex;gap:0;align-items:stretch;margin-bottom:20px;flex-wrap:wrap}
-.seq-step{flex:1;min-width:160px;background:var(--card);border:1px solid var(--border);
-  padding:16px;position:relative}
+.seq-step{flex:1;min-width:160px;background:var(--surface);border:1px solid var(--border);
+  padding:18px;position:relative}
 .seq-step:not(:last-child)::after{content:'→';position:absolute;right:-12px;top:50%;
   transform:translateY(-50%);color:var(--dim2);font-size:16px;z-index:1}
 .seq-step:first-child{border-radius:var(--radius) 0 0 var(--radius)}
 .seq-step:last-child{border-radius:0 var(--radius) var(--radius) 0}
-.seq-step-num{font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--dim2);
-  text-transform:uppercase;margin-bottom:7px}
-.seq-step-name{font-size:14px;font-weight:600;margin-bottom:7px}
-.seq-step-meta{font-size:12.5px;color:var(--dim)}
-.seq-step-n{font-size:30px;font-weight:600;font-family:'DM Mono',monospace;
-  color:var(--accent);margin-bottom:5px}
+.seq-step-num{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--dim2);
+  text-transform:uppercase;margin-bottom:8px}
+.seq-step-name{font-size:14px;font-weight:600;margin-bottom:8px}
+.seq-step-meta{font-size:12px;color:var(--dim)}
+.seq-step-n{font-family:var(--Fc);font-size:44px;line-height:1;color:var(--text);margin-bottom:6px}
 
 /* ══ AI COPILOT PANEL ══ */
-#copilot{position:fixed;top:0;right:0;bottom:0;width:340px;background:var(--sidebar);
+#copilot{position:fixed;top:0;right:0;bottom:0;width:340px;background:var(--surface);
   border-left:1px solid var(--border);z-index:200;transform:translateX(100%);
   transition:transform .28s cubic-bezier(.4,0,.2,1);
   display:flex;flex-direction:column;overflow:hidden}
 #copilot.open{transform:translateX(0)}
-.cop-header{padding:18px 20px;border-bottom:1px solid var(--border);
+.cop-header{padding:18px 22px;border-bottom:1px solid var(--border);
+  background:var(--accent);
   display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
-.cop-title{font-size:14px;font-weight:600;display:flex;align-items:center;gap:8px}
-.cop-title span{color:var(--accent)}
-#cop-close{background:transparent;border:none;color:var(--dim);cursor:pointer;
-  font-size:16px;padding:4px;border-radius:4px}
-#cop-close:hover{color:var(--text)}
-.cop-body{flex:1;overflow-y:auto;padding:18px 20px}
+.cop-title{font-family:var(--Fc);font-size:18px;letter-spacing:.05em;
+  color:#0A0A0A;display:flex;align-items:center;gap:8px}
+#cop-close{background:rgba(0,0,0,.1);border:none;color:#0A0A0A;cursor:pointer;
+  font-size:14px;padding:4px 8px;border-radius:4px;transition:background .15s}
+#cop-close:hover{background:rgba(0,0,0,.2)}
+.cop-body{flex:1;overflow-y:auto;padding:18px 22px}
 .cop-section{margin-bottom:22px}
 .cop-section-title{font-size:10px;font-weight:700;letter-spacing:.1em;
   text-transform:uppercase;color:var(--dim2);margin-bottom:10px}
-.cop-item{background:var(--surface);border:1px solid var(--border);
+.cop-item{background:var(--bg);border:1px solid var(--border);
   border-radius:var(--radius2);padding:12px 14px;margin-bottom:8px}
-.cop-item-title{font-size:13px;font-weight:500;margin-bottom:4px}
+.cop-item-title{font-size:13px;font-weight:600;margin-bottom:4px}
 .cop-item-sub{font-size:11.5px;color:var(--dim)}
 .cop-item-badge{float:right}
-.cop-action{background:var(--accent-dim);border:1px solid var(--accent-glow);
-  color:var(--accent);border-radius:var(--radius2);padding:10px 14px;margin-bottom:8px;
-  font-size:12.5px;cursor:pointer;transition:background .15s;display:block;
-  text-decoration:none;font-weight:500}
-.cop-action:hover{background:rgba(99,102,241,.28)}
+.cop-action{background:var(--accent);color:var(--accent-text);
+  border:none;border-radius:var(--radius2);padding:10px 14px;margin-bottom:8px;
+  font-size:11.5px;cursor:pointer;transition:opacity .15s;display:block;
+  text-decoration:none;font-weight:700;text-align:left;width:100%;
+  letter-spacing:.04em;text-transform:uppercase;font-family:var(--F)}
+.cop-action:hover{opacity:.85}
 
 /* ══ OVERLAY ══ */
-#overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:150}
+#overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:150}
 #overlay.open{display:block}
 
 /* ══ EMPTY STATE ══ */
@@ -337,8 +352,8 @@ body,#sidebar,#topbar,.card,.kpi-card,.stage-header,.stage-body,.seq-step,.cop-i
 /* ══ MOBILE ══ */
 @media(max-width:768px){
   :root{--sb-w:0px}
-  #sidebar{transform:translateX(-220px);width:220px}
-  #sidebar.open{transform:translateX(0);--sb-w:220px}
+  #sidebar{transform:translateX(-240px);width:240px}
+  #sidebar.open{transform:translateX(0);--sb-w:240px}
   #content,#topbar{left:0}
   .two-col,.three-col{grid-template-columns:1fr}
   .kpi-grid{grid-template-columns:repeat(2,1fr)}
@@ -351,7 +366,7 @@ body,#sidebar,#topbar,.card,.kpi-card,.stage-header,.stage-body,.seq-step,.cop-i
 <div id="gate">
   <div class="gate-card">
     <div class="gate-logo">DIKENGA <span>OS</span></div>
-    <div class="gate-sub">ACQUISITION INTELLIGENCE PLATFORM</div>
+    <div class="gate-sub">Acquisition Intelligence Platform</div>
     <input type="password" id="gate-pw" placeholder="••••••••••••" autocomplete="off">
     <button id="gate-btn" onclick="doAuth()">Accéder →</button>
     <div class="gate-err" id="gate-err"></div>
@@ -412,11 +427,11 @@ body,#sidebar,#topbar,.card,.kpi-card,.stage-header,.stage-body,.seq-step,.cop-i
     </div>
   </aside>
 
-  <!-- Top bar -->
+  <!-- Top bar (Talseume breadcrumb style) -->
   <header id="topbar">
     <div class="tb-left">
       <button class="tb-icon-btn" id="sb-toggle" onclick="toggleSidebar()">☰</button>
-      <span class="tb-breadcrumb" id="tb-title">Overview</span>
+      <div class="bc">DIKENGA <span class="bc-sep">·</span> <strong id="tb-title">Overview</strong></div>
     </div>
     <div class="tb-center">
       <div class="tb-search">
@@ -425,7 +440,7 @@ body,#sidebar,#topbar,.card,.kpi-card,.stage-header,.stage-body,.seq-step,.cop-i
     </div>
     <div class="tb-right">
       <button class="tb-ai-btn" onclick="toggleCopilot()">✦ AI Copilot</button>
-      <button class="tb-icon-btn" id="theme-btn" onclick="toggleTheme()" title="Thème">☀</button>
+      <button class="tb-icon-btn" id="theme-btn" onclick="toggleTheme()" title="Thème">🌙</button>
     </div>
   </header>
 
@@ -438,12 +453,12 @@ body,#sidebar,#topbar,.card,.kpi-card,.stage-header,.stage-body,.seq-step,.cop-i
     <section class="view" id="view-sequences"></section>
     <section class="view" id="view-analytics"></section>
     <section class="view" id="view-icp"></section>
-  </section>
+  </main>
 
   <!-- AI Copilot -->
   <div id="copilot">
     <div class="cop-header">
-      <div class="cop-title"><span>✦</span> AI Copilot</div>
+      <div class="cop-title">✦ AI COPILOT</div>
       <button id="cop-close" onclick="toggleCopilot()">✕</button>
     </div>
     <div class="cop-body" id="cop-body">
@@ -467,7 +482,7 @@ function doAuth(){
     init();
   } else {
     document.getElementById('gate-err').textContent='Mot de passe incorrect';
-    document.getElementById('gate-pw').style.borderColor='rgba(239,68,68,.5)';
+    document.getElementById('gate-pw').style.borderColor='rgba(220,38,38,.5)';
   }
 }
 document.getElementById('gate-pw').addEventListener('keydown',e=>{if(e.key==='Enter')doAuth()});
@@ -477,10 +492,10 @@ if(localStorage.getItem('dk_auth')==='1'){
 }
 
 // ════════════════════════════════════════════════════════
-// THEME
+// THEME (défaut: light)
 // ════════════════════════════════════════════════════════
 (()=>{
-  const t=localStorage.getItem('dk_theme')||'dark';
+  const t=localStorage.getItem('dk_theme')||'light';
   document.documentElement.setAttribute('data-theme',t);
 })();
 function toggleTheme(){
@@ -509,9 +524,9 @@ function toggleSidebar(){
   } else {
     if(!sbOpen){
       document.documentElement.style.setProperty('--sb-w','0px');
-      sb.style.transform='translateX(-220px)';
+      sb.style.transform='translateX(-240px)';
     } else {
-      document.documentElement.style.setProperty('--sb-w','220px');
+      document.documentElement.style.setProperty('--sb-w','240px');
       sb.style.transform='';
     }
   }
@@ -534,7 +549,6 @@ function switchView(v){
   document.getElementById('tb-title').textContent=names[v]||v;
   currentView=v;
   renderView(v);
-  // scroll to top
   document.getElementById('content').scrollTop=0;
 }
 
@@ -651,7 +665,7 @@ function statusBadge(s){
   return`<span class="badge badge-${s.replace(/[^a-z_]/g,'')}">${labels[s]||s}</span>`;
 }
 function scoreBar(n,color){
-  const c=color||`hsl(${(1-(n/100))*120|0},70%,55%)`;
+  const c=color||`hsl(${(1-(n/100))*120|0},70%,45%)`;
   return`<div class="score-wrap">
     <span class="score-num" style="color:${c}">${n}</span>
     <div class="score-bar-bg"><div class="score-bar-fill" style="width:${n}%;background:${c}"></div></div>
@@ -690,7 +704,6 @@ function renderOverview(){
   const avgAI=s.avg_ai_score||Math.round(allProspects.reduce((a,p)=>a+(p.ai_score||0),0)/Math.max(1,allProspects.length));
   const f=DASH.funnel||{};
 
-  // ICP distribution
   const icpDist=CRM.icp_distribution||buildICPDist();
   const icpRows=icpDist.slice(0,6).map(i=>`
     <div class="icp-row">
@@ -699,10 +712,9 @@ function renderOverview(){
       <span class="icp-pct">${i.pct}%</span>
     </div>`).join('');
 
-  // Funnel
   const fTotal=f.total||1;
   const fRows=[
-    {l:'Découverts',n:f.total||0,c:cV('--accent')},
+    {l:'Découverts',n:f.total||0,c:cV('--text')},
     {l:'Avec email',n:f.with_email||0,c:cV('--blue')},
     {l:'En file',n:f.queued||0,c:cV('--orange')},
     {l:'Emailés',n:f.total_emailed||0,c:cV('--warm')},
@@ -714,7 +726,6 @@ function renderOverview(){
     <span class="funnel-n">${r.n}</span>
   </div>`).join('');
 
-  // Recent activity feed
   const feed=(CRM.intent_feed||[]).slice(0,8).map(sig=>{
     const dot=sig.strength==='high'?cV('--hot'):cV('--orange');
     return`<div class="feed-item">
@@ -788,15 +799,14 @@ function renderOverview(){
     </div>
   </div>`;
 
-  // Trend chart
   const trend=DASH.daily_trend||[];
   if(trend.length){
     const axis=cV('--dim2');const grid=cV('--border');
     makeChart('ch-trend',{type:'line',data:{
       labels:trend.map(r=>r.date?.slice(5)||''),
       datasets:[
-        {label:'Analysés',data:trend.map(r=>r.analyzed||0),borderColor:cV('--accent'),
-          backgroundColor:'rgba(99,102,241,0.08)',borderWidth:2,tension:.4,fill:true,pointRadius:0},
+        {label:'Analysés',data:trend.map(r=>r.analyzed||0),borderColor:cV('--text'),
+          backgroundColor:'rgba(196,255,61,0.08)',borderWidth:2,tension:.4,fill:true,pointRadius:0},
         {label:'Emailés',data:trend.map(r=>r.emailed||0),borderColor:cV('--orange'),
           backgroundColor:'transparent',borderWidth:1.5,tension:.4,pointRadius:0},
       ]},
@@ -935,7 +945,6 @@ const STAGES=[
   {key:'client',label:'Client ✅',color:'#22c55e'},
 ];
 function renderPipeline(){
-  // Build stage→prospects map
   const stageMap={};
   STAGES.forEach(s=>stageMap[s.key]=[]);
   allProspects.forEach(p=>{
@@ -943,7 +952,6 @@ function renderPipeline(){
     if(stageMap[s])stageMap[s].push(p);
     else stageMap['no_email'].push(p);
   });
-  // hot leads = HOT temp + emailed
   stageMap['hot_lead']=allProspects.filter(p=>p.temperature==='hot'&&p.status?.startsWith('emailed'));
   stageMap['all']=allProspects;
 
@@ -957,7 +965,7 @@ function renderPipeline(){
     const more=ps.length>4?`<div style="font-size:11px;color:var(--dim2);padding:4px 6px">+${ps.length-4} autres</div>`:'';
     return`<div class="stage-col">
       <div class="stage-header" style="border-color:${st.color}30;background:${st.color}0d">
-        <span style="color:${st.color};font-size:11px">${st.label}</span>
+        <span style="color:${st.color}">${st.label}</span>
         <span class="stage-count" style="background:${st.color}20;color:${st.color}">${ps.length}</span>
       </div>
       <div class="stage-body">${cards||'<div style="font-size:11px;color:var(--dim2);padding:6px">Vide</div>'}${more}</div>
@@ -989,7 +997,7 @@ function renderPipeline(){
       <div>
         <div style="margin-bottom:12px;font-size:13px;color:var(--dim)">Top 5 prospects par score</div>
         ${allProspects.slice(0,5).map((p,i)=>`
-          <div style="display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:1px solid var(--border)">
+          <div style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--border)">
             <span style="font-size:10px;color:var(--dim2);width:16px">#${i+1}</span>
             <span style="flex:1;font-size:12.5px;font-weight:500">${p.domain}</span>
             ${scoreBar(p.ai_score,scoreColor(p.ai_score))}
@@ -1023,13 +1031,12 @@ function renderIntelligence(){
     </div>`;
   }).join('') || '<div class="empty"><div class="empty-icon">◈</div>Aucun signal — relancez le pipeline</div>';
 
-  // Scoring breakdown
   const techCounts={};
   allProspects.forEach(p=>{techCounts[p.tech||'Inconnu']=(techCounts[p.tech||'Inconnu']||0)+1});
   const techItems=Object.entries(techCounts).sort((a,b)=>b[1]-a[1]).slice(0,6).map(([tech,n])=>`
-    <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border);font-size:12.5px">
+    <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);font-size:12.5px">
       <span class="tech-tag">${tech}</span>
-      <span style="font-weight:600;font-family:'DM Mono',monospace">${n}</span>
+      <span style="font-weight:700">${n}</span>
       <span style="color:var(--dim2);font-size:11px">${Math.round(n/Math.max(1,allProspects.length)*100)}%</span>
     </div>`).join('');
 
@@ -1055,8 +1062,7 @@ function renderIntelligence(){
     </div>
   </div>`;
 
-  // Score distribution histogram
-  const buckets=[0,0,0,0,0]; // 0-20,20-40,40-60,60-80,80-100
+  const buckets=[0,0,0,0,0];
   allProspects.forEach(p=>{
     const b=Math.min(4,Math.floor((p.ai_score||0)/20));
     buckets[b]++;
@@ -1064,8 +1070,8 @@ function renderIntelligence(){
   makeChart('ch-score-dist',{type:'bar',
     data:{labels:['0–20','21–40','41–60','61–80','81–100'],
       datasets:[{data:buckets,
-        backgroundColor:['rgba(100,116,139,.5)','rgba(100,116,139,.5)','rgba(245,158,11,.5)','rgba(245,158,11,.5)','rgba(244,63,94,.6)'],
-        borderColor:['#64748b','#64748b','#f59e0b','#f59e0b','#f43f5e'],
+        backgroundColor:['rgba(107,107,107,.3)','rgba(107,107,107,.3)','rgba(245,158,11,.4)','rgba(245,158,11,.4)','rgba(220,38,38,.5)'],
+        borderColor:['#6B6B6B','#6B6B6B','#F59E0B','#F59E0B','#DC2626'],
         borderWidth:1,borderRadius:4}]},
     options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
       scales:{x:{grid:{display:false},ticks:{color:cV('--dim2'),font:{size:10}}},
@@ -1127,20 +1133,20 @@ function renderSequences(){
     <div class="card">
       <div class="card-title">A/B Test — Résultats</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius2);padding:16px;text-align:center">
-          <div style="font-size:11px;color:var(--dim2);margin-bottom:8px;font-weight:600">VARIANT A</div>
-          <div style="font-size:28px;font-weight:600;font-family:'DM Mono',monospace;color:var(--accent)">${rateA}%</div>
-          <div style="font-size:11.5px;color:var(--dim);margin-top:4px">${aA.sent} envois · ${aA.replied} réponses</div>
+        <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius2);padding:16px;text-align:center">
+          <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dim2);margin-bottom:8px">VARIANT A</div>
+          <div style="font-family:var(--Fc);font-size:38px;line-height:1;color:var(--text)">${rateA}%</div>
+          <div style="font-size:11.5px;color:var(--dim);margin-top:6px">${aA.sent} envois · ${aA.replied} réponses</div>
           <div style="font-size:10.5px;color:var(--dim2);margin-top:8px">Audit direct · perf + issues</div>
         </div>
-        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius2);padding:16px;text-align:center">
-          <div style="font-size:11px;color:var(--dim2);margin-bottom:8px;font-weight:600">VARIANT B</div>
-          <div style="font-size:28px;font-weight:600;font-family:'DM Mono',monospace;color:${rateB>rateA?'var(--green)':'var(--text)'}">${rateB}%</div>
-          <div style="font-size:11.5px;color:var(--dim);margin-top:4px">${aB.sent} envois · ${aB.replied} réponses</div>
+        <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius2);padding:16px;text-align:center">
+          <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dim2);margin-bottom:8px">VARIANT B</div>
+          <div style="font-family:var(--Fc);font-size:38px;line-height:1;color:${rateB>rateA?'var(--green)':'var(--text)'}">${rateB}%</div>
+          <div style="font-size:11.5px;color:var(--dim);margin-top:6px">${aB.sent} envois · ${aB.replied} réponses</div>
           <div style="font-size:10.5px;color:var(--dim2);margin-top:8px">Bénéfice-first · conversion %</div>
         </div>
       </div>
-      <div style="margin-top:14px;padding:12px;background:var(--surface2);border-radius:var(--radius2);font-size:12px;color:var(--dim)">
+      <div style="margin-top:14px;padding:12px;background:var(--bg);border-radius:var(--radius2);font-size:12px;color:var(--dim);border:1px solid var(--border)">
         ${rateA==rateB?'Résultats égaux — continuez le test':rateA>rateB?'✦ Variant A performe mieux — focus audit direct':'✦ Variant B performe mieux — focus conversion %'}
       </div>
     </div>
@@ -1178,17 +1184,17 @@ function renderAnalytics(){
   <div class="three-col">
     <div class="kpi-card accent">
       <div class="kpi-label">Taux email trouvé</div>
-      <div class="kpi-value">${f.total?Math.round((f.with_email/f.total)*100):0}<span style="font-size:16px">%</span></div>
+      <div class="kpi-value">${f.total?Math.round((f.with_email/f.total)*100):0}<span style="font-size:20px">%</span></div>
       <div class="kpi-sub">${f.with_email||0} / ${f.total||0} prospects</div>
     </div>
     <div class="kpi-card green-c">
       <div class="kpi-label">Taux de réponse</div>
-      <div class="kpi-value">${f.total_emailed?((f.total_replied||0)/f.total_emailed*100).toFixed(1):0}<span style="font-size:16px">%</span></div>
+      <div class="kpi-value">${f.total_emailed?((f.total_replied||0)/f.total_emailed*100).toFixed(1):0}<span style="font-size:20px">%</span></div>
       <div class="kpi-sub">${f.total_replied||0} / ${f.total_emailed||0} emailés</div>
     </div>
     <div class="kpi-card">
       <div class="kpi-label">Taux de bounce</div>
-      <div class="kpi-value" style="color:var(--red)">${f.total_emailed?((f.total_bounced||0)/f.total_emailed*100).toFixed(1):0}<span style="font-size:16px">%</span></div>
+      <div class="kpi-value" style="color:var(--red)">${f.total_emailed?((f.total_bounced||0)/f.total_emailed*100).toFixed(1):0}<span style="font-size:20px">%</span></div>
       <div class="kpi-sub">${f.total_bounced||0} bounce(s)</div>
     </div>
   </div>
@@ -1213,20 +1219,19 @@ function renderAnalytics(){
         const rate=s.n?Math.round(s.with_email/s.n*100):0;
         return`<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
           <span style="width:90px;font-size:12px;color:var(--dim)">${s.source}</span>
-          <div style="flex:1;background:var(--surface);border-radius:3px;height:8px">
-            <div style="width:${rate}%;height:100%;border-radius:3px;background:var(--accent)"></div></div>
-          <span style="font-size:11.5px;font-family:'DM Mono',monospace;width:36px;text-align:right;color:var(--dim)">${rate}%</span>
+          <div style="flex:1;background:var(--bg);border-radius:3px;height:8px">
+            <div style="width:${rate}%;height:100%;border-radius:3px;background:var(--text)"></div></div>
+          <span style="font-size:11.5px;width:36px;text-align:right;color:var(--dim)">${rate}%</span>
         </div>`;}).join('')||'<div class="empty">Aucune donnée</div>'}
     </div>
   </div>`;
 
-  // Sources chart
   if(sources.length){
     makeChart('ch-sources',{type:'bar',
       data:{labels:sources.map(s=>s.source),
         datasets:[
-          {label:'Prospects',data:sources.map(s=>s.n||0),backgroundColor:'rgba(99,102,241,0.5)',borderColor:'rgba(99,102,241,0.8)',borderWidth:1,borderRadius:3},
-          {label:'Emailés',data:sources.map(s=>s.total_emailed||0),backgroundColor:'rgba(245,158,11,0.5)',borderColor:'rgba(245,158,11,0.8)',borderWidth:1,borderRadius:3},
+          {label:'Prospects',data:sources.map(s=>s.n||0),backgroundColor:'rgba(10,10,10,0.35)',borderColor:'rgba(10,10,10,0.6)',borderWidth:1,borderRadius:3},
+          {label:'Emailés',data:sources.map(s=>s.total_emailed||0),backgroundColor:'rgba(245,158,11,0.4)',borderColor:'rgba(245,158,11,0.8)',borderWidth:1,borderRadius:3},
         ]},
       options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:cV('--dim2'),font:{size:11}}}},
         scales:{x:{grid:{display:false},ticks:{color:cV('--dim2'),font:{size:10}}},
@@ -1236,7 +1241,7 @@ function renderAnalytics(){
     makeChart('ch-emails-trend',{type:'line',
       data:{labels:trend.map(r=>r.date?.slice(5)||''),
         datasets:[
-          {label:'Analysés',data:trend.map(r=>r.analyzed||0),borderColor:cV('--accent'),fill:false,tension:.4,pointRadius:0,borderWidth:2},
+          {label:'Analysés',data:trend.map(r=>r.analyzed||0),borderColor:cV('--text'),fill:false,tension:.4,pointRadius:0,borderWidth:2},
           {label:'Emailés',data:trend.map(r=>r.emailed||0),borderColor:cV('--green'),fill:false,tension:.4,pointRadius:0,borderWidth:2},
           {label:'Réponses',data:trend.map(r=>r.replied||0),borderColor:cV('--orange'),fill:false,tension:.4,pointRadius:2,borderWidth:1.5},
         ]},
@@ -1244,7 +1249,6 @@ function renderAnalytics(){
         scales:{x:{grid:{display:false},ticks:{color:cV('--dim2'),font:{size:10},maxTicksLimit:8}},
           y:{grid:{color:cV('--border')},ticks:{color:cV('--dim2'),font:{size:10}},beginAtZero:true}}}});
   }
-  // ICP pie
   const icpDist=CRM.icp_distribution||buildICPDist();
   if(icpDist.length){
     makeChart('ch-icp-pie',{type:'doughnut',
@@ -1274,7 +1278,7 @@ function renderICP(){
           <div style="font-size:15px;font-weight:600;margin-bottom:4px">${icp.label}</div>
           <div style="font-size:12px;color:var(--dim)">${icp.count} prospect${icp.count>1?'s':''} · ${icp.pct}% du total</div>
         </div>
-        <div style="font-size:22px;font-weight:700;font-family:'DM Mono',monospace;color:${color}">${avgScore}</div>
+        <div style="font-family:var(--Fc);font-size:32px;line-height:1;color:${color}">${avgScore}</div>
       </div>
       <div style="display:flex;gap:10px;flex-wrap:wrap">
         <span class="badge badge-hot">🔥 ${hot} hot</span>
@@ -1282,7 +1286,7 @@ function renderICP(){
         <span class="signal-pill signal-${avgScore>=60?'high':'medium'}">Score moy. ${avgScore}</span>
       </div>
       <div style="margin-top:12px">
-        <div style="background:var(--surface);border-radius:3px;height:4px">
+        <div style="background:var(--bg);border-radius:3px;height:4px">
           <div style="width:${icp.pct}%;height:100%;border-radius:3px;background:${color}"></div>
         </div>
       </div>
@@ -1306,9 +1310,9 @@ function renderICP(){
         {icp:'ecommerce_premium',tip:'ROI direct : conversion, vitesse, UX mobile. Chiffrer l\'impact.'},
         {icp:'hospitality',tip:'Réservations en ligne, expérience client, menu visuel. Impact direct sur réservations.'},
         {icp:'skincare_wellness',tip:'Esthétisme + confiance. Avant/après visuel fort. Packaging digital.'},
-      ].map(r=>`<div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius2);padding:12px">
-          <div style="font-size:12px;font-weight:600;margin-bottom:6px;color:${ICP_COLORS[r.icp]||cV('--accent')}">${ICP_LABELS[r.icp]}</div>
-          <div style="font-size:11.5px;color:var(--dim)">${r.tip}</div>
+      ].map(r=>`<div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius2);padding:14px">
+          <div style="font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;color:${ICP_COLORS[r.icp]||cV('--text')}">${ICP_LABELS[r.icp]}</div>
+          <div style="font-size:12px;color:var(--dim);line-height:1.5">${r.tip}</div>
         </div>`).join('')}
     </div>
   </div>`;
@@ -1346,12 +1350,12 @@ function buildCopilot(){
   <div class="cop-section">
     <div class="cop-section-title">🎯 Priorités maintenant</div>
     ${hotCards}
-    <a class="cop-action" onclick="switchView('intelligence');toggleCopilot()">Voir tous les signaux d'intention →</a>
+    <button class="cop-action" onclick="switchView('intelligence');toggleCopilot()">Voir tous les signaux d'intention →</button>
   </div>
   <div class="cop-section">
     <div class="cop-section-title">📧 À contacter</div>
     ${contactCards}
-    <a class="cop-action" onclick="switchView('leads');leadFilters.status='queued';renderLeads();toggleCopilot()">Voir la file d'envoi →</a>
+    <button class="cop-action" onclick="switchView('leads');leadFilters.status='queued';renderLeads();toggleCopilot()">Voir la file d'envoi →</button>
   </div>
   <div class="cop-section">
     <div class="cop-section-title">📊 Insights</div>
@@ -1370,8 +1374,8 @@ function buildCopilot(){
   </div>
   <div class="cop-section">
     <div class="cop-section-title">🚀 Actions recommandées</div>
-    <a class="cop-action" onclick="switchView('pipeline');toggleCopilot()">Voir le pipeline complet →</a>
-    <a class="cop-action" onclick="switchView('sequences');toggleCopilot()">Analyser les séquences →</a>
+    <button class="cop-action" onclick="switchView('pipeline');toggleCopilot()">Voir le pipeline complet →</button>
+    <button class="cop-action" onclick="switchView('sequences');toggleCopilot()">Analyser les séquences →</button>
     <a class="cop-action" href="crm.html" target="_blank">Ouvrir CRM classique →</a>
   </div>`;
 }
@@ -1414,14 +1418,13 @@ function renderView(v){
 // INIT
 // ════════════════════════════════════════════════════════
 async function init(){
-  // Apply saved theme to button icon
-  const t=document.documentElement.getAttribute('data-theme')||'dark';
+  const t=document.documentElement.getAttribute('data-theme')||'light';
   document.getElementById('theme-btn').textContent=t==='dark'?'☀':'🌙';
 
   await loadData();
   renderView('overview');
 
-  // Auto-refresh every 5 min
+  // Auto-refresh toutes les 5 min
   setInterval(async()=>{
     if(localStorage.getItem('dk_auth')==='1'){
       allCharts.forEach(c=>{try{c.destroy()}catch(e){}});
@@ -1432,13 +1435,13 @@ async function init(){
   },300000);
 }
 
-// Keyboard shortcut: press 'c' for copilot
+// Raccourci clavier: 'c' pour ouvrir le Copilot
 document.addEventListener('keydown',e=>{
   if(e.key==='c'&&!e.ctrlKey&&!e.metaKey&&document.activeElement.tagName!=='INPUT')
     toggleCopilot();
 });
 
-// Auto-init if already authed
+// Auto-init si déjà authentifié
 if(localStorage.getItem('dk_auth')==='1') init();
 </script>
 </body>
