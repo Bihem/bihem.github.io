@@ -71,10 +71,8 @@ body{font-family:var(--F);background:var(--bg);color:var(--text);
 .gate-card{background:var(--bg2);border:1px solid var(--border);
   border-radius:var(--radius);padding:52px 44px 44px;width:360px;text-align:center;
   box-shadow:0 24px 80px rgba(0,0,0,.35)}
-.gate-logo{font-family:var(--Fs);font-size:32px;letter-spacing:.08em;margin-bottom:4px;
-  color:var(--text);text-transform:uppercase;font-weight:400}
-.gate-logo span{background:var(--text);color:var(--bg);padding:1px 8px;
-  border-radius:5px;font-size:20px;vertical-align:middle;margin-left:4px}
+.gate-logo{margin-bottom:4px;display:flex;justify-content:center}
+.gate-logo img{height:48px;width:auto;filter:invert(1);mix-blend-mode:screen;object-fit:contain}
 .gate-sub{font-size:10px;color:var(--dim2);margin-bottom:32px;letter-spacing:.16em;text-transform:uppercase}
 #gate-pw{width:100%;background:var(--bg);border:1px solid var(--border);
   color:var(--text);padding:12px 14px;border-radius:100px;font-size:14px;
@@ -136,10 +134,8 @@ body{font-family:var(--F);background:var(--bg);color:var(--text);
   width:var(--sb-w);min-width:var(--sb-w);padding:0 16px 0 20px;flex-shrink:0;
   border-right:1px solid var(--border);
   height:100%;border-radius:var(--radius) 0 0 var(--radius);overflow:hidden}
-.tb-logo-box{width:28px;height:28px;background:var(--text);border-radius:6px;
-  display:flex;align-items:center;justify-content:center;
-  font-family:var(--Fs);font-size:15px;color:var(--bg);font-weight:400;flex-shrink:0}
-.tb-logo-name{font-family:var(--Fs);font-size:16px;letter-spacing:.1em;color:var(--text);text-transform:uppercase;font-weight:400}
+.tb-logo-img{height:28px;width:auto;flex-shrink:0;
+  filter:invert(1);mix-blend-mode:screen;object-fit:contain}
 #sb-toggle{background:transparent;border:none;color:var(--dim);cursor:pointer;
   font-size:18px;padding:4px 6px;border-radius:6px;transition:color .15s;margin-left:auto}
 #sb-toggle:hover{color:var(--text)}
@@ -396,14 +392,11 @@ tr:hover td{background:rgba(255,255,255,.02)}
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   transition:opacity .7s ease,visibility .7s ease}
 #boot.fade-out{opacity:0;pointer-events:none;visibility:hidden}
-.boot-ico{width:62px;height:62px;background:var(--text);border-radius:var(--radius);
-  display:flex;align-items:center;justify-content:center;
-  font-family:var(--Fs);font-size:32px;color:var(--bg);font-weight:400;margin-bottom:22px;
-  animation:bootPing 2.4s ease-in-out infinite}
-@keyframes bootPing{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.25)}60%{box-shadow:0 0 0 22px rgba(255,255,255,0)}}
-.boot-wm{font-family:var(--Fs);font-size:20px;letter-spacing:.12em;color:var(--text);margin-bottom:6px;text-transform:uppercase;font-weight:400}
-.boot-wm em{color:var(--off);font-style:normal}
-.boot-tag{font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim2);margin-bottom:52px}
+.boot-logo-img{height:60px;width:auto;margin-bottom:18px;
+  filter:invert(1);mix-blend-mode:screen;object-fit:contain;
+  animation:bootPulse 2.4s ease-in-out infinite}
+@keyframes bootPulse{0%,100%{opacity:.85;transform:scale(1)}50%{opacity:1;transform:scale(1.02)}}
+.boot-tag{font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim2);margin-bottom:52px;font-family:var(--Fs)}
 .boot-bar{width:220px;height:1px;background:var(--border);border-radius:2px;overflow:hidden;margin-bottom:16px}
 .boot-fill{height:100%;background:var(--text);width:0%;transition:width .4s ease;border-radius:2px}
 .boot-msg{font-size:11px;color:var(--dim2);letter-spacing:.07em;text-align:center;min-height:16px}
@@ -468,8 +461,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 
 <!-- ══════════════════ BOOT ══════════════════ -->
 <div id="boot">
-  <div class="boot-ico">D</div>
-  <div class="boot-wm">DIKENGA <em>OS</em></div>
+  <img src="logo-dikenga.png" alt="DIKENGA." class="boot-logo-img">
   <div class="boot-tag">Acquisition Intelligence Platform</div>
   <div class="boot-bar"><div class="boot-fill" id="boot-fill"></div></div>
   <div class="boot-msg" id="boot-msg">Initialisation...</div>
@@ -478,7 +470,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 <!-- ══════════════════ GATE ══════════════════ -->
 <div id="gate" style="display:none">
   <div class="gate-card">
-    <div class="gate-logo">DIKENGA <span>OS</span></div>
+    <div class="gate-logo"><img src="logo-dikenga.png" alt="DIKENGA."></div>
     <div class="gate-sub">Acquisition Intelligence Platform</div>
     <input type="password" id="gate-pw" placeholder="••••••••••••" autocomplete="off">
     <button id="gate-btn" onclick="doAuth()">Accéder →</button>
@@ -538,8 +530,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   <!-- Top bar — full width fond noir (Talseume exact) -->
   <header id="topbar">
     <div class="tb-brand">
-      <span class="tb-logo-box">D</span>
-      <span class="tb-logo-name">DIKENGA</span>
+      <img src="logo-dikenga.png" alt="DIKENGA." class="tb-logo-img">
       <button id="sb-toggle" onclick="toggleSidebar()">☰</button>
     </div>
     <div class="tb-center">
@@ -568,7 +559,10 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   <!-- AI Copilot -->
   <div id="copilot">
     <div class="cop-header">
-      <div class="cop-title">✦ AI COPILOT</div>
+      <div class="cop-title" style="display:flex;align-items:center;gap:10px">
+      <img src="logo-dikenga.png" alt="DIKENGA." style="height:22px;width:auto;filter:invert(1);mix-blend-mode:screen">
+      <span style="font-size:10px;letter-spacing:.14em;color:var(--dim2)">AI COPILOT</span>
+    </div>
       <button id="cop-close" onclick="toggleCopilot()">✕</button>
     </div>
     <div class="cop-body" id="cop-body">
