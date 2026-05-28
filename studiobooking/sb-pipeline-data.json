@@ -1,15 +1,15 @@
 {
-  "updated_at": "2026-05-28T18:53:35.602068",
+  "updated_at": "2026-05-28T19:00:33.702232",
   "funnel": {
-    "total_discovered": 8,
-    "total_analyzed": 8,
-    "total_queued": 5,
+    "total_discovered": 0,
+    "total_analyzed": 0,
+    "total_queued": 0,
     "total_emailed": 0,
     "total_replied": 0,
     "total_bounced": 0,
-    "manual_bookings": 5,
-    "no_booking": 7,
-    "has_booking": 1
+    "manual_bookings": 0,
+    "no_booking": 0,
+    "has_booking": 0
   },
   "daily_trend": [
     {
@@ -56,7 +56,7 @@
     },
     {
       "date": "2026-05-28",
-      "analyzed": 8,
+      "analyzed": 0,
       "emailed": 0,
       "replied": 0
     }
@@ -64,23 +64,23 @@
   "sources": [
     {
       "name": "PagesJaunes",
-      "count": 3,
-      "with_email": 2
+      "count": 0,
+      "with_email": 0
     },
     {
       "name": "Google Maps",
-      "count": 2,
-      "with_email": 2
+      "count": 0,
+      "with_email": 0
     },
     {
       "name": "DuckDuckGo",
-      "count": 2,
-      "with_email": 2
+      "count": 0,
+      "with_email": 0
     },
     {
       "name": "Yelp",
-      "count": 1,
-      "with_email": 1
+      "count": 0,
+      "with_email": 0
     }
   ],
   "ab_test": {
