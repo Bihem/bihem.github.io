@@ -628,7 +628,8 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     </div>
     <div class="tb-right">
       <button class="tb-ai-btn" onclick="toggleCopilot()">✦ AI Copilot</button>
-      <button class="btn-dl" onclick="exportCSV(allProspects)" title="Télécharger tous les prospects CSV">⬇</button>
+      <button class="btn-dl" onclick="downloadApp()" title="Télécharger l'application complète" style="font-size:15px;letter-spacing:.02em;width:auto;padding:0 14px;font-weight:600;font-family:var(--Fs)">⬇ App</button>
+      <button class="btn-dl" onclick="exportCSV(allProspects)" title="Télécharger les prospects CSV" style="font-size:13px">CSV</button>
       <button class="tb-icon-btn" id="theme-btn" onclick="toggleTheme()" title="Thème">🌙</button>
     </div>
   </header>
@@ -1153,6 +1154,57 @@ function renderLeads(){
 }
 
 // ════════════════════════════════════════════════════════
+
+// ════════════════════════════════════════════════════════
+// TÉLÉCHARGER L'APPLICATION (standalone self-contained)
+// ════════════════════════════════════════════════════════
+function downloadApp(){
+  // Récupère le HTML complet de la page
+  let src=document.documentElement.outerHTML;
+  // Remplace les fetch() par des données inline (JSON embarqué)
+  const crmJson=JSON.stringify(CRM);
+  const dashJson=JSON.stringify(DASH);
+  // Injecte un script inline qui fournit les données sans serveur
+  const inlineData=`<script id="__inline_data__">
+window.__CRM_DATA__=${crmJson};
+window.__DASH_DATA__=${dashJson};
+<\/script>`;
+  // Insère juste avant </head>
+  src=src.replace('</head>',inlineData+'</head>');
+  // Remplace la fonction loadData pour utiliser les données inline
+  src=src.replace(
+    "async function loadData(){\n  try{\n    const [c,d]=await Promise.all([\n      fetch('crm-data.json?t='+Date.now()).then(r=>r.json()),\n      fetch('pipeline-data.json?t='+Date.now()).then(r=>r.json()),\n    ]);",
+    "async function loadData(){\n  try{\n    const [c,d]=await Promise.all([\n      Promise.resolve(window.__CRM_DATA__||{}),\n      Promise.resolve(window.__DASH_DATA__||{}),\n    ]);"
+  );
+  // Crée le blob et déclenche le téléchargement
+  const blob=new Blob([src],{type:'text/html;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  const now=new Date();
+  const date=now.toISOString().slice(0,10);
+  a.href=url;
+  a.download=`dikenga-os-${date}.html`;
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(()=>{URL.revokeObjectURL(url);a.remove();},1000);
+  showToast('Application téléchargée — ouvre le fichier HTML dans ton navigateur');
+}
+
+// Toast notification
+function showToast(msg){
+  let t=document.getElementById('__toast__');
+  if(!t){
+    t=document.createElement('div');
+    t.id='__toast__';
+    t.style.cssText='position:fixed;bottom:28px;left:50%;transform:translateX(-50%);background:#36C89B;color:#fff;padding:12px 24px;border-radius:100px;font-size:14px;font-weight:600;font-family:var(--Fs);z-index:9999;box-shadow:0 8px 32px rgba(0,0,0,.3);letter-spacing:.03em;pointer-events:none;opacity:0;transition:opacity .3s';
+    document.body.appendChild(t);
+  }
+  t.textContent=msg;
+  t.style.opacity='1';
+  clearTimeout(t._hide);
+  t._hide=setTimeout(()=>t.style.opacity='0',3000);
+}
+
 // EXPORT CSV
 // ════════════════════════════════════════════════════════
 function exportCSV(prospects){
