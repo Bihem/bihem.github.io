@@ -561,6 +561,10 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
       <button class="nav-item" data-view="icp">
         <span class="nav-ico">◆</span> ICP Manager
       </button>
+      <button class="nav-item" data-view="saas">
+        <span class="nav-ico">🏢</span> Clients SaaS
+        <span class="nav-badge" id="nb-saas">—</span>
+      </button>
     </div>
     <div class="sb-footer">
       <div class="sb-status"><span class="live-dot"></span>Pipeline actif</div>
@@ -598,6 +602,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     <section class="view" id="view-sequences"></section>
     <section class="view" id="view-analytics"></section>
     <section class="view" id="view-icp"></section>
+    <section class="view" id="view-saas"></section>
   </main>
 
   <div id="copilot">
@@ -710,21 +715,29 @@ function switchView(v){
 // ════════════════════════════════════════════════════════
 // DATA
 // ════════════════════════════════════════════════════════
-let CRM={}, DASH={}, allProspects=[], filteredProspects=[];
+let CRM={}, DASH={}, SAAS={}, allProspects=[], filteredProspects=[];
 let allCharts=[], dataLoaded=false;
 
 async function loadData(){
   try{
-    const [c,d]=await Promise.all([
+    const results=await Promise.allSettled([
       fetch('studiobooking/sb-crm-data.json?t='+Date.now()).then(r=>r.json()),
       fetch('studiobooking/sb-pipeline-data.json?t='+Date.now()).then(r=>r.json()),
+      fetch('studiobooking/sb-saas-data.json?t='+Date.now()).then(r=>r.json()),
     ]);
-    CRM=c; DASH=d;
+    const [rc,rd,rs]=results;
+    const c=rc.status==='fulfilled'?rc.value:{prospects:[]};
+    const d=rd.status==='fulfilled'?rd.value:{};
+    const s=rs.status==='fulfilled'?rs.value:{summary:{},tenants:[]};
+    CRM=c; DASH=d; SAAS=s;
     allProspects=enrichProspects(c.prospects||[]);
     filteredProspects=[...allProspects];
     document.getElementById('nb-leads').textContent=allProspects.length;
-    const hotOpps=allProspects.filter(p=>p.has_booking===0||p.has_booking===false);
     document.getElementById('nb-hot').textContent=allProspects.filter(p=>p.temperature==='hot').length;
+    // Badge SaaS = actifs réels
+    const saasActive=(s.summary||{}).active||0;
+    const saasBadge=document.getElementById('nb-saas');
+    if(saasBadge)saasBadge.textContent=saasActive||'—';
     const upd=new Date(c.updated_at||Date.now());
     document.getElementById('sb-upd').textContent='Màj '+upd.toLocaleTimeString('fr',{hour:'2-digit',minute:'2-digit'});
     dataLoaded=true;
@@ -735,7 +748,7 @@ async function loadData(){
   }catch(e){
     console.error('Load error',e);
     const c=document.getElementById('content');
-    if(c)c.innerHTML='<div style="padding:48px 32px;text-align:center"><div style="font-size:32px;margin-bottom:16px">⚠️</div><div style="font-size:18px;margin-bottom:8px">Données introuvables</div><div style="font-size:14px;color:var(--dim)">Lancez le pipeline pour générer sb-crm-data.json et sb-pipeline-data.json</div><button onclick="location.reload()" style="margin-top:24px;padding:10px 24px;border-radius:100px;background:var(--a1);color:#fff;border:none;cursor:pointer;font-size:14px;font-weight:600">Réessayer</button></div>';
+    if(c)c.innerHTML='<div style="padding:48px 32px;text-align:center"><div style="font-size:32px;margin-bottom:16px">⚠️</div><div style="font-size:18px;margin-bottom:8px">Données introuvables</div><div style="font-size:14px;color:var(--dim)">Lancez le pipeline pour générer les fichiers de données</div><button onclick="location.reload()" style="margin-top:24px;padding:10px 24px;border-radius:100px;background:var(--a1);color:#fff;border:none;cursor:pointer;font-size:14px;font-weight:600">Réessayer</button></div>';
   }
 }
 
@@ -1645,11 +1658,76 @@ function buildICPDist(){
 // ════════════════════════════════════════════════════════
 // RENDER ROUTER
 // ════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════════
+// VIEW: CLIENTS SAAS
+// ════════════════════════════════════════════════════════
+function renderSaas(){
+  const s=SAAS||{};
+  const summary=s.summary||{total:0,active:0,trial:0,suspended:0,paying:0};
+  const tenants=s.tenants||[];
+  const upd=s.updated_at?new Date(s.updated_at).toLocaleString('fr',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}):'—';
+
+  const statusBadge=(status,paying)=>{
+    if(status==='active'&&paying) return`<span style="background:#22c55e22;color:#22c55e;padding:2px 8px;border-radius:100px;font-size:11px;font-weight:600">💳 Payant</span>`;
+    if(status==='active')         return`<span style="background:#7C5CFF22;color:#7C5CFF;padding:2px 8px;border-radius:100px;font-size:11px;font-weight:600">✅ Actif</span>`;
+    if(status==='trial')          return`<span style="background:#FFB34022;color:#FFB340;padding:2px 8px;border-radius:100px;font-size:11px;font-weight:600">⏳ Trial</span>`;
+    return`<span style="background:#64748b22;color:#64748b;padding:2px 8px;border-radius:100px;font-size:11px;font-weight:600">Suspendu</span>`;
+  };
+
+  const rows=tenants.length?tenants.map(t=>{
+    const date=t.created_at?new Date(t.created_at).toLocaleDateString('fr'):'—';
+    return`
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border)">
+      <div style="width:36px;height:36px;border-radius:10px;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:var(--a1);flex-shrink:0">${(t.name||t.slug).substring(0,2).toUpperCase()}</div>
+      <div style="flex:1;min-width:0">
+        <div style="font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${t.name||t.slug}</div>
+        <div style="font-size:12px;color:var(--dim)">studiobooking.fr/admin/${t.slug} · ${date}</div>
+      </div>
+      <div style="flex-shrink:0">${statusBadge(t.status,t.paying)}</div>
+      <div style="font-size:12px;color:var(--dim);flex-shrink:0;width:60px;text-align:right">${t.plan||'starter'}</div>
+    </div>`}).join('')
+    :`<div class="empty" style="padding:32px">Aucun client inscrit</div>`;
+
+  document.getElementById('view-saas').innerHTML=`
+  <div class="view-header">
+    <div class="view-title">Clients SaaS</div>
+    <div class="view-sub">Màj ${upd} · ${summary.total} studios inscrits</div>
+  </div>
+  <div class="three-col" style="margin-bottom:20px">
+    <div class="kpi-card hot-c">
+      <div class="kpi-label">Actifs 🟢</div>
+      <div class="kpi-value" data-val="${summary.active}">${summary.active}</div>
+      <div class="kpi-sub">${summary.paying} payant${summary.paying>1?'s':''}</div>
+    </div>
+    <div class="kpi-card warm-c">
+      <div class="kpi-label">En trial ⏳</div>
+      <div class="kpi-value" data-val="${summary.trial}">${summary.trial}</div>
+      <div class="kpi-sub">à convertir</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Total inscrits</div>
+      <div class="kpi-value" data-val="${summary.total}">${summary.total}</div>
+      <div class="kpi-sub">${summary.suspended||0} suspendu${(summary.suspended||0)>1?'s':''}</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Studios inscrits (hors comptes internes)</div>
+    ${rows}
+  </div>
+  ${summary.paying===0&&summary.total>0?`
+  <div class="card" style="border-left:3px solid var(--warm)">
+    <div class="card-title">⚡ Action recommandée</div>
+    <div style="font-size:13px;color:var(--dim);margin-top:8px">
+      ${summary.trial} studio${summary.trial>1?'s':''} en trial — relancer avec un email de conversion ou un lien Stripe direct.
+    </div>
+  </div>`:''}`;
+}
+
 function renderView(v){
   if(!dataLoaded)return;
   const map={overview:renderOverview,leads:renderLeads,pipeline:renderPipeline,
     intelligence:renderIntelligence,sequences:renderSequences,
-    analytics:renderAnalytics,icp:renderICP};
+    analytics:renderAnalytics,icp:renderICP,saas:renderSaas};
   map[v]?.();
 }
 
