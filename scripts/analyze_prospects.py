@@ -1493,6 +1493,58 @@ def export_dashboard_json():
     return JSON_PATH
 
 # ═══════════════════════════════════════════════════════════
+# CRM JSON EXPORT — tous les prospects pour le CRM
+# ═══════════════════════════════════════════════════════════
+
+CRM_PATH = os.path.join(PROJ_DIR, 'crm-data.json')
+
+def export_crm_json():
+    """Génère crm-data.json avec TOUS les prospects pour le CRM web."""
+    with get_conn() as c:
+        rows = c.execute("""
+            SELECT id, domain, company, email, phone, tech,
+                   perf_mobile, lcp, issues, score, source, status,
+                   sequence_step, variant, date_added, date_step1,
+                   date_step2, date_step3, replied, bounced, notes, next_action
+            FROM prospects
+            ORDER BY score DESC, date_added DESC
+        """).fetchall()
+
+        total_stats = dict(c.execute("""
+            SELECT COUNT(*) total,
+              SUM(CASE WHEN email IS NOT NULL AND email!='' THEN 1 ELSE 0 END) with_email,
+              SUM(CASE WHEN phone IS NOT NULL AND phone!='' THEN 1 ELSE 0 END) with_phone,
+              SUM(CASE WHEN status='queued'   THEN 1 ELSE 0 END) queued,
+              SUM(CASE WHEN sequence_step>=1  THEN 1 ELSE 0 END) emailed,
+              SUM(CASE WHEN replied=1         THEN 1 ELSE 0 END) replied,
+              SUM(CASE WHEN bounced=1         THEN 1 ELSE 0 END) bounced,
+              SUM(CASE WHEN status='optout'   THEN 1 ELSE 0 END) optout,
+              SUM(CASE WHEN status='no_email' THEN 1 ELSE 0 END) no_email
+            FROM prospects
+        """).fetchone())
+
+    prospects = []
+    for r in rows:
+        p = dict(r)
+        # Désérialiser issues si c'est une string JSON
+        try:
+            p['issues'] = json.loads(p['issues']) if isinstance(p['issues'], str) else (p['issues'] or [])
+        except Exception:
+            p['issues'] = []
+        prospects.append(p)
+
+    data = {
+        'updated_at': datetime.now().isoformat(),
+        'stats':      total_stats,
+        'prospects':  prospects,
+    }
+
+    with open(CRM_PATH, 'w', encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False, indent=2, default=str)
+
+    return CRM_PATH
+
+# ═══════════════════════════════════════════════════════════
 # MAIN — v5 avec threading
 # ═══════════════════════════════════════════════════════════
 
@@ -1634,7 +1686,8 @@ def main():
     # ── 6. BACKUP + DASHBOARD + RAPPORT ──────────────────
     export_csv()
     export_dashboard_json()
-    print(f"✅ CSV + pipeline-data.json exportés")
+    export_crm_json()
+    print(f"✅ CSV + pipeline-data.json + crm-data.json exportés")
     print("📱 Rapport Telegram…")
     report = build_report(stats)
     tg(report)
