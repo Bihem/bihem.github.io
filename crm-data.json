@@ -1,49 +1,43 @@
 {
-  "updated_at": "2026-05-28T14:15:50.949793",
+  "updated_at": "2026-05-28T17:28:15.588405",
   "version": "v6",
   "stats": {
-    "total": 39,
-    "with_email": 8,
-    "with_phone": 15,
+    "total": 29,
+    "with_email": 6,
+    "with_phone": 13,
     "queued": 0,
-    "emailed": 6,
+    "emailed": 5,
     "replied": 0,
     "bounced": 1,
     "optout": 0,
-    "no_email": 31,
+    "no_email": 23,
     "hot": 1,
     "warm": 18,
-    "cold": 20,
-    "avg_ai_score": 50.0
+    "cold": 10,
+    "avg_ai_score": 50.3
   },
   "icp_distribution": [
     {
       "category": "ecommerce_premium",
       "label": "E-commerce Premium",
-      "count": 32,
-      "pct": 82
+      "count": 23,
+      "pct": 79
     },
     {
       "category": "mode_luxe",
       "label": "Mode & Luxe",
       "count": 3,
-      "pct": 8
+      "pct": 10
     },
     {
       "category": "immobilier",
       "label": "Immobilier & Archi",
       "count": 2,
-      "pct": 5
+      "pct": 7
     },
     {
       "category": "cabinet_b2b",
       "label": "Cabinet B2B",
-      "count": 1,
-      "pct": 3
-    },
-    {
-      "category": "streetwear_premium",
-      "label": "Streetwear Premium",
       "count": 1,
       "pct": 3
     }
@@ -752,7 +746,7 @@
       "domain": "prestashop.fr",
       "company": "Prestashop",
       "email": null,
-      "phone": "09 09 09 09 09",
+      "phone": null,
       "tech": "PrestaShop",
       "perf_mobile": 45,
       "lcp": "~0.5s (estimé)",
@@ -875,7 +869,7 @@
       "id": 7,
       "domain": "wearetheones.fr",
       "company": "Wearetheones",
-      "email": "user@domain.com",
+      "email": null,
       "phone": null,
       "tech": "Squarespace",
       "perf_mobile": 85,
@@ -886,7 +880,7 @@
       ],
       "score": 40,
       "source": "ddg",
-      "status": "error",
+      "status": "no_email",
       "sequence_step": 0,
       "variant": null,
       "date_added": "2026-05-28",
@@ -1117,398 +1111,11 @@
       "icp_label": "E-commerce Premium"
     },
     {
-      "id": 11,
-      "domain": "lh4.ggpht.com",
-      "company": "Lh4",
-      "email": null,
-      "phone": null,
-      "tech": "Custom",
-      "perf_mobile": 35,
-      "lcp": "N/A",
-      "issues": [
-        "Site inaccessible ou lent"
-      ],
-      "score": 52,
-      "source": "gmaps",
-      "status": "no_email",
-      "sequence_step": 0,
-      "variant": null,
-      "date_added": "2026-05-28",
-      "date_step1": null,
-      "date_step2": null,
-      "date_step3": null,
-      "replied": 0,
-      "bounced": 0,
-      "notes": null,
-      "next_action": null,
-      "ai_score": 49,
-      "temperature": "cold",
-      "icp_category": "ecommerce_premium",
-      "brand_quality": 15,
-      "intent_signals": [
-        {
-          "type": "low_perf",
-          "label": "Mobile faible 35/100",
-          "strength": "medium"
-        },
-        {
-          "type": "local_poor_web",
-          "label": "Présence locale / site faible",
-          "strength": "medium"
-        }
-      ],
-      "icp_label": "E-commerce Premium"
-    },
-    {
-      "id": 12,
-      "domain": "lh6.ggpht.com",
-      "company": "Lh6",
-      "email": null,
-      "phone": null,
-      "tech": "Custom",
-      "perf_mobile": 35,
-      "lcp": "N/A",
-      "issues": [
-        "Site inaccessible ou lent"
-      ],
-      "score": 52,
-      "source": "gmaps",
-      "status": "no_email",
-      "sequence_step": 0,
-      "variant": null,
-      "date_added": "2026-05-28",
-      "date_step1": null,
-      "date_step2": null,
-      "date_step3": null,
-      "replied": 0,
-      "bounced": 0,
-      "notes": null,
-      "next_action": null,
-      "ai_score": 49,
-      "temperature": "cold",
-      "icp_category": "ecommerce_premium",
-      "brand_quality": 15,
-      "intent_signals": [
-        {
-          "type": "low_perf",
-          "label": "Mobile faible 35/100",
-          "strength": "medium"
-        },
-        {
-          "type": "local_poor_web",
-          "label": "Présence locale / site faible",
-          "strength": "medium"
-        }
-      ],
-      "icp_label": "E-commerce Premium"
-    },
-    {
-      "id": 13,
-      "domain": "lh3.ggpht.com",
-      "company": "Lh3",
-      "email": null,
-      "phone": null,
-      "tech": "Custom",
-      "perf_mobile": 35,
-      "lcp": "N/A",
-      "issues": [
-        "Site inaccessible ou lent"
-      ],
-      "score": 52,
-      "source": "gmaps",
-      "status": "no_email",
-      "sequence_step": 0,
-      "variant": null,
-      "date_added": "2026-05-28",
-      "date_step1": null,
-      "date_step2": null,
-      "date_step3": null,
-      "replied": 0,
-      "bounced": 0,
-      "notes": null,
-      "next_action": null,
-      "ai_score": 49,
-      "temperature": "cold",
-      "icp_category": "ecommerce_premium",
-      "brand_quality": 15,
-      "intent_signals": [
-        {
-          "type": "low_perf",
-          "label": "Mobile faible 35/100",
-          "strength": "medium"
-        },
-        {
-          "type": "local_poor_web",
-          "label": "Présence locale / site faible",
-          "strength": "medium"
-        }
-      ],
-      "icp_label": "E-commerce Premium"
-    },
-    {
-      "id": 14,
-      "domain": "lh5.ggpht.com",
-      "company": "Lh5",
-      "email": null,
-      "phone": null,
-      "tech": "Custom",
-      "perf_mobile": 35,
-      "lcp": "N/A",
-      "issues": [
-        "Site inaccessible ou lent"
-      ],
-      "score": 52,
-      "source": "gmaps",
-      "status": "no_email",
-      "sequence_step": 0,
-      "variant": null,
-      "date_added": "2026-05-28",
-      "date_step1": null,
-      "date_step2": null,
-      "date_step3": null,
-      "replied": 0,
-      "bounced": 0,
-      "notes": null,
-      "next_action": null,
-      "ai_score": 49,
-      "temperature": "cold",
-      "icp_category": "ecommerce_premium",
-      "brand_quality": 15,
-      "intent_signals": [
-        {
-          "type": "low_perf",
-          "label": "Mobile faible 35/100",
-          "strength": "medium"
-        },
-        {
-          "type": "local_poor_web",
-          "label": "Présence locale / site faible",
-          "strength": "medium"
-        }
-      ],
-      "icp_label": "E-commerce Premium"
-    },
-    {
-      "id": 15,
-      "domain": "maps.gstatic.com",
-      "company": "Maps",
-      "email": null,
-      "phone": null,
-      "tech": "Custom",
-      "perf_mobile": 35,
-      "lcp": "N/A",
-      "issues": [
-        "Site inaccessible ou lent"
-      ],
-      "score": 52,
-      "source": "gmaps",
-      "status": "no_email",
-      "sequence_step": 0,
-      "variant": null,
-      "date_added": "2026-05-28",
-      "date_step1": null,
-      "date_step2": null,
-      "date_step3": null,
-      "replied": 0,
-      "bounced": 0,
-      "notes": null,
-      "next_action": null,
-      "ai_score": 49,
-      "temperature": "cold",
-      "icp_category": "ecommerce_premium",
-      "brand_quality": 15,
-      "intent_signals": [
-        {
-          "type": "low_perf",
-          "label": "Mobile faible 35/100",
-          "strength": "medium"
-        },
-        {
-          "type": "local_poor_web",
-          "label": "Présence locale / site faible",
-          "strength": "medium"
-        }
-      ],
-      "icp_label": "E-commerce Premium"
-    },
-    {
-      "id": 16,
-      "domain": "fonts.gstatic.com",
-      "company": "Fonts",
-      "email": null,
-      "phone": null,
-      "tech": "Custom",
-      "perf_mobile": 35,
-      "lcp": "N/A",
-      "issues": [
-        "Site inaccessible ou lent"
-      ],
-      "score": 52,
-      "source": "gmaps",
-      "status": "no_email",
-      "sequence_step": 0,
-      "variant": null,
-      "date_added": "2026-05-28",
-      "date_step1": null,
-      "date_step2": null,
-      "date_step3": null,
-      "replied": 0,
-      "bounced": 0,
-      "notes": null,
-      "next_action": null,
-      "ai_score": 49,
-      "temperature": "cold",
-      "icp_category": "ecommerce_premium",
-      "brand_quality": 15,
-      "intent_signals": [
-        {
-          "type": "low_perf",
-          "label": "Mobile faible 35/100",
-          "strength": "medium"
-        },
-        {
-          "type": "local_poor_web",
-          "label": "Présence locale / site faible",
-          "strength": "medium"
-        }
-      ],
-      "icp_label": "E-commerce Premium"
-    },
-    {
-      "id": 18,
-      "domain": "gstatic.com",
-      "company": "Gstatic",
-      "email": null,
-      "phone": null,
-      "tech": "Custom",
-      "perf_mobile": 35,
-      "lcp": "N/A",
-      "issues": [
-        "Site inaccessible ou lent"
-      ],
-      "score": 52,
-      "source": "gmaps",
-      "status": "no_email",
-      "sequence_step": 0,
-      "variant": null,
-      "date_added": "2026-05-28",
-      "date_step1": null,
-      "date_step2": null,
-      "date_step3": null,
-      "replied": 0,
-      "bounced": 0,
-      "notes": null,
-      "next_action": null,
-      "ai_score": 49,
-      "temperature": "cold",
-      "icp_category": "ecommerce_premium",
-      "brand_quality": 15,
-      "intent_signals": [
-        {
-          "type": "low_perf",
-          "label": "Mobile faible 35/100",
-          "strength": "medium"
-        },
-        {
-          "type": "local_poor_web",
-          "label": "Présence locale / site faible",
-          "strength": "medium"
-        }
-      ],
-      "icp_label": "E-commerce Premium"
-    },
-    {
-      "id": 19,
-      "domain": "streetviewpixels-pa.googleapis.com",
-      "company": "Streetviewpixels pa",
-      "email": null,
-      "phone": null,
-      "tech": "Custom",
-      "perf_mobile": 35,
-      "lcp": "N/A",
-      "issues": [
-        "Site inaccessible ou lent"
-      ],
-      "score": 52,
-      "source": "gmaps",
-      "status": "no_email",
-      "sequence_step": 0,
-      "variant": null,
-      "date_added": "2026-05-28",
-      "date_step1": null,
-      "date_step2": null,
-      "date_step3": null,
-      "replied": 0,
-      "bounced": 0,
-      "notes": null,
-      "next_action": null,
-      "ai_score": 49,
-      "temperature": "cold",
-      "icp_category": "streetwear_premium",
-      "brand_quality": 10,
-      "intent_signals": [
-        {
-          "type": "low_perf",
-          "label": "Mobile faible 35/100",
-          "strength": "medium"
-        },
-        {
-          "type": "local_poor_web",
-          "label": "Présence locale / site faible",
-          "strength": "medium"
-        }
-      ],
-      "icp_label": "Streetwear Premium"
-    },
-    {
-      "id": 20,
-      "domain": "ssl.gstatic.com",
-      "company": "Ssl",
-      "email": null,
-      "phone": null,
-      "tech": "Custom",
-      "perf_mobile": 35,
-      "lcp": "N/A",
-      "issues": [
-        "Site inaccessible ou lent"
-      ],
-      "score": 52,
-      "source": "gmaps",
-      "status": "no_email",
-      "sequence_step": 0,
-      "variant": null,
-      "date_added": "2026-05-28",
-      "date_step1": null,
-      "date_step2": null,
-      "date_step3": null,
-      "replied": 0,
-      "bounced": 0,
-      "notes": null,
-      "next_action": null,
-      "ai_score": 49,
-      "temperature": "cold",
-      "icp_category": "ecommerce_premium",
-      "brand_quality": 15,
-      "intent_signals": [
-        {
-          "type": "low_perf",
-          "label": "Mobile faible 35/100",
-          "strength": "medium"
-        },
-        {
-          "type": "local_poor_web",
-          "label": "Présence locale / site faible",
-          "strength": "medium"
-        }
-      ],
-      "icp_label": "E-commerce Premium"
-    },
-    {
       "id": 27,
       "domain": "bykloe.fr",
       "company": "Bykloe",
       "email": "contact@bykloe.fr",
-      "phone": "08 33 33 33 33",
+      "phone": null,
       "tech": "Custom",
       "perf_mobile": 45,
       "lcp": "~0.2s (estimé)",
@@ -1545,7 +1152,7 @@
       "id": 29,
       "domain": "terredebijoux.com",
       "company": "Terredebijoux",
-      "email": "gerard.manvussat@domaine.com",
+      "email": null,
       "phone": "08 10 30 36 26",
       "tech": "Custom",
       "perf_mobile": 45,
@@ -1555,7 +1162,7 @@
       ],
       "score": 60,
       "source": "ddg",
-      "status": "emailed_1",
+      "status": "no_email",
       "sequence_step": 1,
       "variant": "A",
       "date_added": "2026-05-28",
@@ -1729,47 +1336,6 @@
       "icp_category": "ecommerce_premium",
       "brand_quality": 10,
       "intent_signals": [],
-      "icp_label": "E-commerce Premium"
-    },
-    {
-      "id": 17,
-      "domain": "schema.org",
-      "company": "Schema",
-      "email": null,
-      "phone": null,
-      "tech": "Custom",
-      "perf_mobile": 45,
-      "lcp": "~0.1s (estimé)",
-      "issues": [],
-      "score": 45,
-      "source": "gmaps",
-      "status": "no_email",
-      "sequence_step": 0,
-      "variant": null,
-      "date_added": "2026-05-28",
-      "date_step1": null,
-      "date_step2": null,
-      "date_step3": null,
-      "replied": 0,
-      "bounced": 0,
-      "notes": null,
-      "next_action": null,
-      "ai_score": 36,
-      "temperature": "cold",
-      "icp_category": "ecommerce_premium",
-      "brand_quality": 16,
-      "intent_signals": [
-        {
-          "type": "low_perf",
-          "label": "Mobile faible 45/100",
-          "strength": "medium"
-        },
-        {
-          "type": "local_poor_web",
-          "label": "Présence locale / site faible",
-          "strength": "medium"
-        }
-      ],
       "icp_label": "E-commerce Premium"
     },
     {
