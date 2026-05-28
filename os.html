@@ -23,7 +23,7 @@
   --hot:#DC2626;--hot-dim:rgba(220,38,38,.1);
   --warm:#F59E0B;--warm-dim:rgba(245,158,11,.1);
   --cold:#6B6B6B;--cold-dim:rgba(107,107,107,.12);
-  --sb-w:240px;--top-h:60px;
+  --sb-w:240px;--top-h:64px;
   --radius:14px;--radius2:8px;
   --F:'Inter',-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;
   --Fc:'Bebas Neue','Inter',sans-serif;
@@ -70,16 +70,10 @@ body{font-family:var(--F);background:var(--bg);color:var(--text);
 #app{display:none;height:100vh;width:100vw;position:relative}
 
 /* ══ SIDEBAR ══ */
-#sidebar{position:fixed;left:0;top:0;bottom:0;width:var(--sb-w);
+#sidebar{position:fixed;left:0;top:var(--top-h);bottom:0;width:var(--sb-w);
   background:var(--surface);border-right:1px solid var(--border);
   display:flex;flex-direction:column;z-index:100;
   transition:transform .22s cubic-bezier(.4,0,.2,1)}
-.sb-brand{padding:20px 20px 16px;display:flex;align-items:center;gap:10px;
-  border-bottom:1px solid var(--border)}
-.sb-logo{font-family:var(--Fc);font-size:22px;letter-spacing:.06em;color:var(--text)}
-.sb-tag{font-size:10px;font-weight:700;letter-spacing:.08em;
-  background:var(--accent);color:var(--accent-text);
-  padding:2px 7px;border-radius:4px;text-transform:uppercase}
 .sb-section{padding:20px 20px 6px;font-size:10px;font-weight:700;
   letter-spacing:.12em;color:var(--dim2);text-transform:uppercase}
 .sb-nav{display:flex;flex-direction:column;gap:1px;padding:0 10px}
@@ -107,37 +101,42 @@ body{font-family:var(--F);background:var(--bg);color:var(--text);
 .sb-status{font-size:11.5px;color:var(--dim);margin-bottom:4px}
 .sb-upd{font-size:10px;color:var(--dim2)}
 
-/* ══ TOP BAR (Talseume style) ══ */
-#topbar{position:fixed;left:var(--sb-w);right:0;top:0;height:var(--top-h);
-  background:var(--surface);border-bottom:1px solid var(--border);
-  display:flex;align-items:center;gap:14px;padding:0 24px;z-index:90;
-  transition:left .22s cubic-bezier(.4,0,.2,1)}
-.tb-left{display:flex;align-items:center;gap:14px;flex-shrink:0}
-#sb-toggle{background:transparent;border:none;color:var(--dim);cursor:pointer;
-  font-size:18px;padding:4px;border-radius:6px;transition:color .15s}
-#sb-toggle:hover{color:var(--text)}
-/* Breadcrumb Talseume */
-.bc{font-size:13px;color:var(--dim);letter-spacing:.01em}
-.bc strong{color:var(--text);font-weight:600}
-.bc-sep{color:var(--dim2);margin:0 6px}
-.tb-center{flex:1}
-.tb-search{position:relative;max-width:360px}
-.tb-search input{width:100%;background:var(--bg);border:1px solid var(--border);
-  color:var(--text);padding:8px 14px 8px 36px;border-radius:var(--radius2);font-size:12.5px;
+/* ══ TOP BAR — full width, fond noir (Talseume exact) ══ */
+#topbar{position:fixed;left:0;right:0;top:0;height:var(--top-h);
+  background:#0A0A0A;border-bottom:none;
+  display:flex;align-items:center;gap:0;padding:0;z-index:200}
+/* Zone brand alignée sur la sidebar */
+.tb-brand{display:flex;align-items:center;gap:10px;
+  width:var(--sb-w);min-width:var(--sb-w);padding:0 16px 0 20px;flex-shrink:0;
+  border-right:1px solid rgba(255,255,255,.08)}
+.tb-logo-box{width:30px;height:30px;background:var(--accent);border-radius:7px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--Fc);font-size:17px;color:#0A0A0A;flex-shrink:0}
+.tb-logo-name{font-family:var(--Fc);font-size:18px;letter-spacing:.06em;color:#FAFAF7}
+#sb-toggle{background:transparent;border:none;color:rgba(255,255,255,.45);cursor:pointer;
+  font-size:18px;padding:4px 6px;border-radius:6px;transition:color .15s;margin-left:auto}
+#sb-toggle:hover{color:#FAFAF7}
+.tb-center{flex:1;padding:0 16px;display:flex;align-items:center;gap:10px}
+.tb-search{position:relative;flex:1;max-width:480px}
+.tb-search input{width:100%;background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.12);
+  color:#FAFAF7;padding:8px 14px 8px 36px;border-radius:var(--radius2);font-size:12.5px;
   font-family:inherit;outline:none;transition:border-color .2s}
+.tb-search input::placeholder{color:rgba(255,255,255,.3)}
 .tb-search::before{content:'⌕';position:absolute;left:12px;top:50%;
-  transform:translateY(-50%);color:var(--dim2);font-size:16px;pointer-events:none}
-.tb-search input:focus{border-color:var(--border2)}
-.tb-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
+  transform:translateY(-50%);color:rgba(255,255,255,.3);font-size:16px;pointer-events:none}
+.tb-search input:focus{border-color:rgba(255,255,255,.25)}
+.tb-right{display:flex;align-items:center;gap:8px;flex-shrink:0;padding:0 20px}
 .tb-ai-btn{background:var(--accent);color:var(--accent-text);border:none;padding:8px 16px;
   border-radius:var(--radius2);font-size:11.5px;font-weight:700;font-family:inherit;
   cursor:pointer;display:flex;align-items:center;gap:6px;transition:opacity .15s;
   letter-spacing:.05em;text-transform:uppercase}
 .tb-ai-btn:hover{opacity:.85}
-.tb-icon-btn{background:transparent;border:1px solid var(--border);color:var(--dim);
+.tb-icon-btn{background:transparent;border:1px solid rgba(255,255,255,.15);
+  color:rgba(255,255,255,.55);
   width:36px;height:36px;border-radius:var(--radius2);cursor:pointer;font-size:14px;
   transition:color .15s,border-color .15s;display:flex;align-items:center;justify-content:center}
-.tb-icon-btn:hover{color:var(--text);border-color:var(--border2)}
+.tb-icon-btn:hover{color:#FAFAF7;border-color:rgba(255,255,255,.3)}
 
 /* ══ MAIN CONTENT ══ */
 #content{position:fixed;left:var(--sb-w);right:0;top:var(--top-h);bottom:0;
@@ -354,7 +353,8 @@ body,#sidebar,#topbar,.card,.kpi-card,.stage-header,.stage-body,.seq-step,.cop-i
   :root{--sb-w:0px}
   #sidebar{transform:translateX(-240px);width:240px}
   #sidebar.open{transform:translateX(0);--sb-w:240px}
-  #content,#topbar{left:0}
+  #content{left:0}
+  .tb-brand{width:auto;min-width:auto}
   .two-col,.three-col{grid-template-columns:1fr}
   .kpi-grid{grid-template-columns:repeat(2,1fr)}
 }
@@ -377,11 +377,6 @@ body,#sidebar,#topbar,.card,.kpi-card,.stage-header,.stage-body,.seq-step,.cop-i
 <div id="app">
   <!-- Sidebar -->
   <aside id="sidebar">
-    <div class="sb-brand">
-      <span class="sb-logo">DIKENGA</span>
-      <span class="sb-tag">OS v6</span>
-    </div>
-
     <div class="sb-section">Workspace</div>
     <div class="sb-nav">
       <button class="nav-item active" data-view="overview">
@@ -427,16 +422,18 @@ body,#sidebar,#topbar,.card,.kpi-card,.stage-header,.stage-body,.seq-step,.cop-i
     </div>
   </aside>
 
-  <!-- Top bar (Talseume breadcrumb style) -->
+  <!-- Top bar — full width fond noir (Talseume exact) -->
   <header id="topbar">
-    <div class="tb-left">
-      <button class="tb-icon-btn" id="sb-toggle" onclick="toggleSidebar()">☰</button>
-      <div class="bc">DIKENGA <span class="bc-sep">·</span> <strong id="tb-title">Overview</strong></div>
+    <div class="tb-brand">
+      <span class="tb-logo-box">D</span>
+      <span class="tb-logo-name">DIKENGA</span>
+      <button id="sb-toggle" onclick="toggleSidebar()">☰</button>
     </div>
     <div class="tb-center">
       <div class="tb-search">
-        <input type="text" id="global-search" placeholder="Chercher un prospect, une marque..." autocomplete="off" oninput="onSearch(this.value)">
+        <input type="text" id="global-search" placeholder="Rechercher dans Dikenga OS..." autocomplete="off" oninput="onSearch(this.value)">
       </div>
+      <span id="tb-title" style="display:none"></span>
     </div>
     <div class="tb-right">
       <button class="tb-ai-btn" onclick="toggleCopilot()">✦ AI Copilot</button>
