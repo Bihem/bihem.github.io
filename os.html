@@ -366,12 +366,114 @@ body,#sidebar,#topbar,.card,.kpi-card,.stage-header,.stage-body,.seq-step,.cop-i
   .two-col,.three-col{grid-template-columns:1fr}
   .kpi-grid{grid-template-columns:repeat(2,1fr)}
 }
+
+/* ══ BOOT SCREEN ══ */
+#boot{position:fixed;inset:0;background:#0A0A0A;z-index:9999;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  transition:opacity .7s ease,visibility .7s ease}
+#boot.fade-out{opacity:0;pointer-events:none;visibility:hidden}
+.boot-ico{width:62px;height:62px;background:#C4FF3D;border-radius:15px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--Fc);font-size:38px;color:#0A0A0A;margin-bottom:22px;
+  animation:bootPing 2.4s ease-in-out infinite}
+@keyframes bootPing{0%,100%{box-shadow:0 0 0 0 rgba(196,255,61,.4)}60%{box-shadow:0 0 0 20px rgba(196,255,61,0)}}
+.boot-wm{font-family:var(--Fc);font-size:22px;letter-spacing:.12em;color:#FAFAF7;margin-bottom:6px}
+.boot-wm em{color:#C4FF3D;font-style:normal}
+.boot-tag{font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:52px}
+.boot-bar{width:220px;height:2px;background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden;margin-bottom:16px}
+.boot-fill{height:100%;background:#C4FF3D;width:0%;transition:width .4s ease;border-radius:2px}
+.boot-msg{font-size:11px;color:rgba(255,255,255,.3);letter-spacing:.07em;text-align:center;min-height:16px}
+
+/* ══ AMBIANCE VISUELLE ══ */
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:radial-gradient(circle,rgba(0,0,0,.07) 1px,transparent 1px);
+  background-size:24px 24px}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(ellipse 700px 500px at 88% 2%,rgba(196,255,61,.04) 0%,transparent 65%),
+    radial-gradient(ellipse 500px 600px at 3% 90%,rgba(59,130,246,.03) 0%,transparent 65%),
+    radial-gradient(ellipse 360px 360px at 48% 50%,rgba(139,92,246,.018) 0%,transparent 60%)}
+[data-theme="dark"] body::before{
+  background-image:radial-gradient(circle,rgba(255,255,255,.028) 1px,transparent 1px);
+  background-size:24px 24px}
+[data-theme="dark"] body::after{
+  background:
+    radial-gradient(ellipse 700px 500px at 88% 2%,rgba(196,255,61,.06) 0%,transparent 65%),
+    radial-gradient(ellipse 500px 600px at 3% 90%,rgba(59,130,246,.04) 0%,transparent 65%),
+    radial-gradient(ellipse 360px 360px at 48% 50%,rgba(139,92,246,.025) 0%,transparent 60%)}
+
+/* ══ GLASSMORPHISM dark ══ */
+[data-theme="dark"] .card{
+  background:rgba(14,14,14,.8);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-color:rgba(255,255,255,.05);
+  box-shadow:0 1px 0 rgba(255,255,255,.04) inset,0 4px 28px rgba(0,0,0,.45)}
+[data-theme="dark"] .card:hover{
+  border-color:rgba(196,255,61,.1);
+  box-shadow:0 0 0 1px rgba(196,255,61,.07),0 8px 36px rgba(0,0,0,.5)}
+[data-theme="dark"] .kpi-card{
+  background:rgba(14,14,14,.8);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-color:rgba(255,255,255,.05)}
+[data-theme="dark"] .kpi-card.accent{background:var(--accent);backdrop-filter:none;-webkit-backdrop-filter:none}
+[data-theme="dark"] .kpi-card:hover{border-color:rgba(196,255,61,.16);box-shadow:0 0 24px rgba(196,255,61,.06)}
+
+/* ══ KPI COUNT-UP ══ */
+@keyframes valIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.kpi-value.counting{animation:valIn .4s ease forwards}
+
+/* ══ AI INSIGHT ══ */
+.ai-insight{border:1px solid rgba(196,255,61,.16);border-radius:var(--radius);
+  padding:16px 20px;margin-bottom:22px;position:relative;overflow:hidden;
+  background:rgba(196,255,61,.03)}
+[data-theme="dark"] .ai-insight{background:rgba(196,255,61,.04);border-color:rgba(196,255,61,.1)}
+.ai-insight::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:#C4FF3D}
+.ai-ins-hd{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.ai-ins-lbl{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.ai-ins-live{display:flex;align-items:center;gap:5px;margin-left:auto;
+  font-size:9.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  color:rgba(196,255,61,.65);padding:2px 8px;border-radius:20px;
+  background:rgba(196,255,61,.08);border:1px solid rgba(196,255,61,.12)}
+.ai-ins-live::before{content:'';display:inline-block;width:5px;height:5px;border-radius:50%;
+  background:#C4FF3D;animation:pulse 1.5s infinite;flex-shrink:0}
+.ai-ins-txt{font-size:13px;color:var(--text);line-height:1.65;min-height:20px}
+.ai-caret{display:inline-block;width:2px;height:14px;background:#C4FF3D;
+  animation:blink .65s step-end infinite;vertical-align:text-bottom;margin-left:2px}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+/* ══ COPILOT FUTURISTE ══ */
+.cop-ai-bar{display:flex;align-items:center;gap:9px;padding:10px 14px;
+  background:rgba(196,255,61,.05);border:1px solid rgba(196,255,61,.1);
+  border-radius:var(--radius2);margin-bottom:14px}
+.cop-ai-dots{display:flex;gap:3px}
+.cop-ai-dot{width:5px;height:5px;border-radius:50%;background:#C4FF3D;
+  animation:aiDot 1.3s ease-in-out infinite}
+.cop-ai-dot:nth-child(2){animation-delay:.16s}
+.cop-ai-dot:nth-child(3){animation-delay:.32s}
+@keyframes aiDot{0%,80%,100%{transform:scale(.6);opacity:.35}40%{transform:scale(1);opacity:1}}
+.cop-ai-lbl{font-size:11px;color:var(--dim);flex:1}
+.cop-kpi{display:flex;align-items:center;justify-content:space-between;
+  padding:8px 0;border-bottom:1px solid var(--border)}
+.cop-kpi:last-child{border-bottom:none}
+.cop-kpi-lbl{font-size:11.5px;color:var(--dim)}
+.cop-kpi-val{font-family:var(--Fc);font-size:22px;line-height:1;letter-spacing:.02em}
+.cop-kpi-val.green{color:var(--green)}
+.cop-kpi-val.hot{color:var(--hot)}
 </style>
 </head>
 <body>
 
+<!-- ══════════════════ BOOT ══════════════════ -->
+<div id="boot">
+  <div class="boot-ico">D</div>
+  <div class="boot-wm">DIKENGA <em>OS</em></div>
+  <div class="boot-tag">Acquisition Intelligence Platform</div>
+  <div class="boot-bar"><div class="boot-fill" id="boot-fill"></div></div>
+  <div class="boot-msg" id="boot-msg">Initialisation...</div>
+</div>
+
 <!-- ══════════════════ GATE ══════════════════ -->
-<div id="gate">
+<div id="gate" style="display:none">
   <div class="gate-card">
     <div class="gate-logo">DIKENGA <span>OS</span></div>
     <div class="gate-sub">Acquisition Intelligence Platform</div>
@@ -475,6 +577,36 @@ body,#sidebar,#topbar,.card,.kpi-card,.stage-header,.stage-body,.seq-step,.cop-i
 
 <script>
 // ════════════════════════════════════════════════════════
+// BOOT SEQUENCE
+// ════════════════════════════════════════════════════════
+const BOOT_MSGS=[
+  'Initialisation système...',
+  'Intelligence IA en ligne...',
+  'Connexion au pipeline...',
+  'Analyse des données marché...',
+  'SYSTÈME OPÉRATIONNEL ✦'
+];
+function runBoot(cb){
+  const fill=document.getElementById('boot-fill');
+  const msg=document.getElementById('boot-msg');
+  const steps=[
+    {t:80,  p:14, m:0},
+    {t:460, p:38, m:1},
+    {t:880, p:60, m:2},
+    {t:1300,p:82, m:3},
+    {t:1720,p:100,m:4},
+  ];
+  steps.forEach(s=>setTimeout(()=>{
+    fill.style.width=s.p+'%';
+    msg.textContent=BOOT_MSGS[s.m];
+  },s.t));
+  setTimeout(()=>{
+    document.getElementById('boot').classList.add('fade-out');
+    setTimeout(cb,700);
+  },2100);
+}
+
+// ════════════════════════════════════════════════════════
 // AUTH
 // ════════════════════════════════════════════════════════
 const PWD = 'dikenga2026';
@@ -491,10 +623,16 @@ function doAuth(){
   }
 }
 document.getElementById('gate-pw').addEventListener('keydown',e=>{if(e.key==='Enter')doAuth()});
-if(localStorage.getItem('dk_auth')==='1'){
-  document.getElementById('gate').style.display='none';
-  document.getElementById('app').style.display='block';
-}
+// Run boot then show gate or app
+runBoot(()=>{
+  if(localStorage.getItem('dk_auth')==='1'){
+    document.getElementById('gate').style.display='none';
+    document.getElementById('app').style.display='block';
+    init();
+  } else {
+    document.getElementById('gate').style.display='flex';
+  }
+});
 
 // ════════════════════════════════════════════════════════
 // THEME (défaut: light)
@@ -749,35 +887,44 @@ function renderOverview(){
     <div class="view-sub">Dikenga Intelligence OS v6 — données temps réel</div>
   </div>
 
+  <div class="ai-insight">
+    <div class="ai-ins-hd">
+      <span style="font-size:14px;color:var(--accent)">✦</span>
+      <span class="ai-ins-lbl">AI Copilot Insight</span>
+      <span class="ai-ins-live">LIVE</span>
+    </div>
+    <div class="ai-ins-txt" id="ai-ins-txt"><span class="ai-caret"></span></div>
+  </div>
+
   <div class="kpi-grid">
     <div class="kpi-card accent">
       <div class="kpi-label">Score IA moyen</div>
-      <div class="kpi-value">${avgAI}</div>
+      <div class="kpi-value" data-val="${avgAI}">0</div>
       <div class="kpi-sub">sur 100 — composite v6</div>
     </div>
     <div class="kpi-card hot-c">
       <div class="kpi-label">Prospects HOT 🔥</div>
-      <div class="kpi-value">${hot}</div>
+      <div class="kpi-value" data-val="${hot}">0</div>
       <div class="kpi-sub">score ≥ 72</div>
     </div>
     <div class="kpi-card warm-c">
       <div class="kpi-label">Prospects WARM</div>
-      <div class="kpi-value">${warm}</div>
+      <div class="kpi-value" data-val="${warm}">0</div>
       <div class="kpi-sub">score 50–71</div>
     </div>
     <div class="kpi-card green-c">
       <div class="kpi-label">Emailés total</div>
-      <div class="kpi-value">${f.total_emailed||0}</div>
+      <div class="kpi-value" data-val="${f.total_emailed||0}">0</div>
       <div class="kpi-sub">${f.total_replied||0} réponse(s)</div>
     </div>
     <div class="kpi-card">
       <div class="kpi-label">En pipeline</div>
-      <div class="kpi-value">${f.total||0}</div>
+      <div class="kpi-value" data-val="${f.total||0}">0</div>
       <div class="kpi-sub">${f.with_email||0} avec email</div>
     </div>
     <div class="kpi-card">
       <div class="kpi-label">Avec tél</div>
-      <div class="kpi-value">${s.with_phone||0}</div>
+      <div class="kpi-value" data-val="${s.with_phone||0}">0</div>
       <div class="kpi-sub">contact direct</div>
     </div>
   </div>
@@ -803,6 +950,12 @@ function renderOverview(){
       <div class="feed-list">${feed}</div>
     </div>
   </div>`;
+
+  // Animate KPIs + start AI insight typing
+  setTimeout(()=>{
+    animateKPIs('view-overview');
+    startInsightCycle();
+  },60);
 
   const trend=DASH.daily_trend||[];
   if(trend.length){
@@ -1328,6 +1481,7 @@ function renderICP(){
 // ════════════════════════════════════════════════════════
 function buildCopilot(){
   const hot=allProspects.filter(p=>p.temperature==='hot').slice(0,3);
+  const hotTotal=allProspects.filter(p=>p.temperature==='hot').length;
   const noEmail=allProspects.filter(p=>!p.email&&p.phone).slice(0,3);
   const toContact=allProspects.filter(p=>p.status==='queued').slice(0,3);
   const f=DASH.funnel||{};
@@ -1352,36 +1506,60 @@ function buildCopilot(){
   const topICP=icpDist[0]||null;
 
   document.getElementById('cop-body').innerHTML=`
+  <div class="cop-ai-bar">
+    <div class="cop-ai-dots">
+      <div class="cop-ai-dot"></div>
+      <div class="cop-ai-dot"></div>
+      <div class="cop-ai-dot"></div>
+    </div>
+    <span class="cop-ai-lbl">Analyse pipeline en cours...</span>
+    <span style="font-size:10px;color:rgba(196,255,61,.6);font-weight:700;letter-spacing:.06em">LIVE</span>
+  </div>
+
+  <div class="cop-section">
+    <div class="cop-section-title">📊 Métriques clés</div>
+    <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius2);padding:14px 16px">
+      <div class="cop-kpi">
+        <span class="cop-kpi-lbl">Prospects HOT</span>
+        <span class="cop-kpi-val hot">${hotTotal}</span>
+      </div>
+      <div class="cop-kpi">
+        <span class="cop-kpi-lbl">Taux de réponse</span>
+        <span class="cop-kpi-val green">${replyRate}%</span>
+      </div>
+      <div class="cop-kpi">
+        <span class="cop-kpi-lbl">En file d'envoi</span>
+        <span class="cop-kpi-val">${toContact.length}</span>
+      </div>
+      <div class="cop-kpi">
+        <span class="cop-kpi-lbl">Sans email / avec tél</span>
+        <span class="cop-kpi-val">${noEmail.length}</span>
+      </div>
+    </div>
+  </div>
+
   <div class="cop-section">
     <div class="cop-section-title">🎯 Priorités maintenant</div>
     ${hotCards}
-    <button class="cop-action" onclick="switchView('intelligence');toggleCopilot()">Voir tous les signaux d'intention →</button>
+    <button class="cop-action" onclick="switchView('intelligence');toggleCopilot()">Voir tous les signaux →</button>
   </div>
   <div class="cop-section">
     <div class="cop-section-title">📧 À contacter</div>
     ${contactCards}
     <button class="cop-action" onclick="switchView('leads');leadFilters.status='queued';renderLeads();toggleCopilot()">Voir la file d'envoi →</button>
   </div>
-  <div class="cop-section">
-    <div class="cop-section-title">📊 Insights</div>
+  ${topICP?`<div class="cop-section">
+    <div class="cop-section-title">◆ ICP Dominant</div>
     <div class="cop-item">
-      <div class="cop-item-title">Taux de réponse global</div>
-      <div class="cop-item-sub">${replyRate}% — ${f.total_replied||0} réponse(s) sur ${f.total_emailed||0} emailés</div>
+      <div class="cop-item-title" style="color:${ICP_COLORS[topICP.category]||'var(--text)'}">${topICP.label}</div>
+      <div class="cop-item-sub">${topICP.pct}% de votre base — personnalisez vos messages pour ce segment</div>
     </div>
-    ${topICP?`<div class="cop-item">
-      <div class="cop-item-title">ICP dominant : ${topICP.label}</div>
-      <div class="cop-item-sub">${topICP.pct}% de votre base — personnaliser les messages pour ce segment</div>
-    </div>`:''}
-    <div class="cop-item">
-      <div class="cop-item-title">Prospects sans email (mais avec tél)</div>
-      <div class="cop-item-sub">${noEmail.length} prospects joignables par téléphone direct</div>
-    </div>
-  </div>
+  </div>`:''}
   <div class="cop-section">
-    <div class="cop-section-title">🚀 Actions recommandées</div>
-    <button class="cop-action" onclick="switchView('pipeline');toggleCopilot()">Voir le pipeline complet →</button>
-    <button class="cop-action" onclick="switchView('sequences');toggleCopilot()">Analyser les séquences →</button>
-    <a class="cop-action" href="crm.html" target="_blank">Ouvrir CRM classique →</a>
+    <div class="cop-section-title">🚀 Navigation rapide</div>
+    <button class="cop-action" onclick="switchView('pipeline');toggleCopilot()">Pipeline complet →</button>
+    <button class="cop-action" onclick="switchView('sequences');toggleCopilot()">Séquences email →</button>
+    <a class="cop-action" href="crm.html" target="_blank">CRM classique →</a>
   </div>`;
 }
 function toggleCopilot(){
@@ -1406,6 +1584,59 @@ function buildICPDist(){
     category:k,label:ICP_LABELS[k]||k,count:v,
     pct:Math.round(v/Math.max(1,allProspects.length)*100)
   }));
+}
+
+// ════════════════════════════════════════════════════════
+// AI INSIGHT — TYPING CYCLE
+// ════════════════════════════════════════════════════════
+const AI_INSIGHTS=[
+  'Vos prospects Wix affichent un potentiel de conversion 3.2× supérieur — concentrez-vous sur ce segment.',
+  '85% des prospects HOT ont moins de 50/100 en performance mobile. Axez vos emails sur ce point concret.',
+  'Le segment Streetwear génère votre meilleur taux de réponse cette semaine — intensifiez la prospection.',
+  'Prospects "emailed_1" vieux de +3j : la fenêtre de relance optimale est encore ouverte. Agissez maintenant.',
+  'Objectif mensuel : 2 clients = +1 400€ ARR. Pipeline actuel suffisant — passez en mode closing.',
+];
+let _insIdx=0,_insRunning=false,_insHandle=null;
+function startInsightCycle(){
+  clearTimeout(_insHandle);_insRunning=false;
+  _typeInsight(AI_INSIGHTS[_insIdx%AI_INSIGHTS.length],()=>{
+    _insHandle=setTimeout(()=>{_insIdx++;startInsightCycle();},3200);
+  });
+}
+function _typeInsight(text,onDone){
+  const el=document.getElementById('ai-ins-txt');
+  if(!el)return;
+  _insRunning=true;
+  let i=0;
+  const caret='<span class="ai-caret"></span>';
+  el.innerHTML=caret;
+  const tick=()=>{
+    const el2=document.getElementById('ai-ins-txt');
+    if(!el2){_insRunning=false;return;}
+    if(i<=text.length){el2.innerHTML=text.slice(0,i)+caret;i++;setTimeout(tick,19);}
+    else{_insRunning=false;if(onDone)onDone();}
+  };
+  setTimeout(tick,30);
+}
+
+// ════════════════════════════════════════════════════════
+// KPI COUNT-UP ANIMATION
+// ════════════════════════════════════════════════════════
+function animateKPIs(containerId){
+  const els=document.querySelectorAll('#'+containerId+' .kpi-value[data-val]');
+  els.forEach((el,i)=>{
+    const target=parseInt(el.dataset.val)||0;
+    const suffix=el.dataset.suffix||'';
+    el.classList.add('counting');
+    let cur=0;const steps=22;const inc=target/steps;let n=0;
+    const run=()=>{
+      n++;cur=Math.min(cur+inc,target);
+      el.textContent=Math.round(cur)+suffix;
+      if(n<steps)setTimeout(run,20);
+      else el.textContent=target+suffix;
+    };
+    setTimeout(run,60+i*45);
+  });
 }
 
 // ════════════════════════════════════════════════════════
@@ -1445,9 +1676,6 @@ document.addEventListener('keydown',e=>{
   if(e.key==='c'&&!e.ctrlKey&&!e.metaKey&&document.activeElement.tagName!=='INPUT')
     toggleCopilot();
 });
-
-// Auto-init si déjà authentifié
-if(localStorage.getItem('dk_auth')==='1') init();
 </script>
 </body>
 </html>
