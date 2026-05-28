@@ -313,6 +313,7 @@ tr:hover td{background:rgba(255,255,255,.02)}
 .badge-no_email{background:var(--bg);color:var(--dim);border:1px solid var(--border)}
 .badge-low_score{background:var(--bg);color:var(--dim2);border:1px solid var(--border)}
 .badge-optout{background:var(--red-dim);color:var(--red);border:1px solid rgba(220,38,38,.15);opacity:.7}
+.badge-error{background:var(--red-dim);color:var(--red);border:1px solid rgba(220,38,38,.2)}
 .badge-icp{background:var(--bg);color:var(--dim);border:1px solid var(--border);font-size:12.5px}
 .tech-tag{background:var(--bg);border:1px solid var(--border);padding:2px 8px;
   border-radius:4px;font-size:11px;color:var(--dim)}
@@ -599,13 +600,11 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
       <button class="nav-item" data-view="icp">
         <span class="nav-ico">◆</span> ICP Manager
       </button>
-      <button class="nav-item" onclick="window.open('crm.html','_blank')">
+      <button class="nav-item" data-view="leads" onclick="switchView('leads')">
         <span class="nav-ico">☰</span> CRM Classique
-        <span class="nav-ext">↗</span>
       </button>
-      <button class="nav-item" onclick="window.open('pipeline.html','_blank')">
+      <button class="nav-item" data-view="analytics" onclick="switchView('analytics')">
         <span class="nav-ico">◫</span> Dashboard
-        <span class="nav-ext">↗</span>
       </button>
     </div>
 
@@ -805,8 +804,16 @@ async function loadData(){
     const upd=new Date(c.updated_at);
     document.getElementById('sb-upd').textContent='Màj '+upd.toLocaleTimeString('fr',{hour:'2-digit',minute:'2-digit'});
     dataLoaded=true;
+    // Refresh AI insights avec données réelles
+    if(typeof buildDynamicInsights==='function'){
+      AI_INSIGHTS.length=0;
+      buildDynamicInsights().forEach(i=>AI_INSIGHTS.push(i));
+    }
   } catch(e){
     console.error('Load error',e);
+    // Afficher message d'erreur visible
+    const c=document.getElementById('content');
+    if(c)c.innerHTML='<div style="padding:48px 32px;text-align:center"><div style="font-size:32px;margin-bottom:16px">⚠️</div><div style="font-size:18px;color:var(--text);margin-bottom:8px">Erreur de chargement des données</div><div style="font-size:14px;color:var(--dim)">Vérifiez que crm-data.json et pipeline-data.json sont accessibles.</div><button onclick="location.reload()" style="margin-top:24px;padding:10px 24px;border-radius:100px;background:var(--text);color:var(--bg);border:none;cursor:pointer;font-size:14px;font-weight:600">Réessayer</button></div>';
   }
 }
 
@@ -1209,10 +1216,10 @@ function showToast(msg){
 // ════════════════════════════════════════════════════════
 function exportCSV(prospects){
   if(!prospects||!prospects.length){alert('Aucun prospect à exporter.');return;}
-  const cols=['domain','brand','temperature','ai_score','icp_category','source',
-    'email','status','phone','platform','notes'];
-  const headers=['Domaine','Marque','Température','Score IA','ICP','Source',
-    'Email','Statut','Téléphone','Plateforme','Notes'];
+  const cols=['domain','company','temperature','ai_score','icp_category','source',
+    'email','status','phone','tech','notes'];
+  const headers=['Domaine','Société','Température','Score IA','ICP','Source',
+    'Email','Statut','Téléphone','Tech','Notes'];
   const rows=[headers.join(',')];
   prospects.forEach(p=>{
     const row=cols.map(k=>{
@@ -1326,7 +1333,7 @@ function renderPipeline(){
       </div>
       <div>
         <div style="margin-bottom:12px;font-size:13px;color:var(--dim)">Top 5 prospects par score</div>
-        ${allProspects.slice(0,5).map((p,i)=>`
+        ${[...allProspects].sort((a,b)=>b.ai_score-a.ai_score).slice(0,5).map((p,i)=>`
           <div style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--border)">
             <span style="font-size:10px;color:var(--dim2);width:16px">#${i+1}</span>
             <span style="flex:1;font-size:12.5px;font-weight:500">${p.domain}</span>
@@ -1654,7 +1661,9 @@ function renderICP(){
 function buildCopilot(){
   const hot=allProspects.filter(p=>p.temperature==='hot').slice(0,3);
   const hotTotal=allProspects.filter(p=>p.temperature==='hot').length;
-  const noEmail=allProspects.filter(p=>!p.email&&p.phone).slice(0,3);
+  const noEmailList=allProspects.filter(p=>!p.email&&p.phone);
+  const noEmail=noEmailList.slice(0,3);
+  const noEmailTotal=noEmailList.length;
   const toContact=allProspects.filter(p=>p.status==='queued').slice(0,3);
   const f=DASH.funnel||{};
   const replyRate=f.total_emailed?((f.total_replied||0)/f.total_emailed*100).toFixed(1):0;
@@ -1705,7 +1714,7 @@ function buildCopilot(){
       </div>
       <div class="cop-kpi">
         <span class="cop-kpi-lbl">Sans email / avec tél</span>
-        <span class="cop-kpi-val">${noEmail.length}</span>
+        <span class="cop-kpi-val">${noEmailTotal}</span>
       </div>
     </div>
   </div>
@@ -1731,7 +1740,7 @@ function buildCopilot(){
     <div class="cop-section-title">🚀 Navigation rapide</div>
     <button class="cop-action" onclick="switchView('pipeline');toggleCopilot()">Pipeline complet →</button>
     <button class="cop-action" onclick="switchView('sequences');toggleCopilot()">Séquences email →</button>
-    <a class="cop-action" href="crm.html" target="_blank">CRM classique →</a>
+    <button class="cop-action" onclick="switchView('leads');toggleCopilot()">CRM classique →</button>
   </div>`;
 }
 function toggleCopilot(){
@@ -1761,13 +1770,69 @@ function buildICPDist(){
 // ════════════════════════════════════════════════════════
 // AI INSIGHT — TYPING CYCLE
 // ════════════════════════════════════════════════════════
-const AI_INSIGHTS=[
-  'Vos prospects Wix affichent un potentiel de conversion 3.2× supérieur — concentrez-vous sur ce segment.',
-  '85% des prospects HOT ont moins de 50/100 en performance mobile. Axez vos emails sur ce point concret.',
-  'Le segment Streetwear génère votre meilleur taux de réponse cette semaine — intensifiez la prospection.',
-  'Prospects "emailed_1" vieux de +3j : la fenêtre de relance optimale est encore ouverte. Agissez maintenant.',
-  'Objectif mensuel : 2 clients = +1 400€ ARR. Pipeline actuel suffisant — passez en mode closing.',
-];
+function buildDynamicInsights(){
+  const ps=allProspects;
+  const total=ps.length;
+  const hot=ps.filter(p=>p.temperature==='hot');
+  const warm=ps.filter(p=>p.temperature==='warm');
+  const emailed=ps.filter(p=>p.status&&p.status.startsWith('emailed'));
+  const noEmail=ps.filter(p=>!p.email);
+  const withPhone=ps.filter(p=>!p.email&&p.phone);
+  const bounced=ps.filter(p=>p.bounced);
+  const f=DASH.funnel||{};
+  const replyRate=f.total_emailed?((f.total_replied||0)/f.total_emailed*100).toFixed(1):0;
+
+  // Tech dominante
+  const techCount={};
+  ps.forEach(p=>{if(p.tech)techCount[p.tech]=(techCount[p.tech]||0)+1});
+  const topTech=Object.entries(techCount).sort((a,b)=>b[1]-a[1])[0];
+
+  // Prospects avec relance possible (emailed_1, next_action dans le passé ou prochain)
+  const today=new Date().toISOString().slice(0,10);
+  const toRelance=emailed.filter(p=>p.next_action&&p.next_action<=today&&!p.replied&&!p.bounced);
+
+  // Score moyen
+  const avgScore=ps.length?Math.round(ps.reduce((s,p)=>s+(p.ai_score||0),0)/ps.length):0;
+
+  const insights=[];
+
+  if(hot.length>0){
+    insights.push(`${hot.length} prospect${hot.length>1?'s':''} HOT identifié${hot.length>1?'s':''} — ${hot[0].domain} (score ${hot[0].ai_score}) est votre cible prioritaire. Agissez maintenant.`);
+  }
+
+  if(toRelance.length>0){
+    insights.push(`${toRelance.length} prospect${toRelance.length>1?'s ont':' a'} atteint la fenêtre de relance J+3 — ${toRelance[0].domain} en tête. Le taux de réponse double sur la relance.`);
+  }
+
+  if(withPhone.length>0){
+    insights.push(`${withPhone.length} prospect${withPhone.length>1?'s ont':' a'} un téléphone mais pas d'email — ${withPhone[0].domain} en priorité. Un appel direct peut convertir là où l'email échoue.`);
+  }
+
+  if(topTech&&topTech[1]>2){
+    const pct=Math.round(topTech[1]/total*100);
+    insights.push(`${pct}% de vos prospects utilisent ${topTech[0]}. Personnalisez vos emails avec un audit ${topTech[0]} pour maximiser la pertinence.`);
+  }
+
+  if(noEmail.length>0){
+    const pct=Math.round(noEmail.length/total*100);
+    insights.push(`${pct}% des prospects (${noEmail.length}) n'ont pas d'email trouvé. Enrichissement manuel ou outil de scraping pour débloquer ${warm.length} prospects WARM dormants.`);
+  }
+
+  if(bounced.length>0){
+    insights.push(`${bounced.length} email${bounced.length>1?'s ont':' a'} bouncé — vérifier la validité des contacts avant relance. Un bounce nuit à votre réputation d'expéditeur.`);
+  }
+
+  if(emailed.length>0&&replyRate==0){
+    insights.push(`${emailed.length} emails envoyés, 0 réponse. Testez un objet d'email orienté douleur client : "Votre site perd des ventes sur mobile" convertit 3× mieux.`);
+  }
+
+  if(avgScore>0){
+    insights.push(`Score IA moyen : ${avgScore}/100. Concentrez vos efforts sur les ${warm.length} prospects WARM — ils ont le potentiel ROI le plus élevé cette semaine.`);
+  }
+
+  return insights.length?insights:['Chargement des insights en cours...'];
+}
+const AI_INSIGHTS=buildDynamicInsights();
 let _insIdx=0,_insRunning=false,_insHandle=null;
 function startInsightCycle(){
   clearTimeout(_insHandle);_insRunning=false;
