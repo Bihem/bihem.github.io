@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dikenga Acquisition OS</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+/* ── Tokens dark ── */
+:root{
+  --bg:#08080a;--sidebar:#0e0e12;--card:#131318;--card2:#18181f;
+  --border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.1);
+  --text:#f0f0f5;--dim:rgba(240,240,245,0.45);--dim2:rgba(240,240,245,0.28);
+  --surface:rgba(255,255,255,0.055);--surface2:rgba(255,255,255,0.03);
+  --accent:#6366f1;--accent-dim:rgba(99,102,241,0.18);--accent-glow:rgba(99,102,241,0.3);
+  --green:#22c55e;--green-dim:rgba(34,197,94,0.15);
+  --orange:#f59e0b;--orange-dim:rgba(245,158,11,0.15);
+  --red:#ef4444;--red-dim:rgba(239,68,68,0.15);
+  --blue:#3b82f6;--blue-dim:rgba(59,130,246,0.15);
+  --hot:#f43f5e;--hot-dim:rgba(244,63,94,0.14);
+  --warm:#f59e0b;--warm-dim:rgba(245,158,11,0.13);
+  --cold:#64748b;--cold-dim:rgba(100,116,139,0.18);
+  --sb-w:220px;--top-h:56px;
+  --radius:10px;--radius2:7px;
+}
+[data-theme="light"]{
+  --bg:#f1f1f6;--sidebar:#ffffff;--card:#ffffff;--card2:#f6f6fb;
+  --border:rgba(0,0,0,0.07);--border2:rgba(0,0,0,0.13);
+  --text:#0f0f14;--dim:rgba(15,15,20,0.48);--dim2:rgba(15,15,20,0.3);
+  --surface:rgba(0,0,0,0.045);--surface2:rgba(0,0,0,0.025);
+  --accent:#4f46e5;--accent-dim:rgba(79,70,229,0.1);--accent-glow:rgba(79,70,229,0.2);
+  --green:#16a34a;--green-dim:rgba(22,163,74,0.1);
+  --orange:#d97706;--orange-dim:rgba(217,119,6,0.1);
+  --red:#dc2626;--red-dim:rgba(220,38,38,0.1);
+  --blue:#2563eb;--blue-dim:rgba(37,99,235,0.1);
+  --hot:#e11d48;--hot-dim:rgba(225,29,72,0.09);
+  --warm:#d97706;--warm-dim:rgba(217,119,6,0.09);
+  --cold:#475569;--cold-dim:rgba(71,85,105,0.12);
+}
+
+body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--text);
+  font-size:13.5px;line-height:1.5;overflow:hidden;height:100vh}
+
+/* ══ GATE ══ */
+#gate{position:fixed;inset:0;background:var(--bg);display:flex;
+  align-items:center;justify-content:center;z-index:999;
+  transition:opacity .3s}
+.gate-card{background:var(--card);border:1px solid var(--border2);
+  border-radius:18px;padding:52px 44px 44px;width:340px;text-align:center;
+  box-shadow:0 24px 80px rgba(0,0,0,.5)}
+.gate-logo{font-size:22px;font-weight:700;letter-spacing:.08em;margin-bottom:4px}
+.gate-logo span{color:var(--accent)}
+.gate-sub{font-size:12px;color:var(--dim);margin-bottom:32px;letter-spacing:.04em}
+#gate-pw{width:100%;background:var(--surface);border:1px solid var(--border2);
+  color:var(--text);padding:12px 14px;border-radius:var(--radius2);font-size:14px;
+  font-family:inherit;outline:none;text-align:center;letter-spacing:.1em;
+  margin-bottom:12px;transition:border-color .2s}
+#gate-pw:focus{border-color:var(--accent)}
+#gate-btn{width:100%;background:var(--accent);color:#fff;border:none;padding:13px;
+  border-radius:var(--radius2);font-size:14px;font-weight:600;font-family:inherit;
+  cursor:pointer;transition:opacity .15s}
+#gate-btn:hover{opacity:.88}
+.gate-err{font-size:12px;color:var(--red);margin-top:10px;min-height:16px}
+
+/* ══ APP LAYOUT ══ */
+#app{display:none;height:100vh;width:100vw;position:relative}
+
+/* ══ SIDEBAR ══ */
+#sidebar{position:fixed;left:0;top:0;bottom:0;width:var(--sb-w);
+  background:var(--sidebar);border-right:1px solid var(--border);
+  display:flex;flex-direction:column;z-index:100;
+  transition:transform .22s cubic-bezier(.4,0,.2,1)}
+.sb-brand{padding:20px 18px 14px;display:flex;align-items:center;gap:8px;
+  border-bottom:1px solid var(--border)}
+.sb-logo{font-size:15px;font-weight:700;letter-spacing:.1em;color:var(--text)}
+.sb-tag{font-size:10px;font-weight:600;letter-spacing:.12em;color:var(--accent);
+  background:var(--accent-dim);border:1px solid var(--accent-glow);
+  padding:2px 7px;border-radius:20px}
+.sb-section{padding:20px 10px 6px;font-size:10px;font-weight:600;
+  letter-spacing:.1em;color:var(--dim2);text-transform:uppercase}
+.sb-nav{display:flex;flex-direction:column;gap:2px;padding:0 8px}
+.nav-item{display:flex;align-items:center;gap:10px;padding:9px 10px;
+  border-radius:var(--radius2);cursor:pointer;border:none;background:transparent;
+  color:var(--dim);font-size:13px;font-family:inherit;font-weight:400;
+  text-align:left;width:100%;transition:background .15s,color .15s;position:relative}
+.nav-item:hover{background:var(--surface);color:var(--text)}
+.nav-item.active{background:var(--accent-dim);color:var(--accent);font-weight:500}
+.nav-item.active .nav-ico{color:var(--accent)}
+.nav-ico{font-size:15px;width:18px;text-align:center;flex-shrink:0;opacity:.8}
+.nav-badge{margin-left:auto;font-size:10px;font-weight:600;
+  background:var(--surface);color:var(--dim);
+  padding:1px 6px;border-radius:20px;font-family:'DM Mono',monospace}
+.nav-badge.hot-badge{background:var(--hot-dim);color:var(--hot)}
+.nav-ext{margin-left:auto;font-size:11px;color:var(--dim2)}
+.sb-footer{margin-top:auto;padding:14px 18px;border-top:1px solid var(--border)}
+.live-dot{display:inline-block;width:7px;height:7px;border-radius:50%;
+  background:var(--green);margin-right:7px;
+  animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.sb-status{font-size:11.5px;color:var(--dim);margin-bottom:4px}
+.sb-upd{font-size:10px;color:var(--dim2)}
+
+/* ══ TOP BAR ══ */
+#topbar{position:fixed;left:var(--sb-w);right:0;top:0;height:var(--top-h);
+  background:var(--bg);border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:12px;padding:0 20px;z-index:90}
+.tb-left{display:flex;align-items:center;gap:12px;flex-shrink:0}
+#sb-toggle{background:transparent;border:none;color:var(--dim);cursor:pointer;
+  font-size:18px;padding:4px;border-radius:6px;transition:color .15s}
+#sb-toggle:hover{color:var(--text)}
+.tb-breadcrumb{font-size:14px;font-weight:500;color:var(--text)}
+.tb-center{flex:1;max-width:420px;margin:0 auto}
+.tb-search{position:relative}
+.tb-search input{width:100%;background:var(--surface);border:1px solid var(--border);
+  color:var(--text);padding:8px 14px 8px 36px;border-radius:8px;font-size:13px;
+  font-family:inherit;outline:none;transition:border-color .2s}
+.tb-search::before{content:'⌕';position:absolute;left:12px;top:50%;
+  transform:translateY(-50%);color:var(--dim2);font-size:16px;pointer-events:none}
+.tb-search input:focus{border-color:var(--border2)}
+.tb-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.tb-ai-btn{background:var(--accent);color:#fff;border:none;padding:8px 14px;
+  border-radius:var(--radius2);font-size:12.5px;font-weight:600;font-family:inherit;
+  cursor:pointer;display:flex;align-items:center;gap:6px;transition:opacity .15s}
+.tb-ai-btn:hover{opacity:.88}
+.tb-icon-btn{background:transparent;border:1px solid var(--border);color:var(--dim);
+  width:34px;height:34px;border-radius:var(--radius2);cursor:pointer;font-size:14px;
+  transition:color .15s,border-color .15s;display:flex;align-items:center;justify-content:center}
+.tb-icon-btn:hover{color:var(--text);border-color:var(--border2)}
+
+/* ══ MAIN CONTENT ══ */
+#content{position:fixed;left:var(--sb-w);right:0;top:var(--top-h);bottom:0;
+  overflow-y:auto;overflow-x:hidden;padding:24px 28px 40px;
+  transition:left .22s cubic-bezier(.4,0,.2,1)}
+.view{display:none}
+.view.active{display:block}
+.view-header{margin-bottom:22px}
+.view-title{font-size:22px;font-weight:600;margin-bottom:4px}
+.view-sub{font-size:13px;color:var(--dim)}
+
+/* ══ KPI GRID ══ */
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-bottom:22px}
+.kpi-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:18px 20px 16px;transition:border-color .2s}
+.kpi-card:hover{border-color:var(--border2)}
+.kpi-label{font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--dim2);margin-bottom:10px}
+.kpi-value{font-size:32px;font-weight:600;font-family:'DM Mono',monospace;line-height:1;margin-bottom:6px}
+.kpi-sub{font-size:11.5px;color:var(--dim)}
+.kpi-card.accent .kpi-value{color:var(--accent)}
+.kpi-card.hot-c .kpi-value{color:var(--hot)}
+.kpi-card.warm-c .kpi-value{color:var(--warm)}
+.kpi-card.green-c .kpi-value{color:var(--green)}
+
+/* ══ CARDS ══ */
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+.card-title{font-size:13px;font-weight:600;margin-bottom:16px;color:var(--dim);
+  letter-spacing:.03em;text-transform:uppercase;font-size:11px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:16px}
+
+/* ══ TABLE ══ */
+.tbl-wrap{overflow-x:auto;border-radius:var(--radius);border:1px solid var(--border)}
+table{width:100%;border-collapse:collapse;background:var(--card)}
+th{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--dim2);padding:10px 14px;text-align:left;
+  border-bottom:1px solid var(--border);white-space:nowrap;cursor:pointer;
+  user-select:none;transition:color .15s}
+th:hover{color:var(--dim)}
+th.sort-asc::after{content:' ↑';color:var(--accent)}
+th.sort-desc::after{content:' ↓';color:var(--accent)}
+td{padding:9px 14px;border-bottom:1px solid var(--border);font-size:13px;
+  vertical-align:middle;white-space:nowrap}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--surface2)}
+.domain-cell{font-weight:500;max-width:160px;overflow:hidden;text-overflow:ellipsis}
+.domain-link{color:var(--text);text-decoration:none;transition:color .15s}
+.domain-link:hover{color:var(--accent)}
+
+/* ══ AI SCORE BAR ══ */
+.score-wrap{display:flex;align-items:center;gap:8px;min-width:110px}
+.score-num{font-family:'DM Mono',monospace;font-size:13px;font-weight:500;
+  width:26px;text-align:right;flex-shrink:0}
+.score-bar-bg{flex:1;height:6px;border-radius:3px;background:var(--surface);overflow:hidden}
+.score-bar-fill{height:100%;border-radius:3px;transition:width .4s}
+
+/* ══ BADGES ══ */
+.badge{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;
+  border-radius:20px;font-size:11px;font-weight:500;white-space:nowrap}
+.badge-hot{background:var(--hot-dim);color:var(--hot);border:1px solid rgba(244,63,94,.2)}
+.badge-warm{background:var(--warm-dim);color:var(--warm);border:1px solid rgba(245,158,11,.2)}
+.badge-cold{background:var(--cold-dim);color:var(--cold);border:1px solid rgba(100,116,139,.2)}
+.badge-queued{background:rgba(99,102,241,.12);color:var(--accent);border:1px solid rgba(99,102,241,.2)}
+.badge-emailed{background:var(--blue-dim);color:var(--blue);border:1px solid rgba(59,130,246,.2)}
+.badge-replied{background:var(--green-dim);color:var(--green);border:1px solid rgba(34,197,94,.2)}
+.badge-bounced{background:var(--red-dim);color:var(--red);border:1px solid rgba(239,68,68,.2)}
+.badge-no_email{background:var(--surface);color:var(--dim);border:1px solid var(--border)}
+.badge-low_score{background:var(--surface);color:var(--dim2);border:1px solid var(--border)}
+.badge-optout{background:var(--red-dim);color:var(--red);border:1px solid rgba(239,68,68,.15);opacity:.7}
+.badge-icp{background:var(--surface);color:var(--dim);border:1px solid var(--border);font-size:10.5px}
+.tech-tag{background:var(--surface);border:1px solid var(--border);padding:2px 8px;
+  border-radius:4px;font-size:11.5px;color:var(--dim)}
+
+/* ══ INTENT SIGNAL ══ */
+.signal-pill{display:inline-flex;align-items:center;gap:5px;
+  padding:2px 8px;border-radius:20px;font-size:11px}
+.signal-high{background:var(--hot-dim);color:var(--hot);border:1px solid rgba(244,63,94,.18)}
+.signal-medium{background:var(--orange-dim);color:var(--orange);border:1px solid rgba(245,158,11,.18)}
+.signal-low{background:var(--surface);color:var(--dim);border:1px solid var(--border)}
+
+/* ══ PIPELINE STAGES ══ */
+.stages-wrap{display:flex;gap:10px;overflow-x:auto;padding-bottom:8px;margin-bottom:20px}
+.stage-col{min-width:180px;flex-shrink:0}
+.stage-header{padding:8px 12px;border-radius:var(--radius2) var(--radius2) 0 0;
+  border:1px solid var(--border);border-bottom:none;font-size:11px;font-weight:600;
+  letter-spacing:.04em;display:flex;justify-content:space-between;align-items:center}
+.stage-count{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;
+  padding:1px 7px;border-radius:20px;background:var(--surface)}
+.stage-body{background:var(--card);border:1px solid var(--border);border-radius:0 0 var(--radius2) var(--radius2);
+  padding:8px;min-height:80px;display:flex;flex-direction:column;gap:6px}
+.stage-card{background:var(--surface);border:1px solid var(--border);border-radius:6px;
+  padding:8px 10px;font-size:12px}
+.stage-card-domain{font-weight:500;margin-bottom:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.stage-card-meta{font-size:10.5px;color:var(--dim)}
+
+/* ══ FUNNEL ══ */
+.funnel-wrap{display:flex;flex-direction:column;gap:4px}
+.funnel-row{display:flex;align-items:center;gap:10px}
+.funnel-label{width:90px;font-size:11.5px;color:var(--dim);text-align:right;flex-shrink:0}
+.funnel-bar-wrap{flex:1;background:var(--surface);border-radius:4px;height:22px;overflow:hidden}
+.funnel-bar{height:100%;border-radius:4px;display:flex;align-items:center;
+  padding-left:10px;font-size:11px;font-weight:500;transition:width .5s}
+.funnel-n{font-family:'DM Mono',monospace;font-size:11.5px;width:32px;
+  text-align:right;flex-shrink:0;color:var(--dim)}
+
+/* ══ ICP DISTRIBUTION ══ */
+.icp-bar{display:flex;flex-direction:column;gap:8px}
+.icp-row{display:flex;align-items:center;gap:10px}
+.icp-label{width:150px;font-size:12px;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.icp-bg{flex:1;background:var(--surface);border-radius:3px;height:6px}
+.icp-fill{height:100%;border-radius:3px;background:var(--accent)}
+.icp-pct{width:30px;text-align:right;font-size:11.5px;color:var(--dim);
+  font-family:'DM Mono',monospace}
+
+/* ══ ACTIVITY FEED ══ */
+.feed-list{display:flex;flex-direction:column;gap:0}
+.feed-item{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--border)}
+.feed-item:last-child{border-bottom:none}
+.feed-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.feed-body{flex:1;min-width:0}
+.feed-main{font-size:13px;margin-bottom:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.feed-meta{font-size:11px;color:var(--dim2)}
+
+/* ══ CHART CONTAINERS ══ */
+.chart-wrap{position:relative;width:100%;height:200px}
+.chart-wrap-lg{position:relative;width:100%;height:260px}
+
+/* ══ FILTERS BAR ══ */
+.filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.filter-bar select,.filter-bar input{background:var(--card);border:1px solid var(--border);
+  color:var(--text);padding:7px 12px;border-radius:var(--radius2);font-size:12.5px;
+  font-family:inherit;outline:none;transition:border-color .2s;cursor:pointer}
+.filter-bar select:focus,.filter-bar input:focus{border-color:var(--border2)}
+.filter-bar input{min-width:220px}
+.filter-count{font-size:12px;color:var(--dim);align-self:center;margin-left:auto}
+
+/* ══ COPY CELL ══ */
+.copy-cell{display:flex;align-items:center;gap:6px;cursor:pointer;max-width:180px}
+.copy-cell:hover .copy-ico{opacity:1}
+.copy-ico{opacity:0;transition:opacity .15s;font-size:12px;color:var(--accent)}
+.copy-cell.copied .copy-ico::before{content:'✓'}
+.copy-cell.copied .copy-ico{opacity:1;color:var(--green)}
+
+/* ══ SEQUENCES ══ */
+.seq-flow{display:flex;gap:0;align-items:stretch;margin-bottom:20px;flex-wrap:wrap}
+.seq-step{flex:1;min-width:160px;background:var(--card);border:1px solid var(--border);
+  padding:16px;position:relative}
+.seq-step:not(:last-child)::after{content:'→';position:absolute;right:-12px;top:50%;
+  transform:translateY(-50%);color:var(--dim2);font-size:16px;z-index:1}
+.seq-step:first-child{border-radius:var(--radius) 0 0 var(--radius)}
+.seq-step:last-child{border-radius:0 var(--radius) var(--radius) 0}
+.seq-step-num{font-size:10px;font-weight:700;letter-spacing:.08em;color:var(--dim2);
+  text-transform:uppercase;margin-bottom:6px}
+.seq-step-name{font-size:13px;font-weight:600;margin-bottom:6px}
+.seq-step-meta{font-size:11.5px;color:var(--dim)}
+.seq-step-n{font-size:24px;font-weight:600;font-family:'DM Mono',monospace;
+  color:var(--accent);margin-bottom:4px}
+
+/* ══ AI COPILOT PANEL ══ */
+#copilot{position:fixed;top:0;right:0;bottom:0;width:340px;background:var(--sidebar);
+  border-left:1px solid var(--border);z-index:200;transform:translateX(100%);
+  transition:transform .28s cubic-bezier(.4,0,.2,1);
+  display:flex;flex-direction:column;overflow:hidden}
+#copilot.open{transform:translateX(0)}
+.cop-header{padding:18px 20px;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.cop-title{font-size:14px;font-weight:600;display:flex;align-items:center;gap:8px}
+.cop-title span{color:var(--accent)}
+#cop-close{background:transparent;border:none;color:var(--dim);cursor:pointer;
+  font-size:16px;padding:4px;border-radius:4px}
+#cop-close:hover{color:var(--text)}
+.cop-body{flex:1;overflow-y:auto;padding:18px 20px}
+.cop-section{margin-bottom:22px}
+.cop-section-title{font-size:10px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--dim2);margin-bottom:10px}
+.cop-item{background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius2);padding:12px 14px;margin-bottom:8px}
+.cop-item-title{font-size:13px;font-weight:500;margin-bottom:4px}
+.cop-item-sub{font-size:11.5px;color:var(--dim)}
+.cop-item-badge{float:right}
+.cop-action{background:var(--accent-dim);border:1px solid var(--accent-glow);
+  color:var(--accent);border-radius:var(--radius2);padding:10px 14px;margin-bottom:8px;
+  font-size:12.5px;cursor:pointer;transition:background .15s;display:block;
+  text-decoration:none;font-weight:500}
+.cop-action:hover{background:rgba(99,102,241,.28)}
+
+/* ══ OVERLAY ══ */
+#overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:150}
+#overlay.open{display:block}
+
+/* ══ EMPTY STATE ══ */
+.empty{padding:48px;text-align:center;color:var(--dim2)}
+.empty-icon{font-size:36px;margin-bottom:12px}
+
+/* ══ THEME TRANSITION ══ */
+body,#sidebar,#topbar,.card,.kpi-card,.stage-header,.stage-body,.seq-step,.cop-item{
+  transition:background .22s,border-color .22s,color .22s}
+
+/* ══ SCROLLBAR ══ */
+::-webkit-scrollbar{width:5px;height:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:var(--dim2)}
+
+/* ══ MOBILE ══ */
+@media(max-width:768px){
+  :root{--sb-w:0px}
+  #sidebar{transform:translateX(-220px);width:220px}
+  #sidebar.open{transform:translateX(0);--sb-w:220px}
+  #content,#topbar{left:0}
+  .two-col,.three-col{grid-template-columns:1fr}
+  .kpi-grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════ GATE ══════════════════ -->
+<div id="gate">
+  <div class="gate-card">
+    <div class="gate-logo">DIKENGA <span>OS</span></div>
+    <div class="gate-sub">ACQUISITION INTELLIGENCE PLATFORM</div>
+    <input type="password" id="gate-pw" placeholder="••••••••••••" autocomplete="off">
+    <button id="gate-btn" onclick="doAuth()">Accéder →</button>
+    <div class="gate-err" id="gate-err"></div>
+  </div>
+</div>
+
+<!-- ══════════════════ APP ══════════════════ -->
+<div id="app">
+  <!-- Sidebar -->
+  <aside id="sidebar">
+    <div class="sb-brand">
+      <span class="sb-logo">DIKENGA</span>
+      <span class="sb-tag">OS v6</span>
+    </div>
+
+    <div class="sb-section">Workspace</div>
+    <div class="sb-nav">
+      <button class="nav-item active" data-view="overview">
+        <span class="nav-ico">⬡</span> Overview
+      </button>
+      <button class="nav-item" data-view="leads">
+        <span class="nav-ico">◎</span> Leads
+        <span class="nav-badge" id="nb-leads">—</span>
+      </button>
+      <button class="nav-item" data-view="pipeline">
+        <span class="nav-ico">⊞</span> Pipeline
+      </button>
+      <button class="nav-item" data-view="intelligence">
+        <span class="nav-ico">◈</span> Intelligence
+        <span class="nav-badge hot-badge" id="nb-hot">—</span>
+      </button>
+      <button class="nav-item" data-view="sequences">
+        <span class="nav-ico">⟳</span> Séquences
+      </button>
+      <button class="nav-item" data-view="analytics">
+        <span class="nav-ico">▦</span> Analytics
+      </button>
+    </div>
+
+    <div class="sb-section">Outils</div>
+    <div class="sb-nav">
+      <button class="nav-item" data-view="icp">
+        <span class="nav-ico">◆</span> ICP Manager
+      </button>
+      <button class="nav-item" onclick="window.open('crm.html','_blank')">
+        <span class="nav-ico">☰</span> CRM Classique
+        <span class="nav-ext">↗</span>
+      </button>
+      <button class="nav-item" onclick="window.open('pipeline.html','_blank')">
+        <span class="nav-ico">◫</span> Dashboard
+        <span class="nav-ext">↗</span>
+      </button>
+    </div>
+
+    <div class="sb-footer">
+      <div class="sb-status"><span class="live-dot"></span>Pipeline actif</div>
+      <div class="sb-upd" id="sb-upd">—</div>
+    </div>
+  </aside>
+
+  <!-- Top bar -->
+  <header id="topbar">
+    <div class="tb-left">
+      <button class="tb-icon-btn" id="sb-toggle" onclick="toggleSidebar()">☰</button>
+      <span class="tb-breadcrumb" id="tb-title">Overview</span>
+    </div>
+    <div class="tb-center">
+      <div class="tb-search">
+        <input type="text" id="global-search" placeholder="Chercher un prospect, une marque..." autocomplete="off" oninput="onSearch(this.value)">
+      </div>
+    </div>
+    <div class="tb-right">
+      <button class="tb-ai-btn" onclick="toggleCopilot()">✦ AI Copilot</button>
+      <button class="tb-icon-btn" id="theme-btn" onclick="toggleTheme()" title="Thème">☀</button>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <main id="content">
+    <section class="view active" id="view-overview"></section>
+    <section class="view" id="view-leads"></section>
+    <section class="view" id="view-pipeline"></section>
+    <section class="view" id="view-intelligence"></section>
+    <section class="view" id="view-sequences"></section>
+    <section class="view" id="view-analytics"></section>
+    <section class="view" id="view-icp"></section>
+  </section>
+
+  <!-- AI Copilot -->
+  <div id="copilot">
+    <div class="cop-header">
+      <div class="cop-title"><span>✦</span> AI Copilot</div>
+      <button id="cop-close" onclick="toggleCopilot()">✕</button>
+    </div>
+    <div class="cop-body" id="cop-body">
+      <div class="empty"><div class="empty-icon">✦</div>Chargement…</div>
+    </div>
+  </div>
+  <div id="overlay" onclick="toggleCopilot()"></div>
+</div>
+
+<script>
+// ════════════════════════════════════════════════════════
+// AUTH
+// ════════════════════════════════════════════════════════
+const PWD = 'dikenga2026';
+function doAuth(){
+  const v = document.getElementById('gate-pw').value.trim();
+  if(v===PWD){
+    localStorage.setItem('dk_auth','1');
+    document.getElementById('gate').style.display='none';
+    document.getElementById('app').style.display='block';
+    init();
+  } else {
+    document.getElementById('gate-err').textContent='Mot de passe incorrect';
+    document.getElementById('gate-pw').style.borderColor='rgba(239,68,68,.5)';
+  }
+}
+document.getElementById('gate-pw').addEventListener('keydown',e=>{if(e.key==='Enter')doAuth()});
+if(localStorage.getItem('dk_auth')==='1'){
+  document.getElementById('gate').style.display='none';
+  document.getElementById('app').style.display='block';
+}
+
+// ════════════════════════════════════════════════════════
+// THEME
+// ════════════════════════════════════════════════════════
+(()=>{
+  const t=localStorage.getItem('dk_theme')||'dark';
+  document.documentElement.setAttribute('data-theme',t);
+})();
+function toggleTheme(){
+  const t=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';
+  document.documentElement.setAttribute('data-theme',t);
+  localStorage.setItem('dk_theme',t);
+  document.getElementById('theme-btn').textContent=t==='dark'?'☀':'🌙';
+  if(allCharts.length)allCharts.forEach(c=>{try{c.destroy()}catch(e){}});
+  allCharts=[];
+  renderView(currentView);
+}
+(()=>{
+  const t=document.documentElement.getAttribute('data-theme');
+  document.getElementById('theme-btn') && (document.getElementById('theme-btn').textContent=t==='dark'?'☀':'🌙');
+})();
+
+// ════════════════════════════════════════════════════════
+// SIDEBAR / NAVIGATION
+// ════════════════════════════════════════════════════════
+let sbOpen=true;
+function toggleSidebar(){
+  const sb=document.getElementById('sidebar');
+  sbOpen=!sbOpen;
+  if(window.innerWidth<=768){
+    sb.classList.toggle('open',sbOpen);
+  } else {
+    if(!sbOpen){
+      document.documentElement.style.setProperty('--sb-w','0px');
+      sb.style.transform='translateX(-220px)';
+    } else {
+      document.documentElement.style.setProperty('--sb-w','220px');
+      sb.style.transform='';
+    }
+  }
+}
+
+let currentView='overview';
+document.querySelectorAll('.nav-item[data-view]').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const v=btn.dataset.view;
+    switchView(v);
+  });
+});
+function switchView(v){
+  document.querySelectorAll('.view').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-item[data-view]').forEach(b=>b.classList.remove('active'));
+  document.getElementById('view-'+v).classList.add('active');
+  document.querySelector(`.nav-item[data-view="${v}"]`)?.classList.add('active');
+  const names={overview:'Overview',leads:'Leads',pipeline:'Pipeline',
+    intelligence:'Intelligence',sequences:'Séquences',analytics:'Analytics',icp:'ICP Manager'};
+  document.getElementById('tb-title').textContent=names[v]||v;
+  currentView=v;
+  renderView(v);
+  // scroll to top
+  document.getElementById('content').scrollTop=0;
+}
+
+// ════════════════════════════════════════════════════════
+// DATA
+// ════════════════════════════════════════════════════════
+let CRM={}, DASH={}, allProspects=[], filteredProspects=[];
+let allCharts=[];
+let dataLoaded=false;
+
+async function loadData(){
+  try{
+    const [c,d]=await Promise.all([
+      fetch('crm-data.json?t='+Date.now()).then(r=>r.json()),
+      fetch('pipeline-data.json?t='+Date.now()).then(r=>r.json()),
+    ]);
+    CRM=c; DASH=d;
+    allProspects=enrichProspects(c.prospects||[]);
+    filteredProspects=[...allProspects];
+    document.getElementById('nb-leads').textContent=allProspects.length;
+    document.getElementById('nb-hot').textContent=allProspects.filter(p=>p.temperature==='hot').length;
+    const upd=new Date(c.updated_at);
+    document.getElementById('sb-upd').textContent='Màj '+upd.toLocaleTimeString('fr',{hour:'2-digit',minute:'2-digit'});
+    dataLoaded=true;
+  } catch(e){
+    console.error('Load error',e);
+  }
+}
+
+// ════════════════════════════════════════════════════════
+// CLIENT-SIDE ICP + AI SCORING (fallback)
+// ════════════════════════════════════════════════════════
+const ICP_LABELS={
+  streetwear_premium:'Streetwear Premium',mode_luxe:'Mode & Luxe',
+  ecommerce_premium:'E-commerce Premium',skincare_wellness:'Skincare & Wellness',
+  hospitality:'Hospitality & Resto',artisan_createur:'Artisan Créateur',
+  cabinet_b2b:'Cabinet B2B',saas_ia:'SaaS & IA',immobilier:'Immobilier & Archi',
+};
+const ICP_COLORS={
+  streetwear_premium:'#f43f5e',mode_luxe:'#a78bfa',ecommerce_premium:'#6366f1',
+  skincare_wellness:'#34d399',hospitality:'#f59e0b',artisan_createur:'#fb923c',
+  cabinet_b2b:'#3b82f6',saas_ia:'#06b6d4',immobilier:'#8b5cf6',
+};
+const KW_STREET=['street','hype','urban','drop','collab','vintage','skate','rap','kick','hoodie','sweat','fresh','drip','sneaker'];
+const KW_LUXE=['luxe','luxury','premium','couture','atelier','maison','bijou','joaill','perle','gold','diamond','haute','prestige'];
+const KW_SKIN=['skin','beauty','beauté','cosmet','soin','crème','serum','sérum','parfum','spa','wellness','glow','natur','bio'];
+const KW_HOSPIT=['restaurant','bistro','brasserie','cafe','café','hotel','resort','traiteur','gastro','chef','cantine','boulang'];
+const KW_IMMO=['immobil','agence','propriété','invest','realty','renov','archi','logement','habitat','foncier'];
+const KW_STARTUP=['saas','startup','tech','digital','platform','software','solution','logiciel','cloud','api','analytics'];
+const KW_CABINET=['conseil','consulting','consultant','cabinet','audit','expertise','avocat','notaire','assurance','formation','coaching'];
+const KW_ARTISAN=['artisan','créateur','atelier','maker','craft','céramique','poterie','tissu','broderie','sculpture','peintre'];
+function clientICP(domain,company,tech,source){
+  const f=(domain+' '+(company||'')).toLowerCase();
+  if(KW_STREET.some(k=>f.includes(k)))return'streetwear_premium';
+  if(KW_LUXE.some(k=>f.includes(k)))return'mode_luxe';
+  if(KW_SKIN.some(k=>f.includes(k)))return'skincare_wellness';
+  if(KW_HOSPIT.some(k=>f.includes(k)))return'hospitality';
+  if(KW_STARTUP.some(k=>f.includes(k)))return'saas_ia';
+  if(KW_CABINET.some(k=>f.includes(k)))return'cabinet_b2b';
+  if(KW_ARTISAN.some(k=>f.includes(k)))return'artisan_createur';
+  if(KW_IMMO.some(k=>f.includes(k)))return'immobilier';
+  if(['Shopify','WooCommerce','PrestaShop','Magento'].includes(tech))return'ecommerce_premium';
+  if(source==='indeed')return'cabinet_b2b';
+  return'ecommerce_premium';
+}
+function clientAIScore(p){
+  const perf=p.perf_mobile||0,tech=p.tech||'',issues=(p.issues||[]);
+  const has_em=!!(p.email),has_ph=!!(p.phone);
+  const icp=p.icp_category||clientICP(p.domain,p.company,tech,p.source);
+  const ps=perf<30?35:perf<45?28:perf<60?20:perf<75?12:6;
+  const ts={Wix:25,Squarespace:22,Jimdo:22,WordPress:18,PrestaShop:17,
+    WooCommerce:16,Magento:14,Shopify:10,Webflow:7,Custom:6,Framer:5}[tech]??12;
+  const iss=Math.min(issues.length,4)*5;
+  const cont=(has_em?5:0)+(has_ph?3:0);
+  const icps={streetwear_premium:7,mode_luxe:7,skincare_wellness:6,ecommerce_premium:5,
+    hospitality:5,artisan_createur:5,cabinet_b2b:4,immobilier:4,saas_ia:3}[icp]??4;
+  return Math.min(100,Math.max(0,ps+ts+iss+cont+icps));
+}
+function enrichProspects(ps){
+  return ps.map(p=>{
+    const ai=p.ai_score||clientAIScore(p);
+    const temp=p.temperature||(ai>=72?'hot':ai>=50?'warm':'cold');
+    const icp=p.icp_category||clientICP(p.domain,p.company,p.tech,p.source);
+    const icp_label=p.icp_label||ICP_LABELS[icp]||'E-commerce Premium';
+    const intents=p.intent_signals||computeIntents(p);
+    return{...p,ai_score:ai,temperature:temp,icp_category:icp,icp_label,intent_signals:intents};
+  });
+}
+function computeIntents(p){
+  const sigs=[];
+  const perf=p.perf_mobile||0,tech=p.tech||'',issues=p.issues||[];
+  if(perf<35)sigs.push({type:'critical_perf',label:`Perf critique ${perf}/100`,strength:'high'});
+  else if(perf<55)sigs.push({type:'low_perf',label:`Mobile faible ${perf}/100`,strength:'medium'});
+  if(['Wix','Squarespace','Jimdo'].includes(tech))sigs.push({type:'low_tech',label:`${tech} → migration possible`,strength:'high'});
+  else if(tech==='WordPress'&&perf<50)sigs.push({type:'wp_slow',label:'WordPress lent',strength:'medium'});
+  if(issues.length>=4)sigs.push({type:'many_issues',label:`${issues.length} problèmes techniques`,strength:'high'});
+  else if(issues.length>=2)sigs.push({type:'some_issues',label:`${issues.length} problèmes site`,strength:'medium'});
+  if(p.source==='indeed')sigs.push({type:'hiring',label:'Recrutement digital actif',strength:'high'});
+  return sigs;
+}
+
+// ════════════════════════════════════════════════════════
+// HELPERS
+// ════════════════════════════════════════════════════════
+const cV=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+function tempBadge(t){
+  const m={hot:'🔥 HOT',warm:'🌡 WARM',cold:'❄ COLD'};
+  return`<span class="badge badge-${t}">${m[t]||t}</span>`;
+}
+function statusBadge(s){
+  const labels={queued:'En file',emailed_1:'Email 1',emailed_2:'Email 2',emailed_3:'Email 3',
+    replied:'Répondu',bounced:'Bounce',no_email:'Sans email',low_score:'Score bas',
+    optout:'Opt-out',client:'Client'};
+  return`<span class="badge badge-${s.replace(/[^a-z_]/g,'')}">${labels[s]||s}</span>`;
+}
+function scoreBar(n,color){
+  const c=color||`hsl(${(1-(n/100))*120|0},70%,55%)`;
+  return`<div class="score-wrap">
+    <span class="score-num" style="color:${c}">${n}</span>
+    <div class="score-bar-bg"><div class="score-bar-fill" style="width:${n}%;background:${c}"></div></div>
+  </div>`;
+}
+function scoreColor(n){return n>=72?cV('--hot'):n>=50?cV('--warm'):cV('--cold')}
+function fDate(s){if(!s)return'—';try{return new Date(s).toLocaleDateString('fr',{day:'2-digit',month:'2-digit'})}catch{return s}}
+function copyVal(el,v){navigator.clipboard?.writeText(v).then(()=>{el.classList.add('copied');setTimeout(()=>el.classList.remove('copied'),1800)}).catch(()=>{})}
+function makeChart(id,cfg){
+  const c=document.getElementById(id);if(!c)return;
+  try{
+    const chart=new Chart(c,cfg);
+    allCharts.push(chart);return chart;
+  }catch(e){console.warn(e)}
+}
+
+// ════════════════════════════════════════════════════════
+// SEARCH
+// ════════════════════════════════════════════════════════
+function onSearch(q){
+  q=q.toLowerCase().trim();
+  if(!q){filteredProspects=[...allProspects];}
+  else{filteredProspects=allProspects.filter(p=>
+    (p.domain||'').includes(q)||(p.company||'').toLowerCase().includes(q)||
+    (p.email||'').includes(q)||(p.icp_label||'').toLowerCase().includes(q));}
+  if(currentView==='leads')renderLeads();
+}
+
+// ════════════════════════════════════════════════════════
+// VIEW: OVERVIEW
+// ════════════════════════════════════════════════════════
+function renderOverview(){
+  const s=CRM.stats||{};
+  const hot=allProspects.filter(p=>p.temperature==='hot').length;
+  const warm=allProspects.filter(p=>p.temperature==='warm').length;
+  const avgAI=s.avg_ai_score||Math.round(allProspects.reduce((a,p)=>a+(p.ai_score||0),0)/Math.max(1,allProspects.length));
+  const f=DASH.funnel||{};
+
+  // ICP distribution
+  const icpDist=CRM.icp_distribution||buildICPDist();
+  const icpRows=icpDist.slice(0,6).map(i=>`
+    <div class="icp-row">
+      <span class="icp-label">${i.label}</span>
+      <div class="icp-bg"><div class="icp-fill" style="width:${i.pct}%;background:${ICP_COLORS[i.category]||cV('--accent')}"></div></div>
+      <span class="icp-pct">${i.pct}%</span>
+    </div>`).join('');
+
+  // Funnel
+  const fTotal=f.total||1;
+  const fRows=[
+    {l:'Découverts',n:f.total||0,c:cV('--accent')},
+    {l:'Avec email',n:f.with_email||0,c:cV('--blue')},
+    {l:'En file',n:f.queued||0,c:cV('--orange')},
+    {l:'Emailés',n:f.total_emailed||0,c:cV('--warm')},
+    {l:'Réponses',n:f.total_replied||0,c:cV('--green')},
+  ].map(r=>`<div class="funnel-row">
+    <span class="funnel-label">${r.l}</span>
+    <div class="funnel-bar-wrap"><div class="funnel-bar" style="width:${Math.round((r.n/fTotal)*100)}%;background:${r.c}20;color:${r.c}">
+      ${r.n>0?r.n:''}</div></div>
+    <span class="funnel-n">${r.n}</span>
+  </div>`).join('');
+
+  // Recent activity feed
+  const feed=(CRM.intent_feed||[]).slice(0,8).map(sig=>{
+    const dot=sig.strength==='high'?cV('--hot'):cV('--orange');
+    return`<div class="feed-item">
+      <div class="feed-dot" style="background:${dot}"></div>
+      <div class="feed-body">
+        <div class="feed-main"><strong>${sig.company||sig.domain}</strong> — ${sig.signal}</div>
+        <div class="feed-meta">${sig.icp_label||''} · Score ${sig.ai_score}</div>
+      </div>
+      ${tempBadge(sig.temperature||'cold')}
+    </div>`;
+  }).join('') || '<div class="empty"><div class="empty-icon">📡</div>Aucun signal détecté</div>';
+
+  document.getElementById('view-overview').innerHTML=`
+  <div class="view-header">
+    <div class="view-title">Acquisition Overview</div>
+    <div class="view-sub">Dikenga Intelligence OS v6 — données temps réel</div>
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card accent">
+      <div class="kpi-label">Score IA moyen</div>
+      <div class="kpi-value">${avgAI}</div>
+      <div class="kpi-sub">sur 100 — composite v6</div>
+    </div>
+    <div class="kpi-card hot-c">
+      <div class="kpi-label">Prospects HOT 🔥</div>
+      <div class="kpi-value">${hot}</div>
+      <div class="kpi-sub">score ≥ 72</div>
+    </div>
+    <div class="kpi-card warm-c">
+      <div class="kpi-label">Prospects WARM</div>
+      <div class="kpi-value">${warm}</div>
+      <div class="kpi-sub">score 50–71</div>
+    </div>
+    <div class="kpi-card green-c">
+      <div class="kpi-label">Emailés total</div>
+      <div class="kpi-value">${f.total_emailed||0}</div>
+      <div class="kpi-sub">${f.total_replied||0} réponse(s)</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">En pipeline</div>
+      <div class="kpi-value">${f.total||0}</div>
+      <div class="kpi-sub">${f.with_email||0} avec email</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Avec tél</div>
+      <div class="kpi-value">${s.with_phone||0}</div>
+      <div class="kpi-sub">contact direct</div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <div class="card-title">Funnel Acquisition</div>
+      ${fRows}
+    </div>
+    <div class="card">
+      <div class="card-title">Répartition ICP</div>
+      <div class="icp-bar">${icpRows||'<div class="empty"><div>Aucune donnée</div></div>'}</div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <div class="card-title">Tendance 30 jours</div>
+      <div class="chart-wrap"><canvas id="ch-trend"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Signaux d'intention live</div>
+      <div class="feed-list">${feed}</div>
+    </div>
+  </div>`;
+
+  // Trend chart
+  const trend=DASH.daily_trend||[];
+  if(trend.length){
+    const axis=cV('--dim2');const grid=cV('--border');
+    makeChart('ch-trend',{type:'line',data:{
+      labels:trend.map(r=>r.date?.slice(5)||''),
+      datasets:[
+        {label:'Analysés',data:trend.map(r=>r.analyzed||0),borderColor:cV('--accent'),
+          backgroundColor:'rgba(99,102,241,0.08)',borderWidth:2,tension:.4,fill:true,pointRadius:0},
+        {label:'Emailés',data:trend.map(r=>r.emailed||0),borderColor:cV('--orange'),
+          backgroundColor:'transparent',borderWidth:1.5,tension:.4,pointRadius:0},
+      ]},
+      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,
+        labels:{color:axis,boxWidth:10,font:{size:11}}}},
+        scales:{x:{grid:{display:false},ticks:{color:axis,font:{size:10},maxTicksLimit:8}},
+          y:{grid:{color:grid},ticks:{color:axis,font:{size:10}},beginAtZero:true}}}});
+  }
+}
+
+// ════════════════════════════════════════════════════════
+// VIEW: LEADS
+// ════════════════════════════════════════════════════════
+let leadSort={col:'ai_score',dir:'desc'};
+let leadFilters={status:'',source:'',icp:'',temp:''};
+
+function renderLeads(){
+  const ps=applyLeadFilters(filteredProspects);
+  const sources=[...new Set(allProspects.map(p=>p.source).filter(Boolean))];
+  const icps=[...new Set(allProspects.map(p=>p.icp_category).filter(Boolean))];
+
+  const rows=ps.length?ps.map(p=>{
+    const ai=p.ai_score||0;
+    const sc=scoreColor(ai);
+    const em=p.email?`<div class="copy-cell" onclick="copyVal(this,'${(p.email||'').replace(/'/g,"\\'")}')">
+      <span>${p.email.split('@')[0]}@…</span><span class="copy-ico">⎘</span></div>`:
+      '<span style="color:var(--dim2)">—</span>';
+    const ph=p.phone?`<div class="copy-cell" onclick="copyVal(this,'${(p.phone||'').replace(/'/g,"\\'")}')">
+      <span>${p.phone}</span><span class="copy-ico">⎘</span></div>`:
+      '<span style="color:var(--dim2)">—</span>';
+    const sig=(p.intent_signals||[]).slice(0,1).map(s=>
+      `<span class="signal-pill signal-${s.strength}">${s.label}</span>`).join('');
+    return`<tr>
+      <td>${scoreBar(ai,sc)}</td>
+      <td class="domain-cell"><a class="domain-link" href="https://${p.domain}" target="_blank" rel="noopener">${p.domain}</a></td>
+      <td>${tempBadge(p.temperature)}</td>
+      <td><span class="badge badge-icp" style="border-color:${ICP_COLORS[p.icp_category]||''}20;color:${ICP_COLORS[p.icp_category]||cV('--dim')}">${p.icp_label||'—'}</span></td>
+      <td><span class="tech-tag">${p.tech||'—'}</span></td>
+      <td>${statusBadge(p.status||'no_email')}</td>
+      <td>${em}</td>
+      <td>${ph}</td>
+      <td style="max-width:180px">${sig}</td>
+      <td style="color:var(--dim2)">${fDate(p.date_added)}</td>
+    </tr>`;
+  }).join('') : `<tr><td colspan="10" class="empty">Aucun prospect</td></tr>`;
+
+  const thSort=(col,label)=>{
+    const cls=leadSort.col===col?(leadSort.dir==='asc'?'sort-asc':'sort-desc'):'';
+    return`<th class="${cls}" onclick="sortLeads('${col}')">${label}</th>`;
+  };
+
+  document.getElementById('view-leads').innerHTML=`
+  <div class="view-header">
+    <div class="view-title">Leads Intelligence</div>
+    <div class="view-sub">${ps.length} prospects · triés par score IA</div>
+  </div>
+  <div class="filter-bar">
+    <input placeholder="Chercher domaine, marque…" value="${document.getElementById('global-search')?.value||''}" oninput="onSearch(this.value)">
+    <select onchange="leadFilters.temp=this.value;renderLeads()">
+      <option value="">Toutes températures</option>
+      <option value="hot" ${leadFilters.temp==='hot'?'selected':''}>🔥 HOT</option>
+      <option value="warm" ${leadFilters.temp==='warm'?'selected':''}>🌡 WARM</option>
+      <option value="cold" ${leadFilters.temp==='cold'?'selected':''}>❄ COLD</option>
+    </select>
+    <select onchange="leadFilters.icp=this.value;renderLeads()">
+      <option value="">Tous ICP</option>
+      ${icps.map(i=>`<option value="${i}" ${leadFilters.icp===i?'selected':''}>${ICP_LABELS[i]||i}</option>`).join('')}
+    </select>
+    <select onchange="leadFilters.status=this.value;renderLeads()">
+      <option value="">Tous statuts</option>
+      ${['queued','emailed_1','emailed_2','replied','bounced','no_email','low_score'].map(s=>
+        `<option value="${s}" ${leadFilters.status===s?'selected':''}>${s}</option>`).join('')}
+    </select>
+    <select onchange="leadFilters.source=this.value;renderLeads()">
+      <option value="">Toutes sources</option>
+      ${sources.map(s=>`<option value="${s}" ${leadFilters.source===s?'selected':''}>${s}</option>`).join('')}
+    </select>
+    <span class="filter-count">${ps.length} résultats</span>
+  </div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr>
+        ${thSort('ai_score','Score IA')}
+        ${thSort('domain','Domaine')}
+        <th>Temp.</th>
+        <th>ICP</th>
+        <th>Tech</th>
+        <th>Statut</th>
+        <th>Email</th>
+        <th>Tél</th>
+        <th>Signal</th>
+        <th>Date</th>
+      </tr></thead>
+      <tbody>${rows}</tbody>
+    </table>
+  </div>`;
+}
+function applyLeadFilters(ps){
+  let r=[...ps];
+  if(leadFilters.temp)r=r.filter(p=>p.temperature===leadFilters.temp);
+  if(leadFilters.icp) r=r.filter(p=>p.icp_category===leadFilters.icp);
+  if(leadFilters.status)r=r.filter(p=>p.status===leadFilters.status);
+  if(leadFilters.source)r=r.filter(p=>p.source===leadFilters.source);
+  r.sort((a,b)=>{
+    let va=a[leadSort.col],vb=b[leadSort.col];
+    if(typeof va==='string')va=va.toLowerCase();
+    if(typeof vb==='string')vb=vb.toLowerCase();
+    if(va===null||va===undefined)return 1;
+    if(vb===null||vb===undefined)return -1;
+    return leadSort.dir==='asc'?va>vb?1:-1:va<vb?1:-1;
+  });
+  return r;
+}
+function sortLeads(col){
+  leadSort.dir=leadSort.col===col&&leadSort.dir==='desc'?'asc':'desc';
+  leadSort.col=col;
+  renderLeads();
+}
+
+// ════════════════════════════════════════════════════════
+// VIEW: PIPELINE (13 stages kanban)
+// ════════════════════════════════════════════════════════
+const STAGES=[
+  {key:'all',label:'Tous',color:'#6366f1'},
+  {key:'no_email',label:'Sans email',color:'#64748b'},
+  {key:'low_score',label:'Score bas',color:'#64748b'},
+  {key:'queued',label:'En file',color:'#f59e0b'},
+  {key:'emailed_1',label:'Email 1 envoyé',color:'#3b82f6'},
+  {key:'emailed_2',label:'Relance J+3',color:'#6366f1'},
+  {key:'emailed_3',label:'Dernière relance',color:'#8b5cf6'},
+  {key:'replied',label:'A répondu 💬',color:'#22c55e'},
+  {key:'hot_lead',label:'Lead Chaud 🔥',color:'#f43f5e'},
+  {key:'call',label:'Appel planifié 📞',color:'#ec4899'},
+  {key:'proposal',label:'Proposition',color:'#f97316'},
+  {key:'negotiation',label:'Négociation',color:'#eab308'},
+  {key:'client',label:'Client ✅',color:'#22c55e'},
+];
+function renderPipeline(){
+  // Build stage→prospects map
+  const stageMap={};
+  STAGES.forEach(s=>stageMap[s.key]=[]);
+  allProspects.forEach(p=>{
+    const s=p.status||'no_email';
+    if(stageMap[s])stageMap[s].push(p);
+    else stageMap['no_email'].push(p);
+  });
+  // hot leads = HOT temp + emailed
+  stageMap['hot_lead']=allProspects.filter(p=>p.temperature==='hot'&&p.status?.startsWith('emailed'));
+  stageMap['all']=allProspects;
+
+  const cols=STAGES.map(st=>{
+    const ps=stageMap[st.key]||[];
+    const cards=ps.slice(0,4).map(p=>`
+      <div class="stage-card">
+        <div class="stage-card-domain">${p.domain}</div>
+        <div class="stage-card-meta">${scoreBar(p.ai_score,scoreColor(p.ai_score))}</div>
+      </div>`).join('');
+    const more=ps.length>4?`<div style="font-size:11px;color:var(--dim2);padding:4px 6px">+${ps.length-4} autres</div>`:'';
+    return`<div class="stage-col">
+      <div class="stage-header" style="border-color:${st.color}30;background:${st.color}0d">
+        <span style="color:${st.color};font-size:11px">${st.label}</span>
+        <span class="stage-count" style="background:${st.color}20;color:${st.color}">${ps.length}</span>
+      </div>
+      <div class="stage-body">${cards||'<div style="font-size:11px;color:var(--dim2);padding:6px">Vide</div>'}${more}</div>
+    </div>`;
+  }).join('');
+
+  document.getElementById('view-pipeline').innerHTML=`
+  <div class="view-header">
+    <div class="view-title">Pipeline Visuel</div>
+    <div class="view-sub">13 étapes · ${allProspects.length} prospects au total</div>
+  </div>
+  <div class="stages-wrap">${cols}</div>
+  <div class="card" style="margin-top:0">
+    <div class="card-title">Vue d'ensemble rapide</div>
+    <div class="two-col">
+      <div>
+        <div style="margin-bottom:12px;font-size:13px;color:var(--dim)">Distribution par température</div>
+        ${['hot','warm','cold'].map(t=>{
+          const n=allProspects.filter(p=>p.temperature===t).length;
+          const pct=Math.round(n/Math.max(1,allProspects.length)*100);
+          const c=t==='hot'?cV('--hot'):t==='warm'?cV('--warm'):cV('--cold');
+          return`<div class="funnel-row" style="margin-bottom:8px">
+            <span class="funnel-label">${t.toUpperCase()}</span>
+            <div class="funnel-bar-wrap"><div class="funnel-bar" style="width:${pct}%;background:${c}20;color:${c}">${n>0?n:''}</div></div>
+            <span class="funnel-n">${n}</span>
+          </div>`;
+        }).join('')}
+      </div>
+      <div>
+        <div style="margin-bottom:12px;font-size:13px;color:var(--dim)">Top 5 prospects par score</div>
+        ${allProspects.slice(0,5).map((p,i)=>`
+          <div style="display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:1px solid var(--border)">
+            <span style="font-size:10px;color:var(--dim2);width:16px">#${i+1}</span>
+            <span style="flex:1;font-size:12.5px;font-weight:500">${p.domain}</span>
+            ${scoreBar(p.ai_score,scoreColor(p.ai_score))}
+          </div>`).join('')}
+      </div>
+    </div>
+  </div>`;
+}
+
+// ════════════════════════════════════════════════════════
+// VIEW: INTELLIGENCE
+// ════════════════════════════════════════════════════════
+function renderIntelligence(){
+  const feed=CRM.intent_feed||allProspects.flatMap(p=>(p.intent_signals||[]).slice(0,2).map(s=>({
+    domain:p.domain,company:p.company||p.domain,signal:s.label,strength:s.strength,
+    icp_label:p.icp_label,ai_score:p.ai_score,temperature:p.temperature,ts:p.date_added
+  }))).sort((a,b)=>b.ai_score-a.ai_score).slice(0,25);
+
+  const feedRows=feed.map(sig=>{
+    const c=sig.strength==='high'?'var(--hot)':'var(--orange)';
+    return`<div class="feed-item">
+      <div class="feed-dot" style="background:${c}"></div>
+      <div class="feed-body">
+        <div class="feed-main"><strong>${sig.company||sig.domain}</strong> · ${sig.signal}</div>
+        <div class="feed-meta">${sig.icp_label||''} · AI Score ${sig.ai_score}</div>
+      </div>
+      <div style="display:flex;gap:6px;align-items:center;flex-shrink:0">
+        ${tempBadge(sig.temperature||'cold')}
+        <span class="signal-pill signal-${sig.strength}">${sig.strength==='high'?'🔴 Fort':'🟠 Moyen'}</span>
+      </div>
+    </div>`;
+  }).join('') || '<div class="empty"><div class="empty-icon">◈</div>Aucun signal — relancez le pipeline</div>';
+
+  // Scoring breakdown
+  const techCounts={};
+  allProspects.forEach(p=>{techCounts[p.tech||'Inconnu']=(techCounts[p.tech||'Inconnu']||0)+1});
+  const techItems=Object.entries(techCounts).sort((a,b)=>b[1]-a[1]).slice(0,6).map(([tech,n])=>`
+    <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border);font-size:12.5px">
+      <span class="tech-tag">${tech}</span>
+      <span style="font-weight:600;font-family:'DM Mono',monospace">${n}</span>
+      <span style="color:var(--dim2);font-size:11px">${Math.round(n/Math.max(1,allProspects.length)*100)}%</span>
+    </div>`).join('');
+
+  document.getElementById('view-intelligence').innerHTML=`
+  <div class="view-header">
+    <div class="view-title">Intelligence IA</div>
+    <div class="view-sub">Signaux d'intention · Opportunités détectées automatiquement</div>
+  </div>
+  <div class="two-col">
+    <div class="card">
+      <div class="card-title">Signaux d'intention (${feed.length})</div>
+      <div class="feed-list" style="max-height:500px;overflow-y:auto">${feedRows}</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div class="card">
+        <div class="card-title">Répartition technologique</div>
+        ${techItems}
+      </div>
+      <div class="card">
+        <div class="card-title">Distribution score IA</div>
+        <div class="chart-wrap"><canvas id="ch-score-dist"></canvas></div>
+      </div>
+    </div>
+  </div>`;
+
+  // Score distribution histogram
+  const buckets=[0,0,0,0,0]; // 0-20,20-40,40-60,60-80,80-100
+  allProspects.forEach(p=>{
+    const b=Math.min(4,Math.floor((p.ai_score||0)/20));
+    buckets[b]++;
+  });
+  makeChart('ch-score-dist',{type:'bar',
+    data:{labels:['0–20','21–40','41–60','61–80','81–100'],
+      datasets:[{data:buckets,
+        backgroundColor:['rgba(100,116,139,.5)','rgba(100,116,139,.5)','rgba(245,158,11,.5)','rgba(245,158,11,.5)','rgba(244,63,94,.6)'],
+        borderColor:['#64748b','#64748b','#f59e0b','#f59e0b','#f43f5e'],
+        borderWidth:1,borderRadius:4}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
+      scales:{x:{grid:{display:false},ticks:{color:cV('--dim2'),font:{size:10}}},
+        y:{grid:{color:cV('--border')},ticks:{color:cV('--dim2'),font:{size:10}},beginAtZero:true}}}});
+}
+
+// ════════════════════════════════════════════════════════
+// VIEW: SEQUENCES
+// ════════════════════════════════════════════════════════
+function renderSequences(){
+  const f=DASH.funnel||{};
+  const ab=DASH.ab_test||{};
+  const s1=allProspects.filter(p=>p.status==='queued');
+  const s2=allProspects.filter(p=>p.status==='emailed_1');
+  const s3=allProspects.filter(p=>p.status==='emailed_2');
+  const replied=allProspects.filter(p=>p.replied===1||p.replied===true);
+
+  const aA=ab.A||{sent:0,replied:0},aB=ab.B||{sent:0,replied:0};
+  const rateA=aA.sent?((aA.replied/aA.sent)*100).toFixed(1):0;
+  const rateB=aB.sent?((aB.replied/aB.sent)*100).toFixed(1):0;
+
+  const recentEmailed=allProspects.filter(p=>p.date_step1).sort((a,b)=>
+    new Date(b.date_step1)-new Date(a.date_step1)).slice(0,8);
+
+  document.getElementById('view-sequences').innerHTML=`
+  <div class="view-header">
+    <div class="view-title">Séquences Email</div>
+    <div class="view-sub">3 étapes automatiques · A/B testing actif</div>
+  </div>
+
+  <div class="seq-flow">
+    <div class="seq-step">
+      <div class="seq-step-num">Étape 1</div>
+      <div class="seq-step-name">Audit Initial</div>
+      <div class="seq-step-n">${f.queued||0}</div>
+      <div class="seq-step-meta">En file d'attente</div>
+    </div>
+    <div class="seq-step">
+      <div class="seq-step-num">Étape 2</div>
+      <div class="seq-step-name">Relance J+3</div>
+      <div class="seq-step-n">${s2.length}</div>
+      <div class="seq-step-meta">En attente de réponse</div>
+    </div>
+    <div class="seq-step">
+      <div class="seq-step-num">Étape 3</div>
+      <div class="seq-step-name">Clôture J+7</div>
+      <div class="seq-step-n">${s3.length}</div>
+      <div class="seq-step-meta">Dernière relance</div>
+    </div>
+    <div class="seq-step">
+      <div class="seq-step-num">Résultat</div>
+      <div class="seq-step-name">Réponses 💬</div>
+      <div class="seq-step-n" style="color:var(--green)">${replied.length}</div>
+      <div class="seq-step-meta">${f.total_emailed?((replied.length/f.total_emailed)*100).toFixed(1):0}% taux de réponse</div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <div class="card-title">A/B Test — Résultats</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius2);padding:16px;text-align:center">
+          <div style="font-size:11px;color:var(--dim2);margin-bottom:8px;font-weight:600">VARIANT A</div>
+          <div style="font-size:28px;font-weight:600;font-family:'DM Mono',monospace;color:var(--accent)">${rateA}%</div>
+          <div style="font-size:11.5px;color:var(--dim);margin-top:4px">${aA.sent} envois · ${aA.replied} réponses</div>
+          <div style="font-size:10.5px;color:var(--dim2);margin-top:8px">Audit direct · perf + issues</div>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius2);padding:16px;text-align:center">
+          <div style="font-size:11px;color:var(--dim2);margin-bottom:8px;font-weight:600">VARIANT B</div>
+          <div style="font-size:28px;font-weight:600;font-family:'DM Mono',monospace;color:${rateB>rateA?'var(--green)':'var(--text)'}">${rateB}%</div>
+          <div style="font-size:11.5px;color:var(--dim);margin-top:4px">${aB.sent} envois · ${aB.replied} réponses</div>
+          <div style="font-size:10.5px;color:var(--dim2);margin-top:8px">Bénéfice-first · conversion %</div>
+        </div>
+      </div>
+      <div style="margin-top:14px;padding:12px;background:var(--surface2);border-radius:var(--radius2);font-size:12px;color:var(--dim)">
+        ${rateA==rateB?'Résultats égaux — continuez le test':rateA>rateB?'✦ Variant A performe mieux — focus audit direct':'✦ Variant B performe mieux — focus conversion %'}
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Derniers emailés</div>
+      <div class="tbl-wrap" style="border:none">
+        <table>
+          <thead><tr><th>Domaine</th><th>Envoyé</th><th>Variant</th><th>Statut</th></tr></thead>
+          <tbody>${recentEmailed.map(p=>`<tr>
+            <td class="domain-cell">${p.domain}</td>
+            <td style="color:var(--dim2)">${fDate(p.date_step1)}</td>
+            <td><span class="badge badge-icp">${p.variant||'—'}</span></td>
+            <td>${statusBadge(p.status)}</td>
+          </tr>`).join('')||'<tr><td colspan="4" class="empty">Aucun</td></tr>'}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>`;
+}
+
+// ════════════════════════════════════════════════════════
+// VIEW: ANALYTICS
+// ════════════════════════════════════════════════════════
+function renderAnalytics(){
+  const sources=DASH.sources||[];
+  const trend=DASH.daily_trend||[];
+  const f=DASH.funnel||{};
+
+  document.getElementById('view-analytics').innerHTML=`
+  <div class="view-header">
+    <div class="view-title">Analytics Avancés</div>
+    <div class="view-sub">Performance par source · Tendances · Funnel de conversion</div>
+  </div>
+  <div class="three-col">
+    <div class="kpi-card accent">
+      <div class="kpi-label">Taux email trouvé</div>
+      <div class="kpi-value">${f.total?Math.round((f.with_email/f.total)*100):0}<span style="font-size:16px">%</span></div>
+      <div class="kpi-sub">${f.with_email||0} / ${f.total||0} prospects</div>
+    </div>
+    <div class="kpi-card green-c">
+      <div class="kpi-label">Taux de réponse</div>
+      <div class="kpi-value">${f.total_emailed?((f.total_replied||0)/f.total_emailed*100).toFixed(1):0}<span style="font-size:16px">%</span></div>
+      <div class="kpi-sub">${f.total_replied||0} / ${f.total_emailed||0} emailés</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Taux de bounce</div>
+      <div class="kpi-value" style="color:var(--red)">${f.total_emailed?((f.total_bounced||0)/f.total_emailed*100).toFixed(1):0}<span style="font-size:16px">%</span></div>
+      <div class="kpi-sub">${f.total_bounced||0} bounce(s)</div>
+    </div>
+  </div>
+  <div class="two-col">
+    <div class="card">
+      <div class="card-title">Performance par source</div>
+      <div class="chart-wrap-lg"><canvas id="ch-sources"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Tendance 30 jours (emailés)</div>
+      <div class="chart-wrap-lg"><canvas id="ch-emails-trend"></canvas></div>
+    </div>
+  </div>
+  <div class="two-col">
+    <div class="card">
+      <div class="card-title">Répartition ICP complète</div>
+      <div class="chart-wrap-lg"><canvas id="ch-icp-pie"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Taux email par source</div>
+      ${sources.map(s=>{
+        const rate=s.n?Math.round(s.with_email/s.n*100):0;
+        return`<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+          <span style="width:90px;font-size:12px;color:var(--dim)">${s.source}</span>
+          <div style="flex:1;background:var(--surface);border-radius:3px;height:8px">
+            <div style="width:${rate}%;height:100%;border-radius:3px;background:var(--accent)"></div></div>
+          <span style="font-size:11.5px;font-family:'DM Mono',monospace;width:36px;text-align:right;color:var(--dim)">${rate}%</span>
+        </div>`;}).join('')||'<div class="empty">Aucune donnée</div>'}
+    </div>
+  </div>`;
+
+  // Sources chart
+  if(sources.length){
+    makeChart('ch-sources',{type:'bar',
+      data:{labels:sources.map(s=>s.source),
+        datasets:[
+          {label:'Prospects',data:sources.map(s=>s.n||0),backgroundColor:'rgba(99,102,241,0.5)',borderColor:'rgba(99,102,241,0.8)',borderWidth:1,borderRadius:3},
+          {label:'Emailés',data:sources.map(s=>s.total_emailed||0),backgroundColor:'rgba(245,158,11,0.5)',borderColor:'rgba(245,158,11,0.8)',borderWidth:1,borderRadius:3},
+        ]},
+      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:cV('--dim2'),font:{size:11}}}},
+        scales:{x:{grid:{display:false},ticks:{color:cV('--dim2'),font:{size:10}}},
+          y:{grid:{color:cV('--border')},ticks:{color:cV('--dim2'),font:{size:10}},beginAtZero:true}}}});
+  }
+  if(trend.length){
+    makeChart('ch-emails-trend',{type:'line',
+      data:{labels:trend.map(r=>r.date?.slice(5)||''),
+        datasets:[
+          {label:'Analysés',data:trend.map(r=>r.analyzed||0),borderColor:cV('--accent'),fill:false,tension:.4,pointRadius:0,borderWidth:2},
+          {label:'Emailés',data:trend.map(r=>r.emailed||0),borderColor:cV('--green'),fill:false,tension:.4,pointRadius:0,borderWidth:2},
+          {label:'Réponses',data:trend.map(r=>r.replied||0),borderColor:cV('--orange'),fill:false,tension:.4,pointRadius:2,borderWidth:1.5},
+        ]},
+      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:cV('--dim2'),font:{size:11}}}},
+        scales:{x:{grid:{display:false},ticks:{color:cV('--dim2'),font:{size:10},maxTicksLimit:8}},
+          y:{grid:{color:cV('--border')},ticks:{color:cV('--dim2'),font:{size:10}},beginAtZero:true}}}});
+  }
+  // ICP pie
+  const icpDist=CRM.icp_distribution||buildICPDist();
+  if(icpDist.length){
+    makeChart('ch-icp-pie',{type:'doughnut',
+      data:{labels:icpDist.map(i=>i.label),
+        datasets:[{data:icpDist.map(i=>i.count),
+          backgroundColor:icpDist.map(i=>ICP_COLORS[i.category]||'#6366f1'),
+          borderWidth:0,hoverOffset:4}]},
+      options:{responsive:true,maintainAspectRatio:false,cutout:'62%',
+        plugins:{legend:{position:'right',labels:{color:cV('--dim'),font:{size:11},boxWidth:10}}}}});
+  }
+}
+
+// ════════════════════════════════════════════════════════
+// VIEW: ICP MANAGER
+// ════════════════════════════════════════════════════════
+function renderICP(){
+  const icpDist=CRM.icp_distribution||buildICPDist();
+  const cards=icpDist.map(icp=>{
+    const ps=allProspects.filter(p=>p.icp_category===icp.category);
+    const hot=ps.filter(p=>p.temperature==='hot').length;
+    const withEmail=ps.filter(p=>p.email).length;
+    const avgScore=ps.length?Math.round(ps.reduce((a,p)=>a+(p.ai_score||0),0)/ps.length):0;
+    const color=ICP_COLORS[icp.category]||'#6366f1';
+    return`<div class="card" style="border-left:3px solid ${color}">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px">
+        <div>
+          <div style="font-size:15px;font-weight:600;margin-bottom:4px">${icp.label}</div>
+          <div style="font-size:12px;color:var(--dim)">${icp.count} prospect${icp.count>1?'s':''} · ${icp.pct}% du total</div>
+        </div>
+        <div style="font-size:22px;font-weight:700;font-family:'DM Mono',monospace;color:${color}">${avgScore}</div>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <span class="badge badge-hot">🔥 ${hot} hot</span>
+        <span class="badge badge-emailed">📧 ${withEmail} emails</span>
+        <span class="signal-pill signal-${avgScore>=60?'high':'medium'}">Score moy. ${avgScore}</span>
+      </div>
+      <div style="margin-top:12px">
+        <div style="background:var(--surface);border-radius:3px;height:4px">
+          <div style="width:${icp.pct}%;height:100%;border-radius:3px;background:${color}"></div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+
+  document.getElementById('view-icp').innerHTML=`
+  <div class="view-header">
+    <div class="view-title">ICP Manager</div>
+    <div class="view-sub">Segmentation intelligente — ${icpDist.length} catégories détectées</div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px">
+    ${cards||'<div class="empty"><div class="empty-icon">◆</div>Aucune donnée ICP</div>'}
+  </div>
+  <div class="card" style="margin-top:16px">
+    <div class="card-title">Scoring ICP — Recommandations</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px">
+      ${[
+        {icp:'streetwear_premium',tip:'Mettre en avant des cas e-commerce streetwear. Mentionner les drops + conversion mobile.'},
+        {icp:'mode_luxe',tip:'Insister sur la qualité visuelle et l\'image de marque. Cas client premium.'},
+        {icp:'ecommerce_premium',tip:'ROI direct : conversion, vitesse, UX mobile. Chiffrer l\'impact.'},
+        {icp:'hospitality',tip:'Réservations en ligne, expérience client, menu visuel. Impact direct sur réservations.'},
+        {icp:'skincare_wellness',tip:'Esthétisme + confiance. Avant/après visuel fort. Packaging digital.'},
+      ].map(r=>`<div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius2);padding:12px">
+          <div style="font-size:12px;font-weight:600;margin-bottom:6px;color:${ICP_COLORS[r.icp]||cV('--accent')}">${ICP_LABELS[r.icp]}</div>
+          <div style="font-size:11.5px;color:var(--dim)">${r.tip}</div>
+        </div>`).join('')}
+    </div>
+  </div>`;
+}
+
+// ════════════════════════════════════════════════════════
+// AI COPILOT
+// ════════════════════════════════════════════════════════
+function buildCopilot(){
+  const hot=allProspects.filter(p=>p.temperature==='hot').slice(0,3);
+  const noEmail=allProspects.filter(p=>!p.email&&p.phone).slice(0,3);
+  const toContact=allProspects.filter(p=>p.status==='queued').slice(0,3);
+  const f=DASH.funnel||{};
+  const replyRate=f.total_emailed?((f.total_replied||0)/f.total_emailed*100).toFixed(1):0;
+
+  const hotCards=hot.length?hot.map(p=>`
+    <div class="cop-item">
+      <div class="cop-item-badge">${tempBadge('hot')}</div>
+      <div class="cop-item-title">${p.domain}</div>
+      <div class="cop-item-sub">Score IA: ${p.ai_score} · ${p.tech} · ${p.icp_label}</div>
+    </div>`).join(''):
+    '<div class="cop-item"><div class="cop-item-sub">Aucun prospect HOT pour l\'instant</div></div>';
+
+  const contactCards=toContact.length?toContact.map(p=>`
+    <div class="cop-item">
+      <div class="cop-item-title">${p.domain}</div>
+      <div class="cop-item-sub">${p.email} · Score ${p.ai_score}</div>
+    </div>`).join(''):
+    '<div class="cop-item"><div class="cop-item-sub">File d\'envoi vide</div></div>';
+
+  const icpDist=CRM.icp_distribution||[];
+  const topICP=icpDist[0]||null;
+
+  document.getElementById('cop-body').innerHTML=`
+  <div class="cop-section">
+    <div class="cop-section-title">🎯 Priorités maintenant</div>
+    ${hotCards}
+    <a class="cop-action" onclick="switchView('intelligence');toggleCopilot()">Voir tous les signaux d'intention →</a>
+  </div>
+  <div class="cop-section">
+    <div class="cop-section-title">📧 À contacter</div>
+    ${contactCards}
+    <a class="cop-action" onclick="switchView('leads');leadFilters.status='queued';renderLeads();toggleCopilot()">Voir la file d'envoi →</a>
+  </div>
+  <div class="cop-section">
+    <div class="cop-section-title">📊 Insights</div>
+    <div class="cop-item">
+      <div class="cop-item-title">Taux de réponse global</div>
+      <div class="cop-item-sub">${replyRate}% — ${f.total_replied||0} réponse(s) sur ${f.total_emailed||0} emailés</div>
+    </div>
+    ${topICP?`<div class="cop-item">
+      <div class="cop-item-title">ICP dominant : ${topICP.label}</div>
+      <div class="cop-item-sub">${topICP.pct}% de votre base — personnaliser les messages pour ce segment</div>
+    </div>`:''}
+    <div class="cop-item">
+      <div class="cop-item-title">Prospects sans email (mais avec tél)</div>
+      <div class="cop-item-sub">${noEmail.length} prospects joignables par téléphone direct</div>
+    </div>
+  </div>
+  <div class="cop-section">
+    <div class="cop-section-title">🚀 Actions recommandées</div>
+    <a class="cop-action" onclick="switchView('pipeline');toggleCopilot()">Voir le pipeline complet →</a>
+    <a class="cop-action" onclick="switchView('sequences');toggleCopilot()">Analyser les séquences →</a>
+    <a class="cop-action" href="crm.html" target="_blank">Ouvrir CRM classique →</a>
+  </div>`;
+}
+function toggleCopilot(){
+  const c=document.getElementById('copilot');
+  const o=document.getElementById('overlay');
+  const isOpen=c.classList.contains('open');
+  c.classList.toggle('open',!isOpen);
+  o.classList.toggle('open',!isOpen);
+  if(!isOpen&&dataLoaded)buildCopilot();
+}
+
+// ════════════════════════════════════════════════════════
+// UTILS
+// ════════════════════════════════════════════════════════
+function buildICPDist(){
+  const counts={};
+  allProspects.forEach(p=>{
+    const c=p.icp_category||'ecommerce_premium';
+    counts[c]=(counts[c]||0)+1;
+  });
+  return Object.entries(counts).sort((a,b)=>b[1]-a[1]).map(([k,v])=>({
+    category:k,label:ICP_LABELS[k]||k,count:v,
+    pct:Math.round(v/Math.max(1,allProspects.length)*100)
+  }));
+}
+
+// ════════════════════════════════════════════════════════
+// RENDER ROUTER
+// ════════════════════════════════════════════════════════
+function renderView(v){
+  if(!dataLoaded)return;
+  const map={overview:renderOverview,leads:renderLeads,pipeline:renderPipeline,
+    intelligence:renderIntelligence,sequences:renderSequences,
+    analytics:renderAnalytics,icp:renderICP};
+  map[v]?.();
+}
+
+// ════════════════════════════════════════════════════════
+// INIT
+// ════════════════════════════════════════════════════════
+async function init(){
+  // Apply saved theme to button icon
+  const t=document.documentElement.getAttribute('data-theme')||'dark';
+  document.getElementById('theme-btn').textContent=t==='dark'?'☀':'🌙';
+
+  await loadData();
+  renderView('overview');
+
+  // Auto-refresh every 5 min
+  setInterval(async()=>{
+    if(localStorage.getItem('dk_auth')==='1'){
+      allCharts.forEach(c=>{try{c.destroy()}catch(e){}});
+      allCharts=[];
+      await loadData();
+      renderView(currentView);
+    }
+  },300000);
+}
+
+// Keyboard shortcut: press 'c' for copilot
+document.addEventListener('keydown',e=>{
+  if(e.key==='c'&&!e.ctrlKey&&!e.metaKey&&document.activeElement.tagName!=='INPUT')
+    toggleCopilot();
+});
+
+// Auto-init if already authed
+if(localStorage.getItem('dk_auth')==='1') init();
+</script>
+</body>
+</html>
