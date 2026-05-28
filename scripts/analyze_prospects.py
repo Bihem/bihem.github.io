@@ -29,22 +29,23 @@ from datetime import datetime, timedelta
 
 TELEGRAM_TOKEN  = os.environ.get('TELEGRAM_TOKEN', '')
 TELEGRAM_CHAT_ID= os.environ.get('TELEGRAM_CHAT_ID', '')
-SMTP_HOST       = os.environ.get('SMTP_HOST', 'zimbra1.mail.ovh.net')
-SMTP_PORT       = int(os.environ.get('SMTP_PORT', '465'))
+SMTP_HOST       = os.environ.get('SMTP_HOST', 'smtp.mail.ovh.net')
+SMTP_PORT       = int(os.environ.get('SMTP_PORT', '587'))
 SMTP_USER       = os.environ.get('SMTP_USER', 'contact@dikengadesign.fr')
 SMTP_PASS       = os.environ.get('SMTP_PASS', '')
 SENDER_NAME     = "Mes-Reves — Dikenga Design"
 MAX_EMAILS_PER_RUN = 15   # limite quotidienne de sécurité
 EMAIL_DELAY_SEC    = 40   # secondes entre chaque envoi (évite le spam filter)
-MIN_SCORE_TO_EMAIL = 55   # score minimum pour envoyer un email
+MIN_SCORE_TO_EMAIL = 40   # score minimum pour envoyer un email
 
 # Requêtes DuckDuckGo — rotation par jour de la semaine
+# Cibler les PETITES boutiques, pas les grandes marques établies
 SEARCH_QUERIES = {
-    0: ["boutique shopify streetwear france", "shop mode shopify paris site:.fr"],           # Lundi
-    1: ["boutique wix vetements paris", "ecommerce wix mode france"],                         # Mardi
-    2: ["startup saas paris ux interface", "saas b2b france product design"],                 # Mercredi
-    3: ["boutique ligne mode paris refonte", "ecommerce france site wordpress mode"],         # Jeudi
-    4: ["agence digitale paris freelance design", "boutique shopify beaute paris"],          # Vendredi
+    0: ["petite boutique shopify streetwear site:.fr", "créateur mode site shopify paris"],                    # Lundi
+    1: ["boutique wix vetements créateur independant france", "marque mode wix paris site:.fr"],               # Mardi
+    2: ["startup saas paris product design refonte", "logiciel saas france interface améliorer"],              # Mercredi
+    3: ["créateur marque ecommerce wordpress site:.fr", "boutique independante mode wordpress paris"],         # Jeudi
+    4: ["marque streetwear emergente france site:.fr", "label independant paris site ecommerce"],              # Vendredi
 }
 
 # Domaines à ne JAMAIS contacter
@@ -54,6 +55,12 @@ BLACKLIST_DOMAINS = {
     'youtube.com','twitter.com','tiktok.com','amazon.fr','fnac.com',
     'cdiscount.com','leboncoin.fr','laposte.fr','free.fr','orange.fr',
     'shopify.com','wordpress.com','wix.com','squarespace.com','webflow.io',
+    'duckduckgo.com','bing.com','yahoo.com','wikipedia.org','wikimedia.org',
+    'vogue.fr','elle.fr','marieclaire.fr','glamour.fr','cosmopolitan.fr',
+    'lefigaro.fr','lemonde.fr','leparisien.fr','20minutes.fr','bfmtv.com',
+    'ovhcloud.com','ovh.com','woocommerce.com','prestashop.com','magento.com',
+    'dev-wp.fr','fr.wordpress.org','wordpress.org','github.com','gitlab.com',
+    'numero.com','cityzeum.com','petitfute.com','tripadvisor.fr',
 }
 
 
@@ -161,6 +168,8 @@ EMAIL_REGEX = re.compile(
 )
 SKIP_EMAIL_PREFIXES = ('noreply','no-reply','donotreply','example','test@','demo@',
                        'admin@','webmaster@','abuse@','security@','support@noreply')
+SKIP_EMAIL_DOMAINS  = ('domain.com','example.com','email.com','test.com','your-email.com',
+                       'yoursite.com','site.com','mysite.com','website.com')
 
 def find_email(domain):
     """Cherche l'email de contact sur le site."""
@@ -179,7 +188,9 @@ def find_email(domain):
         for e in emails:
             e = e.lower().strip().rstrip('.')
             if not any(s in e for s in SKIP_EMAIL_PREFIXES):
-                if re.match(r'^[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,6}$', e):
+                domain_part = e.split('@')[1] if '@' in e else ''
+                if domain_part not in SKIP_EMAIL_DOMAINS:
+                 if re.match(r'^[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,6}$', e):
                     cleaned.append(e)
 
         if cleaned:
@@ -212,19 +223,22 @@ def detect_tech(domain):
 # ─── PAGESPEED ────────────────────────────────────────────────────────────────
 
 def pagespeed(domain):
-    """Retourne (score, lcp, [issues]) ou None."""
+    """Retourne (score, lcp, [issues]) — utilise PageSpeed API ou fallback timing."""
+    url = f"https://{domain}"
+
+    # Essai PageSpeed API
     try:
         key = os.environ.get('PAGESPEED_API_KEY', '')
         api = (f"https://www.googleapis.com/pagespeedonline/v5/runPagespeed"
-               f"?url={urllib.parse.quote('https://'+domain, safe='')}&strategy=mobile"
+               f"?url={urllib.parse.quote(url, safe='')}&strategy=mobile"
                + (f"&key={key}" if key else ''))
         req = urllib.request.Request(api, headers={"User-Agent": "Mozilla/5.0"})
         with urllib.request.urlopen(req, timeout=40) as r:
             d = json.loads(r.read())
 
-        lr     = d.get('lighthouseResult', {})
-        score  = int(lr.get('categories',{}).get('performance',{}).get('score',0) * 100)
-        lcp    = lr.get('audits',{}).get('largest-contentful-paint',{}).get('displayValue','N/A')
+        lr    = d.get('lighthouseResult', {})
+        score = int(lr.get('categories',{}).get('performance',{}).get('score',0) * 100)
+        lcp   = lr.get('audits',{}).get('largest-contentful-paint',{}).get('displayValue','N/A')
         issues = []
         checks = {
             'uses-optimized-images'   : 'Images non optimisées',
@@ -237,8 +251,41 @@ def pagespeed(domain):
             if isinstance(a.get('score'), (int,float)) and a['score'] < 0.5:
                 issues.append(label)
         return score, lcp, issues[:3]
+
+    except urllib.error.HTTPError as e:
+        if e.code == 429:
+            print(f"  PageSpeed 429 — fallback timing")
+        else:
+            print(f"  PageSpeed {e.code} — fallback timing")
     except Exception as e:
-        print(f"  PageSpeed error: {e}")
+        print(f"  PageSpeed error — fallback timing: {e}")
+
+    # Fallback : mesure du temps de chargement réel
+    try:
+        t0 = time.time()
+        req = urllib.request.Request(url, headers=BROWSER_HEADERS)
+        with urllib.request.urlopen(req, timeout=15) as r:
+            html = r.read(50000).decode('utf-8', errors='ignore')
+        load_ms = (time.time() - t0) * 1000
+
+        # En fallback, on ne peut pas mesurer la perf mobile réelle.
+        # On utilise 45 comme score neutre — PageSpeed mobile est presque
+        # toujours pire que le temps de réponse serveur qu'on mesure ici.
+        score = 45
+
+        lcp = f"~{load_ms/1000:.1f}s (estimé)"
+
+        # Détection d'issues basique via le HTML
+        issues = []
+        h = html.lower()
+        if len(html) > 40000 and 'gzip' not in h: issues.append('Page lourde, compression absente')
+        if h.count('<script') > 15: issues.append('Trop de scripts JavaScript')
+        if h.count('<img') > 20: issues.append('Nombreuses images non optimisées')
+
+        return score, lcp, issues[:3]
+
+    except Exception as e:
+        print(f"  Fallback timing error: {e}")
         return None
 
 
@@ -298,9 +345,15 @@ def send_email(to, subject, body):
         msg.attach(MIMEText(body, 'plain', 'utf-8'))
 
         ctx = ssl.create_default_context()
-        with smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT, context=ctx) as s:
-            s.login(SMTP_USER, SMTP_PASS)
-            s.sendmail(SMTP_USER, to, msg.as_string())
+        if SMTP_PORT == 587:
+            with smtplib.SMTP(SMTP_HOST, SMTP_PORT, timeout=15) as s:
+                s.ehlo(); s.starttls(context=ctx); s.ehlo()
+                s.login(SMTP_USER, SMTP_PASS)
+                s.sendmail(SMTP_USER, to, msg.as_string())
+        else:
+            with smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT, context=ctx, timeout=15) as s:
+                s.login(SMTP_USER, SMTP_PASS)
+                s.sendmail(SMTP_USER, to, msg.as_string())
         return True
     except Exception as e:
         print(f"  SMTP error ({to}): {e}")
@@ -392,7 +445,7 @@ def main():
             'issues'  : issues,
             'opp'     : opp,
         })
-        time.sleep(2)
+        time.sleep(8)  # éviter le rate limit PageSpeed (429)
 
     candidates.sort(key=lambda x: x['opp'], reverse=True)
 
