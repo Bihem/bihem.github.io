@@ -1125,6 +1125,96 @@ def export_csv():
             w.writerow(dict(r))
 
 # ═══════════════════════════════════════════════════════════
+# DASHBOARD JSON EXPORT
+# ═══════════════════════════════════════════════════════════
+
+JSON_PATH = os.path.join(PROJ_DIR, 'pipeline-data.json')
+
+def export_dashboard_json():
+    """Génère pipeline-data.json pour le dashboard web."""
+    with get_conn() as c:
+        # Funnel global
+        funnel = dict(c.execute("""
+            SELECT COUNT(*) total,
+              SUM(CASE WHEN email!='' AND email IS NOT NULL THEN 1 ELSE 0 END) with_email,
+              SUM(CASE WHEN sequence_step>=1 THEN 1 ELSE 0 END) total_emailed,
+              SUM(CASE WHEN replied=1    THEN 1 ELSE 0 END) total_replied,
+              SUM(CASE WHEN bounced=1    THEN 1 ELSE 0 END) total_bounced,
+              SUM(CASE WHEN status='queued' THEN 1 ELSE 0 END) queued,
+              SUM(CASE WHEN status IN ('emailed_1','emailed_2') THEN 1 ELSE 0 END) pending
+            FROM prospects
+        """).fetchone())
+
+        # Taux par source
+        sources = [dict(r) for r in c.execute("""
+            SELECT source,
+              COUNT(*) n,
+              SUM(CASE WHEN email!='' AND email IS NOT NULL THEN 1 ELSE 0 END) with_email,
+              SUM(CASE WHEN sequence_step>=1 THEN 1 ELSE 0 END) total_emailed,
+              SUM(CASE WHEN replied=1 THEN 1 ELSE 0 END) replied
+            FROM prospects GROUP BY source ORDER BY n DESC
+        """).fetchall()]
+
+        # A/B test
+        ab = {}
+        for variant in ['A', 'B']:
+            row = c.execute("""
+                SELECT COUNT(*) sent,
+                  SUM(CASE WHEN replied=1 THEN 1 ELSE 0 END) replied
+                FROM prospects WHERE variant=? AND sequence_step>=1
+            """, (variant,)).fetchone()
+            ab[variant] = {'sent': row[0] or 0, 'replied': row[1] or 0}
+
+        # Tendance 30 jours
+        trend = [dict(r) for r in c.execute("""
+            SELECT date_added date,
+              COUNT(*) analyzed,
+              SUM(CASE WHEN sequence_step>=1 THEN 1 ELSE 0 END) emailed,
+              SUM(CASE WHEN replied=1 THEN 1 ELSE 0 END) replied
+            FROM prospects
+            WHERE date_added >= date('now', '-30 days')
+            GROUP BY date_added ORDER BY date_added
+        """).fetchall()]
+
+        # Derniers 20 prospects
+        recent = [dict(r) for r in c.execute("""
+            SELECT domain, company, tech, score, source, status,
+              date_step1, replied, email
+            FROM prospects ORDER BY date_added DESC, id DESC LIMIT 20
+        """).fetchall()]
+
+        # Stats du jour
+        today = datetime.now().date().isoformat()
+        today_stats = dict(c.execute("""
+            SELECT
+              COUNT(*) analyzed,
+              SUM(CASE WHEN email!='' AND email IS NOT NULL THEN 1 ELSE 0 END) with_email,
+              SUM(CASE WHEN date_step1 LIKE ? AND sequence_step>=1 THEN 1 ELSE 0 END) emailed
+            FROM prospects WHERE date_added=?
+        """, (today + '%', today)).fetchone())
+
+    # Masquer les emails dans recent (privacy)
+    for r in recent:
+        if r.get('email'):
+            parts = r['email'].split('@')
+            r['email'] = parts[0][:3] + '***@' + parts[1] if len(parts) == 2 else '***'
+
+    data = {
+        'updated_at': datetime.now().isoformat(),
+        'funnel':     funnel,
+        'sources':    sources,
+        'ab_test':    ab,
+        'daily_trend': trend,
+        'today':      today_stats,
+        'recent':     recent,
+    }
+
+    with open(JSON_PATH, 'w', encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False, indent=2, default=str)
+
+    return JSON_PATH
+
+# ═══════════════════════════════════════════════════════════
 # MAIN
 # ═══════════════════════════════════════════════════════════
 
@@ -1215,9 +1305,10 @@ def main():
         else:
             time.sleep(3)
 
-    # ── 5. BACKUP + REPORT ───────────────────────────────
+    # ── 5. BACKUP + DASHBOARD JSON + REPORT ─────────────
     export_csv()
-    print(f"✅ CSV exporté")
+    export_dashboard_json()
+    print(f"✅ CSV + pipeline-data.json exportés")
     print("📱 Rapport Telegram…")
     report = build_report(stats)
     tg(report)
