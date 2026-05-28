@@ -252,8 +252,13 @@ def init_db():
     with get_conn() as c:
         cols = [r[1] for r in c.execute("PRAGMA table_info(prospects)")]
         for col, defn in [
-            ('source', "TEXT DEFAULT 'ddg'"),
-            ('phone',  "TEXT"),
+            ('source',         "TEXT DEFAULT 'ddg'"),
+            ('phone',          "TEXT"),
+            ('ai_score',       "INTEGER DEFAULT 0"),
+            ('temperature',    "TEXT DEFAULT 'cold'"),
+            ('icp_category',   "TEXT DEFAULT 'ecommerce_premium'"),
+            ('brand_quality',  "INTEGER DEFAULT 10"),
+            ('intent_signals', "TEXT"),
         ]:
             if col not in cols:
                 c.execute(f"ALTER TABLE prospects ADD COLUMN {col} {defn}")
@@ -958,6 +963,141 @@ def compute_score(perf, tech, issues, has_email=False, has_phone=False):
     return min(score, 100)
 
 # ═══════════════════════════════════════════════════════════
+# INTELLIGENCE IA v6 — ICP · Intent · Brand · AI Score
+# ═══════════════════════════════════════════════════════════
+
+ICP_CATEGORIES = {
+    'streetwear_premium': 'Streetwear Premium',
+    'mode_luxe':          'Mode & Luxe',
+    'ecommerce_premium':  'E-commerce Premium',
+    'skincare_wellness':  'Skincare & Wellness',
+    'hospitality':        'Hospitality & Resto',
+    'artisan_createur':   'Artisan Créateur',
+    'cabinet_b2b':        'Cabinet B2B',
+    'saas_ia':            'SaaS & IA',
+    'immobilier':         'Immobilier & Archi',
+}
+
+_KW_STREET  = ['street','hype','urban','drop','collab','vintage','skate','rap','kick',
+               'hoodie','sweat','snap','fresh','drip','sneaker','hypebeast']
+_KW_LUXE    = ['luxe','luxury','premium','couture','atelier','maison','créateur',
+               'joaill','bijou','perle','gold','diamond','haute','prestige']
+_KW_SKIN    = ['skin','beauty','beauté','cosmet','soin','crème','serum','sérum',
+               'parfum','spa','wellness','bien-être','glow','natur','bio','sante']
+_KW_HOSPIT  = ['restaurant','bistro','brasserie','cafe','café','hotel','resort',
+               'traiteur','gastro','chef','cantine','boulang','patisserie','auberge']
+_KW_IMMO    = ['immobil','agence','propriété','invest','realty','renov','rénovation',
+               'archi','logement','habitat','foncier','promotion','copropri']
+_KW_STARTUP = ['app','saas','startup','tech','digital','platform','software',
+               'solution','logiciel','cloud','api','data','analytics','ia-','ai-']
+_KW_CABINET = ['conseil','consulting','consultant','cabinet','audit','expertise',
+               'avocat','notaire','assurance','finance','rh','formation','coaching','juridique']
+_KW_ARTISAN = ['artisan','créateur','atelier','maker','craft','céramique','poterie',
+               'tissu','broderie','sculpture','peintre','ébéniste','joailler','tapiss']
+
+def detect_icp(domain, company, tech, source):
+    full = (domain + ' ' + (company or '')).lower()
+    if any(k in full for k in _KW_STREET):  return 'streetwear_premium'
+    if any(k in full for k in _KW_LUXE):    return 'mode_luxe'
+    if any(k in full for k in _KW_SKIN):    return 'skincare_wellness'
+    if any(k in full for k in _KW_HOSPIT):  return 'hospitality'
+    if any(k in full for k in _KW_STARTUP): return 'saas_ia'
+    if any(k in full for k in _KW_CABINET): return 'cabinet_b2b'
+    if any(k in full for k in _KW_ARTISAN): return 'artisan_createur'
+    if any(k in full for k in _KW_IMMO):    return 'immobilier'
+    if tech in ('Shopify','WooCommerce','PrestaShop','Magento'): return 'ecommerce_premium'
+    if source == 'indeed': return 'cabinet_b2b'
+    return 'ecommerce_premium'
+
+def detect_intent_signals(domain, tech, perf, issues, source):
+    signals = []
+    if perf < 35:
+        signals.append({'type':'critical_perf','label':f'Perf critique {perf}/100','strength':'high'})
+    elif perf < 55:
+        signals.append({'type':'low_perf','label':f'Mobile faible {perf}/100','strength':'medium'})
+    if tech in ('Wix','Squarespace','Jimdo'):
+        signals.append({'type':'low_tech','label':f'{tech} → migration possible','strength':'high'})
+    elif tech == 'WordPress' and perf < 50:
+        signals.append({'type':'wp_slow','label':'WordPress lent — redesign potentiel','strength':'medium'})
+    if len(issues) >= 4:
+        signals.append({'type':'many_issues','label':f'{len(issues)} problèmes techniques','strength':'high'})
+    elif len(issues) >= 2:
+        signals.append({'type':'some_issues','label':f'{len(issues)} problèmes site','strength':'medium'})
+    if source == 'indeed':
+        signals.append({'type':'hiring','label':'Recrutement digital actif','strength':'high'})
+    if source in ('gmaps','pagesjunes') and perf < 50:
+        signals.append({'type':'local_poor_web','label':'Présence locale / site faible','strength':'medium'})
+    return signals
+
+def score_brand_quality(domain, tech, perf, issues):
+    d = domain.replace('www.','').split('.')[0]
+    score = 10
+    if len(d) <= 7:    score += 3
+    elif len(d) >= 18: score -= 2
+    score += {'Shopify':2,'PrestaShop':1,'WooCommerce':1,'WordPress':0,
+              'Custom':3,'React':3,'Next.js':3,'Webflow':2,'Framer':2,
+              'Wix':-2,'Squarespace':-1,'Jimdo':-3}.get(tech, 0)
+    if perf >= 70:    score += 3
+    elif perf >= 50:  score += 1
+    elif perf < 30:   score -= 3
+    score -= min(len(issues), 4)
+    return max(0, min(20, score))
+
+def compute_ai_score(perf, tech, issues, has_email=False, has_phone=False,
+                     icp_cat='', intent_signals=None, brand_quality=10):
+    """Score composite IA 0-100 — Dikenga Intelligence v6."""
+    intent_signals = intent_signals or []
+    if   perf < 30:  ps = 35
+    elif perf < 45:  ps = 28
+    elif perf < 60:  ps = 20
+    elif perf < 75:  ps = 12
+    else:            ps = 6
+    tech_s = {'Wix':25,'Squarespace':22,'Jimdo':22,'WordPress':18,'PrestaShop':17,
+              'WooCommerce':16,'Magento':14,'Shopify':10,'Webflow':7,'Custom':6,'Framer':5}.get(tech, 12)
+    issue_s   = min(len(issues), 4) * 5
+    contact_s = (5 if has_email else 0) + (3 if has_phone else 0)
+    icp_s     = {'streetwear_premium':7,'mode_luxe':7,'skincare_wellness':6,
+                 'ecommerce_premium':5,'hospitality':5,'artisan_createur':5,
+                 'cabinet_b2b':4,'immobilier':4,'saas_ia':3}.get(icp_cat, 4)
+    intent_s  = min(sum(2 if s['strength']=='high' else 1 for s in intent_signals), 5)
+    bq_adj    = 3 if brand_quality >= 15 else (1 if brand_quality >= 10 else (-2 if brand_quality < 6 else 0))
+    return min(100, max(0, ps + tech_s + issue_s + contact_s + icp_s + intent_s + bq_adj))
+
+def classify_temperature(ai_score):
+    if ai_score >= 72: return 'hot'
+    if ai_score >= 50: return 'warm'
+    return 'cold'
+
+def backfill_ai_scores():
+    """Recalcule ai_score/temperature/icp pour les prospects existants (ai_score=0)."""
+    with get_conn() as c:
+        rows = c.execute("""
+            SELECT id, domain, company, tech, perf_mobile, issues, email, phone, source
+            FROM prospects WHERE ai_score=0 OR ai_score IS NULL
+        """).fetchall()
+    updated = 0
+    for r in rows:
+        try:
+            issues = json.loads(r['issues']) if isinstance(r['issues'], str) else (r['issues'] or [])
+            has_em = bool(r['email'])
+            has_ph = bool(r['phone'])
+            icp    = detect_icp(r['domain'], r['company'], r['tech'], r['source'])
+            intent = detect_intent_signals(r['domain'], r['tech'], r['perf_mobile'] or 0, issues, r['source'])
+            bq     = score_brand_quality(r['domain'], r['tech'], r['perf_mobile'] or 0, issues)
+            ai_sc  = compute_ai_score(r['perf_mobile'] or 0, r['tech'], issues, has_em, has_ph, icp, intent, bq)
+            temp   = classify_temperature(ai_sc)
+            with get_conn() as c:
+                c.execute("""UPDATE prospects SET
+                    ai_score=?, temperature=?, icp_category=?, brand_quality=?, intent_signals=?
+                    WHERE id=?""",
+                    (ai_sc, temp, icp, bq, json.dumps(intent), r['id']))
+            updated += 1
+        except Exception as e:
+            print(f"  backfill error {r['domain']}: {e}")
+    if updated:
+        print(f"  ✦ Backfill AI scores : {updated} prospects mis à jour")
+
+# ═══════════════════════════════════════════════════════════
 # EMAIL TEMPLATES A/B v5 — sujets + corps testés séparément
 # ═══════════════════════════════════════════════════════════
 
@@ -1376,7 +1516,7 @@ def build_report(stats):
     optout_line = f"  Opt-outs : {tot['total_optout']}" if tot.get('total_optout', 0) else ""
 
     return (
-        f"📊 <b>Dikenga Acquisition v5{warmup_tag} — {today}</b>\n\n"
+        f"📊 <b>Dikenga Acquisition OS v6{warmup_tag} — {today}</b>\n\n"
         f"<b>🔍 Run du jour</b>\n"
         f"  Analysés : {a}  |  📧 {w} emails ({email_rate})  |  📱 {ph} tél\n"
         f"  Envoyés : {sent}  (step1:{stats.get('s1',0)}  relances:{stats.get('s2',0)+stats.get('s3',0)})"
@@ -1475,16 +1615,42 @@ def export_dashboard_json():
             FROM prospects WHERE date_added=?
         """, (today + '%', today)).fetchone())
 
+    with get_conn() as c:
+        icp_rows  = c.execute("""
+            SELECT icp_category, COUNT(*) n FROM prospects
+            WHERE icp_category IS NOT NULL GROUP BY icp_category ORDER BY n DESC
+        """).fetchall()
+        temp_row  = dict(c.execute("""
+            SELECT SUM(CASE WHEN temperature='hot'  THEN 1 ELSE 0 END) hot,
+                   SUM(CASE WHEN temperature='warm' THEN 1 ELSE 0 END) warm,
+                   SUM(CASE WHEN temperature='cold' THEN 1 ELSE 0 END) cold,
+                   ROUND(AVG(NULLIF(ai_score,0))) avg_ai_score
+            FROM prospects
+        """).fetchone())
+    total_p = funnel.get('total', 1) or 1
+    icp_distribution = [
+        {'category': r[0], 'label': ICP_CATEGORIES.get(r[0], r[0]),
+         'count': r[1], 'pct': round(r[1] / total_p * 100)}
+        for r in icp_rows
+    ]
+
     data = {
-        'updated_at':  datetime.now().isoformat(),
-        'version':     'v5',
-        'warmup_mode': WARMUP_MODE,
-        'funnel':      funnel,
-        'sources':     sources,
-        'ab_test':     ab,
-        'daily_trend': trend,
-        'today':       today_stats,
-        'recent':      recent,
+        'updated_at':       datetime.now().isoformat(),
+        'version':          'v6',
+        'warmup_mode':      WARMUP_MODE,
+        'funnel':           funnel,
+        'sources':          sources,
+        'ab_test':          ab,
+        'daily_trend':      trend,
+        'today':            today_stats,
+        'recent':           recent,
+        'icp_distribution': icp_distribution,
+        'temperature':      {
+            'hot':          int(temp_row.get('hot') or 0),
+            'warm':         int(temp_row.get('warm') or 0),
+            'cold':         int(temp_row.get('cold') or 0),
+            'avg_ai_score': int(temp_row.get('avg_ai_score') or 0),
+        },
     }
 
     with open(JSON_PATH, 'w', encoding='utf-8') as f:
@@ -1499,15 +1665,16 @@ def export_dashboard_json():
 CRM_PATH = os.path.join(PROJ_DIR, 'crm-data.json')
 
 def export_crm_json():
-    """Génère crm-data.json avec TOUS les prospects pour le CRM web."""
+    """Génère crm-data.json v6 avec tous les prospects + ICP + intent feed."""
     with get_conn() as c:
         rows = c.execute("""
             SELECT id, domain, company, email, phone, tech,
                    perf_mobile, lcp, issues, score, source, status,
                    sequence_step, variant, date_added, date_step1,
-                   date_step2, date_step3, replied, bounced, notes, next_action
+                   date_step2, date_step3, replied, bounced, notes, next_action,
+                   ai_score, temperature, icp_category, brand_quality, intent_signals
             FROM prospects
-            ORDER BY score DESC, date_added DESC
+            ORDER BY ai_score DESC, score DESC, date_added DESC
         """).fetchall()
 
         total_stats = dict(c.execute("""
@@ -1519,24 +1686,59 @@ def export_crm_json():
               SUM(CASE WHEN replied=1         THEN 1 ELSE 0 END) replied,
               SUM(CASE WHEN bounced=1         THEN 1 ELSE 0 END) bounced,
               SUM(CASE WHEN status='optout'   THEN 1 ELSE 0 END) optout,
-              SUM(CASE WHEN status='no_email' THEN 1 ELSE 0 END) no_email
+              SUM(CASE WHEN status='no_email' THEN 1 ELSE 0 END) no_email,
+              SUM(CASE WHEN temperature='hot'  THEN 1 ELSE 0 END) hot,
+              SUM(CASE WHEN temperature='warm' THEN 1 ELSE 0 END) warm,
+              SUM(CASE WHEN temperature='cold' THEN 1 ELSE 0 END) cold,
+              ROUND(AVG(NULLIF(ai_score,0))) avg_ai_score
             FROM prospects
         """).fetchone())
 
     prospects = []
     for r in rows:
         p = dict(r)
-        # Désérialiser issues si c'est une string JSON
         try:
             p['issues'] = json.loads(p['issues']) if isinstance(p['issues'], str) else (p['issues'] or [])
         except Exception:
             p['issues'] = []
+        try:
+            p['intent_signals'] = json.loads(p['intent_signals']) if isinstance(p['intent_signals'], str) else (p['intent_signals'] or [])
+        except Exception:
+            p['intent_signals'] = []
+        p['icp_label'] = ICP_CATEGORIES.get(p.get('icp_category') or '', 'E-commerce Premium')
         prospects.append(p)
 
+    # ICP distribution
+    icp_counts = {}
+    for p in prospects:
+        cat = p.get('icp_category') or 'ecommerce_premium'
+        icp_counts[cat] = icp_counts.get(cat, 0) + 1
+    icp_distribution = sorted([
+        {'category': cat, 'label': ICP_CATEGORIES.get(cat, cat),
+         'count': cnt, 'pct': round(cnt / max(1, len(prospects)) * 100)}
+        for cat, cnt in icp_counts.items()
+    ], key=lambda x: -x['count'])
+
+    # Intent feed — top signals par ai_score
+    intent_feed = []
+    for p in prospects[:40]:
+        for sig in (p.get('intent_signals') or [])[:2]:
+            intent_feed.append({
+                'domain': p['domain'], 'company': p.get('company', p['domain']),
+                'signal': sig['label'], 'strength': sig['strength'],
+                'icp_label': p.get('icp_label', ''), 'ai_score': p.get('ai_score', 0),
+                'temperature': p.get('temperature', 'cold'),
+                'ts': p.get('date_added', ''),
+            })
+    intent_feed = sorted(intent_feed, key=lambda x: x['ai_score'], reverse=True)[:25]
+
     data = {
-        'updated_at': datetime.now().isoformat(),
-        'stats':      total_stats,
-        'prospects':  prospects,
+        'updated_at':       datetime.now().isoformat(),
+        'version':          'v6',
+        'stats':            total_stats,
+        'icp_distribution': icp_distribution,
+        'intent_feed':      intent_feed,
+        'prospects':        prospects,
     }
 
     with open(CRM_PATH, 'w', encoding='utf-8') as f:
@@ -1550,13 +1752,14 @@ def export_crm_json():
 
 def main():
     print(f"\n{'═'*60}")
-    print(f"  Dikenga Acquisition DATA-DRIVEN v5  —  7 sources")
+    print(f"  Dikenga Acquisition OS v6  —  7 sources + IA scoring")
     if WARMUP_MODE:
         print(f"  ⚠️  WARMUP MODE actif → max {MAX_EMAILS_PER_RUN} emails/jour")
     print(f"  {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print(f"{'═'*60}\n")
 
     init_db()
+    backfill_ai_scores()
     stats = {
         'analyzed': 0, 'with_email': 0, 'with_phone': 0,
         'sent': 0, 'sms_sent': 0,
@@ -1599,12 +1802,19 @@ def main():
         # Insérer en DB séquentiellement (SQLite)
         for domain, source, data in results:
             try:
-                sc = compute_score(
-                    data['perf_mobile'], data['tech'], data['issues'],
-                    has_email=bool(data['email']), has_phone=bool(data['phone'])
-                )
-                has_em = bool(data['email'])
-                has_ph = bool(data['phone'])
+                has_em  = bool(data['email'])
+                has_ph  = bool(data['phone'])
+                issues  = data['issues']
+                icp_cat    = detect_icp(data['domain'], data['company'], data['tech'], source)
+                intent_sig = detect_intent_signals(data['domain'], data['tech'], data['perf_mobile'], issues, source)
+                brand_q    = score_brand_quality(data['domain'], data['tech'], data['perf_mobile'], issues)
+                ai_sc      = compute_ai_score(
+                    data['perf_mobile'], data['tech'], issues, has_em, has_ph,
+                    icp_cat, intent_sig, brand_q)
+                sc         = compute_score(
+                    data['perf_mobile'], data['tech'], issues,
+                    has_email=has_em, has_phone=has_ph)
+                temp       = classify_temperature(ai_sc)
 
                 if has_em and sc >= MIN_SCORE:  status = 'queued'
                 elif not has_em:                status = 'no_email'
@@ -1614,15 +1824,18 @@ def main():
                     c.execute("""
                         INSERT OR IGNORE INTO prospects
                           (domain,company,email,phone,tech,perf_mobile,lcp,issues,
-                           score,source,status,date_added,date_analyzed)
-                        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)
+                           score,source,status,date_added,date_analyzed,
+                           ai_score,temperature,icp_category,brand_quality,intent_signals)
+                        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
                     """, (data['domain'], data['company'], data['email'],
                           data.get('phone'),
                           data['tech'], data['perf_mobile'], data['lcp'],
-                          json.dumps(data['issues']),
+                          json.dumps(issues),
                           sc, source, status,
                           datetime.now().date().isoformat(),
-                          datetime.now().isoformat()))
+                          datetime.now().isoformat(),
+                          ai_sc, temp, icp_cat, brand_q,
+                          json.dumps(intent_sig)))
 
                 stats['analyzed'] += 1
                 if has_em: stats['with_email'] += 1
