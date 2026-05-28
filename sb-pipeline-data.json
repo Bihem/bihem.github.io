@@ -1,36 +1,29 @@
 {
-  "updated_at": "2026-05-28T22:47:20.676828",
+  "updated_at": "2026-05-28T23:39:47.071751",
   "version": "sb-v1",
   "product": "StudioBooking",
   "warmup_mode": true,
   "funnel": {
-    "total": 16,
-    "with_email": 5,
-    "with_phone": 8,
+    "total": 6,
+    "with_email": 2,
+    "with_phone": 5,
     "total_emailed": 0,
     "total_replied": 0,
-    "total_bounced": 5,
-    "queued": 0,
-    "hot_opps": 5,
-    "manual_bookings": 1
+    "total_bounced": 2,
+    "queued": 2,
+    "hot_opps": 2,
+    "manual_bookings": 0
   },
   "sources": [
     {
-      "source": "ddg",
-      "n": 10,
-      "with_email": 4,
-      "total_emailed": 0,
-      "replied": 0
-    },
-    {
-      "source": "yelp",
-      "n": 3,
-      "with_email": 0,
-      "total_emailed": 0,
-      "replied": 0
-    },
-    {
       "source": "gmaps",
+      "n": 3,
+      "with_email": 1,
+      "total_emailed": 0,
+      "replied": 0
+    },
+    {
+      "source": "ddg",
       "n": 3,
       "with_email": 1,
       "total_emailed": 0,
@@ -50,41 +43,41 @@
   "daily_trend": [
     {
       "date": "2026-05-28",
-      "analyzed": 16,
+      "analyzed": 6,
       "emailed": 0,
       "replied": 0
     }
   ],
   "temperature": {
-    "hot": 5,
+    "hot": 2,
     "warm": 2,
-    "cold": 9,
-    "avg_score": 49
+    "cold": 2,
+    "avg_score": 58
   },
   "icp_distribution": [
-    {
-      "category": "autre_studio",
-      "label": "Autre Studio",
-      "count": 11,
-      "pct": 69
-    },
     {
       "category": "enregistrement",
       "label": "Studio d'Enregistrement",
       "count": 3,
-      "pct": 19
+      "pct": 50
     },
     {
       "category": "smac_venue",
       "label": "SMAC / Salle de Spectacle",
       "count": 1,
-      "pct": 6
+      "pct": 17
     },
     {
       "category": "repetition",
       "label": "Studio de Répétition",
       "count": 1,
-      "pct": 6
+      "pct": 17
+    },
+    {
+      "category": "autre_studio",
+      "label": "Autre Studio",
+      "count": 1,
+      "pct": 17
     }
   ]
 }
