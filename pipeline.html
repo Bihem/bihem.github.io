@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,11 +8,43 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
+
+/* ── Tokens dark (défaut) ── */
 :root{
   --bg:#0f0f0f;--card:#161616;--card2:#1c1c1c;
   --border:rgba(255,255,255,0.07);--text:#fff;--dim:rgba(255,255,255,0.45);
+  --surface:rgba(255,255,255,0.07);--surface2:rgba(255,255,255,0.04);
+  --copy-text:rgba(255,255,255,0.72);
+  --ab-rate-muted:rgba(255,255,255,0.3);
+  --grid:rgba(255,255,255,0.05);
+  --chart-axis:rgba(255,255,255,0.4);
+  --trend-line:rgba(255,255,255,0.18);
+  --hover-border:rgba(255,255,255,0.25);
   --green:#22c55e;--blue:#3b82f6;--orange:#f59e0b;--red:#ef4444;--purple:#a855f7;
 }
+
+/* ── Tokens light ── */
+[data-theme="light"]{
+  --bg:#f2f2f4;--card:#ffffff;--card2:#f7f7f8;
+  --border:rgba(0,0,0,0.08);--text:#111;--dim:rgba(0,0,0,0.42);
+  --surface:rgba(0,0,0,0.06);--surface2:rgba(0,0,0,0.03);
+  --copy-text:rgba(0,0,0,0.62);
+  --ab-rate-muted:rgba(0,0,0,0.22);
+  --grid:rgba(0,0,0,0.05);
+  --chart-axis:rgba(0,0,0,0.42);
+  --trend-line:rgba(0,0,0,0.22);
+  --hover-border:rgba(0,0,0,0.22);
+  --green:#16a34a;--blue:#2563eb;--orange:#d97706;--red:#dc2626;--purple:#7c3aed;
+}
+
+/* ── Transition douce ── */
+body,
+.card,.gate,.gate-box,.gate-input,.gate-btn,
+.ab-card,.tech-tag,.score-pill,.badge,
+.refresh-btn,.theme-btn{
+  transition:background .22s, border-color .22s, color .22s;
+}
+
 body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:28px 20px 60px}
 a{color:inherit;text-decoration:none}
 
@@ -21,9 +53,9 @@ a{color:inherit;text-decoration:none}
 .gate-box{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:48px 40px;width:320px;text-align:center}
 .gate-box h2{font-size:17px;font-weight:500;margin-bottom:6px}
 .gate-box p{font-size:13px;color:var(--dim);margin-bottom:28px}
-.gate-input{width:100%;background:rgba(255,255,255,0.05);border:1px solid var(--border);color:var(--text);padding:12px 14px;border-radius:8px;font-size:14px;font-family:inherit;outline:none;margin-bottom:12px;text-align:center;letter-spacing:0.08em}
-.gate-input:focus{border-color:rgba(255,255,255,0.25)}
-.gate-btn{width:100%;background:#fff;color:#000;border:none;padding:12px;border-radius:8px;font-size:14px;font-weight:500;font-family:inherit;cursor:pointer;transition:opacity .15s}
+.gate-input{width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:12px 14px;border-radius:8px;font-size:14px;font-family:inherit;outline:none;margin-bottom:12px;text-align:center;letter-spacing:0.08em}
+.gate-input:focus{border-color:var(--hover-border)}
+.gate-btn{width:100%;background:var(--text);color:var(--bg);border:none;padding:12px;border-radius:8px;font-size:14px;font-weight:500;font-family:inherit;cursor:pointer;transition:opacity .15s,background .22s,color .22s}
 .gate-btn:hover{opacity:.85}
 .gate-err{font-size:12px;color:var(--red);margin-top:10px;min-height:16px}
 
@@ -32,12 +64,13 @@ a{color:inherit;text-decoration:none}
 .header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
 .logo{font-size:15px;font-weight:500;letter-spacing:-.01em}
 .logo span{color:var(--dim);font-weight:300}
-.header-right{display:flex;align-items:center;gap:16px}
+.header-right{display:flex;align-items:center;gap:10px}
 .updated{font-size:11px;color:var(--dim)}
 .dot-live{width:6px;height:6px;background:var(--green);border-radius:50%;display:inline-block;margin-right:5px;animation:blink 2s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-.refresh-btn{font-size:11px;color:var(--dim);background:none;border:1px solid var(--border);padding:4px 10px;border-radius:6px;cursor:pointer;font-family:inherit;transition:border-color .15s}
-.refresh-btn:hover{border-color:rgba(255,255,255,0.25)}
+.refresh-btn,.theme-btn{font-size:11px;color:var(--dim);background:none;border:1px solid var(--border);padding:4px 10px;border-radius:6px;cursor:pointer;font-family:inherit;transition:border-color .15s,color .15s}
+.refresh-btn:hover,.theme-btn:hover{border-color:var(--hover-border);color:var(--text)}
+.theme-btn{padding:4px 9px;font-size:14px;line-height:1}
 
 /* ── Grid ── */
 .g{display:grid;gap:14px;margin-bottom:14px}
@@ -69,31 +102,33 @@ a{color:inherit;text-decoration:none}
 .badge{display:inline-block;font-size:10px;padding:2px 7px;border-radius:4px;font-weight:500}
 .bg{background:rgba(34,197,94,.12);color:var(--green)}
 .bm{background:rgba(245,158,11,.12);color:var(--orange)}
-.bl{background:rgba(255,255,255,.07);color:var(--dim)}
-.bar-bg{height:3px;background:rgba(255,255,255,.07);border-radius:2px;margin-top:3px;width:100%}
+.bl{background:var(--surface);color:var(--dim)}
+.bar-bg{height:3px;background:var(--surface);border-radius:2px;margin-top:3px;width:100%}
 .bar-fill{height:3px;border-radius:2px;background:var(--blue)}
 
 /* ── A/B ── */
 .ab-wrap{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
 .ab-card{background:var(--card2);border-radius:9px;padding:14px;border:1px solid var(--border)}
-.ab-card.winner{border-color:rgba(34,197,94,.35)}
+.ab-card.winner{border-color:rgba(34,197,94,.4)}
 .ab-letter{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:6px}
-.ab-rate{font-size:28px;font-weight:600;letter-spacing:-.03em;line-height:1;color:rgba(255,255,255,.35)}
+.ab-rate{font-size:28px;font-weight:600;letter-spacing:-.03em;line-height:1;color:var(--ab-rate-muted)}
 .ab-card.winner .ab-rate{color:var(--green)}
 .ab-detail{font-size:10px;color:var(--dim);margin-top:4px}
 .win-badge{font-size:9px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--green);margin-top:6px}
 
-/* ── Recent ── */
+/* ── Recent table ── */
 .rec-tbl{width:100%;border-collapse:collapse;font-size:12px}
 .rec-tbl th{text-align:left;font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--dim);padding:0 8px 10px 0;font-weight:500;white-space:nowrap}
 .rec-tbl td{padding:8px 8px 8px 0;border-top:1px solid var(--border);vertical-align:middle}
 .sdot{width:6px;height:6px;border-radius:50%;display:inline-block;margin-right:5px;flex-shrink:0}
-.s-queued{background:#555}.s-emailed_1{background:var(--blue)}.s-emailed_2{background:var(--orange)}
-.s-emailed_3{background:#f97316}.s-replied{background:var(--green)}.s-bounced,.s-error{background:var(--red)}
-.s-no_email,.s-low_score{background:#333}
+.s-queued{background:#888}
+.s-emailed_1{background:var(--blue)}.s-emailed_2{background:var(--orange)}
+.s-emailed_3{background:#f97316}.s-replied{background:var(--green)}
+.s-bounced,.s-error{background:var(--red)}
+.s-no_email,.s-low_score{background:var(--surface)}
 .domain-cell{font-weight:500;font-size:12px}
-.tech-tag{font-size:9.5px;background:rgba(255,255,255,.07);padding:2px 6px;border-radius:4px;color:var(--dim)}
-.score-pill{font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;background:rgba(255,255,255,.07)}
+.tech-tag{font-size:9.5px;background:var(--surface);padding:2px 6px;border-radius:4px;color:var(--dim)}
+.score-pill{font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;background:var(--surface)}
 .score-high{background:rgba(34,197,94,.12);color:var(--green)}
 .score-mid{background:rgba(245,158,11,.12);color:var(--orange)}
 .replied-icon{color:var(--green);font-size:13px}
@@ -101,10 +136,10 @@ a{color:inherit;text-decoration:none}
 
 /* ── Copy cells ── */
 .copy-cell{cursor:pointer;display:flex;align-items:center;gap:5px;max-width:200px}
-.copy-cell span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:11.5px;color:rgba(255,255,255,0.75)}
+.copy-cell span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:11.5px;color:var(--copy-text)}
 .copy-cell .copy-ico{flex-shrink:0;font-size:10px;color:var(--dim);opacity:0;transition:opacity .15s}
 .copy-cell:hover .copy-ico{opacity:1}
-.copy-cell:hover span{color:#fff}
+.copy-cell:hover span{color:var(--text)}
 .copy-cell.copied span{color:var(--green)}
 .copy-cell.copied .copy-ico{opacity:1;color:var(--green)}
 .no-contact{color:var(--dim);font-size:11px}
@@ -133,6 +168,7 @@ a{color:inherit;text-decoration:none}
     <div class="logo">DIKENGA <span>/ Pipeline Acquisition</span></div>
     <div class="header-right">
       <span class="updated"><span class="dot-live"></span><span id="ts">—</span></span>
+      <button class="theme-btn" id="theme-btn" onclick="toggleTheme()" title="Changer le thème">☀</button>
       <button class="refresh-btn" onclick="load()">↻ Rafraîchir</button>
     </div>
   </div>
@@ -218,12 +254,40 @@ const STATUS = {
   error:'Erreur',no_email:'Pas d\'email',low_score:'Score bas',
 };
 
+// ── Theme ─────────────────────────────────────────────────
+function cssVar(n){ return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); }
+
+function applyTheme(t) {
+  document.documentElement.setAttribute('data-theme', t);
+  localStorage.setItem('dk_theme', t);
+  document.getElementById('theme-btn').textContent = t === 'dark' ? '☀' : '🌙';
+  // Redraw charts to adapt colors
+  if (window._lastData) render(window._lastData);
+}
+
+function toggleTheme() {
+  const cur = document.documentElement.getAttribute('data-theme') || 'dark';
+  applyTheme(cur === 'dark' ? 'light' : 'dark');
+}
+
+// Init theme from localStorage
+(function(){
+  const saved = localStorage.getItem('dk_theme');
+  const t = saved || 'dark';
+  document.documentElement.setAttribute('data-theme', t);
+  // Button icon set after DOM ready
+  window.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('theme-btn');
+    if (btn) btn.textContent = t === 'dark' ? '☀' : '🌙';
+  });
+})();
+
 // ── Auth ─────────────────────────────────────────────────
 function auth() {
   const v = document.getElementById('pwd').value.trim();
   if (v === PWD) {
     localStorage.setItem('dk_auth','1');
-    open();
+    openApp();
   } else {
     document.getElementById('pwd-err').textContent = 'Mot de passe incorrect';
     document.getElementById('pwd').style.borderColor = 'rgba(239,68,68,.5)';
@@ -231,13 +295,16 @@ function auth() {
 }
 document.getElementById('pwd').addEventListener('keydown', e => { if(e.key==='Enter') auth(); });
 
-function open() {
+function openApp() {
   document.getElementById('gate').style.display = 'none';
   document.getElementById('app').style.display  = 'block';
+  // Apply saved theme to button icon
+  const t = document.documentElement.getAttribute('data-theme') || 'dark';
+  document.getElementById('theme-btn').textContent = t === 'dark' ? '☀' : '🌙';
   load();
 }
 
-if (localStorage.getItem('dk_auth') === '1') open();
+if (localStorage.getItem('dk_auth') === '1') openApp();
 
 // ── Data ──────────────────────────────────────────────────
 let charts = {};
@@ -245,7 +312,9 @@ async function load() {
   try {
     const r = await fetch(DATA + '?t=' + Date.now());
     if (!r.ok) throw new Error(r.status);
-    render(await r.json());
+    const data = await r.json();
+    window._lastData = data;
+    render(data);
   } catch(e) {
     document.getElementById('rec-body').innerHTML =
       `<tr><td colspan="9" class="no-data">pipeline-data.json introuvable.<br>Lance le pipeline une fois pour générer les données.</td></tr>`;
@@ -257,20 +326,19 @@ function pct(a,b) { return b ? (a/b*100).toFixed(1)+'%' : '—'; }
 function scoreCls(s) { return s>=70?'score-high':s>=45?'score-mid':''; }
 function badgeCls(r) { const n=parseFloat(r); return n>=50?'bg':n>=30?'bm':'bl'; }
 
-const CHART_DEFAULTS = {
-  color: 'rgba(255,255,255,0.4)',
-  font: { family: "'Space Grotesk', sans-serif", size: 10 }
-};
-Chart.defaults.color = CHART_DEFAULTS.color;
-Chart.defaults.font  = CHART_DEFAULTS.font;
-
 function mkChart(id, config) {
   if (charts[id]) charts[id].destroy();
   charts[id] = new Chart(document.getElementById(id).getContext('2d'), config);
 }
 
 function render(d) {
-  // Updated
+  // Sync Chart.js defaults to current theme
+  const axisColor = cssVar('--chart-axis');
+  const gridColor = cssVar('--grid');
+  Chart.defaults.color = axisColor;
+  Chart.defaults.font  = { family: "'Space Grotesk', sans-serif", size: 10 };
+
+  // Updated timestamp
   try {
     const ua = new Date(d.updated_at);
     document.getElementById('ts').textContent =
@@ -280,7 +348,7 @@ function render(d) {
 
   const f = d.funnel || {};
 
-  // KPI
+  // KPIs
   document.getElementById('k-total').textContent      = fmt(f.total);
   document.getElementById('k-queued').textContent     = fmt(f.queued) + ' en file d\'envoi';
   document.getElementById('k-emailed').textContent    = fmt(f.total_emailed);
@@ -298,7 +366,7 @@ function render(d) {
       datasets: [{
         data: [f.total||0, f.with_email||0, f.total_emailed||0, f.total_replied||0],
         backgroundColor: [
-          'rgba(255,255,255,0.12)','rgba(59,130,246,0.55)',
+          'rgba(150,150,150,0.18)','rgba(59,130,246,0.55)',
           'rgba(245,158,11,0.55)','rgba(34,197,94,0.65)'
         ],
         borderRadius: 5,
@@ -308,7 +376,7 @@ function render(d) {
       indexAxis:'y', responsive:true, maintainAspectRatio:false,
       plugins:{ legend:{display:false} },
       scales:{
-        x:{ grid:{color:'rgba(255,255,255,0.04)'}, ticks:{font:{size:9}} },
+        x:{ grid:{color:gridColor}, ticks:{font:{size:9}} },
         y:{ grid:{display:false}, ticks:{font:{size:10}} }
       }
     }
@@ -316,6 +384,7 @@ function render(d) {
 
   // Trend chart
   const trend = d.daily_trend || [];
+  const trendLine = cssVar('--trend-line');
   mkChart('c-trend', {
     type: 'line',
     data: {
@@ -329,7 +398,7 @@ function render(d) {
       },{
         label:'Analysés',
         data: trend.map(r => r.analyzed||0),
-        borderColor:'rgba(255,255,255,0.18)',
+        borderColor: trendLine,
         backgroundColor:'transparent',
         fill:false, tension:0.35, pointRadius:1.5, borderDash:[4,4], borderWidth:1.5,
       }]
@@ -338,8 +407,8 @@ function render(d) {
       responsive:true, maintainAspectRatio:false,
       plugins:{ legend:{ labels:{ font:{size:9}, boxWidth:10, padding:12 } } },
       scales:{
-        x:{ grid:{color:'rgba(255,255,255,0.04)'}, ticks:{font:{size:8},maxRotation:0,maxTicksLimit:8} },
-        y:{ grid:{color:'rgba(255,255,255,0.04)'}, ticks:{font:{size:9}}, beginAtZero:true }
+        x:{ grid:{color:gridColor}, ticks:{font:{size:8},maxRotation:0,maxTicksLimit:8} },
+        y:{ grid:{color:gridColor}, ticks:{font:{size:9}}, beginAtZero:true }
       }
     }
   });
@@ -387,8 +456,8 @@ function render(d) {
       datasets:[{
         data:[rA,rB],
         backgroundColor:[
-          win==='A'?'rgba(34,197,94,.65)':'rgba(255,255,255,.1)',
-          win==='B'?'rgba(34,197,94,.65)':'rgba(255,255,255,.1)',
+          win==='A'?'rgba(34,197,94,.65)':'rgba(150,150,150,.15)',
+          win==='B'?'rgba(34,197,94,.65)':'rgba(150,150,150,.15)',
         ],
         borderRadius:5,
       }]
@@ -398,8 +467,8 @@ function render(d) {
       plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>`${ctx.raw}%`}}},
       scales:{
         x:{grid:{display:false},ticks:{font:{size:10}}},
-        y:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{font:{size:9}},beginAtZero:true,
-          title:{display:true,text:'% réponse',color:'rgba(255,255,255,.3)',font:{size:9}}}
+        y:{grid:{color:gridColor},ticks:{font:{size:9}},beginAtZero:true,
+          title:{display:true,text:'% réponse',color:axisColor,font:{size:9}}}
       }
     }
   });
@@ -442,7 +511,6 @@ function copyVal(el, val) {
     el.classList.add('copied');
     setTimeout(() => el.classList.remove('copied'), 1800);
   }).catch(() => {
-    // fallback
     const ta = document.createElement('textarea');
     ta.value = val; ta.style.position='fixed'; ta.style.opacity='0';
     document.body.appendChild(ta); ta.select();
