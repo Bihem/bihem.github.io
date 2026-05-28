@@ -29,8 +29,10 @@ from datetime import datetime, timedelta
 
 TELEGRAM_TOKEN  = os.environ.get('TELEGRAM_TOKEN', '')
 TELEGRAM_CHAT_ID= os.environ.get('TELEGRAM_CHAT_ID', '')
-GMAIL_USER      = os.environ.get('GMAIL_USER', 'dikengadesign@gmail.com')
-GMAIL_PASS      = os.environ.get('GMAIL_PASS', '')   # app password Gmail
+SMTP_HOST       = os.environ.get('SMTP_HOST', 'zimbra1.mail.ovh.net')
+SMTP_PORT       = int(os.environ.get('SMTP_PORT', '465'))
+SMTP_USER       = os.environ.get('SMTP_USER', 'contact@dikengadesign.fr')
+SMTP_PASS       = os.environ.get('SMTP_PASS', '')
 SENDER_NAME     = "Mes-Reves — Dikenga Design"
 MAX_EMAILS_PER_RUN = 15   # limite quotidienne de sécurité
 EMAIL_DELAY_SEC    = 40   # secondes entre chaque envoi (évite le spam filter)
@@ -282,23 +284,23 @@ def build_email(domain, perf, lcp, tech, issues):
 # ─── EMAIL SENDER ─────────────────────────────────────────────────────────────
 
 def send_email(to, subject, body):
-    if not GMAIL_PASS:
-        print(f"  [DRY RUN — pas de GMAIL_PASS] → {to}")
-        return True  # mode test sans crédentiels
+    if not SMTP_PASS:
+        print(f"  [DRY RUN — SMTP_PASS non configuré] → {to}")
+        return True  # mode test
 
     try:
         msg = MIMEMultipart('alternative')
-        msg['From']         = f"{SENDER_NAME} <{GMAIL_USER}>"
-        msg['To']           = to
-        msg['Subject']      = subject
-        msg['Reply-To']     = GMAIL_USER
-        msg.add_header('List-Unsubscribe', f'<mailto:{GMAIL_USER}?subject=STOP>')
+        msg['From']     = f"{SENDER_NAME} <{SMTP_USER}>"
+        msg['To']       = to
+        msg['Subject']  = subject
+        msg['Reply-To'] = SMTP_USER
+        msg.add_header('List-Unsubscribe', f'<mailto:{SMTP_USER}?subject=STOP>')
         msg.attach(MIMEText(body, 'plain', 'utf-8'))
 
         ctx = ssl.create_default_context()
-        with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=ctx) as s:
-            s.login(GMAIL_USER, GMAIL_PASS)
-            s.sendmail(GMAIL_USER, to, msg.as_string())
+        with smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT, context=ctx) as s:
+            s.login(SMTP_USER, SMTP_PASS)
+            s.sendmail(SMTP_USER, to, msg.as_string())
         return True
     except Exception as e:
         print(f"  SMTP error ({to}): {e}")
@@ -465,7 +467,7 @@ def main():
         f"📭 Sans email trouvé : <b>{len(no_email)}</b>\n\n"
         f"<b>Emails envoyés :</b>\n{sent_lines}\n\n"
         + (f"<b>Sans email :</b>\n{no_email_lines}\n\n" if no_email_lines else '') +
-        f"💬 Surveille <code>dikengadesign@gmail.com</code> pour les réponses."
+        f"💬 Surveille <code>contact@dikengadesign.fr</code> pour les réponses."
     )
 
 
