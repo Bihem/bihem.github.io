@@ -1,0 +1,90 @@
+{
+  "updated_at": "2026-05-28T22:47:20.676828",
+  "version": "sb-v1",
+  "product": "StudioBooking",
+  "warmup_mode": true,
+  "funnel": {
+    "total": 16,
+    "with_email": 5,
+    "with_phone": 8,
+    "total_emailed": 0,
+    "total_replied": 0,
+    "total_bounced": 5,
+    "queued": 0,
+    "hot_opps": 5,
+    "manual_bookings": 1
+  },
+  "sources": [
+    {
+      "source": "ddg",
+      "n": 10,
+      "with_email": 4,
+      "total_emailed": 0,
+      "replied": 0
+    },
+    {
+      "source": "yelp",
+      "n": 3,
+      "with_email": 0,
+      "total_emailed": 0,
+      "replied": 0
+    },
+    {
+      "source": "gmaps",
+      "n": 3,
+      "with_email": 1,
+      "total_emailed": 0,
+      "replied": 0
+    }
+  ],
+  "ab_test": {
+    "A": {
+      "sent": 0,
+      "replied": 0
+    },
+    "B": {
+      "sent": 0,
+      "replied": 0
+    }
+  },
+  "daily_trend": [
+    {
+      "date": "2026-05-28",
+      "analyzed": 16,
+      "emailed": 0,
+      "replied": 0
+    }
+  ],
+  "temperature": {
+    "hot": 5,
+    "warm": 2,
+    "cold": 9,
+    "avg_score": 49
+  },
+  "icp_distribution": [
+    {
+      "category": "autre_studio",
+      "label": "Autre Studio",
+      "count": 11,
+      "pct": 69
+    },
+    {
+      "category": "enregistrement",
+      "label": "Studio d'Enregistrement",
+      "count": 3,
+      "pct": 19
+    },
+    {
+      "category": "smac_venue",
+      "label": "SMAC / Salle de Spectacle",
+      "count": 1,
+      "pct": 6
+    },
+    {
+      "category": "repetition",
+      "label": "Studio de Répétition",
+      "count": 1,
+      "pct": 6
+    }
+  ]
+}
