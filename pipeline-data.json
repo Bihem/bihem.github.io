@@ -1,0 +1,152 @@
+{
+  "updated_at": "2026-05-28T12:47:18.022624",
+  "funnel": {
+    "total": 9,
+    "with_email": 2,
+    "total_emailed": 0,
+    "total_replied": 0,
+    "total_bounced": 0,
+    "queued": 1,
+    "pending": 0
+  },
+  "sources": [
+    {
+      "source": "ddg",
+      "n": 8,
+      "with_email": 1,
+      "total_emailed": 0,
+      "replied": 0
+    },
+    {
+      "source": "pagesjunes",
+      "n": 1,
+      "with_email": 1,
+      "total_emailed": 0,
+      "replied": 0
+    }
+  ],
+  "ab_test": {
+    "A": {
+      "sent": 0,
+      "replied": 0
+    },
+    "B": {
+      "sent": 0,
+      "replied": 0
+    }
+  },
+  "daily_trend": [
+    {
+      "date": "2026-05-28",
+      "analyzed": 9,
+      "emailed": 0,
+      "replied": 0
+    }
+  ],
+  "today": {
+    "analyzed": 9,
+    "with_email": 2,
+    "emailed": 0
+  },
+  "recent": [
+    {
+      "domain": "monboutique.fr",
+      "company": "Mon Boutique",
+      "tech": "Wix",
+      "score": 75,
+      "source": "pagesjunes",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "hel***@monboutique.fr"
+    },
+    {
+      "domain": "motusboutique.fr",
+      "company": "Motusboutique",
+      "tech": "Shopify",
+      "score": 45,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null
+    },
+    {
+      "domain": "thefashiontourismsociety.com",
+      "company": "Thefashiontourismsociety",
+      "tech": "WordPress",
+      "score": 40,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null
+    },
+    {
+      "domain": "wearetheones.fr",
+      "company": "Wearetheones",
+      "tech": "Squarespace",
+      "score": 40,
+      "source": "ddg",
+      "status": "error",
+      "date_step1": null,
+      "replied": 0,
+      "email": "use***@domain.com"
+    },
+    {
+      "domain": "kalannparis.fr",
+      "company": "Kalannparis",
+      "tech": "Shopify",
+      "score": 45,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null
+    },
+    {
+      "domain": "ab33.fr",
+      "company": "Ab33",
+      "tech": "Shopify",
+      "score": 45,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null
+    },
+    {
+      "domain": "guillaumalexandre.com",
+      "company": "Guillaumalexandre",
+      "tech": "Shopify",
+      "score": 45,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null
+    },
+    {
+      "domain": "ateliermerefille.com",
+      "company": "Ateliermerefille",
+      "tech": "WordPress",
+      "score": 50,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null
+    },
+    {
+      "domain": "anne-elisabeth.com",
+      "company": "Anne-elisabeth",
+      "tech": "PrestaShop",
+      "score": 57,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null
+    }
+  ]
+}
