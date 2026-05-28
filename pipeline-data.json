@@ -1,25 +1,25 @@
 {
-  "updated_at": "2026-05-28T14:15:50.956550",
+  "updated_at": "2026-05-29T01:26:08.552306",
   "version": "v6",
   "warmup_mode": false,
   "funnel": {
-    "total": 39,
-    "with_email": 8,
-    "with_phone": 15,
-    "total_emailed": 6,
+    "total": 56,
+    "with_email": 9,
+    "with_phone": 23,
+    "total_emailed": 7,
     "total_replied": 0,
     "total_bounced": 1,
     "queued": 0,
     "total_optout": 0,
-    "pending": 6
+    "pending": 7
   },
   "sources": [
     {
       "source": "ddg",
-      "n": 28,
-      "with_email": 7,
-      "with_phone": 15,
-      "total_emailed": 6,
+      "n": 45,
+      "with_email": 8,
+      "with_phone": 23,
+      "total_emailed": 7,
       "replied": 0
     },
     {
@@ -41,7 +41,7 @@
   ],
   "ab_test": {
     "A": {
-      "sent": 3,
+      "sent": 4,
       "replied": 0
     },
     "B": {
@@ -55,15 +55,225 @@
       "analyzed": 39,
       "emailed": 6,
       "replied": 0
+    },
+    {
+      "date": "2026-05-29",
+      "analyzed": 17,
+      "emailed": 1,
+      "replied": 0
     }
   ],
   "today": {
-    "analyzed": 39,
-    "with_email": 8,
-    "with_phone": 15,
-    "emailed": 6
+    "analyzed": 17,
+    "with_email": 1,
+    "with_phone": 8,
+    "emailed": 1
   },
   "recent": [
+    {
+      "domain": "web-artisan.biz",
+      "company": "Web artisan",
+      "tech": "Shopify",
+      "score": 65,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "04 41 77 06 54"
+    },
+    {
+      "domain": "stackindep.fr",
+      "company": "Stackindep",
+      "tech": "Custom",
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "lesmarquesfrancaises.fr",
+      "company": "Lesmarquesfrancaises",
+      "tech": "WordPress",
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "01 51 47 81 64"
+    },
+    {
+      "domain": "infodial.fr",
+      "company": "Infodial",
+      "tech": "WordPress",
+      "score": 59,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "ayumi-trends.fr",
+      "company": "Ayumi trends",
+      "tech": "WordPress",
+      "score": 59,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "journaldugeek.com",
+      "company": "Journaldugeek",
+      "tech": "Custom",
+      "score": 55,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "06 72 76 56 16"
+    },
+    {
+      "domain": "leptidigital.fr",
+      "company": "Leptidigital",
+      "tech": "Custom",
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "01net.com",
+      "company": "01net",
+      "tech": "Custom",
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "structuriaconseil.fr",
+      "company": "Structuriaconseil",
+      "tech": "Wix",
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "mode-consciente.fr",
+      "company": "Mode consciente",
+      "tech": "Custom",
+      "score": 59,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "loweys.fr",
+      "company": "Loweys",
+      "tech": "Wix",
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "presse-citron.net",
+      "company": "Presse citron",
+      "tech": "Custom",
+      "score": 60,
+      "source": "ddg",
+      "status": "emailed_1",
+      "date_step1": "2026-05-29T01:25:23.466004",
+      "replied": 0,
+      "email": "votre@adresse.email",
+      "phone": "06 72 76 56 16"
+    },
+    {
+      "domain": "erase-factory.fr",
+      "company": "Erase factory",
+      "tech": "Custom",
+      "score": 55,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "08 33 33 33 33"
+    },
+    {
+      "domain": "def-shop.fr",
+      "company": "Def shop",
+      "tech": "Custom",
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "12lunes.fr",
+      "company": "12lunes",
+      "tech": "Shopify",
+      "score": 58,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "02 21 53 72 55"
+    },
+    {
+      "domain": "milowdutb.fr",
+      "company": "Milowdutb",
+      "tech": "Shopify",
+      "score": 65,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "04 26 76 83 07"
+    },
+    {
+      "domain": "oflyn.fr",
+      "company": "Oflyn",
+      "tech": "Shopify",
+      "score": 65,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "08 61 19 89 24"
+    },
     {
       "domain": "wpweb.fr",
       "company": "Wpweb",
@@ -219,248 +429,56 @@
       "replied": 0,
       "email": null,
       "phone": "03 18 91 36 83"
-    },
-    {
-      "domain": "bykloe.fr",
-      "company": "Bykloe",
-      "tech": "Custom",
-      "score": 60,
-      "source": "ddg",
-      "status": "emailed_1",
-      "date_step1": "2026-05-28T13:47:10.481106",
-      "replied": 0,
-      "email": "contact@bykloe.fr",
-      "phone": "08 33 33 33 33"
-    },
-    {
-      "domain": "agence-creation-site.fr",
-      "company": "Agence creation site",
-      "tech": "Custom",
-      "score": 52,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "lessisrare.fr",
-      "company": "Lessisrare",
-      "tech": "Shopify",
-      "score": 70,
-      "source": "ddg",
-      "status": "emailed_1",
-      "date_step1": "2026-05-28T13:45:38.723317",
-      "replied": 0,
-      "email": "caroline@lessisrare.com",
-      "phone": "06 58 83 84 01"
-    },
-    {
-      "domain": "agencenetcom.fr",
-      "company": "Agencenetcom",
-      "tech": "WordPress",
-      "score": 62,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "02 12 67 76 67"
-    },
-    {
-      "domain": "prestashop.fr",
-      "company": "Prestashop",
-      "tech": "PrestaShop",
-      "score": 66,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "09 09 09 09 09"
-    },
-    {
-      "domain": "guillaume-bouaud.fr",
-      "company": "Guillaume bouaud",
-      "tech": "Custom",
-      "score": 52,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "creation-boutiques.fr",
-      "company": "Creation boutiques",
-      "tech": "WordPress",
-      "score": 62,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "09 71 26 41 85"
-    },
-    {
-      "domain": "ssl.gstatic.com",
-      "company": "Ssl",
-      "tech": "Custom",
-      "score": 52,
-      "source": "gmaps",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "streetviewpixels-pa.googleapis.com",
-      "company": "Streetviewpixels pa",
-      "tech": "Custom",
-      "score": 52,
-      "source": "gmaps",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "gstatic.com",
-      "company": "Gstatic",
-      "tech": "Custom",
-      "score": 52,
-      "source": "gmaps",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "schema.org",
-      "company": "Schema",
-      "tech": "Custom",
-      "score": 45,
-      "source": "gmaps",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "fonts.gstatic.com",
-      "company": "Fonts",
-      "tech": "Custom",
-      "score": 52,
-      "source": "gmaps",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "maps.gstatic.com",
-      "company": "Maps",
-      "tech": "Custom",
-      "score": 52,
-      "source": "gmaps",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "lh5.ggpht.com",
-      "company": "Lh5",
-      "tech": "Custom",
-      "score": 52,
-      "source": "gmaps",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "lh3.ggpht.com",
-      "company": "Lh3",
-      "tech": "Custom",
-      "score": 52,
-      "source": "gmaps",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "lh6.ggpht.com",
-      "company": "Lh6",
-      "tech": "Custom",
-      "score": 52,
-      "source": "gmaps",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "lh4.ggpht.com",
-      "company": "Lh4",
-      "tech": "Custom",
-      "score": 52,
-      "source": "gmaps",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
     }
   ],
   "icp_distribution": [
     {
       "category": "ecommerce_premium",
       "label": "E-commerce Premium",
-      "count": 32,
+      "count": 46,
       "pct": 82
     },
     {
       "category": "mode_luxe",
       "label": "Mode & Luxe",
       "count": 3,
-      "pct": 8
+      "pct": 5
     },
     {
       "category": "immobilier",
       "label": "Immobilier & Archi",
       "count": 2,
-      "pct": 5
+      "pct": 4
+    },
+    {
+      "category": "cabinet_b2b",
+      "label": "Cabinet B2B",
+      "count": 2,
+      "pct": 4
     },
     {
       "category": "streetwear_premium",
       "label": "Streetwear Premium",
       "count": 1,
-      "pct": 3
+      "pct": 2
     },
     {
-      "category": "cabinet_b2b",
-      "label": "Cabinet B2B",
+      "category": "saas_ia",
+      "label": "SaaS & IA",
       "count": 1,
-      "pct": 3
+      "pct": 2
+    },
+    {
+      "category": "artisan_createur",
+      "label": "Artisan Créateur",
+      "count": 1,
+      "pct": 2
     }
   ],
   "temperature": {
     "hot": 1,
-    "warm": 18,
-    "cold": 20,
-    "avg_ai_score": 50
+    "warm": 26,
+    "cold": 29,
+    "avg_ai_score": 49
   }
 }
