@@ -60,6 +60,43 @@
   --Fs:'Suisse Intl',var(--F);
   --r:12px;
 }
+/* ══ LIGHT THEME ══ */
+html[data-theme="light"]{
+  --bg:#F5F4F4;
+  --bg2:#FFFFFF;
+  --bg3:#EDECEA;
+  --surface:#FFFFFF;
+  --card:#FFFFFF;
+  --card2:#F0EEEE;
+  --text:#1D1B1B;
+  --off:#4A4848;
+  --dim:rgba(29,27,27,0.6);
+  --dim2:rgba(29,27,27,0.35);
+  --border:rgba(0,0,0,0.09);
+  --border2:rgba(0,0,0,0.16);
+  --line:rgba(0,0,0,0.09);
+  --accent:#1D1B1B;
+  --accent-text:#FFFFFF;
+  --accent-dim:rgba(0,0,0,0.06);
+  --accent-glow:rgba(0,0,0,0.12);
+  --cold:rgba(0,0,0,0.4);
+  --cold-dim:rgba(0,0,0,0.05);
+  --hot-dim:rgba(255,77,77,.1);
+  --warm-dim:rgba(255,122,61,.1);
+  --green-dim:rgba(54,200,155,.1);
+  --red-dim:rgba(255,77,77,.1);
+  --blue-dim:rgba(91,127,255,.1);
+}
+html[data-theme="light"] .tb-logo-img{filter:none;mix-blend-mode:normal}
+html[data-theme="light"] .gate-logo img{filter:none;mix-blend-mode:normal}
+html[data-theme="light"] .boot-logo-img{filter:none;mix-blend-mode:normal}
+html[data-theme="light"] table{background:var(--bg2)}
+html[data-theme="light"] .kpi-card.accent{background:rgba(91,127,255,.08)}
+html[data-theme="light"] .card-hot{background:rgba(255,77,77,.05)}
+html[data-theme="light"] .card-blue{background:rgba(91,127,255,.05)}
+html[data-theme="light"] .card-green{background:rgba(54,200,155,.05)}
+html[data-theme="light"] .card-purple{background:rgba(169,124,255,.05)}
+
 
 body{font-family:var(--F);background:var(--bg);color:var(--text);
   font-size:17px;line-height:1.55;overflow:hidden;height:100vh;
@@ -132,13 +169,10 @@ body{font-family:var(--F);background:var(--bg);color:var(--text);
 /* Zone brand alignée sur la sidebar */
 .tb-brand{display:flex;align-items:center;gap:10px;
   width:var(--sb-w);min-width:var(--sb-w);padding:0 16px 0 20px;flex-shrink:0;
-  border-right:1px solid var(--border);
   height:100%;border-radius:var(--radius) 0 0 var(--radius);overflow:hidden}
-.tb-logo-img{height:72px;width:auto;flex-shrink:0;
-  filter:invert(1);mix-blend-mode:screen;object-fit:contain}
-#sb-toggle{background:transparent;border:none;color:var(--dim);cursor:pointer;
-  font-size:22px;padding:4px 6px;border-radius:6px;transition:color .15s;margin-left:auto}
-#sb-toggle:hover{color:var(--text)}
+.tb-logo-img{height:96px;width:auto;flex-shrink:0;
+  filter:invert(1);mix-blend-mode:screen;object-fit:contain;transition:filter .3s}
+#sb-toggle{display:none}
 .tb-center{flex:1;padding:0 16px;display:flex;align-items:center;gap:10px}
 .tb-search{position:relative;flex:1;max-width:480px}
 .tb-search input{width:100%;background:rgba(255,255,255,.04);
@@ -573,7 +607,6 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   <header id="topbar">
     <div class="tb-brand">
       <img src="logo-dikenga.png" alt="DIKENGA." class="tb-logo-img">
-      <button id="sb-toggle" onclick="toggleSidebar()">☰</button>
     </div>
     <div class="tb-center">
       <div class="tb-search">
@@ -663,6 +696,14 @@ function doAuth(){
 }
 document.getElementById('gate-pw').addEventListener('keydown',e=>{if(e.key==='Enter')doAuth()});
 // Run boot then show gate or app
+// Restore theme preference
+(function(){
+  const t=localStorage.getItem('dk_theme')||'dark';
+  document.documentElement.setAttribute('data-theme',t);
+  const btn=document.getElementById('theme-btn');
+  if(btn)btn.textContent=t==='light'?'☀️':'🌙';
+})();
+
 runBoot(()=>{
   if(localStorage.getItem('dk_auth')==='1'){
     document.getElementById('gate').style.display='none';
@@ -677,7 +718,13 @@ runBoot(()=>{
 // THEME — dark only (DA dikengadesign.fr)
 // ════════════════════════════════════════════════════════
 function toggleTheme(){
-  // No-op — dark only. Reserved for future use.
+  const html=document.documentElement;
+  const isLight=html.getAttribute('data-theme')==='light';
+  const next=isLight?'dark':'light';
+  html.setAttribute('data-theme',next);
+  localStorage.setItem('dk_theme',next);
+  const btn=document.getElementById('theme-btn');
+  if(btn)btn.textContent=next==='light'?'☀️':'🌙';
   if(allCharts.length)allCharts.forEach(c=>{try{c.destroy()}catch(e){}});
   allCharts=[];
   renderView(currentView);
