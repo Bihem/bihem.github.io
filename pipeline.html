@@ -99,6 +99,16 @@ a{color:inherit;text-decoration:none}
 .replied-icon{color:var(--green);font-size:13px}
 .no-data{color:var(--dim);font-size:12px;padding:32px 0;text-align:center}
 
+/* ── Copy cells ── */
+.copy-cell{cursor:pointer;display:flex;align-items:center;gap:5px;max-width:200px}
+.copy-cell span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:11.5px;color:rgba(255,255,255,0.75)}
+.copy-cell .copy-ico{flex-shrink:0;font-size:10px;color:var(--dim);opacity:0;transition:opacity .15s}
+.copy-cell:hover .copy-ico{opacity:1}
+.copy-cell:hover span{color:#fff}
+.copy-cell.copied span{color:var(--green)}
+.copy-cell.copied .copy-ico{opacity:1;color:var(--green)}
+.no-contact{color:var(--dim);font-size:11px}
+
 /* ── Misc ── */
 .divider{height:1px;background:var(--border);margin:4px 0}
 </style>
@@ -187,10 +197,10 @@ a{color:inherit;text-decoration:none}
         <thead>
           <tr>
             <th>Domaine</th><th>Tech</th><th>Score</th>
-            <th>Source</th><th>Statut</th><th>Step 1</th><th></th>
+            <th>Source</th><th>Statut</th><th>Email</th><th>Téléphone</th><th>Step 1</th><th></th>
           </tr>
         </thead>
-        <tbody id="rec-body"><tr><td colspan="7" class="no-data">Chargement…</td></tr></tbody>
+        <tbody id="rec-body"><tr><td colspan="9" class="no-data">Chargement…</td></tr></tbody>
       </table>
     </div>
   </div>
@@ -238,7 +248,7 @@ async function load() {
     render(await r.json());
   } catch(e) {
     document.getElementById('rec-body').innerHTML =
-      `<tr><td colspan="7" class="no-data">pipeline-data.json introuvable.<br>Lance le pipeline une fois pour générer les données.</td></tr>`;
+      `<tr><td colspan="9" class="no-data">pipeline-data.json introuvable.<br>Lance le pipeline une fois pour générer les données.</td></tr>`;
   }
 }
 
@@ -399,6 +409,16 @@ function render(d) {
   document.getElementById('rec-body').innerHTML = recent.length ? recent.map(p => {
     const sc    = p.score||0;
     const sDate = p.date_step1 ? new Date(p.date_step1).toLocaleDateString('fr',{day:'2-digit',month:'2-digit'}) : '—';
+    const emailCell = p.email
+      ? `<div class="copy-cell" onclick="copyVal(this,'${(p.email||'').replace(/'/g,"\\'")}')">
+           <span>${p.email}</span><span class="copy-ico">⎘</span>
+         </div>`
+      : `<span class="no-contact">—</span>`;
+    const phoneCell = p.phone
+      ? `<div class="copy-cell" onclick="copyVal(this,'${(p.phone||'').replace(/'/g,"\\'")}')">
+           <span>${p.phone}</span><span class="copy-ico">⎘</span>
+         </div>`
+      : `<span class="no-contact">—</span>`;
     return `<tr>
       <td class="domain-cell">${p.domain}</td>
       <td><span class="tech-tag">${p.tech||'—'}</span></td>
@@ -408,14 +428,33 @@ function render(d) {
         <span class="sdot s-${(p.status||'').replace(/[^a-z_]/g,'')}"></span>
         ${STATUS[p.status]||p.status||'—'}
       </td>
+      <td>${emailCell}</td>
+      <td>${phoneCell}</td>
       <td>${sDate}</td>
       <td>${p.replied?'<span class="replied-icon">📩</span>':''}</td>
     </tr>`;
-  }).join('') : '<tr><td colspan="7" class="no-data">Aucun prospect encore</td></tr>';
+  }).join('') : '<tr><td colspan="9" class="no-data">Aucun prospect encore</td></tr>';
 }
 
-// Auto-refresh 1h
-setInterval(()=>{ if(localStorage.getItem('dk_auth')==='1') load(); }, 3600000);
+// ── Copy to clipboard ─────────────────────────────────────
+function copyVal(el, val) {
+  navigator.clipboard.writeText(val).then(() => {
+    el.classList.add('copied');
+    setTimeout(() => el.classList.remove('copied'), 1800);
+  }).catch(() => {
+    // fallback
+    const ta = document.createElement('textarea');
+    ta.value = val; ta.style.position='fixed'; ta.style.opacity='0';
+    document.body.appendChild(ta); ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    el.classList.add('copied');
+    setTimeout(() => el.classList.remove('copied'), 1800);
+  });
+}
+
+// Auto-refresh 2 min
+setInterval(()=>{ if(localStorage.getItem('dk_auth')==='1') load(); }, 120000);
 </script>
 </body>
 </html>
