@@ -1,7 +1,14 @@
+#!/usr/bin/env python3
 """
-Dikenga Design — Audit automatique de prospects
-Tourne chaque matin via GitHub Actions.
-Lit prospects.csv, analyse chaque site, envoie les meilleurs sur Telegram.
+Dikenga Design — Pipeline d'acquisition automatique
+Chaque matin (lun-ven) :
+  1. Cherche de nouveaux prospects via DuckDuckGo
+  2. Analyse leur site (PageSpeed, tech stack)
+  3. Trouve leur email de contact
+  4. Envoie un email d'audit personnalisé
+  5. Rapport complet sur Telegram
+
+Tu n'as qu'à regarder les réponses.
 """
 
 import urllib.request
@@ -10,295 +17,455 @@ import urllib.error
 import json
 import csv
 import os
+import re
 import time
-from datetime import datetime
+import smtplib
+import ssl
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from datetime import datetime, timedelta
 
-TELEGRAM_TOKEN = os.environ.get('TELEGRAM_TOKEN', '')
-TELEGRAM_CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID', '')
-PAGESPEED_API_KEY = os.environ.get('PAGESPEED_API_KEY', '')  # optionnel
+# ─── CONFIG ───────────────────────────────────────────────────────────────────
+
+TELEGRAM_TOKEN  = os.environ.get('TELEGRAM_TOKEN', '')
+TELEGRAM_CHAT_ID= os.environ.get('TELEGRAM_CHAT_ID', '')
+GMAIL_USER      = os.environ.get('GMAIL_USER', 'dikengadesign@gmail.com')
+GMAIL_PASS      = os.environ.get('GMAIL_PASS', '')   # app password Gmail
+SENDER_NAME     = "Mes-Reves — Dikenga Design"
+MAX_EMAILS_PER_RUN = 15   # limite quotidienne de sécurité
+EMAIL_DELAY_SEC    = 40   # secondes entre chaque envoi (évite le spam filter)
+MIN_SCORE_TO_EMAIL = 55   # score minimum pour envoyer un email
+
+# Requêtes DuckDuckGo — rotation par jour de la semaine
+SEARCH_QUERIES = {
+    0: ["boutique shopify streetwear france", "shop mode shopify paris site:.fr"],           # Lundi
+    1: ["boutique wix vetements paris", "ecommerce wix mode france"],                         # Mardi
+    2: ["startup saas paris ux interface", "saas b2b france product design"],                 # Mercredi
+    3: ["boutique ligne mode paris refonte", "ecommerce france site wordpress mode"],         # Jeudi
+    4: ["agence digitale paris freelance design", "boutique shopify beaute paris"],          # Vendredi
+}
+
+# Domaines à ne JAMAIS contacter
+BLACKLIST_DOMAINS = {
+    'dikengadesign.fr','talseume.com','talseume.fr','studiobooking.fr',
+    'google.com','google.fr','facebook.com','instagram.com','linkedin.com',
+    'youtube.com','twitter.com','tiktok.com','amazon.fr','fnac.com',
+    'cdiscount.com','leboncoin.fr','laposte.fr','free.fr','orange.fr',
+    'shopify.com','wordpress.com','wix.com','squarespace.com','webflow.io',
+}
 
 
-# ─── TELEGRAM ────────────────────────────────────────────────────────────────
+# ─── TELEGRAM ─────────────────────────────────────────────────────────────────
 
-def send_telegram(text):
-    if not TELEGRAM_TOKEN or not TELEGRAM_CHAT_ID:
-        print("=== TELEGRAM (non configuré) ===")
-        print(text)
-        return
+def tg(text):
+    if not TELEGRAM_TOKEN:
+        print(text); return
     url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
-    payload = json.dumps({
-        "chat_id": TELEGRAM_CHAT_ID,
-        "text": text[:4096],
-        "parse_mode": "HTML"
-    }).encode()
-    req = urllib.request.Request(url, data=payload, headers={"Content-Type": "application/json"})
+    data = json.dumps({"chat_id": TELEGRAM_CHAT_ID, "text": text[:4096], "parse_mode": "HTML"}).encode()
+    req = urllib.request.Request(url, data=data, headers={"Content-Type": "application/json"})
     try:
-        with urllib.request.urlopen(req, timeout=10) as r:
-            return json.loads(r.read())
+        with urllib.request.urlopen(req, timeout=10): pass
     except Exception as e:
-        print(f"Telegram error: {e}")
+        print(f"Telegram: {e}")
 
 
-# ─── PAGESPEED ────────────────────────────────────────────────────────────────
+# ─── HTTP HELPERS ─────────────────────────────────────────────────────────────
 
-def get_pagespeed(url):
-    """Retourne (perf_score, lcp, issues) ou None si erreur."""
+BROWSER_HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
+                  "(KHTML, like Gecko) Chrome/124.0 Safari/537.36",
+    "Accept-Language": "fr-FR,fr;q=0.9,en;q=0.8",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+}
+
+def fetch(url, timeout=15, max_bytes=80000):
     try:
-        api_url = (
-            f"https://www.googleapis.com/pagespeedonline/v5/runPagespeed"
-            f"?url={urllib.parse.quote(url, safe='')}&strategy=mobile"
-        )
-        if PAGESPEED_API_KEY:
-            api_url += f"&key={PAGESPEED_API_KEY}"
-
-        req = urllib.request.Request(api_url, headers={"User-Agent": "Mozilla/5.0"})
-        with urllib.request.urlopen(req, timeout=40) as r:
-            data = json.loads(r.read())
-
-        lr = data.get('lighthouseResult', {})
-        categories = lr.get('categories', {})
-        audits = lr.get('audits', {})
-
-        perf_score = int(categories.get('performance', {}).get('score', 0) * 100)
-        lcp = audits.get('largest-contentful-paint', {}).get('displayValue', 'N/A')
-
-        # Problèmes réels (score < 0.5 = raté)
-        audit_labels = {
-            'uses-optimized-images': 'Images non optimisées',
-            'render-blocking-resources': 'Ressources bloquantes au chargement',
-            'unused-css-rules': 'CSS inutilisé chargé',
-            'uses-responsive-images': 'Images non adaptées au mobile',
-            'uses-text-compression': 'Pas de compression texte (Gzip)',
-            'offscreen-images': 'Images hors-écran chargées inutilement',
-        }
-        issues = []
-        for key, label in audit_labels.items():
-            audit = audits.get(key, {})
-            if isinstance(audit.get('score'), (int, float)) and audit['score'] < 0.5:
-                issues.append(label)
-
-        return perf_score, lcp, issues[:3]
-
-    except Exception as e:
-        print(f"PageSpeed error ({url}): {e}")
+        req = urllib.request.Request(url, headers=BROWSER_HEADERS)
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            return r.read(max_bytes).decode('utf-8', errors='ignore')
+    except Exception:
         return None
+
+def extract_domain(url):
+    try:
+        h = urllib.parse.urlparse(url).netloc or url
+        return re.sub(r'^www\.', '', h.lower().split('/')[0].split('?')[0].strip())
+    except Exception:
+        return None
+
+
+# ─── PROSPECTING — DuckDuckGo ─────────────────────────────────────────────────
+
+def ddg_search(query, max_results=10):
+    """Recherche DuckDuckGo → liste de domaines uniques."""
+    domains = []
+    html = fetch(
+        f"https://html.duckduckgo.com/html/?q={urllib.parse.quote(query)}",
+        timeout=25
+    )
+    if not html:
+        return domains
+
+    # Extraire les URLs réelles depuis les redirects DDG (uddg=URL_encodée)
+    for encoded in re.findall(r'uddg=([^&">\s]+)', html):
+        try:
+            real_url = urllib.parse.unquote(encoded)
+            d = extract_domain(real_url)
+            if d and '.' in d and d not in domains:
+                domains.append(d)
+        except Exception:
+            pass
+
+    # Fallback: hrefs directs
+    for href in re.findall(r'href="(https?://[^"]{8,})"', html):
+        d = extract_domain(href)
+        if d and '.' in d and 'duckduckgo' not in d and d not in domains:
+            domains.append(d)
+
+    return domains[:max_results]
+
+
+def get_new_prospects(existing_domains, max_per_day=25):
+    """Retourne de nouveaux domaines à analyser aujourd'hui."""
+    day = datetime.now().weekday() % len(SEARCH_QUERIES)
+    queries = SEARCH_QUERIES[day]
+    found = []
+
+    for query in queries:
+        print(f"  🔍 {query}")
+        results = ddg_search(query, max_results=12)
+        for d in results:
+            d_clean = d.replace('www.', '')
+            skip = (
+                d_clean in existing_domains or
+                d_clean in BLACKLIST_DOMAINS or
+                any(b in d_clean for b in BLACKLIST_DOMAINS) or
+                d_clean in [x.replace('www.', '') for x in found] or
+                len(d_clean) > 60 or
+                d_clean.count('.') > 3
+            )
+            if not skip:
+                found.append(d_clean)
+        time.sleep(3)
+
+    return list(dict.fromkeys(found))[:max_per_day]
+
+
+# ─── EMAIL FINDER ─────────────────────────────────────────────────────────────
+
+EMAIL_REGEX = re.compile(
+    r'[a-zA-Z0-9._%+\-]{2,}[@＠][a-zA-Z0-9.\-]+\.[a-zA-Z]{2,6}',
+    re.IGNORECASE
+)
+SKIP_EMAIL_PREFIXES = ('noreply','no-reply','donotreply','example','test@','demo@',
+                       'admin@','webmaster@','abuse@','security@','support@noreply')
+
+def find_email(domain):
+    """Cherche l'email de contact sur le site."""
+    for path in ['', '/contact', '/contact-us', '/nous-contacter', '/about']:
+        html = fetch(f"https://{domain}{path}", timeout=12)
+        if not html:
+            continue
+
+        # Normaliser les obfuscations courantes : [at], (at), [dot]
+        normalized = (html
+            .replace('[at]', '@').replace('(at)', '@').replace(' at ', '@')
+            .replace('[dot]', '.').replace('(dot)', '.'))
+
+        emails = EMAIL_REGEX.findall(normalized)
+        cleaned = []
+        for e in emails:
+            e = e.lower().strip().rstrip('.')
+            if not any(s in e for s in SKIP_EMAIL_PREFIXES):
+                if re.match(r'^[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,6}$', e):
+                    cleaned.append(e)
+
+        if cleaned:
+            # Priorité : contact@ hello@ info@ bonjour@
+            for prefix in ('contact@','hello@','info@','bonjour@','pro@','studio@','agency@'):
+                for e in cleaned:
+                    if e.startswith(prefix):
+                        return e
+            return cleaned[0]
+
+        time.sleep(1)
+
+    return None
 
 
 # ─── TECH STACK ───────────────────────────────────────────────────────────────
 
-def detect_tech(url):
-    """Détection simple de la plateforme via le HTML source."""
+def detect_tech(domain):
+    html = fetch(f"https://{domain}", timeout=15) or ''
+    h = html.lower()
+    if 'cdn.shopify.com' in h or 'shopify.com/s/' in h:   return 'Shopify'
+    if 'wixstatic.com' in h or 'wix.com/_api' in h:        return 'Wix'
+    if 'squarespace' in h:                                   return 'Squarespace'
+    if 'webflow.io' in h or 'assets.website-files.com' in h:return 'Webflow'
+    if 'wp-content' in h or 'wp-includes' in h:             return 'WordPress'
+    if 'prestashop' in h:                                    return 'PrestaShop'
+    return 'Custom'
+
+
+# ─── PAGESPEED ────────────────────────────────────────────────────────────────
+
+def pagespeed(domain):
+    """Retourne (score, lcp, [issues]) ou None."""
     try:
-        req = urllib.request.Request(
-            url,
-            headers={"User-Agent": "Mozilla/5.0 (compatible; Googlebot/2.1)"}
-        )
-        with urllib.request.urlopen(req, timeout=15) as r:
-            html = r.read(60000).decode('utf-8', errors='ignore').lower()
+        key = os.environ.get('PAGESPEED_API_KEY', '')
+        api = (f"https://www.googleapis.com/pagespeedonline/v5/runPagespeed"
+               f"?url={urllib.parse.quote('https://'+domain, safe='')}&strategy=mobile"
+               + (f"&key={key}" if key else ''))
+        req = urllib.request.Request(api, headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=40) as r:
+            d = json.loads(r.read())
 
-        if 'cdn.shopify.com' in html or 'shopify' in html:
-            return 'Shopify'
-        if 'wixstatic.com' in html or 'wix.com' in html:
-            return 'Wix'
-        if 'squarespace' in html:
-            return 'Squarespace'
-        if 'webflow.io' in html or 'webflow' in html:
-            return 'Webflow'
-        if 'wp-content' in html or 'wordpress' in html:
-            return 'WordPress'
-        if 'prestashop' in html:
-            return 'PrestaShop'
-        return 'Custom'
-
+        lr     = d.get('lighthouseResult', {})
+        score  = int(lr.get('categories',{}).get('performance',{}).get('score',0) * 100)
+        lcp    = lr.get('audits',{}).get('largest-contentful-paint',{}).get('displayValue','N/A')
+        issues = []
+        checks = {
+            'uses-optimized-images'   : 'Images non optimisées',
+            'render-blocking-resources': 'Ressources bloquantes au chargement',
+            'unused-css-rules'         : 'CSS inutilisé chargé',
+            'uses-text-compression'    : 'Compression texte absente (Gzip)',
+        }
+        for k, label in checks.items():
+            a = lr.get('audits',{}).get(k,{})
+            if isinstance(a.get('score'), (int,float)) and a['score'] < 0.5:
+                issues.append(label)
+        return score, lcp, issues[:3]
     except Exception as e:
-        print(f"Tech detect error ({url}): {e}")
-        return 'Inconnu'
+        print(f"  PageSpeed error: {e}")
+        return None
 
 
 # ─── SCORING ──────────────────────────────────────────────────────────────────
 
-def score_prospect(perf_score, tech, issues_count):
-    """Score d'opportunité 0-100 (plus haut = meilleure opportunité)."""
-    score = 0
+TECH_SCORES = {'Shopify':30,'Wix':28,'Squarespace':25,'PrestaShop':22,
+               'WordPress':20,'Webflow':10,'Custom':8,'Inconnu':5}
 
-    # Performance mobile (inversée)
-    if perf_score < 40:
-        score += 35
-    elif perf_score < 60:
-        score += 25
-    elif perf_score < 75:
-        score += 15
-    else:
-        score += 5
-
-    # Stack = niveau d'opportunité
-    tech_scores = {
-        'Shopify': 30,      # argument coût Système Dikenga
-        'Wix': 28,          # plateforme dépassée
-        'Squarespace': 25,  # design limité
-        'WordPress': 20,    # lourd, souvent mal maintenu
-        'PrestaShop': 22,
-        'Webflow': 10,      # déjà bien
-        'Custom': 8,
-        'Inconnu': 5,
-    }
-    score += tech_scores.get(tech, 5)
-
-    # Problèmes détectés
-    score += issues_count * 5
-
-    return min(score, 100)
+def score(perf, tech, issues_n):
+    s  = 35 if perf < 40 else (25 if perf < 60 else (15 if perf < 75 else 5))
+    s += TECH_SCORES.get(tech, 5)
+    s += issues_n * 5
+    return min(s, 100)
 
 
-# ─── GÉNÉRATION EMAIL ─────────────────────────────────────────────────────────
+# ─── EMAIL BUILDER ────────────────────────────────────────────────────────────
 
-def build_email_draft(domain, company, perf_score, lcp, tech, issues):
-    issues_lines = '\n'.join(f"- {i}" for i in issues) if issues else '- Analyser visuellement le site'
+def build_email(domain, perf, lcp, tech, issues):
+    problems = list(issues)
+    if perf < 55 and not any('chargement' in i.lower() for i in problems):
+        problems.insert(0, f"Vitesse mobile insuffisante ({perf}/100 sur Google PageSpeed)")
+    if tech == 'Shopify' and len(problems) < 3:
+        problems.append("Frais Shopify élevés — solutions alternatives à ~10€/mois existent")
 
-    shopify_note = ""
-    if tech == 'Shopify':
-        shopify_note = (
-            "\n\n💡 <b>Angle Shopify :</b> Mentionner que leur stack coûte "
-            "80-180€/mois et qu'on peut descendre à ~10€/mois avec mêmes features."
-        )
-
-    email = (
-        f"Objet : Audit {domain} — 3 points à corriger\n\n"
+    lines = '\n'.join(f"— {p}" for p in problems[:3])
+    subject = f"Audit {domain} — 3 points à corriger"
+    body = (
         f"Bonjour,\n\n"
-        f"En visitant {domain} ce matin, j'ai repéré 3 choses qui freinent probablement vos conversions :\n\n"
-        f"{issues_lines}\n\n"
+        f"En visitant {domain} ce matin, j'ai repéré 3 choses "
+        f"qui freinent probablement vos conversions :\n\n"
+        f"{lines}\n\n"
         f"Je vous les ai documentées gratuitement, sans engagement.\n\n"
         f"Si vous voulez qu'on en parle 20 minutes :\n"
-        f"cal.com/dikenga\n\n"
+        f"dikengadesign.fr/audit-ux-gratuit.html\n\n"
+        f"Bien cordialement,\n"
         f"Mes-Reves — Dikenga Design\n"
-        f"dikengadesign.fr"
+        f"dikengadesign.fr | +33 7 67 53 70 59\n\n"
+        f"--\nPour ne plus recevoir ces emails, répondez « STOP ».\n"
     )
+    return subject, body
 
-    return email, shopify_note
+
+# ─── EMAIL SENDER ─────────────────────────────────────────────────────────────
+
+def send_email(to, subject, body):
+    if not GMAIL_PASS:
+        print(f"  [DRY RUN — pas de GMAIL_PASS] → {to}")
+        return True  # mode test sans crédentiels
+
+    try:
+        msg = MIMEMultipart('alternative')
+        msg['From']         = f"{SENDER_NAME} <{GMAIL_USER}>"
+        msg['To']           = to
+        msg['Subject']      = subject
+        msg['Reply-To']     = GMAIL_USER
+        msg.add_header('List-Unsubscribe', f'<mailto:{GMAIL_USER}?subject=STOP>')
+        msg.attach(MIMEText(body, 'plain', 'utf-8'))
+
+        ctx = ssl.create_default_context()
+        with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=ctx) as s:
+            s.login(GMAIL_USER, GMAIL_PASS)
+            s.sendmail(GMAIL_USER, to, msg.as_string())
+        return True
+    except Exception as e:
+        print(f"  SMTP error ({to}): {e}")
+        return False
+
+
+# ─── CSV HELPERS ──────────────────────────────────────────────────────────────
+
+FIELDNAMES = ['domain','company','email','tech','perf_score','score',
+              'lcp','issues','status','date_added','last_analyzed','notes']
+
+def load_prospects(path):
+    if not os.path.exists(path):
+        return []
+    with open(path, newline='', encoding='utf-8') as f:
+        return list(csv.DictReader(f))
+
+def save_prospects(path, rows):
+    with open(path, 'w', newline='', encoding='utf-8') as f:
+        w = csv.DictWriter(f, fieldnames=FIELDNAMES, extrasaction='ignore')
+        w.writeheader()
+        w.writerows(rows)
 
 
 # ─── MAIN ─────────────────────────────────────────────────────────────────────
 
 def main():
-    today = datetime.now().strftime('%d/%m/%Y')
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    csv_path = os.path.join(os.path.dirname(script_dir), 'prospects.csv')
+    today    = datetime.now().strftime('%d/%m/%Y')
+    today_iso= datetime.now().strftime('%Y-%m-%d')
+    cutoff   = (datetime.now() - timedelta(days=90)).strftime('%Y-%m-%d')
 
-    if not os.path.exists(csv_path):
-        send_telegram(
-            "⚠️ <b>Dikenga Audit</b>\n\n"
-            "prospects.csv introuvable dans le repo.\n"
-            "Ajoute des prospects (status=new) pour lancer l'analyse."
-        )
+    csv_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                            'prospects.csv')
+
+    existing = load_prospects(csv_path)
+
+    # Domains + emails already contacted in last 90 days
+    known_domains  = set()
+    known_emails   = set()
+    for r in existing:
+        d = r.get('domain','').replace('www.','').strip()
+        e = r.get('email','').lower().strip()
+        la= r.get('last_analyzed', r.get('date_added',''))
+        if la >= cutoff and r.get('status','') not in ('new',''):
+            if d: known_domains.add(d)
+            if e: known_emails.add(e)
+
+    tg(f"🚀 <b>Dikenga Acquisition — {today}</b>\n\nRecherche de prospects...")
+
+    # ── 1. SOURCING ──────────────────────────────────────────────────────────
+    print("\n=== SOURCING ===")
+    new_domains = get_new_prospects(known_domains, max_per_day=25)
+    print(f"→ {len(new_domains)} nouveaux domaines\n")
+
+    if not new_domains:
+        tg("📭 Aucun nouveau prospect trouvé aujourd'hui.\nLe pipeline reprend demain.")
         return
 
-    # Lire les prospects "new"
-    with open(csv_path, newline='', encoding='utf-8') as f:
-        rows = list(csv.DictReader(f))
+    # ── 2-3. ANALYSE + EMAIL FINDING ─────────────────────────────────────────
+    print("=== ANALYSE ===")
+    candidates = []
 
-    new_prospects = [r for r in rows if r.get('status', '').strip().lower() == 'new']
-
-    if not new_prospects:
-        send_telegram(
-            f"📭 <b>Dikenga Audit — {today}</b>\n\n"
-            "Aucun nouveau prospect à analyser.\n"
-            "Ajoute des lignes avec <code>status=new</code> dans prospects.csv"
-        )
-        return
-
-    send_telegram(
-        f"🔍 <b>Dikenga Audit — {today}</b>\n\n"
-        f"Analyse de {len(new_prospects[:10])} prospect(s)..."
-    )
-
-    results = []
-
-    for prospect in new_prospects[:10]:  # max 10/jour pour rester dans les limites API
-        domain = prospect.get('domain', '').strip().rstrip('/')
-        company = prospect.get('company', domain).strip()
-        segment = prospect.get('segment', 'général').strip()
-
-        if not domain:
-            continue
-
-        url = domain if domain.startswith('http') else f"https://{domain}"
-        print(f"→ Analyse {domain}...")
-
-        ps = get_pagespeed(url)
+    for domain in new_domains[:20]:
+        print(f"→ {domain}")
+        tech    = detect_tech(domain)
+        ps      = pagespeed(domain)
         if ps is None:
-            print(f"  Skipped (PageSpeed failed)")
+            print("  skip (PageSpeed failed)")
             continue
 
-        perf_score, lcp, issues = ps
-        tech = detect_tech(url)
-        opportunity = score_prospect(perf_score, tech, len(issues))
+        perf, lcp, issues = ps
+        opp = score(perf, tech, len(issues))
+        print(f"  Score {opp}/100 | {tech} | perf {perf} | LCP {lcp}")
 
-        results.append({
-            'domain': domain,
-            'company': company,
-            'segment': segment,
-            'perf_score': perf_score,
-            'lcp': lcp,
-            'tech': tech,
-            'issues': issues,
-            'score': opportunity,
+        if opp < MIN_SCORE_TO_EMAIL:
+            print("  skip (score trop bas)")
+            continue
+
+        email = find_email(domain)
+        print(f"  Email: {email or '—'}")
+
+        candidates.append({
+            'domain'  : domain,
+            'company' : domain.split('.')[0].capitalize(),
+            'email'   : email,
+            'tech'    : tech,
+            'perf'    : perf,
+            'lcp'     : lcp,
+            'issues'  : issues,
+            'opp'     : opp,
         })
-
-        # Mettre à jour le statut dans le CSV
-        for row in rows:
-            if row.get('domain', '').strip() == domain:
-                row['status'] = 'analyzed'
-                row['score'] = str(opportunity)
-                row['perf_score'] = str(perf_score)
-                row['tech'] = tech
-                row['last_analyzed'] = datetime.now().strftime('%Y-%m-%d')
-                break
-
         time.sleep(2)
 
-    # Réécrire le CSV avec les scores mis à jour
-    if rows:
-        fieldnames = rows[0].keys()
-        with open(csv_path, 'w', newline='', encoding='utf-8') as f:
-            writer = csv.DictWriter(f, fieldnames=fieldnames)
-            writer.writeheader()
-            writer.writerows(rows)
+    candidates.sort(key=lambda x: x['opp'], reverse=True)
 
-    if not results:
-        send_telegram("😶 Aucun prospect analysé avec succès. Vérifie les domaines dans prospects.csv")
-        return
+    # ── 4. SEND EMAILS ────────────────────────────────────────────────────────
+    print("\n=== ENVOI ===")
+    sent_ok  = []
+    no_email = []
+    errors   = []
+    sent_count = 0
 
-    # Trier par score décroissant
-    results.sort(key=lambda x: x['score'], reverse=True)
+    for c in candidates:
+        if sent_count >= MAX_EMAILS_PER_RUN:
+            break
 
-    # Envoyer les top 5
-    for r in results[:5]:
-        email_draft, shopify_note = build_email_draft(
-            r['domain'], r['company'], r['perf_score'],
-            r['lcp'], r['tech'], r['issues']
-        )
+        if not c['email'] or c['email'].lower() in known_emails:
+            no_email.append(c)
+            continue
 
-        issues_text = '\n'.join(f"  • {i}" for i in r['issues']) or '  • Vérifier visuellement'
+        subject, body = build_email(c['domain'], c['perf'], c['lcp'], c['tech'], c['issues'])
+        print(f"📧 {c['domain']} → {c['email']}")
+        ok = send_email(c['email'], subject, body)
 
-        msg = (
-            f"📊 <b>{r['company']}</b> — Opportunité : <b>{r['score']}/100</b>\n"
-            f"🌐 {r['domain']}\n"
-            f"⚙️ Stack : {r['tech']} | 📱 Perf mobile : {r['perf_score']}/100 | LCP : {r['lcp']}\n"
-            f"🎯 Segment : {r['segment']}\n"
-            f"{shopify_note}\n\n"
-            f"⚠️ <b>Problèmes détectés :</b>\n{issues_text}\n\n"
-            f"✉️ <b>Email prêt à envoyer :</b>\n"
-            f"<pre>{email_draft}</pre>"
-        )
-        send_telegram(msg)
-        time.sleep(1)
+        if ok:
+            sent_ok.append(c)
+            known_emails.add(c['email'].lower())
+            sent_count += 1
+            time.sleep(EMAIL_DELAY_SEC)
+        else:
+            errors.append(c)
 
-    best = results[0]
-    send_telegram(
-        f"✅ <b>Récap du jour</b>\n\n"
-        f"{len(results)} prospect(s) analysé(s)\n"
-        f"🏆 Meilleure opportunité : <b>{best['company']}</b> ({best['score']}/100)\n\n"
-        f"→ Personnalise et envoie les emails ci-dessus dès aujourd'hui."
+    # ── 5. LOG CSV ────────────────────────────────────────────────────────────
+    new_rows = []
+    for c in candidates:
+        if c in sent_ok:     status = 'emailed'
+        elif c in no_email:  status = 'no_email'
+        elif c in errors:    status = 'error'
+        else:                status = 'analyzed'
+
+        new_rows.append({
+            'domain'       : c['domain'],
+            'company'      : c['company'],
+            'email'        : c.get('email') or '',
+            'tech'         : c['tech'],
+            'perf_score'   : c['perf'],
+            'score'        : c['opp'],
+            'lcp'          : c['lcp'],
+            'issues'       : ' | '.join(c.get('issues',[])),
+            'status'       : status,
+            'date_added'   : today_iso,
+            'last_analyzed': today_iso,
+            'notes'        : '',
+        })
+
+    save_prospects(csv_path, existing + new_rows)
+
+    # ── 6. TELEGRAM REPORT ───────────────────────────────────────────────────
+    sent_lines = '\n'.join(
+        f"  ✅ {c['company']} ({c['domain']})\n"
+        f"      → <code>{c['email']}</code> | Score {c['opp']}/100 | {c['tech']}"
+        for c in sent_ok
+    ) or '  (aucun — GMAIL_PASS non configuré)'
+
+    no_email_lines = '\n'.join(
+        f"  📭 {c['domain']} [{c['opp']}/100 — {c['tech']}]"
+        for c in no_email[:5]
+    )
+
+    tg(
+        f"📊 <b>Rapport Acquisition — {today}</b>\n\n"
+        f"🔎 Prospects analysés : <b>{len(candidates)}</b>\n"
+        f"📧 Emails envoyés : <b>{sent_count}</b>\n"
+        f"📭 Sans email trouvé : <b>{len(no_email)}</b>\n\n"
+        f"<b>Emails envoyés :</b>\n{sent_lines}\n\n"
+        + (f"<b>Sans email :</b>\n{no_email_lines}\n\n" if no_email_lines else '') +
+        f"💬 Surveille <code>dikengadesign@gmail.com</code> pour les réponses."
     )
 
 
