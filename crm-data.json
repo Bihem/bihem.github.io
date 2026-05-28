@@ -1,5 +1,6 @@
 {
-  "updated_at": "2026-05-28T13:49:58.559686",
+  "updated_at": "2026-05-28T14:15:50.949793",
+  "version": "v6",
   "stats": {
     "total": 39,
     "with_email": 8,
@@ -9,8 +10,296 @@
     "replied": 0,
     "bounced": 1,
     "optout": 0,
-    "no_email": 31
+    "no_email": 31,
+    "hot": 1,
+    "warm": 18,
+    "cold": 20,
+    "avg_ai_score": 50.0
   },
+  "icp_distribution": [
+    {
+      "category": "ecommerce_premium",
+      "label": "E-commerce Premium",
+      "count": 32,
+      "pct": 82
+    },
+    {
+      "category": "mode_luxe",
+      "label": "Mode & Luxe",
+      "count": 3,
+      "pct": 8
+    },
+    {
+      "category": "immobilier",
+      "label": "Immobilier & Archi",
+      "count": 2,
+      "pct": 5
+    },
+    {
+      "category": "cabinet_b2b",
+      "label": "Cabinet B2B",
+      "count": 1,
+      "pct": 3
+    },
+    {
+      "category": "streetwear_premium",
+      "label": "Streetwear Premium",
+      "count": 1,
+      "pct": 3
+    }
+  ],
+  "intent_feed": [
+    {
+      "domain": "monboutique.fr",
+      "company": "Mon Boutique",
+      "signal": "Perf critique 32/100",
+      "strength": "high",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 81,
+      "temperature": "hot",
+      "ts": "2026-05-28"
+    },
+    {
+      "domain": "monboutique.fr",
+      "company": "Mon Boutique",
+      "signal": "Wix → migration possible",
+      "strength": "high",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 81,
+      "temperature": "hot",
+      "ts": "2026-05-28"
+    },
+    {
+      "domain": "madamedoree.com",
+      "company": "Madamedoree",
+      "signal": "Mobile faible 45/100",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 64,
+      "temperature": "warm",
+      "ts": "2026-05-28"
+    },
+    {
+      "domain": "madamedoree.com",
+      "company": "Madamedoree",
+      "signal": "WordPress lent — redesign potentiel",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 64,
+      "temperature": "warm",
+      "ts": "2026-05-28"
+    },
+    {
+      "domain": "tutoriels.lws.fr",
+      "company": "Tutoriels",
+      "signal": "Mobile faible 45/100",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 59,
+      "temperature": "warm",
+      "ts": "2026-05-28"
+    },
+    {
+      "domain": "tutoriels.lws.fr",
+      "company": "Tutoriels",
+      "signal": "WordPress lent — redesign potentiel",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 59,
+      "temperature": "warm",
+      "ts": "2026-05-28"
+    },
+    {
+      "domain": "chorange.com",
+      "company": "Chorange",
+      "signal": "Mobile faible 45/100",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 57,
+      "temperature": "warm",
+      "ts": "2026-05-28"
+    },
+    {
+      "domain": "lessisrare.fr",
+      "company": "Lessisrare",
+      "signal": "Mobile faible 45/100",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 56,
+      "temperature": "warm",
+      "ts": "2026-05-28"
+    },
+    {
+      "domain": "lessisrare.fr",
+      "company": "Lessisrare",
+      "signal": "2 problèmes site",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 56,
+      "temperature": "warm",
+      "ts": "2026-05-28"
+    },
+    {
+      "domain": "sitador.com",
+      "company": "Sitador",
+      "signal": "Mobile faible 45/100",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 56,
+      "temperature": "warm",
+      "ts": "2026-05-28"
+    },
+    {
+      "domain": "sitador.com",
+      "company": "Sitador",
+      "signal": "WordPress lent — redesign potentiel",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 56,
+      "temperature": "warm",
+      "ts": "2026-05-28"
+    },
+    {
+      "domain": "wpweb.fr",
+      "company": "Wpweb",
+      "signal": "Mobile faible 45/100",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 54,
+      "temperature": "warm",
+      "ts": "2026-05-28"
+    },
+    {
+      "domain": "wpweb.fr",
+      "company": "Wpweb",
+      "signal": "WordPress lent — redesign potentiel",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 54,
+      "temperature": "warm",
+      "ts": "2026-05-28"
+    },
+    {
+      "domain": "anne-elisabeth.com",
+      "company": "Anne-elisabeth",
+      "signal": "2 problèmes site",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 54,
+      "temperature": "warm",
+      "ts": "2026-05-28"
+    },
+    {
+      "domain": "creation-boutiques.fr",
+      "company": "Creation boutiques",
+      "signal": "Mobile faible 45/100",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 53,
+      "temperature": "warm",
+      "ts": "2026-05-28"
+    },
+    {
+      "domain": "creation-boutiques.fr",
+      "company": "Creation boutiques",
+      "signal": "WordPress lent — redesign potentiel",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 53,
+      "temperature": "warm",
+      "ts": "2026-05-28"
+    },
+    {
+      "domain": "prestaweb.fr",
+      "company": "Prestaweb",
+      "signal": "Mobile faible 45/100",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 53,
+      "temperature": "warm",
+      "ts": "2026-05-28"
+    },
+    {
+      "domain": "prestaweb.fr",
+      "company": "Prestaweb",
+      "signal": "WordPress lent — redesign potentiel",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 53,
+      "temperature": "warm",
+      "ts": "2026-05-28"
+    },
+    {
+      "domain": "prestashop.fr",
+      "company": "Prestashop",
+      "signal": "Mobile faible 45/100",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 52,
+      "temperature": "warm",
+      "ts": "2026-05-28"
+    },
+    {
+      "domain": "agencenetcom.fr",
+      "company": "Agencenetcom",
+      "signal": "Mobile faible 45/100",
+      "strength": "medium",
+      "icp_label": "Immobilier & Archi",
+      "ai_score": 52,
+      "temperature": "warm",
+      "ts": "2026-05-28"
+    },
+    {
+      "domain": "agencenetcom.fr",
+      "company": "Agencenetcom",
+      "signal": "WordPress lent — redesign potentiel",
+      "strength": "medium",
+      "icp_label": "Immobilier & Archi",
+      "ai_score": 52,
+      "temperature": "warm",
+      "ts": "2026-05-28"
+    },
+    {
+      "domain": "formationsmarketing.fr",
+      "company": "Formationsmarketing",
+      "signal": "Mobile faible 45/100",
+      "strength": "medium",
+      "icp_label": "Cabinet B2B",
+      "ai_score": 52,
+      "temperature": "warm",
+      "ts": "2026-05-28"
+    },
+    {
+      "domain": "formationsmarketing.fr",
+      "company": "Formationsmarketing",
+      "signal": "WordPress lent — redesign potentiel",
+      "strength": "medium",
+      "icp_label": "Cabinet B2B",
+      "ai_score": 52,
+      "temperature": "warm",
+      "ts": "2026-05-28"
+    },
+    {
+      "domain": "wearetheones.fr",
+      "company": "Wearetheones",
+      "signal": "Squarespace → migration possible",
+      "strength": "high",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 52,
+      "temperature": "warm",
+      "ts": "2026-05-28"
+    },
+    {
+      "domain": "wearetheones.fr",
+      "company": "Wearetheones",
+      "signal": "2 problèmes site",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 52,
+      "temperature": "warm",
+      "ts": "2026-05-28"
+    }
+  ],
   "prospects": [
     {
       "id": 10,
@@ -38,7 +327,34 @@
       "replied": 0,
       "bounced": 1,
       "notes": null,
-      "next_action": null
+      "next_action": null,
+      "ai_score": 81,
+      "temperature": "hot",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 5,
+      "intent_signals": [
+        {
+          "type": "critical_perf",
+          "label": "Perf critique 32/100",
+          "strength": "high"
+        },
+        {
+          "type": "low_tech",
+          "label": "Wix → migration possible",
+          "strength": "high"
+        },
+        {
+          "type": "some_issues",
+          "label": "3 problèmes site",
+          "strength": "medium"
+        },
+        {
+          "type": "local_poor_web",
+          "label": "Présence locale / site faible",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
     },
     {
       "id": 33,
@@ -65,60 +381,29 @@
       "replied": 0,
       "bounced": 0,
       "notes": null,
-      "next_action": "2026-05-31"
-    },
-    {
-      "id": 35,
-      "domain": "chorange.com",
-      "company": "Chorange",
-      "email": "info@chorange.com",
-      "phone": "05 85 18 29 83",
-      "tech": "PrestaShop",
-      "perf_mobile": 45,
-      "lcp": "~0.7s (estimé)",
-      "issues": [
-        "Page lourde, compression absente"
+      "next_action": "2026-05-31",
+      "ai_score": 64,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 8,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
       ],
-      "score": 71,
-      "source": "ddg",
-      "status": "emailed_1",
-      "sequence_step": 1,
-      "variant": "A",
-      "date_added": "2026-05-28",
-      "date_step1": "2026-05-28T13:44:52.584710",
-      "date_step2": null,
-      "date_step3": null,
-      "replied": 0,
-      "bounced": 0,
-      "notes": null,
-      "next_action": "2026-05-31"
-    },
-    {
-      "id": 25,
-      "domain": "lessisrare.fr",
-      "company": "Lessisrare",
-      "email": "caroline@lessisrare.com",
-      "phone": "06 58 83 84 01",
-      "tech": "Shopify",
-      "perf_mobile": 45,
-      "lcp": "~1.0s (estimé)",
-      "issues": [
-        "Page lourde, compression absente",
-        "Trop de scripts JavaScript"
-      ],
-      "score": 70,
-      "source": "ddg",
-      "status": "emailed_1",
-      "sequence_step": 1,
-      "variant": "B",
-      "date_added": "2026-05-28",
-      "date_step1": "2026-05-28T13:45:38.723317",
-      "date_step2": null,
-      "date_step3": null,
-      "replied": 0,
-      "bounced": 0,
-      "notes": null,
-      "next_action": "2026-05-31"
+      "icp_label": "E-commerce Premium"
     },
     {
       "id": 34,
@@ -145,87 +430,111 @@
       "replied": 0,
       "bounced": 0,
       "notes": null,
-      "next_action": null
+      "next_action": null,
+      "ai_score": 59,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 8,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
     },
     {
-      "id": 23,
-      "domain": "prestashop.fr",
-      "company": "Prestashop",
-      "email": null,
-      "phone": "09 09 09 09 09",
+      "id": 35,
+      "domain": "chorange.com",
+      "company": "Chorange",
+      "email": "info@chorange.com",
+      "phone": "05 85 18 29 83",
       "tech": "PrestaShop",
       "perf_mobile": 45,
-      "lcp": "~0.5s (estimé)",
+      "lcp": "~0.7s (estimé)",
       "issues": [
         "Page lourde, compression absente"
       ],
-      "score": 66,
+      "score": 71,
       "source": "ddg",
-      "status": "no_email",
-      "sequence_step": 0,
-      "variant": null,
+      "status": "emailed_1",
+      "sequence_step": 1,
+      "variant": "A",
       "date_added": "2026-05-28",
-      "date_step1": null,
+      "date_step1": "2026-05-28T13:44:52.584710",
       "date_step2": null,
       "date_step3": null,
       "replied": 0,
       "bounced": 0,
       "notes": null,
-      "next_action": null
+      "next_action": "2026-05-31",
+      "ai_score": 57,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 10,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
     },
     {
-      "id": 32,
-      "domain": "louleaccessoires.com",
-      "company": "Louleaccessoires",
-      "email": null,
-      "phone": "07 72 52 41 72",
+      "id": 25,
+      "domain": "lessisrare.fr",
+      "company": "Lessisrare",
+      "email": "caroline@lessisrare.com",
+      "phone": "06 58 83 84 01",
       "tech": "Shopify",
       "perf_mobile": 45,
-      "lcp": "~0.2s (estimé)",
+      "lcp": "~1.0s (estimé)",
       "issues": [
         "Page lourde, compression absente",
         "Trop de scripts JavaScript"
       ],
-      "score": 65,
+      "score": 70,
       "source": "ddg",
-      "status": "no_email",
-      "sequence_step": 0,
-      "variant": null,
+      "status": "emailed_1",
+      "sequence_step": 1,
+      "variant": "B",
       "date_added": "2026-05-28",
-      "date_step1": null,
+      "date_step1": "2026-05-28T13:45:38.723317",
       "date_step2": null,
       "date_step3": null,
       "replied": 0,
       "bounced": 0,
       "notes": null,
-      "next_action": null
-    },
-    {
-      "id": 37,
-      "domain": "balabooste.com",
-      "company": "Balabooste",
-      "email": null,
-      "phone": "09 75 60 97 56",
-      "tech": "Shopify",
-      "perf_mobile": 45,
-      "lcp": "~0.5s (estimé)",
-      "issues": [
-        "Page lourde, compression absente",
-        "Trop de scripts JavaScript"
+      "next_action": "2026-05-31",
+      "ai_score": 56,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 10,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
       ],
-      "score": 65,
-      "source": "ddg",
-      "status": "no_email",
-      "sequence_step": 0,
-      "variant": null,
-      "date_added": "2026-05-28",
-      "date_step1": null,
-      "date_step2": null,
-      "date_step3": null,
-      "replied": 0,
-      "bounced": 0,
-      "notes": null,
-      "next_action": null
+      "icp_label": "E-commerce Premium"
     },
     {
       "id": 38,
@@ -251,164 +560,24 @@
       "replied": 0,
       "bounced": 0,
       "notes": null,
-      "next_action": "2026-05-31"
-    },
-    {
-      "id": 39,
-      "domain": "mylittlebijou.com",
-      "company": "Mylittlebijou",
-      "email": null,
-      "phone": null,
-      "tech": "PrestaShop",
-      "perf_mobile": 45,
-      "lcp": "~1.5s (estimé)",
-      "issues": [
-        "Page lourde, compression absente"
+      "next_action": "2026-05-31",
+      "ai_score": 56,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 12,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
       ],
-      "score": 63,
-      "source": "ddg",
-      "status": "no_email",
-      "sequence_step": 0,
-      "variant": null,
-      "date_added": "2026-05-28",
-      "date_step1": null,
-      "date_step2": null,
-      "date_step3": null,
-      "replied": 0,
-      "bounced": 0,
-      "notes": null,
-      "next_action": null
-    },
-    {
-      "id": 21,
-      "domain": "creation-boutiques.fr",
-      "company": "Creation boutiques",
-      "email": null,
-      "phone": "09 71 26 41 85",
-      "tech": "WordPress",
-      "perf_mobile": 45,
-      "lcp": "~0.4s (estimé)",
-      "issues": [
-        "Page lourde, compression absente"
-      ],
-      "score": 62,
-      "source": "ddg",
-      "status": "no_email",
-      "sequence_step": 0,
-      "variant": null,
-      "date_added": "2026-05-28",
-      "date_step1": null,
-      "date_step2": null,
-      "date_step3": null,
-      "replied": 0,
-      "bounced": 0,
-      "notes": null,
-      "next_action": null
-    },
-    {
-      "id": 24,
-      "domain": "agencenetcom.fr",
-      "company": "Agencenetcom",
-      "email": null,
-      "phone": "02 12 67 76 67",
-      "tech": "WordPress",
-      "perf_mobile": 45,
-      "lcp": "~0.3s (estimé)",
-      "issues": [
-        "Page lourde, compression absente"
-      ],
-      "score": 62,
-      "source": "ddg",
-      "status": "no_email",
-      "sequence_step": 0,
-      "variant": null,
-      "date_added": "2026-05-28",
-      "date_step1": null,
-      "date_step2": null,
-      "date_step3": null,
-      "replied": 0,
-      "bounced": 0,
-      "notes": null,
-      "next_action": null
-    },
-    {
-      "id": 28,
-      "domain": "formationsmarketing.fr",
-      "company": "Formationsmarketing",
-      "email": null,
-      "phone": "03 18 91 36 83",
-      "tech": "WordPress",
-      "perf_mobile": 45,
-      "lcp": "~0.1s (estimé)",
-      "issues": [
-        "Page lourde, compression absente"
-      ],
-      "score": 62,
-      "source": "ddg",
-      "status": "no_email",
-      "sequence_step": 0,
-      "variant": null,
-      "date_added": "2026-05-28",
-      "date_step1": null,
-      "date_step2": null,
-      "date_step3": null,
-      "replied": 0,
-      "bounced": 0,
-      "notes": null,
-      "next_action": null
-    },
-    {
-      "id": 30,
-      "domain": "prestaweb.fr",
-      "company": "Prestaweb",
-      "email": null,
-      "phone": "06 18 55 34 69",
-      "tech": "WordPress",
-      "perf_mobile": 45,
-      "lcp": "~0.9s (estimé)",
-      "issues": [
-        "Page lourde, compression absente"
-      ],
-      "score": 62,
-      "source": "ddg",
-      "status": "no_email",
-      "sequence_step": 0,
-      "variant": null,
-      "date_added": "2026-05-28",
-      "date_step1": null,
-      "date_step2": null,
-      "date_step3": null,
-      "replied": 0,
-      "bounced": 0,
-      "notes": null,
-      "next_action": null
-    },
-    {
-      "id": 31,
-      "domain": "jollia.fr",
-      "company": "Jollia",
-      "email": null,
-      "phone": "01 77 98 77 65",
-      "tech": "Custom",
-      "perf_mobile": 45,
-      "lcp": "~0.3s (estimé)",
-      "issues": [
-        "Page lourde, compression absente",
-        "Nombreuses images non optimisées"
-      ],
-      "score": 62,
-      "source": "ddg",
-      "status": "no_email",
-      "sequence_step": 0,
-      "variant": null,
-      "date_added": "2026-05-28",
-      "date_step1": null,
-      "date_step2": null,
-      "date_step3": null,
-      "replied": 0,
-      "bounced": 0,
-      "notes": null,
-      "next_action": null
+      "icp_label": "E-commerce Premium"
     },
     {
       "id": 40,
@@ -434,85 +603,24 @@
       "replied": 0,
       "bounced": 0,
       "notes": null,
-      "next_action": null
-    },
-    {
-      "id": 27,
-      "domain": "bykloe.fr",
-      "company": "Bykloe",
-      "email": "contact@bykloe.fr",
-      "phone": "08 33 33 33 33",
-      "tech": "Custom",
-      "perf_mobile": 45,
-      "lcp": "~0.2s (estimé)",
-      "issues": [
-        "Page lourde, compression absente"
+      "next_action": null,
+      "ai_score": 54,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 12,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
       ],
-      "score": 60,
-      "source": "ddg",
-      "status": "emailed_1",
-      "sequence_step": 1,
-      "variant": "B",
-      "date_added": "2026-05-28",
-      "date_step1": "2026-05-28T13:47:10.481106",
-      "date_step2": null,
-      "date_step3": null,
-      "replied": 0,
-      "bounced": 0,
-      "notes": null,
-      "next_action": "2026-05-31"
-    },
-    {
-      "id": 29,
-      "domain": "terredebijoux.com",
-      "company": "Terredebijoux",
-      "email": "gerard.manvussat@domaine.com",
-      "phone": "08 10 30 36 26",
-      "tech": "Custom",
-      "perf_mobile": 45,
-      "lcp": "~0.3s (estimé)",
-      "issues": [
-        "Page lourde, compression absente"
-      ],
-      "score": 60,
-      "source": "ddg",
-      "status": "emailed_1",
-      "sequence_step": 1,
-      "variant": "A",
-      "date_added": "2026-05-28",
-      "date_step1": "2026-05-28T13:47:56.602378",
-      "date_step2": null,
-      "date_step3": null,
-      "replied": 0,
-      "bounced": 0,
-      "notes": null,
-      "next_action": "2026-05-31"
-    },
-    {
-      "id": 36,
-      "domain": "fred-net.fr",
-      "company": "Fred net",
-      "email": null,
-      "phone": null,
-      "tech": "WordPress",
-      "perf_mobile": 45,
-      "lcp": "~0.9s (estimé)",
-      "issues": [
-        "Page lourde, compression absente"
-      ],
-      "score": 59,
-      "source": "ddg",
-      "status": "no_email",
-      "sequence_step": 0,
-      "variant": null,
-      "date_added": "2026-05-28",
-      "date_step1": null,
-      "date_step2": null,
-      "date_step3": null,
-      "replied": 0,
-      "bounced": 0,
-      "notes": null,
-      "next_action": null
+      "icp_label": "E-commerce Premium"
     },
     {
       "id": 2,
@@ -539,307 +647,33 @@
       "replied": 0,
       "bounced": 0,
       "notes": null,
-      "next_action": null
-    },
-    {
-      "id": 11,
-      "domain": "lh4.ggpht.com",
-      "company": "Lh4",
-      "email": null,
-      "phone": null,
-      "tech": "Custom",
-      "perf_mobile": 35,
-      "lcp": "N/A",
-      "issues": [
-        "Site inaccessible ou lent"
+      "next_action": null,
+      "ai_score": 54,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 10,
+      "intent_signals": [
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
       ],
-      "score": 52,
-      "source": "gmaps",
-      "status": "no_email",
-      "sequence_step": 0,
-      "variant": null,
-      "date_added": "2026-05-28",
-      "date_step1": null,
-      "date_step2": null,
-      "date_step3": null,
-      "replied": 0,
-      "bounced": 0,
-      "notes": null,
-      "next_action": null
+      "icp_label": "E-commerce Premium"
     },
     {
-      "id": 12,
-      "domain": "lh6.ggpht.com",
-      "company": "Lh6",
+      "id": 21,
+      "domain": "creation-boutiques.fr",
+      "company": "Creation boutiques",
       "email": null,
-      "phone": null,
-      "tech": "Custom",
-      "perf_mobile": 35,
-      "lcp": "N/A",
-      "issues": [
-        "Site inaccessible ou lent"
-      ],
-      "score": 52,
-      "source": "gmaps",
-      "status": "no_email",
-      "sequence_step": 0,
-      "variant": null,
-      "date_added": "2026-05-28",
-      "date_step1": null,
-      "date_step2": null,
-      "date_step3": null,
-      "replied": 0,
-      "bounced": 0,
-      "notes": null,
-      "next_action": null
-    },
-    {
-      "id": 13,
-      "domain": "lh3.ggpht.com",
-      "company": "Lh3",
-      "email": null,
-      "phone": null,
-      "tech": "Custom",
-      "perf_mobile": 35,
-      "lcp": "N/A",
-      "issues": [
-        "Site inaccessible ou lent"
-      ],
-      "score": 52,
-      "source": "gmaps",
-      "status": "no_email",
-      "sequence_step": 0,
-      "variant": null,
-      "date_added": "2026-05-28",
-      "date_step1": null,
-      "date_step2": null,
-      "date_step3": null,
-      "replied": 0,
-      "bounced": 0,
-      "notes": null,
-      "next_action": null
-    },
-    {
-      "id": 14,
-      "domain": "lh5.ggpht.com",
-      "company": "Lh5",
-      "email": null,
-      "phone": null,
-      "tech": "Custom",
-      "perf_mobile": 35,
-      "lcp": "N/A",
-      "issues": [
-        "Site inaccessible ou lent"
-      ],
-      "score": 52,
-      "source": "gmaps",
-      "status": "no_email",
-      "sequence_step": 0,
-      "variant": null,
-      "date_added": "2026-05-28",
-      "date_step1": null,
-      "date_step2": null,
-      "date_step3": null,
-      "replied": 0,
-      "bounced": 0,
-      "notes": null,
-      "next_action": null
-    },
-    {
-      "id": 15,
-      "domain": "maps.gstatic.com",
-      "company": "Maps",
-      "email": null,
-      "phone": null,
-      "tech": "Custom",
-      "perf_mobile": 35,
-      "lcp": "N/A",
-      "issues": [
-        "Site inaccessible ou lent"
-      ],
-      "score": 52,
-      "source": "gmaps",
-      "status": "no_email",
-      "sequence_step": 0,
-      "variant": null,
-      "date_added": "2026-05-28",
-      "date_step1": null,
-      "date_step2": null,
-      "date_step3": null,
-      "replied": 0,
-      "bounced": 0,
-      "notes": null,
-      "next_action": null
-    },
-    {
-      "id": 16,
-      "domain": "fonts.gstatic.com",
-      "company": "Fonts",
-      "email": null,
-      "phone": null,
-      "tech": "Custom",
-      "perf_mobile": 35,
-      "lcp": "N/A",
-      "issues": [
-        "Site inaccessible ou lent"
-      ],
-      "score": 52,
-      "source": "gmaps",
-      "status": "no_email",
-      "sequence_step": 0,
-      "variant": null,
-      "date_added": "2026-05-28",
-      "date_step1": null,
-      "date_step2": null,
-      "date_step3": null,
-      "replied": 0,
-      "bounced": 0,
-      "notes": null,
-      "next_action": null
-    },
-    {
-      "id": 18,
-      "domain": "gstatic.com",
-      "company": "Gstatic",
-      "email": null,
-      "phone": null,
-      "tech": "Custom",
-      "perf_mobile": 35,
-      "lcp": "N/A",
-      "issues": [
-        "Site inaccessible ou lent"
-      ],
-      "score": 52,
-      "source": "gmaps",
-      "status": "no_email",
-      "sequence_step": 0,
-      "variant": null,
-      "date_added": "2026-05-28",
-      "date_step1": null,
-      "date_step2": null,
-      "date_step3": null,
-      "replied": 0,
-      "bounced": 0,
-      "notes": null,
-      "next_action": null
-    },
-    {
-      "id": 19,
-      "domain": "streetviewpixels-pa.googleapis.com",
-      "company": "Streetviewpixels pa",
-      "email": null,
-      "phone": null,
-      "tech": "Custom",
-      "perf_mobile": 35,
-      "lcp": "N/A",
-      "issues": [
-        "Site inaccessible ou lent"
-      ],
-      "score": 52,
-      "source": "gmaps",
-      "status": "no_email",
-      "sequence_step": 0,
-      "variant": null,
-      "date_added": "2026-05-28",
-      "date_step1": null,
-      "date_step2": null,
-      "date_step3": null,
-      "replied": 0,
-      "bounced": 0,
-      "notes": null,
-      "next_action": null
-    },
-    {
-      "id": 20,
-      "domain": "ssl.gstatic.com",
-      "company": "Ssl",
-      "email": null,
-      "phone": null,
-      "tech": "Custom",
-      "perf_mobile": 35,
-      "lcp": "N/A",
-      "issues": [
-        "Site inaccessible ou lent"
-      ],
-      "score": 52,
-      "source": "gmaps",
-      "status": "no_email",
-      "sequence_step": 0,
-      "variant": null,
-      "date_added": "2026-05-28",
-      "date_step1": null,
-      "date_step2": null,
-      "date_step3": null,
-      "replied": 0,
-      "bounced": 0,
-      "notes": null,
-      "next_action": null
-    },
-    {
-      "id": 22,
-      "domain": "guillaume-bouaud.fr",
-      "company": "Guillaume bouaud",
-      "email": null,
-      "phone": null,
-      "tech": "Custom",
-      "perf_mobile": 35,
-      "lcp": "N/A",
-      "issues": [
-        "Site inaccessible ou lent"
-      ],
-      "score": 52,
-      "source": "ddg",
-      "status": "no_email",
-      "sequence_step": 0,
-      "variant": null,
-      "date_added": "2026-05-28",
-      "date_step1": null,
-      "date_step2": null,
-      "date_step3": null,
-      "replied": 0,
-      "bounced": 0,
-      "notes": null,
-      "next_action": null
-    },
-    {
-      "id": 26,
-      "domain": "agence-creation-site.fr",
-      "company": "Agence creation site",
-      "email": null,
-      "phone": null,
-      "tech": "Custom",
-      "perf_mobile": 35,
-      "lcp": "N/A",
-      "issues": [
-        "Site inaccessible ou lent"
-      ],
-      "score": 52,
-      "source": "ddg",
-      "status": "no_email",
-      "sequence_step": 0,
-      "variant": null,
-      "date_added": "2026-05-28",
-      "date_step1": null,
-      "date_step2": null,
-      "date_step3": null,
-      "replied": 0,
-      "bounced": 0,
-      "notes": null,
-      "next_action": null
-    },
-    {
-      "id": 3,
-      "domain": "ateliermerefille.com",
-      "company": "Ateliermerefille",
-      "email": null,
-      "phone": null,
+      "phone": "09 71 26 41 85",
       "tech": "WordPress",
-      "perf_mobile": 55,
-      "lcp": "~1.8s (estimé)",
+      "perf_mobile": 45,
+      "lcp": "~0.4s (estimé)",
       "issues": [
         "Page lourde, compression absente"
       ],
-      "score": 50,
+      "score": 62,
       "source": "ddg",
       "status": "no_email",
       "sequence_step": 0,
@@ -851,49 +685,38 @@
       "replied": 0,
       "bounced": 0,
       "notes": null,
-      "next_action": null
-    },
-    {
-      "id": 4,
-      "domain": "guillaumalexandre.com",
-      "company": "Guillaumalexandre",
-      "email": null,
-      "phone": null,
-      "tech": "Shopify",
-      "perf_mobile": 85,
-      "lcp": "~0.2s (estimé)",
-      "issues": [
-        "Page lourde, compression absente",
-        "Trop de scripts JavaScript"
+      "next_action": null,
+      "ai_score": 53,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 7,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
       ],
-      "score": 45,
-      "source": "ddg",
-      "status": "no_email",
-      "sequence_step": 0,
-      "variant": null,
-      "date_added": "2026-05-28",
-      "date_step1": null,
-      "date_step2": null,
-      "date_step3": null,
-      "replied": 0,
-      "bounced": 0,
-      "notes": null,
-      "next_action": null
+      "icp_label": "E-commerce Premium"
     },
     {
-      "id": 5,
-      "domain": "ab33.fr",
-      "company": "Ab33",
+      "id": 30,
+      "domain": "prestaweb.fr",
+      "company": "Prestaweb",
       "email": null,
-      "phone": null,
-      "tech": "Shopify",
-      "perf_mobile": 85,
-      "lcp": "~0.2s (estimé)",
+      "phone": "06 18 55 34 69",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.9s (estimé)",
       "issues": [
-        "Page lourde, compression absente",
-        "Trop de scripts JavaScript"
+        "Page lourde, compression absente"
       ],
-      "score": 45,
+      "score": 62,
       "source": "ddg",
       "status": "no_email",
       "sequence_step": 0,
@@ -905,22 +728,76 @@
       "replied": 0,
       "bounced": 0,
       "notes": null,
-      "next_action": null
+      "next_action": null,
+      "ai_score": 53,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
     },
     {
-      "id": 6,
-      "domain": "kalannparis.fr",
-      "company": "Kalannparis",
+      "id": 23,
+      "domain": "prestashop.fr",
+      "company": "Prestashop",
       "email": null,
-      "phone": null,
-      "tech": "Shopify",
-      "perf_mobile": 85,
+      "phone": "09 09 09 09 09",
+      "tech": "PrestaShop",
+      "perf_mobile": 45,
+      "lcp": "~0.5s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 66,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-28",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 52,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 10,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 24,
+      "domain": "agencenetcom.fr",
+      "company": "Agencenetcom",
+      "email": null,
+      "phone": "02 12 67 76 67",
+      "tech": "WordPress",
+      "perf_mobile": 45,
       "lcp": "~0.3s (estimé)",
       "issues": [
-        "Page lourde, compression absente",
-        "Trop de scripts JavaScript"
+        "Page lourde, compression absente"
       ],
-      "score": 45,
+      "score": 62,
       "source": "ddg",
       "status": "no_email",
       "sequence_step": 0,
@@ -932,47 +809,39 @@
       "replied": 0,
       "bounced": 0,
       "notes": null,
-      "next_action": null
-    },
-    {
-      "id": 9,
-      "domain": "motusboutique.fr",
-      "company": "Motusboutique",
-      "email": null,
-      "phone": null,
-      "tech": "Shopify",
-      "perf_mobile": 85,
-      "lcp": "~0.1s (estimé)",
-      "issues": [
-        "Page lourde, compression absente",
-        "Trop de scripts JavaScript"
+      "next_action": null,
+      "ai_score": 52,
+      "temperature": "warm",
+      "icp_category": "immobilier",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
       ],
-      "score": 45,
-      "source": "ddg",
-      "status": "no_email",
-      "sequence_step": 0,
-      "variant": null,
-      "date_added": "2026-05-28",
-      "date_step1": null,
-      "date_step2": null,
-      "date_step3": null,
-      "replied": 0,
-      "bounced": 0,
-      "notes": null,
-      "next_action": null
+      "icp_label": "Immobilier & Archi"
     },
     {
-      "id": 17,
-      "domain": "schema.org",
-      "company": "Schema",
+      "id": 28,
+      "domain": "formationsmarketing.fr",
+      "company": "Formationsmarketing",
       "email": null,
-      "phone": null,
-      "tech": "Custom",
+      "phone": "03 18 91 36 83",
+      "tech": "WordPress",
       "perf_mobile": 45,
       "lcp": "~0.1s (estimé)",
-      "issues": [],
-      "score": 45,
-      "source": "gmaps",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 62,
+      "source": "ddg",
       "status": "no_email",
       "sequence_step": 0,
       "variant": null,
@@ -983,7 +852,24 @@
       "replied": 0,
       "bounced": 0,
       "notes": null,
-      "next_action": null
+      "next_action": null,
+      "ai_score": 52,
+      "temperature": "warm",
+      "icp_category": "cabinet_b2b",
+      "brand_quality": 7,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Cabinet B2B"
     },
     {
       "id": 7,
@@ -1010,7 +896,808 @@
       "replied": 0,
       "bounced": 0,
       "notes": null,
-      "next_action": null
+      "next_action": null,
+      "ai_score": 52,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 10,
+      "intent_signals": [
+        {
+          "type": "low_tech",
+          "label": "Squarespace → migration possible",
+          "strength": "high"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 32,
+      "domain": "louleaccessoires.com",
+      "company": "Louleaccessoires",
+      "email": null,
+      "phone": "07 72 52 41 72",
+      "tech": "Shopify",
+      "perf_mobile": 45,
+      "lcp": "~0.2s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Trop de scripts JavaScript"
+      ],
+      "score": 65,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-28",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 51,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 10,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 37,
+      "domain": "balabooste.com",
+      "company": "Balabooste",
+      "email": null,
+      "phone": "09 75 60 97 56",
+      "tech": "Shopify",
+      "perf_mobile": 45,
+      "lcp": "~0.5s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Trop de scripts JavaScript"
+      ],
+      "score": 65,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-28",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 51,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 10,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 39,
+      "domain": "mylittlebijou.com",
+      "company": "Mylittlebijou",
+      "email": null,
+      "phone": null,
+      "tech": "PrestaShop",
+      "perf_mobile": 45,
+      "lcp": "~1.5s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 63,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-28",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 51,
+      "temperature": "warm",
+      "icp_category": "mode_luxe",
+      "brand_quality": 10,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Mode & Luxe"
+    },
+    {
+      "id": 3,
+      "domain": "ateliermerefille.com",
+      "company": "Ateliermerefille",
+      "email": null,
+      "phone": null,
+      "tech": "WordPress",
+      "perf_mobile": 55,
+      "lcp": "~1.8s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 50,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-28",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 51,
+      "temperature": "warm",
+      "icp_category": "mode_luxe",
+      "brand_quality": 10,
+      "intent_signals": [],
+      "icp_label": "Mode & Luxe"
+    },
+    {
+      "id": 36,
+      "domain": "fred-net.fr",
+      "company": "Fred net",
+      "email": null,
+      "phone": null,
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.9s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 59,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-28",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 50,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 11,
+      "domain": "lh4.ggpht.com",
+      "company": "Lh4",
+      "email": null,
+      "phone": null,
+      "tech": "Custom",
+      "perf_mobile": 35,
+      "lcp": "N/A",
+      "issues": [
+        "Site inaccessible ou lent"
+      ],
+      "score": 52,
+      "source": "gmaps",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-28",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 49,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 15,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 35/100",
+          "strength": "medium"
+        },
+        {
+          "type": "local_poor_web",
+          "label": "Présence locale / site faible",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 12,
+      "domain": "lh6.ggpht.com",
+      "company": "Lh6",
+      "email": null,
+      "phone": null,
+      "tech": "Custom",
+      "perf_mobile": 35,
+      "lcp": "N/A",
+      "issues": [
+        "Site inaccessible ou lent"
+      ],
+      "score": 52,
+      "source": "gmaps",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-28",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 49,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 15,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 35/100",
+          "strength": "medium"
+        },
+        {
+          "type": "local_poor_web",
+          "label": "Présence locale / site faible",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 13,
+      "domain": "lh3.ggpht.com",
+      "company": "Lh3",
+      "email": null,
+      "phone": null,
+      "tech": "Custom",
+      "perf_mobile": 35,
+      "lcp": "N/A",
+      "issues": [
+        "Site inaccessible ou lent"
+      ],
+      "score": 52,
+      "source": "gmaps",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-28",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 49,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 15,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 35/100",
+          "strength": "medium"
+        },
+        {
+          "type": "local_poor_web",
+          "label": "Présence locale / site faible",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 14,
+      "domain": "lh5.ggpht.com",
+      "company": "Lh5",
+      "email": null,
+      "phone": null,
+      "tech": "Custom",
+      "perf_mobile": 35,
+      "lcp": "N/A",
+      "issues": [
+        "Site inaccessible ou lent"
+      ],
+      "score": 52,
+      "source": "gmaps",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-28",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 49,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 15,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 35/100",
+          "strength": "medium"
+        },
+        {
+          "type": "local_poor_web",
+          "label": "Présence locale / site faible",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 15,
+      "domain": "maps.gstatic.com",
+      "company": "Maps",
+      "email": null,
+      "phone": null,
+      "tech": "Custom",
+      "perf_mobile": 35,
+      "lcp": "N/A",
+      "issues": [
+        "Site inaccessible ou lent"
+      ],
+      "score": 52,
+      "source": "gmaps",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-28",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 49,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 15,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 35/100",
+          "strength": "medium"
+        },
+        {
+          "type": "local_poor_web",
+          "label": "Présence locale / site faible",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 16,
+      "domain": "fonts.gstatic.com",
+      "company": "Fonts",
+      "email": null,
+      "phone": null,
+      "tech": "Custom",
+      "perf_mobile": 35,
+      "lcp": "N/A",
+      "issues": [
+        "Site inaccessible ou lent"
+      ],
+      "score": 52,
+      "source": "gmaps",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-28",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 49,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 15,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 35/100",
+          "strength": "medium"
+        },
+        {
+          "type": "local_poor_web",
+          "label": "Présence locale / site faible",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 18,
+      "domain": "gstatic.com",
+      "company": "Gstatic",
+      "email": null,
+      "phone": null,
+      "tech": "Custom",
+      "perf_mobile": 35,
+      "lcp": "N/A",
+      "issues": [
+        "Site inaccessible ou lent"
+      ],
+      "score": 52,
+      "source": "gmaps",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-28",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 49,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 15,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 35/100",
+          "strength": "medium"
+        },
+        {
+          "type": "local_poor_web",
+          "label": "Présence locale / site faible",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 19,
+      "domain": "streetviewpixels-pa.googleapis.com",
+      "company": "Streetviewpixels pa",
+      "email": null,
+      "phone": null,
+      "tech": "Custom",
+      "perf_mobile": 35,
+      "lcp": "N/A",
+      "issues": [
+        "Site inaccessible ou lent"
+      ],
+      "score": 52,
+      "source": "gmaps",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-28",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 49,
+      "temperature": "cold",
+      "icp_category": "streetwear_premium",
+      "brand_quality": 10,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 35/100",
+          "strength": "medium"
+        },
+        {
+          "type": "local_poor_web",
+          "label": "Présence locale / site faible",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Streetwear Premium"
+    },
+    {
+      "id": 20,
+      "domain": "ssl.gstatic.com",
+      "company": "Ssl",
+      "email": null,
+      "phone": null,
+      "tech": "Custom",
+      "perf_mobile": 35,
+      "lcp": "N/A",
+      "issues": [
+        "Site inaccessible ou lent"
+      ],
+      "score": 52,
+      "source": "gmaps",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-28",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 49,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 15,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 35/100",
+          "strength": "medium"
+        },
+        {
+          "type": "local_poor_web",
+          "label": "Présence locale / site faible",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 27,
+      "domain": "bykloe.fr",
+      "company": "Bykloe",
+      "email": "contact@bykloe.fr",
+      "phone": "08 33 33 33 33",
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.2s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 60,
+      "source": "ddg",
+      "status": "emailed_1",
+      "sequence_step": 1,
+      "variant": "B",
+      "date_added": "2026-05-28",
+      "date_step1": "2026-05-28T13:47:10.481106",
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": "2026-05-31",
+      "ai_score": 48,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 15,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 29,
+      "domain": "terredebijoux.com",
+      "company": "Terredebijoux",
+      "email": "gerard.manvussat@domaine.com",
+      "phone": "08 10 30 36 26",
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.3s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 60,
+      "source": "ddg",
+      "status": "emailed_1",
+      "sequence_step": 1,
+      "variant": "A",
+      "date_added": "2026-05-28",
+      "date_step1": "2026-05-28T13:47:56.602378",
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": "2026-05-31",
+      "ai_score": 48,
+      "temperature": "cold",
+      "icp_category": "mode_luxe",
+      "brand_quality": 12,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Mode & Luxe"
+    },
+    {
+      "id": 31,
+      "domain": "jollia.fr",
+      "company": "Jollia",
+      "email": null,
+      "phone": "01 77 98 77 65",
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.3s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Nombreuses images non optimisées"
+      ],
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-28",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 47,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 14,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 22,
+      "domain": "guillaume-bouaud.fr",
+      "company": "Guillaume bouaud",
+      "email": null,
+      "phone": null,
+      "tech": "Custom",
+      "perf_mobile": 35,
+      "lcp": "N/A",
+      "issues": [
+        "Site inaccessible ou lent"
+      ],
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-28",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 46,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 12,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 35/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 26,
+      "domain": "agence-creation-site.fr",
+      "company": "Agence creation site",
+      "email": null,
+      "phone": null,
+      "tech": "Custom",
+      "perf_mobile": 35,
+      "lcp": "N/A",
+      "issues": [
+        "Site inaccessible ou lent"
+      ],
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-28",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 45,
+      "temperature": "cold",
+      "icp_category": "immobilier",
+      "brand_quality": 10,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 35/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Immobilier & Archi"
     },
     {
       "id": 8,
@@ -1036,7 +1723,210 @@
       "replied": 0,
       "bounced": 0,
       "notes": null,
-      "next_action": null
+      "next_action": null,
+      "ai_score": 41,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 10,
+      "intent_signals": [],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 17,
+      "domain": "schema.org",
+      "company": "Schema",
+      "email": null,
+      "phone": null,
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.1s (estimé)",
+      "issues": [],
+      "score": 45,
+      "source": "gmaps",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-28",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 36,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 16,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "local_poor_web",
+          "label": "Présence locale / site faible",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 5,
+      "domain": "ab33.fr",
+      "company": "Ab33",
+      "email": null,
+      "phone": null,
+      "tech": "Shopify",
+      "perf_mobile": 85,
+      "lcp": "~0.2s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Trop de scripts JavaScript"
+      ],
+      "score": 45,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-28",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 35,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 16,
+      "intent_signals": [
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 4,
+      "domain": "guillaumalexandre.com",
+      "company": "Guillaumalexandre",
+      "email": null,
+      "phone": null,
+      "tech": "Shopify",
+      "perf_mobile": 85,
+      "lcp": "~0.2s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Trop de scripts JavaScript"
+      ],
+      "score": 45,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-28",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 33,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 13,
+      "intent_signals": [
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 6,
+      "domain": "kalannparis.fr",
+      "company": "Kalannparis",
+      "email": null,
+      "phone": null,
+      "tech": "Shopify",
+      "perf_mobile": 85,
+      "lcp": "~0.3s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Trop de scripts JavaScript"
+      ],
+      "score": 45,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-28",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 33,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 13,
+      "intent_signals": [
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 9,
+      "domain": "motusboutique.fr",
+      "company": "Motusboutique",
+      "email": null,
+      "phone": null,
+      "tech": "Shopify",
+      "perf_mobile": 85,
+      "lcp": "~0.1s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Trop de scripts JavaScript"
+      ],
+      "score": 45,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-28",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 33,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 13,
+      "intent_signals": [
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
     }
   ]
 }
