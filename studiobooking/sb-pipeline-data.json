@@ -1,100 +1,83 @@
 {
-  "updated_at": "2026-05-28T19:00:33.702232",
+  "updated_at": "2026-05-28T23:39:47.071751",
+  "version": "sb-v1",
+  "product": "StudioBooking",
+  "warmup_mode": true,
   "funnel": {
-    "total_discovered": 0,
-    "total_analyzed": 0,
-    "total_queued": 0,
+    "total": 6,
+    "with_email": 2,
+    "with_phone": 5,
     "total_emailed": 0,
     "total_replied": 0,
-    "total_bounced": 0,
-    "manual_bookings": 0,
-    "no_booking": 0,
-    "has_booking": 0
+    "total_bounced": 2,
+    "queued": 2,
+    "hot_opps": 2,
+    "manual_bookings": 0
   },
-  "daily_trend": [
-    {
-      "date": "2026-05-21",
-      "analyzed": 0,
-      "emailed": 0,
-      "replied": 0
-    },
-    {
-      "date": "2026-05-22",
-      "analyzed": 0,
-      "emailed": 0,
-      "replied": 0
-    },
-    {
-      "date": "2026-05-23",
-      "analyzed": 0,
-      "emailed": 0,
-      "replied": 0
-    },
-    {
-      "date": "2026-05-24",
-      "analyzed": 0,
-      "emailed": 0,
-      "replied": 0
-    },
-    {
-      "date": "2026-05-25",
-      "analyzed": 0,
-      "emailed": 0,
-      "replied": 0
-    },
-    {
-      "date": "2026-05-26",
-      "analyzed": 0,
-      "emailed": 0,
-      "replied": 0
-    },
-    {
-      "date": "2026-05-27",
-      "analyzed": 0,
-      "emailed": 0,
-      "replied": 0
-    },
-    {
-      "date": "2026-05-28",
-      "analyzed": 0,
-      "emailed": 0,
-      "replied": 0
-    }
-  ],
   "sources": [
     {
-      "name": "PagesJaunes",
-      "count": 0,
-      "with_email": 0
+      "source": "gmaps",
+      "n": 3,
+      "with_email": 1,
+      "total_emailed": 0,
+      "replied": 0
     },
     {
-      "name": "Google Maps",
-      "count": 0,
-      "with_email": 0
-    },
-    {
-      "name": "DuckDuckGo",
-      "count": 0,
-      "with_email": 0
-    },
-    {
-      "name": "Yelp",
-      "count": 0,
-      "with_email": 0
+      "source": "ddg",
+      "n": 3,
+      "with_email": 1,
+      "total_emailed": 0,
+      "replied": 0
     }
   ],
   "ab_test": {
-    "variant_a": {
+    "A": {
       "sent": 0,
       "replied": 0
     },
-    "variant_b": {
+    "B": {
       "sent": 0,
       "replied": 0
     }
   },
-  "warmup_mode": true,
-  "max_emails_per_run": 10,
-  "runs_today": 0,
-  "version": "1.0"
+  "daily_trend": [
+    {
+      "date": "2026-05-28",
+      "analyzed": 6,
+      "emailed": 0,
+      "replied": 0
+    }
+  ],
+  "temperature": {
+    "hot": 2,
+    "warm": 2,
+    "cold": 2,
+    "avg_score": 58
+  },
+  "icp_distribution": [
+    {
+      "category": "enregistrement",
+      "label": "Studio d'Enregistrement",
+      "count": 3,
+      "pct": 50
+    },
+    {
+      "category": "smac_venue",
+      "label": "SMAC / Salle de Spectacle",
+      "count": 1,
+      "pct": 17
+    },
+    {
+      "category": "repetition",
+      "label": "Studio de Répétition",
+      "count": 1,
+      "pct": 17
+    },
+    {
+      "category": "autre_studio",
+      "label": "Autre Studio",
+      "count": 1,
+      "pct": 17
+    }
+  ]
 }
