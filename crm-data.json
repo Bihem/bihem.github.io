@@ -1,32 +1,38 @@
 {
-  "updated_at": "2026-05-29T16:00:40.907553",
+  "updated_at": "2026-05-29T20:02:18.510875",
   "version": "v6",
   "stats": {
-    "total": 91,
-    "with_email": 18,
-    "with_phone": 48,
-    "queued": 2,
+    "total": 111,
+    "with_email": 22,
+    "with_phone": 57,
+    "queued": 6,
     "emailed": 14,
     "replied": 0,
     "bounced": 3,
     "optout": 0,
-    "no_email": 73,
+    "no_email": 89,
     "hot": 1,
-    "warm": 46,
-    "cold": 44,
+    "warm": 63,
+    "cold": 47,
     "avg_ai_score": 50.0
   },
   "icp_distribution": [
     {
       "category": "ecommerce_premium",
       "label": "E-commerce Premium",
-      "count": 75,
-      "pct": 82
+      "count": 85,
+      "pct": 77
+    },
+    {
+      "category": "skincare_wellness",
+      "label": "Skincare & Wellness",
+      "count": 8,
+      "pct": 7
     },
     {
       "category": "mode_luxe",
       "label": "Mode & Luxe",
-      "count": 5,
+      "count": 6,
       "pct": 5
     },
     {
@@ -48,6 +54,12 @@
       "pct": 2
     },
     {
+      "category": "hospitality",
+      "label": "Hospitality & Resto",
+      "count": 2,
+      "pct": 2
+    },
+    {
       "category": "artisan_createur",
       "label": "Artisan Créateur",
       "count": 1,
@@ -56,12 +68,6 @@
     {
       "category": "streetwear_premium",
       "label": "Streetwear Premium",
-      "count": 1,
-      "pct": 1
-    },
-    {
-      "category": "hospitality",
-      "label": "Hospitality & Resto",
       "count": 1,
       "pct": 1
     }
@@ -148,6 +154,26 @@
       "ts": "2026-05-28"
     },
     {
+      "domain": "provendi.fr",
+      "company": "Provendi",
+      "signal": "Mobile faible 45/100",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 61,
+      "temperature": "warm",
+      "ts": "2026-05-29"
+    },
+    {
+      "domain": "provendi.fr",
+      "company": "Provendi",
+      "signal": "WordPress lent — redesign potentiel",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 61,
+      "temperature": "warm",
+      "ts": "2026-05-29"
+    },
+    {
       "domain": "zebriztattoo.com",
       "company": "Zebriztattoo",
       "signal": "Mobile faible 45/100",
@@ -268,54 +294,34 @@
       "ts": "2026-05-29"
     },
     {
-      "domain": "tutoriels.lws.fr",
-      "company": "Tutoriels",
+      "domain": "loreedusud.com",
+      "company": "Loreedusud",
       "signal": "Mobile faible 45/100",
       "strength": "medium",
       "icp_label": "E-commerce Premium",
       "ai_score": 59,
       "temperature": "warm",
-      "ts": "2026-05-28"
+      "ts": "2026-05-29"
     },
     {
-      "domain": "tutoriels.lws.fr",
-      "company": "Tutoriels",
+      "domain": "loreedusud.com",
+      "company": "Loreedusud",
       "signal": "WordPress lent — redesign potentiel",
       "strength": "medium",
       "icp_label": "E-commerce Premium",
       "ai_score": 59,
       "temperature": "warm",
+      "ts": "2026-05-29"
+    },
+    {
+      "domain": "tutoriels.lws.fr",
+      "company": "Tutoriels",
+      "signal": "Mobile faible 45/100",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 59,
+      "temperature": "warm",
       "ts": "2026-05-28"
-    },
-    {
-      "domain": "loweys.fr",
-      "company": "Loweys",
-      "signal": "Mobile faible 45/100",
-      "strength": "medium",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 59,
-      "temperature": "warm",
-      "ts": "2026-05-29"
-    },
-    {
-      "domain": "loweys.fr",
-      "company": "Loweys",
-      "signal": "Wix → migration possible",
-      "strength": "high",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 59,
-      "temperature": "warm",
-      "ts": "2026-05-29"
-    },
-    {
-      "domain": "jfl-opticiens.fr",
-      "company": "Jfl opticiens",
-      "signal": "Mobile faible 45/100",
-      "strength": "medium",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 58,
-      "temperature": "warm",
-      "ts": "2026-05-29"
     }
   ],
   "prospects": [
@@ -499,6 +505,55 @@
       "notes": null,
       "next_action": "2026-05-31",
       "ai_score": 64,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 8,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 108,
+      "domain": "provendi.fr",
+      "company": "Provendi",
+      "email": "contact@provendi.fr",
+      "phone": null,
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~2.9s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Trop de scripts JavaScript"
+      ],
+      "score": 71,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 61,
       "temperature": "warm",
       "icp_category": "ecommerce_premium",
       "brand_quality": 8,
@@ -798,6 +853,55 @@
       "icp_label": "E-commerce Premium"
     },
     {
+      "id": 102,
+      "domain": "loreedusud.com",
+      "company": "Loreedusud",
+      "email": null,
+      "phone": "08 49 17 89 63",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.1s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Trop de scripts JavaScript"
+      ],
+      "score": 69,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 59,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 8,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
       "id": 34,
       "domain": "tutoriels.lws.fr",
       "company": "Tutoriels",
@@ -888,6 +992,87 @@
         }
       ],
       "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 107,
+      "domain": "cosmoya.fr",
+      "company": "Cosmoya",
+      "email": null,
+      "phone": null,
+      "tech": "Wix",
+      "perf_mobile": 45,
+      "lcp": "~0.6s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 59,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 10,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "low_tech",
+          "label": "Wix → migration possible",
+          "strength": "high"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 94,
+      "domain": "lesecretnaturel.com",
+      "company": "Lesecretnaturel",
+      "email": "contact@lesecretnaturel.com",
+      "phone": "03 87 24 08 07",
+      "tech": "PrestaShop",
+      "perf_mobile": 45,
+      "lcp": "~0.6s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 71,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 58,
+      "temperature": "warm",
+      "icp_category": "skincare_wellness",
+      "brand_quality": 10,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Skincare & Wellness"
     },
     {
       "id": 59,
@@ -1191,6 +1376,130 @@
       "icp_label": "E-commerce Premium"
     },
     {
+      "id": 96,
+      "domain": "prouvenco.fr",
+      "company": "Prouvenco",
+      "email": null,
+      "phone": null,
+      "tech": "Wix",
+      "perf_mobile": 45,
+      "lcp": "~0.2s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 58,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 7,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "low_tech",
+          "label": "Wix → migration possible",
+          "strength": "high"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 110,
+      "domain": "ainatiora.com",
+      "company": "Ainatiora",
+      "email": null,
+      "phone": null,
+      "tech": "Wix",
+      "perf_mobile": 45,
+      "lcp": "~0.2s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 58,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 7,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "low_tech",
+          "label": "Wix → migration possible",
+          "strength": "high"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 93,
+      "domain": "provence-argile.com",
+      "company": "Provence argile",
+      "email": "contact@labo-naturado.com",
+      "phone": "04 94 00 66 20",
+      "tech": "PrestaShop",
+      "perf_mobile": 45,
+      "lcp": "~1.0s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 71,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 57,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 10,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
       "id": 35,
       "domain": "chorange.com",
       "company": "Chorange",
@@ -1270,6 +1579,141 @@
         }
       ],
       "icp_label": "Cabinet B2B"
+    },
+    {
+      "id": 104,
+      "domain": "2021artisancosmetique.com",
+      "company": "2021artisancosmetique",
+      "email": null,
+      "phone": null,
+      "tech": "Wix",
+      "perf_mobile": 45,
+      "lcp": "~0.3s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 57,
+      "temperature": "warm",
+      "icp_category": "skincare_wellness",
+      "brand_quality": 5,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "low_tech",
+          "label": "Wix → migration possible",
+          "strength": "high"
+        }
+      ],
+      "icp_label": "Skincare & Wellness"
+    },
+    {
+      "id": 97,
+      "domain": "naturellia.fr",
+      "company": "Naturellia",
+      "email": null,
+      "phone": null,
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.1s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Trop de scripts JavaScript"
+      ],
+      "score": 66,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 57,
+      "temperature": "warm",
+      "icp_category": "skincare_wellness",
+      "brand_quality": 8,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Skincare & Wellness"
+    },
+    {
+      "id": 105,
+      "domain": "ateliersdelodie.fr",
+      "company": "Ateliersdelodie",
+      "email": "contact@ateliersdelodie.fr",
+      "phone": null,
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~1.0s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 64,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 57,
+      "temperature": "warm",
+      "icp_category": "mode_luxe",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Mode & Luxe"
     },
     {
       "id": 25,
@@ -1482,6 +1926,44 @@
         }
       ],
       "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 95,
+      "domain": "mklgreennature.com",
+      "company": "Mklgreennature",
+      "email": null,
+      "phone": "01 00 55 52 96",
+      "tech": "PrestaShop",
+      "perf_mobile": 45,
+      "lcp": "~0.3s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 66,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 53,
+      "temperature": "warm",
+      "icp_category": "skincare_wellness",
+      "brand_quality": 10,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Skincare & Wellness"
     },
     {
       "id": 55,
@@ -1735,6 +2217,138 @@
         }
       ],
       "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 100,
+      "domain": "comme-avant.bio",
+      "company": "Comme avant",
+      "email": null,
+      "phone": "08 35 77 17 15",
+      "tech": "Shopify",
+      "perf_mobile": 45,
+      "lcp": "~0.4s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Trop de scripts JavaScript"
+      ],
+      "score": 65,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 52,
+      "temperature": "warm",
+      "icp_category": "skincare_wellness",
+      "brand_quality": 10,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Skincare & Wellness"
+    },
+    {
+      "id": 103,
+      "domain": "talcosmetiques.com",
+      "company": "Talcosmetiques",
+      "email": null,
+      "phone": "04 57 49 54 41",
+      "tech": "Shopify",
+      "perf_mobile": 45,
+      "lcp": "~0.7s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Trop de scripts JavaScript"
+      ],
+      "score": 65,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 52,
+      "temperature": "warm",
+      "icp_category": "skincare_wellness",
+      "brand_quality": 10,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Skincare & Wellness"
+    },
+    {
+      "id": 106,
+      "domain": "djohannie-beauty.com",
+      "company": "Djohannie beauty",
+      "email": null,
+      "phone": "04 65 04 65 76",
+      "tech": "Shopify",
+      "perf_mobile": 45,
+      "lcp": "~0.1s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Trop de scripts JavaScript"
+      ],
+      "score": 65,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 52,
+      "temperature": "warm",
+      "icp_category": "skincare_wellness",
+      "brand_quality": 10,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Skincare & Wellness"
     },
     {
       "id": 24,
@@ -1999,6 +2613,50 @@
       "icp_label": "Artisan Créateur"
     },
     {
+      "id": 109,
+      "domain": "odessence.com",
+      "company": "Odessence",
+      "email": null,
+      "phone": "05 61 26 02 99",
+      "tech": "Shopify",
+      "perf_mobile": 45,
+      "lcp": "~0.9s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Trop de scripts JavaScript"
+      ],
+      "score": 65,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 51,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 10,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
       "id": 32,
       "domain": "louleaccessoires.com",
       "company": "Louleaccessoires",
@@ -2123,6 +2781,49 @@
         }
       ],
       "icp_label": "Mode & Luxe"
+    },
+    {
+      "id": 112,
+      "domain": "zenbeauty.fr",
+      "company": "Zenbeauty",
+      "email": null,
+      "phone": null,
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.2s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 59,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 51,
+      "temperature": "warm",
+      "icp_category": "skincare_wellness",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Skincare & Wellness"
     },
     {
       "id": 3,
@@ -2294,6 +2995,49 @@
       "tech": "WordPress",
       "perf_mobile": 45,
       "lcp": "~0.2s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 59,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 50,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 111,
+      "domain": "labonnevague.com",
+      "company": "Labonnevague",
+      "email": null,
+      "phone": null,
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.1s (estimé)",
       "issues": [
         "Page lourde, compression absente"
       ],
@@ -3689,6 +4433,44 @@
       "icp_label": "E-commerce Premium"
     },
     {
+      "id": 99,
+      "domain": "chateauberger.com",
+      "company": "Chateauberger",
+      "email": null,
+      "phone": "02 20 92 01 13",
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.6s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 55,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 41,
+      "temperature": "cold",
+      "icp_category": "hospitality",
+      "brand_quality": 12,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Hospitality & Resto"
+    },
+    {
       "id": 8,
       "domain": "thefashiontourismsociety.com",
       "company": "Thefashiontourismsociety",
@@ -3724,6 +4506,44 @@
       "id": 50,
       "domain": "01net.com",
       "company": "01net",
+      "email": null,
+      "phone": null,
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.1s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 40,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 15,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 98,
+      "domain": "respire.co",
+      "company": "Respire",
       "email": null,
       "phone": null,
       "tech": "Custom",
@@ -3881,6 +4701,44 @@
       "tech": "Custom",
       "perf_mobile": 45,
       "lcp": "~0.1s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 38,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 12,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 101,
+      "domain": "clarence-bordeaux.fr",
+      "company": "Clarence bordeaux",
+      "email": null,
+      "phone": null,
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.2s (estimé)",
       "issues": [
         "Page lourde, compression absente"
       ],
