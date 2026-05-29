@@ -1,25 +1,25 @@
 {
-  "updated_at": "2026-05-29T08:02:18.993080",
+  "updated_at": "2026-05-29T12:05:23.264316",
   "version": "v6",
   "warmup_mode": false,
   "funnel": {
-    "total": 72,
-    "with_email": 10,
-    "with_phone": 31,
-    "total_emailed": 9,
+    "total": 91,
+    "with_email": 18,
+    "with_phone": 48,
+    "total_emailed": 14,
     "total_replied": 0,
-    "total_bounced": 2,
-    "queued": 0,
+    "total_bounced": 3,
+    "queued": 2,
     "total_optout": 0,
-    "pending": 8
+    "pending": 13
   },
   "sources": [
     {
       "source": "ddg",
-      "n": 61,
-      "with_email": 9,
-      "with_phone": 31,
-      "total_emailed": 9,
+      "n": 80,
+      "with_email": 17,
+      "with_phone": 48,
+      "total_emailed": 14,
       "replied": 0
     },
     {
@@ -41,11 +41,11 @@
   ],
   "ab_test": {
     "A": {
-      "sent": 6,
+      "sent": 8,
       "replied": 0
     },
     "B": {
-      "sent": 3,
+      "sent": 6,
       "replied": 0
     }
   },
@@ -58,18 +58,246 @@
     },
     {
       "date": "2026-05-29",
-      "analyzed": 33,
-      "emailed": 3,
+      "analyzed": 52,
+      "emailed": 8,
       "replied": 0
     }
   ],
   "today": {
-    "analyzed": 33,
-    "with_email": 3,
-    "with_phone": 16,
-    "emailed": 3
+    "analyzed": 52,
+    "with_email": 11,
+    "with_phone": 33,
+    "emailed": 8
   },
   "recent": [
+    {
+      "domain": "nice-tattoo.fr",
+      "company": "Nice tattoo",
+      "tech": "WordPress",
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "06 86 58 83 72"
+    },
+    {
+      "domain": "theblackhattattoo.fr",
+      "company": "Theblackhattattoo",
+      "tech": "Custom",
+      "score": 60,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "hello@blackhatnice.com",
+      "phone": "04 79 56 69 89"
+    },
+    {
+      "domain": "corpsenfolie.com",
+      "company": "Corpsenfolie",
+      "tech": "WordPress",
+      "score": 59,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "nicetattoofestival.com",
+      "company": "Nicetattoofestival",
+      "tech": "Custom",
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "sweetink.fr",
+      "company": "Sweetink",
+      "tech": "WordPress",
+      "score": 69,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "06 52 24 50 06"
+    },
+    {
+      "domain": "angeltattoo.ink",
+      "company": "Angeltattoo",
+      "tech": "Custom",
+      "score": 55,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "02 26 13 54 15"
+    },
+    {
+      "domain": "maisontigrebleu.fr",
+      "company": "Maisontigrebleu",
+      "tech": "WordPress",
+      "score": 67,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@maisontigrebleu.fr",
+      "phone": "06 66 66 66 66"
+    },
+    {
+      "domain": "tattoonice.com",
+      "company": "Tattoonice",
+      "tech": "WordPress",
+      "score": 67,
+      "source": "ddg",
+      "status": "emailed_1",
+      "date_step1": "2026-05-29T12:04:38.106586",
+      "replied": 0,
+      "email": "contact@tattoonice.com",
+      "phone": "09 52 10 12 82"
+    },
+    {
+      "domain": "planity.com",
+      "company": "Planity",
+      "tech": "Custom",
+      "score": 55,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "08 33 33 33 33"
+    },
+    {
+      "domain": "zebriztattoo.com",
+      "company": "Zebriztattoo",
+      "tech": "Wix",
+      "score": 70,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "04 93 04 72 61"
+    },
+    {
+      "domain": "fatcattattooclub.com",
+      "company": "Fatcattattooclub",
+      "tech": "WordPress",
+      "score": 67,
+      "source": "ddg",
+      "status": "bounced",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@fatcatattooclub.com",
+      "phone": "04 83 39 25 99"
+    },
+    {
+      "domain": "lilleaddict.fr",
+      "company": "Lilleaddict",
+      "tech": "WordPress",
+      "score": 69,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "03 11 37 20 97"
+    },
+    {
+      "domain": "labonbonnieretatouage.com",
+      "company": "Labonbonnieretatouage",
+      "tech": "WordPress",
+      "score": 69,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "09 61 79 16 57"
+    },
+    {
+      "domain": "lescachotteriesdelille.com",
+      "company": "Lescachotteriesdelille",
+      "tech": "WordPress",
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "05 88 23 52 94"
+    },
+    {
+      "domain": "lafratrietattoo.com",
+      "company": "Lafratrietattoo",
+      "tech": "WordPress",
+      "score": 67,
+      "source": "ddg",
+      "status": "emailed_1",
+      "date_step1": "2026-05-29T12:03:47.699817",
+      "replied": 0,
+      "email": "contact@lafratrietattoo.com",
+      "phone": "06 15 71 65 37"
+    },
+    {
+      "domain": "lille-tattoo-convention.com",
+      "company": "Lille tattoo convention",
+      "tech": "WordPress",
+      "score": 67,
+      "source": "ddg",
+      "status": "emailed_1",
+      "date_step1": "2026-05-29T12:02:59.705668",
+      "replied": 0,
+      "email": "contact@lilletattooconvention.com",
+      "phone": "04 54 77 94 57"
+    },
+    {
+      "domain": "titfortat-tattooparlor.fr",
+      "company": "Titfortat tattooparlor",
+      "tech": "Custom",
+      "score": 55,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "06 53 37 79 55"
+    },
+    {
+      "domain": "lacageauxfioles.fr",
+      "company": "Lacageauxfioles",
+      "tech": "WordPress",
+      "score": 74,
+      "source": "ddg",
+      "status": "emailed_1",
+      "date_step1": "2026-05-29T12:01:26.642404",
+      "replied": 0,
+      "email": "contact@lacageauxfioles.fr",
+      "phone": "04 71 19 13 72"
+    },
+    {
+      "domain": "lovearte.tattoo",
+      "company": "Lovearte",
+      "tech": "WordPress",
+      "score": 67,
+      "source": "ddg",
+      "status": "emailed_1",
+      "date_step1": "2026-05-29T12:02:13.295868",
+      "replied": 0,
+      "email": "contact@lovearte.tattoo",
+      "phone": "01 47 91 55 04"
+    },
     {
       "domain": "wefoodtruck.fr",
       "company": "Wefoodtruck",
@@ -201,266 +429,38 @@
       "replied": 0,
       "email": null,
       "phone": null
-    },
-    {
-      "domain": "optique-caroline-joo.fr",
-      "company": "Optique caroline joo",
-      "tech": "Custom",
-      "score": 52,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "kyoptic.fr",
-      "company": "Kyoptic",
-      "tech": "Custom",
-      "score": 55,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "09 25 16 07 43"
-    },
-    {
-      "domain": "atelierdu15eme.fr",
-      "company": "Atelierdu15eme",
-      "tech": "Custom",
-      "score": 52,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "jfl-opticiens.fr",
-      "company": "Jfl opticiens",
-      "tech": "WordPress",
-      "score": 67,
-      "source": "ddg",
-      "status": "emailed_1",
-      "date_step1": "2026-05-29T08:00:44.953682",
-      "replied": 0,
-      "email": "contact@jfl-opticiens.fr",
-      "phone": "01 43 55 77 50"
-    },
-    {
-      "domain": "master-vision-audition.fr",
-      "company": "Master vision audition",
-      "tech": "Custom",
-      "score": 60,
-      "source": "ddg",
-      "status": "bounced",
-      "date_step1": null,
-      "replied": 0,
-      "email": "contact@mastervision.fr",
-      "phone": "01 63 53 02 38"
-    },
-    {
-      "domain": "web-artisan.biz",
-      "company": "Web artisan",
-      "tech": "Shopify",
-      "score": 65,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "04 41 77 06 54"
-    },
-    {
-      "domain": "stackindep.fr",
-      "company": "Stackindep",
-      "tech": "Custom",
-      "score": 52,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "lesmarquesfrancaises.fr",
-      "company": "Lesmarquesfrancaises",
-      "tech": "WordPress",
-      "score": 62,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "01 51 47 81 64"
-    },
-    {
-      "domain": "infodial.fr",
-      "company": "Infodial",
-      "tech": "WordPress",
-      "score": 59,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "ayumi-trends.fr",
-      "company": "Ayumi trends",
-      "tech": "WordPress",
-      "score": 59,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "journaldugeek.com",
-      "company": "Journaldugeek",
-      "tech": "Custom",
-      "score": 55,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "06 72 76 56 16"
-    },
-    {
-      "domain": "leptidigital.fr",
-      "company": "Leptidigital",
-      "tech": "Custom",
-      "score": 52,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "01net.com",
-      "company": "01net",
-      "tech": "Custom",
-      "score": 52,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "structuriaconseil.fr",
-      "company": "Structuriaconseil",
-      "tech": "Wix",
-      "score": 67,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "mode-consciente.fr",
-      "company": "Mode consciente",
-      "tech": "Custom",
-      "score": 59,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "loweys.fr",
-      "company": "Loweys",
-      "tech": "Wix",
-      "score": 67,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "presse-citron.net",
-      "company": "Presse citron",
-      "tech": "Custom",
-      "score": 60,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": "2026-05-29T01:25:23.466004",
-      "replied": 0,
-      "email": null,
-      "phone": "06 72 76 56 16"
-    },
-    {
-      "domain": "erase-factory.fr",
-      "company": "Erase factory",
-      "tech": "Custom",
-      "score": 55,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "08 33 33 33 33"
-    },
-    {
-      "domain": "def-shop.fr",
-      "company": "Def shop",
-      "tech": "Custom",
-      "score": 52,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
     }
   ],
   "icp_distribution": [
     {
       "category": "ecommerce_premium",
       "label": "E-commerce Premium",
-      "count": 57,
-      "pct": 79
+      "count": 75,
+      "pct": 82
     },
     {
       "category": "mode_luxe",
       "label": "Mode & Luxe",
-      "count": 4,
-      "pct": 6
+      "count": 5,
+      "pct": 5
     },
     {
       "category": "saas_ia",
       "label": "SaaS & IA",
       "count": 3,
-      "pct": 4
+      "pct": 3
     },
     {
       "category": "cabinet_b2b",
       "label": "Cabinet B2B",
       "count": 3,
-      "pct": 4
+      "pct": 3
     },
     {
       "category": "immobilier",
       "label": "Immobilier & Archi",
       "count": 2,
-      "pct": 3
+      "pct": 2
     },
     {
       "category": "streetwear_premium",
@@ -483,8 +483,8 @@
   ],
   "temperature": {
     "hot": 1,
-    "warm": 32,
-    "cold": 39,
-    "avg_ai_score": 49
+    "warm": 46,
+    "cold": 44,
+    "avg_ai_score": 50
   }
 }
