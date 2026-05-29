@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-05-29T09:02:25.410128",
+  "updated_at": "2026-05-29T15:08:01.900552",
   "summary": {
     "total": 4,
     "active": 1,
-    "trial": 3,
-    "suspended": 0,
+    "trial": 2,
+    "suspended": 1,
     "paying": 0
   },
   "tenants": [
@@ -30,7 +30,7 @@
       "slug": "flavo",
       "name": "Flavo",
       "plan": "starter",
-      "status": "trial",
+      "status": "suspended",
       "paying": false,
       "trial_ends_at": "2026-05-28T09:46:27.76+00:00",
       "created_at": "2026-04-28T09:46:27.76+00:00"
@@ -84,7 +84,7 @@
     {
       "slug": "flavo",
       "name": "Flavo",
-      "status": "trial",
+      "status": "suspended",
       "paying": false,
       "internal": false
     },
