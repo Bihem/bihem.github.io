@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-05-29T20:02:18.501395",
+  "updated_at": "2026-05-29T21:43:13.142955",
   "version": "v6",
   "warmup_mode": false,
   "funnel": {
@@ -8,7 +8,7 @@
     "with_phone": 57,
     "total_emailed": 14,
     "total_replied": 0,
-    "total_bounced": 3,
+    "total_bounced": 0,
     "queued": 6,
     "total_optout": 0,
     "pending": 13
