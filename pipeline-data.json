@@ -1,24 +1,24 @@
 {
-  "updated_at": "2026-05-29T16:00:40.898389",
+  "updated_at": "2026-05-29T20:02:18.501395",
   "version": "v6",
   "warmup_mode": false,
   "funnel": {
-    "total": 91,
-    "with_email": 18,
-    "with_phone": 48,
+    "total": 111,
+    "with_email": 22,
+    "with_phone": 57,
     "total_emailed": 14,
     "total_replied": 0,
     "total_bounced": 3,
-    "queued": 2,
+    "queued": 6,
     "total_optout": 0,
     "pending": 13
   },
   "sources": [
     {
       "source": "ddg",
-      "n": 80,
-      "with_email": 17,
-      "with_phone": 48,
+      "n": 100,
+      "with_email": 21,
+      "with_phone": 57,
       "total_emailed": 14,
       "replied": 0
     },
@@ -58,18 +58,258 @@
     },
     {
       "date": "2026-05-29",
-      "analyzed": 52,
+      "analyzed": 72,
       "emailed": 8,
       "replied": 0
     }
   ],
   "today": {
-    "analyzed": 52,
-    "with_email": 11,
-    "with_phone": 33,
+    "analyzed": 72,
+    "with_email": 15,
+    "with_phone": 42,
     "emailed": 8
   },
   "recent": [
+    {
+      "domain": "zenbeauty.fr",
+      "company": "Zenbeauty",
+      "tech": "WordPress",
+      "score": 59,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "labonnevague.com",
+      "company": "Labonnevague",
+      "tech": "WordPress",
+      "score": 59,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "ainatiora.com",
+      "company": "Ainatiora",
+      "tech": "Wix",
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "odessence.com",
+      "company": "Odessence",
+      "tech": "Shopify",
+      "score": 65,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "05 61 26 02 99"
+    },
+    {
+      "domain": "provendi.fr",
+      "company": "Provendi",
+      "tech": "WordPress",
+      "score": 71,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@provendi.fr",
+      "phone": null
+    },
+    {
+      "domain": "cosmoya.fr",
+      "company": "Cosmoya",
+      "tech": "Wix",
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "djohannie-beauty.com",
+      "company": "Djohannie beauty",
+      "tech": "Shopify",
+      "score": 65,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "04 65 04 65 76"
+    },
+    {
+      "domain": "ateliersdelodie.fr",
+      "company": "Ateliersdelodie",
+      "tech": "WordPress",
+      "score": 64,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@ateliersdelodie.fr",
+      "phone": null
+    },
+    {
+      "domain": "2021artisancosmetique.com",
+      "company": "2021artisancosmetique",
+      "tech": "Wix",
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "talcosmetiques.com",
+      "company": "Talcosmetiques",
+      "tech": "Shopify",
+      "score": 65,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "04 57 49 54 41"
+    },
+    {
+      "domain": "loreedusud.com",
+      "company": "Loreedusud",
+      "tech": "WordPress",
+      "score": 69,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "08 49 17 89 63"
+    },
+    {
+      "domain": "clarence-bordeaux.fr",
+      "company": "Clarence bordeaux",
+      "tech": "Custom",
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "comme-avant.bio",
+      "company": "Comme avant",
+      "tech": "Shopify",
+      "score": 65,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "08 35 77 17 15"
+    },
+    {
+      "domain": "chateauberger.com",
+      "company": "Chateauberger",
+      "tech": "Custom",
+      "score": 55,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "02 20 92 01 13"
+    },
+    {
+      "domain": "respire.co",
+      "company": "Respire",
+      "tech": "Custom",
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "naturellia.fr",
+      "company": "Naturellia",
+      "tech": "WordPress",
+      "score": 66,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "prouvenco.fr",
+      "company": "Prouvenco",
+      "tech": "Wix",
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "mklgreennature.com",
+      "company": "Mklgreennature",
+      "tech": "PrestaShop",
+      "score": 66,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "01 00 55 52 96"
+    },
+    {
+      "domain": "lesecretnaturel.com",
+      "company": "Lesecretnaturel",
+      "tech": "PrestaShop",
+      "score": 71,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@lesecretnaturel.com",
+      "phone": "03 87 24 08 07"
+    },
+    {
+      "domain": "provence-argile.com",
+      "company": "Provence argile",
+      "tech": "PrestaShop",
+      "score": 71,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@labo-naturado.com",
+      "phone": "04 94 00 66 20"
+    },
     {
       "domain": "nice-tattoo.fr",
       "company": "Nice tattoo",
@@ -189,259 +429,25 @@
       "replied": 0,
       "email": null,
       "phone": "04 93 04 72 61"
-    },
-    {
-      "domain": "fatcattattooclub.com",
-      "company": "Fatcattattooclub",
-      "tech": "WordPress",
-      "score": 67,
-      "source": "ddg",
-      "status": "bounced",
-      "date_step1": null,
-      "replied": 0,
-      "email": "contact@fatcatattooclub.com",
-      "phone": "04 83 39 25 99"
-    },
-    {
-      "domain": "lilleaddict.fr",
-      "company": "Lilleaddict",
-      "tech": "WordPress",
-      "score": 69,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "03 11 37 20 97"
-    },
-    {
-      "domain": "labonbonnieretatouage.com",
-      "company": "Labonbonnieretatouage",
-      "tech": "WordPress",
-      "score": 69,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "09 61 79 16 57"
-    },
-    {
-      "domain": "lescachotteriesdelille.com",
-      "company": "Lescachotteriesdelille",
-      "tech": "WordPress",
-      "score": 62,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "05 88 23 52 94"
-    },
-    {
-      "domain": "lafratrietattoo.com",
-      "company": "Lafratrietattoo",
-      "tech": "WordPress",
-      "score": 67,
-      "source": "ddg",
-      "status": "emailed_1",
-      "date_step1": "2026-05-29T12:03:47.699817",
-      "replied": 0,
-      "email": "contact@lafratrietattoo.com",
-      "phone": "06 15 71 65 37"
-    },
-    {
-      "domain": "lille-tattoo-convention.com",
-      "company": "Lille tattoo convention",
-      "tech": "WordPress",
-      "score": 67,
-      "source": "ddg",
-      "status": "emailed_1",
-      "date_step1": "2026-05-29T12:02:59.705668",
-      "replied": 0,
-      "email": "contact@lilletattooconvention.com",
-      "phone": "04 54 77 94 57"
-    },
-    {
-      "domain": "titfortat-tattooparlor.fr",
-      "company": "Titfortat tattooparlor",
-      "tech": "Custom",
-      "score": 55,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "06 53 37 79 55"
-    },
-    {
-      "domain": "lacageauxfioles.fr",
-      "company": "Lacageauxfioles",
-      "tech": "WordPress",
-      "score": 74,
-      "source": "ddg",
-      "status": "emailed_1",
-      "date_step1": "2026-05-29T12:01:26.642404",
-      "replied": 0,
-      "email": "contact@lacageauxfioles.fr",
-      "phone": "04 71 19 13 72"
-    },
-    {
-      "domain": "lovearte.tattoo",
-      "company": "Lovearte",
-      "tech": "WordPress",
-      "score": 67,
-      "source": "ddg",
-      "status": "emailed_1",
-      "date_step1": "2026-05-29T12:02:13.295868",
-      "replied": 0,
-      "email": "contact@lovearte.tattoo",
-      "phone": "01 47 91 55 04"
-    },
-    {
-      "domain": "wefoodtruck.fr",
-      "company": "Wefoodtruck",
-      "tech": "WordPress",
-      "score": 59,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "nomadspot-app.fr",
-      "company": "Nomadspot app",
-      "tech": "Custom",
-      "score": 55,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "07 24 97 16 34"
-    },
-    {
-      "domain": "adrienpierre.fr",
-      "company": "Adrienpierre",
-      "tech": "Custom",
-      "score": 59,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "jesuisgastronome.fr",
-      "company": "Jesuisgastronome",
-      "tech": "Custom",
-      "score": 55,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "01 74 81 34 35"
-    },
-    {
-      "domain": "infoodtruck.fr",
-      "company": "Infoodtruck",
-      "tech": "Custom",
-      "score": 60,
-      "source": "ddg",
-      "status": "emailed_1",
-      "date_step1": "2026-05-29T08:01:33.977023",
-      "replied": 0,
-      "email": "info@infoodtruck.fr",
-      "phone": "01 93 45 13 24"
-    },
-    {
-      "domain": "hellotrucks.app",
-      "company": "Hellotrucks",
-      "tech": "Custom",
-      "score": 55,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "03 21 18 85 21"
-    },
-    {
-      "domain": "arteo-lunetier.fr",
-      "company": "Arteo lunetier",
-      "tech": "Wix",
-      "score": 67,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "jours-de-marche.fr",
-      "company": "Jours de marche",
-      "tech": "Custom",
-      "score": 52,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "henryetseslunettes.fr",
-      "company": "Henryetseslunettes",
-      "tech": "Wix",
-      "score": 70,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "01 42 54 28 96"
-    },
-    {
-      "domain": "lafabriquedelunettes.fr",
-      "company": "Lafabriquedelunettes",
-      "tech": "Wix",
-      "score": 67,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "riveye.fr",
-      "company": "Riveye",
-      "tech": "Wix",
-      "score": 74,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
     }
   ],
   "icp_distribution": [
     {
       "category": "ecommerce_premium",
       "label": "E-commerce Premium",
-      "count": 75,
-      "pct": 82
+      "count": 85,
+      "pct": 77
+    },
+    {
+      "category": "skincare_wellness",
+      "label": "Skincare & Wellness",
+      "count": 8,
+      "pct": 7
     },
     {
       "category": "mode_luxe",
       "label": "Mode & Luxe",
-      "count": 5,
+      "count": 6,
       "pct": 5
     },
     {
@@ -463,14 +469,14 @@
       "pct": 2
     },
     {
-      "category": "streetwear_premium",
-      "label": "Streetwear Premium",
-      "count": 1,
-      "pct": 1
-    },
-    {
       "category": "hospitality",
       "label": "Hospitality & Resto",
+      "count": 2,
+      "pct": 2
+    },
+    {
+      "category": "streetwear_premium",
+      "label": "Streetwear Premium",
       "count": 1,
       "pct": 1
     },
@@ -483,8 +489,8 @@
   ],
   "temperature": {
     "hot": 1,
-    "warm": 46,
-    "cold": 44,
+    "warm": 63,
+    "cold": 47,
     "avg_ai_score": 50
   }
 }
