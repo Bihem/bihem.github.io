@@ -1,30 +1,30 @@
 {
-  "updated_at": "2026-05-29T09:02:24.829568",
+  "updated_at": "2026-05-29T15:08:00.741175",
   "version": "sb-v1",
   "product": "StudioBooking",
   "warmup_mode": true,
   "funnel": {
-    "total": 6,
-    "with_email": 2,
-    "with_phone": 5,
-    "total_emailed": 2,
+    "total": 18,
+    "with_email": 7,
+    "with_phone": 13,
+    "total_emailed": 7,
     "total_replied": 0,
     "total_bounced": 2,
     "queued": 0,
-    "hot_opps": 2,
-    "manual_bookings": 0
+    "hot_opps": 6,
+    "manual_bookings": 4
   },
   "sources": [
     {
-      "source": "gmaps",
-      "n": 3,
-      "with_email": 1,
-      "total_emailed": 1,
+      "source": "ddg",
+      "n": 11,
+      "with_email": 6,
+      "total_emailed": 6,
       "replied": 0
     },
     {
-      "source": "ddg",
-      "n": 3,
+      "source": "gmaps",
+      "n": 7,
       "with_email": 1,
       "total_emailed": 1,
       "replied": 0
@@ -32,11 +32,11 @@
   ],
   "ab_test": {
     "A": {
-      "sent": 1,
+      "sent": 4,
       "replied": 0
     },
     "B": {
-      "sent": 1,
+      "sent": 3,
       "replied": 0
     }
   },
@@ -46,38 +46,44 @@
       "analyzed": 6,
       "emailed": 2,
       "replied": 0
+    },
+    {
+      "date": "2026-05-29",
+      "analyzed": 12,
+      "emailed": 5,
+      "replied": 0
     }
   ],
   "temperature": {
-    "hot": 2,
-    "warm": 2,
-    "cold": 2,
+    "hot": 7,
+    "warm": 5,
+    "cold": 6,
     "avg_score": 58
   },
   "icp_distribution": [
     {
       "category": "enregistrement",
       "label": "Studio d'Enregistrement",
-      "count": 3,
-      "pct": 50
+      "count": 10,
+      "pct": 56
+    },
+    {
+      "category": "autre_studio",
+      "label": "Autre Studio",
+      "count": 6,
+      "pct": 33
     },
     {
       "category": "smac_venue",
       "label": "SMAC / Salle de Spectacle",
       "count": 1,
-      "pct": 17
+      "pct": 6
     },
     {
       "category": "repetition",
       "label": "Studio de Répétition",
       "count": 1,
-      "pct": 17
-    },
-    {
-      "category": "autre_studio",
-      "label": "Autre Studio",
-      "count": 1,
-      "pct": 17
+      "pct": 6
     }
   ]
 }
