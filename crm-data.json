@@ -1,63 +1,69 @@
 {
-  "updated_at": "2026-05-29T01:26:08.558399",
+  "updated_at": "2026-05-29T08:02:18.999575",
   "version": "v6",
   "stats": {
-    "total": 56,
-    "with_email": 9,
-    "with_phone": 23,
+    "total": 72,
+    "with_email": 10,
+    "with_phone": 31,
     "queued": 0,
-    "emailed": 7,
+    "emailed": 9,
     "replied": 0,
-    "bounced": 1,
+    "bounced": 2,
     "optout": 0,
-    "no_email": 47,
+    "no_email": 62,
     "hot": 1,
-    "warm": 26,
-    "cold": 29,
+    "warm": 32,
+    "cold": 39,
     "avg_ai_score": 49.0
   },
   "icp_distribution": [
     {
       "category": "ecommerce_premium",
       "label": "E-commerce Premium",
-      "count": 46,
-      "pct": 82
+      "count": 57,
+      "pct": 79
     },
     {
       "category": "mode_luxe",
       "label": "Mode & Luxe",
-      "count": 3,
-      "pct": 5
+      "count": 4,
+      "pct": 6
     },
     {
       "category": "cabinet_b2b",
       "label": "Cabinet B2B",
-      "count": 2,
+      "count": 3,
+      "pct": 4
+    },
+    {
+      "category": "saas_ia",
+      "label": "SaaS & IA",
+      "count": 3,
       "pct": 4
     },
     {
       "category": "immobilier",
       "label": "Immobilier & Archi",
       "count": 2,
-      "pct": 4
+      "pct": 3
     },
     {
       "category": "artisan_createur",
       "label": "Artisan Créateur",
       "count": 1,
-      "pct": 2
+      "pct": 1
     },
     {
       "category": "streetwear_premium",
       "label": "Streetwear Premium",
       "count": 1,
-      "pct": 2
+      "pct": 1
     },
     {
-      "category": "saas_ia",
-      "label": "SaaS & IA",
+      "category": "hospitality",
+      "label": "Hospitality & Resto",
       "count": 1,
-      "pct": 2
+      "pct": 1
     }
   ],
   "intent_feed": [
@@ -82,6 +88,26 @@
       "ts": "2026-05-28"
     },
     {
+      "domain": "riveye.fr",
+      "company": "Riveye",
+      "signal": "Mobile faible 45/100",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 64,
+      "temperature": "warm",
+      "ts": "2026-05-29"
+    },
+    {
+      "domain": "riveye.fr",
+      "company": "Riveye",
+      "signal": "Wix → migration possible",
+      "strength": "high",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 64,
+      "temperature": "warm",
+      "ts": "2026-05-29"
+    },
+    {
       "domain": "madamedoree.com",
       "company": "Madamedoree",
       "signal": "Mobile faible 45/100",
@@ -100,6 +126,26 @@
       "ai_score": 64,
       "temperature": "warm",
       "ts": "2026-05-28"
+    },
+    {
+      "domain": "henryetseslunettes.fr",
+      "company": "Henryetseslunettes",
+      "signal": "Mobile faible 45/100",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 59,
+      "temperature": "warm",
+      "ts": "2026-05-29"
+    },
+    {
+      "domain": "henryetseslunettes.fr",
+      "company": "Henryetseslunettes",
+      "signal": "Wix → migration possible",
+      "strength": "high",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 59,
+      "temperature": "warm",
+      "ts": "2026-05-29"
     },
     {
       "domain": "tutoriels.lws.fr",
@@ -138,6 +184,46 @@
       "strength": "high",
       "icp_label": "E-commerce Premium",
       "ai_score": 59,
+      "temperature": "warm",
+      "ts": "2026-05-29"
+    },
+    {
+      "domain": "jfl-opticiens.fr",
+      "company": "Jfl opticiens",
+      "signal": "Mobile faible 45/100",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 58,
+      "temperature": "warm",
+      "ts": "2026-05-29"
+    },
+    {
+      "domain": "jfl-opticiens.fr",
+      "company": "Jfl opticiens",
+      "signal": "WordPress lent — redesign potentiel",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 58,
+      "temperature": "warm",
+      "ts": "2026-05-29"
+    },
+    {
+      "domain": "arteo-lunetier.fr",
+      "company": "Arteo lunetier",
+      "signal": "Mobile faible 45/100",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 58,
+      "temperature": "warm",
+      "ts": "2026-05-29"
+    },
+    {
+      "domain": "arteo-lunetier.fr",
+      "company": "Arteo lunetier",
+      "signal": "Wix → migration possible",
+      "strength": "high",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 58,
       "temperature": "warm",
       "ts": "2026-05-29"
     },
@@ -192,6 +278,26 @@
       "ts": "2026-05-28"
     },
     {
+      "domain": "lafabriquedelunettes.fr",
+      "company": "Lafabriquedelunettes",
+      "signal": "Mobile faible 45/100",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 56,
+      "temperature": "warm",
+      "ts": "2026-05-29"
+    },
+    {
+      "domain": "lafabriquedelunettes.fr",
+      "company": "Lafabriquedelunettes",
+      "signal": "Wix → migration possible",
+      "strength": "high",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 56,
+      "temperature": "warm",
+      "ts": "2026-05-29"
+    },
+    {
       "domain": "sitador.com",
       "company": "Sitador",
       "signal": "Mobile faible 45/100",
@@ -208,106 +314,6 @@
       "strength": "medium",
       "icp_label": "E-commerce Premium",
       "ai_score": 56,
-      "temperature": "warm",
-      "ts": "2026-05-28"
-    },
-    {
-      "domain": "wpweb.fr",
-      "company": "Wpweb",
-      "signal": "Mobile faible 45/100",
-      "strength": "medium",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 54,
-      "temperature": "warm",
-      "ts": "2026-05-28"
-    },
-    {
-      "domain": "wpweb.fr",
-      "company": "Wpweb",
-      "signal": "WordPress lent — redesign potentiel",
-      "strength": "medium",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 54,
-      "temperature": "warm",
-      "ts": "2026-05-28"
-    },
-    {
-      "domain": "anne-elisabeth.com",
-      "company": "Anne-elisabeth",
-      "signal": "2 problèmes site",
-      "strength": "medium",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 54,
-      "temperature": "warm",
-      "ts": "2026-05-28"
-    },
-    {
-      "domain": "lesmarquesfrancaises.fr",
-      "company": "Lesmarquesfrancaises",
-      "signal": "Mobile faible 45/100",
-      "strength": "medium",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 53,
-      "temperature": "warm",
-      "ts": "2026-05-29"
-    },
-    {
-      "domain": "lesmarquesfrancaises.fr",
-      "company": "Lesmarquesfrancaises",
-      "signal": "WordPress lent — redesign potentiel",
-      "strength": "medium",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 53,
-      "temperature": "warm",
-      "ts": "2026-05-29"
-    },
-    {
-      "domain": "creation-boutiques.fr",
-      "company": "Creation boutiques",
-      "signal": "Mobile faible 45/100",
-      "strength": "medium",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 53,
-      "temperature": "warm",
-      "ts": "2026-05-28"
-    },
-    {
-      "domain": "creation-boutiques.fr",
-      "company": "Creation boutiques",
-      "signal": "WordPress lent — redesign potentiel",
-      "strength": "medium",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 53,
-      "temperature": "warm",
-      "ts": "2026-05-28"
-    },
-    {
-      "domain": "prestaweb.fr",
-      "company": "Prestaweb",
-      "signal": "Mobile faible 45/100",
-      "strength": "medium",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 53,
-      "temperature": "warm",
-      "ts": "2026-05-28"
-    },
-    {
-      "domain": "prestaweb.fr",
-      "company": "Prestaweb",
-      "signal": "WordPress lent — redesign potentiel",
-      "strength": "medium",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 53,
-      "temperature": "warm",
-      "ts": "2026-05-28"
-    },
-    {
-      "domain": "prestashop.fr",
-      "company": "Prestashop",
-      "signal": "Mobile faible 45/100",
-      "strength": "medium",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 52,
       "temperature": "warm",
       "ts": "2026-05-28"
     }
@@ -369,6 +375,55 @@
       "icp_label": "E-commerce Premium"
     },
     {
+      "id": 63,
+      "domain": "riveye.fr",
+      "company": "Riveye",
+      "email": null,
+      "phone": null,
+      "tech": "Wix",
+      "perf_mobile": 45,
+      "lcp": "~0.2s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Trop de scripts JavaScript"
+      ],
+      "score": 74,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 64,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "low_tech",
+          "label": "Wix → migration possible",
+          "strength": "high"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
       "id": 33,
       "domain": "madamedoree.com",
       "company": "Madamedoree",
@@ -413,6 +468,49 @@
           "type": "some_issues",
           "label": "2 problèmes site",
           "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 65,
+      "domain": "henryetseslunettes.fr",
+      "company": "Henryetseslunettes",
+      "email": null,
+      "phone": "01 42 54 28 96",
+      "tech": "Wix",
+      "perf_mobile": 45,
+      "lcp": "~0.5s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 70,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 59,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 5,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "low_tech",
+          "label": "Wix → migration possible",
+          "strength": "high"
         }
       ],
       "icp_label": "E-commerce Premium"
@@ -495,6 +593,92 @@
       "temperature": "warm",
       "icp_category": "ecommerce_premium",
       "brand_quality": 10,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "low_tech",
+          "label": "Wix → migration possible",
+          "strength": "high"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 59,
+      "domain": "jfl-opticiens.fr",
+      "company": "Jfl opticiens",
+      "email": "contact@jfl-opticiens.fr",
+      "phone": "01 43 55 77 50",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~1.5s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "emailed_1",
+      "sequence_step": 1,
+      "variant": "A",
+      "date_added": "2026-05-29",
+      "date_step1": "2026-05-29T08:00:44.953682",
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": "2026-06-01",
+      "ai_score": 58,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 67,
+      "domain": "arteo-lunetier.fr",
+      "company": "Arteo lunetier",
+      "email": null,
+      "phone": null,
+      "tech": "Wix",
+      "perf_mobile": 45,
+      "lcp": "~0.3s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 58,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 7,
       "intent_signals": [
         {
           "type": "low_perf",
@@ -630,6 +814,49 @@
           "type": "some_issues",
           "label": "2 problèmes site",
           "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 64,
+      "domain": "lafabriquedelunettes.fr",
+      "company": "Lafabriquedelunettes",
+      "email": null,
+      "phone": null,
+      "tech": "Wix",
+      "perf_mobile": 45,
+      "lcp": "~0.2s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 56,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 5,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "low_tech",
+          "label": "Wix → migration possible",
+          "strength": "high"
         }
       ],
       "icp_label": "E-commerce Premium"
@@ -1016,7 +1243,7 @@
       "id": 7,
       "domain": "wearetheones.fr",
       "company": "Wearetheones",
-      "email": "user@domain.com",
+      "email": null,
       "phone": null,
       "tech": "Squarespace",
       "perf_mobile": 85,
@@ -1027,7 +1254,7 @@
       ],
       "score": 40,
       "source": "ddg",
-      "status": "error",
+      "status": "no_email",
       "sequence_step": 0,
       "variant": null,
       "date_added": "2026-05-28",
@@ -1398,6 +1625,49 @@
       "tech": "WordPress",
       "perf_mobile": 45,
       "lcp": "~0.4s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 59,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 50,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 73,
+      "domain": "wefoodtruck.fr",
+      "company": "Wefoodtruck",
+      "email": null,
+      "phone": null,
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.1s (estimé)",
       "issues": [
         "Page lourde, compression absente"
       ],
@@ -1939,6 +2209,44 @@
       "icp_label": "Mode & Luxe"
     },
     {
+      "id": 60,
+      "domain": "atelierdu15eme.fr",
+      "company": "Atelierdu15eme",
+      "email": null,
+      "phone": null,
+      "tech": "Custom",
+      "perf_mobile": 35,
+      "lcp": "N/A",
+      "issues": [
+        "Site inaccessible ou lent"
+      ],
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 48,
+      "temperature": "cold",
+      "icp_category": "mode_luxe",
+      "brand_quality": 12,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 35/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Mode & Luxe"
+    },
+    {
       "id": 31,
       "domain": "jollia.fr",
       "company": "Jollia",
@@ -1986,7 +2294,7 @@
       "id": 46,
       "domain": "presse-citron.net",
       "company": "Presse citron",
-      "email": "votre@adresse.email",
+      "email": null,
       "phone": "06 72 76 56 16",
       "tech": "Custom",
       "perf_mobile": 45,
@@ -1996,7 +2304,7 @@
       ],
       "score": 60,
       "source": "ddg",
-      "status": "emailed_1",
+      "status": "no_email",
       "sequence_step": 1,
       "variant": "A",
       "date_added": "2026-05-29",
@@ -2015,6 +2323,120 @@
         {
           "type": "low_perf",
           "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 69,
+      "domain": "infoodtruck.fr",
+      "company": "Infoodtruck",
+      "email": "info@infoodtruck.fr",
+      "phone": "01 93 45 13 24",
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.1s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 60,
+      "source": "ddg",
+      "status": "emailed_1",
+      "sequence_step": 1,
+      "variant": "A",
+      "date_added": "2026-05-29",
+      "date_step1": "2026-05-29T08:01:33.977023",
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": "2026-06-01",
+      "ai_score": 46,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 12,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 62,
+      "domain": "optique-caroline-joo.fr",
+      "company": "Optique caroline joo",
+      "email": null,
+      "phone": null,
+      "tech": "Custom",
+      "perf_mobile": 35,
+      "lcp": "N/A",
+      "issues": [
+        "Site inaccessible ou lent"
+      ],
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 46,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 10,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 35/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 66,
+      "domain": "jours-de-marche.fr",
+      "company": "Jours de marche",
+      "email": null,
+      "phone": null,
+      "tech": "Custom",
+      "perf_mobile": 35,
+      "lcp": "N/A",
+      "issues": [
+        "Site inaccessible ou lent"
+      ],
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 46,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 12,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 35/100",
           "strength": "medium"
         }
       ],
@@ -2057,6 +2479,44 @@
         }
       ],
       "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 58,
+      "domain": "master-vision-audition.fr",
+      "company": "Master vision audition",
+      "email": "contact@mastervision.fr",
+      "phone": "01 63 53 02 38",
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.1s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 60,
+      "source": "ddg",
+      "status": "bounced",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 1,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 45,
+      "temperature": "cold",
+      "icp_category": "cabinet_b2b",
+      "brand_quality": 10,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Cabinet B2B"
     },
     {
       "id": 43,
@@ -2179,6 +2639,50 @@
       "icp_label": "E-commerce Premium"
     },
     {
+      "id": 71,
+      "domain": "adrienpierre.fr",
+      "company": "Adrienpierre",
+      "email": null,
+      "phone": null,
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.5s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Trop de scripts JavaScript"
+      ],
+      "score": 59,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 44,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 11,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
       "id": 51,
       "domain": "leptidigital.fr",
       "company": "Leptidigital",
@@ -2215,6 +2719,44 @@
         }
       ],
       "icp_label": "SaaS & IA"
+    },
+    {
+      "id": 61,
+      "domain": "kyoptic.fr",
+      "company": "Kyoptic",
+      "email": null,
+      "phone": "09 25 16 07 43",
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.1s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 55,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 43,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 15,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
     },
     {
       "id": 45,
@@ -2293,6 +2835,44 @@
       "icp_label": "E-commerce Premium"
     },
     {
+      "id": 70,
+      "domain": "jesuisgastronome.fr",
+      "company": "Jesuisgastronome",
+      "email": null,
+      "phone": "01 74 81 34 35",
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.2s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 55,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 41,
+      "temperature": "cold",
+      "icp_category": "hospitality",
+      "brand_quality": 12,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Hospitality & Resto"
+    },
+    {
       "id": 8,
       "domain": "thefashiontourismsociety.com",
       "company": "Thefashiontourismsociety",
@@ -2361,6 +2941,82 @@
         }
       ],
       "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 68,
+      "domain": "hellotrucks.app",
+      "company": "Hellotrucks",
+      "email": null,
+      "phone": "03 21 18 85 21",
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.3s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 55,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 39,
+      "temperature": "cold",
+      "icp_category": "saas_ia",
+      "brand_quality": 12,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "SaaS & IA"
+    },
+    {
+      "id": 72,
+      "domain": "nomadspot-app.fr",
+      "company": "Nomadspot app",
+      "email": null,
+      "phone": "07 24 97 16 34",
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.1s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 55,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 39,
+      "temperature": "cold",
+      "icp_category": "saas_ia",
+      "brand_quality": 12,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "SaaS & IA"
     },
     {
       "id": 44,
