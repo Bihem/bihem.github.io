@@ -1,51 +1,51 @@
 {
-  "updated_at": "2026-05-29T08:02:18.999575",
+  "updated_at": "2026-05-29T12:05:23.295719",
   "version": "v6",
   "stats": {
-    "total": 72,
-    "with_email": 10,
-    "with_phone": 31,
-    "queued": 0,
-    "emailed": 9,
+    "total": 91,
+    "with_email": 18,
+    "with_phone": 48,
+    "queued": 2,
+    "emailed": 14,
     "replied": 0,
-    "bounced": 2,
+    "bounced": 3,
     "optout": 0,
-    "no_email": 62,
+    "no_email": 73,
     "hot": 1,
-    "warm": 32,
-    "cold": 39,
-    "avg_ai_score": 49.0
+    "warm": 46,
+    "cold": 44,
+    "avg_ai_score": 50.0
   },
   "icp_distribution": [
     {
       "category": "ecommerce_premium",
       "label": "E-commerce Premium",
-      "count": 57,
-      "pct": 79
+      "count": 75,
+      "pct": 82
     },
     {
       "category": "mode_luxe",
       "label": "Mode & Luxe",
-      "count": 4,
-      "pct": 6
+      "count": 5,
+      "pct": 5
     },
     {
       "category": "cabinet_b2b",
       "label": "Cabinet B2B",
       "count": 3,
-      "pct": 4
+      "pct": 3
     },
     {
       "category": "saas_ia",
       "label": "SaaS & IA",
       "count": 3,
-      "pct": 4
+      "pct": 3
     },
     {
       "category": "immobilier",
       "label": "Immobilier & Archi",
       "count": 2,
-      "pct": 3
+      "pct": 2
     },
     {
       "category": "artisan_createur",
@@ -108,6 +108,26 @@
       "ts": "2026-05-29"
     },
     {
+      "domain": "lacageauxfioles.fr",
+      "company": "Lacageauxfioles",
+      "signal": "Mobile faible 45/100",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 64,
+      "temperature": "warm",
+      "ts": "2026-05-29"
+    },
+    {
+      "domain": "lacageauxfioles.fr",
+      "company": "Lacageauxfioles",
+      "signal": "WordPress lent — redesign potentiel",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 64,
+      "temperature": "warm",
+      "ts": "2026-05-29"
+    },
+    {
       "domain": "madamedoree.com",
       "company": "Madamedoree",
       "signal": "Mobile faible 45/100",
@@ -128,6 +148,46 @@
       "ts": "2026-05-28"
     },
     {
+      "domain": "zebriztattoo.com",
+      "company": "Zebriztattoo",
+      "signal": "Mobile faible 45/100",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 61,
+      "temperature": "warm",
+      "ts": "2026-05-29"
+    },
+    {
+      "domain": "zebriztattoo.com",
+      "company": "Zebriztattoo",
+      "signal": "Wix → migration possible",
+      "strength": "high",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 61,
+      "temperature": "warm",
+      "ts": "2026-05-29"
+    },
+    {
+      "domain": "maisontigrebleu.fr",
+      "company": "Maisontigrebleu",
+      "signal": "Mobile faible 45/100",
+      "strength": "medium",
+      "icp_label": "Mode & Luxe",
+      "ai_score": 60,
+      "temperature": "warm",
+      "ts": "2026-05-29"
+    },
+    {
+      "domain": "maisontigrebleu.fr",
+      "company": "Maisontigrebleu",
+      "signal": "WordPress lent — redesign potentiel",
+      "strength": "medium",
+      "icp_label": "Mode & Luxe",
+      "ai_score": 60,
+      "temperature": "warm",
+      "ts": "2026-05-29"
+    },
+    {
       "domain": "henryetseslunettes.fr",
       "company": "Henryetseslunettes",
       "signal": "Mobile faible 45/100",
@@ -142,6 +202,66 @@
       "company": "Henryetseslunettes",
       "signal": "Wix → migration possible",
       "strength": "high",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 59,
+      "temperature": "warm",
+      "ts": "2026-05-29"
+    },
+    {
+      "domain": "labonbonnieretatouage.com",
+      "company": "Labonbonnieretatouage",
+      "signal": "Mobile faible 45/100",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 59,
+      "temperature": "warm",
+      "ts": "2026-05-29"
+    },
+    {
+      "domain": "labonbonnieretatouage.com",
+      "company": "Labonbonnieretatouage",
+      "signal": "WordPress lent — redesign potentiel",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 59,
+      "temperature": "warm",
+      "ts": "2026-05-29"
+    },
+    {
+      "domain": "lilleaddict.fr",
+      "company": "Lilleaddict",
+      "signal": "Mobile faible 45/100",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 59,
+      "temperature": "warm",
+      "ts": "2026-05-29"
+    },
+    {
+      "domain": "lilleaddict.fr",
+      "company": "Lilleaddict",
+      "signal": "WordPress lent — redesign potentiel",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 59,
+      "temperature": "warm",
+      "ts": "2026-05-29"
+    },
+    {
+      "domain": "sweetink.fr",
+      "company": "Sweetink",
+      "signal": "Mobile faible 45/100",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 59,
+      "temperature": "warm",
+      "ts": "2026-05-29"
+    },
+    {
+      "domain": "sweetink.fr",
+      "company": "Sweetink",
+      "signal": "WordPress lent — redesign potentiel",
+      "strength": "medium",
       "icp_label": "E-commerce Premium",
       "ai_score": 59,
       "temperature": "warm",
@@ -196,126 +316,6 @@
       "ai_score": 58,
       "temperature": "warm",
       "ts": "2026-05-29"
-    },
-    {
-      "domain": "jfl-opticiens.fr",
-      "company": "Jfl opticiens",
-      "signal": "WordPress lent — redesign potentiel",
-      "strength": "medium",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 58,
-      "temperature": "warm",
-      "ts": "2026-05-29"
-    },
-    {
-      "domain": "arteo-lunetier.fr",
-      "company": "Arteo lunetier",
-      "signal": "Mobile faible 45/100",
-      "strength": "medium",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 58,
-      "temperature": "warm",
-      "ts": "2026-05-29"
-    },
-    {
-      "domain": "arteo-lunetier.fr",
-      "company": "Arteo lunetier",
-      "signal": "Wix → migration possible",
-      "strength": "high",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 58,
-      "temperature": "warm",
-      "ts": "2026-05-29"
-    },
-    {
-      "domain": "chorange.com",
-      "company": "Chorange",
-      "signal": "Mobile faible 45/100",
-      "strength": "medium",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 57,
-      "temperature": "warm",
-      "ts": "2026-05-28"
-    },
-    {
-      "domain": "structuriaconseil.fr",
-      "company": "Structuriaconseil",
-      "signal": "Mobile faible 45/100",
-      "strength": "medium",
-      "icp_label": "Cabinet B2B",
-      "ai_score": 57,
-      "temperature": "warm",
-      "ts": "2026-05-29"
-    },
-    {
-      "domain": "structuriaconseil.fr",
-      "company": "Structuriaconseil",
-      "signal": "Wix → migration possible",
-      "strength": "high",
-      "icp_label": "Cabinet B2B",
-      "ai_score": 57,
-      "temperature": "warm",
-      "ts": "2026-05-29"
-    },
-    {
-      "domain": "lessisrare.fr",
-      "company": "Lessisrare",
-      "signal": "Mobile faible 45/100",
-      "strength": "medium",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 56,
-      "temperature": "warm",
-      "ts": "2026-05-28"
-    },
-    {
-      "domain": "lessisrare.fr",
-      "company": "Lessisrare",
-      "signal": "2 problèmes site",
-      "strength": "medium",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 56,
-      "temperature": "warm",
-      "ts": "2026-05-28"
-    },
-    {
-      "domain": "lafabriquedelunettes.fr",
-      "company": "Lafabriquedelunettes",
-      "signal": "Mobile faible 45/100",
-      "strength": "medium",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 56,
-      "temperature": "warm",
-      "ts": "2026-05-29"
-    },
-    {
-      "domain": "lafabriquedelunettes.fr",
-      "company": "Lafabriquedelunettes",
-      "signal": "Wix → migration possible",
-      "strength": "high",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 56,
-      "temperature": "warm",
-      "ts": "2026-05-29"
-    },
-    {
-      "domain": "sitador.com",
-      "company": "Sitador",
-      "signal": "Mobile faible 45/100",
-      "strength": "medium",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 56,
-      "temperature": "warm",
-      "ts": "2026-05-28"
-    },
-    {
-      "domain": "sitador.com",
-      "company": "Sitador",
-      "signal": "WordPress lent — redesign potentiel",
-      "strength": "medium",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 56,
-      "temperature": "warm",
-      "ts": "2026-05-28"
     }
   ],
   "prospects": [
@@ -424,6 +424,55 @@
       "icp_label": "E-commerce Premium"
     },
     {
+      "id": 75,
+      "domain": "lacageauxfioles.fr",
+      "company": "Lacageauxfioles",
+      "email": "contact@lacageauxfioles.fr",
+      "phone": "04 71 19 13 72",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~2.0s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Trop de scripts JavaScript"
+      ],
+      "score": 74,
+      "source": "ddg",
+      "status": "emailed_1",
+      "sequence_step": 1,
+      "variant": "A",
+      "date_added": "2026-05-29",
+      "date_step1": "2026-05-29T12:01:26.642404",
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": "2026-06-01",
+      "ai_score": 64,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 8,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
       "id": 33,
       "domain": "madamedoree.com",
       "company": "Madamedoree",
@@ -473,6 +522,92 @@
       "icp_label": "E-commerce Premium"
     },
     {
+      "id": 83,
+      "domain": "zebriztattoo.com",
+      "company": "Zebriztattoo",
+      "email": null,
+      "phone": "04 93 04 72 61",
+      "tech": "Wix",
+      "perf_mobile": 45,
+      "lcp": "~0.5s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 70,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 61,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 7,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "low_tech",
+          "label": "Wix → migration possible",
+          "strength": "high"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 86,
+      "domain": "maisontigrebleu.fr",
+      "company": "Maisontigrebleu",
+      "email": "contact@maisontigrebleu.fr",
+      "phone": "06 66 66 66 66",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.1s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 60,
+      "temperature": "warm",
+      "icp_category": "mode_luxe",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Mode & Luxe"
+    },
+    {
       "id": 65,
       "domain": "henryetseslunettes.fr",
       "company": "Henryetseslunettes",
@@ -511,6 +646,153 @@
           "type": "low_tech",
           "label": "Wix → migration possible",
           "strength": "high"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 80,
+      "domain": "labonbonnieretatouage.com",
+      "company": "Labonbonnieretatouage",
+      "email": null,
+      "phone": "09 61 79 16 57",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~1.3s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Trop de scripts JavaScript"
+      ],
+      "score": 69,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 59,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 6,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 81,
+      "domain": "lilleaddict.fr",
+      "company": "Lilleaddict",
+      "email": null,
+      "phone": "03 11 37 20 97",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.1s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Trop de scripts JavaScript"
+      ],
+      "score": 69,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 59,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 8,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 88,
+      "domain": "sweetink.fr",
+      "company": "Sweetink",
+      "email": null,
+      "phone": "06 52 24 50 06",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~1.1s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Trop de scripts JavaScript"
+      ],
+      "score": 69,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 59,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 8,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
         }
       ],
       "icp_label": "E-commerce Premium"
@@ -689,6 +971,221 @@
           "type": "low_tech",
           "label": "Wix → migration possible",
           "strength": "high"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 74,
+      "domain": "lovearte.tattoo",
+      "company": "Lovearte",
+      "email": "contact@lovearte.tattoo",
+      "phone": "01 47 91 55 04",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.1s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "emailed_1",
+      "sequence_step": 1,
+      "variant": "B",
+      "date_added": "2026-05-29",
+      "date_step1": "2026-05-29T12:02:13.295868",
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": "2026-06-01",
+      "ai_score": 58,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 77,
+      "domain": "lille-tattoo-convention.com",
+      "company": "Lille tattoo convention",
+      "email": "contact@lilletattooconvention.com",
+      "phone": "04 54 77 94 57",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~1.4s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "emailed_1",
+      "sequence_step": 1,
+      "variant": "A",
+      "date_added": "2026-05-29",
+      "date_step1": "2026-05-29T12:02:59.705668",
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": "2026-06-01",
+      "ai_score": 58,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 7,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 78,
+      "domain": "lafratrietattoo.com",
+      "company": "Lafratrietattoo",
+      "email": "contact@lafratrietattoo.com",
+      "phone": "06 15 71 65 37",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.4s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "emailed_1",
+      "sequence_step": 1,
+      "variant": "B",
+      "date_added": "2026-05-29",
+      "date_step1": "2026-05-29T12:03:47.699817",
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": "2026-06-01",
+      "ai_score": 58,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 82,
+      "domain": "fatcattattooclub.com",
+      "company": "Fatcattattooclub",
+      "email": "contact@fatcatattooclub.com",
+      "phone": "04 83 39 25 99",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.9s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "bounced",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 1,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 58,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 85,
+      "domain": "tattoonice.com",
+      "company": "Tattoonice",
+      "email": "contact@tattoonice.com",
+      "phone": "09 52 10 12 82",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.1s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "emailed_1",
+      "sequence_step": 1,
+      "variant": "B",
+      "date_added": "2026-05-29",
+      "date_step1": "2026-05-29T12:04:38.106586",
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": "2026-06-01",
+      "ai_score": 58,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
         }
       ],
       "icp_label": "E-commerce Premium"
@@ -1015,6 +1512,92 @@
       "temperature": "warm",
       "icp_category": "ecommerce_premium",
       "brand_quality": 7,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 79,
+      "domain": "lescachotteriesdelille.com",
+      "company": "Lescachotteriesdelille",
+      "email": null,
+      "phone": "05 88 23 52 94",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.9s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 53,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 7,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 92,
+      "domain": "nice-tattoo.fr",
+      "company": "Nice tattoo",
+      "email": null,
+      "phone": "06 86 58 83 72",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~1.5s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 53,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 9,
       "intent_signals": [
         {
           "type": "low_perf",
@@ -1668,6 +2251,49 @@
       "tech": "WordPress",
       "perf_mobile": 45,
       "lcp": "~0.1s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 59,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 50,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 90,
+      "domain": "corpsenfolie.com",
+      "company": "Corpsenfolie",
+      "email": null,
+      "phone": null,
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.2s (estimé)",
       "issues": [
         "Page lourde, compression absente"
       ],
@@ -2367,6 +2993,44 @@
       "icp_label": "E-commerce Premium"
     },
     {
+      "id": 91,
+      "domain": "theblackhattattoo.fr",
+      "company": "Theblackhattattoo",
+      "email": "hello@blackhatnice.com",
+      "phone": "04 79 56 69 89",
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.6s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 60,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 46,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 12,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
       "id": 62,
       "domain": "optique-caroline-joo.fr",
       "company": "Optique caroline joo",
@@ -2433,6 +3097,44 @@
       "temperature": "cold",
       "icp_category": "ecommerce_premium",
       "brand_quality": 12,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 35/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 89,
+      "domain": "nicetattoofestival.com",
+      "company": "Nicetattoofestival",
+      "email": null,
+      "phone": null,
+      "tech": "Custom",
+      "perf_mobile": 35,
+      "lcp": "N/A",
+      "issues": [
+        "Site inaccessible ou lent"
+      ],
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 46,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 10,
       "intent_signals": [
         {
           "type": "low_perf",
@@ -2759,6 +3461,44 @@
       "icp_label": "E-commerce Premium"
     },
     {
+      "id": 84,
+      "domain": "planity.com",
+      "company": "Planity",
+      "email": null,
+      "phone": "08 33 33 33 33",
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.2s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 55,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 43,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 15,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
       "id": 45,
       "domain": "erase-factory.fr",
       "company": "Erase factory",
@@ -2871,6 +3611,82 @@
         }
       ],
       "icp_label": "Hospitality & Resto"
+    },
+    {
+      "id": 76,
+      "domain": "titfortat-tattooparlor.fr",
+      "company": "Titfortat tattooparlor",
+      "email": null,
+      "phone": "06 53 37 79 55",
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.3s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 55,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 41,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 10,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 87,
+      "domain": "angeltattoo.ink",
+      "company": "Angeltattoo",
+      "email": null,
+      "phone": "02 26 13 54 15",
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.1s (estimé)",
+      "issues": [
+        "Nombreuses images non optimisées"
+      ],
+      "score": 55,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-29",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 41,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 12,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
     },
     {
       "id": 8,
