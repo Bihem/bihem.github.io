@@ -1,25 +1,25 @@
 {
-  "updated_at": "2026-05-29T01:26:08.552306",
+  "updated_at": "2026-05-29T08:02:18.993080",
   "version": "v6",
   "warmup_mode": false,
   "funnel": {
-    "total": 56,
-    "with_email": 9,
-    "with_phone": 23,
-    "total_emailed": 7,
+    "total": 72,
+    "with_email": 10,
+    "with_phone": 31,
+    "total_emailed": 9,
     "total_replied": 0,
-    "total_bounced": 1,
+    "total_bounced": 2,
     "queued": 0,
     "total_optout": 0,
-    "pending": 7
+    "pending": 8
   },
   "sources": [
     {
       "source": "ddg",
-      "n": 45,
-      "with_email": 8,
-      "with_phone": 23,
-      "total_emailed": 7,
+      "n": 61,
+      "with_email": 9,
+      "with_phone": 31,
+      "total_emailed": 9,
       "replied": 0
     },
     {
@@ -41,7 +41,7 @@
   ],
   "ab_test": {
     "A": {
-      "sent": 4,
+      "sent": 6,
       "replied": 0
     },
     "B": {
@@ -58,18 +58,210 @@
     },
     {
       "date": "2026-05-29",
-      "analyzed": 17,
-      "emailed": 1,
+      "analyzed": 33,
+      "emailed": 3,
       "replied": 0
     }
   ],
   "today": {
-    "analyzed": 17,
-    "with_email": 1,
-    "with_phone": 8,
-    "emailed": 1
+    "analyzed": 33,
+    "with_email": 3,
+    "with_phone": 16,
+    "emailed": 3
   },
   "recent": [
+    {
+      "domain": "wefoodtruck.fr",
+      "company": "Wefoodtruck",
+      "tech": "WordPress",
+      "score": 59,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "nomadspot-app.fr",
+      "company": "Nomadspot app",
+      "tech": "Custom",
+      "score": 55,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "07 24 97 16 34"
+    },
+    {
+      "domain": "adrienpierre.fr",
+      "company": "Adrienpierre",
+      "tech": "Custom",
+      "score": 59,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "jesuisgastronome.fr",
+      "company": "Jesuisgastronome",
+      "tech": "Custom",
+      "score": 55,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "01 74 81 34 35"
+    },
+    {
+      "domain": "infoodtruck.fr",
+      "company": "Infoodtruck",
+      "tech": "Custom",
+      "score": 60,
+      "source": "ddg",
+      "status": "emailed_1",
+      "date_step1": "2026-05-29T08:01:33.977023",
+      "replied": 0,
+      "email": "info@infoodtruck.fr",
+      "phone": "01 93 45 13 24"
+    },
+    {
+      "domain": "hellotrucks.app",
+      "company": "Hellotrucks",
+      "tech": "Custom",
+      "score": 55,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "03 21 18 85 21"
+    },
+    {
+      "domain": "arteo-lunetier.fr",
+      "company": "Arteo lunetier",
+      "tech": "Wix",
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "jours-de-marche.fr",
+      "company": "Jours de marche",
+      "tech": "Custom",
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "henryetseslunettes.fr",
+      "company": "Henryetseslunettes",
+      "tech": "Wix",
+      "score": 70,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "01 42 54 28 96"
+    },
+    {
+      "domain": "lafabriquedelunettes.fr",
+      "company": "Lafabriquedelunettes",
+      "tech": "Wix",
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "riveye.fr",
+      "company": "Riveye",
+      "tech": "Wix",
+      "score": 74,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "optique-caroline-joo.fr",
+      "company": "Optique caroline joo",
+      "tech": "Custom",
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "kyoptic.fr",
+      "company": "Kyoptic",
+      "tech": "Custom",
+      "score": 55,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "09 25 16 07 43"
+    },
+    {
+      "domain": "atelierdu15eme.fr",
+      "company": "Atelierdu15eme",
+      "tech": "Custom",
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "jfl-opticiens.fr",
+      "company": "Jfl opticiens",
+      "tech": "WordPress",
+      "score": 67,
+      "source": "ddg",
+      "status": "emailed_1",
+      "date_step1": "2026-05-29T08:00:44.953682",
+      "replied": 0,
+      "email": "contact@jfl-opticiens.fr",
+      "phone": "01 43 55 77 50"
+    },
+    {
+      "domain": "master-vision-audition.fr",
+      "company": "Master vision audition",
+      "tech": "Custom",
+      "score": 60,
+      "source": "ddg",
+      "status": "bounced",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@mastervision.fr",
+      "phone": "01 63 53 02 38"
+    },
     {
       "domain": "web-artisan.biz",
       "company": "Web artisan",
@@ -208,10 +400,10 @@
       "tech": "Custom",
       "score": 60,
       "source": "ddg",
-      "status": "emailed_1",
+      "status": "no_email",
       "date_step1": "2026-05-29T01:25:23.466004",
       "replied": 0,
-      "email": "votre@adresse.email",
+      "email": null,
       "phone": "06 72 76 56 16"
     },
     {
@@ -237,248 +429,62 @@
       "replied": 0,
       "email": null,
       "phone": null
-    },
-    {
-      "domain": "12lunes.fr",
-      "company": "12lunes",
-      "tech": "Shopify",
-      "score": 58,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "02 21 53 72 55"
-    },
-    {
-      "domain": "milowdutb.fr",
-      "company": "Milowdutb",
-      "tech": "Shopify",
-      "score": 65,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "04 26 76 83 07"
-    },
-    {
-      "domain": "oflyn.fr",
-      "company": "Oflyn",
-      "tech": "Shopify",
-      "score": 65,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "08 61 19 89 24"
-    },
-    {
-      "domain": "wpweb.fr",
-      "company": "Wpweb",
-      "tech": "WordPress",
-      "score": 62,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "06 28 35 53 16"
-    },
-    {
-      "domain": "mylittlebijou.com",
-      "company": "Mylittlebijou",
-      "tech": "PrestaShop",
-      "score": 63,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "sitador.com",
-      "company": "Sitador",
-      "tech": "WordPress",
-      "score": 64,
-      "source": "ddg",
-      "status": "emailed_1",
-      "date_step1": "2026-05-28T13:46:24.636157",
-      "replied": 0,
-      "email": "contact@sitador.com",
-      "phone": null
-    },
-    {
-      "domain": "balabooste.com",
-      "company": "Balabooste",
-      "tech": "Shopify",
-      "score": 65,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "09 75 60 97 56"
-    },
-    {
-      "domain": "fred-net.fr",
-      "company": "Fred net",
-      "tech": "WordPress",
-      "score": 59,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "chorange.com",
-      "company": "Chorange",
-      "tech": "PrestaShop",
-      "score": 71,
-      "source": "ddg",
-      "status": "emailed_1",
-      "date_step1": "2026-05-28T13:44:52.584710",
-      "replied": 0,
-      "email": "info@chorange.com",
-      "phone": "05 85 18 29 83"
-    },
-    {
-      "domain": "tutoriels.lws.fr",
-      "company": "Tutoriels",
-      "tech": "WordPress",
-      "score": 69,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "01 77 62 30 03"
-    },
-    {
-      "domain": "madamedoree.com",
-      "company": "Madamedoree",
-      "tech": "WordPress",
-      "score": 74,
-      "source": "ddg",
-      "status": "emailed_1",
-      "date_step1": "2026-05-28T13:44:06.449912",
-      "replied": 0,
-      "email": "hello@madamedoree.com",
-      "phone": "01 78 07 52 11"
-    },
-    {
-      "domain": "louleaccessoires.com",
-      "company": "Louleaccessoires",
-      "tech": "Shopify",
-      "score": 65,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "07 72 52 41 72"
-    },
-    {
-      "domain": "jollia.fr",
-      "company": "Jollia",
-      "tech": "Custom",
-      "score": 62,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "01 77 98 77 65"
-    },
-    {
-      "domain": "prestaweb.fr",
-      "company": "Prestaweb",
-      "tech": "WordPress",
-      "score": 62,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "06 18 55 34 69"
-    },
-    {
-      "domain": "terredebijoux.com",
-      "company": "Terredebijoux",
-      "tech": "Custom",
-      "score": 60,
-      "source": "ddg",
-      "status": "emailed_1",
-      "date_step1": "2026-05-28T13:47:56.602378",
-      "replied": 0,
-      "email": "gerard.manvussat@domaine.com",
-      "phone": "08 10 30 36 26"
-    },
-    {
-      "domain": "formationsmarketing.fr",
-      "company": "Formationsmarketing",
-      "tech": "WordPress",
-      "score": 62,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "03 18 91 36 83"
     }
   ],
   "icp_distribution": [
     {
       "category": "ecommerce_premium",
       "label": "E-commerce Premium",
-      "count": 46,
-      "pct": 82
+      "count": 57,
+      "pct": 79
     },
     {
       "category": "mode_luxe",
       "label": "Mode & Luxe",
-      "count": 3,
-      "pct": 5
+      "count": 4,
+      "pct": 6
     },
     {
-      "category": "immobilier",
-      "label": "Immobilier & Archi",
-      "count": 2,
+      "category": "saas_ia",
+      "label": "SaaS & IA",
+      "count": 3,
       "pct": 4
     },
     {
       "category": "cabinet_b2b",
       "label": "Cabinet B2B",
-      "count": 2,
+      "count": 3,
       "pct": 4
+    },
+    {
+      "category": "immobilier",
+      "label": "Immobilier & Archi",
+      "count": 2,
+      "pct": 3
     },
     {
       "category": "streetwear_premium",
       "label": "Streetwear Premium",
       "count": 1,
-      "pct": 2
+      "pct": 1
     },
     {
-      "category": "saas_ia",
-      "label": "SaaS & IA",
+      "category": "hospitality",
+      "label": "Hospitality & Resto",
       "count": 1,
-      "pct": 2
+      "pct": 1
     },
     {
       "category": "artisan_createur",
       "label": "Artisan Créateur",
       "count": 1,
-      "pct": 2
+      "pct": 1
     }
   ],
   "temperature": {
     "hot": 1,
-    "warm": 26,
-    "cold": 29,
+    "warm": 32,
+    "cold": 39,
     "avg_ai_score": 49
   }
 }
