@@ -1,24 +1,24 @@
 {
-  "updated_at": "2026-05-30T08:10:47.663756",
+  "updated_at": "2026-05-30T12:01:26.991137",
   "version": "v6",
   "warmup_mode": false,
   "funnel": {
-    "total": 125,
-    "with_email": 26,
-    "with_phone": 66,
+    "total": 145,
+    "with_email": 32,
+    "with_phone": 79,
     "total_emailed": 22,
     "total_replied": 0,
     "total_bounced": 0,
-    "queued": 2,
+    "queued": 8,
     "total_optout": 0,
     "pending": 21
   },
   "sources": [
     {
       "source": "ddg",
-      "n": 114,
-      "with_email": 25,
-      "with_phone": 66,
+      "n": 134,
+      "with_email": 31,
+      "with_phone": 79,
       "total_emailed": 22,
       "replied": 0
     },
@@ -64,18 +64,258 @@
     },
     {
       "date": "2026-05-30",
-      "analyzed": 14,
+      "analyzed": 34,
       "emailed": 2,
       "replied": 0
     }
   ],
   "today": {
-    "analyzed": 14,
-    "with_email": 4,
-    "with_phone": 9,
+    "analyzed": 34,
+    "with_email": 10,
+    "with_phone": 22,
     "emailed": 2
   },
   "recent": [
+    {
+      "domain": "maisoncassar.com",
+      "company": "Maisoncassar",
+      "tech": "WordPress",
+      "score": 69,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "02 71 32 72 91"
+    },
+    {
+      "domain": "le-chat-potier.com",
+      "company": "Le chat potier",
+      "tech": "WordPress",
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "07 10 38 57 66"
+    },
+    {
+      "domain": "poterie-ravel.com",
+      "company": "Poterie ravel",
+      "tech": "PrestaShop",
+      "score": 68,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@poterie-ravel.com",
+      "phone": null
+    },
+    {
+      "domain": "ameliecorbisier.com",
+      "company": "Ameliecorbisier",
+      "tech": "WordPress",
+      "score": 59,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "argilice.com",
+      "company": "Argilice",
+      "tech": "Custom",
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "jlceramique.fr",
+      "company": "Jlceramique",
+      "tech": "Squarespace",
+      "score": 80,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "utilisateur@domaine.com",
+      "phone": "07 57 45 67 06"
+    },
+    {
+      "domain": "atelierceracotta.fr",
+      "company": "Atelierceracotta",
+      "tech": "Wix",
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "barbotyne.fr",
+      "company": "Barbotyne",
+      "tech": "Webflow",
+      "score": 57,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "marseille@barbotyne.fr",
+      "phone": "04 23 24 30 22"
+    },
+    {
+      "domain": "grainsdeceramique.fr",
+      "company": "Grainsdeceramique",
+      "tech": "WordPress",
+      "score": 59,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "lalilecreation.com",
+      "company": "Lalilecreation",
+      "tech": "Wix",
+      "score": 70,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "06 33 14 50 82"
+    },
+    {
+      "domain": "atelier-kanette.fr",
+      "company": "Atelier kanette",
+      "tech": "WordPress",
+      "score": 67,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@atelier-kanette.fr",
+      "phone": "03 68 96 64 10"
+    },
+    {
+      "domain": "lrv-ceramique-artisanale.com",
+      "company": "Lrv ceramique artisanale",
+      "tech": "Wix",
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "pascalinebostyn.com",
+      "company": "Pascalinebostyn",
+      "tech": "WordPress",
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "06 22 41 11 11"
+    },
+    {
+      "domain": "ateliermypot.fr",
+      "company": "Ateliermypot",
+      "tech": "WordPress",
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "03 45 15 91 51"
+    },
+    {
+      "domain": "manitas.fr",
+      "company": "Manitas",
+      "tech": "WordPress",
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "06 52 24 50 06"
+    },
+    {
+      "domain": "terresdeve.com",
+      "company": "Terresdeve",
+      "tech": "Wix",
+      "score": 70,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "06 83 65 33 64"
+    },
+    {
+      "domain": "pili-pok.com",
+      "company": "Pili pok",
+      "tech": "Wix",
+      "score": 70,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "04 26 55 70 12"
+    },
+    {
+      "domain": "atelierdesgreffieres.com",
+      "company": "Atelierdesgreffieres",
+      "tech": "Custom",
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "obstinnee-ceramique.com",
+      "company": "Obstinnee ceramique",
+      "tech": "WordPress",
+      "score": 74,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "s-tissot@outlook.fr",
+      "phone": "03 15 81 67 36"
+    },
+    {
+      "domain": "ateliermilo.fr",
+      "company": "Ateliermilo",
+      "tech": "WordPress",
+      "score": 74,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "bonjour@ateliermilo.fr",
+      "phone": "07 00 95 08 40"
+    },
     {
       "domain": "kilo-shop.com",
       "company": "Kilo shop",
@@ -195,266 +435,26 @@
       "replied": 0,
       "email": null,
       "phone": null
-    },
-    {
-      "domain": "ma-friperie.com",
-      "company": "Ma friperie",
-      "tech": "Custom",
-      "score": 52,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "lebonbon.fr",
-      "company": "Lebonbon",
-      "tech": "Custom",
-      "score": 60,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "hello@lebonbon.fr",
-      "phone": "08 93 19 47 11"
-    },
-    {
-      "domain": "toulousesecret.com",
-      "company": "Toulousesecret",
-      "tech": "WordPress",
-      "score": 64,
-      "source": "ddg",
-      "status": "emailed_1",
-      "date_step1": "2026-05-30T08:09:16.648326",
-      "replied": 0,
-      "email": "toulouse@secretmedianetwork.com",
-      "phone": null
-    },
-    {
-      "domain": "frippy.co",
-      "company": "Frippy",
-      "tech": "Custom",
-      "score": 53,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "contact@frippy.co",
-      "phone": "09 82 02 71 63"
-    },
-    {
-      "domain": "zenbeauty.fr",
-      "company": "Zenbeauty",
-      "tech": "WordPress",
-      "score": 59,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "labonnevague.com",
-      "company": "Labonnevague",
-      "tech": "WordPress",
-      "score": 59,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "ainatiora.com",
-      "company": "Ainatiora",
-      "tech": "Wix",
-      "score": 67,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "odessence.com",
-      "company": "Odessence",
-      "tech": "Shopify",
-      "score": 65,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "05 61 26 02 99"
-    },
-    {
-      "domain": "provendi.fr",
-      "company": "Provendi",
-      "tech": "WordPress",
-      "score": 71,
-      "source": "ddg",
-      "status": "emailed_1",
-      "date_step1": "2026-05-30T08:06:57.590818",
-      "replied": 0,
-      "email": "contact@provendi.fr",
-      "phone": null
-    },
-    {
-      "domain": "cosmoya.fr",
-      "company": "Cosmoya",
-      "tech": "Wix",
-      "score": 67,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "djohannie-beauty.com",
-      "company": "Djohannie beauty",
-      "tech": "Shopify",
-      "score": 65,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "04 65 04 65 76"
-    },
-    {
-      "domain": "ateliersdelodie.fr",
-      "company": "Ateliersdelodie",
-      "tech": "WordPress",
-      "score": 64,
-      "source": "ddg",
-      "status": "emailed_1",
-      "date_step1": "2026-05-30T08:08:29.981063",
-      "replied": 0,
-      "email": "contact@ateliersdelodie.fr",
-      "phone": null
-    },
-    {
-      "domain": "2021artisancosmetique.com",
-      "company": "2021artisancosmetique",
-      "tech": "Wix",
-      "score": 67,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "talcosmetiques.com",
-      "company": "Talcosmetiques",
-      "tech": "Shopify",
-      "score": 65,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "04 57 49 54 41"
-    },
-    {
-      "domain": "loreedusud.com",
-      "company": "Loreedusud",
-      "tech": "WordPress",
-      "score": 69,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "08 49 17 89 63"
-    },
-    {
-      "domain": "clarence-bordeaux.fr",
-      "company": "Clarence bordeaux",
-      "tech": "Custom",
-      "score": 52,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "comme-avant.bio",
-      "company": "Comme avant",
-      "tech": "Shopify",
-      "score": 65,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "08 35 77 17 15"
-    },
-    {
-      "domain": "chateauberger.com",
-      "company": "Chateauberger",
-      "tech": "Custom",
-      "score": 55,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "02 20 92 01 13"
-    },
-    {
-      "domain": "respire.co",
-      "company": "Respire",
-      "tech": "Custom",
-      "score": 52,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "naturellia.fr",
-      "company": "Naturellia",
-      "tech": "WordPress",
-      "score": 66,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
     }
   ],
   "icp_distribution": [
     {
       "category": "ecommerce_premium",
       "label": "E-commerce Premium",
-      "count": 98,
-      "pct": 78
+      "count": 110,
+      "pct": 76
+    },
+    {
+      "category": "mode_luxe",
+      "label": "Mode & Luxe",
+      "count": 12,
+      "pct": 8
     },
     {
       "category": "skincare_wellness",
       "label": "Skincare & Wellness",
       "count": 8,
       "pct": 6
-    },
-    {
-      "category": "mode_luxe",
-      "label": "Mode & Luxe",
-      "count": 6,
-      "pct": 5
     },
     {
       "category": "saas_ia",
@@ -469,34 +469,34 @@
       "pct": 2
     },
     {
+      "category": "artisan_createur",
+      "label": "Artisan Créateur",
+      "count": 3,
+      "pct": 2
+    },
+    {
       "category": "streetwear_premium",
       "label": "Streetwear Premium",
       "count": 2,
-      "pct": 2
+      "pct": 1
     },
     {
       "category": "immobilier",
       "label": "Immobilier & Archi",
       "count": 2,
-      "pct": 2
+      "pct": 1
     },
     {
       "category": "hospitality",
       "label": "Hospitality & Resto",
       "count": 2,
-      "pct": 2
-    },
-    {
-      "category": "artisan_createur",
-      "label": "Artisan Créateur",
-      "count": 1,
       "pct": 1
     }
   ],
   "temperature": {
     "hot": 1,
-    "warm": 73,
-    "cold": 51,
-    "avg_ai_score": 51
+    "warm": 91,
+    "cold": 53,
+    "avg_ai_score": 52
   }
 }
