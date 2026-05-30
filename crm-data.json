@@ -1,27 +1,33 @@
 {
-  "updated_at": "2026-05-30T08:10:47.673745",
+  "updated_at": "2026-05-30T12:01:26.997048",
   "version": "v6",
   "stats": {
-    "total": 125,
-    "with_email": 26,
-    "with_phone": 66,
-    "queued": 2,
+    "total": 145,
+    "with_email": 32,
+    "with_phone": 79,
+    "queued": 8,
     "emailed": 22,
     "replied": 0,
     "bounced": 0,
     "optout": 0,
-    "no_email": 99,
+    "no_email": 113,
     "hot": 1,
-    "warm": 73,
-    "cold": 51,
-    "avg_ai_score": 51.0
+    "warm": 91,
+    "cold": 53,
+    "avg_ai_score": 52.0
   },
   "icp_distribution": [
     {
       "category": "ecommerce_premium",
       "label": "E-commerce Premium",
-      "count": 98,
-      "pct": 78
+      "count": 110,
+      "pct": 76
+    },
+    {
+      "category": "mode_luxe",
+      "label": "Mode & Luxe",
+      "count": 12,
+      "pct": 8
     },
     {
       "category": "skincare_wellness",
@@ -30,14 +36,14 @@
       "pct": 6
     },
     {
-      "category": "mode_luxe",
-      "label": "Mode & Luxe",
-      "count": 6,
-      "pct": 5
-    },
-    {
       "category": "cabinet_b2b",
       "label": "Cabinet B2B",
+      "count": 3,
+      "pct": 2
+    },
+    {
+      "category": "artisan_createur",
+      "label": "Artisan Créateur",
       "count": 3,
       "pct": 2
     },
@@ -51,24 +57,18 @@
       "category": "immobilier",
       "label": "Immobilier & Archi",
       "count": 2,
-      "pct": 2
+      "pct": 1
     },
     {
       "category": "streetwear_premium",
       "label": "Streetwear Premium",
       "count": 2,
-      "pct": 2
+      "pct": 1
     },
     {
       "category": "hospitality",
       "label": "Hospitality & Resto",
       "count": 2,
-      "pct": 2
-    },
-    {
-      "category": "artisan_createur",
-      "label": "Artisan Créateur",
-      "count": 1,
       "pct": 1
     }
   ],
@@ -94,6 +94,46 @@
       "ts": "2026-05-28"
     },
     {
+      "domain": "jlceramique.fr",
+      "company": "Jlceramique",
+      "signal": "Mobile faible 45/100",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 69,
+      "temperature": "warm",
+      "ts": "2026-05-30"
+    },
+    {
+      "domain": "jlceramique.fr",
+      "company": "Jlceramique",
+      "signal": "Squarespace → migration possible",
+      "strength": "high",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 69,
+      "temperature": "warm",
+      "ts": "2026-05-30"
+    },
+    {
+      "domain": "ateliermilo.fr",
+      "company": "Ateliermilo",
+      "signal": "Mobile faible 45/100",
+      "strength": "medium",
+      "icp_label": "Mode & Luxe",
+      "ai_score": 66,
+      "temperature": "warm",
+      "ts": "2026-05-30"
+    },
+    {
+      "domain": "ateliermilo.fr",
+      "company": "Ateliermilo",
+      "signal": "WordPress lent — redesign potentiel",
+      "strength": "medium",
+      "icp_label": "Mode & Luxe",
+      "ai_score": 66,
+      "temperature": "warm",
+      "ts": "2026-05-30"
+    },
+    {
       "domain": "yemma-friperie.com",
       "company": "Yemma friperie",
       "signal": "Mobile faible 45/100",
@@ -108,6 +148,26 @@
       "company": "Yemma friperie",
       "signal": "Wix → migration possible",
       "strength": "high",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 64,
+      "temperature": "warm",
+      "ts": "2026-05-30"
+    },
+    {
+      "domain": "obstinnee-ceramique.com",
+      "company": "Obstinnee ceramique",
+      "signal": "Mobile faible 45/100",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 64,
+      "temperature": "warm",
+      "ts": "2026-05-30"
+    },
+    {
+      "domain": "obstinnee-ceramique.com",
+      "company": "Obstinnee ceramique",
+      "signal": "WordPress lent — redesign potentiel",
+      "strength": "medium",
       "icp_label": "E-commerce Premium",
       "ai_score": 64,
       "temperature": "warm",
@@ -214,114 +274,54 @@
       "ts": "2026-05-29"
     },
     {
-      "domain": "zebriztattoo.com",
-      "company": "Zebriztattoo",
+      "domain": "pili-pok.com",
+      "company": "Pili pok",
       "signal": "Mobile faible 45/100",
       "strength": "medium",
       "icp_label": "E-commerce Premium",
       "ai_score": 61,
       "temperature": "warm",
-      "ts": "2026-05-29"
+      "ts": "2026-05-30"
     },
     {
-      "domain": "zebriztattoo.com",
-      "company": "Zebriztattoo",
+      "domain": "pili-pok.com",
+      "company": "Pili pok",
       "signal": "Wix → migration possible",
       "strength": "high",
       "icp_label": "E-commerce Premium",
       "ai_score": 61,
       "temperature": "warm",
-      "ts": "2026-05-29"
+      "ts": "2026-05-30"
     },
     {
-      "domain": "maisontigrebleu.fr",
-      "company": "Maisontigrebleu",
-      "signal": "Mobile faible 45/100",
-      "strength": "medium",
-      "icp_label": "Mode & Luxe",
-      "ai_score": 60,
-      "temperature": "warm",
-      "ts": "2026-05-29"
-    },
-    {
-      "domain": "maisontigrebleu.fr",
-      "company": "Maisontigrebleu",
-      "signal": "WordPress lent — redesign potentiel",
-      "strength": "medium",
-      "icp_label": "Mode & Luxe",
-      "ai_score": 60,
-      "temperature": "warm",
-      "ts": "2026-05-29"
-    },
-    {
-      "domain": "henryetseslunettes.fr",
-      "company": "Henryetseslunettes",
+      "domain": "terresdeve.com",
+      "company": "Terresdeve",
       "signal": "Mobile faible 45/100",
       "strength": "medium",
       "icp_label": "E-commerce Premium",
-      "ai_score": 59,
+      "ai_score": 61,
       "temperature": "warm",
-      "ts": "2026-05-29"
+      "ts": "2026-05-30"
     },
     {
-      "domain": "henryetseslunettes.fr",
-      "company": "Henryetseslunettes",
+      "domain": "terresdeve.com",
+      "company": "Terresdeve",
       "signal": "Wix → migration possible",
       "strength": "high",
       "icp_label": "E-commerce Premium",
-      "ai_score": 59,
-      "temperature": "warm",
-      "ts": "2026-05-29"
-    },
-    {
-      "domain": "friperebelle.com",
-      "company": "Friperebelle",
-      "signal": "Mobile faible 45/100",
-      "strength": "medium",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 59,
+      "ai_score": 61,
       "temperature": "warm",
       "ts": "2026-05-30"
     },
     {
-      "domain": "friperebelle.com",
-      "company": "Friperebelle",
-      "signal": "WordPress lent — redesign potentiel",
+      "domain": "lalilecreation.com",
+      "company": "Lalilecreation",
+      "signal": "Mobile faible 45/100",
       "strength": "medium",
       "icp_label": "E-commerce Premium",
-      "ai_score": 59,
+      "ai_score": 61,
       "temperature": "warm",
       "ts": "2026-05-30"
-    },
-    {
-      "domain": "labonbonnieretatouage.com",
-      "company": "Labonbonnieretatouage",
-      "signal": "Mobile faible 45/100",
-      "strength": "medium",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 59,
-      "temperature": "warm",
-      "ts": "2026-05-29"
-    },
-    {
-      "domain": "labonbonnieretatouage.com",
-      "company": "Labonbonnieretatouage",
-      "signal": "WordPress lent — redesign potentiel",
-      "strength": "medium",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 59,
-      "temperature": "warm",
-      "ts": "2026-05-29"
-    },
-    {
-      "domain": "lilleaddict.fr",
-      "company": "Lilleaddict",
-      "signal": "Mobile faible 45/100",
-      "strength": "medium",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 59,
-      "temperature": "warm",
-      "ts": "2026-05-29"
     }
   ],
   "prospects": [
@@ -381,6 +381,104 @@
       "icp_label": "E-commerce Premium"
     },
     {
+      "id": 141,
+      "domain": "jlceramique.fr",
+      "company": "Jlceramique",
+      "email": "utilisateur@domaine.com",
+      "phone": "07 57 45 67 06",
+      "tech": "Squarespace",
+      "perf_mobile": 45,
+      "lcp": "~0.3s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Trop de scripts JavaScript"
+      ],
+      "score": 80,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-30",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 69,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 7,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "low_tech",
+          "label": "Squarespace → migration possible",
+          "strength": "high"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 127,
+      "domain": "ateliermilo.fr",
+      "company": "Ateliermilo",
+      "email": "bonjour@ateliermilo.fr",
+      "phone": "07 00 95 08 40",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.5s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Trop de scripts JavaScript"
+      ],
+      "score": 74,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-30",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 66,
+      "temperature": "warm",
+      "icp_category": "mode_luxe",
+      "brand_quality": 8,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Mode & Luxe"
+    },
+    {
       "id": 125,
       "domain": "yemma-friperie.com",
       "company": "Yemma friperie",
@@ -420,6 +518,55 @@
           "type": "low_tech",
           "label": "Wix → migration possible",
           "strength": "high"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 128,
+      "domain": "obstinnee-ceramique.com",
+      "company": "Obstinnee ceramique",
+      "email": "s-tissot@outlook.fr",
+      "phone": "03 15 81 67 36",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.9s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Trop de scripts JavaScript"
+      ],
+      "score": 74,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-30",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 64,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 6,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
         },
         {
           "type": "some_issues",
@@ -670,6 +817,135 @@
       "icp_label": "E-commerce Premium"
     },
     {
+      "id": 130,
+      "domain": "pili-pok.com",
+      "company": "Pili pok",
+      "email": null,
+      "phone": "04 26 55 70 12",
+      "tech": "Wix",
+      "perf_mobile": 45,
+      "lcp": "~0.7s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 70,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-30",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 61,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 7,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "low_tech",
+          "label": "Wix → migration possible",
+          "strength": "high"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 131,
+      "domain": "terresdeve.com",
+      "company": "Terresdeve",
+      "email": null,
+      "phone": "06 83 65 33 64",
+      "tech": "Wix",
+      "perf_mobile": 45,
+      "lcp": "~0.7s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 70,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-30",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 61,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 7,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "low_tech",
+          "label": "Wix → migration possible",
+          "strength": "high"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 137,
+      "domain": "lalilecreation.com",
+      "company": "Lalilecreation",
+      "email": null,
+      "phone": "06 33 14 50 82",
+      "tech": "Wix",
+      "perf_mobile": 45,
+      "lcp": "~0.4s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 70,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-30",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 61,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 7,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "low_tech",
+          "label": "Wix → migration possible",
+          "strength": "high"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
       "id": 83,
       "domain": "zebriztattoo.com",
       "company": "Zebriztattoo",
@@ -711,6 +987,141 @@
         }
       ],
       "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 146,
+      "domain": "maisoncassar.com",
+      "company": "Maisoncassar",
+      "email": null,
+      "phone": "02 71 32 72 91",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~2.0s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Trop de scripts JavaScript"
+      ],
+      "score": 69,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-30",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 61,
+      "temperature": "warm",
+      "icp_category": "mode_luxe",
+      "brand_quality": 8,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Mode & Luxe"
+    },
+    {
+      "id": 136,
+      "domain": "atelier-kanette.fr",
+      "company": "Atelier kanette",
+      "email": "contact@atelier-kanette.fr",
+      "phone": "03 68 96 64 10",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.4s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-30",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 60,
+      "temperature": "warm",
+      "icp_category": "mode_luxe",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Mode & Luxe"
+    },
+    {
+      "id": 140,
+      "domain": "atelierceracotta.fr",
+      "company": "Atelierceracotta",
+      "email": null,
+      "phone": null,
+      "tech": "Wix",
+      "perf_mobile": 45,
+      "lcp": "~0.8s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-30",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 60,
+      "temperature": "warm",
+      "icp_category": "mode_luxe",
+      "brand_quality": 7,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "low_tech",
+          "label": "Wix → migration possible",
+          "strength": "high"
+        }
+      ],
+      "icp_label": "Mode & Luxe"
     },
     {
       "id": 86,
@@ -1902,6 +2313,49 @@
       "icp_label": "E-commerce Premium"
     },
     {
+      "id": 135,
+      "domain": "lrv-ceramique-artisanale.com",
+      "company": "Lrv ceramique artisanale",
+      "email": null,
+      "phone": null,
+      "tech": "Wix",
+      "perf_mobile": 45,
+      "lcp": "~0.7s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-30",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 56,
+      "temperature": "warm",
+      "icp_category": "artisan_createur",
+      "brand_quality": 5,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "low_tech",
+          "label": "Wix → migration possible",
+          "strength": "high"
+        }
+      ],
+      "icp_label": "Artisan Créateur"
+    },
+    {
       "id": 64,
       "domain": "lafabriquedelunettes.fr",
       "company": "Lafabriquedelunettes",
@@ -2080,6 +2534,87 @@
       "icp_label": "E-commerce Premium"
     },
     {
+      "id": 133,
+      "domain": "ateliermypot.fr",
+      "company": "Ateliermypot",
+      "email": null,
+      "phone": "03 45 15 91 51",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~1.9s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-30",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 55,
+      "temperature": "warm",
+      "icp_category": "mode_luxe",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Mode & Luxe"
+    },
+    {
+      "id": 144,
+      "domain": "poterie-ravel.com",
+      "company": "Poterie ravel",
+      "email": "contact@poterie-ravel.com",
+      "phone": null,
+      "tech": "PrestaShop",
+      "perf_mobile": 45,
+      "lcp": "~1.4s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 68,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-30",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 54,
+      "temperature": "warm",
+      "icp_category": "artisan_createur",
+      "brand_quality": 10,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Artisan Créateur"
+    },
+    {
       "id": 122,
       "domain": "pmfg.fr",
       "company": "Pmfg",
@@ -2088,6 +2623,49 @@
       "tech": "WordPress",
       "perf_mobile": 45,
       "lcp": "~0.1s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-30",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 54,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 12,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 132,
+      "domain": "manitas.fr",
+      "company": "Manitas",
+      "email": null,
+      "phone": "06 52 24 50 06",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.4s (estimé)",
       "issues": [
         "Page lourde, compression absente"
       ],
@@ -2367,6 +2945,92 @@
       "icp_label": "E-commerce Premium"
     },
     {
+      "id": 134,
+      "domain": "pascalinebostyn.com",
+      "company": "Pascalinebostyn",
+      "email": null,
+      "phone": "06 22 41 11 11",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.2s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-30",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 53,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 145,
+      "domain": "le-chat-potier.com",
+      "company": "Le chat potier",
+      "email": null,
+      "phone": "07 10 38 57 66",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.9s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-30",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 53,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
       "id": 55,
       "domain": "lesmarquesfrancaises.fr",
       "company": "Lesmarquesfrancaises",
@@ -2576,6 +3240,50 @@
         {
           "type": "wp_slow",
           "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 139,
+      "domain": "barbotyne.fr",
+      "company": "Barbotyne",
+      "email": "marseille@barbotyne.fr",
+      "phone": "04 23 24 30 22",
+      "tech": "Webflow",
+      "perf_mobile": 45,
+      "lcp": "~0.8s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Nombreuses images non optimisées"
+      ],
+      "score": 57,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-30",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 53,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 10,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
           "strength": "medium"
         }
       ],
@@ -3301,6 +4009,92 @@
       "brand_quality": 10,
       "intent_signals": [],
       "icp_label": "Mode & Luxe"
+    },
+    {
+      "id": 138,
+      "domain": "grainsdeceramique.fr",
+      "company": "Grainsdeceramique",
+      "email": null,
+      "phone": null,
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~2.6s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 59,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-30",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 50,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 143,
+      "domain": "ameliecorbisier.com",
+      "company": "Ameliecorbisier",
+      "email": null,
+      "phone": null,
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.2s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 59,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-30",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 50,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
     },
     {
       "id": 53,
@@ -4068,6 +4862,44 @@
       "icp_label": "Mode & Luxe"
     },
     {
+      "id": 129,
+      "domain": "atelierdesgreffieres.com",
+      "company": "Atelierdesgreffieres",
+      "email": null,
+      "phone": null,
+      "tech": "Custom",
+      "perf_mobile": 35,
+      "lcp": "N/A",
+      "issues": [
+        "Site inaccessible ou lent"
+      ],
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-30",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 48,
+      "temperature": "cold",
+      "icp_category": "mode_luxe",
+      "brand_quality": 10,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 35/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Mode & Luxe"
+    },
+    {
       "id": 60,
       "domain": "atelierdu15eme.fr",
       "company": "Atelierdu15eme",
@@ -4267,6 +5099,44 @@
       "id": 116,
       "domain": "ma-friperie.com",
       "company": "Ma friperie",
+      "email": null,
+      "phone": null,
+      "tech": "Custom",
+      "perf_mobile": 35,
+      "lcp": "N/A",
+      "issues": [
+        "Site inaccessible ou lent"
+      ],
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-30",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 46,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 12,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 35/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 142,
+      "domain": "argilice.com",
+      "company": "Argilice",
       "email": null,
       "phone": null,
       "tech": "Custom",
