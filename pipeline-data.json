@@ -1,25 +1,25 @@
 {
-  "updated_at": "2026-05-29T21:43:13.142955",
+  "updated_at": "2026-05-30T08:10:47.663756",
   "version": "v6",
   "warmup_mode": false,
   "funnel": {
-    "total": 111,
-    "with_email": 22,
-    "with_phone": 57,
-    "total_emailed": 14,
+    "total": 125,
+    "with_email": 26,
+    "with_phone": 66,
+    "total_emailed": 22,
     "total_replied": 0,
     "total_bounced": 0,
-    "queued": 6,
+    "queued": 2,
     "total_optout": 0,
-    "pending": 13
+    "pending": 21
   },
   "sources": [
     {
       "source": "ddg",
-      "n": 100,
-      "with_email": 21,
-      "with_phone": 57,
-      "total_emailed": 14,
+      "n": 114,
+      "with_email": 25,
+      "with_phone": 66,
+      "total_emailed": 22,
       "replied": 0
     },
     {
@@ -41,11 +41,11 @@
   ],
   "ab_test": {
     "A": {
-      "sent": 8,
+      "sent": 12,
       "replied": 0
     },
     "B": {
-      "sent": 6,
+      "sent": 10,
       "replied": 0
     }
   },
@@ -59,17 +59,191 @@
     {
       "date": "2026-05-29",
       "analyzed": 72,
-      "emailed": 8,
+      "emailed": 14,
+      "replied": 0
+    },
+    {
+      "date": "2026-05-30",
+      "analyzed": 14,
+      "emailed": 2,
       "replied": 0
     }
   ],
   "today": {
-    "analyzed": 72,
-    "with_email": 15,
-    "with_phone": 42,
-    "emailed": 8
+    "analyzed": 14,
+    "with_email": 4,
+    "with_phone": 9,
+    "emailed": 2
   },
   "recent": [
+    {
+      "domain": "kilo-shop.com",
+      "company": "Kilo shop",
+      "tech": "WordPress",
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "03 16 89 15 45"
+    },
+    {
+      "domain": "yemma-friperie.com",
+      "company": "Yemma friperie",
+      "tech": "Wix",
+      "score": 74,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "grizette.com",
+      "company": "Grizette",
+      "tech": "WordPress",
+      "score": 66,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "wefrip.com",
+      "company": "Wefrip",
+      "tech": "Shopify",
+      "score": 65,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "08 38 68 57 71"
+    },
+    {
+      "domain": "pmfg.fr",
+      "company": "Pmfg",
+      "tech": "WordPress",
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "06 52 24 50 06"
+    },
+    {
+      "domain": "friperebelle.com",
+      "company": "Friperebelle",
+      "tech": "WordPress",
+      "score": 69,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "02 99 76 94 12"
+    },
+    {
+      "domain": "cartoucirc.fr",
+      "company": "Cartoucirc",
+      "tech": "WordPress",
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "06 08 00 54 08"
+    },
+    {
+      "domain": "thepurples.com",
+      "company": "Thepurples",
+      "tech": "PrestaShop",
+      "score": 78,
+      "source": "ddg",
+      "status": "emailed_1",
+      "date_step1": "2026-05-30T08:04:39.257443",
+      "replied": 0,
+      "email": "contact@thepurples-boutique.com",
+      "phone": "09 51 69 07 12"
+    },
+    {
+      "domain": "tilt-vintage.com",
+      "company": "Tilt vintage",
+      "tech": "Custom",
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "02 32 83 14 76"
+    },
+    {
+      "domain": "legrenierdanais.fr",
+      "company": "Legrenierdanais",
+      "tech": "Custom",
+      "score": 45,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "ma-friperie.com",
+      "company": "Ma friperie",
+      "tech": "Custom",
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "lebonbon.fr",
+      "company": "Lebonbon",
+      "tech": "Custom",
+      "score": 60,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "hello@lebonbon.fr",
+      "phone": "08 93 19 47 11"
+    },
+    {
+      "domain": "toulousesecret.com",
+      "company": "Toulousesecret",
+      "tech": "WordPress",
+      "score": 64,
+      "source": "ddg",
+      "status": "emailed_1",
+      "date_step1": "2026-05-30T08:09:16.648326",
+      "replied": 0,
+      "email": "toulouse@secretmedianetwork.com",
+      "phone": null
+    },
+    {
+      "domain": "frippy.co",
+      "company": "Frippy",
+      "tech": "Custom",
+      "score": 53,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@frippy.co",
+      "phone": "09 82 02 71 63"
+    },
     {
       "domain": "zenbeauty.fr",
       "company": "Zenbeauty",
@@ -124,8 +298,8 @@
       "tech": "WordPress",
       "score": 71,
       "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
+      "status": "emailed_1",
+      "date_step1": "2026-05-30T08:06:57.590818",
       "replied": 0,
       "email": "contact@provendi.fr",
       "phone": null
@@ -160,8 +334,8 @@
       "tech": "WordPress",
       "score": 64,
       "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
+      "status": "emailed_1",
+      "date_step1": "2026-05-30T08:08:29.981063",
       "replied": 0,
       "email": "contact@ateliersdelodie.fr",
       "phone": null
@@ -261,188 +435,20 @@
       "replied": 0,
       "email": null,
       "phone": null
-    },
-    {
-      "domain": "prouvenco.fr",
-      "company": "Prouvenco",
-      "tech": "Wix",
-      "score": 67,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "mklgreennature.com",
-      "company": "Mklgreennature",
-      "tech": "PrestaShop",
-      "score": 66,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "01 00 55 52 96"
-    },
-    {
-      "domain": "lesecretnaturel.com",
-      "company": "Lesecretnaturel",
-      "tech": "PrestaShop",
-      "score": 71,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "contact@lesecretnaturel.com",
-      "phone": "03 87 24 08 07"
-    },
-    {
-      "domain": "provence-argile.com",
-      "company": "Provence argile",
-      "tech": "PrestaShop",
-      "score": 71,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "contact@labo-naturado.com",
-      "phone": "04 94 00 66 20"
-    },
-    {
-      "domain": "nice-tattoo.fr",
-      "company": "Nice tattoo",
-      "tech": "WordPress",
-      "score": 62,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "06 86 58 83 72"
-    },
-    {
-      "domain": "theblackhattattoo.fr",
-      "company": "Theblackhattattoo",
-      "tech": "Custom",
-      "score": 60,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "hello@blackhatnice.com",
-      "phone": "04 79 56 69 89"
-    },
-    {
-      "domain": "corpsenfolie.com",
-      "company": "Corpsenfolie",
-      "tech": "WordPress",
-      "score": 59,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "nicetattoofestival.com",
-      "company": "Nicetattoofestival",
-      "tech": "Custom",
-      "score": 52,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "sweetink.fr",
-      "company": "Sweetink",
-      "tech": "WordPress",
-      "score": 69,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "06 52 24 50 06"
-    },
-    {
-      "domain": "angeltattoo.ink",
-      "company": "Angeltattoo",
-      "tech": "Custom",
-      "score": 55,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "02 26 13 54 15"
-    },
-    {
-      "domain": "maisontigrebleu.fr",
-      "company": "Maisontigrebleu",
-      "tech": "WordPress",
-      "score": 67,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "contact@maisontigrebleu.fr",
-      "phone": "06 66 66 66 66"
-    },
-    {
-      "domain": "tattoonice.com",
-      "company": "Tattoonice",
-      "tech": "WordPress",
-      "score": 67,
-      "source": "ddg",
-      "status": "emailed_1",
-      "date_step1": "2026-05-29T12:04:38.106586",
-      "replied": 0,
-      "email": "contact@tattoonice.com",
-      "phone": "09 52 10 12 82"
-    },
-    {
-      "domain": "planity.com",
-      "company": "Planity",
-      "tech": "Custom",
-      "score": 55,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "08 33 33 33 33"
-    },
-    {
-      "domain": "zebriztattoo.com",
-      "company": "Zebriztattoo",
-      "tech": "Wix",
-      "score": 70,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "04 93 04 72 61"
     }
   ],
   "icp_distribution": [
     {
       "category": "ecommerce_premium",
       "label": "E-commerce Premium",
-      "count": 85,
-      "pct": 77
+      "count": 98,
+      "pct": 78
     },
     {
       "category": "skincare_wellness",
       "label": "Skincare & Wellness",
       "count": 8,
-      "pct": 7
+      "pct": 6
     },
     {
       "category": "mode_luxe",
@@ -454,13 +460,19 @@
       "category": "saas_ia",
       "label": "SaaS & IA",
       "count": 3,
-      "pct": 3
+      "pct": 2
     },
     {
       "category": "cabinet_b2b",
       "label": "Cabinet B2B",
       "count": 3,
-      "pct": 3
+      "pct": 2
+    },
+    {
+      "category": "streetwear_premium",
+      "label": "Streetwear Premium",
+      "count": 2,
+      "pct": 2
     },
     {
       "category": "immobilier",
@@ -475,12 +487,6 @@
       "pct": 2
     },
     {
-      "category": "streetwear_premium",
-      "label": "Streetwear Premium",
-      "count": 1,
-      "pct": 1
-    },
-    {
       "category": "artisan_createur",
       "label": "Artisan Créateur",
       "count": 1,
@@ -489,8 +495,8 @@
   ],
   "temperature": {
     "hot": 1,
-    "warm": 63,
-    "cold": 47,
-    "avg_ai_score": 50
+    "warm": 73,
+    "cold": 51,
+    "avg_ai_score": 51
   }
 }
