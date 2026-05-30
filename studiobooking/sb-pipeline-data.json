@@ -1,42 +1,42 @@
 {
-  "updated_at": "2026-05-30T09:00:16.356111",
+  "updated_at": "2026-05-30T15:03:49.273916",
   "version": "sb-v1",
   "product": "StudioBooking",
   "warmup_mode": true,
   "funnel": {
-    "total": 20,
-    "with_email": 9,
-    "with_phone": 15,
-    "total_emailed": 9,
+    "total": 30,
+    "with_email": 12,
+    "with_phone": 22,
+    "total_emailed": 12,
     "total_replied": 0,
     "total_bounced": 2,
     "queued": 0,
-    "hot_opps": 8,
-    "manual_bookings": 4
+    "hot_opps": 11,
+    "manual_bookings": 8
   },
   "sources": [
     {
       "source": "ddg",
-      "n": 12,
-      "with_email": 7,
-      "total_emailed": 7,
+      "n": 19,
+      "with_email": 9,
+      "total_emailed": 9,
       "replied": 0
     },
     {
       "source": "gmaps",
-      "n": 8,
-      "with_email": 2,
-      "total_emailed": 2,
+      "n": 11,
+      "with_email": 3,
+      "total_emailed": 3,
       "replied": 0
     }
   ],
   "ab_test": {
     "A": {
-      "sent": 5,
+      "sent": 7,
       "replied": 0
     },
     "B": {
-      "sent": 4,
+      "sent": 5,
       "replied": 0
     }
   },
@@ -52,38 +52,44 @@
       "analyzed": 14,
       "emailed": 7,
       "replied": 0
+    },
+    {
+      "date": "2026-05-30",
+      "analyzed": 10,
+      "emailed": 3,
+      "replied": 0
     }
   ],
   "temperature": {
-    "hot": 9,
-    "warm": 5,
-    "cold": 6,
-    "avg_score": 61
+    "hot": 14,
+    "warm": 6,
+    "cold": 10,
+    "avg_score": 60
   },
   "icp_distribution": [
     {
       "category": "enregistrement",
       "label": "Studio d'Enregistrement",
-      "count": 12,
-      "pct": 60
+      "count": 13,
+      "pct": 43
     },
     {
       "category": "autre_studio",
       "label": "Autre Studio",
-      "count": 6,
-      "pct": 30
+      "count": 13,
+      "pct": 43
+    },
+    {
+      "category": "repetition",
+      "label": "Studio de Répétition",
+      "count": 3,
+      "pct": 10
     },
     {
       "category": "smac_venue",
       "label": "SMAC / Salle de Spectacle",
       "count": 1,
-      "pct": 5
-    },
-    {
-      "category": "repetition",
-      "label": "Studio de Répétition",
-      "count": 1,
-      "pct": 5
+      "pct": 3
     }
   ]
 }
