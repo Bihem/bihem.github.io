@@ -1,24 +1,24 @@
 {
-  "updated_at": "2026-05-31T08:07:40.057846",
+  "updated_at": "2026-05-31T12:01:10.703635",
   "version": "v6",
   "warmup_mode": false,
   "funnel": {
-    "total": 183,
-    "with_email": 40,
-    "with_phone": 103,
+    "total": 199,
+    "with_email": 44,
+    "with_phone": 114,
     "total_emailed": 30,
     "total_replied": 0,
     "total_bounced": 0,
-    "queued": 8,
+    "queued": 12,
     "total_optout": 0,
     "pending": 29
   },
   "sources": [
     {
       "source": "ddg",
-      "n": 172,
-      "with_email": 39,
-      "with_phone": 103,
+      "n": 188,
+      "with_email": 43,
+      "with_phone": 114,
       "total_emailed": 30,
       "replied": 0
     },
@@ -70,18 +70,210 @@
     },
     {
       "date": "2026-05-31",
-      "analyzed": 18,
+      "analyzed": 34,
       "emailed": 2,
       "replied": 0
     }
   ],
   "today": {
-    "analyzed": 18,
-    "with_email": 3,
-    "with_phone": 12,
+    "analyzed": 34,
+    "with_email": 7,
+    "with_phone": 23,
     "emailed": 2
   },
   "recent": [
+    {
+      "domain": "lebistrotdantoine.fr",
+      "company": "Lebistrotdantoine",
+      "tech": "WordPress",
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "03 90 24 93 25"
+    },
+    {
+      "domain": "jadisnice.fr",
+      "company": "Jadisnice",
+      "tech": "WordPress",
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "09 60 47 68 72"
+    },
+    {
+      "domain": "bistrotdescopains.com",
+      "company": "Bistrotdescopains",
+      "tech": "Wix",
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "bistropolo.fr",
+      "company": "Bistropolo",
+      "tech": "Custom",
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "03 88 22 24 30"
+    },
+    {
+      "domain": "nice-artbistro.fr",
+      "company": "Nice artbistro",
+      "tech": "Custom",
+      "score": 45,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "lebistrotdescocottes.fr",
+      "company": "Lebistrotdescocottes",
+      "tech": "Custom",
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "maison-kammerzell.com",
+      "company": "Maison kammerzell",
+      "tech": "Squarespace",
+      "score": 80,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "utilisateur@domaine.com",
+      "phone": "09 89 41 06 16"
+    },
+    {
+      "domain": "bistrot-coco.fr",
+      "company": "Bistrot coco",
+      "tech": "Squarespace",
+      "score": 80,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "utilisateur@domaine.com",
+      "phone": "04 59 11 31 91"
+    },
+    {
+      "domain": "lebistrotdegillou.fr",
+      "company": "Lebistrotdegillou",
+      "tech": "Custom",
+      "score": 55,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "04 93 76 84 97"
+    },
+    {
+      "domain": "restaurant-le-bistro-dalpozzo-nice.fr",
+      "company": "Restaurant le bistro dalpozzo nice",
+      "tech": "Custom",
+      "score": 55,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "06 66 08 83 07"
+    },
+    {
+      "domain": "bistrotdelopera.fr",
+      "company": "Bistrotdelopera",
+      "tech": "Custom",
+      "score": 55,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "04 93 62 34 72"
+    },
+    {
+      "domain": "bistrotsaintgeorges.fr",
+      "company": "Bistrotsaintgeorges",
+      "tech": "Custom",
+      "score": 55,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "04 92 04 92 81"
+    },
+    {
+      "domain": "bistrotlegalopin.fr",
+      "company": "Bistrotlegalopin",
+      "tech": "Custom",
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "bim-bistrot.eu",
+      "company": "Bim bistrot",
+      "tech": "Custom",
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "thefork.fr",
+      "company": "Thefork",
+      "tech": "Custom",
+      "score": 67,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@thefork.fr",
+      "phone": "07 29 23 46 94"
+    },
+    {
+      "domain": "bistrotgourmand.net",
+      "company": "Bistrotgourmand",
+      "tech": "Custom",
+      "score": 67,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "reservation@bistrotgourmand.net",
+      "phone": "04 92 14 55 55"
+    },
     {
       "domain": "lilithparis.com",
       "company": "Lilithparis",
@@ -249,212 +441,26 @@
       "replied": 0,
       "email": null,
       "phone": "02 33 33 33 33"
-    },
-    {
-      "domain": "lafilleenvert.paris",
-      "company": "Lafilleenvert",
-      "tech": "Custom",
-      "score": 52,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "balzac-paris.com",
-      "company": "Balzac paris",
-      "tech": "Custom",
-      "score": 52,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "mesdemoisellesparis.com",
-      "company": "Mesdemoisellesparis",
-      "tech": "Shopify",
-      "score": 70,
-      "source": "ddg",
-      "status": "emailed_1",
-      "date_step1": "2026-05-31T08:05:22.860391",
-      "replied": 0,
-      "email": "online@mesdemoisellesparis.com",
-      "phone": "01 82 28 07 35"
-    },
-    {
-      "domain": "derhy.com",
-      "company": "Derhy",
-      "tech": "Shopify",
-      "score": 70,
-      "source": "ddg",
-      "status": "emailed_1",
-      "date_step1": "2026-05-31T08:04:37.148006",
-      "replied": 0,
-      "email": "contact@derhy.com",
-      "phone": "09 75 60 97 56"
-    },
-    {
-      "domain": "monsieurd.fr",
-      "company": "Monsieurd",
-      "tech": "WordPress",
-      "score": 66,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "maison-isme.com",
-      "company": "Maison isme",
-      "tech": "WordPress",
-      "score": 59,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "unfoldbijoux.com",
-      "company": "Unfoldbijoux",
-      "tech": "WordPress",
-      "score": 59,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "nature.fr",
-      "company": "Nature",
-      "tech": "WordPress",
-      "score": 62,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "01 08 60 98 25"
-    },
-    {
-      "domain": "bellum.fr",
-      "company": "Bellum",
-      "tech": "WordPress",
-      "score": 62,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "06 24 06 13 27"
-    },
-    {
-      "domain": "generateur-strasbourg.fr",
-      "company": "Generateur strasbourg",
-      "tech": "WordPress",
-      "score": 59,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "m-soubrier.com",
-      "company": "M soubrier",
-      "tech": "WordPress",
-      "score": 67,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "m.soubrier@wanadoo.fr",
-      "phone": "06 22 99 73 51"
-    },
-    {
-      "domain": "eyez4eyez.fr",
-      "company": "Eyez4eyez",
-      "tech": "WordPress",
-      "score": 62,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "06 31 92 62 96"
-    },
-    {
-      "domain": "toshikoakahori.com",
-      "company": "Toshikoakahori",
-      "tech": "WordPress",
-      "score": 64,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "info@toshikoakahori.com",
-      "phone": null
-    },
-    {
-      "domain": "bijouteriebarriere.com",
-      "company": "Bijouteriebarriere",
-      "tech": "Custom",
-      "score": 55,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "01 14 07 11 44"
-    },
-    {
-      "domain": "celineflageul.com",
-      "company": "Celineflageul",
-      "tech": "Shopify",
-      "score": 65,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "04 57 49 54 41"
-    },
-    {
-      "domain": "bijouterie-ficht.fr",
-      "company": "Bijouterie ficht",
-      "tech": "WordPress",
-      "score": 62,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "03 88 22 98 73"
     }
   ],
   "icp_distribution": [
     {
       "category": "ecommerce_premium",
       "label": "E-commerce Premium",
-      "count": 138,
-      "pct": 75
+      "count": 140,
+      "pct": 70
     },
     {
       "category": "mode_luxe",
       "label": "Mode & Luxe",
-      "count": 19,
+      "count": 20,
       "pct": 10
+    },
+    {
+      "category": "hospitality",
+      "label": "Hospitality & Resto",
+      "count": 15,
+      "pct": 8
     },
     {
       "category": "skincare_wellness",
@@ -491,18 +497,12 @@
       "label": "Immobilier & Archi",
       "count": 2,
       "pct": 1
-    },
-    {
-      "category": "hospitality",
-      "label": "Hospitality & Resto",
-      "count": 2,
-      "pct": 1
     }
   ],
   "temperature": {
     "hot": 1,
-    "warm": 122,
-    "cold": 60,
+    "warm": 129,
+    "cold": 69,
     "avg_ai_score": 52
   }
 }
