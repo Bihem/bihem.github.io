@@ -1,33 +1,39 @@
 {
-  "updated_at": "2026-05-31T08:07:40.068020",
+  "updated_at": "2026-05-31T12:01:10.711405",
   "version": "v6",
   "stats": {
-    "total": 183,
-    "with_email": 40,
-    "with_phone": 103,
-    "queued": 8,
+    "total": 199,
+    "with_email": 44,
+    "with_phone": 114,
+    "queued": 12,
     "emailed": 30,
     "replied": 0,
     "bounced": 0,
     "optout": 0,
-    "no_email": 143,
+    "no_email": 155,
     "hot": 1,
-    "warm": 122,
-    "cold": 60,
+    "warm": 129,
+    "cold": 69,
     "avg_ai_score": 52.0
   },
   "icp_distribution": [
     {
       "category": "ecommerce_premium",
       "label": "E-commerce Premium",
-      "count": 138,
-      "pct": 75
+      "count": 140,
+      "pct": 70
     },
     {
       "category": "mode_luxe",
       "label": "Mode & Luxe",
-      "count": 19,
+      "count": 20,
       "pct": 10
+    },
+    {
+      "category": "hospitality",
+      "label": "Hospitality & Resto",
+      "count": 15,
+      "pct": 8
     },
     {
       "category": "skincare_wellness",
@@ -64,12 +70,6 @@
       "label": "Streetwear Premium",
       "count": 2,
       "pct": 1
-    },
-    {
-      "category": "hospitality",
-      "label": "Hospitality & Resto",
-      "count": 2,
-      "pct": 1
     }
   ],
   "intent_feed": [
@@ -92,6 +92,46 @@
       "ai_score": 81,
       "temperature": "hot",
       "ts": "2026-05-28"
+    },
+    {
+      "domain": "maison-kammerzell.com",
+      "company": "Maison kammerzell",
+      "signal": "Mobile faible 45/100",
+      "strength": "medium",
+      "icp_label": "Mode & Luxe",
+      "ai_score": 71,
+      "temperature": "warm",
+      "ts": "2026-05-31"
+    },
+    {
+      "domain": "maison-kammerzell.com",
+      "company": "Maison kammerzell",
+      "signal": "Squarespace → migration possible",
+      "strength": "high",
+      "icp_label": "Mode & Luxe",
+      "ai_score": 71,
+      "temperature": "warm",
+      "ts": "2026-05-31"
+    },
+    {
+      "domain": "bistrot-coco.fr",
+      "company": "Bistrot coco",
+      "signal": "Mobile faible 45/100",
+      "strength": "medium",
+      "icp_label": "Hospitality & Resto",
+      "ai_score": 69,
+      "temperature": "warm",
+      "ts": "2026-05-31"
+    },
+    {
+      "domain": "bistrot-coco.fr",
+      "company": "Bistrot coco",
+      "signal": "Squarespace → migration possible",
+      "strength": "high",
+      "icp_label": "Hospitality & Resto",
+      "ai_score": 69,
+      "temperature": "warm",
+      "ts": "2026-05-31"
     },
     {
       "domain": "jlceramique.fr",
@@ -282,46 +322,6 @@
       "ai_score": 62,
       "temperature": "warm",
       "ts": "2026-05-30"
-    },
-    {
-      "domain": "thepurples.com",
-      "company": "Thepurples",
-      "signal": "2 problèmes site",
-      "strength": "medium",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 62,
-      "temperature": "warm",
-      "ts": "2026-05-30"
-    },
-    {
-      "domain": "provendi.fr",
-      "company": "Provendi",
-      "signal": "Mobile faible 45/100",
-      "strength": "medium",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 61,
-      "temperature": "warm",
-      "ts": "2026-05-29"
-    },
-    {
-      "domain": "provendi.fr",
-      "company": "Provendi",
-      "signal": "WordPress lent — redesign potentiel",
-      "strength": "medium",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 61,
-      "temperature": "warm",
-      "ts": "2026-05-29"
-    },
-    {
-      "domain": "pili-pok.com",
-      "company": "Pili pok",
-      "signal": "Mobile faible 45/100",
-      "strength": "medium",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 61,
-      "temperature": "warm",
-      "ts": "2026-05-30"
     }
   ],
   "prospects": [
@@ -379,6 +379,104 @@
         }
       ],
       "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 194,
+      "domain": "maison-kammerzell.com",
+      "company": "Maison kammerzell",
+      "email": "utilisateur@domaine.com",
+      "phone": "09 89 41 06 16",
+      "tech": "Squarespace",
+      "perf_mobile": 45,
+      "lcp": "~0.9s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Trop de scripts JavaScript"
+      ],
+      "score": 80,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-31",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 71,
+      "temperature": "warm",
+      "icp_category": "mode_luxe",
+      "brand_quality": 7,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "low_tech",
+          "label": "Squarespace → migration possible",
+          "strength": "high"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Mode & Luxe"
+    },
+    {
+      "id": 193,
+      "domain": "bistrot-coco.fr",
+      "company": "Bistrot coco",
+      "email": "utilisateur@domaine.com",
+      "phone": "04 59 11 31 91",
+      "tech": "Squarespace",
+      "perf_mobile": 45,
+      "lcp": "~0.6s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Trop de scripts JavaScript"
+      ],
+      "score": 80,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-31",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 69,
+      "temperature": "warm",
+      "icp_category": "hospitality",
+      "brand_quality": 7,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "low_tech",
+          "label": "Squarespace → migration possible",
+          "strength": "high"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Hospitality & Resto"
     },
     {
       "id": 141,
@@ -1902,6 +2000,49 @@
         }
       ],
       "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 198,
+      "domain": "bistrotdescopains.com",
+      "company": "Bistrotdescopains",
+      "email": null,
+      "phone": null,
+      "tech": "Wix",
+      "perf_mobile": 45,
+      "lcp": "~0.5s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-31",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 58,
+      "temperature": "warm",
+      "icp_category": "hospitality",
+      "brand_quality": 7,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "low_tech",
+          "label": "Wix → migration possible",
+          "strength": "high"
+        }
+      ],
+      "icp_label": "Hospitality & Resto"
     },
     {
       "id": 150,
@@ -3746,6 +3887,92 @@
       "icp_label": "E-commerce Premium"
     },
     {
+      "id": 199,
+      "domain": "jadisnice.fr",
+      "company": "Jadisnice",
+      "email": null,
+      "phone": "09 60 47 68 72",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.5s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-31",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 53,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 200,
+      "domain": "lebistrotdantoine.fr",
+      "company": "Lebistrotdantoine",
+      "email": null,
+      "phone": "03 90 24 93 25",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.8s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-31",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 53,
+      "temperature": "warm",
+      "icp_category": "hospitality",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Hospitality & Resto"
+    },
+    {
       "id": 120,
       "domain": "cartoucirc.fr",
       "company": "Cartoucirc",
@@ -4205,6 +4432,94 @@
       "temperature": "warm",
       "icp_category": "ecommerce_premium",
       "brand_quality": 10,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 185,
+      "domain": "bistrotgourmand.net",
+      "company": "Bistrotgourmand",
+      "email": "reservation@bistrotgourmand.net",
+      "phone": "04 92 14 55 55",
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.5s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Nombreuses images non optimisées"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-31",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 52,
+      "temperature": "warm",
+      "icp_category": "hospitality",
+      "brand_quality": 11,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Hospitality & Resto"
+    },
+    {
+      "id": 186,
+      "domain": "thefork.fr",
+      "company": "Thefork",
+      "email": "contact@thefork.fr",
+      "phone": "07 29 23 46 94",
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.1s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Trop de scripts JavaScript"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-31",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 52,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 14,
       "intent_signals": [
         {
           "type": "low_perf",
@@ -6331,6 +6646,50 @@
       "icp_label": "Mode & Luxe"
     },
     {
+      "id": 197,
+      "domain": "bistropolo.fr",
+      "company": "Bistropolo",
+      "email": null,
+      "phone": "03 88 22 24 30",
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.3s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Trop de scripts JavaScript"
+      ],
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-31",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 47,
+      "temperature": "cold",
+      "icp_category": "hospitality",
+      "brand_quality": 11,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Hospitality & Resto"
+    },
+    {
       "id": 31,
       "domain": "jollia.fr",
       "company": "Jollia",
@@ -6563,6 +6922,120 @@
         }
       ],
       "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 187,
+      "domain": "bim-bistrot.eu",
+      "company": "Bim bistrot",
+      "email": null,
+      "phone": null,
+      "tech": "Custom",
+      "perf_mobile": 35,
+      "lcp": "N/A",
+      "issues": [
+        "Site inaccessible ou lent"
+      ],
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-31",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 46,
+      "temperature": "cold",
+      "icp_category": "hospitality",
+      "brand_quality": 12,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 35/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Hospitality & Resto"
+    },
+    {
+      "id": 188,
+      "domain": "bistrotlegalopin.fr",
+      "company": "Bistrotlegalopin",
+      "email": null,
+      "phone": null,
+      "tech": "Custom",
+      "perf_mobile": 35,
+      "lcp": "N/A",
+      "issues": [
+        "Site inaccessible ou lent"
+      ],
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-31",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 46,
+      "temperature": "cold",
+      "icp_category": "hospitality",
+      "brand_quality": 12,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 35/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Hospitality & Resto"
+    },
+    {
+      "id": 195,
+      "domain": "lebistrotdescocottes.fr",
+      "company": "Lebistrotdescocottes",
+      "email": null,
+      "phone": null,
+      "tech": "Custom",
+      "perf_mobile": 35,
+      "lcp": "N/A",
+      "issues": [
+        "Site inaccessible ou lent"
+      ],
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-31",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 46,
+      "temperature": "cold",
+      "icp_category": "hospitality",
+      "brand_quality": 10,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 35/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Hospitality & Resto"
     },
     {
       "id": 116,
@@ -7297,6 +7770,158 @@
       "icp_label": "E-commerce Premium"
     },
     {
+      "id": 189,
+      "domain": "bistrotsaintgeorges.fr",
+      "company": "Bistrotsaintgeorges",
+      "email": null,
+      "phone": "04 92 04 92 81",
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.4s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 55,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-31",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 41,
+      "temperature": "cold",
+      "icp_category": "hospitality",
+      "brand_quality": 10,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Hospitality & Resto"
+    },
+    {
+      "id": 190,
+      "domain": "bistrotdelopera.fr",
+      "company": "Bistrotdelopera",
+      "email": null,
+      "phone": "04 93 62 34 72",
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.4s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 55,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-31",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 41,
+      "temperature": "cold",
+      "icp_category": "hospitality",
+      "brand_quality": 12,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Hospitality & Resto"
+    },
+    {
+      "id": 191,
+      "domain": "restaurant-le-bistro-dalpozzo-nice.fr",
+      "company": "Restaurant le bistro dalpozzo nice",
+      "email": null,
+      "phone": "06 66 08 83 07",
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.7s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 55,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-31",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 41,
+      "temperature": "cold",
+      "icp_category": "hospitality",
+      "brand_quality": 10,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Hospitality & Resto"
+    },
+    {
+      "id": 192,
+      "domain": "lebistrotdegillou.fr",
+      "company": "Lebistrotdegillou",
+      "email": null,
+      "phone": "04 93 76 84 97",
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.6s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 55,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-31",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 41,
+      "temperature": "cold",
+      "icp_category": "hospitality",
+      "brand_quality": 12,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Hospitality & Resto"
+    },
+    {
       "id": 45,
       "domain": "erase-factory.fr",
       "company": "Erase factory",
@@ -7901,6 +8526,42 @@
         }
       ],
       "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 196,
+      "domain": "nice-artbistro.fr",
+      "company": "Nice artbistro",
+      "email": null,
+      "phone": null,
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.2s (estimé)",
+      "issues": [],
+      "score": 45,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-31",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 33,
+      "temperature": "cold",
+      "icp_category": "hospitality",
+      "brand_quality": 13,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Hospitality & Resto"
     },
     {
       "id": 117,
