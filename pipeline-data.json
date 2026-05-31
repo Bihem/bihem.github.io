@@ -1,24 +1,24 @@
 {
-  "updated_at": "2026-05-31T16:00:51.439686",
+  "updated_at": "2026-05-31T20:01:18.518147",
   "version": "v6",
   "warmup_mode": false,
   "funnel": {
-    "total": 199,
-    "with_email": 44,
-    "with_phone": 114,
+    "total": 216,
+    "with_email": 50,
+    "with_phone": 124,
     "total_emailed": 30,
     "total_replied": 0,
     "total_bounced": 0,
-    "queued": 12,
+    "queued": 18,
     "total_optout": 0,
     "pending": 29
   },
   "sources": [
     {
       "source": "ddg",
-      "n": 188,
-      "with_email": 43,
-      "with_phone": 114,
+      "n": 205,
+      "with_email": 49,
+      "with_phone": 124,
       "total_emailed": 30,
       "replied": 0
     },
@@ -70,18 +70,222 @@
     },
     {
       "date": "2026-05-31",
-      "analyzed": 34,
+      "analyzed": 51,
       "emailed": 2,
       "replied": 0
     }
   ],
   "today": {
-    "analyzed": 34,
-    "with_email": 7,
-    "with_phone": 23,
+    "analyzed": 51,
+    "with_email": 13,
+    "with_phone": 33,
     "emailed": 2
   },
   "recent": [
+    {
+      "domain": "nantes.caliceo.com",
+      "company": "Nantes",
+      "tech": "Custom",
+      "score": 57,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@caliceo.com",
+      "phone": null
+    },
+    {
+      "domain": "la-petite-nantaise.fr",
+      "company": "La petite nantaise",
+      "tech": "Wix",
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "aeterna.fr",
+      "company": "Aeterna",
+      "tech": "WordPress",
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "08 73 90 82 03"
+    },
+    {
+      "domain": "bulle-de-bien-etre.com",
+      "company": "Bulle de bien etre",
+      "tech": "Custom",
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "jm-beaute.fr",
+      "company": "Jm beaute",
+      "tech": "WordPress",
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "02 40 85 12 36"
+    },
+    {
+      "domain": "escalebordeaux.fr",
+      "company": "Escalebordeaux",
+      "tech": "WordPress",
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "08 17 62 29 21"
+    },
+    {
+      "domain": "opulence-bordeaux.com",
+      "company": "Opulence bordeaux",
+      "tech": "Wix",
+      "score": 74,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "ellabeautespa.com",
+      "company": "Ellabeautespa",
+      "tech": "WordPress",
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "06 66 66 66 66"
+    },
+    {
+      "domain": "aquatonic.fr",
+      "company": "Aquatonic",
+      "tech": "Custom",
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "lecomptoirdusoin.com",
+      "company": "Lecomptoirdusoin",
+      "tech": "Custom",
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "bullededoucesheures.fr",
+      "company": "Bullededoucesheures",
+      "tech": "WordPress",
+      "score": 67,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@bullededoucesheures.fr",
+      "phone": "02 40 89 30 50"
+    },
+    {
+      "domain": "treatwell.fr",
+      "company": "Treatwell",
+      "tech": "Custom",
+      "score": 55,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "08 62 44 12 80"
+    },
+    {
+      "domain": "nantes.sites-beaute.fr",
+      "company": "Nantes",
+      "tech": "Custom",
+      "score": 53,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@nantes-beaute.fr",
+      "phone": "05 55 70 04 78"
+    },
+    {
+      "domain": "lavillaclemenceau.com",
+      "company": "Lavillaclemenceau",
+      "tech": "WordPress",
+      "score": 74,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "lavillaclemenceau.bordeaux@orange.fr",
+      "phone": "05 56 52 15 22"
+    },
+    {
+      "domain": "serenity-institut.com",
+      "company": "Serenity institut",
+      "tech": "WordPress",
+      "score": 67,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@serenity-institut.com",
+      "phone": "06 61 22 81 62"
+    },
+    {
+      "domain": "spa-institut-bordeaux.fr",
+      "company": "Spa institut bordeaux",
+      "tech": "Custom",
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "bordeaux.sites-beaute.fr",
+      "company": "Bordeaux",
+      "tech": "Custom",
+      "score": 53,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@bordeaux-beaute.fr",
+      "phone": "05 55 70 04 78"
+    },
     {
       "domain": "lebistrotdantoine.fr",
       "company": "Lebistrotdantoine",
@@ -237,236 +441,32 @@
       "replied": 0,
       "email": null,
       "phone": null
-    },
-    {
-      "domain": "bim-bistrot.eu",
-      "company": "Bim bistrot",
-      "tech": "Custom",
-      "score": 52,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "thefork.fr",
-      "company": "Thefork",
-      "tech": "Custom",
-      "score": 67,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "contact@thefork.fr",
-      "phone": "07 29 23 46 94"
-    },
-    {
-      "domain": "bistrotgourmand.net",
-      "company": "Bistrotgourmand",
-      "tech": "Custom",
-      "score": 67,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "reservation@bistrotgourmand.net",
-      "phone": "04 92 14 55 55"
-    },
-    {
-      "domain": "lilithparis.com",
-      "company": "Lilithparis",
-      "tech": "WordPress",
-      "score": 62,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "05 23 78 14 78"
-    },
-    {
-      "domain": "boutiquekazak.com",
-      "company": "Boutiquekazak",
-      "tech": "WordPress",
-      "score": 62,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "05 04 83 36 02"
-    },
-    {
-      "domain": "labelalyce.com",
-      "company": "Labelalyce",
-      "tech": "WordPress",
-      "score": 69,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "06 37 14 30 87"
-    },
-    {
-      "domain": "morgankirch.fr",
-      "company": "Morgankirch",
-      "tech": "Wix",
-      "score": 74,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "lelablyon.fr",
-      "company": "Lelablyon",
-      "tech": "Shopify",
-      "score": 65,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "01 67 59 52 42"
-    },
-    {
-      "domain": "lesartpenteuses.fr",
-      "company": "Lesartpenteuses",
-      "tech": "Wix",
-      "score": 67,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "lespoupees.com",
-      "company": "Lespoupees",
-      "tech": "Wix",
-      "score": 67,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "rosecarbone.com",
-      "company": "Rosecarbone",
-      "tech": "Wix",
-      "score": 67,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "moreau-lyon.fr",
-      "company": "Moreau lyon",
-      "tech": "Shopify",
-      "score": 63,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "contact@moreau-lyon.fr",
-      "phone": "07 58 35 82 32"
-    },
-    {
-      "domain": "heroines.fr",
-      "company": "Heroines",
-      "tech": "PrestaShop",
-      "score": 66,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "06 71 49 38 11"
-    },
-    {
-      "domain": "rosecarbone.fr",
-      "company": "Rosecarbone",
-      "tech": "Custom",
-      "score": 55,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "09 74 56 03 10"
-    },
-    {
-      "domain": "soi-paris.com",
-      "company": "Soi paris",
-      "tech": "Shopify",
-      "score": 65,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "09 21 74 26 84"
-    },
-    {
-      "domain": "lesroussoeurs.com",
-      "company": "Lesroussoeurs",
-      "tech": "WordPress",
-      "score": 62,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "04 16 27 97 40"
-    },
-    {
-      "domain": "sezane.com",
-      "company": "Sezane",
-      "tech": "Custom",
-      "score": 55,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "02 33 33 33 33"
     }
   ],
   "icp_distribution": [
     {
       "category": "ecommerce_premium",
       "label": "E-commerce Premium",
-      "count": 140,
-      "pct": 70
+      "count": 154,
+      "pct": 71
     },
     {
       "category": "mode_luxe",
       "label": "Mode & Luxe",
       "count": 20,
-      "pct": 10
+      "pct": 9
     },
     {
       "category": "hospitality",
       "label": "Hospitality & Resto",
       "count": 15,
-      "pct": 8
+      "pct": 7
     },
     {
       "category": "skincare_wellness",
       "label": "Skincare & Wellness",
-      "count": 10,
-      "pct": 5
+      "count": 13,
+      "pct": 6
     },
     {
       "category": "cabinet_b2b",
@@ -478,13 +478,13 @@
       "category": "saas_ia",
       "label": "SaaS & IA",
       "count": 3,
-      "pct": 2
+      "pct": 1
     },
     {
       "category": "artisan_createur",
       "label": "Artisan Créateur",
       "count": 3,
-      "pct": 2
+      "pct": 1
     },
     {
       "category": "streetwear_premium",
@@ -501,8 +501,8 @@
   ],
   "temperature": {
     "hot": 1,
-    "warm": 129,
-    "cold": 69,
+    "warm": 138,
+    "cold": 77,
     "avg_ai_score": 52
   }
 }
