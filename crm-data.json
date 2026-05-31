@@ -1,45 +1,45 @@
 {
-  "updated_at": "2026-05-31T16:00:51.451207",
+  "updated_at": "2026-05-31T20:01:18.529259",
   "version": "v6",
   "stats": {
-    "total": 199,
-    "with_email": 44,
-    "with_phone": 114,
-    "queued": 12,
+    "total": 216,
+    "with_email": 50,
+    "with_phone": 124,
+    "queued": 18,
     "emailed": 30,
     "replied": 0,
     "bounced": 0,
     "optout": 0,
-    "no_email": 155,
+    "no_email": 166,
     "hot": 1,
-    "warm": 129,
-    "cold": 69,
+    "warm": 138,
+    "cold": 77,
     "avg_ai_score": 52.0
   },
   "icp_distribution": [
     {
       "category": "ecommerce_premium",
       "label": "E-commerce Premium",
-      "count": 140,
-      "pct": 70
+      "count": 154,
+      "pct": 71
     },
     {
       "category": "mode_luxe",
       "label": "Mode & Luxe",
       "count": 20,
-      "pct": 10
+      "pct": 9
     },
     {
       "category": "hospitality",
       "label": "Hospitality & Resto",
       "count": 15,
-      "pct": 8
+      "pct": 7
     },
     {
       "category": "skincare_wellness",
       "label": "Skincare & Wellness",
-      "count": 10,
-      "pct": 5
+      "count": 13,
+      "pct": 6
     },
     {
       "category": "cabinet_b2b",
@@ -51,13 +51,13 @@
       "category": "artisan_createur",
       "label": "Artisan Créateur",
       "count": 3,
-      "pct": 2
+      "pct": 1
     },
     {
       "category": "saas_ia",
       "label": "SaaS & IA",
       "count": 3,
-      "pct": 2
+      "pct": 1
     },
     {
       "category": "immobilier",
@@ -194,6 +194,46 @@
       "ts": "2026-05-31"
     },
     {
+      "domain": "lavillaclemenceau.com",
+      "company": "Lavillaclemenceau",
+      "signal": "Mobile faible 45/100",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 64,
+      "temperature": "warm",
+      "ts": "2026-05-31"
+    },
+    {
+      "domain": "lavillaclemenceau.com",
+      "company": "Lavillaclemenceau",
+      "signal": "WordPress lent — redesign potentiel",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 64,
+      "temperature": "warm",
+      "ts": "2026-05-31"
+    },
+    {
+      "domain": "opulence-bordeaux.com",
+      "company": "Opulence bordeaux",
+      "signal": "Mobile faible 45/100",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 64,
+      "temperature": "warm",
+      "ts": "2026-05-31"
+    },
+    {
+      "domain": "opulence-bordeaux.com",
+      "company": "Opulence bordeaux",
+      "signal": "Wix → migration possible",
+      "strength": "high",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 64,
+      "temperature": "warm",
+      "ts": "2026-05-31"
+    },
+    {
       "domain": "yemma-friperie.com",
       "company": "Yemma friperie",
       "signal": "Mobile faible 45/100",
@@ -282,46 +322,6 @@
       "ai_score": 64,
       "temperature": "warm",
       "ts": "2026-05-29"
-    },
-    {
-      "domain": "lacageauxfioles.fr",
-      "company": "Lacageauxfioles",
-      "signal": "WordPress lent — redesign potentiel",
-      "strength": "medium",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 64,
-      "temperature": "warm",
-      "ts": "2026-05-29"
-    },
-    {
-      "domain": "madamedoree.com",
-      "company": "Madamedoree",
-      "signal": "Mobile faible 45/100",
-      "strength": "medium",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 64,
-      "temperature": "warm",
-      "ts": "2026-05-28"
-    },
-    {
-      "domain": "madamedoree.com",
-      "company": "Madamedoree",
-      "signal": "WordPress lent — redesign potentiel",
-      "strength": "medium",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 64,
-      "temperature": "warm",
-      "ts": "2026-05-28"
-    },
-    {
-      "domain": "thepurples.com",
-      "company": "Thepurples",
-      "signal": "Mobile faible 45/100",
-      "strength": "medium",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 62,
-      "temperature": "warm",
-      "ts": "2026-05-30"
     }
   ],
   "prospects": [
@@ -585,6 +585,104 @@
       "tech": "Wix",
       "perf_mobile": 45,
       "lcp": "~0.2s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Trop de scripts JavaScript"
+      ],
+      "score": 74,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-31",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 64,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 6,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "low_tech",
+          "label": "Wix → migration possible",
+          "strength": "high"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 204,
+      "domain": "lavillaclemenceau.com",
+      "company": "Lavillaclemenceau",
+      "email": "lavillaclemenceau.bordeaux@orange.fr",
+      "phone": "05 56 52 15 22",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~1.5s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Trop de scripts JavaScript"
+      ],
+      "score": 74,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-31",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 64,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 8,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 211,
+      "domain": "opulence-bordeaux.com",
+      "company": "Opulence bordeaux",
+      "email": null,
+      "phone": null,
+      "tech": "Wix",
+      "perf_mobile": 45,
+      "lcp": "~2.2s (estimé)",
       "issues": [
         "Page lourde, compression absente",
         "Trop de scripts JavaScript"
@@ -2045,6 +2143,92 @@
       "icp_label": "Hospitality & Resto"
     },
     {
+      "id": 203,
+      "domain": "serenity-institut.com",
+      "company": "Serenity institut",
+      "email": "contact@serenity-institut.com",
+      "phone": "06 61 22 81 62",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~1.0s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-31",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 58,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 207,
+      "domain": "bullededoucesheures.fr",
+      "company": "Bullededoucesheures",
+      "email": "contact@bullededoucesheures.fr",
+      "phone": "02 40 89 30 50",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.1s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-31",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 58,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 7,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
       "id": 150,
       "domain": "anne-mai.com",
       "company": "Anne mai",
@@ -2903,6 +3087,49 @@
       "icp_label": "E-commerce Premium"
     },
     {
+      "id": 216,
+      "domain": "la-petite-nantaise.fr",
+      "company": "La petite nantaise",
+      "email": null,
+      "phone": null,
+      "tech": "Wix",
+      "perf_mobile": 45,
+      "lcp": "~0.2s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-31",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 56,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 5,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "low_tech",
+          "label": "Wix → migration possible",
+          "strength": "high"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
       "id": 135,
       "domain": "lrv-ceramique-artisanale.com",
       "company": "Lrv ceramique artisanale",
@@ -3471,6 +3698,92 @@
       "icp_label": "Mode & Luxe"
     },
     {
+      "id": 210,
+      "domain": "ellabeautespa.com",
+      "company": "Ellabeautespa",
+      "email": null,
+      "phone": "06 66 66 66 66",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.8s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-31",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 54,
+      "temperature": "warm",
+      "icp_category": "skincare_wellness",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Skincare & Wellness"
+    },
+    {
+      "id": 215,
+      "domain": "aeterna.fr",
+      "company": "Aeterna",
+      "email": null,
+      "phone": "08 73 90 82 03",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.3s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-31",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 54,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 12,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
       "id": 122,
       "domain": "pmfg.fr",
       "company": "Pmfg",
@@ -3971,6 +4284,92 @@
         }
       ],
       "icp_label": "Hospitality & Resto"
+    },
+    {
+      "id": 212,
+      "domain": "escalebordeaux.fr",
+      "company": "Escalebordeaux",
+      "email": null,
+      "phone": "08 17 62 29 21",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.9s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-31",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 53,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 213,
+      "domain": "jm-beaute.fr",
+      "company": "Jm beaute",
+      "email": null,
+      "phone": "02 40 85 12 36",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.1s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-31",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 53,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
     },
     {
       "id": 120,
@@ -6734,6 +7133,82 @@
       "icp_label": "E-commerce Premium"
     },
     {
+      "id": 202,
+      "domain": "spa-institut-bordeaux.fr",
+      "company": "Spa institut bordeaux",
+      "email": null,
+      "phone": null,
+      "tech": "Custom",
+      "perf_mobile": 35,
+      "lcp": "N/A",
+      "issues": [
+        "Site inaccessible ou lent"
+      ],
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-31",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 47,
+      "temperature": "cold",
+      "icp_category": "skincare_wellness",
+      "brand_quality": 10,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 35/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Skincare & Wellness"
+    },
+    {
+      "id": 208,
+      "domain": "lecomptoirdusoin.com",
+      "company": "Lecomptoirdusoin",
+      "email": null,
+      "phone": null,
+      "tech": "Custom",
+      "perf_mobile": 35,
+      "lcp": "N/A",
+      "issues": [
+        "Site inaccessible ou lent"
+      ],
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-31",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 47,
+      "temperature": "cold",
+      "icp_category": "skincare_wellness",
+      "brand_quality": 12,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 35/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Skincare & Wellness"
+    },
+    {
       "id": 46,
       "domain": "presse-citron.net",
       "company": "Presse citron",
@@ -7038,6 +7513,82 @@
       "icp_label": "Hospitality & Resto"
     },
     {
+      "id": 209,
+      "domain": "aquatonic.fr",
+      "company": "Aquatonic",
+      "email": null,
+      "phone": null,
+      "tech": "Custom",
+      "perf_mobile": 35,
+      "lcp": "N/A",
+      "issues": [
+        "Site inaccessible ou lent"
+      ],
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-31",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 46,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 12,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 35/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 214,
+      "domain": "bulle-de-bien-etre.com",
+      "company": "Bulle de bien etre",
+      "email": null,
+      "phone": null,
+      "tech": "Custom",
+      "perf_mobile": 35,
+      "lcp": "N/A",
+      "issues": [
+        "Site inaccessible ou lent"
+      ],
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-31",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 46,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 10,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 35/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
       "id": 116,
       "domain": "ma-friperie.com",
       "company": "Ma friperie",
@@ -7332,6 +7883,44 @@
       "temperature": "cold",
       "icp_category": "ecommerce_premium",
       "brand_quality": 14,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 217,
+      "domain": "nantes.caliceo.com",
+      "company": "Nantes",
+      "email": "contact@caliceo.com",
+      "phone": null,
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~1.7s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 57,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-31",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 45,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 15,
       "intent_signals": [
         {
           "type": "low_perf",
@@ -7696,6 +8285,42 @@
       "icp_label": "E-commerce Premium"
     },
     {
+      "id": 205,
+      "domain": "nantes.sites-beaute.fr",
+      "company": "Nantes",
+      "email": "contact@nantes-beaute.fr",
+      "phone": "05 55 70 04 78",
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.5s (estimé)",
+      "issues": [],
+      "score": 53,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-31",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 43,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 16,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
       "id": 113,
       "domain": "frippy.co",
       "company": "Frippy",
@@ -7920,6 +8545,44 @@
         }
       ],
       "icp_label": "Hospitality & Resto"
+    },
+    {
+      "id": 206,
+      "domain": "treatwell.fr",
+      "company": "Treatwell",
+      "email": null,
+      "phone": "08 62 44 12 80",
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.3s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 55,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-31",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 41,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 12,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
     },
     {
       "id": 45,
@@ -8148,6 +8811,42 @@
         }
       ],
       "icp_label": "Hospitality & Resto"
+    },
+    {
+      "id": 201,
+      "domain": "bordeaux.sites-beaute.fr",
+      "company": "Bordeaux",
+      "email": "contact@bordeaux-beaute.fr",
+      "phone": "05 55 70 04 78",
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.3s (estimé)",
+      "issues": [],
+      "score": 53,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-05-31",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 41,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 13,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
     },
     {
       "id": 8,
