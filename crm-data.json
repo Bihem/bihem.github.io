@@ -1,39 +1,39 @@
 {
-  "updated_at": "2026-06-01T16:00:41.909827",
+  "updated_at": "2026-06-01T20:01:19.881129",
   "version": "v6",
   "stats": {
-    "total": 243,
-    "with_email": 54,
-    "with_phone": 131,
-    "queued": 14,
+    "total": 263,
+    "with_email": 62,
+    "with_phone": 146,
+    "queued": 22,
     "emailed": 41,
     "replied": 0,
     "bounced": 0,
     "optout": 0,
-    "no_email": 185,
+    "no_email": 197,
     "hot": 1,
-    "warm": 165,
-    "cold": 77,
+    "warm": 179,
+    "cold": 83,
     "avg_ai_score": 52.0
   },
   "icp_distribution": [
     {
       "category": "ecommerce_premium",
       "label": "E-commerce Premium",
-      "count": 182,
-      "pct": 75
-    },
-    {
-      "category": "mode_luxe",
-      "label": "Mode & Luxe",
-      "count": 21,
-      "pct": 9
+      "count": 187,
+      "pct": 71
     },
     {
       "category": "hospitality",
       "label": "Hospitality & Resto",
-      "count": 15,
-      "pct": 6
+      "count": 27,
+      "pct": 10
+    },
+    {
+      "category": "mode_luxe",
+      "label": "Mode & Luxe",
+      "count": 23,
+      "pct": 9
     },
     {
       "category": "skincare_wellness",
@@ -48,15 +48,15 @@
       "pct": 2
     },
     {
-      "category": "artisan_createur",
-      "label": "Artisan Créateur",
+      "category": "immobilier",
+      "label": "Immobilier & Archi",
       "count": 3,
       "pct": 1
     },
     {
-      "category": "immobilier",
-      "label": "Immobilier & Archi",
-      "count": 2,
+      "category": "artisan_createur",
+      "label": "Artisan Créateur",
+      "count": 3,
       "pct": 1
     },
     {
@@ -234,6 +234,46 @@
       "ts": "2026-06-01"
     },
     {
+      "domain": "mrmtraiteur.com",
+      "company": "Mrmtraiteur",
+      "signal": "Mobile faible 45/100",
+      "strength": "medium",
+      "icp_label": "Hospitality & Resto",
+      "ai_score": 64,
+      "temperature": "warm",
+      "ts": "2026-06-01"
+    },
+    {
+      "domain": "mrmtraiteur.com",
+      "company": "Mrmtraiteur",
+      "signal": "WordPress lent — redesign potentiel",
+      "strength": "medium",
+      "icp_label": "Hospitality & Resto",
+      "ai_score": 64,
+      "temperature": "warm",
+      "ts": "2026-06-01"
+    },
+    {
+      "domain": "ohmybrunch.fr",
+      "company": "Ohmybrunch",
+      "signal": "Mobile faible 45/100",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 64,
+      "temperature": "warm",
+      "ts": "2026-06-01"
+    },
+    {
+      "domain": "ohmybrunch.fr",
+      "company": "Ohmybrunch",
+      "signal": "WordPress lent — redesign potentiel",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 64,
+      "temperature": "warm",
+      "ts": "2026-06-01"
+    },
+    {
       "domain": "morgankirch.fr",
       "company": "Morgankirch",
       "signal": "Mobile faible 45/100",
@@ -282,46 +322,6 @@
       "ai_score": 64,
       "temperature": "warm",
       "ts": "2026-05-31"
-    },
-    {
-      "domain": "opulence-bordeaux.com",
-      "company": "Opulence bordeaux",
-      "signal": "Wix → migration possible",
-      "strength": "high",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 64,
-      "temperature": "warm",
-      "ts": "2026-05-31"
-    },
-    {
-      "domain": "yemma-friperie.com",
-      "company": "Yemma friperie",
-      "signal": "Mobile faible 45/100",
-      "strength": "medium",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 64,
-      "temperature": "warm",
-      "ts": "2026-05-30"
-    },
-    {
-      "domain": "yemma-friperie.com",
-      "company": "Yemma friperie",
-      "signal": "Wix → migration possible",
-      "strength": "high",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 64,
-      "temperature": "warm",
-      "ts": "2026-05-30"
-    },
-    {
-      "domain": "obstinnee-ceramique.com",
-      "company": "Obstinnee ceramique",
-      "signal": "Mobile faible 45/100",
-      "strength": "medium",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 64,
-      "temperature": "warm",
-      "ts": "2026-05-30"
     }
   ],
   "prospects": [
@@ -687,6 +687,104 @@
       "issues": [
         "Page lourde, compression absente",
         "Trop de scripts JavaScript"
+      ],
+      "score": 74,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-01",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 64,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 8,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 267,
+      "domain": "mrmtraiteur.com",
+      "company": "Mrmtraiteur",
+      "email": "contact@mrmtraiteur.com",
+      "phone": "01 03 43 35 41",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~1.4s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Trop de scripts JavaScript"
+      ],
+      "score": 74,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-01",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 64,
+      "temperature": "warm",
+      "icp_category": "hospitality",
+      "brand_quality": 8,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Hospitality & Resto"
+    },
+    {
+      "id": 273,
+      "domain": "ohmybrunch.fr",
+      "company": "Ohmybrunch",
+      "email": "nantes@ohmybrunch.fr",
+      "phone": "03 90 14 98 59",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.7s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Nombreuses images non optimisées"
       ],
       "score": 74,
       "source": "ddg",
@@ -1695,6 +1793,55 @@
       "icp_label": "E-commerce Premium"
     },
     {
+      "id": 270,
+      "domain": "lulopie-traiteur.fr",
+      "company": "Lulopie traiteur",
+      "email": null,
+      "phone": "03 09 19 03 12",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.7s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Nombreuses images non optimisées"
+      ],
+      "score": 69,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-01",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 59,
+      "temperature": "warm",
+      "icp_category": "hospitality",
+      "brand_quality": 8,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Hospitality & Resto"
+    },
+    {
       "id": 182,
       "domain": "labelalyce.com",
       "company": "Labelalyce",
@@ -2283,6 +2430,264 @@
         }
       ],
       "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 258,
+      "domain": "dusfourtraiteur.fr",
+      "company": "Dusfourtraiteur",
+      "email": "tori.philippe@dusfourtraiteur.com",
+      "phone": "04 48 48 09 98",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.1s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-01",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 58,
+      "temperature": "warm",
+      "icp_category": "hospitality",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Hospitality & Resto"
+    },
+    {
+      "id": 261,
+      "domain": "andrieux-traiteur.fr",
+      "company": "Andrieux traiteur",
+      "email": "contact@andrieux-traiteur.fr",
+      "phone": "06 79 84 66 75",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.5s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-01",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 58,
+      "temperature": "warm",
+      "icp_category": "hospitality",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Hospitality & Resto"
+    },
+    {
+      "id": 263,
+      "domain": "laprairiemimosa.fr",
+      "company": "Laprairiemimosa",
+      "email": null,
+      "phone": null,
+      "tech": "Wix",
+      "perf_mobile": 45,
+      "lcp": "~0.4s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-01",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 58,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 7,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "low_tech",
+          "label": "Wix → migration possible",
+          "strength": "high"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 264,
+      "domain": "maisonruat-traiteur.com",
+      "company": "Maisonruat traiteur",
+      "email": null,
+      "phone": null,
+      "tech": "Wix",
+      "perf_mobile": 45,
+      "lcp": "~0.5s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-01",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 58,
+      "temperature": "warm",
+      "icp_category": "mode_luxe",
+      "brand_quality": 5,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "low_tech",
+          "label": "Wix → migration possible",
+          "strength": "high"
+        }
+      ],
+      "icp_label": "Mode & Luxe"
+    },
+    {
+      "id": 266,
+      "domain": "effervescence-rennes.fr",
+      "company": "Effervescence rennes",
+      "email": "cs@rennes-internet.com",
+      "phone": "06 24 83 39 07",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.1s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-01",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 58,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 7,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 274,
+      "domain": "mollotraiteur.fr",
+      "company": "Mollotraiteur",
+      "email": null,
+      "phone": null,
+      "tech": "Wix",
+      "perf_mobile": 45,
+      "lcp": "~0.3s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-01",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 58,
+      "temperature": "warm",
+      "icp_category": "hospitality",
+      "brand_quality": 7,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "low_tech",
+          "label": "Wix → migration possible",
+          "strength": "high"
+        }
+      ],
+      "icp_label": "Hospitality & Resto"
     },
     {
       "id": 177,
@@ -3135,6 +3540,49 @@
       "icp_label": "E-commerce Premium"
     },
     {
+      "id": 272,
+      "domain": "agence-evenementielle-innovevents.fr",
+      "company": "Agence evenementielle innovevents",
+      "email": "contact@innov-events.fr",
+      "phone": "09 67 58 00 02",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~1.1s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-01",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 57,
+      "temperature": "warm",
+      "icp_category": "immobilier",
+      "brand_quality": 7,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Immobilier & Archi"
+    },
+    {
       "id": 49,
       "domain": "structuriaconseil.fr",
       "company": "Structuriaconseil",
@@ -3976,6 +4424,49 @@
       "icp_label": "E-commerce Premium"
     },
     {
+      "id": 276,
+      "domain": "maison-dumont.fr",
+      "company": "Maison dumont",
+      "email": null,
+      "phone": "02 99 79 49 23",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~1.1s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-01",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 55,
+      "temperature": "warm",
+      "icp_category": "mode_luxe",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Mode & Luxe"
+    },
+    {
       "id": 133,
       "domain": "ateliermypot.fr",
       "company": "Ateliermypot",
@@ -4774,6 +5265,135 @@
         }
       ],
       "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 260,
+      "domain": "laforgedessaveurs.fr",
+      "company": "Laforgedessaveurs",
+      "email": null,
+      "phone": "06 07 08 06 28",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.1s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-01",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 53,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 268,
+      "domain": "honuatraiteur.fr",
+      "company": "Honuatraiteur",
+      "email": null,
+      "phone": "06 29 90 46 37",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~1.1s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-01",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 53,
+      "temperature": "warm",
+      "icp_category": "hospitality",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Hospitality & Resto"
+    },
+    {
+      "id": 269,
+      "domain": "traiteurlevidence.fr",
+      "company": "Traiteurlevidence",
+      "email": null,
+      "phone": "06 36 44 70 32",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~1.2s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-01",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 53,
+      "temperature": "warm",
+      "icp_category": "hospitality",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Hospitality & Resto"
     },
     {
       "id": 172,
@@ -8272,6 +8892,50 @@
       "icp_label": "E-commerce Premium"
     },
     {
+      "id": 271,
+      "domain": "bretagne-traiteur.com",
+      "company": "Bretagne traiteur",
+      "email": null,
+      "phone": "06 07 22 58 28",
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.4s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Nombreuses images non optimisées"
+      ],
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-01",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 47,
+      "temperature": "cold",
+      "icp_category": "hospitality",
+      "brand_quality": 11,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Hospitality & Resto"
+    },
+    {
       "id": 197,
       "domain": "bistropolo.fr",
       "company": "Bistropolo",
@@ -8436,6 +9100,82 @@
       "icp_label": "Skincare & Wellness"
     },
     {
+      "id": 257,
+      "domain": "traiteurmontpellier.com",
+      "company": "Traiteurmontpellier",
+      "email": "contact@traiteurmontpellier.com",
+      "phone": "06 60 13 05 96",
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.3s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 60,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-01",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 46,
+      "temperature": "cold",
+      "icp_category": "hospitality",
+      "brand_quality": 10,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Hospitality & Resto"
+    },
+    {
+      "id": 265,
+      "domain": "linstantreception.fr",
+      "company": "Linstantreception",
+      "email": "contact@linstantreception.fr",
+      "phone": "04 07 49 85 47",
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.2s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 60,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-01",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 46,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 12,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
       "id": 69,
       "domain": "infoodtruck.fr",
       "company": "Infoodtruck",
@@ -8510,6 +9250,44 @@
         }
       ],
       "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 262,
+      "domain": "monsieurlouistraiteur.fr",
+      "company": "Monsieurlouistraiteur",
+      "email": null,
+      "phone": null,
+      "tech": "Custom",
+      "perf_mobile": 35,
+      "lcp": "N/A",
+      "issues": [
+        "Site inaccessible ou lent"
+      ],
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-01",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 46,
+      "temperature": "cold",
+      "icp_category": "hospitality",
+      "brand_quality": 10,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 35/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Hospitality & Resto"
     },
     {
       "id": 169,
@@ -10230,6 +11008,42 @@
       "icp_label": "E-commerce Premium"
     },
     {
+      "id": 275,
+      "domain": "matto-traiteur-rennes.fr",
+      "company": "Matto traiteur rennes",
+      "email": null,
+      "phone": "02 99 23 16 96",
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.4s (estimé)",
+      "issues": [],
+      "score": 48,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-01",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 36,
+      "temperature": "cold",
+      "icp_category": "hospitality",
+      "brand_quality": 11,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Hospitality & Resto"
+    },
+    {
       "id": 17,
       "domain": "schema.org",
       "company": "Schema",
@@ -10416,6 +11230,42 @@
         }
       ],
       "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 259,
+      "domain": "traiteuremotions.com",
+      "company": "Traiteuremotions",
+      "email": null,
+      "phone": null,
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.1s (estimé)",
+      "issues": [],
+      "score": 45,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-01",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 33,
+      "temperature": "cold",
+      "icp_category": "hospitality",
+      "brand_quality": 13,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Hospitality & Resto"
     },
     {
       "id": 196,
