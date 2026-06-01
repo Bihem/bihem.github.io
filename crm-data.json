@@ -1,39 +1,39 @@
 {
-  "updated_at": "2026-05-31T20:01:18.529259",
+  "updated_at": "2026-06-01T08:11:32.188159",
   "version": "v6",
   "stats": {
-    "total": 216,
-    "with_email": 50,
-    "with_phone": 124,
-    "queued": 18,
-    "emailed": 30,
+    "total": 235,
+    "with_email": 54,
+    "with_phone": 136,
+    "queued": 10,
+    "emailed": 42,
     "replied": 0,
     "bounced": 0,
     "optout": 0,
-    "no_email": 166,
+    "no_email": 181,
     "hot": 1,
-    "warm": 138,
-    "cold": 77,
-    "avg_ai_score": 52.0
+    "warm": 150,
+    "cold": 84,
+    "avg_ai_score": 51.0
   },
   "icp_distribution": [
     {
       "category": "ecommerce_premium",
       "label": "E-commerce Premium",
-      "count": 154,
-      "pct": 71
+      "count": 172,
+      "pct": 73
     },
     {
       "category": "mode_luxe",
       "label": "Mode & Luxe",
-      "count": 20,
+      "count": 21,
       "pct": 9
     },
     {
       "category": "hospitality",
       "label": "Hospitality & Resto",
       "count": 15,
-      "pct": 7
+      "pct": 6
     },
     {
       "category": "skincare_wellness",
@@ -174,6 +174,26 @@
       "ts": "2026-05-30"
     },
     {
+      "domain": "jardin-alice.com",
+      "company": "Jardin alice",
+      "signal": "Mobile faible 45/100",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 64,
+      "temperature": "warm",
+      "ts": "2026-06-01"
+    },
+    {
+      "domain": "jardin-alice.com",
+      "company": "Jardin alice",
+      "signal": "WordPress lent — redesign potentiel",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 64,
+      "temperature": "warm",
+      "ts": "2026-06-01"
+    },
+    {
       "domain": "morgankirch.fr",
       "company": "Morgankirch",
       "signal": "Mobile faible 45/100",
@@ -296,26 +316,6 @@
     {
       "domain": "riveye.fr",
       "company": "Riveye",
-      "signal": "Mobile faible 45/100",
-      "strength": "medium",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 64,
-      "temperature": "warm",
-      "ts": "2026-05-29"
-    },
-    {
-      "domain": "riveye.fr",
-      "company": "Riveye",
-      "signal": "Wix → migration possible",
-      "strength": "high",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 64,
-      "temperature": "warm",
-      "ts": "2026-05-29"
-    },
-    {
-      "domain": "lacageauxfioles.fr",
-      "company": "Lacageauxfioles",
       "signal": "Mobile faible 45/100",
       "strength": "medium",
       "icp_label": "E-commerce Premium",
@@ -395,17 +395,17 @@
       ],
       "score": 80,
       "source": "ddg",
-      "status": "queued",
-      "sequence_step": 0,
-      "variant": null,
+      "status": "emailed_1",
+      "sequence_step": 1,
+      "variant": "B",
       "date_added": "2026-05-31",
-      "date_step1": null,
+      "date_step1": "2026-06-01T08:03:06.904115",
       "date_step2": null,
       "date_step3": null,
       "replied": 0,
       "bounced": 0,
       "notes": null,
-      "next_action": null,
+      "next_action": "2026-06-04",
       "ai_score": 71,
       "temperature": "warm",
       "icp_category": "mode_luxe",
@@ -444,17 +444,17 @@
       ],
       "score": 80,
       "source": "ddg",
-      "status": "queued",
-      "sequence_step": 0,
-      "variant": null,
+      "status": "emailed_1",
+      "sequence_step": 1,
+      "variant": "A",
       "date_added": "2026-05-31",
-      "date_step1": null,
+      "date_step1": "2026-06-01T08:02:20.762638",
       "date_step2": null,
       "date_step3": null,
       "replied": 0,
       "bounced": 0,
       "notes": null,
-      "next_action": null,
+      "next_action": "2026-06-04",
       "ai_score": 69,
       "temperature": "warm",
       "icp_category": "hospitality",
@@ -577,6 +577,55 @@
       "icp_label": "Mode & Luxe"
     },
     {
+      "id": 225,
+      "domain": "jardin-alice.com",
+      "company": "Jardin alice",
+      "email": "contact@jardin-alice.com",
+      "phone": "04 93 51 70 85",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~1.5s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Trop de scripts JavaScript"
+      ],
+      "score": 74,
+      "source": "ddg",
+      "status": "emailed_1",
+      "sequence_step": 1,
+      "variant": "B",
+      "date_added": "2026-06-01",
+      "date_step1": "2026-06-01T08:04:38.837961",
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": "2026-06-04",
+      "ai_score": 64,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 8,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
       "id": 181,
       "domain": "morgankirch.fr",
       "company": "Morgankirch",
@@ -640,17 +689,17 @@
       ],
       "score": 74,
       "source": "ddg",
-      "status": "queued",
-      "sequence_step": 0,
-      "variant": null,
+      "status": "emailed_1",
+      "sequence_step": 1,
+      "variant": "A",
       "date_added": "2026-05-31",
-      "date_step1": null,
+      "date_step1": "2026-06-01T08:03:52.749904",
       "date_step2": null,
       "date_step3": null,
       "replied": 0,
       "bounced": 0,
       "notes": null,
-      "next_action": null,
+      "next_action": "2026-06-04",
       "ai_score": 64,
       "temperature": "warm",
       "icp_category": "ecommerce_premium",
@@ -1971,6 +2020,92 @@
       "icp_label": "Skincare & Wellness"
     },
     {
+      "id": 218,
+      "domain": "openflor.com",
+      "company": "Openflor",
+      "email": "lamb@openflor.com",
+      "phone": "03 20 48 15 15",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.4s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "emailed_1",
+      "sequence_step": 1,
+      "variant": "B",
+      "date_added": "2026-06-01",
+      "date_step1": "2026-06-01T08:10:47.150158",
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": "2026-06-04",
+      "ai_score": 58,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 230,
+      "domain": "un-peu-beaucoup.fr",
+      "company": "Un peu beaucoup",
+      "email": "upbfleuriste@aol.fr",
+      "phone": "04 93 86 67 39",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.3s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-01",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 58,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
       "id": 177,
       "domain": "rosecarbone.com",
       "company": "Rosecarbone",
@@ -2156,17 +2291,17 @@
       ],
       "score": 67,
       "source": "ddg",
-      "status": "queued",
-      "sequence_step": 0,
-      "variant": null,
+      "status": "emailed_1",
+      "sequence_step": 1,
+      "variant": "B",
       "date_added": "2026-05-31",
-      "date_step1": null,
+      "date_step1": "2026-06-01T08:09:14.600006",
       "date_step2": null,
       "date_step3": null,
       "replied": 0,
       "bounced": 0,
       "notes": null,
-      "next_action": null,
+      "next_action": "2026-06-04",
       "ai_score": 58,
       "temperature": "warm",
       "icp_category": "ecommerce_premium",
@@ -2199,17 +2334,17 @@
       ],
       "score": 67,
       "source": "ddg",
-      "status": "queued",
-      "sequence_step": 0,
-      "variant": null,
+      "status": "emailed_1",
+      "sequence_step": 1,
+      "variant": "A",
       "date_added": "2026-05-31",
-      "date_step1": null,
+      "date_step1": "2026-06-01T08:10:01.363073",
       "date_step2": null,
       "date_step3": null,
       "replied": 0,
       "bounced": 0,
       "notes": null,
-      "next_action": null,
+      "next_action": "2026-06-04",
       "ai_score": 58,
       "temperature": "warm",
       "icp_category": "ecommerce_premium",
@@ -2328,17 +2463,17 @@
       ],
       "score": 67,
       "source": "ddg",
-      "status": "queued",
-      "sequence_step": 0,
-      "variant": null,
+      "status": "emailed_1",
+      "sequence_step": 1,
+      "variant": "A",
       "date_added": "2026-05-30",
-      "date_step1": null,
+      "date_step1": "2026-06-01T08:06:56.862180",
       "date_step2": null,
       "date_step3": null,
       "replied": 0,
       "bounced": 0,
       "notes": null,
-      "next_action": null,
+      "next_action": "2026-06-04",
       "ai_score": 58,
       "temperature": "warm",
       "icp_category": "ecommerce_premium",
@@ -3668,17 +3803,17 @@
       ],
       "score": 67,
       "source": "ddg",
-      "status": "queued",
-      "sequence_step": 0,
-      "variant": null,
+      "status": "emailed_1",
+      "sequence_step": 1,
+      "variant": "B",
       "date_added": "2026-05-30",
-      "date_step1": null,
+      "date_step1": "2026-06-01T08:06:10.774814",
       "date_step2": null,
       "date_step3": null,
       "replied": 0,
       "bounced": 0,
       "notes": null,
-      "next_action": null,
+      "next_action": "2026-06-04",
       "ai_score": 54,
       "temperature": "warm",
       "icp_category": "mode_luxe",
@@ -4069,6 +4204,179 @@
         }
       ],
       "icp_label": "Skincare & Wellness"
+    },
+    {
+      "id": 227,
+      "domain": "maison-fiori.com",
+      "company": "Maison fiori",
+      "email": null,
+      "phone": "04 35 18 26 17",
+      "tech": "Shopify",
+      "perf_mobile": 45,
+      "lcp": "~0.5s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Trop de scripts JavaScript"
+      ],
+      "score": 65,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-01",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 53,
+      "temperature": "warm",
+      "icp_category": "mode_luxe",
+      "brand_quality": 10,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Mode & Luxe"
+    },
+    {
+      "id": 228,
+      "domain": "dubouquet.co",
+      "company": "Dubouquet",
+      "email": null,
+      "phone": "03 20 54 40 26",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~1.0s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-01",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 53,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 231,
+      "domain": "ohlesfleurs.com",
+      "company": "Ohlesfleurs",
+      "email": null,
+      "phone": "06 37 90 55 51",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~1.4s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-01",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 53,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 232,
+      "domain": "fleuriste-nice-beafleurs.fr",
+      "company": "Fleuriste nice beafleurs",
+      "email": null,
+      "phone": "07 83 80 55 41",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.7s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-01",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 53,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 7,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
     },
     {
       "id": 172,
@@ -4846,6 +5154,50 @@
       "icp_label": "E-commerce Premium"
     },
     {
+      "id": 226,
+      "domain": "bravifleurs.fr",
+      "company": "Bravifleurs",
+      "email": "contact@bravifleurs.fr",
+      "phone": "09 13 56 95 39",
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.3s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Trop de scripts JavaScript"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-01",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 52,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 11,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
       "id": 185,
       "domain": "bistrotgourmand.net",
       "company": "Bistrotgourmand",
@@ -4860,17 +5212,17 @@
       ],
       "score": 67,
       "source": "ddg",
-      "status": "queued",
-      "sequence_step": 0,
-      "variant": null,
+      "status": "emailed_1",
+      "sequence_step": 1,
+      "variant": "B",
       "date_added": "2026-05-31",
-      "date_step1": null,
+      "date_step1": "2026-06-01T08:07:42.670327",
       "date_step2": null,
       "date_step3": null,
       "replied": 0,
       "bounced": 0,
       "notes": null,
-      "next_action": null,
+      "next_action": "2026-06-04",
       "ai_score": 52,
       "temperature": "warm",
       "icp_category": "hospitality",
@@ -4904,17 +5256,17 @@
       ],
       "score": 67,
       "source": "ddg",
-      "status": "queued",
-      "sequence_step": 0,
-      "variant": null,
+      "status": "emailed_1",
+      "sequence_step": 1,
+      "variant": "A",
       "date_added": "2026-05-31",
-      "date_step1": null,
+      "date_step1": "2026-06-01T08:08:28.888837",
       "date_step2": null,
       "date_step3": null,
       "replied": 0,
       "bounced": 0,
       "notes": null,
-      "next_action": null,
+      "next_action": "2026-06-04",
       "ai_score": 52,
       "temperature": "warm",
       "icp_category": "ecommerce_premium",
@@ -4948,17 +5300,17 @@
       ],
       "score": 67,
       "source": "ddg",
-      "status": "queued",
-      "sequence_step": 0,
-      "variant": null,
+      "status": "emailed_1",
+      "sequence_step": 1,
+      "variant": "A",
       "date_added": "2026-05-30",
-      "date_step1": null,
+      "date_step1": "2026-06-01T08:05:24.589032",
       "date_step2": null,
       "date_step3": null,
       "replied": 0,
       "bounced": 0,
       "notes": null,
-      "next_action": null,
+      "next_action": "2026-06-04",
       "ai_score": 52,
       "temperature": "warm",
       "icp_category": "ecommerce_premium",
@@ -5392,6 +5744,50 @@
           "type": "low_tech",
           "label": "Squarespace → migration possible",
           "strength": "high"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 229,
+      "domain": "lesfleuristes.fr",
+      "company": "Lesfleuristes",
+      "email": null,
+      "phone": "08 41 77 97 15",
+      "tech": "Shopify",
+      "perf_mobile": 45,
+      "lcp": "~0.6s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Trop de scripts JavaScript"
+      ],
+      "score": 65,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-01",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 51,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 10,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
         },
         {
           "type": "some_issues",
@@ -6031,6 +6427,135 @@
         {
           "type": "low_perf",
           "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 234,
+      "domain": "allezlesfleurs.com",
+      "company": "Allezlesfleurs",
+      "email": null,
+      "phone": null,
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~1.7s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 59,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-01",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 50,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 235,
+      "domain": "au-paillon-fleuri.com",
+      "company": "Au paillon fleuri",
+      "email": null,
+      "phone": null,
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.9s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 59,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-01",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 50,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 236,
+      "domain": "mado-fleurs.fr",
+      "company": "Mado fleurs",
+      "email": null,
+      "phone": null,
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.1s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 59,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-01",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 50,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
           "strength": "medium"
         }
       ],
@@ -7045,6 +7570,50 @@
       "icp_label": "Mode & Luxe"
     },
     {
+      "id": 222,
+      "domain": "fleuride-lille.fr",
+      "company": "Fleuride lille",
+      "email": null,
+      "phone": "03 20 06 00 22",
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.3s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Nombreuses images non optimisées"
+      ],
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-01",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 47,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 11,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
       "id": 197,
       "domain": "bistropolo.fr",
       "company": "Bistropolo",
@@ -7969,6 +8538,50 @@
       "icp_label": "Immobilier & Archi"
     },
     {
+      "id": 223,
+      "domain": "blooms.fr",
+      "company": "Blooms",
+      "email": null,
+      "phone": null,
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.3s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Nombreuses images non optimisées"
+      ],
+      "score": 59,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-01",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 44,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 14,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
       "id": 48,
       "domain": "mode-consciente.fr",
       "company": "Mode consciente",
@@ -8347,6 +8960,44 @@
       "temperature": "cold",
       "icp_category": "ecommerce_premium",
       "brand_quality": 16,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 224,
+      "domain": "thomasbouilhol.fr",
+      "company": "Thomasbouilhol",
+      "email": null,
+      "phone": "06 64 06 24 22",
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.2s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 55,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-01",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 41,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 12,
       "intent_signals": [
         {
           "type": "low_perf",
@@ -9147,6 +9798,42 @@
       "icp_label": "E-commerce Premium"
     },
     {
+      "id": 219,
+      "domain": "lille-fleurs.com",
+      "company": "Lille fleurs",
+      "email": null,
+      "phone": "03 20 06 97 62",
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.1s (estimé)",
+      "issues": [],
+      "score": 48,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-01",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 36,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 13,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
       "id": 17,
       "domain": "schema.org",
       "company": "Schema",
@@ -9221,6 +9908,114 @@
         {
           "type": "some_issues",
           "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 220,
+      "domain": "dorothy-rose.pro",
+      "company": "Dorothy rose",
+      "email": null,
+      "phone": null,
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.1s (estimé)",
+      "issues": [],
+      "score": 45,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-01",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 33,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 13,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 221,
+      "domain": "mafleuriste.net",
+      "company": "Mafleuriste",
+      "email": null,
+      "phone": null,
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.2s (estimé)",
+      "issues": [],
+      "score": 45,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-01",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 33,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 13,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 233,
+      "domain": "lesfleursdumondenice.fr",
+      "company": "Lesfleursdumondenice",
+      "email": null,
+      "phone": null,
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.1s (estimé)",
+      "issues": [],
+      "score": 45,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-01",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 33,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 11,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
           "strength": "medium"
         }
       ],
