@@ -1,25 +1,25 @@
 {
-  "updated_at": "2026-05-31T20:01:18.518147",
+  "updated_at": "2026-06-01T08:11:32.175490",
   "version": "v6",
   "warmup_mode": false,
   "funnel": {
-    "total": 216,
-    "with_email": 50,
-    "with_phone": 124,
-    "total_emailed": 30,
+    "total": 235,
+    "with_email": 54,
+    "with_phone": 136,
+    "total_emailed": 42,
     "total_replied": 0,
     "total_bounced": 0,
-    "queued": 18,
+    "queued": 10,
     "total_optout": 0,
-    "pending": 29
+    "pending": 41
   },
   "sources": [
     {
       "source": "ddg",
-      "n": 205,
-      "with_email": 49,
-      "with_phone": 124,
-      "total_emailed": 30,
+      "n": 224,
+      "with_email": 53,
+      "with_phone": 136,
+      "total_emailed": 42,
       "replied": 0
     },
     {
@@ -41,11 +41,11 @@
   ],
   "ab_test": {
     "A": {
-      "sent": 16,
+      "sent": 22,
       "replied": 0
     },
     "B": {
-      "sent": 14,
+      "sent": 20,
       "replied": 0
     }
   },
@@ -65,23 +65,257 @@
     {
       "date": "2026-05-30",
       "analyzed": 54,
-      "emailed": 8,
+      "emailed": 11,
       "replied": 0
     },
     {
       "date": "2026-05-31",
       "analyzed": 51,
+      "emailed": 9,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-01",
+      "analyzed": 19,
       "emailed": 2,
       "replied": 0
     }
   ],
   "today": {
-    "analyzed": 51,
-    "with_email": 13,
-    "with_phone": 33,
+    "analyzed": 19,
+    "with_email": 4,
+    "with_phone": 12,
     "emailed": 2
   },
   "recent": [
+    {
+      "domain": "mado-fleurs.fr",
+      "company": "Mado fleurs",
+      "tech": "WordPress",
+      "score": 59,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "au-paillon-fleuri.com",
+      "company": "Au paillon fleuri",
+      "tech": "WordPress",
+      "score": 59,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "allezlesfleurs.com",
+      "company": "Allezlesfleurs",
+      "tech": "WordPress",
+      "score": 59,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "lesfleursdumondenice.fr",
+      "company": "Lesfleursdumondenice",
+      "tech": "Custom",
+      "score": 45,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "fleuriste-nice-beafleurs.fr",
+      "company": "Fleuriste nice beafleurs",
+      "tech": "WordPress",
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "07 83 80 55 41"
+    },
+    {
+      "domain": "ohlesfleurs.com",
+      "company": "Ohlesfleurs",
+      "tech": "WordPress",
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "06 37 90 55 51"
+    },
+    {
+      "domain": "un-peu-beaucoup.fr",
+      "company": "Un peu beaucoup",
+      "tech": "WordPress",
+      "score": 67,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "upbfleuriste@aol.fr",
+      "phone": "04 93 86 67 39"
+    },
+    {
+      "domain": "lesfleuristes.fr",
+      "company": "Lesfleuristes",
+      "tech": "Shopify",
+      "score": 65,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "08 41 77 97 15"
+    },
+    {
+      "domain": "dubouquet.co",
+      "company": "Dubouquet",
+      "tech": "WordPress",
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "03 20 54 40 26"
+    },
+    {
+      "domain": "maison-fiori.com",
+      "company": "Maison fiori",
+      "tech": "Shopify",
+      "score": 65,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "04 35 18 26 17"
+    },
+    {
+      "domain": "bravifleurs.fr",
+      "company": "Bravifleurs",
+      "tech": "Custom",
+      "score": 67,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@bravifleurs.fr",
+      "phone": "09 13 56 95 39"
+    },
+    {
+      "domain": "jardin-alice.com",
+      "company": "Jardin alice",
+      "tech": "WordPress",
+      "score": 74,
+      "source": "ddg",
+      "status": "emailed_1",
+      "date_step1": "2026-06-01T08:04:38.837961",
+      "replied": 0,
+      "email": "contact@jardin-alice.com",
+      "phone": "04 93 51 70 85"
+    },
+    {
+      "domain": "thomasbouilhol.fr",
+      "company": "Thomasbouilhol",
+      "tech": "Custom",
+      "score": 55,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "06 64 06 24 22"
+    },
+    {
+      "domain": "blooms.fr",
+      "company": "Blooms",
+      "tech": "Custom",
+      "score": 59,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "fleuride-lille.fr",
+      "company": "Fleuride lille",
+      "tech": "Custom",
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "03 20 06 00 22"
+    },
+    {
+      "domain": "mafleuriste.net",
+      "company": "Mafleuriste",
+      "tech": "Custom",
+      "score": 45,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "dorothy-rose.pro",
+      "company": "Dorothy rose",
+      "tech": "Custom",
+      "score": 45,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "lille-fleurs.com",
+      "company": "Lille fleurs",
+      "tech": "Custom",
+      "score": 48,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "03 20 06 97 62"
+    },
+    {
+      "domain": "openflor.com",
+      "company": "Openflor",
+      "tech": "WordPress",
+      "score": 67,
+      "source": "ddg",
+      "status": "emailed_1",
+      "date_step1": "2026-06-01T08:10:47.150158",
+      "replied": 0,
+      "email": "lamb@openflor.com",
+      "phone": "03 20 48 15 15"
+    },
     {
       "domain": "nantes.caliceo.com",
       "company": "Nantes",
@@ -208,259 +442,31 @@
       "tech": "WordPress",
       "score": 67,
       "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
+      "status": "emailed_1",
+      "date_step1": "2026-06-01T08:10:01.363073",
       "replied": 0,
       "email": "contact@bullededoucesheures.fr",
       "phone": "02 40 89 30 50"
-    },
-    {
-      "domain": "treatwell.fr",
-      "company": "Treatwell",
-      "tech": "Custom",
-      "score": 55,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "08 62 44 12 80"
-    },
-    {
-      "domain": "nantes.sites-beaute.fr",
-      "company": "Nantes",
-      "tech": "Custom",
-      "score": 53,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "contact@nantes-beaute.fr",
-      "phone": "05 55 70 04 78"
-    },
-    {
-      "domain": "lavillaclemenceau.com",
-      "company": "Lavillaclemenceau",
-      "tech": "WordPress",
-      "score": 74,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "lavillaclemenceau.bordeaux@orange.fr",
-      "phone": "05 56 52 15 22"
-    },
-    {
-      "domain": "serenity-institut.com",
-      "company": "Serenity institut",
-      "tech": "WordPress",
-      "score": 67,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "contact@serenity-institut.com",
-      "phone": "06 61 22 81 62"
-    },
-    {
-      "domain": "spa-institut-bordeaux.fr",
-      "company": "Spa institut bordeaux",
-      "tech": "Custom",
-      "score": 52,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "bordeaux.sites-beaute.fr",
-      "company": "Bordeaux",
-      "tech": "Custom",
-      "score": 53,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "contact@bordeaux-beaute.fr",
-      "phone": "05 55 70 04 78"
-    },
-    {
-      "domain": "lebistrotdantoine.fr",
-      "company": "Lebistrotdantoine",
-      "tech": "WordPress",
-      "score": 62,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "03 90 24 93 25"
-    },
-    {
-      "domain": "jadisnice.fr",
-      "company": "Jadisnice",
-      "tech": "WordPress",
-      "score": 62,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "09 60 47 68 72"
-    },
-    {
-      "domain": "bistrotdescopains.com",
-      "company": "Bistrotdescopains",
-      "tech": "Wix",
-      "score": 67,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "bistropolo.fr",
-      "company": "Bistropolo",
-      "tech": "Custom",
-      "score": 62,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "03 88 22 24 30"
-    },
-    {
-      "domain": "nice-artbistro.fr",
-      "company": "Nice artbistro",
-      "tech": "Custom",
-      "score": 45,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "lebistrotdescocottes.fr",
-      "company": "Lebistrotdescocottes",
-      "tech": "Custom",
-      "score": 52,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "maison-kammerzell.com",
-      "company": "Maison kammerzell",
-      "tech": "Squarespace",
-      "score": 80,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "utilisateur@domaine.com",
-      "phone": "09 89 41 06 16"
-    },
-    {
-      "domain": "bistrot-coco.fr",
-      "company": "Bistrot coco",
-      "tech": "Squarespace",
-      "score": 80,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "utilisateur@domaine.com",
-      "phone": "04 59 11 31 91"
-    },
-    {
-      "domain": "lebistrotdegillou.fr",
-      "company": "Lebistrotdegillou",
-      "tech": "Custom",
-      "score": 55,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "04 93 76 84 97"
-    },
-    {
-      "domain": "restaurant-le-bistro-dalpozzo-nice.fr",
-      "company": "Restaurant le bistro dalpozzo nice",
-      "tech": "Custom",
-      "score": 55,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "06 66 08 83 07"
-    },
-    {
-      "domain": "bistrotdelopera.fr",
-      "company": "Bistrotdelopera",
-      "tech": "Custom",
-      "score": 55,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "04 93 62 34 72"
-    },
-    {
-      "domain": "bistrotsaintgeorges.fr",
-      "company": "Bistrotsaintgeorges",
-      "tech": "Custom",
-      "score": 55,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "04 92 04 92 81"
-    },
-    {
-      "domain": "bistrotlegalopin.fr",
-      "company": "Bistrotlegalopin",
-      "tech": "Custom",
-      "score": 52,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
     }
   ],
   "icp_distribution": [
     {
       "category": "ecommerce_premium",
       "label": "E-commerce Premium",
-      "count": 154,
-      "pct": 71
+      "count": 172,
+      "pct": 73
     },
     {
       "category": "mode_luxe",
       "label": "Mode & Luxe",
-      "count": 20,
+      "count": 21,
       "pct": 9
     },
     {
       "category": "hospitality",
       "label": "Hospitality & Resto",
       "count": 15,
-      "pct": 7
+      "pct": 6
     },
     {
       "category": "skincare_wellness",
@@ -501,8 +507,8 @@
   ],
   "temperature": {
     "hot": 1,
-    "warm": 138,
-    "cold": 77,
-    "avg_ai_score": 52
+    "warm": 150,
+    "cold": 84,
+    "avg_ai_score": 51
   }
 }
