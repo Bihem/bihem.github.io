@@ -1,24 +1,24 @@
 {
-  "updated_at": "2026-06-01T16:00:41.901180",
+  "updated_at": "2026-06-01T20:01:19.871946",
   "version": "v6",
   "warmup_mode": false,
   "funnel": {
-    "total": 243,
-    "with_email": 54,
-    "with_phone": 131,
+    "total": 263,
+    "with_email": 62,
+    "with_phone": 146,
     "total_emailed": 41,
     "total_replied": 0,
     "total_bounced": 0,
-    "queued": 14,
+    "queued": 22,
     "total_optout": 0,
     "pending": 40
   },
   "sources": [
     {
       "source": "ddg",
-      "n": 232,
-      "with_email": 53,
-      "with_phone": 131,
+      "n": 252,
+      "with_email": 61,
+      "with_phone": 146,
       "total_emailed": 41,
       "replied": 0
     },
@@ -76,18 +76,258 @@
     },
     {
       "date": "2026-06-01",
-      "analyzed": 39,
+      "analyzed": 59,
       "emailed": 2,
       "replied": 0
     }
   ],
   "today": {
-    "analyzed": 39,
-    "with_email": 12,
-    "with_phone": 27,
+    "analyzed": 59,
+    "with_email": 20,
+    "with_phone": 42,
     "emailed": 2
   },
   "recent": [
+    {
+      "domain": "maison-dumont.fr",
+      "company": "Maison dumont",
+      "tech": "WordPress",
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "02 99 79 49 23"
+    },
+    {
+      "domain": "matto-traiteur-rennes.fr",
+      "company": "Matto traiteur rennes",
+      "tech": "Custom",
+      "score": 48,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "02 99 23 16 96"
+    },
+    {
+      "domain": "mollotraiteur.fr",
+      "company": "Mollotraiteur",
+      "tech": "Wix",
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "ohmybrunch.fr",
+      "company": "Ohmybrunch",
+      "tech": "WordPress",
+      "score": 74,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "nantes@ohmybrunch.fr",
+      "phone": "03 90 14 98 59"
+    },
+    {
+      "domain": "agence-evenementielle-innovevents.fr",
+      "company": "Agence evenementielle innovevents",
+      "tech": "WordPress",
+      "score": 67,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@innov-events.fr",
+      "phone": "09 67 58 00 02"
+    },
+    {
+      "domain": "bretagne-traiteur.com",
+      "company": "Bretagne traiteur",
+      "tech": "Custom",
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "06 07 22 58 28"
+    },
+    {
+      "domain": "lulopie-traiteur.fr",
+      "company": "Lulopie traiteur",
+      "tech": "WordPress",
+      "score": 69,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "03 09 19 03 12"
+    },
+    {
+      "domain": "traiteurlevidence.fr",
+      "company": "Traiteurlevidence",
+      "tech": "WordPress",
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "06 36 44 70 32"
+    },
+    {
+      "domain": "honuatraiteur.fr",
+      "company": "Honuatraiteur",
+      "tech": "WordPress",
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "06 29 90 46 37"
+    },
+    {
+      "domain": "mrmtraiteur.com",
+      "company": "Mrmtraiteur",
+      "tech": "WordPress",
+      "score": 74,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@mrmtraiteur.com",
+      "phone": "01 03 43 35 41"
+    },
+    {
+      "domain": "effervescence-rennes.fr",
+      "company": "Effervescence rennes",
+      "tech": "WordPress",
+      "score": 67,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "cs@rennes-internet.com",
+      "phone": "06 24 83 39 07"
+    },
+    {
+      "domain": "linstantreception.fr",
+      "company": "Linstantreception",
+      "tech": "Custom",
+      "score": 60,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@linstantreception.fr",
+      "phone": "04 07 49 85 47"
+    },
+    {
+      "domain": "maisonruat-traiteur.com",
+      "company": "Maisonruat traiteur",
+      "tech": "Wix",
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "laprairiemimosa.fr",
+      "company": "Laprairiemimosa",
+      "tech": "Wix",
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "monsieurlouistraiteur.fr",
+      "company": "Monsieurlouistraiteur",
+      "tech": "Custom",
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "andrieux-traiteur.fr",
+      "company": "Andrieux traiteur",
+      "tech": "WordPress",
+      "score": 67,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@andrieux-traiteur.fr",
+      "phone": "06 79 84 66 75"
+    },
+    {
+      "domain": "laforgedessaveurs.fr",
+      "company": "Laforgedessaveurs",
+      "tech": "WordPress",
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "06 07 08 06 28"
+    },
+    {
+      "domain": "traiteuremotions.com",
+      "company": "Traiteuremotions",
+      "tech": "Custom",
+      "score": 45,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "dusfourtraiteur.fr",
+      "company": "Dusfourtraiteur",
+      "tech": "WordPress",
+      "score": 67,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "tori.philippe@dusfourtraiteur.com",
+      "phone": "04 48 48 09 98"
+    },
+    {
+      "domain": "traiteurmontpellier.com",
+      "company": "Traiteurmontpellier",
+      "tech": "Custom",
+      "score": 60,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@traiteurmontpellier.com",
+      "phone": "06 60 13 05 96"
+    },
     {
       "domain": "personadesign.fr",
       "company": "Personadesign",
@@ -207,266 +447,26 @@
       "replied": 0,
       "email": null,
       "phone": "07 76 35 20 71"
-    },
-    {
-      "domain": "sophieferjani.com",
-      "company": "Sophieferjani",
-      "tech": "WordPress",
-      "score": 74,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "contact@sophieferjani.com",
-      "phone": "04 91 19 04 09"
-    },
-    {
-      "domain": "lecubebordeaux.com",
-      "company": "Lecubebordeaux",
-      "tech": "WordPress",
-      "score": 67,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "contact@lecubebordeaux.com",
-      "phone": "07 81 51 36 63"
-    },
-    {
-      "domain": "theshopmarseille.fr",
-      "company": "Theshopmarseille",
-      "tech": "WordPress",
-      "score": 62,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "04 84 26 33 91"
-    },
-    {
-      "domain": "ame-bordeaux.fr",
-      "company": "Ame bordeaux",
-      "tech": "Shopify",
-      "score": 70,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "contact@ame-bordeaux.fr",
-      "phone": "04 41 77 06 54"
-    },
-    {
-      "domain": "lornithorynque.fr",
-      "company": "Lornithorynque",
-      "tech": "WordPress",
-      "score": 76,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "09 12 50 30 54"
-    },
-    {
-      "domain": "honoredeco.shop",
-      "company": "Honoredeco",
-      "tech": "Shopify",
-      "score": 65,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "09 34 43 11 20"
-    },
-    {
-      "domain": "bluemadone.com",
-      "company": "Bluemadone",
-      "tech": "WordPress",
-      "score": 64,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "mathilde@bluemadone.com",
-      "phone": null
-    },
-    {
-      "domain": "lebonbon.fr",
-      "company": "Lebonbon",
-      "tech": "Custom",
-      "score": 60,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "hello@lebonbon.fr",
-      "phone": "08 93 19 47 11"
-    },
-    {
-      "domain": "byambroisine.fr",
-      "company": "Byambroisine",
-      "tech": "Shopify",
-      "score": 70,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "contact@byambroisine.fr",
-      "phone": "03 28 56 48 78"
-    },
-    {
-      "domain": "la-selection.fr",
-      "company": "La selection",
-      "tech": "Shopify",
-      "score": 70,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "info@stagheaddesigns.com",
-      "phone": "05 77 01 41 66"
-    },
-    {
-      "domain": "mado-fleurs.fr",
-      "company": "Mado fleurs",
-      "tech": "WordPress",
-      "score": 59,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "au-paillon-fleuri.com",
-      "company": "Au paillon fleuri",
-      "tech": "WordPress",
-      "score": 59,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "allezlesfleurs.com",
-      "company": "Allezlesfleurs",
-      "tech": "WordPress",
-      "score": 59,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "lesfleursdumondenice.fr",
-      "company": "Lesfleursdumondenice",
-      "tech": "Custom",
-      "score": 45,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "fleuriste-nice-beafleurs.fr",
-      "company": "Fleuriste nice beafleurs",
-      "tech": "WordPress",
-      "score": 62,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "07 83 80 55 41"
-    },
-    {
-      "domain": "ohlesfleurs.com",
-      "company": "Ohlesfleurs",
-      "tech": "WordPress",
-      "score": 62,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "06 37 90 55 51"
-    },
-    {
-      "domain": "un-peu-beaucoup.fr",
-      "company": "Un peu beaucoup",
-      "tech": "WordPress",
-      "score": 67,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "upbfleuriste@aol.fr",
-      "phone": "04 93 86 67 39"
-    },
-    {
-      "domain": "lesfleuristes.fr",
-      "company": "Lesfleuristes",
-      "tech": "Shopify",
-      "score": 65,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "08 41 77 97 15"
-    },
-    {
-      "domain": "dubouquet.co",
-      "company": "Dubouquet",
-      "tech": "WordPress",
-      "score": 62,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "03 20 54 40 26"
-    },
-    {
-      "domain": "maison-fiori.com",
-      "company": "Maison fiori",
-      "tech": "Shopify",
-      "score": 65,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "04 35 18 26 17"
     }
   ],
   "icp_distribution": [
     {
       "category": "ecommerce_premium",
       "label": "E-commerce Premium",
-      "count": 182,
-      "pct": 75
-    },
-    {
-      "category": "mode_luxe",
-      "label": "Mode & Luxe",
-      "count": 21,
-      "pct": 9
+      "count": 187,
+      "pct": 71
     },
     {
       "category": "hospitality",
       "label": "Hospitality & Resto",
-      "count": 15,
-      "pct": 6
+      "count": 27,
+      "pct": 10
+    },
+    {
+      "category": "mode_luxe",
+      "label": "Mode & Luxe",
+      "count": 23,
+      "pct": 9
     },
     {
       "category": "skincare_wellness",
@@ -479,6 +479,12 @@
       "label": "Cabinet B2B",
       "count": 4,
       "pct": 2
+    },
+    {
+      "category": "immobilier",
+      "label": "Immobilier & Archi",
+      "count": 3,
+      "pct": 1
     },
     {
       "category": "artisan_createur",
@@ -497,18 +503,12 @@
       "label": "SaaS & IA",
       "count": 2,
       "pct": 1
-    },
-    {
-      "category": "immobilier",
-      "label": "Immobilier & Archi",
-      "count": 2,
-      "pct": 1
     }
   ],
   "temperature": {
     "hot": 1,
-    "warm": 165,
-    "cold": 77,
+    "warm": 179,
+    "cold": 83,
     "avg_ai_score": 52
   }
 }
