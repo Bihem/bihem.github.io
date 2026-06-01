@@ -1,25 +1,25 @@
 {
-  "updated_at": "2026-06-01T08:11:32.175490",
+  "updated_at": "2026-06-01T10:07:28.957967",
   "version": "v6",
   "warmup_mode": false,
   "funnel": {
-    "total": 235,
-    "with_email": 54,
-    "with_phone": 136,
-    "total_emailed": 42,
+    "total": 223,
+    "with_email": 46,
+    "with_phone": 116,
+    "total_emailed": 41,
     "total_replied": 0,
     "total_bounced": 0,
-    "queued": 10,
+    "queued": 6,
     "total_optout": 0,
-    "pending": 41
+    "pending": 40
   },
   "sources": [
     {
       "source": "ddg",
-      "n": 224,
-      "with_email": 53,
-      "with_phone": 136,
-      "total_emailed": 42,
+      "n": 212,
+      "with_email": 45,
+      "with_phone": 116,
+      "total_emailed": 41,
       "replied": 0
     },
     {
@@ -41,7 +41,7 @@
   ],
   "ab_test": {
     "A": {
-      "sent": 22,
+      "sent": 21,
       "replied": 0
     },
     "B": {
@@ -52,25 +52,25 @@
   "daily_trend": [
     {
       "date": "2026-05-28",
-      "analyzed": 39,
+      "analyzed": 37,
       "emailed": 6,
       "replied": 0
     },
     {
       "date": "2026-05-29",
-      "analyzed": 72,
-      "emailed": 14,
+      "analyzed": 67,
+      "emailed": 13,
       "replied": 0
     },
     {
       "date": "2026-05-30",
-      "analyzed": 54,
+      "analyzed": 52,
       "emailed": 11,
       "replied": 0
     },
     {
       "date": "2026-05-31",
-      "analyzed": 51,
+      "analyzed": 48,
       "emailed": 9,
       "replied": 0
     },
@@ -317,18 +317,6 @@
       "phone": "03 20 48 15 15"
     },
     {
-      "domain": "nantes.caliceo.com",
-      "company": "Nantes",
-      "tech": "Custom",
-      "score": 57,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "contact@caliceo.com",
-      "phone": null
-    },
-    {
       "domain": "la-petite-nantaise.fr",
       "company": "La petite nantaise",
       "tech": "Wix",
@@ -350,7 +338,7 @@
       "date_step1": null,
       "replied": 0,
       "email": null,
-      "phone": "08 73 90 82 03"
+      "phone": ""
     },
     {
       "domain": "bulle-de-bien-etre.com",
@@ -410,7 +398,7 @@
       "date_step1": null,
       "replied": 0,
       "email": null,
-      "phone": "06 66 66 66 66"
+      "phone": ""
     },
     {
       "domain": "aquatonic.fr",
@@ -447,13 +435,25 @@
       "replied": 0,
       "email": "contact@bullededoucesheures.fr",
       "phone": "02 40 89 30 50"
+    },
+    {
+      "domain": "treatwell.fr",
+      "company": "Treatwell",
+      "tech": "Custom",
+      "score": 55,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "08 62 44 12 80"
     }
   ],
   "icp_distribution": [
     {
       "category": "ecommerce_premium",
       "label": "E-commerce Premium",
-      "count": 172,
+      "count": 162,
       "pct": 73
     },
     {
@@ -466,25 +466,19 @@
       "category": "hospitality",
       "label": "Hospitality & Resto",
       "count": 15,
-      "pct": 6
+      "pct": 7
     },
     {
       "category": "skincare_wellness",
       "label": "Skincare & Wellness",
-      "count": 13,
-      "pct": 6
+      "count": 12,
+      "pct": 5
     },
     {
       "category": "cabinet_b2b",
       "label": "Cabinet B2B",
       "count": 4,
       "pct": 2
-    },
-    {
-      "category": "saas_ia",
-      "label": "SaaS & IA",
-      "count": 3,
-      "pct": 1
     },
     {
       "category": "artisan_createur",
@@ -499,6 +493,12 @@
       "pct": 1
     },
     {
+      "category": "saas_ia",
+      "label": "SaaS & IA",
+      "count": 2,
+      "pct": 1
+    },
+    {
       "category": "immobilier",
       "label": "Immobilier & Archi",
       "count": 2,
@@ -507,8 +507,8 @@
   ],
   "temperature": {
     "hot": 1,
-    "warm": 150,
-    "cold": 84,
-    "avg_ai_score": 51
+    "warm": 146,
+    "cold": 76,
+    "avg_ai_score": 52
   }
 }
