@@ -1,42 +1,42 @@
 {
-  "updated_at": "2026-06-01T09:00:16.012905",
+  "updated_at": "2026-06-01T15:02:51.394741",
   "version": "sb-v1",
   "product": "StudioBooking",
   "warmup_mode": true,
   "funnel": {
-    "total": 42,
-    "with_email": 14,
-    "with_phone": 31,
-    "total_emailed": 14,
+    "total": 47,
+    "with_email": 16,
+    "with_phone": 35,
+    "total_emailed": 16,
     "total_replied": 0,
     "total_bounced": 2,
     "queued": 0,
-    "hot_opps": 13,
-    "manual_bookings": 9
+    "hot_opps": 15,
+    "manual_bookings": 10
   },
   "sources": [
     {
       "source": "ddg",
-      "n": 26,
-      "with_email": 11,
-      "total_emailed": 11,
+      "n": 29,
+      "with_email": 12,
+      "total_emailed": 12,
       "replied": 0
     },
     {
       "source": "gmaps",
-      "n": 16,
-      "with_email": 3,
-      "total_emailed": 3,
+      "n": 18,
+      "with_email": 4,
+      "total_emailed": 4,
       "replied": 0
     }
   ],
   "ab_test": {
     "A": {
-      "sent": 8,
+      "sent": 9,
       "replied": 0
     },
     "B": {
-      "sent": 6,
+      "sent": 7,
       "replied": 0
     }
   },
@@ -64,38 +64,44 @@
       "analyzed": 12,
       "emailed": 2,
       "replied": 0
+    },
+    {
+      "date": "2026-06-01",
+      "analyzed": 5,
+      "emailed": 2,
+      "replied": 0
     }
   ],
   "temperature": {
-    "hot": 16,
-    "warm": 13,
-    "cold": 13,
-    "avg_score": 57
+    "hot": 18,
+    "warm": 15,
+    "cold": 14,
+    "avg_score": 58
   },
   "icp_distribution": [
     {
       "category": "autre_studio",
       "label": "Autre Studio",
-      "count": 21,
-      "pct": 50
+      "count": 24,
+      "pct": 51
     },
     {
       "category": "enregistrement",
       "label": "Studio d'Enregistrement",
-      "count": 16,
+      "count": 18,
       "pct": 38
     },
     {
       "category": "repetition",
       "label": "Studio de Répétition",
       "count": 3,
-      "pct": 7
+      "pct": 6
     },
     {
       "category": "smac_venue",
       "label": "SMAC / Salle de Spectacle",
       "count": 2,
-      "pct": 5
+      "pct": 4
     }
   ]
 }
