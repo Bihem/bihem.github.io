@@ -1,33 +1,33 @@
 {
-  "updated_at": "2026-06-02T08:10:32.829900",
+  "updated_at": "2026-06-02T12:01:38.709079",
   "version": "v6",
   "stats": {
-    "total": 283,
-    "with_email": 71,
-    "with_phone": 161,
-    "queued": 31,
+    "total": 302,
+    "with_email": 74,
+    "with_phone": 170,
+    "queued": 34,
     "emailed": 41,
     "replied": 0,
     "bounced": 0,
     "optout": 0,
-    "no_email": 208,
+    "no_email": 224,
     "hot": 1,
-    "warm": 194,
-    "cold": 88,
+    "warm": 209,
+    "cold": 92,
     "avg_ai_score": 52.0
   },
   "icp_distribution": [
     {
       "category": "ecommerce_premium",
       "label": "E-commerce Premium",
-      "count": 205,
+      "count": 218,
       "pct": 72
     },
     {
       "category": "hospitality",
       "label": "Hospitality & Resto",
       "count": 28,
-      "pct": 10
+      "pct": 9
     },
     {
       "category": "mode_luxe",
@@ -38,14 +38,14 @@
     {
       "category": "skincare_wellness",
       "label": "Skincare & Wellness",
-      "count": 12,
+      "count": 13,
       "pct": 4
     },
     {
       "category": "cabinet_b2b",
       "label": "Cabinet B2B",
-      "count": 5,
-      "pct": 2
+      "count": 10,
+      "pct": 3
     },
     {
       "category": "immobilier",
@@ -1940,6 +1940,49 @@
       "icp_label": "Mode & Luxe"
     },
     {
+      "id": 311,
+      "domain": "coach-sportif-montpellier.com",
+      "company": "Coach sportif montpellier",
+      "email": null,
+      "phone": "06 60 53 63 55",
+      "tech": "Wix",
+      "perf_mobile": 45,
+      "lcp": "~0.4s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 70,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-02",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 59,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 5,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "low_tech",
+          "label": "Wix → migration possible",
+          "strength": "high"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
       "id": 65,
       "domain": "henryetseslunettes.fr",
       "company": "Henryetseslunettes",
@@ -1978,6 +2021,55 @@
           "type": "low_tech",
           "label": "Wix → migration possible",
           "strength": "high"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 312,
+      "domain": "leprisme-montpellier.com",
+      "company": "Leprisme montpellier",
+      "email": null,
+      "phone": "02 39 46 49 95",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~1.1s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Trop de scripts JavaScript"
+      ],
+      "score": 69,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-02",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 59,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 6,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
         }
       ],
       "icp_label": "E-commerce Premium"
@@ -2326,6 +2418,49 @@
       "icp_label": "E-commerce Premium"
     },
     {
+      "id": 305,
+      "domain": "sparta-coaching.fr",
+      "company": "Sparta coaching",
+      "email": "naturismoffice@info.com",
+      "phone": "03 01 08 08 07",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.3s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-02",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 59,
+      "temperature": "warm",
+      "icp_category": "skincare_wellness",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Skincare & Wellness"
+    },
+    {
       "id": 47,
       "domain": "loweys.fr",
       "company": "Loweys",
@@ -2663,6 +2798,92 @@
         }
       ],
       "icp_label": "Hospitality & Resto"
+    },
+    {
+      "id": 300,
+      "domain": "greg-strasbourg.coach",
+      "company": "Greg strasbourg",
+      "email": null,
+      "phone": null,
+      "tech": "Wix",
+      "perf_mobile": 45,
+      "lcp": "~0.2s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-02",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 58,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 7,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "low_tech",
+          "label": "Wix → migration possible",
+          "strength": "high"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 302,
+      "domain": "heracles-studio.com",
+      "company": "Heracles studio",
+      "email": null,
+      "phone": null,
+      "tech": "Wix",
+      "perf_mobile": 45,
+      "lcp": "~0.2s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-02",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 58,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 7,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "low_tech",
+          "label": "Wix → migration possible",
+          "strength": "high"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
     },
     {
       "id": 218,
@@ -3945,6 +4166,92 @@
       "icp_label": "E-commerce Premium"
     },
     {
+      "id": 308,
+      "domain": "vcoaching.fr",
+      "company": "Vcoaching",
+      "email": null,
+      "phone": null,
+      "tech": "Wix",
+      "perf_mobile": 45,
+      "lcp": "~0.4s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-02",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 57,
+      "temperature": "warm",
+      "icp_category": "cabinet_b2b",
+      "brand_quality": 7,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "low_tech",
+          "label": "Wix → migration possible",
+          "strength": "high"
+        }
+      ],
+      "icp_label": "Cabinet B2B"
+    },
+    {
+      "id": 309,
+      "domain": "elitecoaching.fr",
+      "company": "Elitecoaching",
+      "email": "contact@elitecoaching.fr",
+      "phone": "06 45 57 21 92",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.4s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-02",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 57,
+      "temperature": "warm",
+      "icp_category": "cabinet_b2b",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Cabinet B2B"
+    },
+    {
       "id": 272,
       "domain": "agence-evenementielle-innovevents.fr",
       "company": "Agence evenementielle innovevents",
@@ -4429,6 +4736,49 @@
       "icp_label": "E-commerce Premium"
     },
     {
+      "id": 299,
+      "domain": "jonathanlux-coachsportif.com",
+      "company": "Jonathanlux coachsportif",
+      "email": null,
+      "phone": null,
+      "tech": "Wix",
+      "perf_mobile": 45,
+      "lcp": "~0.2s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-02",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 56,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 5,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "low_tech",
+          "label": "Wix → migration possible",
+          "strength": "high"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
       "id": 216,
       "domain": "la-petite-nantaise.fr",
       "company": "La petite nantaise",
@@ -4738,6 +5088,49 @@
           "type": "some_issues",
           "label": "2 problèmes site",
           "strength": "medium"
+        }
+      ],
+      "icp_label": "Cabinet B2B"
+    },
+    {
+      "id": 301,
+      "domain": "startcoaching-strasbourg.com",
+      "company": "Startcoaching strasbourg",
+      "email": null,
+      "phone": null,
+      "tech": "Wix",
+      "perf_mobile": 45,
+      "lcp": "~0.6s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-02",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 55,
+      "temperature": "warm",
+      "icp_category": "cabinet_b2b",
+      "brand_quality": 5,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "low_tech",
+          "label": "Wix → migration possible",
+          "strength": "high"
         }
       ],
       "icp_label": "Cabinet B2B"
@@ -5614,6 +6007,135 @@
       "temperature": "warm",
       "icp_category": "ecommerce_premium",
       "brand_quality": 7,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 304,
+      "domain": "elitesportperformance.fr",
+      "company": "Elitesportperformance",
+      "email": null,
+      "phone": "06 58 06 31 47",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.2s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-02",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 53,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 7,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 306,
+      "domain": "steeveguillerme-montpellier.fr",
+      "company": "Steeveguillerme montpellier",
+      "email": null,
+      "phone": "03 98 60 51 23",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.2s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-02",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 53,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 7,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 307,
+      "domain": "mindcorestudio.fr",
+      "company": "Mindcorestudio",
+      "email": null,
+      "phone": "03 73 33 34 20",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.1s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-02",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 53,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 9,
       "intent_signals": [
         {
           "type": "low_perf",
@@ -7176,6 +7698,49 @@
       "icp_label": "Skincare & Wellness"
     },
     {
+      "id": 315,
+      "domain": "jmax-coaching.com",
+      "company": "Jmax coaching",
+      "email": null,
+      "phone": "06 58 16 69 44",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~2.1s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-02",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 52,
+      "temperature": "warm",
+      "icp_category": "cabinet_b2b",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Cabinet B2B"
+    },
+    {
       "id": 24,
       "domain": "agencenetcom.fr",
       "company": "Agencenetcom",
@@ -8245,6 +8810,92 @@
       "icp_label": "E-commerce Premium"
     },
     {
+      "id": 303,
+      "domain": "o3-zonehiitstudio.fr",
+      "company": "O3 zonehiitstudio",
+      "email": null,
+      "phone": null,
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.3s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 59,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-02",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 50,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 314,
+      "domain": "coach-sportif-andersport.fr",
+      "company": "Coach sportif andersport",
+      "email": null,
+      "phone": null,
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~1.8s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 59,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-02",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 50,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 7,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
       "id": 234,
       "domain": "allezlesfleurs.com",
       "company": "Allezlesfleurs",
@@ -8932,6 +9583,49 @@
         }
       ],
       "icp_label": "Streetwear Premium"
+    },
+    {
+      "id": 313,
+      "domain": "nvcoaching.fr",
+      "company": "Nvcoaching",
+      "email": null,
+      "phone": null,
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~2.3s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 59,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-02",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 49,
+      "temperature": "cold",
+      "icp_category": "cabinet_b2b",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Cabinet B2B"
     },
     {
       "id": 11,
@@ -10019,6 +10713,44 @@
       "temperature": "cold",
       "icp_category": "ecommerce_premium",
       "brand_quality": 12,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 35/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 298,
+      "domain": "sculpttrainingclub.wixsite.com",
+      "company": "Sculpttrainingclub",
+      "email": null,
+      "phone": null,
+      "tech": "Custom",
+      "perf_mobile": 35,
+      "lcp": "N/A",
+      "issues": [
+        "Site inaccessible ou lent"
+      ],
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-02",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 46,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 10,
       "intent_signals": [
         {
           "type": "low_perf",
@@ -11815,6 +12547,78 @@
       "temperature": "cold",
       "icp_category": "ecommerce_premium",
       "brand_quality": 12,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 297,
+      "domain": "coach-sportif-perso.fr",
+      "company": "Coach sportif perso",
+      "email": "philippe.hammer@persocoach.fr",
+      "phone": null,
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.2s (estimé)",
+      "issues": [],
+      "score": 50,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-02",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 38,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 11,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 310,
+      "domain": "laforgepowerlifting.fr",
+      "company": "Laforgepowerlifting",
+      "email": null,
+      "phone": "07 59 73 71 39",
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.1s (estimé)",
+      "issues": [],
+      "score": 48,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-02",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 36,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 11,
       "intent_signals": [
         {
           "type": "low_perf",
