@@ -1,24 +1,24 @@
 {
-  "updated_at": "2026-06-02T08:10:32.815612",
+  "updated_at": "2026-06-02T12:01:38.691295",
   "version": "v6",
   "warmup_mode": false,
   "funnel": {
-    "total": 283,
-    "with_email": 71,
-    "with_phone": 161,
+    "total": 302,
+    "with_email": 74,
+    "with_phone": 170,
     "total_emailed": 41,
     "total_replied": 0,
     "total_bounced": 0,
-    "queued": 31,
+    "queued": 34,
     "total_optout": 0,
     "pending": 40
   },
   "sources": [
     {
       "source": "ddg",
-      "n": 272,
-      "with_email": 70,
-      "with_phone": 161,
+      "n": 291,
+      "with_email": 73,
+      "with_phone": 170,
       "total_emailed": 41,
       "replied": 0
     },
@@ -82,18 +82,246 @@
     },
     {
       "date": "2026-06-02",
-      "analyzed": 20,
+      "analyzed": 39,
       "emailed": 0,
       "replied": 0
     }
   ],
   "today": {
-    "analyzed": 20,
-    "with_email": 9,
-    "with_phone": 15,
+    "analyzed": 39,
+    "with_email": 12,
+    "with_phone": 24,
     "emailed": 0
   },
   "recent": [
+    {
+      "domain": "jmax-coaching.com",
+      "company": "Jmax coaching",
+      "tech": "WordPress",
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "06 58 16 69 44"
+    },
+    {
+      "domain": "coach-sportif-andersport.fr",
+      "company": "Coach sportif andersport",
+      "tech": "WordPress",
+      "score": 59,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "nvcoaching.fr",
+      "company": "Nvcoaching",
+      "tech": "WordPress",
+      "score": 59,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "leprisme-montpellier.com",
+      "company": "Leprisme montpellier",
+      "tech": "WordPress",
+      "score": 69,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "02 39 46 49 95"
+    },
+    {
+      "domain": "coach-sportif-montpellier.com",
+      "company": "Coach sportif montpellier",
+      "tech": "Wix",
+      "score": 70,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "06 60 53 63 55"
+    },
+    {
+      "domain": "laforgepowerlifting.fr",
+      "company": "Laforgepowerlifting",
+      "tech": "Custom",
+      "score": 48,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "07 59 73 71 39"
+    },
+    {
+      "domain": "elitecoaching.fr",
+      "company": "Elitecoaching",
+      "tech": "WordPress",
+      "score": 67,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@elitecoaching.fr",
+      "phone": "06 45 57 21 92"
+    },
+    {
+      "domain": "vcoaching.fr",
+      "company": "Vcoaching",
+      "tech": "Wix",
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "mindcorestudio.fr",
+      "company": "Mindcorestudio",
+      "tech": "WordPress",
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "03 73 33 34 20"
+    },
+    {
+      "domain": "steeveguillerme-montpellier.fr",
+      "company": "Steeveguillerme montpellier",
+      "tech": "WordPress",
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "03 98 60 51 23"
+    },
+    {
+      "domain": "sparta-coaching.fr",
+      "company": "Sparta coaching",
+      "tech": "WordPress",
+      "score": 67,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "naturismoffice@info.com",
+      "phone": "03 01 08 08 07"
+    },
+    {
+      "domain": "elitesportperformance.fr",
+      "company": "Elitesportperformance",
+      "tech": "WordPress",
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "06 58 06 31 47"
+    },
+    {
+      "domain": "o3-zonehiitstudio.fr",
+      "company": "O3 zonehiitstudio",
+      "tech": "WordPress",
+      "score": 59,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "heracles-studio.com",
+      "company": "Heracles studio",
+      "tech": "Wix",
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "startcoaching-strasbourg.com",
+      "company": "Startcoaching strasbourg",
+      "tech": "Wix",
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "greg-strasbourg.coach",
+      "company": "Greg strasbourg",
+      "tech": "Wix",
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "jonathanlux-coachsportif.com",
+      "company": "Jonathanlux coachsportif",
+      "tech": "Wix",
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "sculpttrainingclub.wixsite.com",
+      "company": "Sculpttrainingclub",
+      "tech": "Custom",
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "coach-sportif-perso.fr",
+      "company": "Coach sportif perso",
+      "tech": "Custom",
+      "score": 50,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "philippe.hammer@persocoach.fr",
+      "phone": null
+    },
     {
       "domain": "studiopilatesmarseille.com",
       "company": "Studiopilatesmarseille",
@@ -225,248 +453,20 @@
       "replied": 0,
       "email": null,
       "phone": "05 48 29 88 39"
-    },
-    {
-      "domain": "studio-apato.com",
-      "company": "Studio apato",
-      "tech": "Squarespace",
-      "score": 80,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "contact@studio-apato.com",
-      "phone": "07 49 99 99 99"
-    },
-    {
-      "domain": "gotamyoga.fr",
-      "company": "Gotamyoga",
-      "tech": "Wix",
-      "score": 70,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "06 52 24 18 80"
-    },
-    {
-      "domain": "muse-studio.fr",
-      "company": "Muse studio",
-      "tech": "Custom",
-      "score": 60,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "contact@muse-studio.fr",
-      "phone": "06 22 41 04 38"
-    },
-    {
-      "domain": "plenitudestudio.fr",
-      "company": "Plenitudestudio",
-      "tech": "WordPress",
-      "score": 67,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "contact@plenitudestudio.fr",
-      "phone": "04 22 83 29 51"
-    },
-    {
-      "domain": "emselfcare.fr",
-      "company": "Emselfcare",
-      "tech": "Custom",
-      "score": 52,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "inside-lyon.com",
-      "company": "Inside lyon",
-      "tech": "Custom",
-      "score": 52,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "yeahga.fr",
-      "company": "Yeahga",
-      "tech": "Squarespace",
-      "score": 80,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "utilisateur@domaine.com",
-      "phone": "06 79 99 99 99"
-    },
-    {
-      "domain": "elixirstudiolyon.fr",
-      "company": "Elixirstudiolyon",
-      "tech": "WordPress",
-      "score": 67,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "contact@elixirstudio.fr",
-      "phone": "04 26 17 07 23"
-    },
-    {
-      "domain": "thegoodflow-yoga.com",
-      "company": "Thegoodflow yoga",
-      "tech": "WordPress",
-      "score": 67,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "contact@thegoodflow-yoga.com",
-      "phone": "04 81 65 34 78"
-    },
-    {
-      "domain": "maison-dumont.fr",
-      "company": "Maison dumont",
-      "tech": "WordPress",
-      "score": 62,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "02 99 79 49 23"
-    },
-    {
-      "domain": "matto-traiteur-rennes.fr",
-      "company": "Matto traiteur rennes",
-      "tech": "Custom",
-      "score": 48,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "02 99 23 16 96"
-    },
-    {
-      "domain": "mollotraiteur.fr",
-      "company": "Mollotraiteur",
-      "tech": "Wix",
-      "score": 67,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "ohmybrunch.fr",
-      "company": "Ohmybrunch",
-      "tech": "WordPress",
-      "score": 74,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "nantes@ohmybrunch.fr",
-      "phone": "03 90 14 98 59"
-    },
-    {
-      "domain": "agence-evenementielle-innovevents.fr",
-      "company": "Agence evenementielle innovevents",
-      "tech": "WordPress",
-      "score": 67,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "contact@innov-events.fr",
-      "phone": "09 67 58 00 02"
-    },
-    {
-      "domain": "bretagne-traiteur.com",
-      "company": "Bretagne traiteur",
-      "tech": "Custom",
-      "score": 62,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "06 07 22 58 28"
-    },
-    {
-      "domain": "lulopie-traiteur.fr",
-      "company": "Lulopie traiteur",
-      "tech": "WordPress",
-      "score": 69,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "03 09 19 03 12"
-    },
-    {
-      "domain": "traiteurlevidence.fr",
-      "company": "Traiteurlevidence",
-      "tech": "WordPress",
-      "score": 62,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "06 36 44 70 32"
-    },
-    {
-      "domain": "honuatraiteur.fr",
-      "company": "Honuatraiteur",
-      "tech": "WordPress",
-      "score": 62,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "06 29 90 46 37"
-    },
-    {
-      "domain": "mrmtraiteur.com",
-      "company": "Mrmtraiteur",
-      "tech": "WordPress",
-      "score": 74,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "contact@mrmtraiteur.com",
-      "phone": "01 03 43 35 41"
     }
   ],
   "icp_distribution": [
     {
       "category": "ecommerce_premium",
       "label": "E-commerce Premium",
-      "count": 205,
+      "count": 218,
       "pct": 72
     },
     {
       "category": "hospitality",
       "label": "Hospitality & Resto",
       "count": 28,
-      "pct": 10
+      "pct": 9
     },
     {
       "category": "mode_luxe",
@@ -477,14 +477,14 @@
     {
       "category": "skincare_wellness",
       "label": "Skincare & Wellness",
-      "count": 12,
+      "count": 13,
       "pct": 4
     },
     {
       "category": "cabinet_b2b",
       "label": "Cabinet B2B",
-      "count": 5,
-      "pct": 2
+      "count": 10,
+      "pct": 3
     },
     {
       "category": "immobilier",
@@ -513,8 +513,8 @@
   ],
   "temperature": {
     "hot": 1,
-    "warm": 194,
-    "cold": 88,
+    "warm": 209,
+    "cold": 92,
     "avg_ai_score": 52
   }
 }
