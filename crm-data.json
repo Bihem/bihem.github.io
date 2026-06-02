@@ -1,50 +1,50 @@
 {
-  "updated_at": "2026-06-01T20:01:19.881129",
+  "updated_at": "2026-06-02T08:10:32.829900",
   "version": "v6",
   "stats": {
-    "total": 263,
-    "with_email": 62,
-    "with_phone": 146,
-    "queued": 22,
+    "total": 283,
+    "with_email": 71,
+    "with_phone": 161,
+    "queued": 31,
     "emailed": 41,
     "replied": 0,
     "bounced": 0,
     "optout": 0,
-    "no_email": 197,
+    "no_email": 208,
     "hot": 1,
-    "warm": 179,
-    "cold": 83,
+    "warm": 194,
+    "cold": 88,
     "avg_ai_score": 52.0
   },
   "icp_distribution": [
     {
       "category": "ecommerce_premium",
       "label": "E-commerce Premium",
-      "count": 187,
-      "pct": 71
+      "count": 205,
+      "pct": 72
     },
     {
       "category": "hospitality",
       "label": "Hospitality & Resto",
-      "count": 27,
+      "count": 28,
       "pct": 10
     },
     {
       "category": "mode_luxe",
       "label": "Mode & Luxe",
       "count": 23,
-      "pct": 9
+      "pct": 8
     },
     {
       "category": "skincare_wellness",
       "label": "Skincare & Wellness",
       "count": 12,
-      "pct": 5
+      "pct": 4
     },
     {
       "category": "cabinet_b2b",
       "label": "Cabinet B2B",
-      "count": 4,
+      "count": 5,
       "pct": 2
     },
     {
@@ -114,6 +114,66 @@
       "ts": "2026-05-31"
     },
     {
+      "domain": "yeahga.fr",
+      "company": "Yeahga",
+      "signal": "Mobile faible 45/100",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 70,
+      "temperature": "warm",
+      "ts": "2026-06-02"
+    },
+    {
+      "domain": "yeahga.fr",
+      "company": "Yeahga",
+      "signal": "Squarespace → migration possible",
+      "strength": "high",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 70,
+      "temperature": "warm",
+      "ts": "2026-06-02"
+    },
+    {
+      "domain": "studio-apato.com",
+      "company": "Studio apato",
+      "signal": "Mobile faible 45/100",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 69,
+      "temperature": "warm",
+      "ts": "2026-06-02"
+    },
+    {
+      "domain": "studio-apato.com",
+      "company": "Studio apato",
+      "signal": "Squarespace → migration possible",
+      "strength": "high",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 69,
+      "temperature": "warm",
+      "ts": "2026-06-02"
+    },
+    {
+      "domain": "studiomermaid.com",
+      "company": "Studiomermaid",
+      "signal": "Mobile faible 45/100",
+      "strength": "medium",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 69,
+      "temperature": "warm",
+      "ts": "2026-06-02"
+    },
+    {
+      "domain": "studiomermaid.com",
+      "company": "Studiomermaid",
+      "signal": "Squarespace → migration possible",
+      "strength": "high",
+      "icp_label": "E-commerce Premium",
+      "ai_score": 69,
+      "temperature": "warm",
+      "ts": "2026-06-02"
+    },
+    {
       "domain": "bistrot-coco.fr",
       "company": "Bistrot coco",
       "signal": "Mobile faible 45/100",
@@ -262,66 +322,6 @@
       "ai_score": 64,
       "temperature": "warm",
       "ts": "2026-06-01"
-    },
-    {
-      "domain": "ohmybrunch.fr",
-      "company": "Ohmybrunch",
-      "signal": "WordPress lent — redesign potentiel",
-      "strength": "medium",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 64,
-      "temperature": "warm",
-      "ts": "2026-06-01"
-    },
-    {
-      "domain": "morgankirch.fr",
-      "company": "Morgankirch",
-      "signal": "Mobile faible 45/100",
-      "strength": "medium",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 64,
-      "temperature": "warm",
-      "ts": "2026-05-31"
-    },
-    {
-      "domain": "morgankirch.fr",
-      "company": "Morgankirch",
-      "signal": "Wix → migration possible",
-      "strength": "high",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 64,
-      "temperature": "warm",
-      "ts": "2026-05-31"
-    },
-    {
-      "domain": "lavillaclemenceau.com",
-      "company": "Lavillaclemenceau",
-      "signal": "Mobile faible 45/100",
-      "strength": "medium",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 64,
-      "temperature": "warm",
-      "ts": "2026-05-31"
-    },
-    {
-      "domain": "lavillaclemenceau.com",
-      "company": "Lavillaclemenceau",
-      "signal": "WordPress lent — redesign potentiel",
-      "strength": "medium",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 64,
-      "temperature": "warm",
-      "ts": "2026-05-31"
-    },
-    {
-      "domain": "opulence-bordeaux.com",
-      "company": "Opulence bordeaux",
-      "signal": "Mobile faible 45/100",
-      "strength": "medium",
-      "icp_label": "E-commerce Premium",
-      "ai_score": 64,
-      "temperature": "warm",
-      "ts": "2026-05-31"
     }
   ],
   "prospects": [
@@ -428,6 +428,153 @@
         }
       ],
       "icp_label": "Mode & Luxe"
+    },
+    {
+      "id": 279,
+      "domain": "yeahga.fr",
+      "company": "Yeahga",
+      "email": "utilisateur@domaine.com",
+      "phone": "06 79 99 99 99",
+      "tech": "Squarespace",
+      "perf_mobile": 45,
+      "lcp": "~0.4s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Trop de scripts JavaScript"
+      ],
+      "score": 80,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-02",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 70,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 10,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "low_tech",
+          "label": "Squarespace → migration possible",
+          "strength": "high"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 285,
+      "domain": "studio-apato.com",
+      "company": "Studio apato",
+      "email": "contact@studio-apato.com",
+      "phone": "07 49 99 99 99",
+      "tech": "Squarespace",
+      "perf_mobile": 45,
+      "lcp": "~0.4s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Trop de scripts JavaScript"
+      ],
+      "score": 80,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-02",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 69,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 7,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "low_tech",
+          "label": "Squarespace → migration possible",
+          "strength": "high"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 287,
+      "domain": "studiomermaid.com",
+      "company": "Studiomermaid",
+      "email": "utilisateur@domaine.com",
+      "phone": "02 86 11 94 55",
+      "tech": "Squarespace",
+      "perf_mobile": 45,
+      "lcp": "~0.4s (estimé)",
+      "issues": [
+        "Page lourde, compression absente",
+        "Trop de scripts JavaScript"
+      ],
+      "score": 80,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-02",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 69,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 7,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "low_tech",
+          "label": "Squarespace → migration possible",
+          "strength": "high"
+        },
+        {
+          "type": "some_issues",
+          "label": "2 problèmes site",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
     },
     {
       "id": 193,
@@ -1180,17 +1327,17 @@
       ],
       "score": 74,
       "source": "ddg",
-      "status": "emailed_1",
-      "sequence_step": 1,
+      "status": "emailed_2",
+      "sequence_step": 2,
       "variant": "A",
       "date_added": "2026-05-29",
       "date_step1": "2026-05-29T12:01:26.642404",
-      "date_step2": null,
+      "date_step2": "2026-06-02T08:02:53.273089",
       "date_step3": null,
       "replied": 0,
       "bounced": 0,
       "notes": null,
-      "next_action": "2026-06-01",
+      "next_action": "2026-06-09",
       "ai_score": 64,
       "temperature": "warm",
       "icp_category": "ecommerce_premium",
@@ -1229,17 +1376,17 @@
       ],
       "score": 74,
       "source": "ddg",
-      "status": "emailed_1",
-      "sequence_step": 1,
+      "status": "emailed_2",
+      "sequence_step": 2,
       "variant": "B",
       "date_added": "2026-05-28",
       "date_step1": "2026-05-28T13:44:06.449912",
-      "date_step2": null,
+      "date_step2": "2026-06-02T08:02:07.372078",
       "date_step3": null,
       "replied": 0,
       "bounced": 0,
       "notes": null,
-      "next_action": "2026-05-31",
+      "next_action": "2026-06-09",
       "ai_score": 64,
       "temperature": "warm",
       "icp_category": "ecommerce_premium",
@@ -1278,17 +1425,17 @@
       ],
       "score": 78,
       "source": "ddg",
-      "status": "emailed_1",
-      "sequence_step": 1,
+      "status": "emailed_2",
+      "sequence_step": 2,
       "variant": "A",
       "date_added": "2026-05-30",
       "date_step1": "2026-05-30T08:04:39.257443",
-      "date_step2": null,
+      "date_step2": "2026-06-02T08:01:21.380117",
       "date_step3": null,
       "replied": 0,
       "bounced": 0,
       "notes": null,
-      "next_action": "2026-06-02",
+      "next_action": "2026-06-09",
       "ai_score": 62,
       "temperature": "warm",
       "icp_category": "ecommerce_premium",
@@ -1322,17 +1469,17 @@
       ],
       "score": 71,
       "source": "ddg",
-      "status": "emailed_1",
-      "sequence_step": 1,
+      "status": "emailed_2",
+      "sequence_step": 2,
       "variant": "B",
       "date_added": "2026-05-29",
       "date_step1": "2026-05-30T08:06:57.590818",
-      "date_step2": null,
+      "date_step2": "2026-06-02T08:05:57.546722",
       "date_step3": null,
       "replied": 0,
       "bounced": 0,
       "notes": null,
-      "next_action": "2026-06-02",
+      "next_action": "2026-06-09",
       "ai_score": 61,
       "temperature": "warm",
       "icp_category": "ecommerce_premium",
@@ -1352,6 +1499,49 @@
           "type": "some_issues",
           "label": "2 problèmes site",
           "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 284,
+      "domain": "gotamyoga.fr",
+      "company": "Gotamyoga",
+      "email": null,
+      "phone": "06 52 24 18 80",
+      "tech": "Wix",
+      "perf_mobile": 45,
+      "lcp": "~0.2s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 70,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-02",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 61,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 7,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "low_tech",
+          "label": "Wix → migration possible",
+          "strength": "high"
         }
       ],
       "icp_label": "E-commerce Premium"
@@ -2235,17 +2425,17 @@
       ],
       "score": 71,
       "source": "ddg",
-      "status": "emailed_1",
-      "sequence_step": 1,
+      "status": "emailed_2",
+      "sequence_step": 2,
       "variant": "A",
       "date_added": "2026-05-29",
       "date_step1": "2026-05-30T08:06:11.648196",
-      "date_step2": null,
+      "date_step2": "2026-06-02T08:05:11.271256",
       "date_step3": null,
       "replied": 0,
       "bounced": 0,
       "notes": null,
-      "next_action": "2026-06-02",
+      "next_action": "2026-06-09",
       "ai_score": 58,
       "temperature": "warm",
       "icp_category": "skincare_wellness",
@@ -2258,6 +2448,221 @@
         }
       ],
       "icp_label": "Skincare & Wellness"
+    },
+    {
+      "id": 277,
+      "domain": "thegoodflow-yoga.com",
+      "company": "Thegoodflow yoga",
+      "email": "contact@thegoodflow-yoga.com",
+      "phone": "04 81 65 34 78",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.3s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-02",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 58,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 278,
+      "domain": "elixirstudiolyon.fr",
+      "company": "Elixirstudiolyon",
+      "email": "contact@elixirstudio.fr",
+      "phone": "04 26 17 07 23",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.6s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-02",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 58,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 282,
+      "domain": "plenitudestudio.fr",
+      "company": "Plenitudestudio",
+      "email": "contact@plenitudestudio.fr",
+      "phone": "04 22 83 29 51",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~1.0s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-02",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 58,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 288,
+      "domain": "umamarseille.fr",
+      "company": "Umamarseille",
+      "email": "contact@umamarseille.com",
+      "phone": "04 09 11 22 04",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.3s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-02",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 58,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 290,
+      "domain": "pulse-cafe.com",
+      "company": "Pulse cafe",
+      "email": "contact@pulse-cafe.com",
+      "phone": "07 68 96 40 00",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.3s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-02",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 58,
+      "temperature": "warm",
+      "icp_category": "hospitality",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Hospitality & Resto"
     },
     {
       "id": 218,
@@ -3090,17 +3495,17 @@
       ],
       "score": 67,
       "source": "ddg",
-      "status": "emailed_1",
-      "sequence_step": 1,
+      "status": "emailed_2",
+      "sequence_step": 2,
       "variant": "A",
       "date_added": "2026-05-29",
       "date_step1": "2026-05-29T08:00:44.953682",
-      "date_step2": null,
+      "date_step2": "2026-06-02T08:07:29.193228",
       "date_step3": null,
       "replied": 0,
       "bounced": 0,
       "notes": null,
-      "next_action": "2026-06-01",
+      "next_action": "2026-06-09",
       "ai_score": 58,
       "temperature": "warm",
       "icp_category": "ecommerce_premium",
@@ -3176,17 +3581,17 @@
       ],
       "score": 67,
       "source": "ddg",
-      "status": "emailed_1",
-      "sequence_step": 1,
+      "status": "emailed_2",
+      "sequence_step": 2,
       "variant": "B",
       "date_added": "2026-05-29",
       "date_step1": "2026-05-29T12:02:13.295868",
-      "date_step2": null,
+      "date_step2": "2026-06-02T08:08:15.500456",
       "date_step3": null,
       "replied": 0,
       "bounced": 0,
       "notes": null,
-      "next_action": "2026-06-01",
+      "next_action": "2026-06-09",
       "ai_score": 58,
       "temperature": "warm",
       "icp_category": "ecommerce_premium",
@@ -3219,17 +3624,17 @@
       ],
       "score": 67,
       "source": "ddg",
-      "status": "emailed_1",
-      "sequence_step": 1,
+      "status": "emailed_2",
+      "sequence_step": 2,
       "variant": "A",
       "date_added": "2026-05-29",
       "date_step1": "2026-05-29T12:02:59.705668",
-      "date_step2": null,
+      "date_step2": "2026-06-02T08:09:01.604828",
       "date_step3": null,
       "replied": 0,
       "bounced": 0,
       "notes": null,
-      "next_action": "2026-06-01",
+      "next_action": "2026-06-09",
       "ai_score": 58,
       "temperature": "warm",
       "icp_category": "ecommerce_premium",
@@ -3262,17 +3667,17 @@
       ],
       "score": 67,
       "source": "ddg",
-      "status": "emailed_1",
-      "sequence_step": 1,
+      "status": "emailed_2",
+      "sequence_step": 2,
       "variant": "B",
       "date_added": "2026-05-29",
       "date_step1": "2026-05-29T12:03:47.699817",
-      "date_step2": null,
+      "date_step2": "2026-06-02T08:09:47.790751",
       "date_step3": null,
       "replied": 0,
       "bounced": 0,
       "notes": null,
-      "next_action": "2026-06-01",
+      "next_action": "2026-06-09",
       "ai_score": 58,
       "temperature": "warm",
       "icp_category": "ecommerce_premium",
@@ -3477,17 +3882,17 @@
       ],
       "score": 71,
       "source": "ddg",
-      "status": "emailed_1",
-      "sequence_step": 1,
+      "status": "emailed_2",
+      "sequence_step": 2,
       "variant": "B",
       "date_added": "2026-05-29",
       "date_step1": "2026-05-30T08:05:25.359055",
-      "date_step2": null,
+      "date_step2": "2026-06-02T08:04:25.265927",
       "date_step3": null,
       "replied": 0,
       "bounced": 0,
       "notes": null,
-      "next_action": "2026-06-02",
+      "next_action": "2026-06-09",
       "ai_score": 57,
       "temperature": "warm",
       "icp_category": "ecommerce_premium",
@@ -3515,17 +3920,17 @@
       ],
       "score": 71,
       "source": "ddg",
-      "status": "emailed_1",
-      "sequence_step": 1,
+      "status": "emailed_2",
+      "sequence_step": 2,
       "variant": "A",
       "date_added": "2026-05-28",
       "date_step1": "2026-05-28T13:44:52.584710",
-      "date_step2": null,
+      "date_step2": "2026-06-02T08:03:39.365687",
       "date_step3": null,
       "replied": 0,
       "bounced": 0,
       "notes": null,
-      "next_action": "2026-05-31",
+      "next_action": "2026-06-09",
       "ai_score": 57,
       "temperature": "warm",
       "icp_category": "ecommerce_premium",
@@ -3951,17 +4356,17 @@
       ],
       "score": 70,
       "source": "ddg",
-      "status": "emailed_1",
-      "sequence_step": 1,
+      "status": "emailed_2",
+      "sequence_step": 2,
       "variant": "B",
       "date_added": "2026-05-28",
       "date_step1": "2026-05-28T13:45:38.723317",
-      "date_step2": null,
+      "date_step2": "2026-06-02T08:06:43.513880",
       "date_step3": null,
       "replied": 0,
       "bounced": 0,
       "notes": null,
-      "next_action": "2026-05-31",
+      "next_action": "2026-06-09",
       "ai_score": 56,
       "temperature": "warm",
       "icp_category": "ecommerce_premium",
@@ -3976,6 +4381,49 @@
           "type": "some_issues",
           "label": "2 problèmes site",
           "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 293,
+      "domain": "pilatesyogamarseille.com",
+      "company": "Pilatesyogamarseille",
+      "email": null,
+      "phone": null,
+      "tech": "Wix",
+      "perf_mobile": 45,
+      "lcp": "~0.3s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-02",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 56,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 5,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "low_tech",
+          "label": "Wix → migration possible",
+          "strength": "high"
         }
       ],
       "icp_label": "E-commerce Premium"
@@ -4635,6 +5083,49 @@
       "icp_label": "Mode & Luxe"
     },
     {
+      "id": 292,
+      "domain": "multifa.fr",
+      "company": "Multifa",
+      "email": null,
+      "phone": "08 55 09 26 21",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~2.7s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-02",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 54,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 12,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
       "id": 210,
       "domain": "ellabeautespa.com",
       "company": "Ellabeautespa",
@@ -5050,6 +5541,92 @@
         }
       ],
       "icp_label": "Mode & Luxe"
+    },
+    {
+      "id": 286,
+      "domain": "arbolflow.com",
+      "company": "Arbolflow",
+      "email": null,
+      "phone": "05 48 29 88 39",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.1s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-02",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 53,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 296,
+      "domain": "studiopilatesmarseille.com",
+      "company": "Studiopilatesmarseille",
+      "email": null,
+      "phone": "02 28 17 63 12",
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.9s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-02",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 53,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 7,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
     },
     {
       "id": 228,
@@ -7582,6 +8159,92 @@
       "icp_label": "E-commerce Premium"
     },
     {
+      "id": 294,
+      "domain": "studio-flowlab.fr",
+      "company": "Studio flowlab",
+      "email": null,
+      "phone": null,
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~1.5s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 59,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-02",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 50,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 9,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 295,
+      "domain": "small-yoga-pilates.fr",
+      "company": "Small yoga pilates",
+      "email": null,
+      "phone": null,
+      "tech": "WordPress",
+      "perf_mobile": 45,
+      "lcp": "~0.9s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 59,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-02",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 50,
+      "temperature": "warm",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 7,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        },
+        {
+          "type": "wp_slow",
+          "label": "WordPress lent — redesign potentiel",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
       "id": 234,
       "domain": "allezlesfleurs.com",
       "company": "Allezlesfleurs",
@@ -9100,6 +9763,44 @@
       "icp_label": "Skincare & Wellness"
     },
     {
+      "id": 283,
+      "domain": "muse-studio.fr",
+      "company": "Muse studio",
+      "email": "contact@muse-studio.fr",
+      "phone": "06 22 41 04 38",
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~1.0s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 60,
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-02",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 46,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 12,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
       "id": 257,
       "domain": "traiteurmontpellier.com",
       "company": "Traiteurmontpellier",
@@ -9246,6 +9947,82 @@
         {
           "type": "low_perf",
           "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 280,
+      "domain": "inside-lyon.com",
+      "company": "Inside lyon",
+      "email": null,
+      "phone": null,
+      "tech": "Custom",
+      "perf_mobile": 35,
+      "lcp": "N/A",
+      "issues": [
+        "Site inaccessible ou lent"
+      ],
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-02",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 46,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 12,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 35/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 281,
+      "domain": "emselfcare.fr",
+      "company": "Emselfcare",
+      "email": null,
+      "phone": null,
+      "tech": "Custom",
+      "perf_mobile": 35,
+      "lcp": "N/A",
+      "issues": [
+        "Site inaccessible ou lent"
+      ],
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-02",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 46,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 12,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 35/100",
           "strength": "medium"
         }
       ],
@@ -10218,6 +10995,44 @@
       "icp_label": "E-commerce Premium"
     },
     {
+      "id": 289,
+      "domain": "studio24pilates.fr",
+      "company": "Studio24pilates",
+      "email": null,
+      "phone": "04 52 82 81 77",
+      "tech": "Webflow",
+      "perf_mobile": 45,
+      "lcp": "~0.1s (estimé)",
+      "issues": [
+        "Nombreuses images non optimisées"
+      ],
+      "score": 45,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-02",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 42,
+      "temperature": "cold",
+      "icp_category": "ecommerce_premium",
+      "brand_quality": 11,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
       "id": 224,
       "domain": "thomasbouilhol.fr",
       "company": "Thomasbouilhol",
@@ -10742,6 +11557,44 @@
       "brand_quality": 10,
       "intent_signals": [],
       "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 291,
+      "domain": "spirale-coaching.com",
+      "company": "Spirale coaching",
+      "email": null,
+      "phone": "08 95 91 66 66",
+      "tech": "Custom",
+      "perf_mobile": 45,
+      "lcp": "~0.1s (estimé)",
+      "issues": [
+        "Page lourde, compression absente"
+      ],
+      "score": 55,
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-02",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 40,
+      "temperature": "cold",
+      "icp_category": "cabinet_b2b",
+      "brand_quality": 12,
+      "intent_signals": [
+        {
+          "type": "low_perf",
+          "label": "Mobile faible 45/100",
+          "strength": "medium"
+        }
+      ],
+      "icp_label": "Cabinet B2B"
     },
     {
       "id": 98,
