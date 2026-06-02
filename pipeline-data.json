@@ -1,24 +1,24 @@
 {
-  "updated_at": "2026-06-01T20:01:19.871946",
+  "updated_at": "2026-06-02T08:10:32.815612",
   "version": "v6",
   "warmup_mode": false,
   "funnel": {
-    "total": 263,
-    "with_email": 62,
-    "with_phone": 146,
+    "total": 283,
+    "with_email": 71,
+    "with_phone": 161,
     "total_emailed": 41,
     "total_replied": 0,
     "total_bounced": 0,
-    "queued": 22,
+    "queued": 31,
     "total_optout": 0,
     "pending": 40
   },
   "sources": [
     {
       "source": "ddg",
-      "n": 252,
-      "with_email": 61,
-      "with_phone": 146,
+      "n": 272,
+      "with_email": 70,
+      "with_phone": 161,
       "total_emailed": 41,
       "replied": 0
     },
@@ -79,15 +79,261 @@
       "analyzed": 59,
       "emailed": 2,
       "replied": 0
+    },
+    {
+      "date": "2026-06-02",
+      "analyzed": 20,
+      "emailed": 0,
+      "replied": 0
     }
   ],
   "today": {
-    "analyzed": 59,
-    "with_email": 20,
-    "with_phone": 42,
-    "emailed": 2
+    "analyzed": 20,
+    "with_email": 9,
+    "with_phone": 15,
+    "emailed": 0
   },
   "recent": [
+    {
+      "domain": "studiopilatesmarseille.com",
+      "company": "Studiopilatesmarseille",
+      "tech": "WordPress",
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "02 28 17 63 12"
+    },
+    {
+      "domain": "small-yoga-pilates.fr",
+      "company": "Small yoga pilates",
+      "tech": "WordPress",
+      "score": 59,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "studio-flowlab.fr",
+      "company": "Studio flowlab",
+      "tech": "WordPress",
+      "score": 59,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "pilatesyogamarseille.com",
+      "company": "Pilatesyogamarseille",
+      "tech": "Wix",
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "multifa.fr",
+      "company": "Multifa",
+      "tech": "WordPress",
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "08 55 09 26 21"
+    },
+    {
+      "domain": "spirale-coaching.com",
+      "company": "Spirale coaching",
+      "tech": "Custom",
+      "score": 55,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "08 95 91 66 66"
+    },
+    {
+      "domain": "pulse-cafe.com",
+      "company": "Pulse cafe",
+      "tech": "WordPress",
+      "score": 67,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@pulse-cafe.com",
+      "phone": "07 68 96 40 00"
+    },
+    {
+      "domain": "studio24pilates.fr",
+      "company": "Studio24pilates",
+      "tech": "Webflow",
+      "score": 45,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "04 52 82 81 77"
+    },
+    {
+      "domain": "umamarseille.fr",
+      "company": "Umamarseille",
+      "tech": "WordPress",
+      "score": 67,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@umamarseille.com",
+      "phone": "04 09 11 22 04"
+    },
+    {
+      "domain": "studiomermaid.com",
+      "company": "Studiomermaid",
+      "tech": "Squarespace",
+      "score": 80,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "utilisateur@domaine.com",
+      "phone": "02 86 11 94 55"
+    },
+    {
+      "domain": "arbolflow.com",
+      "company": "Arbolflow",
+      "tech": "WordPress",
+      "score": 62,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "05 48 29 88 39"
+    },
+    {
+      "domain": "studio-apato.com",
+      "company": "Studio apato",
+      "tech": "Squarespace",
+      "score": 80,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@studio-apato.com",
+      "phone": "07 49 99 99 99"
+    },
+    {
+      "domain": "gotamyoga.fr",
+      "company": "Gotamyoga",
+      "tech": "Wix",
+      "score": 70,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "06 52 24 18 80"
+    },
+    {
+      "domain": "muse-studio.fr",
+      "company": "Muse studio",
+      "tech": "Custom",
+      "score": 60,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@muse-studio.fr",
+      "phone": "06 22 41 04 38"
+    },
+    {
+      "domain": "plenitudestudio.fr",
+      "company": "Plenitudestudio",
+      "tech": "WordPress",
+      "score": 67,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@plenitudestudio.fr",
+      "phone": "04 22 83 29 51"
+    },
+    {
+      "domain": "emselfcare.fr",
+      "company": "Emselfcare",
+      "tech": "Custom",
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "inside-lyon.com",
+      "company": "Inside lyon",
+      "tech": "Custom",
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "yeahga.fr",
+      "company": "Yeahga",
+      "tech": "Squarespace",
+      "score": 80,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "utilisateur@domaine.com",
+      "phone": "06 79 99 99 99"
+    },
+    {
+      "domain": "elixirstudiolyon.fr",
+      "company": "Elixirstudiolyon",
+      "tech": "WordPress",
+      "score": 67,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@elixirstudio.fr",
+      "phone": "04 26 17 07 23"
+    },
+    {
+      "domain": "thegoodflow-yoga.com",
+      "company": "Thegoodflow yoga",
+      "tech": "WordPress",
+      "score": 67,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@thegoodflow-yoga.com",
+      "phone": "04 81 65 34 78"
+    },
     {
       "domain": "maison-dumont.fr",
       "company": "Maison dumont",
@@ -207,277 +453,37 @@
       "replied": 0,
       "email": "contact@mrmtraiteur.com",
       "phone": "01 03 43 35 41"
-    },
-    {
-      "domain": "effervescence-rennes.fr",
-      "company": "Effervescence rennes",
-      "tech": "WordPress",
-      "score": 67,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "cs@rennes-internet.com",
-      "phone": "06 24 83 39 07"
-    },
-    {
-      "domain": "linstantreception.fr",
-      "company": "Linstantreception",
-      "tech": "Custom",
-      "score": 60,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "contact@linstantreception.fr",
-      "phone": "04 07 49 85 47"
-    },
-    {
-      "domain": "maisonruat-traiteur.com",
-      "company": "Maisonruat traiteur",
-      "tech": "Wix",
-      "score": 67,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "laprairiemimosa.fr",
-      "company": "Laprairiemimosa",
-      "tech": "Wix",
-      "score": 67,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "monsieurlouistraiteur.fr",
-      "company": "Monsieurlouistraiteur",
-      "tech": "Custom",
-      "score": 52,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "andrieux-traiteur.fr",
-      "company": "Andrieux traiteur",
-      "tech": "WordPress",
-      "score": 67,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "contact@andrieux-traiteur.fr",
-      "phone": "06 79 84 66 75"
-    },
-    {
-      "domain": "laforgedessaveurs.fr",
-      "company": "Laforgedessaveurs",
-      "tech": "WordPress",
-      "score": 62,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "06 07 08 06 28"
-    },
-    {
-      "domain": "traiteuremotions.com",
-      "company": "Traiteuremotions",
-      "tech": "Custom",
-      "score": 45,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "dusfourtraiteur.fr",
-      "company": "Dusfourtraiteur",
-      "tech": "WordPress",
-      "score": 67,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "tori.philippe@dusfourtraiteur.com",
-      "phone": "04 48 48 09 98"
-    },
-    {
-      "domain": "traiteurmontpellier.com",
-      "company": "Traiteurmontpellier",
-      "tech": "Custom",
-      "score": 60,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "contact@traiteurmontpellier.com",
-      "phone": "06 60 13 05 96"
-    },
-    {
-      "domain": "personadesign.fr",
-      "company": "Personadesign",
-      "tech": "WordPress",
-      "score": 59,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "yvonnelifestore.com",
-      "company": "Yvonnelifestore",
-      "tech": "WordPress",
-      "score": 62,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "07 91 10 92 83"
-    },
-    {
-      "domain": "dusabledanslemaillot.fr",
-      "company": "Dusabledanslemaillot",
-      "tech": "WordPress",
-      "score": 59,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "troisfenetres.com",
-      "company": "Troisfenetres",
-      "tech": "Wix",
-      "score": 67,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "jeanneetcharlotte.fr",
-      "company": "Jeanneetcharlotte",
-      "tech": "WordPress",
-      "score": 59,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "mapstr.com",
-      "company": "Mapstr",
-      "tech": "Webflow",
-      "score": 57,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "hello@mapstr.com",
-      "phone": "09 02 79 04 04"
-    },
-    {
-      "domain": "littlegreencocoon.fr",
-      "company": "Littlegreencocoon",
-      "tech": "Shopify",
-      "score": 65,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "01 14 52 40 21"
-    },
-    {
-      "domain": "pollendesignstore.com",
-      "company": "Pollendesignstore",
-      "tech": "Custom",
-      "score": 55,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "04 17 96 98 35"
-    },
-    {
-      "domain": "omm.fr",
-      "company": "Omm",
-      "tech": "Shopify",
-      "score": 65,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "07 13 45 17 48"
-    },
-    {
-      "domain": "le-puits-damour.com",
-      "company": "Le puits damour",
-      "tech": "Wix",
-      "score": 70,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "07 76 35 20 71"
     }
   ],
   "icp_distribution": [
     {
       "category": "ecommerce_premium",
       "label": "E-commerce Premium",
-      "count": 187,
-      "pct": 71
+      "count": 205,
+      "pct": 72
     },
     {
       "category": "hospitality",
       "label": "Hospitality & Resto",
-      "count": 27,
+      "count": 28,
       "pct": 10
     },
     {
       "category": "mode_luxe",
       "label": "Mode & Luxe",
       "count": 23,
-      "pct": 9
+      "pct": 8
     },
     {
       "category": "skincare_wellness",
       "label": "Skincare & Wellness",
       "count": 12,
-      "pct": 5
+      "pct": 4
     },
     {
       "category": "cabinet_b2b",
       "label": "Cabinet B2B",
-      "count": 4,
+      "count": 5,
       "pct": 2
     },
     {
@@ -507,8 +513,8 @@
   ],
   "temperature": {
     "hot": 1,
-    "warm": 179,
-    "cold": 83,
+    "warm": 194,
+    "cold": 88,
     "avg_ai_score": 52
   }
 }
