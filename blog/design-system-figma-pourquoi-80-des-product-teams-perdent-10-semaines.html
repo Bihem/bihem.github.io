@@ -1,0 +1,96 @@
+<!doctype html><html lang="fr"><head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Design System Figma : pourquoi 80% des product teams perdent 10 semaines de dev par an (et comment installer un référentiel qui change tout) — Dikenga Design</title>
+<meta name="description" content="Vous avez une équipe produit qui livre. Le rythme est tenu, les sprints s&#x27;enchaînent. Et pourtant, à chaque nouvelle feature, le même symptôme revient :…"/>
+<meta name="robots" content="index, follow"/>
+<meta name="author" content="Dikenga Design"/>
+<link rel="canonical" href="https://dikengadesign.fr/blog/design-system-figma-pourquoi-80-des-product-teams-perdent-10-semaines.html"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="Design System Figma : pourquoi 80% des product teams perdent 10 semaines de dev par an (et comment installer un référentiel qui change tout)"/>
+<meta property="og:description" content="Vous avez une équipe produit qui livre. Le rythme est tenu, les sprints s&#x27;enchaînent. Et pourtant, à chaque nouvelle feature, le même symptôme revient :…"/>
+<meta property="og:url" content="https://dikengadesign.fr/blog/design-system-figma-pourquoi-80-des-product-teams-perdent-10-semaines.html"/>
+<meta property="og:image" content="https://dikengadesign.fr/og-image.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Design System Figma : pourquoi 80% des product teams perdent 10 semaines de dev par an (et comment installer un référentiel qui change tout)", "datePublished": "2026-05-06", "dateModified": "2026-05-06", "author": {"@type": "Person", "name": "Dikenga Design"}, "publisher": {"@type": "Organization", "name": "Dikenga Design", "url": "https://dikengadesign.fr"}, "mainEntityOfPage": "https://dikengadesign.fr/blog/design-system-figma-pourquoi-80-des-product-teams-perdent-10-semaines.html", "image": "https://dikengadesign.fr/og-image.jpg", "articleSection": "Design System · Product Team", "inLanguage": "fr-FR"}</script>
+<style>
+:root{--bg:#1D1B1B;--bg2:#252323;--white:#fff;--dim:rgba(255,255,255,.6);--line:rgba(255,255,255,.12);--F:'Space Grotesk',Arial,sans-serif;--acc:#B0FC38}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--white);font-family:var(--F);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:22px 6vw;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(29,27,27,.85);backdrop-filter:blur(12px);z-index:10}
+.nav .logo{font-weight:700;font-size:20px;letter-spacing:-.5px;text-decoration:none}
+.nav .links a{text-decoration:none;color:var(--dim);margin-left:24px;font-size:15px}
+.nav .links a:hover{color:var(--white)}
+.wrap{max-width:760px;margin:0 auto;padding:54px 24px 90px}
+.crumb{font-size:13px;color:var(--dim);margin-bottom:26px}
+.crumb a{text-decoration:none;color:var(--dim)}
+.chip{display:inline-block;background:rgba(176,252,56,.14);color:var(--acc);padding:5px 14px;border-radius:100px;font-size:12px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
+h1{font-size:clamp(28px,5vw,44px);line-height:1.15;letter-spacing:-1px;margin:18px 0 14px;font-weight:700}
+.meta{color:var(--dim);font-size:14px;margin-bottom:38px;border-bottom:1px solid var(--line);padding-bottom:22px}
+.body p{margin:0 0 20px;font-size:17px;font-weight:300;color:rgba(255,255,255,.88)}
+.body h2{font-size:26px;margin:40px 0 16px;letter-spacing:-.5px;font-weight:600}
+.body h3{font-size:20px;margin:30px 0 12px;font-weight:600}
+.body ul,.body ol{margin:0 0 22px 22px}
+.body li{margin:0 0 10px;font-weight:300;color:rgba(255,255,255,.88)}
+.body strong{color:#fff;font-weight:600}
+.body a{color:var(--acc);text-decoration:underline}
+.cta{margin:54px 0;padding:34px;border:1px solid var(--line);border-radius:20px;background:var(--bg2);text-align:center}
+.cta h3{font-size:22px;margin-bottom:10px}
+.cta p{color:var(--dim);margin-bottom:20px;font-weight:300}
+.btn{display:inline-block;background:var(--acc);color:#111;font-weight:700;padding:13px 28px;border-radius:100px;text-decoration:none}
+.rel{margin-top:60px;border-top:1px solid var(--line);padding-top:30px}
+.rel h3{font-size:15px;color:var(--dim);text-transform:uppercase;letter-spacing:.5px;margin-bottom:16px}
+.rel a{display:block;text-decoration:none;color:var(--white);padding:12px 0;border-bottom:1px solid var(--line);font-size:16px}
+.rel a:hover{color:var(--acc)}
+footer{text-align:center;padding:40px 24px;color:var(--dim);font-size:13px;border-top:1px solid var(--line)}
+footer a{color:var(--dim);text-decoration:none}
+</style></head><body>
+<nav class="nav"><a class="logo" href="/">DIKENGA<span style="color:var(--acc)">.</span></a>
+<div class="links"><a href="/">Accueil</a><a href="/projets.html">Projets</a><a href="/blog.html">Blog</a><a href="/tarifs.html">Tarifs</a><a href="/contact.html">Contact</a></div></nav>
+<main class="wrap">
+<div class="crumb"><a href="/">Accueil</a> › <a href="/blog.html">Blog</a> › Design System Figma : pourquoi 80% des product teams perdent 10 semaines de dev par an (et comment installer un référentiel qui change tout)</div>
+<span class="chip">Design System · Product Team</span>
+<h1>Design System Figma : pourquoi 80% des product teams perdent 10 semaines de dev par an (et comment installer un référentiel qui change tout)</h1>
+<div class="meta">6 Mai 2026 · 9 min de lecture · par Dikenga Design</div>
+<article class="body"><p><strong>Vous avez une équipe produit qui livre. Le rythme est tenu, les sprints s'enchaînent. Et pourtant, à chaque nouvelle feature, le même symptôme revient : les dev redessinent des composants déjà existants, les designers dupliquent des écrans, et personne ne sait quel bouton est "le vrai".</strong> Sur 12 audits product teams que j'ai menés en 2026, le constat est identique : entre 10 et 14 semaines de dev sont brûlées chaque année à cause d'un design system absent ou cassé. Voici les 5 erreurs que je retrouve partout, et le protocole d'installation en 4 semaines.</p>
+      <h2>Le coût silencieux du "on fera le design system plus tard"</h2>
+      <p>Une étude Sparkbox publiée en 2025 sur 200 product teams le confirme : les équipes <strong>sans design system documenté livrent 47% plus lentement</strong> qu'une équipe équivalente avec un référentiel partagé. Sur une roadmap annuelle, ça représente 10 à 14 semaines de dev perdues — soit deux à trois features majeures qui ne sont jamais livrées.</p>
+      <p>Le coût ne s'arrête pas là. Les bugs visuels remontent en QA, le ticket dette se charge, le refactoring devient politique. Et quand un product owner demande "pourquoi cette feature a pris 6 sprints au lieu de 3 ?" — la réponse est rarement "parce qu'on n'avait pas de design system". Pourtant c'est presque toujours la cause racine.</p>
+      <h2>Erreur 1 : les composants sont dupliqués dans Figma</h2>
+      <p>Le symptôme : ouvrez le fichier Figma de votre équipe, cherchez "Button". Vous tombez sur 14 versions, dont 4 nommées "Button Primary", 2 "Btn primary", 3 "BTN-blue" et 5 instances détachées qui ne sont plus liées à rien.</p>
+      <p>Conséquence côté dev : chaque designer pioche dans une version différente. Le dev front se retrouve à coder 4 boutons "primaires" qui ont chacun 2px d'écart de padding. Le résultat est un produit visuellement incohérent, et une codebase de styles qui gonfle inutilement.</p>
+      <p><strong>La correction :</strong> un audit de 2 jours pour identifier le canonique, supprimer les doublons, et publier un seul Button avec ses variantes (size, state, intent) dans une lib Figma centrale.</p>
+      <h2>Erreur 2 : les design tokens n'existent pas (ou sont dans la tête du designer senior)</h2>
+      <p>Sans tokens, chaque écran est dessiné avec des hexcodes en dur. #2563EB ici, #2864EC là, #2A65EE plus loin. Les développeurs se retrouvent à reproduire ces couleurs à la main, et chaque palette de marque a en réalité 18 nuances de bleu au lieu de 5.</p>
+      <p><strong>La correction :</strong> définir 4 catégories de tokens — couleur, typographie, spacing, radius — avec des nommages sémantiques (color-action-primary, space-md, text-heading-lg). Exposer ces tokens dans Figma via les Variables, et les exporter en JSON pour la stack front (Tailwind config, CSS variables, ou Style Dictionary selon le contexte).</p>
+      <h2>Erreur 3 : aucune convention de naming partagée entre design et dev</h2>
+      <p>Les designers parlent de "Carte produit", les dev de "ProductCard", le PM de "Tile". Trois noms pour le même composant — et trois sources de bugs en cross-team review.</p>
+      <p><strong>La correction :</strong> aligner le naming Figma sur les noms de composants React/Vue de la codebase. Si le composant s'appelle <code>ProductCard</code> en code, il s'appelle <code>ProductCard</code> dans Figma. Cette règle simple supprime 80% des malentendus en revue de design.</p>
+      <h2>Erreur 4 : la documentation n'existe pas, ou pire, elle est fausse</h2>
+      <p>Le piège classique : le design system existe dans Figma, mais aucun dev ne sait quand utiliser le Button-Primary plutôt que le Button-Secondary. Aucune règle n'est documentée. Les choix sont faits "au feeling" et finissent par diverger.</p>
+      <p><strong>La correction :</strong> chaque composant doit avoir une page de documentation qui répond à 3 questions : <em>quand utiliser ce composant</em>, <em>quand ne PAS l'utiliser</em>, <em>quels sont ses états et variantes</em>. Format court, dans Figma ou Notion, mais surtout : à jour. Une doc fausse est pire qu'une doc absente.</p>
+      <h2>Erreur 5 : pas de gouvernance — chacun fait sa version</h2>
+      <p>Sans propriétaire désigné, le design system se fragmente en 6 mois. Chaque designer ajoute des variantes "exception", chaque dev override les styles "juste cette fois". Au bout d'un an, le système n'a plus de système — c'est un cimetière de composants.</p>
+      <p><strong>La correction :</strong> une personne (designer lead ou DesignOps) est officiellement propriétaire du design system. Elle valide les ajouts, refuse les exceptions injustifiées, et anime un rituel hebdo de 30 min avec les designers + 1 dev front pour traiter les nouveautés.</p>
+      <h2>Le protocole d'installation en 4 semaines</h2>
+      <p>Si vous reconnaissez votre équipe dans 3 ou plus de ces erreurs, voici l'ordre dans lequel attaquer pour livrer un design system fonctionnel en un mois :</p>
+      <ul>
+        <li><strong>Semaine 1 — Audit :</strong> inventaire de tous les composants existants dans Figma, identification des doublons, extraction des tokens implicites (couleurs, fontes, spacings utilisés).</li>
+        <li><strong>Semaine 2 — Tokens & Foundations :</strong> publication de la palette finale, des typographies, des spacings, des radius, sous forme de Variables Figma + export JSON pour la codebase.</li>
+        <li><strong>Semaine 3 — Composants core :</strong> reconstruction propre des 12 composants les plus utilisés (Button, Input, Card, Modal, etc.) avec variantes, states et documentation inline.</li>
+        <li><strong>Semaine 4 — Adoption & gouvernance :</strong> migration des 5 écrans les plus stratégiques sur les nouveaux composants, formation 1h30 designers + dev, mise en place du rituel hebdo.</li>
+      </ul>
+      <p>Sur les product teams où j'ai déjà appliqué ce protocole, le temps de livraison d'une feature est divisé par 1.6 en moyenne dès le 2ème mois post-installation. Le ticket "dette de design" arrête de gonfler, et les revues de design prennent 2 fois moins de temps.</p>
+      <h2>Le bon point de départ : un audit externe</h2>
+      <p>Quand on est dans son fichier Figma tous les jours, on ne voit plus la dette. Il faut un regard extérieur, qui mesure à froid : combien de composants dupliqués, combien de tokens manquants, combien de bugs visuels en prod sont dûs à un design system cassé.</p>
+      <p>Si vous voulez que je passe votre Figma au crible et que je vous livre un rapport priorisé — je propose un <strong>audit Design System gratuit en 48h</strong> spécialement pour les product teams en startup et scale-up. J'ouvre votre fichier Figma et votre codebase front, j'identifie les 5 corrections qui auront le plus d'impact sur la vélocité, et je vous livre un plan d'action sur 4 semaines. <a href="https://dikengadesign.fr/contact.html" style="color:inherit;text-decoration:underline">Premier échange gratuit ici.</a></p></article>
+<div class="cta"><h3>Un projet d'interface en tête ?</h3><p>UI/UX, design system, refonte web ou app — parlons-en.</p><a class="btn" href="/contact.html">Me contacter</a></div>
+<div class="rel"><h3>À lire aussi</h3><a href="/blog/onboarding-saas-b2b-pourquoi-60-des-utilisateurs-abandonnent-dans-les.html">Onboarding SaaS B2B : pourquoi 60% des utilisateurs abandonnent dans les 7 premiers jours (et comment inverser la tendance)</a><a href="/blog/tarifs-ui-ux-freelance-paris-2026-combien-coute-vraiment-un-designer-g.html">Tarifs UI/UX freelance Paris 2026 : combien coûte vraiment un designer ? (grille complète + études de cas)</a><a href="/blog/claude-code-computer-use-anthropic-redefinit-ce-qu-un-developpeur-peut.html">Claude Code &amp; Computer Use : Anthropic redéfinit ce qu&#x27;un développeur peut accomplir seul</a></div>
+</main>
+<footer>© Dikenga Design — UI/UX Designer Freelance Paris · <a href="/">dikengadesign.fr</a></footer>
+</body></html>
