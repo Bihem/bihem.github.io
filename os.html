@@ -568,7 +568,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   <div class="gate-card">
     <div class="gate-logo"><img src="logo-dikenga.png" alt="DIKENGA."></div>
     <div class="gate-sub">Acquisition Intelligence Platform</div>
-    <input type="password" id="gate-pw" placeholder="••••••••••••" autocomplete="off">
+    <input type="password" id="gate-pw" placeholder="••••••••••••" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
     <button id="gate-btn" onclick="doAuth()">Accéder →</button>
     <div class="gate-err" id="gate-err"></div>
   </div>
@@ -703,7 +703,7 @@ function runBoot(cb){
 // ════════════════════════════════════════════════════════
 const PWD = 'dikenga2026';
 function doAuth(){
-  const v = document.getElementById('gate-pw').value.trim();
+  const v = document.getElementById('gate-pw').value.trim().toLowerCase();
   if(v===PWD){
     localStorage.setItem('dk_auth','1');
     document.getElementById('gate').style.display='none';
