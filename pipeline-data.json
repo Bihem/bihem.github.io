@@ -1,24 +1,24 @@
 {
-  "updated_at": "2026-06-02T12:01:38.691295",
+  "updated_at": "2026-06-03T08:10:26.384934",
   "version": "v6",
   "warmup_mode": false,
   "funnel": {
-    "total": 302,
-    "with_email": 74,
-    "with_phone": 170,
+    "total": 318,
+    "with_email": 82,
+    "with_phone": 178,
     "total_emailed": 41,
     "total_replied": 0,
     "total_bounced": 0,
-    "queued": 34,
+    "queued": 42,
     "total_optout": 0,
-    "pending": 40
+    "pending": 39
   },
   "sources": [
     {
       "source": "ddg",
-      "n": 291,
-      "with_email": 73,
-      "with_phone": 170,
+      "n": 307,
+      "with_email": 81,
+      "with_phone": 178,
       "total_emailed": 41,
       "replied": 0
     },
@@ -85,15 +85,213 @@
       "analyzed": 39,
       "emailed": 0,
       "replied": 0
+    },
+    {
+      "date": "2026-06-03",
+      "analyzed": 16,
+      "emailed": 0,
+      "replied": 0
     }
   ],
   "today": {
-    "analyzed": 39,
-    "with_email": 12,
-    "with_phone": 24,
+    "analyzed": 16,
+    "with_email": 8,
+    "with_phone": 8,
     "emailed": 0
   },
   "recent": [
+    {
+      "domain": "atelier-de-la-foret.fr",
+      "company": "Atelier de la foret",
+      "tech": "PrestaShop",
+      "score": 66,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "07 26 74 76 05"
+    },
+    {
+      "domain": "stephaniecesaire.com",
+      "company": "Stephaniecesaire",
+      "tech": "WordPress",
+      "score": 66,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "fr.nemoleathergoods.com",
+      "company": "Fr",
+      "tech": "Wix",
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "baron-rookster.fr",
+      "company": "Baron rookster",
+      "tech": "WordPress",
+      "score": 59,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "iner.fr",
+      "company": "Iner",
+      "tech": "WordPress",
+      "score": 67,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@iner.fr",
+      "phone": "06 37 01 09 07"
+    },
+    {
+      "domain": "karlbackwellcreations.com",
+      "company": "Karlbackwellcreations",
+      "tech": "Wix",
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "carlos-gaspar-pialgata.com",
+      "company": "Carlos gaspar pialgata",
+      "tech": "Wix",
+      "score": 67,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "atelier-creation-cuir.fr",
+      "company": "Atelier creation cuir",
+      "tech": "WordPress",
+      "score": 74,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "info@komplex.com",
+      "phone": "09 12 77 19 69"
+    },
+    {
+      "domain": "cuir-et-terre.fr",
+      "company": "Cuir et terre",
+      "tech": "Custom",
+      "score": 74,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "info@cuir-et-terre.com",
+      "phone": "02 41 39 38 91"
+    },
+    {
+      "domain": "findglocal.com",
+      "company": "Findglocal",
+      "tech": "Custom",
+      "score": 69,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": "04 68 33 75 43"
+    },
+    {
+      "domain": "mirlycuir.fr",
+      "company": "Mirlycuir",
+      "tech": "PrestaShop",
+      "score": 75,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@mirlycuir.fr",
+      "phone": null
+    },
+    {
+      "domain": "ateliergrandparadis.fr",
+      "company": "Ateliergrandparadis",
+      "tech": "WordPress",
+      "score": 64,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@ateliergrandparadis.fr",
+      "phone": null
+    },
+    {
+      "domain": "maroquineriechabert.com",
+      "company": "Maroquineriechabert",
+      "tech": "Custom",
+      "score": 52,
+      "source": "ddg",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": null,
+      "phone": null
+    },
+    {
+      "domain": "pistache.fr",
+      "company": "Pistache",
+      "tech": "WordPress",
+      "score": 74,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "boutique@pistache.fr",
+      "phone": "05 50 89 59 04"
+    },
+    {
+      "domain": "nice.love-spots.com",
+      "company": "Nice",
+      "tech": "WordPress",
+      "score": 74,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "nice@love-spots.com",
+      "phone": "08 29 26 81 76"
+    },
+    {
+      "domain": "atelier-vignes.com",
+      "company": "Atelier vignes",
+      "tech": "PrestaShop",
+      "score": 71,
+      "source": "ddg",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@atelier-vignes.com",
+      "phone": "04 93 80 00 90"
+    },
     {
       "domain": "jmax-coaching.com",
       "company": "Jmax coaching",
@@ -261,205 +459,13 @@
       "replied": 0,
       "email": null,
       "phone": null
-    },
-    {
-      "domain": "startcoaching-strasbourg.com",
-      "company": "Startcoaching strasbourg",
-      "tech": "Wix",
-      "score": 67,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "greg-strasbourg.coach",
-      "company": "Greg strasbourg",
-      "tech": "Wix",
-      "score": 67,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "jonathanlux-coachsportif.com",
-      "company": "Jonathanlux coachsportif",
-      "tech": "Wix",
-      "score": 67,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "sculpttrainingclub.wixsite.com",
-      "company": "Sculpttrainingclub",
-      "tech": "Custom",
-      "score": 52,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "coach-sportif-perso.fr",
-      "company": "Coach sportif perso",
-      "tech": "Custom",
-      "score": 50,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "philippe.hammer@persocoach.fr",
-      "phone": null
-    },
-    {
-      "domain": "studiopilatesmarseille.com",
-      "company": "Studiopilatesmarseille",
-      "tech": "WordPress",
-      "score": 62,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "02 28 17 63 12"
-    },
-    {
-      "domain": "small-yoga-pilates.fr",
-      "company": "Small yoga pilates",
-      "tech": "WordPress",
-      "score": 59,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "studio-flowlab.fr",
-      "company": "Studio flowlab",
-      "tech": "WordPress",
-      "score": 59,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "pilatesyogamarseille.com",
-      "company": "Pilatesyogamarseille",
-      "tech": "Wix",
-      "score": 67,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": null
-    },
-    {
-      "domain": "multifa.fr",
-      "company": "Multifa",
-      "tech": "WordPress",
-      "score": 62,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "08 55 09 26 21"
-    },
-    {
-      "domain": "spirale-coaching.com",
-      "company": "Spirale coaching",
-      "tech": "Custom",
-      "score": 55,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "08 95 91 66 66"
-    },
-    {
-      "domain": "pulse-cafe.com",
-      "company": "Pulse cafe",
-      "tech": "WordPress",
-      "score": 67,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "contact@pulse-cafe.com",
-      "phone": "07 68 96 40 00"
-    },
-    {
-      "domain": "studio24pilates.fr",
-      "company": "Studio24pilates",
-      "tech": "Webflow",
-      "score": 45,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "04 52 82 81 77"
-    },
-    {
-      "domain": "umamarseille.fr",
-      "company": "Umamarseille",
-      "tech": "WordPress",
-      "score": 67,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "contact@umamarseille.com",
-      "phone": "04 09 11 22 04"
-    },
-    {
-      "domain": "studiomermaid.com",
-      "company": "Studiomermaid",
-      "tech": "Squarespace",
-      "score": 80,
-      "source": "ddg",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "utilisateur@domaine.com",
-      "phone": "02 86 11 94 55"
-    },
-    {
-      "domain": "arbolflow.com",
-      "company": "Arbolflow",
-      "tech": "WordPress",
-      "score": 62,
-      "source": "ddg",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": null,
-      "phone": "05 48 29 88 39"
     }
   ],
   "icp_distribution": [
     {
       "category": "ecommerce_premium",
       "label": "E-commerce Premium",
-      "count": 218,
+      "count": 229,
       "pct": 72
     },
     {
@@ -471,13 +477,13 @@
     {
       "category": "mode_luxe",
       "label": "Mode & Luxe",
-      "count": 23,
+      "count": 27,
       "pct": 8
     },
     {
       "category": "skincare_wellness",
       "label": "Skincare & Wellness",
-      "count": 13,
+      "count": 14,
       "pct": 4
     },
     {
@@ -513,8 +519,8 @@
   ],
   "temperature": {
     "hot": 1,
-    "warm": 209,
-    "cold": 92,
+    "warm": 224,
+    "cold": 93,
     "avg_ai_score": 52
   }
 }
