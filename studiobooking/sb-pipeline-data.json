@@ -1,42 +1,42 @@
 {
-  "updated_at": "2026-06-03T09:03:23.418928",
+  "updated_at": "2026-06-03T15:05:00.424607",
   "version": "sb-v1",
   "product": "StudioBooking",
   "warmup_mode": true,
   "funnel": {
-    "total": 55,
-    "with_email": 23,
-    "with_phone": 42,
-    "total_emailed": 23,
+    "total": 64,
+    "with_email": 27,
+    "with_phone": 47,
+    "total_emailed": 27,
     "total_replied": 0,
     "total_bounced": 2,
     "queued": 0,
-    "hot_opps": 22,
-    "manual_bookings": 14
+    "hot_opps": 26,
+    "manual_bookings": 17
   },
   "sources": [
     {
       "source": "ddg",
-      "n": 34,
-      "with_email": 16,
-      "total_emailed": 16,
+      "n": 40,
+      "with_email": 19,
+      "total_emailed": 19,
       "replied": 0
     },
     {
       "source": "gmaps",
-      "n": 21,
-      "with_email": 7,
-      "total_emailed": 7,
+      "n": 24,
+      "with_email": 8,
+      "total_emailed": 8,
       "replied": 0
     }
   ],
   "ab_test": {
     "A": {
-      "sent": 13,
+      "sent": 15,
       "replied": 0
     },
     "B": {
-      "sent": 10,
+      "sent": 12,
       "replied": 0
     }
   },
@@ -76,26 +76,32 @@
       "analyzed": 8,
       "emailed": 7,
       "replied": 0
+    },
+    {
+      "date": "2026-06-03",
+      "analyzed": 9,
+      "emailed": 4,
+      "replied": 0
     }
   ],
   "temperature": {
-    "hot": 25,
-    "warm": 15,
-    "cold": 15,
+    "hot": 29,
+    "warm": 18,
+    "cold": 17,
     "avg_score": 61
   },
   "icp_distribution": [
     {
       "category": "autre_studio",
       "label": "Autre Studio",
-      "count": 27,
-      "pct": 49
+      "count": 34,
+      "pct": 53
     },
     {
       "category": "enregistrement",
       "label": "Studio d'Enregistrement",
-      "count": 23,
-      "pct": 42
+      "count": 25,
+      "pct": 39
     },
     {
       "category": "repetition",
@@ -107,7 +113,7 @@
       "category": "smac_venue",
       "label": "SMAC / Salle de Spectacle",
       "count": 2,
-      "pct": 4
+      "pct": 3
     }
   ]
 }
