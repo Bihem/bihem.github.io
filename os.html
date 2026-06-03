@@ -545,6 +545,13 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 .cop-kpi-val.green{color:var(--green)}
 .cop-kpi-val.hot{color:var(--hot)}
 </style>
+
+  <link rel="manifest" href="/os-manifest.json">
+  <meta name="theme-color" content="#101014">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Dikenga OS">
+  <link rel="apple-touch-icon" href="/os-icon-180.png">
 </head>
 <body>
 
@@ -1911,5 +1918,7 @@ document.addEventListener('keydown',e=>{
     toggleCopilot();
 });
 </script>
+
+<script>if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("/os-sw.js").catch(function(){})})}</script>
 </body>
 </html>
