@@ -1,15 +1,15 @@
 {
-  "updated_at": "2026-06-04T16:00:20.096419",
+  "updated_at": "2026-06-04T21:26:01.685176",
   "version": "v6",
   "warmup_mode": false,
   "funnel": {
-    "total": 434,
-    "with_email": 135,
+    "total": 462,
+    "with_email": 154,
     "with_phone": 191,
     "total_emailed": 65,
     "total_replied": 0,
     "total_bounced": 0,
-    "queued": 69,
+    "queued": 88,
     "total_optout": 0,
     "pending": 63
   },
@@ -24,8 +24,8 @@
     },
     {
       "source": "ddg-v2",
-      "n": 97,
-      "with_email": 49,
+      "n": 125,
+      "with_email": 68,
       "with_phone": 0,
       "total_emailed": 13,
       "replied": 0
@@ -681,6 +681,174 @@
       "analyzed": 1,
       "emailed": 0,
       "replied": 0
+    },
+    {
+      "date": "2026-06-04T20:00:19.554139",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T20:00:26.825625",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T20:00:31.543261",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T21:22:49.164789",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T21:22:57.827227",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T21:23:14.487879",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T21:23:19.790238",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T21:23:23.693328",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T21:23:27.185506",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T21:23:29.042190",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T21:23:31.698311",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T21:23:35.686764",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T21:23:38.974235",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T21:23:41.853682",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T21:24:15.389721",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T21:24:18.412435",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T21:24:26.508920",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T21:24:38.018320",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T21:24:55.272014",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T21:24:57.523864",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T21:24:59.321201",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T21:25:02.520394",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T21:25:08.509529",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T21:25:14.547757",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T21:25:16.360433",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T21:25:49.405560",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T21:25:50.634630",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T21:25:56.996436",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
     }
   ],
   "today": {
@@ -690,6 +858,342 @@
     "emailed": null
   },
   "recent": [
+    {
+      "domain": "concept-store-boutique-cadeau-annecy.com",
+      "company": "Concept Store Boutique Cadeau Annecy",
+      "tech": null,
+      "score": 60,
+      "source": "ddg-v2",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "thierryw1@gmail.com",
+      "phone": null
+    },
+    {
+      "domain": "inspiration212.com",
+      "company": "Inspiration212",
+      "tech": null,
+      "score": 20,
+      "source": "ddg-v2",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": "",
+      "phone": null
+    },
+    {
+      "domain": "babethstore.com",
+      "company": "Babethstore",
+      "tech": null,
+      "score": 60,
+      "source": "ddg-v2",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "order@babethstore.com",
+      "phone": null
+    },
+    {
+      "domain": "ggshop69.fr",
+      "company": "Ggshop69",
+      "tech": null,
+      "score": 20,
+      "source": "ddg-v2",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": "",
+      "phone": null
+    },
+    {
+      "domain": "popandshoes.com",
+      "company": "Popandshoes",
+      "tech": null,
+      "score": 60,
+      "source": "ddg-v2",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@popandshoes.com",
+      "phone": null
+    },
+    {
+      "domain": "jlcoiffeurbarbier.com",
+      "company": "Jlcoiffeurbarbier",
+      "tech": null,
+      "score": 60,
+      "source": "ddg-v2",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "jlcoiffeurbarbier@gmail.com",
+      "phone": null
+    },
+    {
+      "domain": "barberpapa.fr",
+      "company": "Barberpapa",
+      "tech": null,
+      "score": 20,
+      "source": "ddg-v2",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": "",
+      "phone": null
+    },
+    {
+      "domain": "lhomme-annecy.fr",
+      "company": "Lhomme Annecy",
+      "tech": null,
+      "score": 20,
+      "source": "ddg-v2",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": "",
+      "phone": null
+    },
+    {
+      "domain": "echirolles.fr",
+      "company": "Echirolles",
+      "tech": null,
+      "score": 20,
+      "source": "ddg-v2",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": "",
+      "phone": null
+    },
+    {
+      "domain": "espacecomboire.fr",
+      "company": "Espacecomboire",
+      "tech": null,
+      "score": 60,
+      "source": "ddg-v2",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "lrevenements@gmail.com",
+      "phone": null
+    },
+    {
+      "domain": "optique-duron.fr",
+      "company": "Optique Duron",
+      "tech": null,
+      "score": 60,
+      "source": "ddg-v2",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "optique-duron-yannick@wanadoo.fr",
+      "phone": null
+    },
+    {
+      "domain": "generale-optique.com",
+      "company": "Generale Optique",
+      "tech": null,
+      "score": 60,
+      "source": "ddg-v2",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact.service-client@generale-optique.com",
+      "phone": null
+    },
+    {
+      "domain": "poleoptique-villeurbanne.fr",
+      "company": "Poleoptique Villeurbanne",
+      "tech": null,
+      "score": 60,
+      "source": "ddg-v2",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@poleoptique-villeurbanne.fr",
+      "phone": null
+    },
+    {
+      "domain": "patricevial.fr",
+      "company": "Patricevial",
+      "tech": null,
+      "score": 60,
+      "source": "ddg-v2",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@patricevial.fr",
+      "phone": null
+    },
+    {
+      "domain": "coiffeur-vienne-instant-k.fr",
+      "company": "Coiffeur Vienne Instant K",
+      "tech": null,
+      "score": 60,
+      "source": "ddg-v2",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@coiffeur-vienne-instant-k.fr",
+      "phone": null
+    },
+    {
+      "domain": "salon-la-boucle.fr",
+      "company": "Salon La Boucle",
+      "tech": null,
+      "score": 20,
+      "source": "ddg-v2",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": "",
+      "phone": null
+    },
+    {
+      "domain": "konfian.com",
+      "company": "Konfian",
+      "tech": null,
+      "score": 60,
+      "source": "ddg-v2",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@konfian.com",
+      "phone": null
+    },
+    {
+      "domain": "alpes-barber.fr",
+      "company": "Alpes Barber",
+      "tech": null,
+      "score": 60,
+      "source": "ddg-v2",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@alpes-barber.fr",
+      "phone": null
+    },
+    {
+      "domain": "sb-barber73.fr",
+      "company": "Sb Barber73",
+      "tech": null,
+      "score": 60,
+      "source": "ddg-v2",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "sb.barber73@gmail.com",
+      "phone": null
+    },
+    {
+      "domain": "barberious.fr",
+      "company": "Barberious",
+      "tech": null,
+      "score": 60,
+      "source": "ddg-v2",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@barberious.fr",
+      "phone": null
+    },
+    {
+      "domain": "flowersandpapers.fr",
+      "company": "Flowersandpapers",
+      "tech": null,
+      "score": 20,
+      "source": "ddg-v2",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": "",
+      "phone": null
+    },
+    {
+      "domain": "donzier-fleurs-annecy.fr",
+      "company": "Donzier Fleurs Annecy",
+      "tech": null,
+      "score": 20,
+      "source": "ddg-v2",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": "",
+      "phone": null
+    },
+    {
+      "domain": "astrantia-fleuriste-annecy.fr",
+      "company": "Astrantia Fleuriste Annecy",
+      "tech": null,
+      "score": 60,
+      "source": "ddg-v2",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "lastrantia@hotmail.com",
+      "phone": null
+    },
+    {
+      "domain": "krys.com",
+      "company": "Krys",
+      "tech": null,
+      "score": 60,
+      "source": "ddg-v2",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "serviceclients@krys.com",
+      "phone": null
+    },
+    {
+      "domain": "saintmartindheres.fr",
+      "company": "Saintmartindheres",
+      "tech": null,
+      "score": 60,
+      "source": "ddg-v2",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact-mairie@saintmartindheres.fr",
+      "phone": null
+    },
+    {
+      "domain": "elegancecoiffure-grenoble.fr",
+      "company": "Elegancecoiffure Grenoble",
+      "tech": null,
+      "score": 20,
+      "source": "ddg-v2",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": "",
+      "phone": null
+    },
+    {
+      "domain": "les-imparfaits.fr",
+      "company": "Les Imparfaits",
+      "tech": null,
+      "score": 60,
+      "source": "ddg-v2",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "bonjour@les-imparfaits.fr",
+      "phone": null
+    },
+    {
+      "domain": "amarylice.com",
+      "company": "Amarylice",
+      "tech": null,
+      "score": 60,
+      "source": "ddg-v2",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "info@amarylice.com",
+      "phone": null
+    },
     {
       "domain": "salon.camillealbane.com",
       "company": "Salon",
@@ -713,342 +1217,6 @@
       "replied": 0,
       "email": "",
       "phone": null
-    },
-    {
-      "domain": "maino.fr",
-      "company": "Maino",
-      "tech": null,
-      "score": 60,
-      "source": "ddg-v2",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "maino.stmury@gmail.com",
-      "phone": null
-    },
-    {
-      "domain": "salonmarco.com",
-      "company": "Salonmarco",
-      "tech": null,
-      "score": 60,
-      "source": "ddg-v2",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "contact@salonmarco.com",
-      "phone": null
-    },
-    {
-      "domain": "booksy.com",
-      "company": "Booksy",
-      "tech": null,
-      "score": 60,
-      "source": "ddg-v2",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "info.global@booksy.com",
-      "phone": null
-    },
-    {
-      "domain": "yaya.eu",
-      "company": "Yaya",
-      "tech": null,
-      "score": 20,
-      "source": "ddg-v2",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": "",
-      "phone": null
-    },
-    {
-      "domain": "restaurant.site-internet-top.fr",
-      "company": "Restaurant",
-      "tech": null,
-      "score": 60,
-      "source": "ddg-v2",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "contact@site-internet-top.fr",
-      "phone": null
-    },
-    {
-      "domain": "larotondeaixlesbains.com",
-      "company": "Larotondeaixlesbains",
-      "tech": null,
-      "score": 60,
-      "source": "ddg-v2",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "reservation@larotondeaixlesbains.com",
-      "phone": null
-    },
-    {
-      "domain": "lamartine-marin.com",
-      "company": "Lamartine Marin",
-      "tech": null,
-      "score": 60,
-      "source": "ddg-v2",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "info@lamartine-marin.com",
-      "phone": null
-    },
-    {
-      "domain": "la-coiffellerie.com",
-      "company": "La Coiffellerie",
-      "tech": null,
-      "score": 60,
-      "source": "ddg-v2",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "lacoiffellerie@gmail.com",
-      "phone": null
-    },
-    {
-      "domain": "point-coiffure.fr",
-      "company": "Point Coiffure",
-      "tech": null,
-      "score": 60,
-      "source": "ddg-v2",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "contact@point-coiffure.fr",
-      "phone": null
-    },
-    {
-      "domain": "manon-coiffure.fr",
-      "company": "Manon Coiffure",
-      "tech": null,
-      "score": 20,
-      "source": "ddg-v2",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": "",
-      "phone": null
-    },
-    {
-      "domain": "fleursthe-chambery.fr",
-      "company": "Fleursthe Chambery",
-      "tech": null,
-      "score": 20,
-      "source": "ddg-v2",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": "",
-      "phone": null
-    },
-    {
-      "domain": "latelierfleuriste73.fr",
-      "company": "Latelierfleuriste73",
-      "tech": null,
-      "score": 60,
-      "source": "ddg-v2",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "contact@latelierfleuriste73.fr",
-      "phone": null
-    },
-    {
-      "domain": "cote-naturel.fr",
-      "company": "Cote Naturel",
-      "tech": null,
-      "score": 20,
-      "source": "ddg-v2",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": "",
-      "phone": null
-    },
-    {
-      "domain": "annuaire-beaute.elle.fr",
-      "company": "Annuaire Beaute",
-      "tech": null,
-      "score": 20,
-      "source": "ddg-v2",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": "",
-      "phone": null
-    },
-    {
-      "domain": "beautyplanet.com",
-      "company": "Beautyplanet",
-      "tech": null,
-      "score": 60,
-      "source": "ddg-v2",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "hello@beautyplanet.com",
-      "phone": null
-    },
-    {
-      "domain": "nicolas.com",
-      "company": "Nicolas",
-      "tech": null,
-      "score": 60,
-      "source": "ddg-v2",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "service-clients@nicolas.com",
-      "phone": null
-    },
-    {
-      "domain": "lahalleauxvins.fr",
-      "company": "Lahalleauxvins",
-      "tech": null,
-      "score": 20,
-      "source": "ddg-v2",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": "",
-      "phone": null
-    },
-    {
-      "domain": "barberiacriniera.fr",
-      "company": "Barberiacriniera",
-      "tech": null,
-      "score": 20,
-      "source": "ddg-v2",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": "",
-      "phone": null
-    },
-    {
-      "domain": "lartisanbarbier.com",
-      "company": "Lartisanbarbier",
-      "tech": null,
-      "score": 60,
-      "source": "ddg-v2",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "contact@lartisanbarbier.com",
-      "phone": null
-    },
-    {
-      "domain": "barbeershop.sandrinebrebion.com",
-      "company": "Barbeershop",
-      "tech": null,
-      "score": 20,
-      "source": "ddg-v2",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": "",
-      "phone": null
-    },
-    {
-      "domain": "kokum-spa-bien-etre-beaute.fr",
-      "company": "Kokum Spa Bien Etre Beaute",
-      "tech": null,
-      "score": 20,
-      "source": "ddg-v2",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": "",
-      "phone": null
-    },
-    {
-      "domain": "benomi.fr",
-      "company": "Benomi",
-      "tech": null,
-      "score": 60,
-      "source": "ddg-v2",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "contact@benomi.fr",
-      "phone": null
-    },
-    {
-      "domain": "institut-aixlesbains.marycohr.com",
-      "company": "Institut Aixlesbains",
-      "tech": null,
-      "score": 20,
-      "source": "ddg-v2",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": "",
-      "phone": null
-    },
-    {
-      "domain": "bazarbistroclub.com",
-      "company": "Bazarbistroclub",
-      "tech": null,
-      "score": 60,
-      "source": "ddg-v2",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "bazarbistroclub@gmail.com",
-      "phone": null
-    },
-    {
-      "domain": "restaurantvoiron.fr",
-      "company": "Restaurantvoiron",
-      "tech": null,
-      "score": 20,
-      "source": "ddg-v2",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": "",
-      "phone": null
-    },
-    {
-      "domain": "le-celeste-bistronomique.fr",
-      "company": "Le Celeste Bistronomique",
-      "tech": null,
-      "score": 60,
-      "source": "ddg-v2",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "contact@le-celeste-bistronomique.fr",
-      "phone": null
-    },
-    {
-      "domain": "brindefolie38.com",
-      "company": "Brindefolie38",
-      "tech": null,
-      "score": 20,
-      "source": "ddg-v2",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": "",
-      "phone": null
-    },
-    {
-      "domain": "fleuriste-bernardgauthier.fr",
-      "company": "Fleuriste Bernardgauthier",
-      "tech": null,
-      "score": 60,
-      "source": "ddg-v2",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "bernard-gauthier-fleurs@orange.fr",
-      "phone": null
     }
   ],
   "icp_distribution": [
@@ -1056,7 +1224,7 @@
       "category": "ecommerce_premium",
       "label": "E-commerce Premium",
       "count": 235,
-      "pct": 54
+      "pct": 51
     },
     {
       "category": "hospitality",
@@ -1071,8 +1239,32 @@
       "pct": 6
     },
     {
+      "category": "barbier",
+      "label": "barbier",
+      "count": 21,
+      "pct": 5
+    },
+    {
+      "category": "fleuriste",
+      "label": "fleuriste",
+      "count": 18,
+      "pct": 4
+    },
+    {
+      "category": "salon de coiffure",
+      "label": "salon de coiffure",
+      "count": 17,
+      "pct": 4
+    },
+    {
       "category": "tatoueur",
       "label": "tatoueur",
+      "count": 15,
+      "pct": 3
+    },
+    {
+      "category": "opticien",
+      "label": "opticien",
       "count": 15,
       "pct": 3
     },
@@ -1083,52 +1275,28 @@
       "pct": 3
     },
     {
-      "category": "salon de coiffure",
-      "label": "salon de coiffure",
-      "count": 14,
-      "pct": 3
-    },
-    {
       "category": "restaurant",
       "label": "restaurant",
       "count": 13,
       "pct": 3
     },
     {
-      "category": "barbier",
-      "label": "barbier",
+      "category": "concept store",
+      "label": "concept store",
       "count": 13,
-      "pct": 3
-    },
-    {
-      "category": "fleuriste",
-      "label": "fleuriste",
-      "count": 12,
-      "pct": 3
-    },
-    {
-      "category": "opticien",
-      "label": "opticien",
-      "count": 11,
       "pct": 3
     },
     {
       "category": "institut de beauté",
       "label": "institut de beauté",
       "count": 11,
-      "pct": 3
+      "pct": 2
     },
     {
       "category": "cabinet_b2b",
       "label": "Cabinet B2B",
       "count": 10,
       "pct": 2
-    },
-    {
-      "category": "concept store",
-      "label": "concept store",
-      "count": 6,
-      "pct": 1
     },
     {
       "category": "immobilier",
@@ -1163,8 +1331,8 @@
   ],
   "temperature": {
     "hot": 1,
-    "warm": 290,
-    "cold": 143,
+    "warm": 309,
+    "cold": 152,
     "avg_ai_score": 50
   }
 }
