@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-06-04T12:04:23.486998",
+  "updated_at": "2026-06-04T13:47:47.583951",
   "version": "v6",
   "warmup_mode": false,
   "funnel": {
-    "total": 432,
+    "total": 434,
     "with_email": 135,
     "with_phone": 191,
     "total_emailed": 65,
@@ -24,7 +24,7 @@
     },
     {
       "source": "ddg-v2",
-      "n": 95,
+      "n": 97,
       "with_email": 49,
       "with_phone": 0,
       "total_emailed": 13,
@@ -669,6 +669,18 @@
       "analyzed": 1,
       "emailed": 0,
       "replied": 0
+    },
+    {
+      "date": "2026-06-04T13:47:31.660953",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T13:47:41.676357",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
     }
   ],
   "today": {
@@ -678,6 +690,30 @@
     "emailed": null
   },
   "recent": [
+    {
+      "domain": "salon.camillealbane.com",
+      "company": "Salon",
+      "tech": null,
+      "score": 20,
+      "source": "ddg-v2",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": "",
+      "phone": null
+    },
+    {
+      "domain": "anne-sophie-pic.com",
+      "company": "Anne Sophie Pic",
+      "tech": null,
+      "score": 20,
+      "source": "ddg-v2",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": "",
+      "phone": null
+    },
     {
       "domain": "maino.fr",
       "company": "Maino",
@@ -1013,30 +1049,6 @@
       "replied": 0,
       "email": "bernard-gauthier-fleurs@orange.fr",
       "phone": null
-    },
-    {
-      "domain": "salon.dessange.com",
-      "company": "Salon",
-      "tech": null,
-      "score": 20,
-      "source": "ddg-v2",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": "",
-      "phone": null
-    },
-    {
-      "domain": "laparenthesedejulia.fr",
-      "company": "Laparenthesedejulia",
-      "tech": null,
-      "score": 60,
-      "source": "ddg-v2",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "26julia@live.fr",
-      "phone": null
     }
   ],
   "icp_distribution": [
@@ -1073,6 +1085,12 @@
     {
       "category": "salon de coiffure",
       "label": "salon de coiffure",
+      "count": 14,
+      "pct": 3
+    },
+    {
+      "category": "restaurant",
+      "label": "restaurant",
       "count": 13,
       "pct": 3
     },
@@ -1080,12 +1098,6 @@
       "category": "barbier",
       "label": "barbier",
       "count": 13,
-      "pct": 3
-    },
-    {
-      "category": "restaurant",
-      "label": "restaurant",
-      "count": 12,
       "pct": 3
     },
     {
@@ -1152,7 +1164,7 @@
   "temperature": {
     "hot": 1,
     "warm": 290,
-    "cold": 141,
+    "cold": 143,
     "avg_ai_score": 50
   }
 }
