@@ -1,17 +1,17 @@
 {
-  "updated_at": "2026-06-03T20:09:25.452129",
+  "updated_at": "2026-06-04T08:11:54.555445",
   "version": "v6",
   "warmup_mode": false,
   "funnel": {
-    "total": 370,
-    "with_email": 101,
+    "total": 399,
+    "with_email": 117,
     "with_phone": 191,
-    "total_emailed": 41,
+    "total_emailed": 53,
     "total_replied": 0,
     "total_bounced": 0,
-    "queued": 61,
+    "queued": 65,
     "total_optout": 0,
-    "pending": 39
+    "pending": 51
   },
   "sources": [
     {
@@ -19,15 +19,15 @@
       "n": 326,
       "with_email": 85,
       "with_phone": 191,
-      "total_emailed": 41,
+      "total_emailed": 52,
       "replied": 0
     },
     {
       "source": "ddg-v2",
-      "n": 33,
-      "with_email": 15,
+      "n": 62,
+      "with_email": 31,
       "with_phone": 0,
-      "total_emailed": 0,
+      "total_emailed": 1,
       "replied": 0
     },
     {
@@ -85,19 +85,19 @@
     {
       "date": "2026-06-01",
       "analyzed": 59,
-      "emailed": 2,
+      "emailed": 5,
       "replied": 0
     },
     {
       "date": "2026-06-02",
       "analyzed": 39,
-      "emailed": 0,
+      "emailed": 3,
       "replied": 0
     },
     {
       "date": "2026-06-03",
       "analyzed": 35,
-      "emailed": 0,
+      "emailed": 5,
       "replied": 0
     },
     {
@@ -109,7 +109,7 @@
     {
       "date": "2026-06-03T19:19:47.131055",
       "analyzed": 1,
-      "emailed": 0,
+      "emailed": 1,
       "replied": 0
     },
     {
@@ -297,366 +297,540 @@
       "analyzed": 1,
       "emailed": 0,
       "replied": 0
+    },
+    {
+      "date": "2026-06-04T08:00:10.044259",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T08:00:15.359075",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T08:00:19.024796",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T08:00:21.896494",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T08:00:23.810174",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T08:00:27.833744",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T08:00:28.866961",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T08:00:31.377386",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T08:00:35.558556",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T08:00:46.220437",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T08:00:53.652804",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T08:00:56.454949",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T08:01:21.201645",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T08:01:22.425559",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T08:01:28.177032",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T08:01:45.484419",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T08:01:56.448383",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T08:02:07.470367",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T08:02:13.753948",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T08:02:16.741389",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T08:02:35.830938",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T08:02:42.504320",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T08:03:02.348542",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T08:03:03.106079",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T08:03:06.118254",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T08:03:09.418999",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T08:03:12.381074",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T08:03:20.493224",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
+    },
+    {
+      "date": "2026-06-04T08:03:29.090443",
+      "analyzed": 1,
+      "emailed": 0,
+      "replied": 0
     }
   ],
   "today": {
-    "analyzed": 35,
-    "with_email": 12,
-    "with_phone": 21,
-    "emailed": 0
+    "analyzed": 0,
+    "with_email": null,
+    "with_phone": null,
+    "emailed": null
   },
   "recent": [
     {
+      "domain": "loptiquevalentinoise.fr",
+      "company": "Loptiquevalentinoise",
+      "tech": null,
+      "score": 60,
+      "source": "ddg-v2",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "optique.valentinoise@gmail.com",
+      "phone": null
+    },
+    {
+      "domain": "grandoptical.com",
+      "company": "Grandoptical",
+      "tech": null,
+      "score": 60,
+      "source": "ddg-v2",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "relation-clientele.grandoptical@grandoptical.com",
+      "phone": null
+    },
+    {
+      "domain": "courdesloges.com",
+      "company": "Courdesloges",
+      "tech": null,
+      "score": 20,
+      "source": "ddg-v2",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": "",
+      "phone": null
+    },
+    {
+      "domain": "restaurant-le-vieux-lyon.com",
+      "company": "Restaurant Le Vieux Lyon",
+      "tech": null,
+      "score": 20,
+      "source": "ddg-v2",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": "",
+      "phone": null
+    },
+    {
+      "domain": "lyonresto.com",
+      "company": "Lyonresto",
+      "tech": null,
+      "score": 60,
+      "source": "ddg-v2",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "friandine@gmail.com",
+      "phone": null
+    },
+    {
+      "domain": "institutdebeaute-chambery.fr",
+      "company": "Institutdebeaute Chambery",
+      "tech": null,
+      "score": 20,
+      "source": "ddg-v2",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": "",
+      "phone": null
+    },
+    {
+      "domain": "poudredesoie.fr",
+      "company": "Poudredesoie",
+      "tech": null,
+      "score": 60,
+      "source": "ddg-v2",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "poudredesoie73@gmail.com",
+      "phone": null
+    },
+    {
+      "domain": "institut-anneb.fr",
+      "company": "Institut Anneb",
+      "tech": null,
+      "score": 60,
+      "source": "ddg-v2",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "anne.berard@orange.fr",
+      "phone": null
+    },
+    {
+      "domain": "tattoo-mistika.fr",
+      "company": "Tattoo Mistika",
+      "tech": null,
+      "score": 60,
+      "source": "ddg-v2",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@tattoo-mistika.fr",
+      "phone": null
+    },
+    {
+      "domain": "valence.ink",
+      "company": "Valence",
+      "tech": null,
+      "score": 20,
+      "source": "ddg-v2",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": "",
+      "phone": null
+    },
+    {
+      "domain": "blackcornertattoo.com",
+      "company": "Blackcornertattoo",
+      "tech": null,
+      "score": 60,
+      "source": "ddg-v2",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "blackcorner26@gmail.com",
+      "phone": null
+    },
+    {
+      "domain": "cdg38.fr",
+      "company": "Cdg38",
+      "tech": null,
+      "score": 60,
+      "source": "ddg-v2",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "cdg38@cdg38.fr",
+      "phone": null
+    },
+    {
+      "domain": "alternativi.fr",
+      "company": "Alternativi",
+      "tech": null,
+      "score": 20,
+      "source": "ddg-v2",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": "",
+      "phone": null
+    },
+    {
+      "domain": "divine-et-sens.fr",
+      "company": "Divine Et Sens",
+      "tech": null,
+      "score": 60,
+      "source": "ddg-v2",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "divine.sens38@gmail.com",
+      "phone": null
+    },
+    {
+      "domain": "jolite-beaute-voiron.com",
+      "company": "Jolite Beaute Voiron",
+      "tech": null,
+      "score": 20,
+      "source": "ddg-v2",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": "",
+      "phone": null
+    },
+    {
+      "domain": "tatoueurs.nosavis.com",
+      "company": "Tatoueurs",
+      "tech": null,
+      "score": 20,
+      "source": "ddg-v2",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": "",
+      "phone": null
+    },
+    {
+      "domain": "tattooconsult.fr",
+      "company": "Tattooconsult",
+      "tech": null,
+      "score": 60,
+      "source": "ddg-v2",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@tattooconsult.fr",
+      "phone": null
+    },
+    {
+      "domain": "romans-sur-isere.sites-beaute.fr",
+      "company": "Romans Sur Isere",
+      "tech": null,
+      "score": 20,
+      "source": "ddg-v2",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": "",
+      "phone": null
+    },
+    {
+      "domain": "lmbeaute-romans.fr",
+      "company": "Lmbeaute Romans",
+      "tech": null,
+      "score": 20,
+      "source": "ddg-v2",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": "",
+      "phone": null
+    },
+    {
+      "domain": "csbeaute.fr",
+      "company": "Csbeaute",
+      "tech": null,
+      "score": 60,
+      "source": "ddg-v2",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "info@csbeaute.fr",
+      "phone": null
+    },
+    {
+      "domain": "studio-sandy.fr",
+      "company": "Studio Sandy",
+      "tech": null,
+      "score": 60,
+      "source": "ddg-v2",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "studio-sandy@hotmail.fr",
+      "phone": null
+    },
+    {
+      "domain": "coiffeurs-barbiers.fr",
+      "company": "Coiffeurs Barbiers",
+      "tech": null,
+      "score": 60,
+      "source": "ddg-v2",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contact@coiffeurs-barbiers.fr",
+      "phone": null
+    },
+    {
+      "domain": "allbiz.fr",
+      "company": "Allbiz",
+      "tech": null,
+      "score": 20,
+      "source": "ddg-v2",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": "",
+      "phone": null
+    },
+    {
+      "domain": "smart.fr",
+      "company": "Smart",
+      "tech": null,
+      "score": 60,
+      "source": "ddg-v2",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "albane@smart.fr",
+      "phone": null
+    },
+    {
+      "domain": "danslachambredanna.com",
+      "company": "Danslachambredanna",
+      "tech": null,
+      "score": 20,
+      "source": "ddg-v2",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": "",
+      "phone": null
+    },
+    {
+      "domain": "obarbershop.com",
+      "company": "Obarbershop",
+      "tech": null,
+      "score": 60,
+      "source": "ddg-v2",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "hello@obarbershop.com",
+      "phone": null
+    },
+    {
+      "domain": "beautynailhairsalons.com",
+      "company": "Beautynailhairsalons",
+      "tech": null,
+      "score": 20,
+      "source": "ddg-v2",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": "",
+      "phone": null
+    },
+    {
+      "domain": "labarbieredeparis.com",
+      "company": "Labarbieredeparis",
+      "tech": null,
+      "score": 60,
+      "source": "ddg-v2",
+      "status": "queued",
+      "date_step1": null,
+      "replied": 0,
+      "email": "contactch@labarbieredeparis.com",
+      "phone": null
+    },
+    {
+      "domain": "icoiffeur.fr",
+      "company": "Icoiffeur",
+      "tech": null,
+      "score": 20,
+      "source": "ddg-v2",
+      "status": "no_email",
+      "date_step1": null,
+      "replied": 0,
+      "email": "",
+      "phone": null
+    },
+    {
       "domain": "www2.fleuretfleurs.fr",
       "company": "Www2",
-      "tech": null,
-      "score": 20,
-      "source": "ddg-v2",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": "",
-      "phone": null
-    },
-    {
-      "domain": "tatoueur.autour-de-moi.com",
-      "company": "Tatoueur",
-      "tech": null,
-      "score": 20,
-      "source": "ddg-v2",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": "",
-      "phone": null
-    },
-    {
-      "domain": "loicmalnati.com",
-      "company": "Loicmalnati",
-      "tech": null,
-      "score": 20,
-      "source": "ddg-v2",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": "",
-      "phone": null
-    },
-    {
-      "domain": "proxitatouage.fr",
-      "company": "Proxitatouage",
-      "tech": null,
-      "score": 20,
-      "source": "ddg-v2",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": "",
-      "phone": null
-    },
-    {
-      "domain": "manaconceptstore.com",
-      "company": "Manaconceptstore",
-      "tech": null,
-      "score": 60,
-      "source": "ddg-v2",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "contact@manaconceptstore.com",
-      "phone": null
-    },
-    {
-      "domain": "neyrpic.fr",
-      "company": "Neyrpic",
-      "tech": null,
-      "score": 20,
-      "source": "ddg-v2",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": "",
-      "phone": null
-    },
-    {
-      "domain": "monceaufleurs.com",
-      "company": "Monceaufleurs",
-      "tech": null,
-      "score": 60,
-      "source": "ddg-v2",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "service.consommateurs@monceaufleurs.com",
-      "phone": null
-    },
-    {
-      "domain": "carrefleurs.com",
-      "company": "Carrefleurs",
-      "tech": null,
-      "score": 20,
-      "source": "ddg-v2",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": "",
-      "phone": null
-    },
-    {
-      "domain": "thomasgrangette-opticiens.fr",
-      "company": "Thomasgrangette Opticiens",
-      "tech": null,
-      "score": 20,
-      "source": "ddg-v2",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": "",
-      "phone": null
-    },
-    {
-      "domain": "joeturnertattoo.com",
-      "company": "Joeturnertattoo",
-      "tech": null,
-      "score": 20,
-      "source": "ddg-v2",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": "",
-      "phone": null
-    },
-    {
-      "domain": "l2utattoo.com",
-      "company": "L2Utattoo",
-      "tech": null,
-      "score": 60,
-      "source": "ddg-v2",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "contact@l2utattoo.com",
-      "phone": null
-    },
-    {
-      "domain": "mybodyart.com",
-      "company": "Mybodyart",
-      "tech": null,
-      "score": 20,
-      "source": "ddg-v2",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": "",
-      "phone": null
-    },
-    {
-      "domain": "theblacklodgetattoo.fr",
-      "company": "Theblacklodgetattoo",
-      "tech": null,
-      "score": 60,
-      "source": "ddg-v2",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "melissa.theblacklodge@gmail.com",
-      "phone": null
-    },
-    {
-      "domain": "clm-ink.fr",
-      "company": "Clm Ink",
-      "tech": null,
-      "score": 60,
-      "source": "ddg-v2",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "hello@clm-ink.fr",
-      "phone": null
-    },
-    {
-      "domain": "ateliertatouage.com",
-      "company": "Ateliertatouage",
-      "tech": null,
-      "score": 60,
-      "source": "ddg-v2",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "ateliertatouageandco@gmail.com",
-      "phone": null
-    },
-    {
-      "domain": "interflora.fr",
-      "company": "Interflora",
-      "tech": null,
-      "score": 20,
-      "source": "ddg-v2",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": "",
-      "phone": null
-    },
-    {
-      "domain": "lejardindesfleurs.com",
-      "company": "Lejardindesfleurs",
-      "tech": null,
-      "score": 60,
-      "source": "ddg-v2",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "contact@lejardindesfleurs.com",
-      "phone": null
-    },
-    {
-      "domain": "opticien.optic2000.com",
-      "company": "Opticien",
-      "tech": null,
-      "score": 20,
-      "source": "ddg-v2",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": "",
-      "phone": null
-    },
-    {
-      "domain": "opticien-david-henriet.fr",
-      "company": "Opticien David Henriet",
-      "tech": null,
-      "score": 60,
-      "source": "ddg-v2",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "contact@opticien-david-henriet.fr",
-      "phone": null
-    },
-    {
-      "domain": "aesthetica-bourgoin.fr",
-      "company": "Aesthetica Bourgoin",
-      "tech": null,
-      "score": 60,
-      "source": "ddg-v2",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "contact@aesthetica-bourgoin.fr",
-      "phone": null
-    },
-    {
-      "domain": "lapetiteabeille.fr",
-      "company": "Lapetiteabeille",
-      "tech": null,
-      "score": 60,
-      "source": "ddg-v2",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "lapetiteabeillefleurs@gmail.com",
-      "phone": null
-    },
-    {
-      "domain": "amarante-bourgoin-jallieu.com",
-      "company": "Amarante Bourgoin Jallieu",
-      "tech": null,
-      "score": 20,
-      "source": "ddg-v2",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": "",
-      "phone": null
-    },
-    {
-      "domain": "optocontact-grenoble.monopticien.com",
-      "company": "Optocontact Grenoble",
-      "tech": null,
-      "score": 20,
-      "source": "ddg-v2",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": "",
-      "phone": null
-    },
-    {
-      "domain": "philippechassangopticiens.fr",
-      "company": "Philippechassangopticiens",
-      "tech": null,
-      "score": 60,
-      "source": "ddg-v2",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "pchassang@yahoo.fr",
-      "phone": null
-    },
-    {
-      "domain": "jeanlouisdavid.com",
-      "company": "Jeanlouisdavid",
-      "tech": null,
-      "score": 20,
-      "source": "ddg-v2",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": "",
-      "phone": null
-    },
-    {
-      "domain": "salonforyou.fr",
-      "company": "Salonforyou",
-      "tech": null,
-      "score": 60,
-      "source": "ddg-v2",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "foryou.jordane@gmail.com",
-      "phone": null
-    },
-    {
-      "domain": "duckduckgo.com",
-      "company": "Duckduckgo",
-      "tech": null,
-      "score": 60,
-      "source": "ddg-v2",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "dmca@duckduckgo.com",
-      "phone": null
-    },
-    {
-      "domain": "emma-bay.com",
-      "company": "Emma Bay",
-      "tech": null,
-      "score": 60,
-      "source": "ddg-v2",
-      "status": "queued",
-      "date_step1": null,
-      "replied": 0,
-      "email": "barginmarieanne@hotmail.com",
-      "phone": null
-    },
-    {
-      "domain": "hairbrothers.fr",
-      "company": "Hairbrothers",
-      "tech": null,
-      "score": 20,
-      "source": "ddg-v2",
-      "status": "no_email",
-      "date_step1": null,
-      "replied": 0,
-      "email": "",
-      "phone": null
-    },
-    {
-      "domain": "coiffure-andrea-creation.fr",
-      "company": "Coiffure Andrea Creation",
       "tech": null,
       "score": 20,
       "source": "ddg-v2",
@@ -672,13 +846,13 @@
       "category": "ecommerce_premium",
       "label": "E-commerce Premium",
       "count": 235,
-      "pct": 64
+      "pct": 59
     },
     {
       "category": "hospitality",
       "label": "Hospitality & Resto",
       "count": 41,
-      "pct": 11
+      "pct": 10
     },
     {
       "category": "mode_luxe",
@@ -687,15 +861,21 @@
       "pct": 7
     },
     {
+      "category": "tatoueur",
+      "label": "tatoueur",
+      "count": 15,
+      "pct": 4
+    },
+    {
       "category": "skincare_wellness",
       "label": "Skincare & Wellness",
       "count": 14,
       "pct": 4
     },
     {
-      "category": "tatoueur",
-      "label": "tatoueur",
-      "count": 10,
+      "category": "opticien",
+      "label": "opticien",
+      "count": 11,
       "pct": 3
     },
     {
@@ -705,9 +885,15 @@
       "pct": 3
     },
     {
-      "category": "opticien",
-      "label": "opticien",
-      "count": 9,
+      "category": "institut de beauté",
+      "label": "institut de beauté",
+      "count": 8,
+      "pct": 2
+    },
+    {
+      "category": "barbier",
+      "label": "barbier",
+      "count": 8,
       "pct": 2
     },
     {
@@ -720,6 +906,18 @@
       "category": "salon de coiffure",
       "label": "salon de coiffure",
       "count": 5,
+      "pct": 1
+    },
+    {
+      "category": "concept store",
+      "label": "concept store",
+      "count": 5,
+      "pct": 1
+    },
+    {
+      "category": "restaurant",
+      "label": "restaurant",
+      "count": 3,
       "pct": 1
     },
     {
@@ -745,18 +943,12 @@
       "label": "SaaS & IA",
       "count": 2,
       "pct": 1
-    },
-    {
-      "category": "concept store",
-      "label": "concept store",
-      "count": 2,
-      "pct": 1
     }
   ],
   "temperature": {
     "hot": 1,
-    "warm": 256,
-    "cold": 113,
-    "avg_ai_score": 51
+    "warm": 272,
+    "cold": 126,
+    "avg_ai_score": 50
   }
 }
