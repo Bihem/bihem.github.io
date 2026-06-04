@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-06-04T12:04:23.514792",
+  "updated_at": "2026-06-04T13:47:47.616033",
   "version": "v6",
   "stats": {
-    "total": 432,
+    "total": 434,
     "with_email": 135,
     "with_phone": 191,
     "queued": 69,
@@ -10,10 +10,10 @@
     "replied": 0,
     "bounced": 0,
     "optout": 0,
-    "no_email": 294,
+    "no_email": 296,
     "hot": 1,
     "warm": 290,
-    "cold": 141,
+    "cold": 143,
     "avg_ai_score": 50.0
   },
   "icp_distribution": [
@@ -42,14 +42,20 @@
       "pct": 3
     },
     {
+      "category": "salon de coiffure",
+      "label": "salon de coiffure",
+      "count": 14,
+      "pct": 3
+    },
+    {
       "category": "skincare_wellness",
       "label": "Skincare & Wellness",
       "count": 14,
       "pct": 3
     },
     {
-      "category": "salon de coiffure",
-      "label": "salon de coiffure",
+      "category": "restaurant",
+      "label": "restaurant",
       "count": 13,
       "pct": 3
     },
@@ -57,12 +63,6 @@
       "category": "barbier",
       "label": "barbier",
       "count": 13,
-      "pct": 3
-    },
-    {
-      "category": "restaurant",
-      "label": "restaurant",
-      "count": 12,
       "pct": 3
     },
     {
@@ -16167,6 +16167,66 @@
           "strength": "medium"
         }
       ],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 447,
+      "domain": "salon.camillealbane.com",
+      "company": "Salon",
+      "email": "",
+      "phone": null,
+      "tech": null,
+      "perf_mobile": 0,
+      "lcp": null,
+      "issues": [],
+      "score": 20,
+      "source": "ddg-v2",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-04T13:47:41.676357",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 20,
+      "temperature": "cold",
+      "icp_category": "salon de coiffure",
+      "brand_quality": 10,
+      "intent_signals": [],
+      "icp_label": "E-commerce Premium"
+    },
+    {
+      "id": 446,
+      "domain": "anne-sophie-pic.com",
+      "company": "Anne Sophie Pic",
+      "email": "",
+      "phone": null,
+      "tech": null,
+      "perf_mobile": 0,
+      "lcp": null,
+      "issues": [],
+      "score": 20,
+      "source": "ddg-v2",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-04T13:47:31.660953",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "ai_score": 20,
+      "temperature": "cold",
+      "icp_category": "restaurant",
+      "brand_quality": 10,
+      "intent_signals": [],
       "icp_label": "E-commerce Premium"
     },
     {
