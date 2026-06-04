@@ -1,17 +1,17 @@
 {
-  "updated_at": "2026-06-04T08:11:54.555445",
+  "updated_at": "2026-06-04T08:47:34.140998",
   "version": "v6",
   "warmup_mode": false,
   "funnel": {
     "total": 399,
     "with_email": 117,
     "with_phone": 191,
-    "total_emailed": 53,
+    "total_emailed": 65,
     "total_replied": 0,
     "total_bounced": 0,
-    "queued": 65,
+    "queued": 51,
     "total_optout": 0,
-    "pending": 51
+    "pending": 63
   },
   "sources": [
     {
@@ -27,7 +27,7 @@
       "n": 62,
       "with_email": 31,
       "with_phone": 0,
-      "total_emailed": 1,
+      "total_emailed": 13,
       "replied": 0
     },
     {
@@ -133,7 +133,7 @@
     {
       "date": "2026-06-03T19:21:53.977320",
       "analyzed": 1,
-      "emailed": 0,
+      "emailed": 1,
       "replied": 0
     },
     {
@@ -145,7 +145,7 @@
     {
       "date": "2026-06-03T19:25:06.937979",
       "analyzed": 1,
-      "emailed": 0,
+      "emailed": 1,
       "replied": 0
     },
     {
@@ -157,7 +157,7 @@
     {
       "date": "2026-06-03T19:25:21.032661",
       "analyzed": 1,
-      "emailed": 0,
+      "emailed": 1,
       "replied": 0
     },
     {
@@ -175,19 +175,19 @@
     {
       "date": "2026-06-03T19:25:46.100563",
       "analyzed": 1,
-      "emailed": 0,
+      "emailed": 1,
       "replied": 0
     },
     {
       "date": "2026-06-03T19:26:04.524819",
       "analyzed": 1,
-      "emailed": 0,
+      "emailed": 1,
       "replied": 0
     },
     {
       "date": "2026-06-03T19:26:10.222844",
       "analyzed": 1,
-      "emailed": 0,
+      "emailed": 1,
       "replied": 0
     },
     {
@@ -199,7 +199,7 @@
     {
       "date": "2026-06-03T19:26:21.058403",
       "analyzed": 1,
-      "emailed": 0,
+      "emailed": 1,
       "replied": 0
     },
     {
@@ -211,19 +211,19 @@
     {
       "date": "2026-06-03T19:26:32.164871",
       "analyzed": 1,
-      "emailed": 0,
+      "emailed": 1,
       "replied": 0
     },
     {
       "date": "2026-06-03T19:26:36.424965",
       "analyzed": 1,
-      "emailed": 0,
+      "emailed": 1,
       "replied": 0
     },
     {
       "date": "2026-06-03T19:26:39.039171",
       "analyzed": 1,
-      "emailed": 0,
+      "emailed": 1,
       "replied": 0
     },
     {
@@ -235,7 +235,7 @@
     {
       "date": "2026-06-03T19:27:11.019085",
       "analyzed": 1,
-      "emailed": 0,
+      "emailed": 1,
       "replied": 0
     },
     {
@@ -271,7 +271,7 @@
     {
       "date": "2026-06-03T19:29:47.638984",
       "analyzed": 1,
-      "emailed": 0,
+      "emailed": 1,
       "replied": 0
     },
     {
