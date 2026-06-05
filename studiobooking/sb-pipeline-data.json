@@ -1,25 +1,25 @@
 {
-  "updated_at": "2026-06-04T15:00:17.946195",
+  "updated_at": "2026-06-05T09:01:55.611154",
   "version": "sb-v1",
   "product": "StudioBooking",
   "warmup_mode": false,
   "funnel": {
-    "total": 69,
-    "with_email": 31,
-    "with_phone": 50,
-    "total_emailed": 31,
+    "total": 64,
+    "with_email": 26,
+    "with_phone": 47,
+    "total_emailed": 26,
     "total_replied": 0,
     "total_bounced": 2,
     "queued": 0,
-    "hot_opps": 30,
-    "manual_bookings": 18
+    "hot_opps": 25,
+    "manual_bookings": 17
   },
   "sources": [
     {
       "source": "ddg",
-      "n": 44,
-      "with_email": 22,
-      "total_emailed": 22,
+      "n": 39,
+      "with_email": 17,
+      "total_emailed": 17,
       "replied": 0
     },
     {
@@ -32,11 +32,11 @@
   ],
   "ab_test": {
     "A": {
-      "sent": 17,
+      "sent": 15,
       "replied": 0
     },
     "B": {
-      "sent": 14,
+      "sent": 11,
       "replied": 0
     }
   },
@@ -61,8 +61,8 @@
     },
     {
       "date": "2026-05-31",
-      "analyzed": 12,
-      "emailed": 2,
+      "analyzed": 11,
+      "emailed": 1,
       "replied": 0
     },
     {
@@ -79,20 +79,20 @@
     },
     {
       "date": "2026-06-03",
-      "analyzed": 9,
-      "emailed": 4,
+      "analyzed": 8,
+      "emailed": 3,
       "replied": 0
     },
     {
       "date": "2026-06-04",
-      "analyzed": 5,
-      "emailed": 4,
+      "analyzed": 2,
+      "emailed": 1,
       "replied": 0
     }
   ],
   "temperature": {
-    "hot": 31,
-    "warm": 20,
+    "hot": 28,
+    "warm": 18,
     "cold": 18,
     "avg_score": 61
   },
@@ -100,20 +100,20 @@
     {
       "category": "autre_studio",
       "label": "Autre Studio",
-      "count": 39,
-      "pct": 57
+      "count": 34,
+      "pct": 53
     },
     {
       "category": "enregistrement",
       "label": "Studio d'Enregistrement",
       "count": 25,
-      "pct": 36
+      "pct": 39
     },
     {
       "category": "repetition",
       "label": "Studio de Répétition",
       "count": 3,
-      "pct": 4
+      "pct": 5
     },
     {
       "category": "smac_venue",
