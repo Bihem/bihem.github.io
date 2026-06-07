@@ -1,42 +1,42 @@
 {
-  "updated_at": "2026-06-06T21:01:04.158504",
+  "updated_at": "2026-06-07T09:04:28.200580",
   "version": "sb-v1",
   "product": "StudioBooking",
   "warmup_mode": false,
   "funnel": {
-    "total": 74,
-    "with_email": 29,
-    "with_phone": 54,
-    "total_emailed": 29,
+    "total": 81,
+    "with_email": 31,
+    "with_phone": 59,
+    "total_emailed": 31,
     "total_replied": 0,
     "total_bounced": 2,
     "queued": 0,
-    "hot_opps": 28,
-    "manual_bookings": 18
+    "hot_opps": 30,
+    "manual_bookings": 19
   },
   "sources": [
     {
       "source": "ddg",
-      "n": 48,
+      "n": 53,
       "with_email": 20,
       "total_emailed": 20,
       "replied": 0
     },
     {
       "source": "gmaps",
-      "n": 26,
-      "with_email": 9,
-      "total_emailed": 9,
+      "n": 28,
+      "with_email": 11,
+      "total_emailed": 11,
       "replied": 0
     }
   ],
   "ab_test": {
     "A": {
-      "sent": 18,
+      "sent": 19,
       "replied": 0
     },
     "B": {
-      "sent": 11,
+      "sent": 12,
       "replied": 0
     }
   },
@@ -100,26 +100,32 @@
       "analyzed": 6,
       "emailed": 2,
       "replied": 0
+    },
+    {
+      "date": "2026-06-07",
+      "analyzed": 7,
+      "emailed": 2,
+      "replied": 0
     }
   ],
   "temperature": {
-    "hot": 31,
-    "warm": 21,
-    "cold": 22,
-    "avg_score": 60
+    "hot": 33,
+    "warm": 24,
+    "cold": 24,
+    "avg_score": 59
   },
   "icp_distribution": [
     {
       "category": "autre_studio",
       "label": "Autre Studio",
-      "count": 38,
-      "pct": 51
+      "count": 40,
+      "pct": 49
     },
     {
       "category": "enregistrement",
       "label": "Studio d'Enregistrement",
-      "count": 29,
-      "pct": 39
+      "count": 33,
+      "pct": 41
     },
     {
       "category": "repetition",
@@ -132,6 +138,12 @@
       "label": "SMAC / Salle de Spectacle",
       "count": 3,
       "pct": 4
+    },
+    {
+      "category": "residence",
+      "label": "Résidence Artistique",
+      "count": 1,
+      "pct": 1
     }
   ]
 }
