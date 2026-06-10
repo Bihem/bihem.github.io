@@ -1,25 +1,25 @@
 {
-  "updated_at": "2026-06-10T09:07:40.168634",
+  "updated_at": "2026-06-10T15:02:05.463053",
   "version": "sb-v1",
   "product": "StudioBooking",
   "warmup_mode": false,
   "funnel": {
-    "total": 85,
-    "with_email": 31,
-    "with_phone": 63,
-    "total_emailed": 31,
+    "total": 90,
+    "with_email": 33,
+    "with_phone": 66,
+    "total_emailed": 33,
     "total_replied": 0,
     "total_bounced": 2,
     "queued": 0,
-    "hot_opps": 30,
+    "hot_opps": 32,
     "manual_bookings": 19
   },
   "sources": [
     {
       "source": "ddg",
-      "n": 57,
-      "with_email": 20,
-      "total_emailed": 20,
+      "n": 62,
+      "with_email": 22,
+      "total_emailed": 22,
       "replied": 0
     },
     {
@@ -32,11 +32,11 @@
   ],
   "ab_test": {
     "A": {
-      "sent": 19,
+      "sent": 20,
       "replied": 0
     },
     "B": {
-      "sent": 12,
+      "sent": 13,
       "replied": 0
     }
   },
@@ -121,41 +121,41 @@
     },
     {
       "date": "2026-06-10",
-      "analyzed": 1,
-      "emailed": 0,
+      "analyzed": 6,
+      "emailed": 2,
       "replied": 0
     }
   ],
   "temperature": {
-    "hot": 33,
+    "hot": 35,
     "warm": 26,
-    "cold": 26,
-    "avg_score": 59
+    "cold": 29,
+    "avg_score": 58
   },
   "icp_distribution": [
     {
       "category": "autre_studio",
       "label": "Autre Studio",
-      "count": 42,
+      "count": 44,
       "pct": 49
     },
     {
       "category": "enregistrement",
       "label": "Studio d'Enregistrement",
-      "count": 35,
-      "pct": 41
+      "count": 38,
+      "pct": 42
     },
     {
       "category": "repetition",
       "label": "Studio de Répétition",
       "count": 4,
-      "pct": 5
+      "pct": 4
     },
     {
       "category": "smac_venue",
       "label": "SMAC / Salle de Spectacle",
       "count": 3,
-      "pct": 4
+      "pct": 3
     },
     {
       "category": "residence",
