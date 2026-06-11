@@ -1,34 +1,34 @@
 {
-  "updated_at": "2026-06-11T15:00:20.443563",
+  "updated_at": "2026-06-11T21:01:07.573030",
   "version": "sb-v1",
   "product": "StudioBooking",
   "stats": {
-    "total": 91,
-    "with_email": 33,
-    "with_phone": 67,
+    "total": 92,
+    "with_email": 34,
+    "with_phone": 68,
     "queued": 0,
-    "emailed": 33,
+    "emailed": 34,
     "replied": 0,
     "bounced": 2,
-    "hot": 35,
+    "hot": 36,
     "warm": 27,
     "cold": 29,
-    "no_booking_with_email": 32,
-    "manual_booking_count": 19,
-    "avg_score": 58.0
+    "no_booking_with_email": 33,
+    "manual_booking_count": 20,
+    "avg_score": 59.0
   },
   "icp_distribution": [
     {
       "category": "autre_studio",
       "label": "Autre Studio",
-      "count": 44,
-      "pct": 48
+      "count": 45,
+      "pct": 49
     },
     {
       "category": "enregistrement",
       "label": "Studio d'Enregistrement",
       "count": 38,
-      "pct": 42
+      "pct": 41
     },
     {
       "category": "repetition",
@@ -230,6 +230,32 @@
       "bounced": 0,
       "notes": null,
       "next_action": "2026-06-13",
+      "icp_label": "Autre Studio"
+    },
+    {
+      "id": 107,
+      "domain": "13commeune.fr",
+      "company": "13Commeune",
+      "email": "dpo@cergypontoise.fr",
+      "phone": "01 34 23 67 32",
+      "icp_category": "autre_studio",
+      "has_booking": 0,
+      "manual_booking": 1,
+      "score": 93,
+      "ai_score": 93,
+      "temperature": "hot",
+      "source": "ddg",
+      "status": "emailed_1",
+      "sequence_step": 1,
+      "variant": "A",
+      "date_added": "2026-06-11",
+      "date_step1": "2026-06-11T21:00:22.550523",
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": "2026-06-15",
       "icp_label": "Autre Studio"
     },
     {
