@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-06-10T21:00:17.707048",
+  "updated_at": "2026-06-11T09:13:20.516860",
   "summary": {
-    "total": 4,
+    "total": 5,
     "active": 1,
-    "trial": 1,
+    "trial": 2,
     "suspended": 2,
     "paying": 0
   },
@@ -43,6 +43,15 @@
       "paying": false,
       "trial_ends_at": "2026-05-31T16:12:22.657+00:00",
       "created_at": "2026-05-01T16:12:22.658+00:00"
+    },
+    {
+      "slug": "studio13",
+      "name": "Studio13",
+      "plan": "starter",
+      "status": "trial",
+      "paying": false,
+      "trial_ends_at": "2026-07-11T02:10:55.568+00:00",
+      "created_at": "2026-06-11T02:10:55.569+00:00"
     }
   ],
   "all_tenants": [
@@ -92,6 +101,13 @@
       "slug": "bgastudios",
       "name": "BGA STUDIOS",
       "status": "suspended",
+      "paying": false,
+      "internal": false
+    },
+    {
+      "slug": "studio13",
+      "name": "Studio13",
+      "status": "trial",
       "paying": false,
       "internal": false
     }
