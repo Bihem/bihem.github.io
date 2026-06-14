@@ -1,42 +1,42 @@
 {
-  "updated_at": "2026-06-11T21:01:07.568722",
+  "updated_at": "2026-06-14T15:04:08.766357",
   "version": "sb-v1",
   "product": "StudioBooking",
   "warmup_mode": false,
   "funnel": {
-    "total": 92,
-    "with_email": 34,
-    "with_phone": 68,
-    "total_emailed": 34,
+    "total": 97,
+    "with_email": 36,
+    "with_phone": 71,
+    "total_emailed": 36,
     "total_replied": 0,
     "total_bounced": 2,
     "queued": 0,
-    "hot_opps": 33,
-    "manual_bookings": 20
+    "hot_opps": 35,
+    "manual_bookings": 21
   },
   "sources": [
     {
       "source": "ddg",
-      "n": 64,
-      "with_email": 23,
-      "total_emailed": 23,
+      "n": 68,
+      "with_email": 24,
+      "total_emailed": 24,
       "replied": 0
     },
     {
       "source": "gmaps",
-      "n": 28,
-      "with_email": 11,
-      "total_emailed": 11,
+      "n": 29,
+      "with_email": 12,
+      "total_emailed": 12,
       "replied": 0
     }
   ],
   "ab_test": {
     "A": {
-      "sent": 21,
+      "sent": 22,
       "replied": 0
     },
     "B": {
-      "sent": 13,
+      "sent": 14,
       "replied": 0
     }
   },
@@ -130,36 +130,42 @@
       "analyzed": 2,
       "emailed": 1,
       "replied": 0
+    },
+    {
+      "date": "2026-06-12",
+      "analyzed": 5,
+      "emailed": 2,
+      "replied": 0
     }
   ],
   "temperature": {
-    "hot": 36,
-    "warm": 27,
-    "cold": 29,
-    "avg_score": 59
+    "hot": 38,
+    "warm": 28,
+    "cold": 31,
+    "avg_score": 58
   },
   "icp_distribution": [
     {
       "category": "autre_studio",
       "label": "Autre Studio",
-      "count": 45,
-      "pct": 49
+      "count": 47,
+      "pct": 48
     },
     {
       "category": "enregistrement",
       "label": "Studio d'Enregistrement",
-      "count": 38,
+      "count": 40,
       "pct": 41
-    },
-    {
-      "category": "smac_venue",
-      "label": "SMAC / Salle de Spectacle",
-      "count": 4,
-      "pct": 4
     },
     {
       "category": "repetition",
       "label": "Studio de Répétition",
+      "count": 5,
+      "pct": 5
+    },
+    {
+      "category": "smac_venue",
+      "label": "SMAC / Salle de Spectacle",
       "count": 4,
       "pct": 4
     },
