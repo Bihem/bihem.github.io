@@ -1,40 +1,40 @@
 {
-  "updated_at": "2026-06-16T21:01:08.767069",
+  "updated_at": "2026-06-17T09:01:56.745559",
   "version": "sb-v1",
   "product": "StudioBooking",
   "stats": {
-    "total": 103,
-    "with_email": 39,
-    "with_phone": 75,
+    "total": 104,
+    "with_email": 40,
+    "with_phone": 76,
     "queued": 0,
-    "emailed": 39,
+    "emailed": 40,
     "replied": 0,
     "bounced": 2,
-    "hot": 40,
+    "hot": 41,
     "warm": 30,
     "cold": 33,
-    "no_booking_with_email": 38,
-    "manual_booking_count": 21,
-    "avg_score": 58.0
+    "no_booking_with_email": 39,
+    "manual_booking_count": 22,
+    "avg_score": 59.0
   },
   "icp_distribution": [
     {
       "category": "autre_studio",
       "label": "Autre Studio",
       "count": 50,
-      "pct": 49
+      "pct": 48
     },
     {
       "category": "enregistrement",
       "label": "Studio d'Enregistrement",
       "count": 43,
-      "pct": 42
+      "pct": 41
     },
     {
       "category": "repetition",
       "label": "Studio de Répétition",
-      "count": 5,
-      "pct": 5
+      "count": 6,
+      "pct": 6
     },
     {
       "category": "smac_venue",
@@ -50,6 +50,32 @@
     }
   ],
   "prospects": [
+    {
+      "id": 119,
+      "domain": "docteurlarsene.fr",
+      "company": "Docteurlarsene",
+      "email": "laregielarsene@gmail.comale",
+      "phone": "06 48 00 88 25",
+      "icp_category": "repetition",
+      "has_booking": 0,
+      "manual_booking": 1,
+      "score": 100,
+      "ai_score": 100,
+      "temperature": "hot",
+      "source": "ddg",
+      "status": "emailed_1",
+      "sequence_step": 1,
+      "variant": "A",
+      "date_added": "2026-06-17",
+      "date_step1": "2026-06-17T09:00:25.417983",
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": "2026-06-21",
+      "icp_label": "Studio de Répétition"
+    },
     {
       "id": 109,
       "domain": "quaison.fr",
@@ -141,17 +167,17 @@
       "ai_score": 99,
       "temperature": "hot",
       "source": "ddg",
-      "status": "emailed_2",
-      "sequence_step": 2,
+      "status": "emailed_3",
+      "sequence_step": 3,
       "variant": "A",
       "date_added": "2026-06-05",
       "date_step1": "2026-06-05T15:00:27.367266",
       "date_step2": "2026-06-09T09:00:20.767563",
-      "date_step3": null,
+      "date_step3": "2026-06-17T09:01:11.653285",
       "replied": 0,
       "bounced": 0,
       "notes": null,
-      "next_action": "2026-06-17",
+      "next_action": null,
       "icp_label": "Studio d'Enregistrement"
     },
     {
