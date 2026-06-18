@@ -977,19 +977,7 @@ body.light :focus-visible{outline:2px solid #000}
   <article class="proj-item">
     <div class="proj-item-inner reverse">
       <div class="proj-img" style="background:#F4F6FB;padding:6%">
-        <div class="proj-img-gallery" id="sbGallery">
-          <div class="ag-slide active" style="background-image:url('mockup-sb-dashboard.webp')"></div>
-          <div class="ag-slide" style="background-image:url('mockup-sb-reservations.webp')"></div>
-          <div class="ag-slide" style="background-image:url('mockup-sb-calendrier.webp')"></div>
-          <div class="ag-slide" style="background-image:url('mockup-sb-responsive.webp')"></div>
-          <div class="ag-dots">
-            <span class="ag-dot active" data-i="0"></span>
-            <span class="ag-dot" data-i="1"></span>
-            <span class="ag-dot" data-i="2"></span>
-            <span class="ag-dot" data-i="3"></span>
-          </div>
-          <div class="sb-label" id="sbLabel">Tableau de bord</div>
-        </div>
+        <div class="proj-img-bg" style="background-image:url('mockup-sb-responsive.webp')"></div>
       </div>
       <div class="proj-info-side">
         <div class="proj-num rv">04</div>
@@ -1427,22 +1415,7 @@ function adidasGo(n){
 }
 setInterval(()=>{ adidasGo((adidasIdx+1) % adidasSlides.length); }, 3500);
 
-/* ── STUDIOBOOKING GALLERY */
-let sbIdx = 0;
-const sbSlides = document.querySelectorAll('#sbGallery .ag-slide');
-const sbDots   = document.querySelectorAll('#sbGallery .ag-dot');
-const sbLabels = ['Tableau de bord','Réservations','Calendrier','Responsive · mobile & tablette'];
-const sbLabel  = document.getElementById('sbLabel');
-function sbGo(n){
-  sbSlides[sbIdx].classList.remove('active');
-  sbDots[sbIdx].classList.remove('active');
-  sbIdx = n;
-  sbSlides[sbIdx].classList.add('active');
-  sbDots[sbIdx].classList.add('active');
-  if(sbLabel) sbLabel.textContent = sbLabels[sbIdx];
-}
-sbDots.forEach((d,i)=>d.addEventListener('click',e=>{e.stopPropagation();sbGo(i);}));
-setInterval(()=>{ sbGo((sbIdx+1) % sbSlides.length); }, 3500);
+/* ── STUDIOBOOKING — image unique (carrousel retiré) */
 </script>
 
 <!-- FLOATS — WhatsApp + Scroll Top -->
