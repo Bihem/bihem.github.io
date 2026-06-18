@@ -981,10 +981,12 @@ body.light :focus-visible{outline:2px solid #000}
           <div class="ag-slide active" style="background-image:url('mockup-sb-dashboard.webp')"></div>
           <div class="ag-slide" style="background-image:url('mockup-sb-reservations.webp')"></div>
           <div class="ag-slide" style="background-image:url('mockup-sb-calendrier.webp')"></div>
+          <div class="ag-slide" style="background-image:url('mockup-sb-responsive.webp')"></div>
           <div class="ag-dots">
             <span class="ag-dot active" data-i="0"></span>
             <span class="ag-dot" data-i="1"></span>
             <span class="ag-dot" data-i="2"></span>
+            <span class="ag-dot" data-i="3"></span>
           </div>
           <div class="sb-label" id="sbLabel">Tableau de bord</div>
         </div>
@@ -1429,7 +1431,7 @@ setInterval(()=>{ adidasGo((adidasIdx+1) % adidasSlides.length); }, 3500);
 let sbIdx = 0;
 const sbSlides = document.querySelectorAll('#sbGallery .ag-slide');
 const sbDots   = document.querySelectorAll('#sbGallery .ag-dot');
-const sbLabels = ['Tableau de bord','Réservations','Calendrier'];
+const sbLabels = ['Tableau de bord','Réservations','Calendrier','Responsive · mobile & tablette'];
 const sbLabel  = document.getElementById('sbLabel');
 function sbGo(n){
   sbSlides[sbIdx].classList.remove('active');
