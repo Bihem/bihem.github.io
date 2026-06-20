@@ -1,18 +1,18 @@
 {
-  "updated_at": "2026-06-20T15:00:21.627870",
+  "updated_at": "2026-06-20T21:11:54.312456",
   "version": "sb-v1",
   "product": "StudioBooking",
   "stats": {
-    "total": 110,
+    "total": 111,
     "with_email": 40,
-    "with_phone": 78,
+    "with_phone": 79,
     "queued": 0,
     "emailed": 40,
     "replied": 0,
     "bounced": 2,
     "hot": 41,
     "warm": 31,
-    "cold": 38,
+    "cold": 39,
     "no_booking_with_email": 39,
     "manual_booking_count": 22,
     "avg_score": 57.0
@@ -21,8 +21,8 @@
     {
       "category": "autre_studio",
       "label": "Autre Studio",
-      "count": 54,
-      "pct": 49
+      "count": 55,
+      "pct": 50
     },
     {
       "category": "enregistrement",
@@ -1921,6 +1921,32 @@
       "notes": null,
       "next_action": null,
       "icp_label": "Résidence Artistique"
+    },
+    {
+      "id": 126,
+      "domain": "lieuxdemotions.fr",
+      "company": "Lieuxdemotions",
+      "email": null,
+      "phone": "01 49 29 50 50",
+      "icp_category": "autre_studio",
+      "has_booking": 0,
+      "manual_booking": 0,
+      "score": 43,
+      "ai_score": 43,
+      "temperature": "cold",
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-06-20",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "icp_label": "Autre Studio"
     },
     {
       "id": 122,
