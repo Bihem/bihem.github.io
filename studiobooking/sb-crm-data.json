@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-20T21:11:54.312456",
+  "updated_at": "2026-06-21T09:23:47.546965",
   "version": "sb-v1",
   "product": "StudioBooking",
   "stats": {
@@ -63,17 +63,17 @@
       "ai_score": 100,
       "temperature": "hot",
       "source": "ddg",
-      "status": "emailed_1",
-      "sequence_step": 1,
+      "status": "emailed_2",
+      "sequence_step": 2,
       "variant": "A",
       "date_added": "2026-06-17",
       "date_step1": "2026-06-17T09:00:25.417983",
-      "date_step2": null,
+      "date_step2": "2026-06-21T09:07:11.309882",
       "date_step3": null,
       "replied": 0,
       "bounced": 0,
       "notes": null,
-      "next_action": "2026-06-21",
+      "next_action": "2026-06-29",
       "icp_label": "Studio de Répétition"
     },
     {
