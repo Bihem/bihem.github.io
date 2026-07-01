@@ -1,25 +1,25 @@
 {
-  "updated_at": "2026-07-01T15:00:16.796963",
+  "updated_at": "2026-07-01T21:01:13.225757",
   "version": "sb-v1",
   "product": "StudioBooking",
   "warmup_mode": false,
   "funnel": {
-    "total": 118,
-    "with_email": 42,
-    "with_phone": 83,
-    "total_emailed": 42,
+    "total": 120,
+    "with_email": 43,
+    "with_phone": 84,
+    "total_emailed": 43,
     "total_replied": 0,
     "total_bounced": 2,
     "queued": 0,
-    "hot_opps": 41,
+    "hot_opps": 42,
     "manual_bookings": 22
   },
   "sources": [
     {
       "source": "ddg",
-      "n": 86,
-      "with_email": 30,
-      "total_emailed": 30,
+      "n": 88,
+      "with_email": 31,
+      "total_emailed": 31,
       "replied": 0
     },
     {
@@ -32,7 +32,7 @@
   ],
   "ab_test": {
     "A": {
-      "sent": 28,
+      "sent": 29,
       "replied": 0
     },
     "B": {
@@ -172,19 +172,25 @@
       "analyzed": 1,
       "emailed": 1,
       "replied": 0
+    },
+    {
+      "date": "2026-07-01",
+      "analyzed": 2,
+      "emailed": 1,
+      "replied": 0
     }
   ],
   "temperature": {
-    "hot": 42,
+    "hot": 43,
     "warm": 33,
-    "cold": 43,
+    "cold": 44,
     "avg_score": 57
   },
   "icp_distribution": [
     {
       "category": "autre_studio",
       "label": "Autre Studio",
-      "count": 61,
+      "count": 62,
       "pct": 52
     },
     {
@@ -196,8 +202,8 @@
     {
       "category": "repetition",
       "label": "Studio de Répétition",
-      "count": 6,
-      "pct": 5
+      "count": 7,
+      "pct": 6
     },
     {
       "category": "smac_venue",
