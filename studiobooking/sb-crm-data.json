@@ -1,20 +1,20 @@
 {
-  "updated_at": "2026-07-01T21:01:13.228625",
+  "updated_at": "2026-07-03T15:00:21.758230",
   "version": "sb-v1",
   "product": "StudioBooking",
   "stats": {
-    "total": 120,
+    "total": 121,
     "with_email": 43,
-    "with_phone": 84,
+    "with_phone": 85,
     "queued": 0,
     "emailed": 43,
     "replied": 0,
     "bounced": 2,
-    "hot": 43,
+    "hot": 44,
     "warm": 33,
     "cold": 44,
     "no_booking_with_email": 42,
-    "manual_booking_count": 22,
+    "manual_booking_count": 23,
     "avg_score": 57.0
   },
   "icp_distribution": [
@@ -22,12 +22,12 @@
       "category": "autre_studio",
       "label": "Autre Studio",
       "count": 62,
-      "pct": 52
+      "pct": 51
     },
     {
       "category": "enregistrement",
       "label": "Studio d'Enregistrement",
-      "count": 45,
+      "count": 46,
       "pct": 38
     },
     {
@@ -855,6 +855,32 @@
       "notes": null,
       "next_action": null,
       "icp_label": "Autre Studio"
+    },
+    {
+      "id": 136,
+      "domain": "digstudio.fr",
+      "company": "Digstudio",
+      "email": null,
+      "phone": "07 67 72 73 28",
+      "icp_category": "enregistrement",
+      "has_booking": 0,
+      "manual_booking": 1,
+      "score": 74,
+      "ai_score": 74,
+      "temperature": "hot",
+      "source": "gmaps",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-07-03",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "icp_label": "Studio d'Enregistrement"
     },
     {
       "id": 74,
