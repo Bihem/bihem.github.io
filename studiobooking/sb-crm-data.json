@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-07T21:00:21.485675",
+  "updated_at": "2026-07-08T15:01:09.926658",
   "version": "sb-v1",
   "product": "StudioBooking",
   "stats": {
@@ -947,17 +947,17 @@
       "ai_score": 73,
       "temperature": "hot",
       "source": "ddg",
-      "status": "emailed_2",
-      "sequence_step": 2,
+      "status": "emailed_3",
+      "sequence_step": 3,
       "variant": "A",
       "date_added": "2026-06-25",
       "date_step1": "2026-06-25T21:00:24.407148",
       "date_step2": "2026-06-30T15:08:05.836123",
-      "date_step3": null,
+      "date_step3": "2026-07-08T15:00:24.889349",
       "replied": 0,
       "bounced": 0,
       "notes": null,
-      "next_action": "2026-07-08",
+      "next_action": null,
       "icp_label": "Autre Studio"
     },
     {
