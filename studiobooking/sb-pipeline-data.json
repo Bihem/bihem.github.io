@@ -1,24 +1,24 @@
 {
-  "updated_at": "2026-07-12T03:50:26.001732",
+  "updated_at": "2026-07-12T09:46:00.228521",
   "version": "sb-v1",
   "product": "StudioBooking",
   "warmup_mode": false,
   "funnel": {
-    "total": 124,
-    "with_email": 45,
-    "with_phone": 87,
+    "total": 126,
+    "with_email": 46,
+    "with_phone": 88,
     "total_emailed": 44,
     "total_replied": 0,
     "total_bounced": 2,
-    "queued": 0,
-    "hot_opps": 43,
+    "queued": 1,
+    "hot_opps": 44,
     "manual_bookings": 23
   },
   "sources": [
     {
       "source": "ddg",
-      "n": 91,
-      "with_email": 33,
+      "n": 93,
+      "with_email": 34,
       "total_emailed": 32,
       "replied": 0
     },
@@ -124,26 +124,32 @@
       "analyzed": 3,
       "emailed": 1,
       "replied": 0
+    },
+    {
+      "date": "2026-07-12",
+      "analyzed": 2,
+      "emailed": 0,
+      "replied": 0
     }
   ],
   "temperature": {
-    "hot": 45,
+    "hot": 46,
     "warm": 33,
-    "cold": 46,
-    "avg_score": 57
+    "cold": 47,
+    "avg_score": 56
   },
   "icp_distribution": [
     {
       "category": "autre_studio",
       "label": "Autre Studio",
-      "count": 64,
+      "count": 66,
       "pct": 52
     },
     {
       "category": "enregistrement",
       "label": "Studio d'Enregistrement",
       "count": 47,
-      "pct": 38
+      "pct": 37
     },
     {
       "category": "repetition",
