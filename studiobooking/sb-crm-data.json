@@ -1,34 +1,34 @@
 {
-  "updated_at": "2026-07-12T03:50:26.011800",
+  "updated_at": "2026-07-12T09:46:00.231334",
   "version": "sb-v1",
   "product": "StudioBooking",
   "stats": {
-    "total": 124,
-    "with_email": 45,
-    "with_phone": 87,
-    "queued": 0,
+    "total": 126,
+    "with_email": 46,
+    "with_phone": 88,
+    "queued": 1,
     "emailed": 44,
     "replied": 0,
     "bounced": 2,
-    "hot": 45,
+    "hot": 46,
     "warm": 33,
-    "cold": 46,
-    "no_booking_with_email": 43,
+    "cold": 47,
+    "no_booking_with_email": 44,
     "manual_booking_count": 23,
-    "avg_score": 57.0
+    "avg_score": 56.0
   },
   "icp_distribution": [
     {
       "category": "autre_studio",
       "label": "Autre Studio",
-      "count": 64,
+      "count": 66,
       "pct": 52
     },
     {
       "category": "enregistrement",
       "label": "Studio d'Enregistrement",
       "count": 47,
-      "pct": 38
+      "pct": 37
     },
     {
       "category": "repetition",
@@ -959,6 +959,32 @@
       "notes": null,
       "next_action": null,
       "icp_label": "Studio d'Enregistrement"
+    },
+    {
+      "id": 140,
+      "domain": "artcatalyse.fr",
+      "company": "Artcatalyse",
+      "email": "contact@biostart.eu",
+      "phone": "06 22 19 20 16",
+      "icp_category": "autre_studio",
+      "has_booking": 0,
+      "manual_booking": 0,
+      "score": 73,
+      "ai_score": 73,
+      "temperature": "hot",
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-07-12",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "icp_label": "Autre Studio"
     },
     {
       "id": 132,
@@ -2805,6 +2831,32 @@
       "notes": null,
       "next_action": null,
       "icp_label": "SMAC / Salle de Spectacle"
+    },
+    {
+      "id": 141,
+      "domain": "lagalerie-cac-noisylesec.fr",
+      "company": "Lagalerie Cac Noisylesec",
+      "email": null,
+      "phone": null,
+      "icp_category": "autre_studio",
+      "has_booking": 0,
+      "manual_booking": 0,
+      "score": 28,
+      "ai_score": 28,
+      "temperature": "cold",
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-07-12",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "icp_label": "Autre Studio"
     },
     {
       "id": 137,
