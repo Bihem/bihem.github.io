@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-21T18:10:20.795934",
+  "updated_at": "2026-07-22T09:03:38.075711",
   "version": "sb-v1",
   "product": "StudioBooking",
   "warmup_mode": false,
@@ -41,12 +41,6 @@
     }
   },
   "daily_trend": [
-    {
-      "date": "2026-06-21",
-      "analyzed": 4,
-      "emailed": 0,
-      "replied": 0
-    },
     {
       "date": "2026-06-25",
       "analyzed": 2,
