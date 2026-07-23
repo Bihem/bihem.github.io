@@ -1,19 +1,19 @@
 {
-  "updated_at": "2026-07-23T09:01:05.723166",
+  "updated_at": "2026-07-23T15:01:13.723426",
   "version": "sb-v1",
   "product": "StudioBooking",
   "stats": {
-    "total": 138,
-    "with_email": 48,
-    "with_phone": 93,
+    "total": 139,
+    "with_email": 49,
+    "with_phone": 94,
     "queued": 0,
-    "emailed": 46,
+    "emailed": 47,
     "replied": 0,
     "bounced": 2,
-    "hot": 47,
+    "hot": 48,
     "warm": 34,
     "cold": 57,
-    "no_booking_with_email": 45,
+    "no_booking_with_email": 46,
     "manual_booking_count": 23,
     "avg_score": 55.0
   },
@@ -21,7 +21,7 @@
     {
       "category": "autre_studio",
       "label": "Autre Studio",
-      "count": 74,
+      "count": 75,
       "pct": 54
     },
     {
@@ -985,6 +985,32 @@
       "notes": null,
       "next_action": null,
       "icp_label": "Studio d'Enregistrement"
+    },
+    {
+      "id": 154,
+      "domain": "politique.pappers.fr",
+      "company": "Politique",
+      "email": "valerie.letard@assemblee-nationale.fr",
+      "phone": "08 78 35 65 93",
+      "icp_category": "autre_studio",
+      "has_booking": 0,
+      "manual_booking": 0,
+      "score": 73,
+      "ai_score": 73,
+      "temperature": "hot",
+      "source": "ddg",
+      "status": "emailed_1",
+      "sequence_step": 1,
+      "variant": "A",
+      "date_added": "2026-07-23",
+      "date_step1": "2026-07-23T15:00:28.626648",
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": "2026-07-27",
+      "icp_label": "Autre Studio"
     },
     {
       "id": 140,
