@@ -1,18 +1,18 @@
 {
-  "updated_at": "2026-08-05T15:02:52.519702",
+  "updated_at": "2026-08-05T22:06:59.408718",
   "version": "sb-v1",
   "product": "StudioBooking",
   "stats": {
-    "total": 141,
+    "total": 143,
     "with_email": 50,
-    "with_phone": 95,
+    "with_phone": 96,
     "queued": 0,
     "emailed": 48,
     "replied": 0,
     "bounced": 2,
     "hot": 49,
-    "warm": 34,
-    "cold": 58,
+    "warm": 35,
+    "cold": 59,
     "no_booking_with_email": 47,
     "manual_booking_count": 24,
     "avg_score": 55.0
@@ -21,7 +21,7 @@
     {
       "category": "autre_studio",
       "label": "Autre Studio",
-      "count": 77,
+      "count": 78,
       "pct": 55
     },
     {
@@ -33,14 +33,14 @@
     {
       "category": "repetition",
       "label": "Studio de Répétition",
-      "count": 7,
-      "pct": 5
+      "count": 8,
+      "pct": 6
     },
     {
       "category": "smac_venue",
       "label": "SMAC / Salle de Spectacle",
       "count": 5,
-      "pct": 4
+      "pct": 3
     },
     {
       "category": "residence",
@@ -1559,6 +1559,32 @@
       "icp_label": "Studio d'Enregistrement"
     },
     {
+      "id": 157,
+      "domain": "lecoledupianoautrement.fr",
+      "company": "Lecoledupianoautrement",
+      "email": null,
+      "phone": "06 20 09 28 80",
+      "icp_category": "repetition",
+      "has_booking": 0,
+      "manual_booking": 0,
+      "score": 50,
+      "ai_score": 50,
+      "temperature": "warm",
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-08-05",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "icp_label": "Studio de Répétition"
+    },
+    {
       "id": 148,
       "domain": "gameofsound.fr",
       "company": "Gameofsound",
@@ -3065,6 +3091,32 @@
       "notes": null,
       "next_action": null,
       "icp_label": "SMAC / Salle de Spectacle"
+    },
+    {
+      "id": 158,
+      "domain": "rockandrollrevue.fr",
+      "company": "Rockandrollrevue",
+      "email": null,
+      "phone": null,
+      "icp_category": "autre_studio",
+      "has_booking": 0,
+      "manual_booking": 0,
+      "score": 28,
+      "ai_score": 28,
+      "temperature": "cold",
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-08-05",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "icp_label": "Autre Studio"
     },
     {
       "id": 156,
