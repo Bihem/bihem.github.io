@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-08-14T21:09:46.131504",
+  "updated_at": "2026-08-15T09:03:55.264969",
   "version": "sb-v1",
   "product": "StudioBooking",
   "stats": {
-    "total": 146,
+    "total": 147,
     "with_email": 51,
     "with_phone": 97,
     "queued": 0,
@@ -12,7 +12,7 @@
     "bounced": 2,
     "hot": 50,
     "warm": 35,
-    "cold": 61,
+    "cold": 62,
     "no_booking_with_email": 48,
     "manual_booking_count": 25,
     "avg_score": 55.0
@@ -21,7 +21,7 @@
     {
       "category": "autre_studio",
       "label": "Autre Studio",
-      "count": 80,
+      "count": 81,
       "pct": 55
     },
     {
@@ -3117,6 +3117,32 @@
       "notes": null,
       "next_action": null,
       "icp_label": "SMAC / Salle de Spectacle"
+    },
+    {
+      "id": 162,
+      "domain": "quimper-evenements.fr",
+      "company": "Quimper Evenements",
+      "email": null,
+      "phone": null,
+      "icp_category": "autre_studio",
+      "has_booking": 0,
+      "manual_booking": 0,
+      "score": 28,
+      "ai_score": 28,
+      "temperature": "cold",
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-08-15",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "icp_label": "Autre Studio"
     },
     {
       "id": 161,
