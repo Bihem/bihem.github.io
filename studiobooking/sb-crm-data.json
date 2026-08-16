@@ -1,17 +1,17 @@
 {
-  "updated_at": "2026-08-15T21:17:29.384132",
+  "updated_at": "2026-08-16T09:03:53.054283",
   "version": "sb-v1",
   "product": "StudioBooking",
   "stats": {
-    "total": 148,
+    "total": 149,
     "with_email": 51,
-    "with_phone": 97,
+    "with_phone": 98,
     "queued": 0,
     "emailed": 49,
     "replied": 0,
     "bounced": 2,
     "hot": 50,
-    "warm": 35,
+    "warm": 36,
     "cold": 63,
     "no_booking_with_email": 48,
     "manual_booking_count": 25,
@@ -45,7 +45,7 @@
     {
       "category": "residence",
       "label": "Résidence Artistique",
-      "count": 1,
+      "count": 2,
       "pct": 1
     }
   ],
@@ -2233,6 +2233,32 @@
       "notes": null,
       "next_action": null,
       "icp_label": "Autre Studio"
+    },
+    {
+      "id": 164,
+      "domain": "repetition.futur-records.fr",
+      "company": "Repetition",
+      "email": null,
+      "phone": "01 98 95 24 48",
+      "icp_category": "residence",
+      "has_booking": 0,
+      "manual_booking": 0,
+      "score": 46,
+      "ai_score": 46,
+      "temperature": "warm",
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-08-16",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "icp_label": "Résidence Artistique"
     },
     {
       "id": 94,
