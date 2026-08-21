@@ -1,19 +1,19 @@
 {
-  "updated_at": "2026-08-20T21:02:59.626542",
+  "updated_at": "2026-08-21T10:04:39.422238",
   "version": "sb-v1",
   "product": "StudioBooking",
   "stats": {
-    "total": 150,
-    "with_email": 51,
-    "with_phone": 98,
-    "queued": 0,
+    "total": 152,
+    "with_email": 52,
+    "with_phone": 99,
+    "queued": 1,
     "emailed": 49,
     "replied": 0,
     "bounced": 2,
-    "hot": 50,
+    "hot": 51,
     "warm": 36,
-    "cold": 64,
-    "no_booking_with_email": 48,
+    "cold": 65,
+    "no_booking_with_email": 49,
     "manual_booking_count": 25,
     "avg_score": 54.0
   },
@@ -33,14 +33,14 @@
     {
       "category": "repetition",
       "label": "Studio de Répétition",
-      "count": 9,
-      "pct": 6
+      "count": 10,
+      "pct": 7
     },
     {
       "category": "smac_venue",
       "label": "SMAC / Salle de Spectacle",
-      "count": 5,
-      "pct": 3
+      "count": 6,
+      "pct": 4
     },
     {
       "category": "residence",
@@ -881,6 +881,32 @@
       "notes": null,
       "next_action": "2026-06-02",
       "icp_label": "Studio d'Enregistrement"
+    },
+    {
+      "id": 166,
+      "domain": "cartonnerie.fr",
+      "company": "Cartonnerie",
+      "email": "info@cartonnerie.fr",
+      "phone": "03 26 36 72 40",
+      "icp_category": "smac_venue",
+      "has_booking": 0,
+      "manual_booking": 0,
+      "score": 78,
+      "ai_score": 78,
+      "temperature": "hot",
+      "source": "ddg",
+      "status": "queued",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-08-21",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "icp_label": "SMAC / Salle de Spectacle"
     },
     {
       "id": 147,
@@ -2753,6 +2779,32 @@
       "notes": null,
       "next_action": null,
       "icp_label": "Studio d'Enregistrement"
+    },
+    {
+      "id": 167,
+      "domain": "ride-the-noise.fr",
+      "company": "Ride The Noise",
+      "email": null,
+      "phone": null,
+      "icp_category": "repetition",
+      "has_booking": 0,
+      "manual_booking": 0,
+      "score": 35,
+      "ai_score": 35,
+      "temperature": "cold",
+      "source": "ddg",
+      "status": "no_email",
+      "sequence_step": 0,
+      "variant": null,
+      "date_added": "2026-08-21",
+      "date_step1": null,
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": null,
+      "icp_label": "Studio de Répétition"
     },
     {
       "id": 149,
