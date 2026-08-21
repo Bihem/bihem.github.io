@@ -1,24 +1,24 @@
 {
-  "updated_at": "2026-08-20T21:02:59.601303",
+  "updated_at": "2026-08-21T10:04:39.418127",
   "version": "sb-v1",
   "product": "StudioBooking",
   "warmup_mode": false,
   "funnel": {
-    "total": 150,
-    "with_email": 51,
-    "with_phone": 98,
+    "total": 152,
+    "with_email": 52,
+    "with_phone": 99,
     "total_emailed": 49,
     "total_replied": 0,
     "total_bounced": 2,
-    "queued": 0,
-    "hot_opps": 48,
+    "queued": 1,
+    "hot_opps": 49,
     "manual_bookings": 25
   },
   "sources": [
     {
       "source": "ddg",
-      "n": 115,
-      "with_email": 38,
+      "n": 117,
+      "with_email": 39,
       "total_emailed": 36,
       "replied": 0
     },
@@ -41,12 +41,6 @@
     }
   },
   "daily_trend": [
-    {
-      "date": "2026-07-21",
-      "analyzed": 3,
-      "emailed": 0,
-      "replied": 0
-    },
     {
       "date": "2026-07-23",
       "analyzed": 1,
@@ -94,12 +88,18 @@
       "analyzed": 1,
       "emailed": 0,
       "replied": 0
+    },
+    {
+      "date": "2026-08-21",
+      "analyzed": 2,
+      "emailed": 0,
+      "replied": 0
     }
   ],
   "temperature": {
-    "hot": 50,
+    "hot": 51,
     "warm": 36,
-    "cold": 64,
+    "cold": 65,
     "avg_score": 54
   },
   "icp_distribution": [
@@ -118,14 +118,14 @@
     {
       "category": "repetition",
       "label": "Studio de Répétition",
-      "count": 9,
-      "pct": 6
+      "count": 10,
+      "pct": 7
     },
     {
       "category": "smac_venue",
       "label": "SMAC / Salle de Spectacle",
-      "count": 5,
-      "pct": 3
+      "count": 6,
+      "pct": 4
     },
     {
       "category": "residence",
