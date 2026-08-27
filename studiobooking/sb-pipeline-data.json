@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-24T17:11:23.966198",
+  "updated_at": "2026-08-27T15:03:25.672143",
   "version": "sb-v1",
   "product": "StudioBooking",
   "warmup_mode": false,
@@ -7,10 +7,10 @@
     "total": 161,
     "with_email": 56,
     "with_phone": 104,
-    "total_emailed": 53,
+    "total_emailed": 54,
     "total_replied": 0,
     "total_bounced": 2,
-    "queued": 1,
+    "queued": 0,
     "hot_opps": 53,
     "manual_bookings": 27
   },
@@ -19,7 +19,7 @@
       "source": "ddg",
       "n": 125,
       "with_email": 42,
-      "total_emailed": 39,
+      "total_emailed": 40,
       "replied": 0
     },
     {
@@ -32,7 +32,7 @@
   ],
   "ab_test": {
     "A": {
-      "sent": 38,
+      "sent": 39,
       "replied": 0
     },
     "B": {
@@ -41,12 +41,6 @@
     }
   },
   "daily_trend": [
-    {
-      "date": "2026-07-26",
-      "analyzed": 2,
-      "emailed": 1,
-      "replied": 0
-    },
     {
       "date": "2026-08-05",
       "analyzed": 2,
@@ -104,7 +98,7 @@
     {
       "date": "2026-08-24",
       "analyzed": 2,
-      "emailed": 0,
+      "emailed": 1,
       "replied": 0
     }
   ],
