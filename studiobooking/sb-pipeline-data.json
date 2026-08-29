@@ -1,25 +1,25 @@
 {
-  "updated_at": "2026-08-28T21:13:20.515334",
+  "updated_at": "2026-08-29T09:18:04.675224",
   "version": "sb-v1",
   "product": "StudioBooking",
   "warmup_mode": false,
   "funnel": {
-    "total": 161,
-    "with_email": 56,
-    "with_phone": 104,
-    "total_emailed": 54,
+    "total": 162,
+    "with_email": 57,
+    "with_phone": 105,
+    "total_emailed": 55,
     "total_replied": 0,
     "total_bounced": 2,
     "queued": 0,
-    "hot_opps": 53,
-    "manual_bookings": 27
+    "hot_opps": 54,
+    "manual_bookings": 28
   },
   "sources": [
     {
       "source": "ddg",
-      "n": 125,
-      "with_email": 42,
-      "total_emailed": 40,
+      "n": 126,
+      "with_email": 43,
+      "total_emailed": 41,
       "replied": 0
     },
     {
@@ -32,7 +32,7 @@
   ],
   "ab_test": {
     "A": {
-      "sent": 39,
+      "sent": 40,
       "replied": 0
     },
     "B": {
@@ -100,19 +100,25 @@
       "analyzed": 2,
       "emailed": 1,
       "replied": 0
+    },
+    {
+      "date": "2026-08-29",
+      "analyzed": 1,
+      "emailed": 1,
+      "replied": 0
     }
   ],
   "temperature": {
-    "hot": 55,
+    "hot": 56,
     "warm": 38,
     "cold": 68,
-    "avg_score": 54
+    "avg_score": 55
   },
   "icp_distribution": [
     {
       "category": "autre_studio",
       "label": "Autre Studio",
-      "count": 90,
+      "count": 91,
       "pct": 56
     },
     {
