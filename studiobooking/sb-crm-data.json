@@ -1,27 +1,27 @@
 {
-  "updated_at": "2026-08-28T21:13:20.541328",
+  "updated_at": "2026-08-29T09:18:04.701664",
   "version": "sb-v1",
   "product": "StudioBooking",
   "stats": {
-    "total": 161,
-    "with_email": 56,
-    "with_phone": 104,
+    "total": 162,
+    "with_email": 57,
+    "with_phone": 105,
     "queued": 0,
-    "emailed": 54,
+    "emailed": 55,
     "replied": 0,
     "bounced": 2,
-    "hot": 55,
+    "hot": 56,
     "warm": 38,
     "cold": 68,
-    "no_booking_with_email": 53,
-    "manual_booking_count": 27,
-    "avg_score": 54.0
+    "no_booking_with_email": 54,
+    "manual_booking_count": 28,
+    "avg_score": 55.0
   },
   "icp_distribution": [
     {
       "category": "autre_studio",
       "label": "Autre Studio",
-      "count": 90,
+      "count": 91,
       "pct": 56
     },
     {
@@ -308,6 +308,32 @@
       "bounced": 0,
       "notes": null,
       "next_action": null,
+      "icp_label": "Autre Studio"
+    },
+    {
+      "id": 177,
+      "domain": "centrededansedumarais.fr",
+      "company": "Centrededansedumarais",
+      "email": "office@pirouette.com",
+      "phone": "01 60 81 37 49",
+      "icp_category": "autre_studio",
+      "has_booking": 0,
+      "manual_booking": 1,
+      "score": 93,
+      "ai_score": 93,
+      "temperature": "hot",
+      "source": "ddg",
+      "status": "emailed_1",
+      "sequence_step": 1,
+      "variant": "A",
+      "date_added": "2026-08-29",
+      "date_step1": "2026-08-29T09:01:25.546148",
+      "date_step2": null,
+      "date_step3": null,
+      "replied": 0,
+      "bounced": 0,
+      "notes": null,
+      "next_action": "2026-09-02",
       "icp_label": "Autre Studio"
     },
     {
