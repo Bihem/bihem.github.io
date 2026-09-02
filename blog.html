@@ -282,6 +282,17 @@ body.light .footer-lnk:hover{color:#000}
 <!-- ARTICLES GRID -->
 <section class="blog-grid" id="blogGrid">
 <!-- ##CARD_INSERT## -->
+  <!-- Article a202609021043 — AUTO-GENERATED -->
+  <article class="blog-card featured rv" data-cat="design" onclick="openArticle('a202609021043')">
+    <div class="blog-card-cat">IA & Design</div>
+    <h2 class="blog-card-title">Interfaces IA agentique : comment designer la confiance en 2026</h2>
+    <p class="blog-card-excerpt">Vos agents IA agissent seuls pour l'utilisateur. Voici comment designer le contrôle et la confiance sans casser l'expérience.</p>
+    <div class="blog-card-footer">
+      <span class="blog-card-date">02 Septembre 2026</span>
+      <span class="blog-card-arrow">→</span>
+    </div>
+  </article>
+
   <!-- Article a202608051224 — AUTO-GENERATED -->
   <article class="blog-card featured rv" data-cat="design" onclick="location.href='/blog/interfaces-calmes-la-tendance-ux-qui-reduit-la-charge-cognitive-en-202.html'">
     <div class="blog-card-cat">UX Design</div>
@@ -1598,6 +1609,40 @@ a21:{
 <p>Ces ajustements ne demandent pas un budget de refonte totale, mais ils demandent une methode et un regard exterieur sur ce qui, dans votre interface, ajoute vraiment de la valeur — et ce qui ne fait que du bruit.</p>
 
 <p>Vous voulez un audit honnete de votre interface actuelle, avec des recommandations concretes et priorisees ? <a href="https://dikengadesign.fr">Contactez Dikenga Design</a> pour un diagnostic UX/UI base sur ces criteres.</p>`
+  },
+    a202609021043:{
+    cat:'IA & Design',
+    title:'Interfaces IA agentique : comment designer la confiance en 2026',
+    date:'02 Septembre 2026',
+    read:'5 min',
+    body:`<p>En 2026, l'IA ne se contente plus de suggérer : elle agit. Un agent peut réserver un rendez-vous, remplir un formulaire, comparer des prix ou déclencher un paiement sans que l'utilisateur valide chaque étape. C'est ce qu'on appelle l'<strong>IA agentique</strong>, et elle change radicalement la façon dont on doit penser l'interface. Le problème n'est plus « comment afficher l'information » mais « comment donner confiance à quelqu'un qui délègue une action à un système qu'il ne voit pas travailler ».</p>
+
+<p>Pour une startup ou une PME qui intègre ce type de fonctionnalité, mal designer cette relation de confiance revient à perdre l'utilisateur au premier incident : une action mal comprise, un agent qui va trop loin, une absence de moyen de reprendre la main. Voici les principes concrets pour éviter ça.</p>
+
+<h2>1. Rendre l'action de l'IA visible avant qu'elle n'agisse</h2>
+<p>La pire expérience agentique, c'est celle où l'utilisateur découvre après coup ce que le système a fait. Un bon design agentique affiche systématiquement une <strong>prévisualisation de l'intention</strong> : « Je vais réserver ce créneau à 14h, envoyer cet email, dépenser 45€ » avant l'exécution. Ce n'est pas une confirmation lourde façon pop-up de 2015, mais un état intermédiaire clair, souvent une simple ligne de texte avec un bouton d'annulation à portée de main pendant 3 à 5 secondes.</p>
+
+<h2>2. Distinguer les actions réversibles des actions critiques</h2>
+<p>Toutes les actions n'ont pas le même poids. Classez-les en deux catégories dès la phase de conception :</p>
+<ul>
+<li><strong>Réversibles et à faible enjeu</strong> (trier une liste, filtrer des résultats, rédiger un brouillon) : l'agent peut agir directement, sans friction.</li>
+<li><strong>Irréversibles ou sensibles</strong> (paiement, envoi d'un message à un tiers, suppression de données) : validation explicite obligatoire, jamais d'exécution automatique silencieuse.</li>
+</ul>
+<p>Cette hiérarchisation doit être visible dans votre design system : un composant "action agent" différent selon le niveau de risque, avec un code couleur et un niveau de friction cohérents sur tout le produit.</p>
+
+<h2>3. Garder une trace lisible, pas un log technique</h2>
+<p>Quand un agent agit à la place de l'utilisateur, celui-ci doit pouvoir répondre à une question simple : « qu'est-ce qui s'est passé pendant que je n'étais pas là ? ». Un historique d'actions en langage naturel, horodaté, avec la possibilité d'annuler ou de corriger, est aujourd'hui aussi indispensable qu'un bouton retour. Évitez les logs bruts type console développeur : personne ne les lit, et ils cassent la confiance au lieu de la construire.</p>
+
+<h2>4. Laisser un interrupteur général, toujours accessible</h2>
+<p>Le contrôle perçu compte autant que le contrôle réel. Un réglage clair — « Mode autonome activé / désactivé » — accessible en un clic depuis n'importe quel écran, rassure même les utilisateurs qui ne l'utiliseront jamais. À l'inverse, une IA qui agit sans qu'on sache comment la freiner génère de l'anxiété, même quand elle fonctionne parfaitement.</p>
+
+<h2>5. Designer l'échec autant que le succès</h2>
+<p>Un agent qui échoue silencieusement est pire qu'une interface classique en panne. Prévoyez systématiquement l'état d'erreur agentique : que s'est-il passé, pourquoi, et que peut faire l'utilisateur maintenant ? Un message du type « Je n'ai pas pu confirmer votre réservation, le créneau n'est plus disponible » avec une action de reprise immédiate transforme un échec en simple friction, au lieu d'une perte de confiance durable.</p>
+
+<h2>Ce qu'il faut retenir</h2>
+<p>L'IA agentique n'est pas une fonctionnalité qu'on ajoute à une interface existante : c'est une nouvelle couche de relation entre l'utilisateur et le produit, basée sur la délégation. Les produits qui gagneront en 2026 ne seront pas ceux avec l'agent le plus « intelligent », mais ceux où l'utilisateur sait à tout moment ce qui se passe, peut intervenir en une seconde, et n'a jamais l'impression de perdre le contrôle.</p>
+
+<p>Vous intégrez de l'IA agentique dans votre produit et vous voulez que ça reste clair pour vos utilisateurs ? <a href="https://dikengadesign.fr/contact.html">Discutons de votre interface</a> — <a href="https://dikengadesign.fr">dikengadesign.fr</a>.</p>`
   },
   /* ##ARTICLES_INSERT## */
 };
