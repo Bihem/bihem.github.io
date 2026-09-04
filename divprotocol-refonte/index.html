@@ -61,6 +61,9 @@
   --sh-md:0 6px 16px rgba(11,27,63,.06), 0 16px 40px rgba(11,27,63,.07);
   --sh-lg:0 10px 28px rgba(11,27,63,.08), 0 40px 80px rgba(11,27,63,.10);
   --sh-blue:0 8px 26px color-mix(in srgb, var(--primary) 30%, transparent);
+
+  /* — Accents d'illustration (jamais dans le chrome de l'interface) — */
+  --coral:#F0483E; --amber:#FFB020; --teal:#17C3A2; --violet:#7C3AED; --cream:#F7E9CE;
 }
 
 html[data-theme="dark"]{
@@ -318,6 +321,7 @@ section[id]{scroll-margin-top:calc(var(--nav-h) + var(--banner-h) + 20px)}
   background:radial-gradient(340px 210px at var(--mx,50%) var(--my,0%), color-mix(in srgb,var(--primary) 9%,transparent), transparent 66%);
 }
 .card:hover{transform:translateY(-7px);box-shadow:var(--sh-lg);border-color:color-mix(in srgb,var(--primary) 26%,var(--border))}
+.card__ico{animation:bob 8s ease-in-out infinite}
 .card:hover::before{opacity:1}
 .card__ico{width:80px;height:80px;margin-bottom:24px;transition:transform .45s cubic-bezier(.2,.9,.3,1)}
 .card:hover .card__ico{transform:translateY(-4px) scale(1.06)}
@@ -328,6 +332,19 @@ section[id]{scroll-margin-top:calc(var(--nav-h) + var(--banner-h) + 20px)}
   display:inline-block;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
   color:var(--primary);background:var(--primary-light);padding:5px 11px;border-radius:100px;
 }
+
+/* ------------------------------------------------- Blocs aérés (sans carte) */
+.blurbs{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(34px,4vw,60px)}
+.blurb{position:relative}
+.blurb__ico{width:104px;height:104px;margin-bottom:22px;display:block;animation:bob var(--bd,7s) ease-in-out infinite;animation-delay:var(--bdl,0s)}
+.blurb h3{margin-bottom:12px}
+.blurb p{font-size:15.5px;line-height:1.68;margin:0;max-width:38ch}
+@keyframes bob{0%,100%{transform:translate3d(0,0,0) rotate(0)}50%{transform:translate3d(0,-10px,0) rotate(-2deg)}}
+.blurb:hover .blurb__ico{animation-play-state:paused;transform:translateY(-10px) scale(1.07) rotate(-3deg);transition:transform .4s cubic-bezier(.2,.9,.3,1)}
+
+/* Liste de fonctionnalités façon icon-columns : pastille d'accent, sans cadre */
+.feats li svg{color:var(--primary)}
+.dot-accent{width:8px;height:8px;border-radius:50%;flex:none;margin-top:8px}
 
 /* ---------------------------------------------------------------- Sections produit */
 .prod{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.12fr);gap:clamp(40px,5vw,80px);align-items:center}
@@ -408,6 +425,59 @@ section[id]{scroll-margin-top:calc(var(--nav-h) + var(--banner-h) + 20px)}
 .fc-b{top:-26px;right:-22px;animation-delay:-2.4s}
 @media(max-width:1080px){.fc-a{left:-6px}.fc-b{right:-6px}}
 @media(max-width:640px){.app__body{grid-template-columns:1fr}.app__side{display:none}}
+
+/* ————— Jauge de stockage ————— */
+.gauge-card{
+  position:absolute;bottom:-48px;left:-38px;z-index:3;width:212px;
+  padding:18px;border-radius:20px;background:var(--surface-2);
+  border:1px solid var(--border);box-shadow:var(--sh-lg);
+}
+.gauge-card__h{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:var(--text);font-family:"Plus Jakarta Sans";margin-bottom:2px}
+.gauge-card__s{font-size:10.5px;color:var(--text-secondary);margin:0 0 8px}
+.gauge{display:block;margin:0 auto;width:150px}
+.gauge__track{fill:none;stroke:var(--border);stroke-width:11;stroke-linecap:round}
+.gauge__fill{fill:none;stroke:url(#gaugeGrad);stroke-width:11;stroke-linecap:round;stroke-dasharray:170;stroke-dashoffset:170;transition:stroke-dashoffset 1.6s cubic-bezier(.2,.9,.3,1) .5s}
+.prod__media.in .gauge__fill{stroke-dashoffset:64}
+.gauge__pct{font-family:"Plus Jakarta Sans";font-size:23px;font-weight:800;fill:var(--text);letter-spacing:-.03em}
+.gauge__sub{font-size:8.5px;fill:var(--text-secondary);font-family:Inter}
+.gauge-card .btn{width:100%;--btn-h:36px;font-size:12.5px;margin-top:8px;padding:0 12px}
+
+/* ————— Pile de stockage isométrique ————— */
+.stack{position:absolute;right:-64px;bottom:-146px;z-index:2;width:178px;pointer-events:none;filter:drop-shadow(0 22px 30px rgba(11,27,63,.16))}
+.stack svg{display:block;width:100%;overflow:visible}
+.slab{animation:bob var(--sd,6s) ease-in-out infinite;animation-delay:var(--sdl,0s);transform-box:fill-box;transform-origin:center}
+@media(max-width:1200px){.stack{width:146px;right:-30px;bottom:-124px}}
+@media(max-width:1023px){.gauge-card{left:-10px}.stack{right:-10px;bottom:-116px}}
+@media(max-width:560px){.stack{display:none}.gauge-card{position:static;width:100%;margin-top:16px;bottom:auto;left:auto}}
+
+/* ————— Curseur d'un collaborateur, en direct ————— */
+.livecur{position:absolute;left:66%;top:34%;z-index:5;pointer-events:none;will-change:left,top;animation:roam 13s cubic-bezier(.45,0,.55,1) infinite}
+.livecur svg{display:block;filter:drop-shadow(0 3px 6px rgba(11,27,63,.28))}
+.livecur b{
+  position:absolute;left:15px;top:15px;white-space:nowrap;
+  font-family:"Plus Jakarta Sans";font-size:10.5px;font-weight:700;color:#fff;
+  background:var(--teal);padding:3px 9px;border-radius:100px;
+}
+@keyframes roam{
+  0%   {left:66%; top:34%}
+  20%  {left:79%; top:45%}
+  42%  {left:70%; top:61%}
+  60%  {left:87%; top:53%}
+  82%  {left:73%; top:39%}
+  100% {left:66%; top:34%}
+}
+@media(max-width:1023px){.livecur{display:none}}
+
+/* ————— Téléversement en cours ————— */
+.upload{
+  display:flex;align-items:center;gap:11px;margin-top:12px;padding:10px 12px;
+  border-radius:11px;background:var(--primary-light);border:1px solid color-mix(in srgb,var(--primary) 18%,transparent);
+}
+.upload__t{font-size:11.5px;font-weight:600;color:var(--text);white-space:nowrap}
+.upload__bar{flex:1;min-width:0;height:5px;border-radius:3px;background:color-mix(in srgb,var(--primary) 16%,transparent);overflow:hidden}
+.upload__fill{display:block;height:100%;width:12%;border-radius:3px;background:linear-gradient(90deg,var(--teal),var(--blue),var(--primary));animation:up 4.5s ease-in-out infinite}
+@keyframes up{0%{width:8%}70%{width:92%}100%{width:8%}}
+.upload__pct{font-size:10.5px;color:var(--text-secondary);font-variant-numeric:tabular-nums;white-space:nowrap}
 
 /* Visualisation DIV Check */
 .chain{position:relative;padding:34px 30px;border-radius:var(--r-xl);background:var(--surface-2);border:1px solid var(--border);box-shadow:var(--sh-lg)}
@@ -643,120 +713,144 @@ section[id]{scroll-margin-top:calc(var(--nav-h) + var(--banner-h) + 20px)}
      ========================================================================== -->
 <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
 <defs>
-  <linearGradient id="n1" x1=".15" y1="0" x2=".85" y2="1">
-    <stop offset="0" stop-color="#FDFDFF"/><stop offset="46%" stop-color="#EAEEF7"/><stop offset="100%" stop-color="#C7CFE2"/>
+  <!-- Jeu 3D coloré et ludique (dessins originaux) -->
+  <symbol id="i-drive" viewBox="0 0 120 120">
+  <linearGradient id="fd-a" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#7DB6FF"/><stop offset="52%" stop-color="#3B82F6"/><stop offset="100%" stop-color="#1D4FBE"/>
   </linearGradient>
-  <linearGradient id="n2" x1=".2" y1="0" x2=".8" y2="1">
-    <stop offset="0" stop-color="#E5EAF5"/><stop offset="100%" stop-color="#B5C0D8"/>
+  <linearGradient id="fd-b" x1="0" y1="0" x2="0.4" y2="1">
+    <stop offset="0" stop-color="#BFDBFE"/><stop offset="100%" stop-color="#60A5FA"/>
   </linearGradient>
-  <linearGradient id="n3" x1="0" y1="0" x2="1" y2="1">
-    <stop offset="0" stop-color="#D2D9E9"/><stop offset="100%" stop-color="#A8B3CC"/>
+  <path d="M14 34 a10 10 0 0 1 10 -10 h22 l10 12 h40 a10 10 0 0 1 10 10 v6 H14 z" fill="url(#fd-b)"/>
+  <rect x="24" y="44" width="72" height="10" rx="5" fill="#fff" opacity=".55"/>
+  <path d="M16 48 h92 a8 8 0 0 1 8 8 v40 a10 10 0 0 1 -10 10 H20 a10 10 0 0 1 -10 -10 V56 a8 8 0 0 1 6 -8 z" fill="#1A3F96" opacity=".45" transform="translate(1,4)"/>
+  <path d="M14 46 h92 a8 8 0 0 1 8 8 v40 a10 10 0 0 1 -10 10 H18 a10 10 0 0 1 -10 -10 V54 a8 8 0 0 1 6 -8 z" fill="url(#fd-a)"/>
+  <path d="M14 46 h92 a8 8 0 0 1 8 8 v6 H6 v-6 a8 8 0 0 1 8 -8 z" fill="#fff" opacity=".24"/>
+  <ellipse cx="34" cy="62" rx="14" ry="6" fill="#fff" opacity=".28" transform="rotate(-18 34 62)"/>
+</symbol>
+  <symbol id="i-check" viewBox="0 0 120 120">
+  <linearGradient id="dc-a" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF"/><stop offset="100%" stop-color="#E7E9F2"/></linearGradient>
+  <linearGradient id="dc-s" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FB9BC8"/><stop offset="50%" stop-color="#F0483E"/><stop offset="100%" stop-color="#B91C1C"/></linearGradient>
+  <path d="M28 14 h40 l26 26 v66 a8 8 0 0 1 -8 8 H28 a8 8 0 0 1 -8 -8 V22 a8 8 0 0 1 8 -8 z" fill="#B6BACB" opacity=".5" transform="translate(3,5)"/>
+  <path d="M28 12 h40 l26 26 v64 a8 8 0 0 1 -8 8 H28 a8 8 0 0 1 -8 -8 V20 a8 8 0 0 1 8 -8 z" fill="url(#dc-a)"/>
+  <path d="M68 12 l26 26 H74 a6 6 0 0 1 -6 -6 z" fill="#C7CBDA"/>
+  <rect x="34" y="46" width="46" height="6" rx="3" fill="#C9CDDD"/>
+  <rect x="34" y="60" width="34" height="6" rx="3" fill="#D8DBE7"/>
+  <circle cx="80" cy="86" r="22" fill="#B91C1C" opacity=".4" transform="translate(2,4)"/>
+  <circle cx="78" cy="84" r="22" fill="url(#dc-s)"/>
+  <path d="M68 84 l7 7 l14 -15" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <ellipse cx="70" cy="74" rx="9" ry="4" fill="#fff" opacity=".35" transform="rotate(-25 70 74)"/>
+</symbol>
+  <symbol id="i-mail" viewBox="0 0 120 120">
+  <linearGradient id="ml-a" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#93C5FD"/><stop offset="55%" stop-color="#3B82F6"/><stop offset="100%" stop-color="#1E40AF"/></linearGradient>
+  <rect x="14" y="30" width="92" height="66" rx="14" fill="#1E40AF" opacity=".45" transform="translate(2,5)"/>
+  <rect x="12" y="26" width="92" height="66" rx="14" fill="url(#ml-a)"/>
+  <path d="M12 40 l40 28 a14 14 0 0 0 16 0 l36 -28" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" opacity=".95"/>
+  <rect x="12" y="26" width="92" height="22" rx="14" fill="#fff" opacity=".18"/>
+  <ellipse cx="34" cy="38" rx="12" ry="5" fill="#fff" opacity=".3" transform="rotate(-18 34 38)"/>
+</symbol>
+  <symbol id="i-message" viewBox="0 0 120 120">
+  <linearGradient id="ch-a" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#86EFAC"/><stop offset="52%" stop-color="#22C55E"/><stop offset="100%" stop-color="#15803D"/></linearGradient>
+  <path d="M22 22 h76 a14 14 0 0 1 14 14 v40 a14 14 0 0 1 -14 14 H62 l-22 20 v-20 h-18 a14 14 0 0 1 -14 -14 V36 a14 14 0 0 1 14 -14 z" fill="#15803D" opacity=".45" transform="translate(2,5)"/>
+  <path d="M20 18 h76 a14 14 0 0 1 14 14 v40 a14 14 0 0 1 -14 14 H60 l-22 20 v-20 h-18 a14 14 0 0 1 -14 -14 V32 a14 14 0 0 1 14 -14 z" fill="url(#ch-a)"/>
+  <path d="M20 18 h76 a14 14 0 0 1 14 14 v8 H6 v-8 a14 14 0 0 1 14 -14 z" fill="#fff" opacity=".2"/>
+  <circle cx="42" cy="52" r="6" fill="#fff"/><circle cx="62" cy="52" r="6" fill="#fff"/><circle cx="82" cy="52" r="6" fill="#fff"/>
+  <ellipse cx="38" cy="32" rx="13" ry="5" fill="#fff" opacity=".33" transform="rotate(-16 38 32)"/>
+</symbol>
+  <symbol id="i-visio" viewBox="0 0 120 120">
+  <linearGradient id="vd-a" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#D8B4FE"/><stop offset="52%" stop-color="#A855F7"/><stop offset="100%" stop-color="#6B21A8"/></linearGradient>
+  <rect x="14" y="34" width="66" height="56" rx="16" fill="#6B21A8" opacity=".45" transform="translate(2,5)"/>
+  <rect x="12" y="30" width="66" height="56" rx="16" fill="url(#vd-a)"/>
+  <path d="M84 46 l22 -12 a4 4 0 0 1 6 3.5 v41 a4 4 0 0 1 -6 3.5 l-22 -12 z" fill="url(#vd-a)"/>
+  <rect x="12" y="30" width="66" height="20" rx="16" fill="#fff" opacity=".2"/>
+  <circle cx="45" cy="58" r="13" fill="#fff" opacity=".95"/>
+  <ellipse cx="32" cy="42" rx="11" ry="5" fill="#fff" opacity=".33" transform="rotate(-18 32 42)"/>
+</symbol>
+  <symbol id="i-cal" viewBox="0 0 120 120">
+  <linearGradient id="ca-a" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF"/><stop offset="100%" stop-color="#E9EBF3"/></linearGradient>
+  <linearGradient id="ca-h" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FB7185"/><stop offset="100%" stop-color="#DC2626"/></linearGradient>
+  <rect x="16" y="26" width="90" height="82" rx="16" fill="#B6BACB" opacity=".5" transform="translate(2,5)"/>
+  <rect x="14" y="24" width="90" height="82" rx="16" fill="url(#ca-a)"/>
+  <path d="M14 40 a16 16 0 0 1 16 -16 h58 a16 16 0 0 1 16 16 v10 H14 z" fill="url(#ca-h)"/>
+  <rect x="32" y="12" width="12" height="24" rx="6" fill="#9CA3AF"/><rect x="74" y="12" width="12" height="24" rx="6" fill="#9CA3AF"/>
+  <rect x="30" y="62" width="16" height="14" rx="5" fill="#D9DCE8"/>
+  <rect x="52" y="62" width="16" height="14" rx="5" fill="#5100FF" opacity=".85"/>
+  <rect x="74" y="62" width="16" height="14" rx="5" fill="#D9DCE8"/>
+  <rect x="30" y="84" width="16" height="14" rx="5" fill="#D9DCE8"/>
+  <rect x="52" y="84" width="16" height="14" rx="5" fill="#D9DCE8"/>
+  <ellipse cx="36" cy="34" rx="10" ry="4" fill="#fff" opacity=".4" transform="rotate(-18 36 34)"/>
+</symbol>
+  <symbol id="i-shield" viewBox="0 0 120 120">
+  <linearGradient id="sh-a" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#A78BFA"/><stop offset="52%" stop-color="#6D28D9"/><stop offset="100%" stop-color="#3B0F9E"/>
   </linearGradient>
-  <linearGradient id="b1" x1=".15" y1="0" x2=".85" y2="1">
-    <stop offset="0" stop-color="#4E86FF"/><stop offset="52%" stop-color="#2563EB"/><stop offset="100%" stop-color="#5100FF"/>
+  <linearGradient id="sh-b" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/>
   </linearGradient>
-  <linearGradient id="b2" x1="0" y1="0" x2="1" y2="1">
-    <stop offset="0" stop-color="#2563EB"/><stop offset="100%" stop-color="#2A00A8"/>
-  </linearGradient>
-  <linearGradient id="gl" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0" stop-color="#fff" stop-opacity=".72"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/>
-  </linearGradient>
-  <filter id="sd" x="-30%" y="-30%" width="160%" height="170%">
-    <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#0B1B3F" flood-opacity=".17"/>
-  </filter>
-
-  <symbol id="i-drive" viewBox="0 0 120 120"><g filter="url(#sd)">
-    <circle cx="88" cy="34" r="19" fill="url(#b1)"/>
-    <path d="M10 44a12 12 0 0 1 12-12h23l10 13h53a12 12 0 0 1 12 12v9H10z" fill="url(#n3)"/>
-    <path d="M10 62h100a5 5 0 0 1 5 5v24a13 13 0 0 1-13 13H23a13 13 0 0 1-13-13z" fill="url(#n1)"/>
-    <path d="M10 62h100a5 5 0 0 1 5 5v3H10z" fill="url(#gl)"/>
-  </g></symbol>
-
-  <symbol id="i-check" viewBox="0 0 120 120"><g filter="url(#sd)">
-    <path d="M26 22a10 10 0 0 1 10-10h30l24 24v62a10 10 0 0 1-10 10H36a10 10 0 0 1-10-10z" fill="url(#n1)"/>
-    <path d="M66 12l24 24H74a8 8 0 0 1-8-8z" fill="url(#n3)"/>
-    <rect x="38" y="44" width="40" height="6" rx="3" fill="#B2BCD2" opacity=".8"/>
-    <rect x="38" y="58" width="28" height="6" rx="3" fill="#C3CBDD" opacity=".8"/>
-    <circle cx="80" cy="86" r="22" fill="url(#b1)"/>
-    <path d="M70 86l7 7 13-14" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-  </g></symbol>
-
-  <symbol id="i-mail" viewBox="0 0 120 120"><g filter="url(#sd)">
-    <rect x="12" y="28" width="96" height="66" rx="15" fill="url(#n1)"/>
-    <path d="M12 43a15 15 0 0 1 15-15h66a15 15 0 0 1 15 15v2L68 71a13 13 0 0 1-16 0L12 45z" fill="url(#b1)"/>
-    <path d="M12 88l32-24 8 6a13 13 0 0 0 16 0l8-6 32 24v-2a15 15 0 0 1-15 15H27a15 15 0 0 1-15-15z" fill="url(#n2)" opacity=".9"/>
-  </g></symbol>
-
-  <symbol id="i-message" viewBox="0 0 120 120"><g filter="url(#sd)">
-    <path d="M14 34a14 14 0 0 1 14-14h50a14 14 0 0 1 14 14v26a14 14 0 0 1-14 14H44L26 90V74a14 14 0 0 1-12-14z" fill="url(#n1)"/>
-    <circle cx="40" cy="47" r="5.5" fill="#AEB9D0"/><circle cx="56" cy="47" r="5.5" fill="#AEB9D0"/><circle cx="72" cy="47" r="5.5" fill="#AEB9D0"/>
-    <path d="M70 58h32a12 12 0 0 1 12 12v18a12 12 0 0 1-12 12H90l-14 12V100a12 12 0 0 1-6-10z" fill="url(#b1)"/>
-  </g></symbol>
-
-  <symbol id="i-visio" viewBox="0 0 120 120"><g filter="url(#sd)">
-    <path d="M82 46l24-13a5 5 0 0 1 7 4.4v45.2a5 5 0 0 1-7 4.4L82 74z" fill="url(#n3)"/>
-    <rect x="10" y="30" width="72" height="60" rx="17" fill="url(#n1)"/>
-    <rect x="10" y="30" width="72" height="18" rx="17" fill="url(#gl)"/>
-    <circle cx="46" cy="60" r="14" fill="url(#b1)"/>
-  </g></symbol>
-
-  <symbol id="i-cal" viewBox="0 0 120 120"><g filter="url(#sd)">
-    <rect x="14" y="24" width="92" height="84" rx="17" fill="url(#n1)"/>
-    <path d="M14 41a17 17 0 0 1 17-17h58a17 17 0 0 1 17 17v11H14z" fill="url(#b1)"/>
-    <rect x="32" y="12" width="12" height="24" rx="6" fill="#A8B3CC"/><rect x="76" y="12" width="12" height="24" rx="6" fill="#A8B3CC"/>
-    <rect x="30" y="64" width="17" height="15" rx="5" fill="#D0D7E7"/>
-    <rect x="52" y="64" width="17" height="15" rx="5" fill="url(#b2)"/>
-    <rect x="74" y="64" width="17" height="15" rx="5" fill="#D0D7E7"/>
-    <rect x="30" y="86" width="17" height="15" rx="5" fill="#D0D7E7"/>
-    <rect x="52" y="86" width="17" height="15" rx="5" fill="#D0D7E7"/>
-  </g></symbol>
-
-  <symbol id="i-shield" viewBox="0 0 120 120"><g filter="url(#sd)">
-    <path d="M60 10l45 18v32c0 27-21 44-45 53-24-9-45-26-45-53V28z" fill="url(#n1)"/>
-    <path d="M60 10l45 18v10c-15-9-29-13-45-13S30 29 15 38V28z" fill="url(#gl)"/>
-    <path d="M60 44a12 12 0 0 1 12 12v5h2a5 5 0 0 1 5 5v17a5 5 0 0 1-5 5H46a5 5 0 0 1-5-5V66a5 5 0 0 1 5-5h2v-5a12 12 0 0 1 12-12m0 8a6 6 0 0 0-6 6v3h12v-3a6 6 0 0 0-6-6" fill="url(#b1)"/>
-  </g></symbol>
-
-  <symbol id="i-key" viewBox="0 0 120 120"><g filter="url(#sd)" transform="rotate(-22 60 60)">
-    <rect x="60" y="52" width="52" height="16" rx="8" fill="url(#b1)"/>
-    <rect x="86" y="66" width="10" height="17" rx="5" fill="url(#b2)"/>
-    <rect x="100" y="66" width="10" height="12" rx="5" fill="url(#b2)"/>
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M42 32a28 28 0 1 1 0 56 28 28 0 0 1 0-56m0 17.5a10.5 10.5 0 1 0 0 21 10.5 10.5 0 0 0 0-21" fill="url(#n1)"/>
-    <path d="M42 32a28 28 0 0 1 24 13c-6-6-15-9-24-9s-18 3-24 9a28 28 0 0 1 24-13" fill="#fff" opacity=".55"/>
-  </g></symbol>
-
-  <symbol id="i-server" viewBox="0 0 120 120"><g filter="url(#sd)">
-    <rect x="16" y="18" width="88" height="26" rx="10" fill="url(#n1)"/>
-    <rect x="16" y="18" width="88" height="9" rx="9" fill="url(#gl)"/>
-    <rect x="16" y="50" width="88" height="26" rx="10" fill="url(#n2)"/>
-    <rect x="16" y="82" width="88" height="26" rx="10" fill="url(#b1)"/>
-    <circle cx="31" cy="31" r="4.5" fill="#A9B4CD"/><circle cx="31" cy="63" r="4.5" fill="#98A4C0"/><circle cx="31" cy="95" r="4.5" fill="#fff"/>
-    <rect x="46" y="28" width="44" height="6" rx="3" fill="#C0C9DC"/>
-    <rect x="46" y="60" width="44" height="6" rx="3" fill="#A9B4CD"/>
-    <rect x="46" y="92" width="44" height="6" rx="3" fill="#fff" opacity=".75"/>
-  </g></symbol>
-
-  <symbol id="i-eu" viewBox="0 0 120 120"><g filter="url(#sd)">
-    <circle cx="60" cy="60" r="46" fill="url(#n1)"/>
-    <circle cx="60" cy="60" r="46" fill="url(#gl)" opacity=".6"/>
-    <g fill="url(#b1)">
-      <circle cx="60" cy="28" r="4.6"/><circle cx="82" cy="37" r="4.6"/><circle cx="91" cy="60" r="4.6"/>
-      <circle cx="82" cy="83" r="4.6"/><circle cx="60" cy="92" r="4.6"/><circle cx="38" cy="83" r="4.6"/>
-      <circle cx="29" cy="60" r="4.6"/><circle cx="38" cy="37" r="4.6"/>
-    </g>
-  </g></symbol>
-
-  <symbol id="i-badge" viewBox="0 0 120 120"><g filter="url(#sd)">
-    <path d="M60 10l12 8 14-2 6 13 13 6-2 14 8 12-8 12 2 14-13 6-6 13-14-2-12 8-12-8-14 2-6-13-13-6 2-14-8-12 8-12-2-14 13-6 6-13 14 2z" fill="url(#n1)"/>
-    <path d="M42 60l13 13 25-27" fill="none" stroke="url(#b1)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-  </g></symbol>
-
-  <symbol id="i-cube" viewBox="0 0 120 120"><g filter="url(#sd)">
-    <path d="M60 12l43 25-43 25-43-25z" fill="url(#b1)"/>
-    <path d="M17 37l43 25v46L17 83z" fill="url(#n2)"/>
-    <path d="M103 37L60 62v46l43-25z" fill="url(#n3)"/>
-    <circle cx="60" cy="37" r="7" fill="#fff" opacity=".92"/>
-  </g></symbol>
+  <path d="M60 16 L106 34 V64 C106 90 85 107 60 116 C35 107 14 90 14 64 V34 Z" fill="#2E0A78" opacity=".55" transform="translate(2,5)"/>
+  <path d="M60 12 L104 30 V60 C104 86 84 103 60 112 C36 103 16 86 16 60 V30 Z" fill="url(#sh-a)"/>
+  <path d="M60 12 L104 30 V44 C88 34 74 30 60 30 C46 30 32 34 16 44 V30 Z" fill="url(#sh-b)"/>
+  <path d="M60 46 a11 11 0 0 1 11 11 v5 h2 a4 4 0 0 1 4 4 v16 a4 4 0 0 1 -4 4 H47 a4 4 0 0 1 -4 -4 V66 a4 4 0 0 1 4 -4 h2 v-5 a11 11 0 0 1 11 -11 z m0 8 a5 5 0 0 0 -5 5 v3 h10 v-3 a5 5 0 0 0 -5 -5 z" fill="#fff"/>
+  <ellipse cx="42" cy="34" rx="15" ry="7" fill="#fff" opacity=".3" transform="rotate(-24 42 34)"/>
+</symbol>
+  <symbol id="i-key" viewBox="0 0 120 120">
+  <linearGradient id="ky-a" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFE58A"/><stop offset="50%" stop-color="#FFC93D"/><stop offset="100%" stop-color="#D69200"/></linearGradient>
+  <g transform="rotate(-38 60 60)">
+    <circle cx="44" cy="60" r="26" fill="#D69200" opacity=".45" transform="translate(3,5)"/>
+    <circle cx="42" cy="58" r="26" fill="url(#ky-a)"/>
+    <circle cx="42" cy="58" r="11" fill="#fff"/>
+    <rect x="62" y="49" width="46" height="18" rx="7" fill="#D69200" opacity=".45" transform="translate(3,5)"/>
+    <rect x="60" y="47" width="46" height="18" rx="7" fill="url(#ky-a)"/>
+    <rect x="82" y="63" width="10" height="16" rx="4" fill="#E9A800"/>
+    <rect x="96" y="63" width="10" height="12" rx="4" fill="#E9A800"/>
+    <ellipse cx="30" cy="44" rx="11" ry="5" fill="#fff" opacity=".4" transform="rotate(-25 30 44)"/>
+  </g>
+</symbol>
+  <symbol id="i-server" viewBox="0 0 120 120">
+  <linearGradient id="sv-a" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#CBD5E1"/><stop offset="55%" stop-color="#7C8AA5"/><stop offset="100%" stop-color="#3F4C63"/></linearGradient>
+  <linearGradient id="sv-b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A78BFA"/><stop offset="100%" stop-color="#5100FF"/></linearGradient>
+  <rect x="18" y="20" width="84" height="26" rx="9" fill="#3F4C63" opacity=".4" transform="translate(2,4)"/>
+  <rect x="16" y="18" width="84" height="26" rx="9" fill="url(#sv-a)"/>
+  <rect x="18" y="52" width="84" height="26" rx="9" fill="#3F4C63" opacity=".4" transform="translate(2,4)"/>
+  <rect x="16" y="50" width="84" height="26" rx="9" fill="url(#sv-a)"/>
+  <rect x="18" y="84" width="84" height="26" rx="9" fill="#3F4C63" opacity=".4" transform="translate(2,4)"/>
+  <rect x="16" y="82" width="84" height="26" rx="9" fill="url(#sv-b)"/>
+  <circle cx="30" cy="31" r="4.5" fill="#22C55E"/><circle cx="30" cy="63" r="4.5" fill="#22C55E"/><circle cx="30" cy="95" r="4.5" fill="#fff"/>
+  <rect x="46" y="28" width="42" height="6" rx="3" fill="#fff" opacity=".55"/>
+  <rect x="46" y="60" width="42" height="6" rx="3" fill="#fff" opacity=".55"/>
+  <rect x="46" y="92" width="42" height="6" rx="3" fill="#fff" opacity=".7"/>
+</symbol>
+  <symbol id="i-eu" viewBox="0 0 120 120">
+  <linearGradient id="eu-a" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#60A5FA"/><stop offset="50%" stop-color="#1D4ED8"/><stop offset="100%" stop-color="#0B2A7A"/></linearGradient>
+  <circle cx="60" cy="62" r="46" fill="#0B2A7A" opacity=".45" transform="translate(2,5)"/>
+  <circle cx="60" cy="60" r="46" fill="url(#eu-a)"/>
+  <g fill="#FFC93D">
+    <circle cx="60" cy="28" r="4"/><circle cx="82" cy="37" r="4"/><circle cx="91" cy="60" r="4"/>
+    <circle cx="82" cy="83" r="4"/><circle cx="60" cy="92" r="4"/><circle cx="38" cy="83" r="4"/>
+    <circle cx="29" cy="60" r="4"/><circle cx="38" cy="37" r="4"/>
+  </g>
+  <ellipse cx="42" cy="36" rx="16" ry="7" fill="#fff" opacity=".28" transform="rotate(-26 42 36)"/>
+</symbol>
+  <symbol id="i-badge" viewBox="0 0 120 120">
+  <linearGradient id="ck-a" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#86EFAC"/><stop offset="50%" stop-color="#22C55E"/><stop offset="100%" stop-color="#14532D"/></linearGradient>
+  <path d="M60 12 l12 8 14 -2 6 13 13 6 -2 14 8 12 -8 12 2 14 -13 6 -6 13 -14 -2 -12 8 -12 -8 -14 2 -6 -13 -13 -6 2 -14 -8 -12 8 -12 -2 -14 13 -6 6 -13 14 2 z" fill="#14532D" opacity=".4" transform="translate(2,5)"/>
+  <path d="M60 10 l12 8 14 -2 6 13 13 6 -2 14 8 12 -8 12 2 14 -13 6 -6 13 -14 -2 -12 8 -12 -8 -14 2 -6 -13 -13 -6 2 -14 -8 -12 8 -12 -2 -14 13 -6 6 -13 14 2 z" fill="url(#ck-a)"/>
+  <path d="M42 60 l12 13 26 -28" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <ellipse cx="42" cy="34" rx="13" ry="6" fill="#fff" opacity=".3" transform="rotate(-24 42 34)"/>
+</symbol>
+  <symbol id="i-cube" viewBox="0 0 120 120">
+  <linearGradient id="cb-t" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#C4B5FD"/><stop offset="100%" stop-color="#8B5CF6"/></linearGradient>
+  <linearGradient id="cb-l" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7C3AED"/><stop offset="100%" stop-color="#5B21B6"/></linearGradient>
+  <linearGradient id="cb-r" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5B21B6"/><stop offset="100%" stop-color="#3B0F9E"/></linearGradient>
+  <path d="M60 14 L102 38 L60 62 L18 38 Z" fill="url(#cb-t)"/>
+  <path d="M18 38 L60 62 L60 108 L18 84 Z" fill="url(#cb-l)"/>
+  <path d="M102 38 L60 62 L60 108 L102 84 Z" fill="url(#cb-r)"/>
+  <path d="M60 14 L102 38 L84 48 L42 24 Z" fill="#fff" opacity=".25"/>
+  <path d="M60 62 L60 108" stroke="#fff" stroke-opacity=".18" stroke-width="2"/>
+  <circle cx="60" cy="38" r="7" fill="#fff" opacity=".85"/>
+  <circle cx="34" cy="66" r="4.5" fill="#fff" opacity=".5"/>
+  <circle cx="86" cy="66" r="4.5" fill="#fff" opacity=".38"/>
+</symbol>
 </defs>
 </svg>
 
@@ -885,19 +979,19 @@ section[id]{scroll-margin-top:calc(var(--nav-h) + var(--banner-h) + 20px)}
       <span class="eyebrow rv">Notre conviction</span>
       <h2 class="rv d1">Aucune donnée ne peut être lue sans l'accord explicite de l'entreprise qui en est propriétaire.</h2>
     </div>
-    <div class="grid-3">
-      <article class="card tilt rv">
-        <svg class="card__ico"><use href="#i-key"/></svg>
+    <div class="blurbs">
+      <article class="blurb rv">
+        <svg class="blurb__ico" style="--bd:7s"><use href="#i-key"/></svg>
         <h3>Zéro lecture sans accord</h3>
         <p>La clé de chiffrement est exclusivement en votre possession, ainsi vous seul y avez accès.</p>
       </article>
-      <article class="card tilt rv d1">
-        <svg class="card__ico"><use href="#i-server"/></svg>
+      <article class="blurb rv d1">
+        <svg class="blurb__ico" style="--bd:8.5s;--bdl:-2s"><use href="#i-server"/></svg>
         <h3>Zéro point unique</h3>
         <p>Les fichiers sont distribués sur plusieurs hébergeurs distincts afin d'assurer une meilleure protection et disponibilité.</p>
       </article>
-      <article class="card tilt rv d2">
-        <svg class="card__ico"><use href="#i-shield"/></svg>
+      <article class="blurb rv d2">
+        <svg class="blurb__ico" style="--bd:7.6s;--bdl:-4s"><use href="#i-shield"/></svg>
         <h3>Zéro donnée en notre possession</h3>
         <p>Nous ne conservons aucune information permettant de déchiffrer ou d'accéder aux données.</p>
       </article>
@@ -950,10 +1044,6 @@ section[id]{scroll-margin-top:calc(var(--nav-h) + var(--banner-h) + 20px)}
               <a href="#drive" class="side-i"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg><span>Cession Delmas</span></a>
               <a href="#drive" class="side-i"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg><span>Contentieux 2026</span></a>
               <a href="#drive" class="side-i"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg><span>Due diligence</span></a>
-              <div class="quota">
-                <div class="quota__bar"><div class="quota__fill"></div></div>
-                620 Go sur 1 To · chiffrés
-              </div>
             </aside>
 
             <div class="app__main">
@@ -1000,10 +1090,76 @@ section[id]{scroll-margin-top:calc(var(--nav-h) + var(--banner-h) + 20px)}
                 <span class="frole frole--edit">Édition</span>
                 <span class="fe2e"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> E2E</span>
               </div>
+
+              <div class="upload">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+                <span class="upload__t">Chiffrement &amp; envoi</span>
+                <span class="upload__bar"><i class="upload__fill"></i></span>
+                <span class="upload__pct">1 fichier</span>
+              </div>
             </div>
           </div>
         </div>
-        <div class="float-card fc-a"><svg style="width:34px;height:34px"><use href="#i-key"/></svg><span>Clé locale<small>Jamais transmise</small></span></div>
+        <div class="gauge-card">
+          <p class="gauge-card__h"><svg style="width:17px;height:17px"><use href="#i-server"/></svg> Mon espace</p>
+          <p class="gauge-card__s">Dernier envoi par Solan, 11:29</p>
+          <svg class="gauge" viewBox="0 0 140 86" role="img" aria-label="620 Go utilisés sur 1 To, soit 62 %.">
+            <defs><linearGradient id="gaugeGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#17C3A2"/><stop offset="55%" stop-color="#2563EB"/><stop offset="100%" stop-color="#5100FF"/>
+            </linearGradient></defs>
+            <path class="gauge__track" d="M16 76A54 54 0 0 1 124 76"/>
+            <path class="gauge__fill"  d="M16 76A54 54 0 0 1 124 76"/>
+            <text class="gauge__pct" x="70" y="64" text-anchor="middle">62 %</text>
+            <text class="gauge__sub" x="70" y="79" text-anchor="middle">620 Go sur 1 To</text>
+          </svg>
+          <a href="#tarifs" class="btn btn--navy">Augmenter l'espace</a>
+        </div>
+
+        <div class="stack" aria-hidden="true">
+          <svg viewBox="0 0 200 250">
+            <defs>
+              <linearGradient id="sl-cream-t" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF9EE"/><stop offset="100%" stop-color="#F2E2C2"/></linearGradient>
+              <linearGradient id="sl-coral-t" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF9B8C"/><stop offset="100%" stop-color="#F0483E"/></linearGradient>
+              <linearGradient id="sl-blue-t"  x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7FB0FF"/><stop offset="55%" stop-color="#2563EB"/><stop offset="100%" stop-color="#5100FF"/></linearGradient>
+              <linearGradient id="sl-ink-t"   x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3B4568"/><stop offset="100%" stop-color="#1B2340"/></linearGradient>
+            </defs>
+            <!-- socle -->
+            <g class="slab" style="--sd:9s">
+              <path d="M100 186 L172 214 L100 242 L28 214Z" fill="url(#sl-ink-t)"/>
+              <path d="M28 214 L100 242 L100 250 L28 222Z" fill="#141A2E"/>
+              <path d="M172 214 L100 242 L100 250 L172 222Z" fill="#0E1424"/>
+            </g>
+            <!-- bloc bleu -->
+            <g class="slab" style="--sd:6.4s;--sdl:-.6s">
+              <path d="M100 140 L164 165 L100 190 L36 165Z" fill="url(#sl-blue-t)"/>
+              <path d="M36 165 L100 190 L100 208 L36 183Z" fill="#1E4FC4"/>
+              <path d="M164 165 L100 190 L100 208 L164 183Z" fill="#123289"/>
+            </g>
+            <!-- bloc corail -->
+            <g class="slab" style="--sd:7.2s;--sdl:-2.2s">
+              <path d="M100 94 L164 119 L100 144 L36 119Z" fill="url(#sl-coral-t)"/>
+              <path d="M36 119 L100 144 L100 162 L36 137Z" fill="#D63A31"/>
+              <path d="M164 119 L100 144 L100 162 L164 137Z" fill="#A82922"/>
+            </g>
+            <!-- bloc crème -->
+            <g class="slab" style="--sd:8s;--sdl:-3.6s">
+              <path d="M100 48 L164 73 L100 98 L36 73Z" fill="url(#sl-cream-t)"/>
+              <path d="M36 73 L100 98 L100 116 L36 91Z" fill="#E5D2AE"/>
+              <path d="M164 73 L100 98 L100 116 L164 91Z" fill="#CDB88F"/>
+            </g>
+            <!-- couvercle flottant -->
+            <g class="slab" style="--sd:5.6s;--sdl:-1.4s">
+              <path d="M100 8 L150 27 L100 46 L50 27Z" fill="#FFFFFF"/>
+              <path d="M50 27 L100 46 L100 54 L50 35Z" fill="#E7EAF3"/>
+              <path d="M150 27 L100 46 L100 54 L150 35Z" fill="#D3D9E7"/>
+            </g>
+          </svg>
+        </div>
+
+        <div class="livecur" aria-hidden="true">
+          <svg width="17" height="19" viewBox="0 0 17 19" fill="none"><path d="M1 1l14 8.5-6.4 1.6L5.8 18z" fill="#17C3A2" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          <b>Solan</b>
+        </div>
         <div class="float-card fc-b"><svg style="width:34px;height:34px"><use href="#i-eu"/></svg><span>Hébergé en UE<small>Hors Cloud Act</small></span></div>
       </div>
     </div>
