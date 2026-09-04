@@ -21,9 +21,8 @@
 
   /* profondeur (parallaxe), amplitude et période de la dérive au repos */
   var CFG = {
-    box:    { d: 0.10, amp: 0,  per: 0,   mode: "box"  },
-    plat:   { d: 0.17, amp: 5,  per: 5.5, mode: "plat" },
-    cloud:  { d: 0.27, amp: 10, per: 4.6, mode: "cloud" },
+    /* socle : nuage + plateforme + boîtier, d'un seul tenant */
+    base:   { d: 0.09, amp: 0,  per: 0,   mode: "box"  },
     misc:   { d: 0.12, amp: 0,  per: 0,   mode: "pin", side: 0 },
     doc:    { d: 0.34, amp: 11, per: 5.2, rot:  1.3, mode: "file" },
     video:  { d: 0.41, amp: 13, per: 4.4, rot: -1.5, mode: "file" },
@@ -37,11 +36,11 @@
     pill6:  { d: 0.24, amp: 6,  per: 6.4, mode: "pin", side: -1 }
   };
   /* ordre d'apparition : du fond vers l'avant */
-  var ORDER = ["box","plat","cloud","misc","folder","doc","video","image",
+  var ORDER = ["base","misc","folder","doc","video","image",
                "pill1","pill2","pill3","pill4","pill5","pill6"];
 
   var items = layers.map(function (el) {
-    var k = el.dataset.k, c = CFG[k] || CFG.box;
+    var k = el.dataset.k, c = CFG[k] || CFG.base;
     var cs = el.style;
     return {
       el: el, k: k, c: c,
@@ -120,21 +119,13 @@
         sc *= 1 - 0.94 * k;
         rot = (reduce ? 0 : Math.sin(t * 0.55 + it.ph) * (c.rot || 0) * (1 - k)) + k * 26;
         op *= 1 - Math.pow(k, 1.6);
-      } else if (c.mode === "cloud") {
-        ty -= H * 0.14 * e;
-        sc *= 1 - 0.45 * e;
-        op *= 1 - e;
-      } else if (c.mode === "plat") {
-        ty += it.dy / 100 * H * 0.82 * e;
-        sc *= 1 - 0.28 * e;
-        op *= 1 - e;
       } else if (c.mode === "pin") {
         tx += (c.side || 0) * 40 * q;
         ty += 10 * q;
         op *= 1 - q;
-      } else {            /* le boîtier encaisse */
-        sc *= 1 + 0.014 * pulse;
-        ty += 5 * pulse;
+      } else {            /* le socle encaisse l'absorption */
+        sc *= 1 + 0.018 * pulse;
+        ty += 7 * pulse;
       }
 
       it.el.style.transform = "translate3d(" + tx.toFixed(2) + "px," + ty.toFixed(2) + "px,0) rotate(" + rot.toFixed(2) + "deg) scale(" + sc.toFixed(4) + ")";
