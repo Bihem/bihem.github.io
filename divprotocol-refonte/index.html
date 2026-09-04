@@ -137,6 +137,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .hdr.stuck{border-bottom-color:var(--line)}
 .hdr__in{max-width:1240px;margin:0 auto;padding:0 22px;height:100%;display:flex;align-items:center;gap:28px;min-width:0}
 .logo{display:flex;align-items:center;gap:8px;font-size:16px;font-weight:600;color:var(--ink);letter-spacing:-.02em;flex:none}
+.logo img{height:26px;width:auto;display:block;flex:none}
 .logo i{width:24px;height:24px;border-radius:7px;background:var(--accent);display:grid;place-items:center;flex:none}
 .logo i svg{width:11px;height:11px}
 .nav{display:flex;align-items:center;gap:2px;min-width:0}
@@ -357,6 +358,36 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .quote em{font-style:normal;color:var(--muted);font-size:13px}
 .stars{display:flex;gap:2px;color:#F5A623;margin-bottom:16px}
 
+/* Chiffres publiés par DIV Protocol (section « Le problème », divprotocol.com/fr) */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(28px,3.5vw,56px)}
+.stat{padding-top:32px;border-top:2px solid var(--purple)}
+.stat b{display:block;font-family:Poppins,Inter,sans-serif;font-size:clamp(2.5rem,1.9rem + 2.2vw,3.75rem);font-weight:600;line-height:1;letter-spacing:-.035em;color:var(--ink);margin-bottom:16px;font-variant-numeric:tabular-nums}
+.stat p{color:var(--muted);font-size:17px;line-height:1.55;max-width:34ch;margin:0}
+
+/* Offres réelles — grille tarifaire publiée sur divprotocol.com/fr/tarifs */
+.switch{display:flex;justify-content:center;margin:0 0 clamp(38px,4vw,54px)}
+.switch__in{display:inline-flex;gap:4px;padding:5px;border-radius:100px;background:var(--card);border:1px solid var(--line)}
+.switch button{font:inherit;font-size:15px;font-weight:500;color:var(--muted);background:none;border:0;border-radius:100px;padding:9px 20px;cursor:pointer;transition:.24s var(--ease);white-space:nowrap}
+.switch button[aria-pressed="true"]{background:var(--accent);color:#fff}
+.switch button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.switch .save{font-size:13px;font-weight:600;color:var(--secure);margin-left:6px}
+.switch button[aria-pressed="true"] .save{color:rgba(255,255,255,.82)}
+.plans{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;max-width:900px;margin:0 auto}
+.plan{position:relative;background:var(--card);border:1px solid var(--line-soft);border-radius:var(--r-card);padding:36px 32px;display:flex;flex-direction:column;box-shadow:var(--sh-card)}
+.plan--pop{border-color:rgba(91,46,255,.3);box-shadow:var(--sh-card-h)}
+.plan__tag{position:absolute;top:-12px;left:32px;font-size:12.5px;font-weight:600;letter-spacing:.02em;color:#fff;background:var(--accent);border-radius:100px;padding:5px 13px}
+.plan__n{font-family:Poppins,Inter,sans-serif;font-size:20px;font-weight:600;letter-spacing:-.02em;color:var(--ink);margin:0 0 6px}
+.plan__s{font-size:15.5px;color:var(--muted);margin:0 0 26px}
+.plan__p{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin-bottom:4px}
+.plan__p b{font-family:Poppins,Inter,sans-serif;font-size:clamp(2.125rem,1.7rem + 1.4vw,2.75rem);font-weight:600;line-height:1;letter-spacing:-.032em;color:var(--ink);font-variant-numeric:tabular-nums}
+.plan__p span{font-size:15px;color:var(--muted)}
+.plan__ht{font-size:13.5px;color:var(--muted);margin:0 0 26px}
+.plan ul{list-style:none;margin:0 0 30px;padding:0;display:flex;flex-direction:column;gap:13px;flex:1}
+.plan li{display:flex;gap:11px;align-items:flex-start;font-size:16px;line-height:1.5;color:var(--ink-2)}
+.plan li svg{flex:none;margin-top:4px;color:var(--accent)}
+.plan .btn{width:100%;justify-content:center}
+.plan__note{font-size:13.5px;color:var(--muted);text-align:center;margin:clamp(28px,3vw,38px) auto 0;max-width:60ch}
+
 .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(28px,3.5vw,56px);
   margin-bottom:clamp(64px,7vw,104px)}
 .pillar{position:relative;padding-top:38px;border-top:2px solid var(--purple)}
@@ -408,6 +439,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .why.rev .why__v{order:0}
   .illu{max-width:520px}
   .pillars{grid-template-columns:1fr;gap:36px}
+  .stats{grid-template-columns:1fr;gap:34px}
+  .plans{grid-template-columns:1fr;max-width:520px}
   .nav{display:none}
   .burger{display:grid}
   .hdr__r .sep{display:none}
@@ -667,8 +700,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 <header class="hdr" id="hdr">
   <div class="hdr__in">
     <a href="#top" class="logo" aria-label="DIV Protocol, accueil">
-      <i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h6a9 9 0 0 1 0 18H6z" fill="#fff"/></svg></i>
-      DIV Protocol
+      <img src="logo/div-logo-horizontale.svg" alt="DIV Protocol" width="122" height="26" decoding="async">
     </a>
     <nav class="nav" aria-label="Navigation principale">
       <a href="#produits">Produits</a>
@@ -747,6 +779,24 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 </section>
 
 <!-- ==================== PRODUITS ==================== -->
+<!-- ==================== LE PROBLEME (chiffres publiés par DIV Protocol) ==================== -->
+<section class="section" id="probleme">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker">Le problème</p>
+      <h2>Vos données sensibles ne vous appartiennent déjà plus.</h2>
+      <p class="lead">Stocker vos documents chez Google, Microsoft ou AWS signifie leur donner la capacité de lire, analyser, copier ou transmettre vos contenus, sur réquisition ou incident. Vous perdez la souveraineté de vos données.</p>
+    </div>
+    <!-- Les trois chiffres ci-dessous sont repris tels quels de divprotocol.com/fr.
+         Aucune valeur n'est estimée ni extrapolée. -->
+    <div class="stats">
+      <div class="stat rv"><b>94&#8239;%</b><p>des données européennes sont hébergées chez des opérateurs soumis au Cloud Act américain.</p></div>
+      <div class="stat rv d1"><b>1/3</b><p>des entreprises ont subi une fuite ou un incident de confidentialité documentaire ces 24 derniers mois.</p></div>
+      <div class="stat rv d2"><b>Zéro</b><p>alternative européenne complète aux suites US pour la productivité documentaire. Jusqu'à aujourd'hui.</p></div>
+    </div>
+  </div>
+</section>
+
 <section class="section section--alt" id="produits">
   <div class="wrap">
     <div class="head center">
@@ -1144,12 +1194,59 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 <section class="section section--alt" id="tarifs">
   <div class="wrap">
     <div class="head center">
+      <p class="kicker rv">Tarifs</p>
+      <h2 class="rv">Un abonnement simple, au mois ou à l'année.</h2>
+    </div>
+
+    <!-- Grille tarifaire reprise telle quelle de divprotocol.com/fr/tarifs. -->
+    <div class="switch rv">
+      <div class="switch__in" role="group" aria-label="Périodicité de facturation">
+        <button type="button" id="bMens" aria-pressed="true">Mensuel</button>
+        <button type="button" id="bAnn" aria-pressed="false">Annuel<span class="save">&minus;15&#8239;%</span></button>
+      </div>
+    </div>
+
+    <div class="plans">
+      <div class="plan plan--pop rv">
+        <span class="plan__tag">Populaire</span>
+        <p class="plan__n">Pro</p>
+        <p class="plan__s">Pour aller plus loin, seul ou en équipe.</p>
+        <p class="plan__p"><b id="proPrice">99,95&#8239;€</b><span>/utilisateur/mois</span></p>
+        <p class="plan__ht">Prix HT</p>
+        <ul>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>200&#8239;Go de stockage sécurisé</span></li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Partage</span></li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Édition collaborative</span></li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Gestion des permissions</span></li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Drives partagés</span></li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>De nouvelles fonctionnalités ajoutées en continu et selon vos besoins</span></li>
+        </ul>
+        <a href="#contact" class="btn btn--primary">S'abonner</a>
+      </div>
+
+      <div class="plan rv d1">
+        <p class="plan__n">Entreprise</p>
+        <p class="plan__s">Pour les équipes en croissance.</p>
+        <p class="plan__p"><b>Sur devis</b></p>
+        <p class="plan__ht">&nbsp;</p>
+        <ul>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Tout Pro</span></li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Conservation légale</span></li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Accompagnement déploiement</span></li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Plus de 50 collaborateurs</span></li>
+        </ul>
+        <a href="#contact" class="btn btn--line">Nous contacter</a>
+      </div>
+    </div>
+    <p class="plan__note rv">Tarifs publiés par DIV Protocol sur divprotocol.com/fr/tarifs (relevé du 5 septembre 2026). Le tarif annuel est facturé à l'année.</p>
+
+    <div class="head center" style="margin-top:clamp(88px,9vw,140px)">
       <h2 class="rv">Comment DIV se distingue des suites américaines ?</h2>
       <p class="lead rv d1">Comparatif illustratif établi sur les offres publiques standards des éditeurs.</p>
     </div>
     <div class="compare">
       <div class="col us rv">
-        <p class="col__n">DIV Protocol</p><p class="col__s">Suite DIV — Drive et Check réunis</p>
+        <p class="col__n">DIV Protocol</p><p class="col__s">Offre Pro — Drive et Check réunis</p>
         <ul>
           <li><svg class="ok" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b class="verdict">Oui</b><span>Chiffrement bout en bout par défaut</span></li>
           <li><svg class="ok" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b class="verdict">Oui</b><span>Clé détenue par le client seul</span></li>
@@ -1287,7 +1384,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   <div class="wrap">
     <div class="ftr__top">
       <div>
-        <a href="#top" class="logo"><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h6a9 9 0 0 1 0 18H6z" fill="#fff"/></svg></i> DIV Protocol</a>
+        <a href="#top" class="logo" aria-label="DIV Protocol, accueil"><img src="logo/div-logo-horizontale.svg" alt="DIV Protocol" width="122" height="26" decoding="async"></a>
         <p class="ftr__about">La suite collaborative souveraine qui rend aux entreprises la propriété totale de leurs données. Conçue et hébergée en Europe.</p>
       </div>
       <nav aria-label="Produit"><h5>Produit</h5><ul>
@@ -1397,5 +1494,18 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 })();
 </script>
 <script src="hero-anim.js?v=1" defer></script>
+<script>
+(function(){
+  var m=document.getElementById('bMens'),a=document.getElementById('bAnn'),p=document.getElementById('proPrice');
+  if(!m||!a||!p)return;
+  function set(annual){
+    p.textContent = annual ? '84,96\u202F\u20AC' : '99,95\u202F\u20AC';
+    m.setAttribute('aria-pressed', annual?'false':'true');
+    a.setAttribute('aria-pressed', annual?'true':'false');
+  }
+  m.addEventListener('click',function(){set(false)});
+  a.addEventListener('click',function(){set(true)});
+})();
+</script>
 </body>
 </html>
