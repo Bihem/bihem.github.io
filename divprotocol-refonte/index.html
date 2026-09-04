@@ -148,35 +148,19 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .hero .lead{margin:0 auto 30px;max-width:52ch}
 .hero__cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 .hero__note{margin-top:16px;font-size:14px;color:var(--muted)}
+/* Scène : l'illustration d'origine, découpée en calques animables */
+.scene{position:absolute;inset:0}
+.ly{position:absolute;height:auto;transform-origin:50% 50%;will-change:transform,opacity;backface-visibility:hidden}
+.bloom{
+  position:absolute;left:50.2%;top:77.2%;width:34%;aspect-ratio:1;translate:-50% -50%;
+  border-radius:50%;pointer-events:none;z-index:3;opacity:0;
+  background:radial-gradient(circle, rgba(190,150,255,.95) 0%, rgba(124,58,237,.55) 38%, rgba(80,0,255,0) 70%);
+  mix-blend-mode:screen;
+}
 /* Scène : le socle reste fixe, les fichiers y entrent au scroll */
 .stage{position:relative;width:100%;max-width:860px;margin:clamp(24px,3vw,44px) auto 0;aspect-ratio:1226/1283}
-.stage__base{position:absolute;left:50%;top:36%;translate:-50% 0;width:min(53%,430px);height:auto;z-index:1}
-.stage__gl{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:2}
-.stage.is-3d .stage__base,.stage.is-3d .fly{display:none}
-.fly{position:absolute;z-index:2;will-change:transform,opacity}
-.fly__i{display:block;animation:hover var(--d,7s) ease-in-out infinite;animation-delay:var(--dl,0s)}
-.fly svg{display:block;width:100%;height:auto;filter:drop-shadow(0 14px 22px rgba(20,26,45,.16))}
-@keyframes hover{0%,100%{transform:rotate(var(--rot,0deg)) translateY(0)}50%{transform:rotate(var(--rot,0deg)) translateY(-12px)}}
-
-.links{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none;overflow:visible}
-.stage:not(.is-3d) .links{display:none}
-.pin{
-  position:absolute;z-index:3;max-width:27%;display:flex;align-items:center;gap:10px;
-  background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 14px;
-  box-shadow:0 6px 20px rgba(20,26,45,.07);will-change:transform,opacity;
-}
-.pin .ico{width:26px;height:26px;flex:none}
-.pin b{display:block;font-size:clamp(11px,1.35vw,13px);font-weight:600;color:var(--ink);letter-spacing:-.015em;line-height:1.25;white-space:nowrap}
-.pin i{display:block;font-style:normal;font-size:clamp(9.5px,1.15vw,11.5px);color:var(--muted);line-height:1.25;white-space:nowrap}
-@media(max-width:900px){
-  .stage{max-width:600px}
-  .stage__base{width:62%;top:34%}
-  .pin{padding:7px 10px;gap:7px;border-radius:11px}
-  .pin .ico{width:20px;height:20px}
-  .pin b{font-size:11px}
-  .pin i{display:none}
-}
-@media(max-width:600px){ .pin,.links{display:none} .stage{aspect-ratio:1/1.05;max-width:420px} .stage__base{width:78%;top:26%} }
+@media(max-width:900px){ .stage{max-width:620px} }
+@media(max-width:600px){ .stage{max-width:420px} }
 
 /* ==================== 2. GRILLE PRODUITS ==================== */
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -562,40 +546,38 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   </div>
 
   <div class="stage rv d3" id="stage">
-    <canvas class="stage__gl" id="hero3d" aria-hidden="true"></canvas>
-    <img class="stage__base" src="icons/hero-base.png" width="650" height="738"
-         alt="Le boîtier DIV Protocol : vos fichiers convergent vers un stockage chiffré hébergé en Europe." fetchpriority="high">
-
-    <span class="fly" style="left:57%;top:2%;width:15%"><span class="fly__i" style="--rot:-12deg;--d:7.4s"><svg viewBox="0 0 96 96" aria-hidden="true"><use href="#s-fly-folder"/></svg></span></span>
-    <span class="fly" style="left:31%;top:12%;width:11.5%"><span class="fly__i" style="--rot:9deg;--d:8.2s;--dl:-2s"><svg viewBox="0 0 96 96" aria-hidden="true"><use href="#s-fly-doc"/></svg></span></span>
-    <span class="fly" style="left:22%;top:34%;width:11%"><span class="fly__i" style="--rot:-7deg;--d:6.8s;--dl:-3.4s"><svg viewBox="0 0 96 96" aria-hidden="true"><use href="#s-fly-video"/></svg></span></span>
-    <span class="fly" style="left:64%;top:25%;width:12.5%"><span class="fly__i" style="--rot:11deg;--d:7.9s;--dl:-1.2s"><svg viewBox="0 0 96 96" aria-hidden="true"><use href="#s-fly-image"/></svg></span></span>
-
-    <svg class="links" viewBox="0 0 1226 1283" fill="none" aria-hidden="true">
-      <g stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M365 196 L415 214 L441 231" stroke="#2563EB"/>
-        <path d="M795 118 L735 138 L694 150" stroke="#E08A0A"/>
-        <path d="M905 365 L874 358 L859 353" stroke="#7C3AED"/>
-        <path d="M315 480 L350 473 L367 469" stroke="#DE3B2F"/>
-        <path d="M840 668 L801 663 L787 661" stroke="#2563EB"/>
-        <path d="M360 850 L410 866 L439 877" stroke="#2563EB"/>
-      </g>
-      <g>
-        <circle cx="441" cy="231" r="7" fill="#2563EB"/>
-        <circle cx="694" cy="150" r="7" fill="#E08A0A"/>
-        <circle cx="859" cy="353" r="7" fill="#7C3AED"/>
-        <circle cx="367" cy="469" r="7" fill="#DE3B2F"/>
-        <circle cx="787" cy="661" r="7" fill="#2563EB"/>
-        <circle cx="439" cy="877" r="7" fill="#2563EB"/>
-      </g>
-    </svg>
-
-    <span class="pin" style="left:3.7%;top:12.1%"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><use href="#s-document"/></svg><span><b>Partage de fichiers</b><i>Simple et sécurisé</i></span></span>
-    <span class="pin" style="left:64.8%;top:5.1%"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><use href="#s-drive"/></svg><span><b>Stockage sécurisé</b><i>Vos données en toute confiance</i></span></span>
-    <span class="pin" style="left:73.8%;top:24.9%"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><use href="#s-appareils"/></svg><span><b>Accès partout</b><i>Sur tous vos appareils</i></span></span>
-    <span class="pin" style="left:3.7%;top:34.3%"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><use href="#s-equipe"/></svg><span><b>Collaboration</b><i>En temps réel</i></span></span>
-    <span class="pin" style="left:68.5%;top:48.7%"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><use href="#s-importer"/></svg><span><b>Sauvegarde automatique</b><i>Vos données toujours protégées</i></span></span>
-    <span class="pin" style="left:3.3%;top:62.7%"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><use href="#s-reseau"/></svg><span><b>Hébergement en Europe</b><i>Conforme RGPD</i></span></span>
+    <div class="scene" id="scene" role="img"
+         aria-label="Illustration DIV Protocol : un dossier, un document, une vidéo et une image flottent au-dessus d'un nuage, d'une plateforme d'hébergement européenne et du boîtier chiffré qui les absorbe.">
+      <img class="ly" data-k="box" src="hero/box.png" alt="" aria-hidden="true" loading="eager" decoding="async"
+           style="left:16.6395%;top:54.6376%;width:67.863%;z-index:1">
+      <img class="ly" data-k="plat" src="hero/plat.png" alt="" aria-hidden="true" loading="eager" decoding="async"
+           style="left:33.3605%;top:49.961%;width:32.8711%;z-index:2">
+      <img class="ly" data-k="cloud" src="hero/cloud.png" alt="" aria-hidden="true" loading="eager" decoding="async"
+           style="left:38.0098%;top:41.6212%;width:23.4095%;z-index:3">
+      <img class="ly" data-k="misc" src="hero/misc.png" alt="" aria-hidden="true" loading="eager" decoding="async"
+           style="left:16.3132%;top:7.3266%;width:63.2953%;z-index:4">
+      <img class="ly" data-k="doc" src="hero/doc.png" alt="" aria-hidden="true" loading="eager" decoding="async"
+           style="left:35.8075%;top:18.4723%;width:11.0114%;z-index:5">
+      <img class="ly" data-k="video" src="hero/video.png" alt="" aria-hidden="true" loading="eager" decoding="async"
+           style="left:31.5661%;top:32.424%;width:11.1746%;z-index:6">
+      <img class="ly" data-k="image" src="hero/image.png" alt="" aria-hidden="true" loading="eager" decoding="async"
+           style="left:57.0962%;top:25.721%;width:11.5008%;z-index:7">
+      <img class="ly" data-k="folder" src="hero/folder.png" alt="" aria-hidden="true" loading="eager" decoding="async"
+           style="left:41.5987%;top:6.5472%;width:18.7602%;z-index:8">
+      <img class="ly" data-k="pill1" src="hero/pill1.png" alt="" aria-hidden="true" loading="eager" decoding="async"
+           style="left:3.2626%;top:11.0678%;width:26.6721%;z-index:10">
+      <img class="ly" data-k="pill2" src="hero/pill2.png" alt="" aria-hidden="true" loading="eager" decoding="async"
+           style="left:64.845%;top:4.4427%;width:32.0555%;z-index:11">
+      <img class="ly" data-k="pill3" src="hero/pill3.png" alt="" aria-hidden="true" loading="eager" decoding="async"
+           style="left:68.7602%;top:24.3959%;width:28.7928%;z-index:12">
+      <img class="ly" data-k="pill4" src="hero/pill4.png" alt="" aria-hidden="true" loading="eager" decoding="async"
+           style="left:3.2626%;top:33.2814%;width:27.4062%;z-index:13">
+      <img class="ly" data-k="pill5" src="hero/pill5.png" alt="" aria-hidden="true" loading="eager" decoding="async"
+           style="left:61.9086%;top:46.9992%;width:35.6444%;z-index:14">
+      <img class="ly" data-k="pill6" src="hero/pill6.png" alt="" aria-hidden="true" loading="eager" decoding="async"
+           style="left:2.7732%;top:61.5744%;width:35.5628%;z-index:15">
+      <span class="bloom" aria-hidden="true"></span>
+    </div>
   </div>
   </div>
 </section>
@@ -990,7 +972,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   } else nums.forEach(function(el){ el.innerHTML=el.dataset.to+(el.dataset.suffix||""); });
 })();
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
-<script src="hero3d.js?v=1" defer></script>
+<script src="hero-anim.js?v=1" defer></script>
 </body>
 </html>
