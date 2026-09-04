@@ -59,16 +59,16 @@ html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;overflow-x:hidden}
 body{
   margin:0;background:var(--bg);color:var(--muted);
   font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  font-size:18px;line-height:1.7;letter-spacing:-.008em;
+  font-size:19px;line-height:1.68;letter-spacing:-.008em;
   font-feature-settings:"cv11","ss01";
   -webkit-font-smoothing:antialiased;overflow-x:hidden;
 }
 h1,h2,h3,h4,.display{font-family:Poppins,Inter,-apple-system,"Segoe UI",Arial,sans-serif;
   color:var(--ink);margin:0;text-wrap:balance}
-h1{font-size:clamp(3rem,2rem+4.4vw,5.5rem);font-weight:700;line-height:1.06;letter-spacing:-.028em;max-width:15ch}
-h2{font-size:clamp(2.25rem,1.6rem+2.9vw,4.25rem);font-weight:600;line-height:1.12;letter-spacing:-.022em;max-width:19ch}
-h3{font-size:clamp(1.75rem,1.4rem+1.5vw,2.75rem);font-weight:600;line-height:1.18;letter-spacing:-.02em;max-width:17ch}
-h4{font-size:1.375rem;font-weight:600;line-height:1.35;letter-spacing:-.014em}
+h1{font-size:clamp(3.25rem,2.1rem + 5.2vw,6.5rem);font-weight:700;line-height:1.04;letter-spacing:-.032em;max-width:14ch}
+h2{font-size:clamp(2.5rem,1.7rem + 3.5vw,5rem);font-weight:600;line-height:1.1;letter-spacing:-.026em;max-width:18ch}
+h3{font-size:clamp(2rem,1.55rem + 1.9vw,3.25rem);font-weight:600;line-height:1.14;letter-spacing:-.024em;max-width:16ch}
+h4{font-size:1.5rem;font-weight:600;line-height:1.32;letter-spacing:-.016em}
 p{margin:0 0 1rem}
 a{color:inherit;text-decoration:none}
 ul,ol{margin:0;padding:0;list-style:none}
@@ -82,7 +82,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .section{padding:clamp(72px,8vw,124px) 0}
 .section--alt{background:var(--bg-alt);--card:#FFFFFF;--card-h:#FAFAFB}
 .center{text-align:center}
-.lead{font-size:clamp(1.1875rem,1.05rem+.55vw,1.5rem);line-height:1.55;color:var(--muted);max-width:64ch}
+.lead{font-size:clamp(1.25rem,1.08rem + .72vw,1.6875rem);line-height:1.5;color:var(--muted);max-width:60ch}
 .center .lead{margin-inline:auto}
 .head{max-width:780px;margin:0 auto clamp(56px,6vw,88px)}
 .head h2{margin-inline:auto}
@@ -97,7 +97,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:8px;
   height:48px;padding:0 26px;border-radius:var(--r-btn);
-  font-size:17px;font-weight:600;letter-spacing:-.008em;line-height:1;white-space:nowrap;
+  font-size:18px;font-weight:600;letter-spacing:-.008em;line-height:1;white-space:nowrap;
   transition:background .2s,color .2s,border-color .2s,transform .2s,opacity .2s;
 }
 .btn--primary{background:var(--accent);color:#fff}
@@ -113,7 +113,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .btn--sm{height:36px;padding:0 16px;font-size:14px}
 .btn:active{transform:none}
 
-.link{display:inline-flex;align-items:center;gap:7px;font-size:17px;font-weight:500;color:var(--accent)}
+.link{display:inline-flex;align-items:center;gap:8px;font-size:18px;font-weight:500;color:var(--accent)}
 .link svg{transition:transform .25s cubic-bezier(.2,.9,.3,1)}
 .link:hover svg{transform:translateX(4px)}
 
@@ -140,7 +140,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .logo i{width:24px;height:24px;border-radius:7px;background:var(--accent);display:grid;place-items:center;flex:none}
 .logo i svg{width:11px;height:11px}
 .nav{display:flex;align-items:center;gap:2px;min-width:0}
-.nav a{padding:6px 13px;border-radius:8px;font-size:15px;font-weight:450;color:var(--ink-2);transition:color .2s}
+.nav a{padding:6px 13px;border-radius:8px;font-size:16px;font-weight:450;color:var(--ink-2);transition:color .2s}
 .nav a:hover{color:var(--ink)}
 .hdr__r{margin-left:auto;display:flex;align-items:center;gap:10px;flex:none}
 .hdr__r .sep{font-size:14px;color:var(--ink-2)}
@@ -190,7 +190,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .card .ico{width:56px;height:56px;margin-bottom:20px;transition:transform .4s cubic-bezier(.2,.9,.3,1)}
 .card:hover .ico{transform:scale(1.08) translateY(-2px)}
 .card h3{margin-bottom:8px}
-.card p{font-size:17px;line-height:1.62;margin:0 0 20px;color:var(--muted)}
+.card p{font-size:18.5px;line-height:1.6;margin:0 0 20px;color:var(--muted)}
 .card .link{margin-top:auto;font-size:15px}
 .tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.02em;color:var(--muted);
   background:#fff;padding:4px 10px;border-radius:100px;margin-bottom:14px;align-self:flex-start}
@@ -283,8 +283,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .flow__n[data-c="cloud"]{background:var(--cloud)}
 .flow__n[data-c="purple"]{background:var(--purple)}
 .flow__n[data-c="secure"]{background:var(--secure)}
-.flow__s h3{font-size:1.5rem;margin-bottom:12px;max-width:none}
-.flow__s p{font-size:16.5px;line-height:1.62;margin:0;color:var(--muted)}
+.flow__s h3{font-size:1.75rem;margin-bottom:14px;max-width:none}
+.flow__s p{font-size:18px;line-height:1.6;margin:0;color:var(--muted)}
 .hash{display:inline-block;margin-top:14px;font-family:ui-monospace,Menlo,monospace;
   font-size:12px;color:var(--purple);background:var(--purple-soft);padding:7px 12px;border-radius:8px}
 .flow__badge{display:inline-block;margin-top:14px;font-size:12px;font-weight:600;
@@ -295,15 +295,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   gap:clamp(48px,7vw,120px);align-items:center}
 .why + .why{margin-top:clamp(96px,13vw,200px)}
 .why.rev .why__v{order:-1}
-.why__n{display:flex;align-items:center;gap:12px;margin:0 0 22px;
-  font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.why__n span{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:10px;
-  background:var(--purple-soft);color:var(--purple);font-size:12px;letter-spacing:0;
-  font-variant-numeric:tabular-nums}
-.why__t h3{margin-bottom:20px}
+.why__t h3{margin-bottom:24px}
 .why__t .lead{margin-bottom:30px}
 .why__chips{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 34px}
-.why__chips li{display:inline-flex;align-items:center;gap:9px;font-size:15px;font-weight:500;
+.why__chips li{display:inline-flex;align-items:center;gap:10px;font-size:16px;font-weight:500;
   color:var(--ink);background:#fff;border:1px solid var(--line-soft);
   padding:9px 16px;border-radius:100px}
 .why__chips li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--purple);flex:none}
@@ -318,14 +313,14 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .illu .satlab{font:600 15px Inter,sans-serif;fill:#0A1025;letter-spacing:-.01em}
 .illu .float,.illu .sat{animation:drift var(--d,7s) ease-in-out infinite;
   animation-delay:var(--dl,0s);transform-box:fill-box;transform-origin:center}
-.kicker{display:inline-block;font-size:12.5px;font-weight:600;letter-spacing:.09em;
+.kicker{display:inline-block;font-size:13.5px;font-weight:600;letter-spacing:.09em;
   text-transform:uppercase;color:var(--purple);margin:0 0 18px}
 
 /* ==================== 4. LISTE D'AVANTAGES ==================== */
 .blurbs{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(30px,4vw,52px)}
 .blurb .ico{width:52px;height:52px;margin-bottom:18px}
 .blurb h4{margin-bottom:8px}
-.blurb p{font-size:17px;line-height:1.62;margin:0;color:var(--muted)}
+.blurb p{font-size:18.5px;line-height:1.6;margin:0;color:var(--muted)}
 
 /* ==================== 5. COMPARATIF ==================== */
 .compare{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
@@ -335,7 +330,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .col__n{font-size:17px;font-weight:600;color:var(--ink);letter-spacing:-.02em;margin-bottom:4px}
 .col__s{font-size:13px;color:var(--muted);margin-bottom:22px}
 .col ul{display:flex;flex-direction:column;gap:0}
-.col li{display:flex;align-items:center;gap:10px;padding:14px 0;font-size:16px;border-top:1px solid var(--line-soft)}
+.col li{display:flex;align-items:center;gap:10px;padding:15px 0;font-size:17px;border-top:1px solid var(--line-soft)}
 .col li:first-child{border-top:0}
 .col li svg{flex:none}
 .ok{color:#1D9A6C}.ko{color:#C4C4CC}
@@ -356,7 +351,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .counter span{display:block;font-size:14px;color:var(--muted);margin-top:8px}
 .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .quote{background:var(--card);border-radius:var(--r-card);padding:30px 28px;display:flex;flex-direction:column}
-.quote p{font-size:17.5px;line-height:1.65;color:var(--ink-2);margin:0 0 22px;flex:1}
+.quote p{font-size:19px;line-height:1.62;color:var(--ink-2);margin:0 0 22px;flex:1}
 .quote footer{font-size:14px}
 .quote b{display:block;color:var(--ink);font-weight:600}
 .quote em{font-style:normal;color:var(--muted);font-size:13px}
@@ -364,14 +359,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(28px,3.5vw,56px);
   margin-bottom:clamp(64px,7vw,104px)}
-.pillar{position:relative;padding-top:34px;border-top:1px solid var(--line)}
-.pillar__k{position:absolute;top:0;left:0;transform:translateY(-50%);
-  background:var(--bg);padding-right:12px;
-  font-size:13px;font-weight:600;letter-spacing:.08em;color:var(--purple);
-  font-variant-numeric:tabular-nums}
-.section--alt .pillar__k{background:var(--bg-alt)}
-.pillar h3{font-size:clamp(1.5rem,1.3rem+.7vw,1.875rem);margin-bottom:14px;max-width:14ch}
-.pillar p{font-size:17px;line-height:1.62;margin:0;color:var(--muted);max-width:34ch}
+.pillar{position:relative;padding-top:38px;border-top:2px solid var(--purple)}
+.section--alt .pillar h3{font-size:clamp(1.625rem,1.35rem + .9vw,2.125rem);margin-bottom:16px;max-width:14ch}
+.pillar p{font-size:18.5px;line-height:1.6;margin:0;color:var(--muted);max-width:34ch}
 
 .verdict{flex:none;font-size:12px;font-weight:600;letter-spacing:.01em;
   min-width:34px;color:var(--secure)}
@@ -382,7 +372,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .cert{background:var(--card);border-radius:var(--r-card);padding:32px 28px;text-align:center}
 .cert .ico{width:62px;height:62px;margin:0 auto 18px}
 .cert h4{margin-bottom:8px}
-.cert p{font-size:16px;line-height:1.6;margin:0;color:var(--muted)}
+.cert p{font-size:17.5px;line-height:1.6;margin:0;color:var(--muted)}
 
 /* ==================== 9. CTA ==================== */
 .cta{text-align:center}
@@ -937,7 +927,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     <!-- ───────── 01 · Espace ───────── -->
     <article class="why">
       <div class="why__t rv">
-        <p class="why__n"><span>01</span> Capacité</p>
         <h3>Ne soyez jamais à court d'espace</h3>
         <p class="lead">Le stockage suit la croissance de vos dossiers, sans que le chiffrement devienne jamais une option payante. Il est inclus par défaut, sur chaque fichier, dès le premier octet.</p>
         <ul class="why__chips">
@@ -986,7 +975,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     <!-- ───────── 02 · Partage ───────── -->
     <article class="why rev">
       <div class="why__t rv">
-        <p class="why__n"><span>02</span> Partage</p>
         <h3>Partagez avec n'importe qui, même sans compte</h3>
         <p class="lead">Un lien à expiration, protégé par mot de passe, en lecture seule ou en édition. Votre confrère ouvre le document sans créer de compte, et l'accès se referme tout seul.</p>
         <ul class="why__chips">
@@ -1043,7 +1031,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     <!-- ───────── 03 · Contrôle ───────── -->
     <article class="why">
       <div class="why__t rv">
-        <p class="why__n"><span>03</span> Contrôle</p>
         <h3>Gardez le contrôle de vos données</h3>
         <p class="lead">Accorder un accès limité ou complet, empêcher un nouvel arrivant de lire l'historique, révoquer en un clic : vos données vous appartiennent. C'est une garantie technique avant d'être contractuelle.</p>
         <ul class="why__chips">
@@ -1082,7 +1069,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     <!-- ───────── 04 · Appareils ───────── -->
     <article class="why rev">
       <div class="why__t rv">
-        <p class="why__n"><span>04</span> Mobilité</p>
         <h3>Travaillez partout, sans perdre le contrôle</h3>
         <p class="lead">Web, ordinateur, mobile : la synchronisation réplique vos modifications en temps réel, chiffrées à chaque étape. Vous travaillez toujours sur la dernière version, où que vous soyez.</p>
         <ul class="why__chips">
@@ -1226,17 +1212,14 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
          Ces trois principes sont repris tels quels de divprotocol.com. -->
     <div class="pillars">
       <div class="pillar rv">
-        <span class="pillar__k" aria-hidden="true">01</span>
         <h3>Zéro lecture sans accord</h3>
         <p>La clé de chiffrement est exclusivement en votre possession. Vous seul y avez accès.</p>
       </div>
       <div class="pillar rv d1">
-        <span class="pillar__k" aria-hidden="true">02</span>
         <h3>Zéro point unique</h3>
         <p>Les fichiers sont distribués sur plusieurs hébergeurs distincts, pour la protection comme pour la disponibilité.</p>
       </div>
       <div class="pillar rv d2">
-        <span class="pillar__k" aria-hidden="true">03</span>
         <h3>Zéro donnée en notre possession</h3>
         <p>Nous ne conservons aucune information permettant de déchiffrer ou d'accéder aux données.</p>
       </div>
