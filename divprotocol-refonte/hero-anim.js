@@ -36,7 +36,7 @@
     pill6:  { d: 0.24, amp: 6,  per: 6.4, mode: "pin", side: -1 }
   };
   /* ordre d'apparition : du fond vers l'avant */
-  var ORDER = ["box","deck","misc","folder","doc","video","image",
+  var ORDER = ["deck","box","misc","folder","doc","video","image",
                "pill1","pill2","pill3","pill4","pill5","pill6"];
 
   var items = layers.map(function (el) {
