@@ -651,6 +651,196 @@ html[data-theme="dark"] .no{color:#3A4152}
   <ellipse cx="38" cy="28" rx="12" ry="5" fill="#fff" opacity=".3" transform="rotate(-20 38 28)"/>
 </symbol>
 
+<!-- ============================================================
+     SÉRIE MATE — volumes gris perle + accent violet unique
+     Rendu diffus, sans reflet spéculaire (direction Apple / MEGA cards)
+     ============================================================ -->
+
+<linearGradient id="mn" x1="0.15" y1="0" x2="0.85" y2="1">
+  <stop offset="0" stop-color="#FDFDFE"/><stop offset="46%" stop-color="#EBEEF4"/><stop offset="100%" stop-color="#CBD1DE"/>
+</linearGradient>
+<linearGradient id="mn2" x1="0.2" y1="0" x2="0.8" y2="1">
+  <stop offset="0" stop-color="#E8EBF2"/><stop offset="100%" stop-color="#BAC2D2"/>
+</linearGradient>
+<linearGradient id="mn3" x1="0" y1="0" x2="1" y2="1">
+  <stop offset="0" stop-color="#D6DBE6"/><stop offset="100%" stop-color="#AEB7C9"/>
+</linearGradient>
+<linearGradient id="mv" x1="0.15" y1="0" x2="0.85" y2="1">
+  <stop offset="0" stop-color="#8B5CFF"/><stop offset="52%" stop-color="#5100FF"/><stop offset="100%" stop-color="#3A00B8"/>
+</linearGradient>
+<linearGradient id="mv2" x1="0" y1="0" x2="1" y2="1">
+  <stop offset="0" stop-color="#6E2BFF"/><stop offset="100%" stop-color="#2E0090"/>
+</linearGradient>
+<linearGradient id="mgloss" x1="0" y1="0" x2="0" y2="1">
+  <stop offset="0" stop-color="#fff" stop-opacity=".7"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+</linearGradient>
+<filter id="msh" x="-30%" y="-30%" width="160%" height="170%">
+  <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#1B2136" flood-opacity=".16"/>
+</filter>
+
+<!-- Dossier : volume mat, document violet qui dépasse -->
+<symbol id="m-folder" viewBox="0 0 120 120">
+ <g filter="url(#msh)">
+  <circle cx="88" cy="34" r="19" fill="url(#mv)"/>
+  <path d="M10 44a12 12 0 0 1 12-12h23l10 13h53a12 12 0 0 1 12 12v9H10z" fill="url(#mn3)"/>
+  <path d="M10 62h100a5 5 0 0 1 5 5v24a13 13 0 0 1-13 13H23a13 13 0 0 1-13-13z" fill="url(#mn)"/>
+  <path d="M10 62h100a5 5 0 0 1 5 5v3H10z" fill="url(#mgloss)"/>
+ </g>
+</symbol>
+
+<!-- Document certifié : feuille mate, pastille violette -->
+<symbol id="m-doc" viewBox="0 0 120 120">
+ <g filter="url(#msh)">
+  <path d="M26 22a10 10 0 0 1 10-10h30l24 24v62a10 10 0 0 1-10 10H36a10 10 0 0 1-10-10z" fill="url(#mn)"/>
+  <path d="M66 12l24 24H74a8 8 0 0 1-8-8z" fill="url(#mn3)"/>
+  <rect x="38" y="44" width="40" height="6" rx="3" fill="#B7BFCF" opacity=".75"/>
+  <rect x="38" y="58" width="28" height="6" rx="3" fill="#C6CDDB" opacity=".75"/>
+  <circle cx="80" cy="86" r="22" fill="url(#mv)"/>
+  <path d="M70 86l7 7 13-14" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+ </g>
+</symbol>
+
+<!-- Serveurs distribués : trois baies, la dernière en accent -->
+<symbol id="m-server" viewBox="0 0 120 120">
+ <g filter="url(#msh)">
+  <rect x="16" y="18" width="88" height="26" rx="10" fill="url(#mn)"/>
+  <rect x="16" y="18" width="88" height="9" rx="9" fill="url(#mgloss)"/>
+  <rect x="16" y="50" width="88" height="26" rx="10" fill="url(#mn2)"/>
+  <rect x="16" y="82" width="88" height="26" rx="10" fill="url(#mv)"/>
+  <circle cx="31" cy="31" r="4.5" fill="#AFB8C9"/>
+  <circle cx="31" cy="63" r="4.5" fill="#9DA7BB"/>
+  <circle cx="31" cy="95" r="4.5" fill="#fff"/>
+  <rect x="46" y="28" width="44" height="6" rx="3" fill="#C4CBD9"/>
+  <rect x="46" y="60" width="44" height="6" rx="3" fill="#AEB8C9"/>
+  <rect x="46" y="92" width="44" height="6" rx="3" fill="#fff" opacity=".72"/>
+ </g>
+</symbol>
+
+<!-- Enveloppe : corps mat, rabat violet -->
+<symbol id="m-mail" viewBox="0 0 120 120">
+ <g filter="url(#msh)">
+  <rect x="12" y="28" width="96" height="66" rx="15" fill="url(#mn)"/>
+  <path d="M12 43a15 15 0 0 1 15-15h66a15 15 0 0 1 15 15v2L68 71a13 13 0 0 1-16 0L12 45z" fill="url(#mv)"/>
+  <path d="M12 88l32-24 8 6a13 13 0 0 0 16 0l8-6 32 24v-2a15 15 0 0 1-15 15H27a15 15 0 0 1-15-15z" fill="url(#mn2)" opacity=".85"/>
+ </g>
+</symbol>
+
+<!-- Bulle de discussion : volume mat, bulle accent -->
+<symbol id="m-chat" viewBox="0 0 120 120">
+ <g filter="url(#msh)">
+  <path d="M14 34a14 14 0 0 1 14-14h50a14 14 0 0 1 14 14v26a14 14 0 0 1-14 14H44L26 90V74a12 12 0 0 1-12-14z" fill="url(#mn)"/>
+  <circle cx="40" cy="47" r="5.5" fill="#B4BDCD"/><circle cx="56" cy="47" r="5.5" fill="#B4BDCD"/><circle cx="72" cy="47" r="5.5" fill="#B4BDCD"/>
+  <path d="M70 58h32a12 12 0 0 1 12 12v18a12 12 0 0 1-12 12H90l-14 12V100a12 12 0 0 1-6-10z" fill="url(#mv)"/>
+ </g>
+</symbol>
+
+<!-- Calendrier : corps mat, bandeau violet -->
+<symbol id="m-cal" viewBox="0 0 120 120">
+ <g filter="url(#msh)">
+  <rect x="14" y="24" width="92" height="84" rx="17" fill="url(#mn)"/>
+  <path d="M14 41a17 17 0 0 1 17-17h58a17 17 0 0 1 17 17v11H14z" fill="url(#mv)"/>
+  <rect x="32" y="12" width="12" height="24" rx="6" fill="#AEB8C9"/>
+  <rect x="76" y="12" width="12" height="24" rx="6" fill="#AEB8C9"/>
+  <rect x="30" y="64" width="17" height="15" rx="5" fill="#D3D9E4"/>
+  <rect x="52" y="64" width="17" height="15" rx="5" fill="url(#mv2)"/>
+  <rect x="74" y="64" width="17" height="15" rx="5" fill="#D3D9E4"/>
+  <rect x="30" y="86" width="17" height="15" rx="5" fill="#D3D9E4"/>
+  <rect x="52" y="86" width="17" height="15" rx="5" fill="#D3D9E4"/>
+ </g>
+</symbol>
+
+<!-- Bouclier : volume mat, cadenas violet -->
+<symbol id="m-shield" viewBox="0 0 120 120">
+ <g filter="url(#msh)">
+  <path d="M60 10l45 18v32c0 27-21 44-45 53-24-9-45-26-45-53V28z" fill="url(#mn)"/>
+  <path d="M60 10l45 18v10c-15-9-29-13-45-13S30 29 15 38V28z" fill="url(#mgloss)"/>
+  <path d="M60 44a12 12 0 0 1 12 12v5h2a5 5 0 0 1 5 5v17a5 5 0 0 1-5 5H46a5 5 0 0 1-5-5V66a5 5 0 0 1 5-5h2v-5a12 12 0 0 1 12-12m0 8a6 6 0 0 0-6 6v3h12v-3a6 6 0 0 0-6-6" fill="url(#mv)"/>
+ </g>
+</symbol>
+
+<!-- Cadenas : corps mat, anse violette -->
+<symbol id="m-lock" viewBox="0 0 120 120">
+ <g filter="url(#msh)">
+  <path d="M38 58V43a22 22 0 0 1 44 0v15" fill="none" stroke="url(#mv)" stroke-width="13" stroke-linecap="round"/>
+  <rect x="20" y="54" width="80" height="58" rx="18" fill="url(#mn)"/>
+  <rect x="20" y="54" width="80" height="16" rx="16" fill="url(#mgloss)"/>
+  <circle cx="60" cy="80" r="8" fill="url(#mv)"/>
+  <rect x="56.5" y="82" width="7" height="15" rx="3.5" fill="url(#mv)"/>
+ </g>
+</symbol>
+
+<!-- Cube : faces mates, dessus violet -->
+<symbol id="m-cube" viewBox="0 0 120 120">
+ <g filter="url(#msh)">
+  <path d="M60 12l43 25-43 25-43-25z" fill="url(#mv)"/>
+  <path d="M17 37l43 25v46L17 83z" fill="url(#mn2)"/>
+  <path d="M103 37L60 62v46l43-25z" fill="url(#mn3)"/>
+  <circle cx="60" cy="37" r="7" fill="#fff" opacity=".9"/>
+ </g>
+</symbol>
+
+<!-- Nuage : volume mat, sphère accent en retrait -->
+<symbol id="m-cloud" viewBox="0 0 120 120">
+ <g filter="url(#msh)">
+  <circle cx="84" cy="40" r="21" fill="url(#mv)"/>
+  <path d="M36 90a24 24 0 0 1-2-47.9A28 28 0 0 1 88 44a23 23 0 0 1-2 46z" fill="url(#mn)"/>
+  <path d="M34 42.1A28 28 0 0 1 76 33c-14-2-28 5-32 17-3-4-7-6-10-8z" fill="url(#mgloss)"/>
+ </g>
+</symbol>
+
+<!-- Clé : anneau mat, tige violette -->
+<symbol id="m-key" viewBox="0 0 120 120">
+ <g filter="url(#msh)" transform="rotate(-22 60 60)">
+  <rect x="60" y="52" width="52" height="16" rx="8" fill="url(#mv)"/>
+  <rect x="86" y="66" width="10" height="17" rx="5" fill="url(#mv2)"/>
+  <rect x="100" y="66" width="10" height="12" rx="5" fill="url(#mv2)"/>
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M42 32a28 28 0 1 1 0 56 28 28 0 0 1 0-56m0 17.5a10.5 10.5 0 1 0 0 21 10.5 10.5 0 0 0 0-21" fill="url(#mn)"/>
+  <path d="M42 32a28 28 0 0 1 24 13c-6-6-15-9-24-9s-18 3-24 9a28 28 0 0 1 24-13" fill="#fff" opacity=".55"/>
+ </g>
+</symbol>
+
+<!-- Badge vérifié : pastille mate, coche violette -->
+<symbol id="m-check" viewBox="0 0 120 120">
+ <g filter="url(#msh)">
+  <path d="M60 10l12 8 14-2 6 13 13 6-2 14 8 12-8 12 2 14-13 6-6 13-14-2-12 8-12-8-14 2-6-13-13-6 2-14-8-12 8-12-2-14 13-6 6-13 14 2z" fill="url(#mn)"/>
+  <path d="M42 60l13 13 25-27" fill="none" stroke="url(#mv)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+ </g>
+</symbol>
+
+<!-- Europe : disque mat, couronne d'étoiles violette -->
+<symbol id="m-eu" viewBox="0 0 120 120">
+ <g filter="url(#msh)">
+  <circle cx="60" cy="60" r="46" fill="url(#mn)"/>
+  <circle cx="60" cy="60" r="46" fill="url(#mgloss)" opacity=".6"/>
+  <g fill="url(#mv)">
+   <circle cx="60" cy="28" r="4.6"/><circle cx="82" cy="37" r="4.6"/><circle cx="91" cy="60" r="4.6"/>
+   <circle cx="82" cy="83" r="4.6"/><circle cx="60" cy="92" r="4.6"/><circle cx="38" cy="83" r="4.6"/>
+   <circle cx="29" cy="60" r="4.6"/><circle cx="38" cy="37" r="4.6"/>
+  </g>
+ </g>
+</symbol>
+
+<!-- Empreinte : bloc mat, grille violette -->
+<symbol id="m-hash" viewBox="0 0 120 120">
+ <g filter="url(#msh)">
+  <rect x="14" y="14" width="92" height="92" rx="28" fill="url(#mn)"/>
+  <rect x="14" y="14" width="92" height="30" rx="28" fill="url(#mgloss)"/>
+  <g stroke="url(#mv)" stroke-width="8" stroke-linecap="round">
+   <path d="M46 34v52"/><path d="M74 34v52"/><path d="M34 48h52"/><path d="M34 72h52"/>
+  </g>
+ </g>
+</symbol>
+
+<!-- Visio : boîtier mat, objectif violet -->
+<symbol id="m-video" viewBox="0 0 120 120">
+ <g filter="url(#msh)">
+  <path d="M82 46l24-13a5 5 0 0 1 7 4.4v45.2a5 5 0 0 1-7 4.4L82 74z" fill="url(#mn3)"/>
+  <rect x="10" y="30" width="72" height="60" rx="17" fill="url(#mn)"/>
+  <rect x="10" y="30" width="72" height="18" rx="17" fill="url(#mgloss)"/>
+  <circle cx="46" cy="60" r="14" fill="url(#mv)"/>
+ </g>
+</symbol>
+
 </defs>
 </svg>
 
@@ -671,17 +861,17 @@ html[data-theme="dark"] .no{color:#3A4152}
         </a>
         <div class="mega">
           <div class="mega__grid">
-            <a class="mega__link" href="#drive"><svg class="mega__ico"><use href="#i-folder"/></svg>
+            <a class="mega__link" href="#drive"><svg class="mega__ico"><use href="#m-folder"/></svg>
               <div><div class="mega__t">DIV Drive</div><p class="mega__d">Stockage chiffré de bout en bout et collaboration.</p></div></a>
-            <a class="mega__link" href="#check"><svg class="mega__ico"><use href="#i-doc"/></svg>
+            <a class="mega__link" href="#check"><svg class="mega__ico"><use href="#m-doc"/></svg>
               <div><div class="mega__t">DIV Check</div><p class="mega__d">Preuve d'intégrité et d'antériorité par blockchain.</p></div></a>
-            <a class="mega__link" href="#produits"><svg class="mega__ico"><use href="#i-mail"/></svg>
+            <a class="mega__link" href="#produits"><svg class="mega__ico"><use href="#m-mail"/></svg>
               <div><div class="mega__t">DIV Mail <span class="pill-soon">Bientôt</span></div><p class="mega__d">Messagerie professionnelle souveraine.</p></div></a>
-            <a class="mega__link" href="#produits"><svg class="mega__ico"><use href="#i-chat"/></svg>
+            <a class="mega__link" href="#produits"><svg class="mega__ico"><use href="#m-chat"/></svg>
               <div><div class="mega__t">DIV Message <span class="pill-soon">Bientôt</span></div><p class="mega__d">Messagerie d'équipe chiffrée.</p></div></a>
-            <a class="mega__link" href="#produits"><svg class="mega__ico"><use href="#i-video"/></svg>
+            <a class="mega__link" href="#produits"><svg class="mega__ico"><use href="#m-video"/></svg>
               <div><div class="mega__t">DIV Visio <span class="pill-soon">Bientôt</span></div><p class="mega__d">Réunions vidéo chiffrées, hébergées en Europe.</p></div></a>
-            <a class="mega__link" href="#produits"><svg class="mega__ico"><use href="#i-cal"/></svg>
+            <a class="mega__link" href="#produits"><svg class="mega__ico"><use href="#m-cal"/></svg>
               <div><div class="mega__t">DIV Calendrier <span class="pill-soon">Bientôt</span></div><p class="mega__d">Agendas partagés sans fuite de métadonnées.</p></div></a>
           </div>
         </div>
@@ -693,13 +883,13 @@ html[data-theme="dark"] .no{color:#3A4152}
         </a>
         <div class="mega">
           <div class="mega__grid">
-            <a class="mega__link" href="#comparatif"><svg class="mega__ico"><use href="#i-doc"/></svg>
+            <a class="mega__link" href="#comparatif"><svg class="mega__ico"><use href="#m-doc"/></svg>
               <div><div class="mega__t">Cabinets d'avocats</div><p class="mega__d">Secret professionnel préservé jusqu'au chiffrement.</p></div></a>
-            <a class="mega__link" href="#comparatif"><svg class="mega__ico"><use href="#i-check"/></svg>
+            <a class="mega__link" href="#comparatif"><svg class="mega__ico"><use href="#m-check"/></svg>
               <div><div class="mega__t">Notaires &amp; officiers publics</div><p class="mega__d">Antériorité certaine et journal d'audit ancré.</p></div></a>
-            <a class="mega__link" href="#comparatif"><svg class="mega__ico"><use href="#i-shield"/></svg>
+            <a class="mega__link" href="#comparatif"><svg class="mega__ico"><use href="#m-shield"/></svg>
               <div><div class="mega__t">Santé &amp; recherche</div><p class="mega__d">Données de santé sans exposition au Cloud Act.</p></div></a>
-            <a class="mega__link" href="#comparatif"><svg class="mega__ico"><use href="#i-eu"/></svg>
+            <a class="mega__link" href="#comparatif"><svg class="mega__ico"><use href="#m-eu"/></svg>
               <div><div class="mega__t">Secteur public</div><p class="mega__d">Souveraineté documentaire et conformité RGPD.</p></div></a>
           </div>
         </div>
@@ -714,13 +904,13 @@ html[data-theme="dark"] .no{color:#3A4152}
         </a>
         <div class="mega" style="min-width:400px">
           <div class="mega__grid">
-            <a class="mega__link" href="#faq"><svg class="mega__ico"><use href="#i-hash"/></svg>
+            <a class="mega__link" href="#faq"><svg class="mega__ico"><use href="#m-hash"/></svg>
               <div><div class="mega__t">Sécurité &amp; chiffrement</div><p class="mega__d">Notre modèle de menace, en clair.</p></div></a>
-            <a class="mega__link" href="#certifications"><svg class="mega__ico"><use href="#i-check"/></svg>
+            <a class="mega__link" href="#certifications"><svg class="mega__ico"><use href="#m-check"/></svg>
               <div><div class="mega__t">Conformité</div><p class="mega__d">RGPD, SecNumCloud, ISO 27001.</p></div></a>
-            <a class="mega__link" href="#faq"><svg class="mega__ico"><use href="#i-chat"/></svg>
+            <a class="mega__link" href="#faq"><svg class="mega__ico"><use href="#m-chat"/></svg>
               <div><div class="mega__t">Blog</div><p class="mega__d">Souveraineté numérique et cryptographie.</p></div></a>
-            <a class="mega__link" href="#equipe"><svg class="mega__ico"><use href="#i-server"/></svg>
+            <a class="mega__link" href="#equipe"><svg class="mega__ico"><use href="#m-server"/></svg>
               <div><div class="mega__t">Carrières</div><p class="mega__d">Construire l'infrastructure européenne.</p></div></a>
           </div>
         </div>
@@ -799,7 +989,7 @@ html[data-theme="dark"] .no{color:#3A4152}
 
     <div class="grid-3">
       <article class="card tilt rv">
-        <svg class="card__ico"><use href="#i-folder"/></svg>
+        <svg class="card__ico"><use href="#m-folder"/></svg>
         <h3>DIV Drive</h3>
         <p>Stockage chiffré, projets partagés, collaboration temps réel, partage sécurisé aux tiers. Tout ce dont vos équipes ont besoin pour travailler, sans jamais perdre le contrôle.</p>
         <ul class="feat-list">
@@ -814,7 +1004,7 @@ html[data-theme="dark"] .no{color:#3A4152}
       </article>
 
       <article class="card tilt rv rv-d1">
-        <svg class="card__ico"><use href="#i-doc"/></svg>
+        <svg class="card__ico"><use href="#m-doc"/></svg>
         <h3>DIV Check</h3>
         <p>Prouvez qu'un document existait, intact, à une date certaine. Empreinte calculée dans votre navigateur, ancrage sur une blockchain publique, certificat vérifiable par n'importe quel tiers.</p>
         <ul class="feat-list">
@@ -829,7 +1019,7 @@ html[data-theme="dark"] .no{color:#3A4152}
       </article>
 
       <article class="card tilt rv rv-d2">
-        <svg class="card__ico"><use href="#i-server"/></svg>
+        <svg class="card__ico"><use href="#m-server"/></svg>
         <h3>Suite DIV</h3>
         <p>Drive, Check et tous les modules à venir dans un abonnement unique. Une seule identité, une seule clé, un seul contrat — pour toute l'entreprise.</p>
         <ul class="feat-list">
@@ -846,19 +1036,19 @@ html[data-theme="dark"] .no{color:#3A4152}
     <div class="grid-3" style="margin-top:24px">
       <article class="card card--soon tilt rv">
         <span class="pill-soon card__soon">Bientôt</span>
-        <svg class="card__ico"><use href="#i-mail"/></svg>
+        <svg class="card__ico"><use href="#m-mail"/></svg>
         <h3>DIV Mail</h3>
         <p>La messagerie professionnelle souveraine : vos échanges chiffrés, hébergés en Europe, sans analyse publicitaire ni indexation de contenu.</p>
       </article>
       <article class="card card--soon tilt rv rv-d1">
         <span class="pill-soon card__soon">Bientôt</span>
-        <svg class="card__ico"><use href="#i-chat"/></svg>
+        <svg class="card__ico"><use href="#m-chat"/></svg>
         <h3>DIV Message &amp; Visio</h3>
         <p>Messagerie d'équipe et réunions vidéo chiffrées de bout en bout, sans conservation de métadonnées exploitables.</p>
       </article>
       <article class="card card--soon tilt rv rv-d2">
         <span class="pill-soon card__soon">Bientôt</span>
-        <svg class="card__ico"><use href="#i-cal"/></svg>
+        <svg class="card__ico"><use href="#m-cal"/></svg>
         <h3>DIV Calendrier</h3>
         <p>Agendas partagés et disponibilités d'équipe, sans révéler qui rencontre qui — ni à nous, ni à personne.</p>
       </article>
@@ -875,17 +1065,17 @@ html[data-theme="dark"] .no{color:#3A4152}
     </div>
     <div class="grid-3">
       <div class="pillar rv">
-        <svg class="pillar__ico"><use href="#i-key"/></svg>
+        <svg class="pillar__ico"><use href="#m-key"/></svg>
         <h3>Zéro lecture sans accord</h3>
         <p>La clé de chiffrement est exclusivement en votre possession : vous seul y avez accès, et vous seul décidez qui peut lire quoi.</p>
       </div>
       <div class="pillar rv rv-d1">
-        <svg class="pillar__ico"><use href="#i-server"/></svg>
+        <svg class="pillar__ico"><use href="#m-server"/></svg>
         <h3>Zéro point unique</h3>
         <p>Les fichiers sont distribués sur plusieurs hébergeurs européens distincts, pour une meilleure protection et une disponibilité continue.</p>
       </div>
       <div class="pillar rv rv-d2">
-        <svg class="pillar__ico"><use href="#i-shield"/></svg>
+        <svg class="pillar__ico"><use href="#m-shield"/></svg>
         <h3>Zéro donnée en notre possession</h3>
         <p>Nous ne conservons aucune information permettant de déchiffrer ou d'accéder à vos données. Techniquement, nous ne pouvons pas.</p>
       </div>
@@ -935,8 +1125,8 @@ html[data-theme="dark"] .no{color:#3A4152}
               <span class="filerow__lock"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg> E2E</span></div>
           </div>
         </div>
-        <div class="badge-float bf-1"><svg style="width:34px;height:34px"><use href="#i-key"/></svg><span>Clé locale<small>Jamais transmise</small></span></div>
-        <div class="badge-float bf-2"><svg style="width:34px;height:34px"><use href="#i-eu"/></svg><span>Hébergé en UE<small>Hors Cloud Act</small></span></div>
+        <div class="badge-float bf-1"><svg style="width:34px;height:34px"><use href="#m-key"/></svg><span>Clé locale<small>Jamais transmise</small></span></div>
+        <div class="badge-float bf-2"><svg style="width:34px;height:34px"><use href="#m-eu"/></svg><span>Hébergé en UE<small>Hors Cloud Act</small></span></div>
       </div>
     </div>
 
@@ -968,7 +1158,7 @@ html[data-theme="dark"] .no{color:#3A4152}
 
       <div class="alt__media rv rv-d1">
         <div class="mock" style="padding:44px 34px;text-align:center">
-          <svg style="width:104px;height:104px;margin:0 auto 22px;display:block"><use href="#i-cube"/></svg>
+          <svg style="width:104px;height:104px;margin:0 auto 22px;display:block"><use href="#m-cube"/></svg>
           <h3 style="margin-bottom:8px">Certificat d'antériorité</h3>
           <p style="font-size:14px;color:var(--muted);margin-bottom:22px">Émis le 4 septembre 2026 à 09:41:22 UTC</p>
           <div class="hashline" style="text-align:left">Document : Acte_de_cession_2026.pdf<br>SHA-256 : a3f5e9c1…c30e7bd<br>Bloc : #21 480 663 · Statut : <strong style="color:#22C55E">confirmé</strong></div>
@@ -976,7 +1166,7 @@ html[data-theme="dark"] .no{color:#3A4152}
             <span class="tag">Intégrité vérifiée</span><span class="tag">Antériorité certaine</span><span class="tag">Contenu non divulgué</span>
           </div>
         </div>
-        <div class="badge-float bf-2"><svg style="width:34px;height:34px"><use href="#i-check"/></svg><span>Vérifiable par tiers<small>Sans compte DIV</small></span></div>
+        <div class="badge-float bf-2"><svg style="width:34px;height:34px"><use href="#m-check"/></svg><span>Vérifiable par tiers<small>Sans compte DIV</small></span></div>
       </div>
     </div>
 
@@ -1105,11 +1295,11 @@ html[data-theme="dark"] .no{color:#3A4152}
       <h2 class="rv rv-d1">La sécurité de vos données n'est pas une option.</h2>
     </div>
     <div class="certs">
-      <div class="cert rv"><svg class="cert__ico"><use href="#i-eu"/></svg>
+      <div class="cert rv"><svg class="cert__ico"><use href="#m-eu"/></svg>
         <div><h4>Conforme RGPD</h4><p>Nous garantissons la souveraineté de vos données avec une conformité stricte au RGPD, sans transfert hors Union européenne.</p></div></div>
-      <div class="cert rv rv-d1"><svg class="cert__ico"><use href="#i-shield"/></svg>
+      <div class="cert rv rv-d1"><svg class="cert__ico"><use href="#m-shield"/></svg>
         <div><h4>SecNumCloud</h4><p>Nos datacenters assurent une protection maximale : l'infrastructure garantit la confidentialité et l'intégrité de vos données.</p></div></div>
-      <div class="cert rv rv-d2"><svg class="cert__ico"><use href="#i-check"/></svg>
+      <div class="cert rv rv-d2"><svg class="cert__ico"><use href="#m-check"/></svg>
         <div><h4>ISO 27001</h4><p>Nos datacenters certifiés ISO 27001 assurent une gestion proactive des risques pour protéger vos données à chaque étape.</p></div></div>
     </div>
   </div>
@@ -1241,7 +1431,7 @@ html[data-theme="dark"] .no{color:#3A4152}
       <div>
         <a href="#top" class="brand"><span class="brand__mark">DIV</span> Protocol</a>
         <p class="footer__about">La suite européenne d'outils de travail souverains, chiffrés et auditables. Vos données vous appartiennent.</p>
-        <div class="eu-badge"><svg style="width:18px;height:18px"><use href="#i-eu"/></svg> Conçu et hébergé en Europe</div>
+        <div class="eu-badge"><svg style="width:18px;height:18px"><use href="#m-eu"/></svg> Conçu et hébergé en Europe</div>
         <div class="socials">
           <a href="#top" aria-label="LinkedIn"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.06c.53-1 1.83-2.06 3.76-2.06C20.4 8.64 21 11 21 14.1V21h-4v-6.1c0-1.46-.03-3.34-2.03-3.34-2.04 0-2.35 1.59-2.35 3.23V21H9z"/></svg></a>
           <a href="#top" aria-label="X"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.2 2H21l-6.6 7.6L22 22h-6.3l-4.9-6.4L5 22H2.2l7-8.1L2 2h6.4l4.4 5.8zm-1 18h1.6L7.9 3.7H6.1z"/></svg></a>
