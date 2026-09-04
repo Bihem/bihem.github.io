@@ -21,8 +21,8 @@
 
   /* profondeur (parallaxe), amplitude et période de la dérive au repos */
   var CFG = {
-    box:    { d: 0.09, amp: 0,  per: 0,   mode: "box"  },
-    deck:   { d: 0.20, amp: 7,  per: 5.4, mode: "deck" },
+    /* socle : nuage + plateforme + boîtier, d'un seul tenant */
+    base:   { d: 0.09, amp: 0,  per: 0,   mode: "box"  },
     misc:   { d: 0.12, amp: 0,  per: 0,   mode: "pin", side: 0 },
     doc:    { d: 0.34, amp: 11, per: 5.2, rot:  1.3, mode: "file" },
     video:  { d: 0.41, amp: 13, per: 4.4, rot: -1.5, mode: "file" },
@@ -36,11 +36,11 @@
     pill6:  { d: 0.24, amp: 6,  per: 6.4, mode: "pin", side: -1 }
   };
   /* ordre d'apparition : du fond vers l'avant */
-  var ORDER = ["deck","box","misc","folder","doc","video","image",
+  var ORDER = ["base","misc","folder","doc","video","image",
                "pill1","pill2","pill3","pill4","pill5","pill6"];
 
   var items = layers.map(function (el) {
-    var k = el.dataset.k, c = CFG[k] || CFG.box;
+    var k = el.dataset.k, c = CFG[k] || CFG.base;
     var cs = el.style;
     return {
       el: el, k: k, c: c,
@@ -119,10 +119,6 @@
         sc *= 1 - 0.94 * k;
         rot = (reduce ? 0 : Math.sin(t * 0.55 + it.ph) * (c.rot || 0) * (1 - k)) + k * 26;
         op *= 1 - Math.pow(k, 1.6);
-      } else if (c.mode === "deck") {
-        ty += it.dy / 100 * H * 1.02 * e;
-        sc *= 1 - 0.42 * e;
-        op *= 1 - Math.pow(e, 2.4);
       } else if (c.mode === "pin") {
         tx += (c.side || 0) * 40 * q;
         ty += 10 * q;
@@ -136,11 +132,6 @@
       it.el.style.opacity = op.toFixed(3);
     });
 
-    var shade = scene.querySelector(".shade");
-    if (shade) {
-      shade.style.opacity = (entered * (1 - 0.18 * pulse)).toFixed(3);
-      shade.style.transform = "translate(-50%,-50%) scale(" + (1 + 0.05 * pulse).toFixed(3) + "," + (1 - 0.12 * pulse).toFixed(3) + ")";
-    }
     if (bloom) {
       var breathe = reduce ? 0 : Math.sin(t * 1.25) * 0.05;
       bloom.style.opacity = (entered * (0.16 + 0.84 * pulse + breathe)).toFixed(3);
