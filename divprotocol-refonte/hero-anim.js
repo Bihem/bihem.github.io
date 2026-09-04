@@ -120,7 +120,6 @@
         rot = (reduce ? 0 : Math.sin(t * 0.55 + it.ph) * (c.rot || 0) * (1 - k)) + k * 26;
         op *= 1 - Math.pow(k, 1.6);
       } else if (c.mode === "deck") {
-        /* la plateforme et le nuage descendent dans le boîtier, qui les masque */
         ty += it.dy / 100 * H * 1.02 * e;
         sc *= 1 - 0.42 * e;
         op *= 1 - Math.pow(e, 2.4);
