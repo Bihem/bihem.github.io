@@ -24,37 +24,50 @@
    ========================================================================== */
 
 :root{
+  /* Marque */
+  --purple:#5B2EFF;      --purple-2:#753BFF;   --purple-soft:#F1EDFF;
+  /* Couleurs fonctionnelles : chaque domaine produit a la sienne */
+  --cloud:#1687FF;       --cloud-soft:#E8F2FF;
+  --secure:#10B981;      --secure-soft:#E6F7F1;
+  --collab:#8B5CF6;      --collab-soft:#F1ECFE;
+  --docs:#4F8CFF;        --docs-soft:#EAF1FF;
+  --alert:#FF4D67;       --alert-soft:#FFECEF;
+  --star:#FFB020;        --star-soft:#FFF4E2;
+  /* Surfaces et texte */
   --bg:#FFFFFF;
-  --bg-alt:#F5F5F7;      /* gris de section, très léger */
-  --card:#F5F5F7;
-  --card-h:#EDEDF0;
-  --ink:#1D1D1F;         /* titres */
-  --ink-2:#3A3A3E;
-  --muted:#6E6E73;       /* texte secondaire */
-  --line:#E8E8ED;
-  --accent:#5100FF;      /* usage strictement réservé : CTA, liens, badges */
-  --accent-soft:#F2EEFF;
-
-  --maxw:1200px;
-  --nav-h:52px;
+  --bg-alt:#F7F8FC;
+  --ink:#0A1025;
+  --muted:#667085;
+  --line:rgba(10,16,37,.08);
+  --line-soft:rgba(10,16,37,.06);
+  /* Rythme */
+  --maxw:1240px;
+  --pad-section:clamp(88px,10vw,180px);
+  --nav-h:56px;
   --banner-h:34px;
   --r-btn:100px;
-  --r-card:20px;
+  --r-card:28px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --sh-card:0 1px 2px rgba(10,16,37,.04), 0 8px 24px rgba(10,16,37,.05);
+  --sh-card-h:0 2px 4px rgba(10,16,37,.05), 0 18px 44px rgba(10,16,37,.09);
 }
 
+/* alias de transition depuis l'ancien jeu de variables */
+:root{--accent:var(--purple);--accent-soft:var(--purple-soft);--card:#FFFFFF;--card-h:#FFFFFF;--ink-2:#2A3141}
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;overflow-x:hidden}
 body{
   margin:0;background:var(--bg);color:var(--muted);
   font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  font-size:17px;line-height:1.6;letter-spacing:-.01em;
+  font-size:17px;line-height:1.65;letter-spacing:-.011em;
+  font-feature-settings:"cv11","ss01";
   -webkit-font-smoothing:antialiased;overflow-x:hidden;
 }
 h1,h2,h3,h4{color:var(--ink);margin:0;letter-spacing:-.03em;text-wrap:balance}
-h1{font-size:clamp(3rem,1.9rem+4.6vw,5.5rem);font-weight:700;line-height:1.02;letter-spacing:-.042em}
-h2{font-size:clamp(2rem,1.4rem+2.2vw,3rem);font-weight:700;line-height:1.1}
-h3{font-size:clamp(1.3rem,1.1rem+.6vw,1.6rem);font-weight:600;line-height:1.25}
-h4{font-size:1.0625rem;font-weight:600;line-height:1.4;letter-spacing:-.015em}
+h1{font-size:clamp(2.75rem,1.6rem+4.2vw,5rem);font-weight:700;line-height:1.03;letter-spacing:-.038em;max-width:16ch}
+h2{font-size:clamp(2rem,1.3rem+2.6vw,4rem);font-weight:700;line-height:1.06;letter-spacing:-.032em;max-width:20ch}
+h3{font-size:clamp(1.5rem,1.2rem+.9vw,2rem);font-weight:650;line-height:1.15;letter-spacing:-.028em;max-width:18ch}
+h4{font-size:1.125rem;font-weight:600;line-height:1.4;letter-spacing:-.018em}
 p{margin:0 0 1rem}
 a{color:inherit;text-decoration:none}
 ul,ol{margin:0;padding:0;list-style:none}
@@ -68,10 +81,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .section{padding:clamp(72px,8vw,124px) 0}
 .section--alt{background:var(--bg-alt);--card:#FFFFFF;--card-h:#FAFAFB}
 .center{text-align:center}
-.lead{font-size:clamp(1.0625rem,1rem+.3vw,1.25rem);line-height:1.55;color:var(--muted);max-width:60ch}
+.lead{font-size:clamp(1.0625rem,1rem+.35vw,1.1875rem);line-height:1.6;color:var(--muted);max-width:66ch}
 .center .lead{margin-inline:auto}
-.head{max-width:760px;margin:0 auto clamp(44px,5vw,68px)}
-.head h2{margin-bottom:16px}
+.head{max-width:780px;margin:0 auto clamp(56px,6vw,88px)}
+.head h2{margin-inline:auto}
+.head.center h2{max-width:22ch}
+.head h2{margin-bottom:20px}
 .kicker{
   display:inline-block;font-size:.8125rem;font-weight:600;letter-spacing:.02em;
   color:var(--accent);margin-bottom:14px;
@@ -165,11 +180,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 /* ==================== 2. GRILLE PRODUITS ==================== */
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .card{
-  background:var(--card);border-radius:var(--r-card);padding:34px 30px 30px;
-  display:flex;flex-direction:column;
-  transition:transform .35s cubic-bezier(.2,.9,.3,1),background .3s;
+  background:#fff;border:1px solid var(--line-soft);border-radius:var(--r-card);
+  padding:36px 32px 32px;display:flex;flex-direction:column;
+  box-shadow:var(--sh-card);
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease);
 }
-.card:hover{transform:translateY(-4px);background:var(--card-h)}
+.card:hover{transform:translateY(-4px);box-shadow:var(--sh-card-h);border-color:rgba(10,16,37,.12)}
 .card .ico{width:56px;height:56px;margin-bottom:20px;transition:transform .4s cubic-bezier(.2,.9,.3,1)}
 .card:hover .ico{transform:scale(1.08) translateY(-2px)}
 .card h3{margin-bottom:8px}
@@ -192,6 +208,118 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .mini b{display:block;font-size:14.5px;font-weight:600;color:var(--ink);letter-spacing:-.015em}
 .mini span{display:block;font-size:12.5px;color:var(--muted);margin-top:2px}
 
+/* ─────────── DIV Drive : fenêtre applicative ─────────── */
+.app{max-width:1080px;margin:0 auto;background:#fff;border:1px solid var(--line);
+  border-radius:22px;overflow:hidden;
+  box-shadow:0 2px 6px rgba(10,16,37,.04),0 32px 80px rgba(10,16,37,.10)}
+.app__bar{display:flex;align-items:center;gap:8px;padding:14px 18px;
+  background:var(--bg-alt);border-bottom:1px solid var(--line-soft);min-width:0}
+.dot{width:10px;height:10px;border-radius:50%;flex:none}
+.app__url{margin-left:10px;flex:1;min-width:0;font-size:12px;color:var(--muted);
+  background:#fff;border:1px solid var(--line-soft);border-radius:8px;padding:6px 14px;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.app__body{display:grid;grid-template-columns:236px minmax(0,1fr)}
+.app__side{border-right:1px solid var(--line-soft);padding:20px 14px;background:#FCFCFE;min-width:0}
+.side-h{font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--muted);padding:0 10px;margin:0 0 10px}
+.side-h + .side-h{margin-top:26px}
+.navi{display:flex;align-items:center;gap:11px;padding:10px;border-radius:10px;
+  font-size:14px;font-weight:500;color:var(--ink)}
+.navi svg{width:17px;height:17px;flex:none;opacity:.5}
+.navi i{width:9px;height:9px;border-radius:3px;flex:none}
+.navi em{margin-left:auto;font-style:normal;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.navi.is-on{background:var(--purple-soft);color:var(--purple)}
+.navi.is-on svg{opacity:1}
+.app__main{padding:20px 22px;min-width:0}
+.app__top{display:flex;align-items:center;gap:12px;margin-bottom:16px;min-width:0}
+.search{flex:1;min-width:0;display:flex;align-items:center;gap:10px;padding:10px 14px;
+  border-radius:10px;background:var(--bg-alt);border:1px solid var(--line-soft);
+  font-size:13.5px;color:var(--muted)}
+.search svg{width:15px;height:15px;flex:none;opacity:.5}
+.search span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.chip{font-size:12px;font-weight:600;padding:7px 12px;border-radius:100px;white-space:nowrap;flex:none}
+.chip--secure{background:var(--secure-soft);color:#07835C}
+.faces{display:flex;flex:none}
+.faces i{width:28px;height:28px;border-radius:50%;margin-left:-8px;display:grid;place-items:center;
+  font-style:normal;font-size:10.5px;font-weight:600;color:#fff;border:2px solid #fff}
+.faces i.more{background:var(--bg-alt);color:var(--muted)}
+.crumb{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--muted);margin-bottom:12px}
+.crumb svg{width:12px;height:12px;flex:none}
+.crumb b{color:var(--ink);font-weight:600}
+.frow{display:flex;align-items:center;gap:14px;padding:13px 10px;border-radius:12px}
+.frow + .frow{border-top:1px solid var(--line-soft)}
+.ftype{width:36px;height:36px;border-radius:10px;flex:none;display:grid;place-items:center;
+  color:#fff;font-size:9.5px;font-weight:700;letter-spacing:.02em}
+.ftxt{min-width:0;flex:1}
+.ftxt b{display:block;font-size:14px;font-weight:600;color:var(--ink);
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ftxt span{display:block;font-size:12.5px;color:var(--muted);
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.perm,.e2e{flex:none;font-size:11.5px;font-weight:600;padding:5px 11px;border-radius:100px;white-space:nowrap}
+.perm{background:var(--docs-soft);color:#2C64C8}
+.perm--read{background:var(--bg-alt);color:var(--muted)}
+.e2e{background:var(--secure-soft);color:#07835C}
+.upload{display:flex;align-items:center;gap:12px;margin-top:16px;padding:12px 14px;
+  border-radius:12px;background:var(--purple-soft);min-width:0}
+.upload svg{width:16px;height:16px;flex:none;color:var(--purple)}
+.upload b{font-size:13px;font-weight:600;color:var(--ink);white-space:nowrap}
+.upload .bar{flex:1;min-width:0;height:6px;border-radius:3px;background:rgba(91,46,255,.16);overflow:hidden}
+.upload .bar i{display:block;height:100%;border-radius:3px;background:var(--purple);
+  animation:up 5s ease-in-out infinite}
+@keyframes up{0%{width:10%}70%{width:92%}100%{width:10%}}
+.upload .pct{font-size:12px;color:var(--muted);white-space:nowrap}
+
+/* ─────────── DIV Check : progression ─────────── */
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(24px,3vw,44px);
+  list-style:none;padding:0;margin:0;position:relative}
+.flow::before{content:"";position:absolute;top:26px;left:11%;right:11%;height:2px;
+  background:linear-gradient(90deg,var(--docs),var(--cloud),var(--purple),var(--secure));opacity:.3}
+.flow__s{position:relative}
+.flow__n{display:grid;place-items:center;width:52px;height:52px;border-radius:18px;
+  color:#fff;font-size:18px;font-weight:650;margin-bottom:24px;position:relative;z-index:1;
+  box-shadow:0 6px 18px rgba(10,16,37,.14)}
+.flow__n[data-c="docs"]{background:var(--docs)}
+.flow__n[data-c="cloud"]{background:var(--cloud)}
+.flow__n[data-c="purple"]{background:var(--purple)}
+.flow__n[data-c="secure"]{background:var(--secure)}
+.flow__s h3{font-size:1.25rem;margin-bottom:10px;max-width:none}
+.flow__s p{font-size:15px;line-height:1.6;margin:0;color:var(--muted)}
+.hash{display:inline-block;margin-top:14px;font-family:ui-monospace,Menlo,monospace;
+  font-size:12px;color:var(--purple);background:var(--purple-soft);padding:7px 12px;border-radius:8px}
+.flow__badge{display:inline-block;margin-top:14px;font-size:12px;font-weight:600;
+  color:#07835C;background:var(--secure-soft);padding:7px 12px;border-radius:100px}
+
+/* ─────────── Blocs éditoriaux « Pourquoi » ─────────── */
+.why{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.04fr);
+  gap:clamp(48px,7vw,120px);align-items:center}
+.why + .why{margin-top:clamp(96px,13vw,200px)}
+.why.rev .why__v{order:-1}
+.why__n{display:flex;align-items:center;gap:12px;margin:0 0 22px;
+  font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.why__n span{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:10px;
+  background:var(--purple-soft);color:var(--purple);font-size:12px;letter-spacing:0;
+  font-variant-numeric:tabular-nums}
+.why__t h3{margin-bottom:20px}
+.why__t .lead{margin-bottom:30px}
+.why__chips{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 34px}
+.why__chips li{display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:500;
+  color:var(--ink);background:#fff;border:1px solid var(--line-soft);
+  padding:9px 16px;border-radius:100px}
+.why__chips li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--purple);flex:none}
+.why__chips li[data-c="cloud"]::before{background:var(--cloud)}
+.why__chips li[data-c="secure"]::before{background:var(--secure)}
+.why__chips li[data-c="collab"]::before{background:var(--collab)}
+.why__chips li[data-c="docs"]::before{background:var(--docs)}
+.why__chips li[data-c="star"]::before{background:var(--star)}
+.why__v{margin:0;display:flex;justify-content:center;min-width:0}
+.illu{width:100%;max-width:620px;height:auto;display:block}
+.illu .ground{fill:url(#gGround)}
+.illu .satlab{font:600 15px Inter,sans-serif;fill:#0A1025;letter-spacing:-.01em}
+.illu .float,.illu .sat{animation:drift var(--d,7s) ease-in-out infinite;
+  animation-delay:var(--dl,0s);transform-box:fill-box;transform-origin:center}
+.kicker{display:inline-block;font-size:12.5px;font-weight:600;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--purple);margin:0 0 18px}
+
 /* ==================== 4. LISTE D'AVANTAGES ==================== */
 .blurbs{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(30px,4vw,52px)}
 .blurb .ico{width:52px;height:52px;margin-bottom:18px}
@@ -206,7 +334,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .col__n{font-size:17px;font-weight:600;color:var(--ink);letter-spacing:-.02em;margin-bottom:4px}
 .col__s{font-size:13px;color:var(--muted);margin-bottom:22px}
 .col ul{display:flex;flex-direction:column;gap:0}
-.col li{display:flex;align-items:center;gap:11px;padding:11px 0;font-size:15px;border-top:1px solid rgba(0,0,0,.06)}
+.col li{display:flex;align-items:center;gap:10px;padding:13px 0;font-size:15px;border-top:1px solid var(--line-soft)}
 .col li:first-child{border-top:0}
 .col li svg{flex:none}
 .ok{color:#1D9A6C}.ko{color:#C4C4CC}
@@ -232,6 +360,21 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .quote b{display:block;color:var(--ink);font-weight:600}
 .quote em{font-style:normal;color:var(--muted);font-size:13px}
 .stars{display:flex;gap:2px;color:#F5A623;margin-bottom:16px}
+
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(28px,3.5vw,56px);
+  margin-bottom:clamp(64px,7vw,104px)}
+.pillar{position:relative;padding-top:34px;border-top:1px solid var(--line)}
+.pillar__k{position:absolute;top:0;left:0;transform:translateY(-50%);
+  background:var(--bg);padding-right:12px;
+  font-size:13px;font-weight:600;letter-spacing:.08em;color:var(--purple);
+  font-variant-numeric:tabular-nums}
+.section--alt .pillar__k{background:var(--bg-alt)}
+.pillar h3{font-size:clamp(1.25rem,1.1rem+.5vw,1.5rem);margin-bottom:12px;max-width:14ch}
+.pillar p{font-size:16px;line-height:1.6;margin:0;color:var(--muted);max-width:34ch}
+
+.verdict{flex:none;font-size:12px;font-weight:600;letter-spacing:.01em;
+  min-width:34px;color:var(--secure)}
+.verdict.no{color:var(--muted)}
 
 /* ==================== 8. CERTIFICATIONS ==================== */
 .certs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -260,13 +403,20 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .ftr__bot a:hover{color:var(--ink)}
 
 /* ————— Révélation, discrète ————— */
-.rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.9,.3,1)}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
 .rv.in{opacity:1;transform:none}
-.d1{transition-delay:.06s}.d2{transition-delay:.12s}.d3{transition-delay:.18s}
-.d4{transition-delay:.24s}.d5{transition-delay:.3s}
+.d1{transition-delay:.09s}.d2{transition-delay:.18s}.d3{transition-delay:.27s}
+.d4{transition-delay:.36s}.d5{transition-delay:.45s}
+@keyframes drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
 
 /* ==================== RESPONSIVE ==================== */
 @media(max-width:1023px){
+  .flow{grid-template-columns:repeat(2,1fr);gap:40px}
+  .flow::before{display:none}
+  .why{grid-template-columns:1fr;gap:44px}
+  .why.rev .why__v{order:0}
+  .illu{max-width:520px}
+  .pillars{grid-template-columns:1fr;gap:36px}
   .nav{display:none}
   .burger{display:grid}
   .hdr__r .sep{display:none}
@@ -279,7 +429,16 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .alt.rev .alt__v{order:0}
   .ftr__top{grid-template-columns:1fr 1fr}
 }
+@media(max-width:900px){
+  .app__body{grid-template-columns:1fr}
+  .app__side{display:none}
+  .app__top .chip,.app__top .faces{display:none}
+  .frow .perm{display:none}
+}
 @media(max-width:640px){
+  .flow{grid-template-columns:1fr;gap:32px}
+  .frow{gap:10px;padding:12px 6px}
+  .app__main{padding:16px 14px}
   .cards,.blurbs{grid-template-columns:1fr}
   .hero__cta .btn,.cta__b .btn{width:100%}
   .ftr__top{grid-template-columns:1fr;gap:28px}
@@ -296,6 +455,24 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
 <defs>
+
+  <linearGradient id="gPurple" x1=".1" y1="0" x2=".85" y2="1"><stop offset="0" stop-color="#8B62FF"/><stop offset="55%" stop-color="#753BFF"/><stop offset="100%" stop-color="#5B2EFF"/></linearGradient>
+  <linearGradient id="gPurpleDeep" x1=".1" y1="0" x2=".85" y2="1"><stop offset="0" stop-color="#6B3AFF"/><stop offset="100%" stop-color="#4423C4"/></linearGradient>
+  <linearGradient id="gCloud" x1=".15" y1="0" x2=".8" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="48%" stop-color="#DCEBFF"/><stop offset="100%" stop-color="#9CC6FF"/></linearGradient>
+  <linearGradient id="gDoc" x1=".1" y1="0" x2=".85" y2="1"><stop offset="0" stop-color="#7FB0FF"/><stop offset="100%" stop-color="#4F8CFF"/></linearGradient>
+  <linearGradient id="gDocs2" x1=".1" y1="0" x2=".85" y2="1"><stop offset="0" stop-color="#63B0FF"/><stop offset="100%" stop-color="#1687FF"/></linearGradient>
+  <linearGradient id="gSecure" x1=".1" y1="0" x2=".85" y2="1"><stop offset="0" stop-color="#43D9A6"/><stop offset="100%" stop-color="#10B981"/></linearGradient>
+  <linearGradient id="gCollab" x1=".1" y1="0" x2=".85" y2="1"><stop offset="0" stop-color="#AC8CFF"/><stop offset="100%" stop-color="#8B5CF6"/></linearGradient>
+  <linearGradient id="gShield" x1=".12" y1="0" x2=".82" y2="1"><stop offset="0" stop-color="#2ED2A0"/><stop offset="46%" stop-color="#4B7BFF"/><stop offset="100%" stop-color="#5B2EFF"/></linearGradient>
+  <linearGradient id="gScreen" x1="0" y1="0" x2=".7" y2="1"><stop offset="0" stop-color="#1B2140"/><stop offset="100%" stop-color="#0E1330"/></linearGradient>
+  <linearGradient id="gGloss" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".34"/><stop offset="52%" stop-color="#fff" stop-opacity="0"/></linearGradient>
+  <linearGradient id="gGlass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset="100%" stop-color="#fff" stop-opacity=".3"/></linearGradient>
+  <radialGradient id="gGround" cx=".5" cy=".5" r=".5">
+    <stop offset="0" stop-color="#0A1025" stop-opacity=".13"/>
+    <stop offset="55%" stop-color="#0A1025" stop-opacity=".05"/>
+    <stop offset="100%" stop-color="#0A1025" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="gPath" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5B2EFF" stop-opacity=".45"/><stop offset="100%" stop-color="#1687FF" stop-opacity=".2"/></linearGradient>
   <linearGradient id="gv" x1="0" y1="0" x2=".7" y2="1"><stop offset="0" stop-color="#7C4DFF"/><stop offset="100%" stop-color="#5B21B6"/></linearGradient>
   <linearGradient id="gvl" x1="0" y1="0" x2=".7" y2="1"><stop offset="0" stop-color="#9B72FF"/><stop offset="100%" stop-color="#6D3BE8"/></linearGradient>
   <linearGradient id="gb" x1="0" y1="0" x2=".7" y2="1"><stop offset="0" stop-color="#4E96FF"/><stop offset="100%" stop-color="#1D4ED8"/></linearGradient>
@@ -632,6 +809,100 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   </div>
 </section>
 
+
+<!-- ==================== DIV DRIVE ==================== -->
+<section class="section" id="drive">
+  <div class="wrap">
+    <div class="head center">
+      <p class="kicker rv">DIV Drive · Disponible</p>
+      <h2 class="rv d1">Un vrai logiciel, pas une promesse</h2>
+      <p class="lead rv d2">Fichiers, dossiers, permissions, recherche et collaboration. Tout ce que vos équipes attendent d'un drive — avec le chiffrement en dessous.</p>
+    </div>
+
+    <div class="app rv d1" role="img" aria-label="Interface de DIV Drive : arborescence de projets, recherche sur index chiffré, liste de fichiers avec rôles et chiffrement de bout en bout, et un transfert en cours.">
+      <div class="app__bar">
+        <span class="dot" style="background:#FF5F57"></span><span class="dot" style="background:#FEBC2E"></span><span class="dot" style="background:#28C840"></span>
+        <span class="app__url">drive.divprotocol.com</span>
+      </div>
+      <div class="app__body">
+        <aside class="app__side">
+          <p class="side-h">Espace</p>
+          <span class="navi is-on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Mes fichiers<em>248</em></span>
+          <span class="navi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/></svg>Partagés<em>36</em></span>
+          <span class="navi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Récents</span>
+          <p class="side-h">Projets</p>
+          <span class="navi"><i style="background:var(--purple)"></i>Cession Delmas</span>
+          <span class="navi"><i style="background:var(--cloud)"></i>Contentieux 2026</span>
+          <span class="navi"><i style="background:var(--star)"></i>Due diligence</span>
+        </aside>
+
+        <div class="app__main">
+          <div class="app__top">
+            <span class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span>Rechercher par nom, type, date, auteur…</span></span>
+            <span class="chip chip--secure">Index chiffré</span>
+            <span class="faces"><i style="background:var(--purple)">GB</i><i style="background:var(--cloud)">RD</i><i style="background:var(--collab)">SD</i><i class="more">+2</i></span>
+          </div>
+          <p class="crumb">Projets <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 6l6 6-6 6"/></svg> <b>Cession Delmas</b></p>
+
+          <div class="frow"><span class="ftype" style="background:var(--docs)">PDF</span>
+            <span class="ftxt"><b>Acte_de_cession_2026.pdf</b><span>2,4 Mo · Gaspard B. · il y a 12 min</span></span>
+            <span class="perm">Édition</span><span class="e2e">Chiffré E2E</span></div>
+          <div class="frow"><span class="ftype" style="background:var(--secure)">XLS</span>
+            <span class="ftxt"><b>Due_diligence_financiere.xlsx</b><span>870 Ko · Solan D. · hier</span></span>
+            <span class="perm perm--read">Lecture</span><span class="e2e">Chiffré E2E</span></div>
+          <div class="frow"><span class="ftype" style="background:var(--collab)">DOC</span>
+            <span class="ftxt"><b>Note_confidentielle_client.docx</b><span>124 Ko · accès restreint · 2 personnes</span></span>
+            <span class="perm perm--read">Lecture</span><span class="e2e">Chiffré E2E</span></div>
+          <div class="frow"><span class="ftype" style="background:var(--cloud)">ZIP</span>
+            <span class="ftxt"><b>Archives_dossier_2025.zip</b><span>1,2 Go · réparti sur plusieurs hébergeurs UE</span></span>
+            <span class="perm">Édition</span><span class="e2e">Chiffré E2E</span></div>
+
+          <div class="upload">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+            <b>Chiffrement &amp; envoi</b><span class="bar"><i></i></span><span class="pct">1 fichier</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== DIV CHECK ==================== -->
+<section class="section section--alt" id="check">
+  <div class="wrap">
+    <div class="head center">
+      <p class="kicker rv">DIV Check</p>
+      <h2 class="rv d1">Du document au certificat opposable</h2>
+      <p class="lead rv d2">Chaque action devient une preuve : empreinte calculée chez vous, horodatage public, certificat vérifiable par un tiers — sans jamais divulguer le contenu.</p>
+    </div>
+
+    <ol class="flow">
+      <li class="flow__s rv">
+        <span class="flow__n" data-c="docs">1</span>
+        <h3>Document</h3>
+        <p>Le fichier reste sur votre poste. Rien n'est transmis.</p>
+      </li>
+      <li class="flow__s rv d1">
+        <span class="flow__n" data-c="cloud">2</span>
+        <h3>Empreinte</h3>
+        <p>Une empreinte cryptographique est calculée dans votre navigateur.</p>
+        <code class="hash">a3f5e9c1…c30e7bd</code>
+      </li>
+      <li class="flow__s rv d2">
+        <span class="flow__n" data-c="purple">3</span>
+        <h3>Ancrage</h3>
+        <p>Seule l'empreinte est horodatée dans un registre public immuable.</p>
+      </li>
+      <li class="flow__s rv d3">
+        <span class="flow__n" data-c="secure">4</span>
+        <h3>Certificat</h3>
+        <p>Un certificat autoportant, vérifiable sans compte DIV.</p>
+        <span class="flow__badge">Preuve d'intégrité · Antériorité certaine</span>
+      </li>
+    </ol>
+  </div>
+</section>
+
 <!-- ==================== SÉCURITÉ ==================== -->
 <section class="section" id="securite">
   <div class="wrap">
@@ -645,7 +916,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       <div class="alt__v rv d1">
         <div class="alt__grid">
           <div class="mini"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><use href="#s-chiffrement"/></svg><b>Chiffrement E2E</b><span>Clé locale uniquement</span></div>
-          <div class="mini"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><use href="#s-serveur"/></svg><b>3 hébergeurs UE</b><span>Fragments répartis</span></div>
+          <div class="mini"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><use href="#s-serveur"/></svg><b>Multi-hébergeurs</b><span>Fragments répartis</span></div>
           <div class="mini"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><use href="#s-acces"/></svg><b>Permissions fines</b><span>Par rôle et dossier</span></div>
           <div class="mini"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><use href="#s-reseau"/></svg><b>Hors Cloud Act</b><span>Juridiction européenne</span></div>
         </div>
@@ -658,44 +929,203 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 <section class="section section--alt" id="pourquoi">
   <div class="wrap">
     <div class="head center">
-      <h2 class="rv">Pourquoi choisir DIV Protocol ?</h2>
+      <p class="kicker rv">Pourquoi DIV</p>
+      <h2 class="rv d1">Quatre raisons de reprendre la main sur vos documents</h2>
     </div>
 
-    <div class="alt">
-      <div class="alt__t rv">
+    <!-- ───────── 01 · Espace ───────── -->
+    <article class="why">
+      <div class="why__t rv">
+        <p class="why__n"><span>01</span> Capacité</p>
         <h3>Ne soyez jamais à court d'espace</h3>
-        <p class="lead">Commencez avec 20 Go chiffrés gratuits, puis montez jusqu'à 5 To par utilisateur. L'offre Entreprise est facturée au stockage réellement consommé — et le chiffrement n'est jamais une option payante.</p>
-        <a href="#tarifs" class="link">Voir nos abonnements <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <p class="lead">Le stockage suit la croissance de vos dossiers, sans que le chiffrement devienne jamais une option payante. Il est inclus par défaut, sur chaque fichier, dès le premier octet.</p>
+        <ul class="why__chips">
+          <li data-c="cloud">Stockage chiffré</li>
+          <li data-c="docs">Tous formats</li>
+          <li data-c="purple">Chiffrement inclus</li>
+        </ul>
+        <a href="#produits" class="link">Découvrir DIV Drive <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
-      <div class="alt__v rv d1"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><use href="#s-importer"/></svg></div>
-    </div>
 
-    <div class="alt rev">
-      <div class="alt__t rv">
+      <figure class="why__v rv d1">
+        <svg class="illu" viewBox="0 0 640 520" role="img" aria-labelledby="i1t">
+          <title id="i1t">Un nuage de stockage au-dessus d'un dossier DIV ouvert, d'où s'échappent deux documents chiffrés.</title>
+          <ellipse class="ground" cx="330" cy="452" rx="176" ry="26"/>
+          <!-- nuage -->
+          <g class="float" style="--d:7s">
+            <path d="M214 168a58 58 0 0 1 6-114 78 78 0 0 1 148-14 56 56 0 0 1 10 111z" fill="url(#gCloud)"/>
+            <path d="M226 60a78 78 0 0 1 138 12 56 56 0 0 1 14 6c-14-8-30-9-44-4-14-30-48-46-80-36-12 4-22 12-28 22z" fill="#fff" opacity=".62"/>
+            <path d="M296 92v66M270 122l26-30 26 30" fill="none" stroke="#fff" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+          <!-- documents -->
+          <g class="float" style="--d:8.5s;--dl:-2.4s">
+            <rect x="404" y="150" width="112" height="140" rx="18" fill="url(#gDoc)"/>
+            <rect x="404" y="150" width="112" height="140" rx="18" fill="url(#gGloss)"/>
+            <rect x="428" y="188" width="64" height="9" rx="4.5" fill="#fff" opacity=".85"/>
+            <rect x="428" y="210" width="64" height="9" rx="4.5" fill="#fff" opacity=".6"/>
+            <rect x="428" y="232" width="38" height="9" rx="4.5" fill="#fff" opacity=".45"/>
+          </g>
+          <g class="float" style="--d:9.5s;--dl:-4.8s">
+            <rect x="126" y="196" width="96" height="120" rx="16" fill="url(#gDocs2)"/>
+            <rect x="126" y="196" width="96" height="120" rx="16" fill="url(#gGloss)"/>
+            <rect x="148" y="228" width="52" height="8" rx="4" fill="#fff" opacity=".8"/>
+            <rect x="148" y="248" width="52" height="8" rx="4" fill="#fff" opacity=".55"/>
+          </g>
+          <!-- dossier DIV -->
+          <g class="float" style="--d:6.5s;--dl:-1.2s">
+            <path d="M186 300a26 26 0 0 1 26-26h74l26 32h124a26 26 0 0 1 26 26v14H186z" fill="url(#gPurpleDeep)"/>
+            <path d="M186 336h250a20 20 0 0 1 20 20v56a26 26 0 0 1-26 26H212a26 26 0 0 1-26-26z" fill="url(#gPurple)"/>
+            <path d="M186 336h250a20 20 0 0 1 20 20v10H186z" fill="#fff" opacity=".16"/>
+            <path d="M232 384h44M232 402h72" stroke="#fff" stroke-width="8" stroke-linecap="round" opacity=".5"/>
+          </g>
+        </svg>
+      </figure>
+    </article>
+
+    <!-- ───────── 02 · Partage ───────── -->
+    <article class="why rev">
+      <div class="why__t rv">
+        <p class="why__n"><span>02</span> Partage</p>
         <h3>Partagez avec n'importe qui, même sans compte</h3>
         <p class="lead">Un lien à expiration, protégé par mot de passe, en lecture seule ou en édition. Votre confrère ouvre le document sans créer de compte, et l'accès se referme tout seul.</p>
-        <a href="#confiance" class="link">En savoir plus sur le partage <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <ul class="why__chips">
+          <li data-c="star">Expiration</li>
+          <li data-c="secure">Mot de passe</li>
+          <li data-c="collab">Permissions</li>
+        </ul>
+        <a href="#fonctions" class="link">Voir toutes les fonctions <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
-      <div class="alt__v rv d1"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><use href="#s-lien"/></svg></div>
-    </div>
 
-    <div class="alt">
-      <div class="alt__t rv">
+      <figure class="why__v rv d1">
+        <svg class="illu" viewBox="0 0 640 520" role="img" aria-labelledby="i2t">
+          <title id="i2t">Un dossier produit un fichier, converti en lien sécurisé, qui atteint un destinataire externe.</title>
+          <ellipse class="ground" cx="320" cy="470" rx="150" ry="22"/>
+          <path d="M196 132c0 60 248 46 248 116s-176 62-176 122" fill="none" stroke="url(#gPath)" stroke-width="3" stroke-dasharray="2 12" stroke-linecap="round"/>
+          <!-- dossier source -->
+          <g class="float" style="--d:7.5s">
+            <path d="M120 96a22 22 0 0 1 22-22h48l18 24h74a22 22 0 0 1 22 22v10H120z" fill="url(#gPurpleDeep)"/>
+            <path d="M120 126h164a16 16 0 0 1 16 16v34a22 22 0 0 1-22 22H142a22 22 0 0 1-22-22z" fill="url(#gPurple)"/>
+            <path d="M120 126h164a16 16 0 0 1 16 16v7H120z" fill="#fff" opacity=".18"/>
+          </g>
+          <!-- fichier -->
+          <g class="float" style="--d:8s;--dl:-2s">
+            <rect x="386" y="150" width="94" height="118" rx="16" fill="url(#gDoc)"/>
+            <rect x="386" y="150" width="94" height="118" rx="16" fill="url(#gGloss)"/>
+            <rect x="406" y="182" width="54" height="8" rx="4" fill="#fff" opacity=".85"/>
+            <rect x="406" y="202" width="54" height="8" rx="4" fill="#fff" opacity=".6"/>
+            <rect x="406" y="222" width="32" height="8" rx="4" fill="#fff" opacity=".45"/>
+          </g>
+          <!-- lien sécurisé -->
+          <g class="float" style="--d:6.8s;--dl:-3.6s">
+            <rect x="196" y="256" width="252" height="72" rx="32" fill="#fff" stroke="rgba(10,16,37,.08)"/>
+            <rect x="196" y="256" width="252" height="72" rx="32" fill="url(#gGlass)"/>
+            <circle cx="238" cy="292" r="20" fill="url(#gSecure)"/>
+            <path d="M232 292l5 5 9-10" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="272" y="278" width="118" height="9" rx="4.5" fill="#0A1025" opacity=".16"/>
+            <rect x="272" y="296" width="74" height="9" rx="4.5" fill="#0A1025" opacity=".1"/>
+            <path d="M412 285v-6a10 10 0 0 1 20 0v6" fill="none" stroke="var(--purple)" stroke-width="4"/>
+            <rect x="408" y="284" width="28" height="20" rx="6" fill="var(--purple)"/>
+          </g>
+          <!-- destinataire -->
+          <g class="float" style="--d:9s;--dl:-1.4s">
+            <rect x="212" y="366" width="216" height="86" rx="26" fill="#fff" stroke="rgba(10,16,37,.08)"/>
+            <circle cx="258" cy="409" r="24" fill="url(#gCollab)"/>
+            <circle cx="258" cy="402" r="8.5" fill="#fff"/>
+            <path d="M244 424a15 15 0 0 1 28 0z" fill="#fff"/>
+            <rect x="296" y="396" width="96" height="9" rx="4.5" fill="#0A1025" opacity=".18"/>
+            <rect x="296" y="414" width="62" height="9" rx="4.5" fill="#0A1025" opacity=".1"/>
+          </g>
+        </svg>
+      </figure>
+    </article>
+
+    <!-- ───────── 03 · Contrôle ───────── -->
+    <article class="why">
+      <div class="why__t rv">
+        <p class="why__n"><span>03</span> Contrôle</p>
         <h3>Gardez le contrôle de vos données</h3>
-        <p class="lead">Accorder un accès limité ou complet, empêcher un nouvel arrivant de lire l'historique, révoquer en un clic : vos données vous appartiennent. C'est notre promesse principale, et elle est technique avant d'être contractuelle.</p>
-        <a href="#confiance" class="link">En savoir plus <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <p class="lead">Accorder un accès limité ou complet, empêcher un nouvel arrivant de lire l'historique, révoquer en un clic : vos données vous appartiennent. C'est une garantie technique avant d'être contractuelle.</p>
+        <ul class="why__chips">
+          <li data-c="secure">Chiffrement</li>
+          <li data-c="collab">Permissions</li>
+          <li data-c="purple">Identité</li>
+          <li data-c="docs">Contrôle d'accès</li>
+        </ul>
+        <a href="#certifications" class="link">Voir nos certifications <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
-      <div class="alt__v rv d1"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><use href="#s-securite"/></svg></div>
-    </div>
 
-    <div class="alt rev">
-      <div class="alt__t rv">
-        <h3>Travaillez sans friction sur tous vos appareils</h3>
+      <figure class="why__v rv d1">
+        <svg class="illu" viewBox="0 0 640 520" role="img" aria-labelledby="i3t">
+          <title id="i3t">L'emblème DIV au centre, entouré du chiffrement, des permissions, de l'identité et du contrôle d'accès.</title>
+          <ellipse class="ground" cx="320" cy="462" rx="132" ry="20"/>
+          <circle cx="320" cy="256" r="196" fill="none" stroke="rgba(10,16,37,.06)" stroke-dasharray="2 12"/>
+          <circle cx="320" cy="256" r="146" fill="none" stroke="rgba(10,16,37,.05)" stroke-dasharray="2 12"/>
+          <!-- emblème DIV : bouclier propriétaire, pas un cadenas -->
+          <g class="float" style="--d:7.2s">
+            <path d="M320 100l112 44v92c0 74-54 118-112 138-58-20-112-64-112-138v-92z" fill="url(#gShield)"/>
+            <path d="M320 100l112 44v34c-34-22-72-33-112-33s-78 11-112 33v-34z" fill="#fff" opacity=".2"/>
+            <path d="M272 190h32a44 44 0 0 1 0 88h-32z" fill="#fff" opacity=".94"/>
+            <path d="M296 210h10a24 24 0 0 1 0 48h-10z" fill="url(#gShield)"/>
+            <path d="M330 190h26l16 52 16-52h26l-30 88h-24z" fill="#fff" opacity=".94"/>
+          </g>
+          <!-- satellites -->
+          <g class="sat" style="--d:8.4s;--dl:-1s"><rect x="52" y="176" width="128" height="52" rx="20" fill="#fff" stroke="rgba(10,16,37,.08)"/><circle cx="80" cy="202" r="11" fill="var(--secure)"/><text class="satlab" x="100" y="207">Chiffrement</text></g>
+          <g class="sat" style="--d:9.2s;--dl:-2.6s"><rect x="60" y="300" width="118" height="52" rx="20" fill="#fff" stroke="rgba(10,16,37,.08)"/><circle cx="88" cy="326" r="11" fill="var(--collab)"/><text class="satlab" x="108" y="331">Permissions</text></g>
+          <g class="sat" style="--d:7.8s;--dl:-4.2s"><rect x="462" y="164" width="126" height="52" rx="20" fill="#fff" stroke="rgba(10,16,37,.08)"/><circle cx="490" cy="190" r="11" fill="var(--purple)"/><text class="satlab" x="510" y="195">Identité</text></g>
+          <g class="sat" style="--d:8.8s;--dl:-3.1s"><rect x="470" y="292" width="132" height="52" rx="20" fill="#fff" stroke="rgba(10,16,37,.08)"/><circle cx="498" cy="318" r="11" fill="var(--docs)"/><text class="satlab" x="518" y="323">Documents</text></g>
+          <g class="sat" style="--d:9.6s;--dl:-5.5s"><rect x="238" y="410" width="164" height="52" rx="20" fill="#fff" stroke="rgba(10,16,37,.08)"/><circle cx="266" cy="436" r="11" fill="var(--star)"/><text class="satlab" x="286" y="441">Contrôle d'accès</text></g>
+        </svg>
+      </figure>
+    </article>
+
+    <!-- ───────── 04 · Appareils ───────── -->
+    <article class="why rev">
+      <div class="why__t rv">
+        <p class="why__n"><span>04</span> Mobilité</p>
+        <h3>Travaillez partout, sans perdre le contrôle</h3>
         <p class="lead">Web, ordinateur, mobile : la synchronisation réplique vos modifications en temps réel, chiffrées à chaque étape. Vous travaillez toujours sur la dernière version, où que vous soyez.</p>
+        <ul class="why__chips">
+          <li data-c="cloud">Synchronisation</li>
+          <li data-c="secure">Chiffré en transit</li>
+          <li data-c="docs">Toujours à jour</li>
+        </ul>
         <a href="#contact" class="link">Demander une démo <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
-      <div class="alt__v rv d1"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><use href="#s-appareils"/></svg></div>
-    </div>
+
+      <figure class="why__v rv d1">
+        <svg class="illu" viewBox="0 0 640 520" role="img" aria-labelledby="i4t">
+          <title id="i4t">Un ordinateur et un téléphone synchronisés en continu avec le nuage DIV.</title>
+          <ellipse class="ground" cx="320" cy="466" rx="192" ry="24"/>
+          <path d="M226 176a132 132 0 0 1 200 22" fill="none" stroke="url(#gPath)" stroke-width="3" stroke-dasharray="2 11" stroke-linecap="round"/>
+          <path d="M470 306a150 150 0 0 1-152 96" fill="none" stroke="url(#gPath)" stroke-width="3" stroke-dasharray="2 11" stroke-linecap="round"/>
+          <!-- nuage -->
+          <g class="float" style="--d:7.4s">
+            <path d="M280 128a40 40 0 0 1 4-79 54 54 0 0 1 102-10 39 39 0 0 1 7 77z" fill="url(#gCloud)"/>
+            <path d="M338 58v52M320 78l18-20 18 20" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+          <!-- ordinateur -->
+          <g class="float" style="--d:8.6s;--dl:-2.2s">
+            <rect x="92" y="196" width="316" height="204" rx="24" fill="#0A1025"/>
+            <rect x="104" y="208" width="292" height="168" rx="14" fill="url(#gScreen)"/>
+            <rect x="128" y="238" width="88" height="10" rx="5" fill="#fff" opacity=".5"/>
+            <rect x="128" y="266" width="240" height="9" rx="4.5" fill="#fff" opacity=".28"/>
+            <rect x="128" y="290" width="240" height="9" rx="4.5" fill="#fff" opacity=".2"/>
+            <rect x="128" y="314" width="152" height="9" rx="4.5" fill="#fff" opacity=".14"/>
+            <rect x="176" y="400" width="148" height="12" rx="6" fill="#0A1025" opacity=".5"/>
+          </g>
+          <!-- téléphone -->
+          <g class="float" style="--d:6.9s;--dl:-4.4s">
+            <rect x="426" y="248" width="122" height="196" rx="28" fill="#0A1025"/>
+            <rect x="436" y="258" width="102" height="176" rx="20" fill="url(#gScreen)"/>
+            <rect x="452" y="284" width="46" height="9" rx="4.5" fill="#fff" opacity=".5"/>
+            <rect x="452" y="308" width="70" height="8" rx="4" fill="#fff" opacity=".26"/>
+            <rect x="452" y="328" width="70" height="8" rx="4" fill="#fff" opacity=".2"/>
+            <circle cx="487" cy="392" r="20" fill="url(#gSecure)"/>
+            <path d="M479 392l6 6 11-12" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+        </svg>
+      </figure>
+    </article>
   </div>
 </section>
 
@@ -712,7 +1142,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       <div class="blurb rv d1"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><use href="#s-sync"/></svg>
         <h4>Synchronisation continue</h4><p>Un dossier local identique sur tous les postes de l'équipe, avec résolution des conflits et détection des modifications concurrentes.</p></div>
       <div class="blurb rv d2"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><use href="#s-historique"/></svg>
-        <h4>Versionnage 90 jours</h4><p>Chaque enregistrement crée une version chiffrée. Comparez, restaurez, ou produisez l'état exact d'un document à une date donnée.</p></div>
+        <h4>Historique des versions</h4><p>Chaque enregistrement crée une version chiffrée. Comparez, restaurez, ou produisez l'état exact d'un document à une date donnée.</p></div>
       <div class="blurb rv"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><use href="#s-equipe"/></svg>
         <h4>Rôles et permissions</h4><p>Lecture seule ou édition, par dossier ou par document. Les droits suivent vos règles internes, pas l'inverse.</p></div>
       <div class="blurb rv d1"><svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><use href="#s-partager"/></svg>
@@ -732,36 +1162,36 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     </div>
     <div class="compare">
       <div class="col us rv">
-        <p class="col__n">DIV Protocol</p><p class="col__s">Suite DIV · 19 € / utilisateur / mois</p>
+        <p class="col__n">DIV Protocol</p><p class="col__s">Suite DIV — Drive et Check réunis</p>
         <ul>
-          <li><svg class="ok" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Chiffrement bout en bout par défaut</span></li>
-          <li><svg class="ok" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Clé détenue par le client seul</span></li>
-          <li><svg class="ok" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Hors juridiction du Cloud Act</span></li>
-          <li><svg class="ok" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Stockage réparti sur 3 hébergeurs UE</span></li>
-          <li><svg class="ok" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Preuve d'antériorité ancrée</span></li>
-          <li><svg class="ok" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Adapté au secret professionnel</span></li>
+          <li><svg class="ok" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b class="verdict">Oui</b><span>Chiffrement bout en bout par défaut</span></li>
+          <li><svg class="ok" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b class="verdict">Oui</b><span>Clé détenue par le client seul</span></li>
+          <li><svg class="ok" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b class="verdict">Oui</b><span>Hors juridiction du Cloud Act</span></li>
+          <li><svg class="ok" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b class="verdict">Oui</b><span>Stockage réparti sur plusieurs hébergeurs UE</span></li>
+          <li><svg class="ok" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b class="verdict">Oui</b><span>Preuve d'antériorité ancrée</span></li>
+          <li><svg class="ok" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b class="verdict">Oui</b><span>Adapté au secret professionnel</span></li>
         </ul>
       </div>
       <div class="col rv d1">
         <p class="col__n">Google Workspace</p><p class="col__s">Business Standard</p>
         <ul>
-          <li><svg class="ko" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Chiffrement bout en bout par défaut</span></li>
-          <li><svg class="ko" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Clé détenue par le client seul</span></li>
-          <li><svg class="ko" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Hors juridiction du Cloud Act</span></li>
-          <li><svg class="ko" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Stockage réparti sur 3 hébergeurs UE</span></li>
-          <li><svg class="ko" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Preuve d'antériorité ancrée</span></li>
-          <li><svg class="ko" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Adapté au secret professionnel</span></li>
+          <li><svg class="ko" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><b class="verdict no">Non</b><span>Chiffrement bout en bout par défaut</span></li>
+          <li><svg class="ko" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><b class="verdict no">Non</b><span>Clé détenue par le client seul</span></li>
+          <li><svg class="ko" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><b class="verdict no">Non</b><span>Hors juridiction du Cloud Act</span></li>
+          <li><svg class="ko" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><b class="verdict no">Non</b><span>Stockage réparti sur plusieurs hébergeurs UE</span></li>
+          <li><svg class="ko" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><b class="verdict no">Non</b><span>Preuve d'antériorité ancrée</span></li>
+          <li><svg class="ko" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><b class="verdict no">Non</b><span>Adapté au secret professionnel</span></li>
         </ul>
       </div>
       <div class="col rv d2">
         <p class="col__n">Microsoft 365</p><p class="col__s">Business Premium</p>
         <ul>
-          <li><svg class="ko" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Chiffrement bout en bout par défaut</span></li>
-          <li><svg class="ko" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Clé détenue par le client seul <em style="color:var(--muted);font-style:normal">(option)</em></span></li>
-          <li><svg class="ko" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Hors juridiction du Cloud Act</span></li>
-          <li><svg class="ko" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Stockage réparti sur 3 hébergeurs UE</span></li>
-          <li><svg class="ko" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Preuve d'antériorité ancrée</span></li>
-          <li><svg class="ko" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Adapté au secret professionnel</span></li>
+          <li><svg class="ko" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><b class="verdict no">Non</b><span>Chiffrement bout en bout par défaut</span></li>
+          <li><svg class="ko" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><b class="verdict no">Non</b><span>Clé détenue par le client seul <em style="color:var(--muted);font-style:normal">(option)</em></span></li>
+          <li><svg class="ko" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><b class="verdict no">Non</b><span>Hors juridiction du Cloud Act</span></li>
+          <li><svg class="ko" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><b class="verdict no">Non</b><span>Stockage réparti sur plusieurs hébergeurs UE</span></li>
+          <li><svg class="ko" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><b class="verdict no">Non</b><span>Preuve d'antériorité ancrée</span></li>
+          <li><svg class="ko" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><b class="verdict no">Non</b><span>Adapté au secret professionnel</span></li>
         </ul>
       </div>
     </div>
@@ -791,11 +1221,25 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       <p class="lead rv d1">Cabinets d'avocats, études notariales et directions juridiques qui ont quitté une suite américaine.</p>
     </div>
 
-    <div class="counters">
-      <div class="counter rv"><b data-to="100" data-suffix="&nbsp;%">0</b><span>des données hébergées en Europe</span></div>
-      <div class="counter rv d1"><b data-to="3">0</b><span>hébergeurs européens distincts</span></div>
-      <div class="counter rv d2"><b data-to="0">0</b><span>clé de déchiffrement chez nous</span></div>
-      <div class="counter rv d3"><b data-to="256" data-suffix="&nbsp;bits">0</b><span>de chiffrement AES côté client</span></div>
+    <!-- Aucune statistique chiffrée : DIV Protocol n'en publie pas.
+         Ces trois principes sont repris tels quels de divprotocol.com. -->
+    <div class="pillars">
+      <div class="pillar rv">
+        <span class="pillar__k" aria-hidden="true">01</span>
+        <h3>Zéro lecture sans accord</h3>
+        <p>La clé de chiffrement est exclusivement en votre possession. Vous seul y avez accès.</p>
+      </div>
+      <div class="pillar rv d1">
+        <span class="pillar__k" aria-hidden="true">02</span>
+        <h3>Zéro point unique</h3>
+        <p>Les fichiers sont distribués sur plusieurs hébergeurs distincts, pour la protection comme pour la disponibilité.</p>
+      </div>
+      <div class="pillar rv d2">
+        <span class="pillar__k" aria-hidden="true">03</span>
+        <h3>Zéro donnée en notre possession</h3>
+        <p>Nous ne conservons aucune information permettant de déchiffrer ou d'accéder aux données.</p>
+      </div>
+    </div>
     </div>
 
     <div class="quotes">
