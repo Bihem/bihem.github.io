@@ -379,9 +379,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @keyframes drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
 
 /* ==================== RESPONSIVE ==================== */
-.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.quote{background:var(--card);border-radius:var(--r-card);padding:30px 28px;display:flex;flex-direction:column}
-.quote p{font-size:17px;line-height:1.65;color:var(--ink-2);margin:0 0 22px;flex:1}
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(36px,4.5vw,76px)}
+.quote{display:flex;flex-direction:column}
+.quote p{font-size:17.5px;line-height:1.7;color:var(--ink);margin:0 0 24px;flex:1}
 .quote footer{font-size:14px}
 .quote b{display:block;color:var(--ink);font-weight:600}
 .quote em{font-style:normal;color:var(--muted);font-size:13px}
@@ -649,8 +649,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
     <figure class="dfig rv d1">
     <picture>
-      <source srcset="drive/illustration.webp" type="image/webp">
-      <img src="drive/illustration.png" width="1586" height="992" decoding="async"
+      <img src="drive/illustration.webp" width="1586" height="992" decoding="async"
            alt="DIV Drive : un dossier chiffré entouré de ses fichiers, du partage sécurisé, de la collaboration, des liens personnalisés et de l'accès multi-appareils.">
     </picture>
   </figure>
@@ -827,7 +826,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 </section>
 
 <!-- ==================== AVIS CLIENTS ==================== -->
-<section class="section section--alt" id="avis">
+<section class="section" id="avis">
   <div class="wrap">
     <div class="quotes">
       <figure class="quote rv" style="margin:0">
