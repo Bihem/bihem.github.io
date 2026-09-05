@@ -42,18 +42,30 @@
   });
 
   var E = "power3.out";
-  /* la séquence se rejoue à chaque fois que la section revient dans le champ */
-  var tl = gsap.timeline({
-    paused: true,
-    defaults: { ease: E },
-    scrollTrigger: {
-      trigger: root, start: "top 78%", end: "bottom 12%",
-      onEnter:      function () { tl.play(0); },
-      onEnterBack:  function () { tl.play(0); },
-      onLeave:      function () { tl.pause(0); },
-      onLeaveBack:  function () { tl.pause(0); }
-    }
-  });
+  var tl = gsap.timeline({ paused: true, defaults: { ease: E } });
+
+  /* Déclenchement dès que l'illustration entre dans le champ.
+     Aucune remise à zéro tant qu'elle est visible : sinon elle repasserait
+     au blanc sous les yeux du lecteur. Elle ne se réarme qu'une fois
+     ressortie par le bas de l'écran. */
+  var armed = true;
+  new IntersectionObserver(function (ents) {
+    ents.forEach(function (en) {
+      if (en.isIntersecting) {
+        if (armed) { armed = false; tl.play(0); }
+      } else if (en.boundingClientRect.top > 0) {
+        armed = true; tl.pause(0);
+      }
+    });
+  }, { threshold: 0.04 }).observe(root);
+
+  /* Filet de sécurité : si la séquence n'a pas démarré alors que la section
+     est à l'écran, on affiche tout plutôt que de laisser une zone blanche. */
+  setInterval(function () {
+    if (tl.progress() > 0) return;
+    var r = root.getBoundingClientRect();
+    if (r.bottom > 0 && r.top < window.innerHeight) tl.play(0);
+  }, 1200);
 
   /* 1 · le dossier arrive */
   tl.to(pick(["ground"]), { opacity: 1, duration: .9, ease: "power2.out" }, 0)
