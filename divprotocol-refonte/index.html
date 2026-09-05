@@ -276,25 +276,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @keyframes up{0%{width:10%}70%{width:92%}100%{width:10%}}
 .upload .pct{font-size:12px;color:var(--muted);white-space:nowrap}
 
-/* ─────────── DIV Check : progression ─────────── */
-.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(24px,3vw,44px);
-  list-style:none;padding:0;margin:0;position:relative}
-.flow::before{content:"";position:absolute;top:26px;left:11%;right:11%;height:2px;
-  background:linear-gradient(90deg,var(--docs),var(--cloud),var(--purple),var(--secure));opacity:.3}
-.flow__s{position:relative}
-.flow__n{display:grid;place-items:center;width:52px;height:52px;border-radius:18px;
-  color:#fff;font-size:18px;font-weight:650;margin-bottom:24px;position:relative;z-index:1;
-  box-shadow:0 6px 18px rgba(10,16,37,.14)}
-.flow__n[data-c="docs"]{background:var(--docs)}
-.flow__n[data-c="cloud"]{background:var(--cloud)}
-.flow__n[data-c="purple"]{background:var(--purple)}
-.flow__n[data-c="secure"]{background:var(--secure)}
-.flow__s h3{font-size:1.5rem;margin-bottom:12px;max-width:none}
-.flow__s p{font-size:16.5px;line-height:1.62;margin:0;color:var(--muted)}
+
 .hash{display:inline-block;margin-top:14px;font-family:ui-monospace,Menlo,monospace;
   font-size:12px;color:var(--purple);background:var(--purple-soft);padding:7px 12px;border-radius:8px}
-.flow__badge{display:inline-block;margin-top:14px;font-size:12px;font-weight:600;
-  color:#07835C;background:var(--secure-soft);padding:7px 12px;border-radius:100px}
 
 /* ─────────── Blocs éditoriaux « Pourquoi » ─────────── */
 .why{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.04fr);
@@ -343,18 +327,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .blurb p{font-size:17px;line-height:1.62;margin:0;color:var(--muted)}
 
 /* ==================== 5. COMPARATIF ==================== */
-.compare{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
-.col{background:var(--card);border-radius:var(--r-card);padding:32px 28px;display:flex;flex-direction:column}
-.col.us{background:var(--bg);border:1.5px solid var(--ink)}
-.section--alt .col.us{background:var(--bg-alt)}
-.col__n{font-size:17px;font-weight:600;color:var(--ink);letter-spacing:-.02em;margin-bottom:4px}
-.col__s{font-size:13px;color:var(--muted);margin-bottom:22px}
-.col ul{display:flex;flex-direction:column;gap:0}
-.col li{display:flex;align-items:center;gap:10px;padding:14px 0;font-size:16px;border-top:1px solid var(--line-soft)}
-.col li:first-child{border-top:0}
-.col li svg{flex:none}
 .ok{color:#1D9A6C}.ko{color:#C4C4CC}
-.col li span{color:var(--ink-2)}
 
 /* ==================== 6. BANDEAU SOMBRE ==================== */
 .band{background:var(--ink);color:rgba(255,255,255,.72)}
@@ -383,29 +356,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .stat b{display:block;font-family:Poppins,Inter,sans-serif;font-size:clamp(2.5rem,1.9rem + 2.2vw,3.75rem);font-weight:600;line-height:1;letter-spacing:-.035em;color:var(--ink);margin-bottom:16px;font-variant-numeric:tabular-nums}
 .stat p{color:var(--muted);font-size:17px;line-height:1.55;max-width:34ch;margin:0}
 
-/* Offres réelles — grille tarifaire publiée sur divprotocol.com/fr/tarifs */
-.switch{display:flex;justify-content:center;margin:0 0 clamp(38px,4vw,54px)}
-.switch__in{display:inline-flex;gap:4px;padding:5px;border-radius:100px;background:var(--card);border:1px solid var(--line)}
-.switch button{font:inherit;font-size:15px;font-weight:500;color:var(--muted);background:none;border:0;border-radius:100px;padding:9px 20px;cursor:pointer;transition:.24s var(--ease);white-space:nowrap}
-.switch button[aria-pressed="true"]{background:var(--accent);color:#fff}
-.switch button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.switch .save{font-size:13px;font-weight:600;color:var(--secure);margin-left:6px}
-.switch button[aria-pressed="true"] .save{color:rgba(255,255,255,.82)}
-.plans{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;max-width:900px;margin:0 auto}
-.plan{position:relative;background:var(--card);border:1px solid var(--line-soft);border-radius:var(--r-card);padding:36px 32px;display:flex;flex-direction:column;box-shadow:var(--sh-card)}
-.plan--pop{border-color:rgba(91,46,255,.3);box-shadow:var(--sh-card-h)}
-.plan__tag{position:absolute;top:-12px;left:32px;font-size:12.5px;font-weight:600;letter-spacing:.02em;color:#fff;background:var(--accent);border-radius:100px;padding:5px 13px}
-.plan__n{font-family:Poppins,Inter,sans-serif;font-size:20px;font-weight:600;letter-spacing:-.02em;color:var(--ink);margin:0 0 6px}
-.plan__s{font-size:15.5px;color:var(--muted);margin:0 0 26px}
-.plan__p{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin-bottom:4px}
-.plan__p b{font-family:Poppins,Inter,sans-serif;font-size:clamp(2.125rem,1.7rem + 1.4vw,2.75rem);font-weight:600;line-height:1;letter-spacing:-.032em;color:var(--ink);font-variant-numeric:tabular-nums}
-.plan__p span{font-size:15px;color:var(--muted)}
-.plan__ht{font-size:13.5px;color:var(--muted);margin:0 0 26px}
-.plan ul{list-style:none;margin:0 0 30px;padding:0;display:flex;flex-direction:column;gap:13px;flex:1}
-.plan li{display:flex;gap:11px;align-items:flex-start;font-size:16px;line-height:1.5;color:var(--ink-2)}
-.plan li svg{flex:none;margin-top:4px;color:var(--accent)}
-.plan .btn{width:100%;justify-content:center}
-.plan__note{font-size:13.5px;color:var(--muted);text-align:center;margin:clamp(28px,3vw,38px) auto 0;max-width:60ch}
 
 .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(28px,3.5vw,56px);
   margin-bottom:clamp(64px,7vw,104px)}
@@ -413,9 +363,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .section--alt .pillar h3{font-size:clamp(1.375rem,1.2rem + .6vw,1.75rem);margin-bottom:14px;max-width:14ch}
 .pillar p{font-size:17px;line-height:1.62;margin:0;color:var(--muted);max-width:34ch}
 
-.verdict{flex:none;font-size:12px;font-weight:600;letter-spacing:.01em;
-  min-width:34px;color:var(--secure)}
-.verdict.no{color:var(--muted)}
 
 /* ==================== 8. CERTIFICATIONS ==================== */
 .certs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -452,22 +399,18 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 /* ==================== RESPONSIVE ==================== */
 @media(max-width:1023px){
-  .flow{grid-template-columns:repeat(2,1fr);gap:40px}
-  .flow::before{display:none}
   .why{grid-template-columns:1fr;gap:44px}
   .why.rev .why__v{order:0}
   .illu{max-width:520px}
   .viz{max-width:460px}
   .pillars{grid-template-columns:1fr;gap:36px}
   .stats{grid-template-columns:1fr;gap:34px}
-  .plans{grid-template-columns:1fr;max-width:520px}
   .nav{display:none}
   .burger{display:grid}
   .hdr__r .sep{display:none}
   .cards{grid-template-columns:repeat(2,1fr)}
   .blurbs{grid-template-columns:repeat(2,1fr)}
-  .compare{grid-template-columns:1fr}
-  .counters{grid-template-columns:repeat(2,1fr);gap:36px}
+    .counters{grid-template-columns:repeat(2,1fr);gap:36px}
   .quotes,.certs{grid-template-columns:1fr}
   .alt{grid-template-columns:1fr;gap:36px}
   .alt.rev .alt__v{order:0}
@@ -480,7 +423,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .frow .perm{display:none}
 }
 @media(max-width:640px){
-  .flow{grid-template-columns:1fr;gap:32px}
   .frow{gap:10px;padding:12px 6px}
   .app__main{padding:16px 14px}
   .cards,.blurbs{grid-template-columns:1fr}
@@ -546,7 +488,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       <a href="#produits">Produits</a>
       <a href="#pourquoi">Solutions</a>
       <a href="#entreprise">Entreprise</a>
-      <a href="#tarifs">Tarifs</a>
       <a href="#confiance">Ressources</a>
     </nav>
     <div class="hdr__r">
@@ -563,8 +504,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   <a href="#produits" class="item">Produits <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
   <a href="#pourquoi" class="item">Solutions <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
   <a href="#entreprise" class="item">Entreprise <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
-  <a href="#tarifs" class="item">Tarifs <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
-  <a href="#confiance" class="item">Ressources <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
+    <a href="#confiance" class="item">Ressources <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
   <div class="cta">
     <a href="#contact" class="btn btn--primary">S'inscrire</a>
     <a href="#contact" class="btn btn--line">Se connecter</a>
@@ -615,7 +555,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       <span class="bloom" aria-hidden="true"></span>
     </div>
   </div>
-  </div>
 </section>
 
 <!-- ==================== PRODUITS ==================== -->
@@ -663,7 +602,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
         <img class="ico" src="icons3d/applications.png" alt="" width="64" height="64" loading="lazy" decoding="async">
         <h3>Suite DIV</h3>
         <p>Drive et Check réunis, avec une seule identité, une seule clé et un seul contrat. Les modules à venir sont inclus au fil de leur sortie.</p>
-        <a href="#tarifs" class="link">Voir les tarifs <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="#contact" class="link">Demander une démo <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </article>
 
       <article class="card rv">
@@ -709,42 +648,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   </figure>
   </div>
 
-</section>
-
-<!-- ==================== DIV CHECK ==================== -->
-<section class="section section--alt" id="check">
-  <div class="wrap">
-    <div class="head center">
-      <p class="kicker rv">DIV Check</p>
-      <h2 class="rv d1">Du document au certificat opposable</h2>
-      <p class="lead rv d2">Chaque action devient une preuve : empreinte calculée chez vous, horodatage public, certificat vérifiable par un tiers — sans jamais divulguer le contenu.</p>
-    </div>
-
-    <ol class="flow">
-      <li class="flow__s rv">
-        <span class="flow__n" data-c="docs">1</span>
-        <h3>Document</h3>
-        <p>Le fichier reste sur votre poste. Rien n'est transmis.</p>
-      </li>
-      <li class="flow__s rv d1">
-        <span class="flow__n" data-c="cloud">2</span>
-        <h3>Empreinte</h3>
-        <p>Une empreinte cryptographique est calculée dans votre navigateur.</p>
-        <code class="hash">a3f5e9c1…c30e7bd</code>
-      </li>
-      <li class="flow__s rv d2">
-        <span class="flow__n" data-c="purple">3</span>
-        <h3>Ancrage</h3>
-        <p>Seule l'empreinte est horodatée dans un registre public immuable.</p>
-      </li>
-      <li class="flow__s rv d3">
-        <span class="flow__n" data-c="secure">4</span>
-        <h3>Certificat</h3>
-        <p>Un certificat autoportant, vérifiable sans compte DIV.</p>
-        <span class="flow__badge">Preuve d'intégrité · Antériorité certaine</span>
-      </li>
-    </ol>
-  </div>
 </section>
 
 <!-- ==================== SÉCURITÉ ==================== -->
@@ -903,98 +806,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   </div>
 </section>
 
-<!-- ==================== COMPARATIF ==================== -->
-<section class="section section--alt" id="tarifs">
-  <div class="wrap">
-    <div class="head center">
-      <p class="kicker rv">Tarifs</p>
-      <h2 class="rv">Un abonnement simple, au mois ou à l'année.</h2>
-    </div>
-
-    <!-- Grille tarifaire reprise telle quelle de divprotocol.com/fr/tarifs. -->
-    <div class="switch rv">
-      <div class="switch__in" role="group" aria-label="Périodicité de facturation">
-        <button type="button" id="bMens" aria-pressed="true">Mensuel</button>
-        <button type="button" id="bAnn" aria-pressed="false">Annuel<span class="save">&minus;15&#8239;%</span></button>
-      </div>
-    </div>
-
-    <div class="plans">
-      <div class="plan plan--pop rv">
-        <span class="plan__tag">Populaire</span>
-        <p class="plan__n">Pro</p>
-        <p class="plan__s">Pour aller plus loin, seul ou en équipe.</p>
-        <p class="plan__p"><b id="proPrice">99,95&#8239;€</b><span>/utilisateur/mois</span></p>
-        <p class="plan__ht">Prix HT</p>
-        <ul>
-          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>200&#8239;Go de stockage sécurisé</span></li>
-          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Partage</span></li>
-          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Édition collaborative</span></li>
-          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Gestion des permissions</span></li>
-          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Drives partagés</span></li>
-          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>De nouvelles fonctionnalités ajoutées en continu et selon vos besoins</span></li>
-        </ul>
-        <a href="#contact" class="btn btn--primary">S'abonner</a>
-      </div>
-
-      <div class="plan rv d1">
-        <p class="plan__n">Entreprise</p>
-        <p class="plan__s">Pour les équipes en croissance.</p>
-        <p class="plan__p"><b>Sur devis</b></p>
-        <p class="plan__ht">&nbsp;</p>
-        <ul>
-          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Tout Pro</span></li>
-          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Conservation légale</span></li>
-          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Accompagnement déploiement</span></li>
-          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Plus de 50 collaborateurs</span></li>
-        </ul>
-        <a href="#contact" class="btn btn--line">Nous contacter</a>
-      </div>
-    </div>
-    <p class="plan__note rv">Tarifs publiés par DIV Protocol sur divprotocol.com/fr/tarifs (relevé du 5 septembre 2026). Le tarif annuel est facturé à l'année.</p>
-
-    <div class="head center" style="margin-top:clamp(88px,9vw,140px)">
-      <h2 class="rv">Comment DIV se distingue des suites américaines ?</h2>
-      <p class="lead rv d1">Comparatif illustratif établi sur les offres publiques standards des éditeurs.</p>
-    </div>
-    <div class="compare">
-      <div class="col us rv">
-        <p class="col__n">DIV Protocol</p><p class="col__s">Offre Pro — Drive et Check réunis</p>
-        <ul>
-          <li><svg class="ok" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b class="verdict">Oui</b><span>Chiffrement bout en bout par défaut</span></li>
-          <li><svg class="ok" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b class="verdict">Oui</b><span>Clé détenue par le client seul</span></li>
-          <li><svg class="ok" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b class="verdict">Oui</b><span>Hors juridiction du Cloud Act</span></li>
-          <li><svg class="ok" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b class="verdict">Oui</b><span>Stockage réparti sur plusieurs hébergeurs UE</span></li>
-          <li><svg class="ok" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b class="verdict">Oui</b><span>Preuve d'antériorité ancrée</span></li>
-          <li><svg class="ok" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b class="verdict">Oui</b><span>Adapté au secret professionnel</span></li>
-        </ul>
-      </div>
-      <div class="col rv d1">
-        <p class="col__n">Google Workspace</p><p class="col__s">Business Standard</p>
-        <ul>
-          <li><svg class="ko" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><b class="verdict no">Non</b><span>Chiffrement bout en bout par défaut</span></li>
-          <li><svg class="ko" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><b class="verdict no">Non</b><span>Clé détenue par le client seul</span></li>
-          <li><svg class="ko" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><b class="verdict no">Non</b><span>Hors juridiction du Cloud Act</span></li>
-          <li><svg class="ko" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><b class="verdict no">Non</b><span>Stockage réparti sur plusieurs hébergeurs UE</span></li>
-          <li><svg class="ko" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><b class="verdict no">Non</b><span>Preuve d'antériorité ancrée</span></li>
-          <li><svg class="ko" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><b class="verdict no">Non</b><span>Adapté au secret professionnel</span></li>
-        </ul>
-      </div>
-      <div class="col rv d2">
-        <p class="col__n">Microsoft 365</p><p class="col__s">Business Premium</p>
-        <ul>
-          <li><svg class="ko" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><b class="verdict no">Non</b><span>Chiffrement bout en bout par défaut</span></li>
-          <li><svg class="ko" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><b class="verdict no">Non</b><span>Clé détenue par le client seul <em style="color:var(--muted);font-style:normal">(option)</em></span></li>
-          <li><svg class="ko" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><b class="verdict no">Non</b><span>Hors juridiction du Cloud Act</span></li>
-          <li><svg class="ko" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><b class="verdict no">Non</b><span>Stockage réparti sur plusieurs hébergeurs UE</span></li>
-          <li><svg class="ko" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><b class="verdict no">Non</b><span>Preuve d'antériorité ancrée</span></li>
-          <li><svg class="ko" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg><b class="verdict no">Non</b><span>Adapté au secret professionnel</span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ==================== BANDEAU ENTREPRISE ==================== -->
 <section class="section band" id="entreprise">
   <div class="wrap">
@@ -1033,7 +844,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
         <h3>Zéro donnée en notre possession</h3>
         <p>Nous ne conservons aucune information permettant de déchiffrer ou d'accéder aux données.</p>
       </div>
-    </div>
     </div>
 
     <div class="quotes">
@@ -1086,7 +896,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     <p class="lead rv d1">30 minutes avec un membre de l'équipe : on vous montre l'outil en conditions réelles et on répond à vos contraintes de sécurité, IT et conformité.</p>
     <div class="cta__b rv d2">
       <a href="mailto:contact@divprotocol.com" class="btn btn--primary">Demander une démo</a>
-      <a href="#tarifs" class="btn btn--line">Voir les tarifs</a>
+      <a href="#produits" class="btn btn--line">Découvrir la plateforme</a>
     </div>
   </div>
 </section>
@@ -1102,7 +912,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       </div>
       <nav aria-label="Produit"><h5>Produit</h5><ul>
         <li><a href="#produits">DIV Drive</a></li><li><a href="#produits">DIV Check</a></li>
-        <li><a href="#tarifs">Tarifs</a></li><li><a href="#fonctions">Fonctionnalités</a></li></ul></nav>
+        <li><a href="#fonctions">Fonctionnalités</a></li></ul></nav>
       <nav aria-label="Entreprise"><h5>Entreprise</h5><ul>
         <li><a href="#securite">Sécurité</a></li><li><a href="#certifications">Conformité</a></li>
         <li><a href="#entreprise">Offre Entreprise</a></li><li><a href="#confiance">Clients</a></li></ul></nav>
@@ -1207,18 +1017,5 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 })();
 </script>
 <script src="hero-anim.js?v=1" defer></script>
-<script>
-(function(){
-  var m=document.getElementById('bMens'),a=document.getElementById('bAnn'),p=document.getElementById('proPrice');
-  if(!m||!a||!p)return;
-  function set(annual){
-    p.textContent = annual ? '84,96\u202F\u20AC' : '99,95\u202F\u20AC';
-    m.setAttribute('aria-pressed', annual?'false':'true');
-    a.setAttribute('aria-pressed', annual?'true':'false');
-  }
-  m.addEventListener('click',function(){set(false)});
-  a.addEventListener('click',function(){set(true)});
-})();
-</script>
 </body>
 </html>
