@@ -419,34 +419,59 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 }
 
 
-/* ——— Cadenas DIV : jeu de lumière ——— */
-.lockx{position:relative;width:100%;max-width:440px;aspect-ratio:1;margin:0 auto;isolation:isolate}
-.lockx__body{position:relative;z-index:2;animation:lockFloat 6.4s ease-in-out infinite;will-change:transform}
-.lockx__body img{display:block;width:100%;height:auto;
-  filter:drop-shadow(0 26px 44px rgba(12,20,64,.24))}
-@keyframes lockFloat{0%,100%{transform:translateY(-7px)}50%{transform:translateY(7px)}}
+/* ——— Cadenas DIV, vectoriel : jeu de lumière ——— */
+.lk{display:block;width:100%;max-width:440px;height:auto;margin:0 auto;overflow:visible}
+.lk *{transform-box:fill-box}
 
-/* lueur d ambiance, respiration lente */
-.lockx__glow{position:absolute;z-index:1;left:50%;top:53%;width:80%;aspect-ratio:1;
-  transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;
-  background:radial-gradient(closest-side,rgba(46,116,255,.40),rgba(91,46,255,.15) 56%,transparent 74%);
-  filter:blur(26px);animation:lockPulse 5.4s ease-in-out infinite}
-@keyframes lockPulse{
-  0%,100%{opacity:.5;transform:translate(-50%,-50%) scale(.93)}
-  50%    {opacity:1;transform:translate(-50%,-50%) scale(1.07)}}
+/* lévitation d'ensemble */
+.lk-float{animation:lkFloat 6.4s ease-in-out infinite;transform-origin:50% 50%}
+@keyframes lkFloat{0%,100%{transform:translateY(-7px)}50%{transform:translateY(7px)}}
 
-/* reflet spéculaire, confiné à la silhouette du cadenas */
-.lockx__shine{position:absolute;inset:0;z-index:3;pointer-events:none;mix-blend-mode:screen;
-  -webkit-mask:url(securite/cadenas-masque.png) center/100% 100% no-repeat;
-          mask:url(securite/cadenas-masque.png) center/100% 100% no-repeat;
-  background:linear-gradient(112deg,transparent 42%,rgba(255,255,255,.92) 50%,transparent 58%);
-  background-size:300% 100%;background-repeat:no-repeat;
-  animation:lockSweep 7.2s cubic-bezier(.45,0,.25,1) infinite}
-@keyframes lockSweep{0%{background-position:230% 0}42%,100%{background-position:-130% 0}}
+/* halo d'ambiance */
+.lk-halo{transform-origin:50% 50%;animation:lkHalo 5.4s ease-in-out infinite}
+@keyframes lkHalo{0%,100%{opacity:.5;transform:scale(.9)}50%{opacity:1;transform:scale(1.06)}}
+
+/* lumière qui court le long des arêtes */
+.lk-neon--body{stroke-dasharray:150 684;animation:lkRun1 4.6s linear infinite}
+@keyframes lkRun1{from{stroke-dashoffset:834}to{stroke-dashoffset:0}}
+.lk-neon--body2{stroke-dasharray:110 812;animation:lkRun2 7.1s linear infinite}
+@keyframes lkRun2{from{stroke-dashoffset:0}to{stroke-dashoffset:922}}
+.lk-neon--arc{stroke-dasharray:70 213;animation:lkRun3 3.9s linear infinite}
+@keyframes lkRun3{from{stroke-dashoffset:283}to{stroke-dashoffset:0}}
+
+/* anneau central : lumière qui tourne + rotation lente inverse */
+.lk-ring{stroke-dasharray:95 295;transform-origin:50% 50%;
+  animation:lkRing 3.2s linear infinite,lkSpin 22s linear infinite}
+@keyframes lkRing{from{stroke-dashoffset:390}to{stroke-dashoffset:0}}
+@keyframes lkSpin{to{transform:rotate(360deg)}}
+.lk-ring2{transform-origin:50% 50%;animation:lkSpinR 34s linear infinite}
+@keyframes lkSpinR{to{transform:rotate(-360deg)}}
+
+/* écusson : respiration */
+.lk-shield{transform-origin:50% 50%;animation:lkShield 4.3s ease-in-out infinite}
+@keyframes lkShield{0%,100%{opacity:.86;transform:scale(.985)}50%{opacity:1;transform:scale(1.015)}}
+
+/* ligne de balayage sur la vitre */
+.lk-scan{animation:lkScan 5.8s cubic-bezier(.55,0,.45,1) infinite}
+@keyframes lkScan{0%{transform:translateY(-46px);opacity:0}
+  12%{opacity:.9}70%{opacity:.9}82%,100%{transform:translateY(212px);opacity:0}}
+
+/* reflet spéculaire qui traverse le chrome */
+.lk-sweep{animation:lkSweep 6.9s cubic-bezier(.5,0,.3,1) infinite}
+@keyframes lkSweep{0%{transform:skewX(-18deg) translateX(0)}
+  55%,100%{transform:skewX(-18deg) translateX(780px)}}
+
+/* voyant de la serrure */
+.lk-slot{animation:lkSlot 2.6s ease-in-out infinite}
+@keyframes lkSlot{0%,100%{opacity:.45}50%{opacity:1}}
+
+/* grille : scintillement très léger */
+.lk-grid{animation:lkGrid 8s ease-in-out infinite}
+@keyframes lkGrid{0%,100%{opacity:.18}50%{opacity:.30}}
 
 @media(prefers-reduced-motion:reduce){
-  .lockx__body,.lockx__glow,.lockx__shine{animation:none}
-  .lockx__shine{opacity:0}
+  .lk *,.lk{animation:none!important}
+  .lk-scan{opacity:0}
 }
 
 /* ——— Ils parlent de nous : bandeau de logos ——— */
@@ -692,14 +717,117 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
         <a href="#presse" class="link">En savoir plus sur la sécurité <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
       <div class="alt__v rv d1">
-        <div class="lockx" role="img" aria-label="Cadenas DIV Protocol : le chiffrement se fait chez vous, la clé ne sort jamais de votre poste.">
-          <span class="lockx__glow"></span>
-          <div class="lockx__body">
-            <img src="securite/cadenas.webp" alt="" width="900" height="900" loading="lazy" decoding="async">
-            <span class="lockx__shine"></span>
-          </div>
-        </div>
-      </div>
+        <svg class="lk" viewBox="0 0 420 520" role="img" aria-labelledby="lkT" preserveAspectRatio="xMidYMid meet">
+          <title id="lkT">Cadenas DIV Protocol : le chiffrement se fait sur votre poste, la clé n'en sort jamais.</title>
+          <defs>
+            <linearGradient id="lkChrome" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#FBFCFE"/><stop offset=".22" stop-color="#C8D2E2"/>
+              <stop offset=".48" stop-color="#7E8AA0"/><stop offset=".66" stop-color="#E6ECF6"/>
+              <stop offset="1" stop-color="#9AA5BA"/>
+            </linearGradient>
+            <linearGradient id="lkChromeB" x1=".1" y1="0" x2=".9" y2="1">
+              <stop offset="0" stop-color="#EEF3FA"/><stop offset=".35" stop-color="#96A2B8"/>
+              <stop offset=".55" stop-color="#DCE4F0"/><stop offset="1" stop-color="#78849A"/>
+            </linearGradient>
+            <linearGradient id="lkGlass" x1=".2" y1="0" x2=".8" y2="1">
+              <stop offset="0" stop-color="#121A31"/><stop offset=".55" stop-color="#070C1A"/>
+              <stop offset="1" stop-color="#0D1428"/>
+            </linearGradient>
+            <linearGradient id="lkSweep" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+              <stop offset=".42" stop-color="#fff" stop-opacity=".34"/>
+              <stop offset=".5" stop-color="#fff" stop-opacity=".62"/>
+              <stop offset=".58" stop-color="#fff" stop-opacity=".34"/>
+              <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="lkScanG" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#4C8CFF" stop-opacity="0"/>
+              <stop offset=".5" stop-color="#8FBCFF" stop-opacity=".34"/>
+              <stop offset="1" stop-color="#4C8CFF" stop-opacity="0"/>
+            </linearGradient>
+            <radialGradient id="lkHalo" cx=".5" cy=".5" r=".5">
+              <stop offset="0" stop-color="#3E7BFF" stop-opacity=".55"/>
+              <stop offset=".55" stop-color="#5B2EFF" stop-opacity=".18"/>
+              <stop offset="1" stop-color="#5B2EFF" stop-opacity="0"/>
+            </radialGradient>
+            <filter id="lkGlow" x="-60%" y="-60%" width="220%" height="220%">
+              <feGaussianBlur stdDeviation="6" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <filter id="lkGlowS" x="-80%" y="-80%" width="260%" height="260%">
+              <feGaussianBlur stdDeviation="10" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <clipPath id="lkFaceClip"><rect x="86" y="238" width="248" height="212" rx="26"/></clipPath>
+            <clipPath id="lkChromeClip">
+              <path d="M136 232v-58a74 74 0 0 1 148 0v58h-34v-58a40 40 0 0 0-80 0v58z"/>
+              <rect x="70" y="222" width="280" height="244" rx="42"/>
+            </clipPath>
+          </defs>
+        
+          <ellipse class="lk-halo" cx="210" cy="330" rx="168" ry="168" fill="url(#lkHalo)"/>
+        
+          <g class="lk-float">
+            <!-- anse -->
+            <path class="lk-shackle" d="M136 232v-58a74 74 0 0 1 148 0v58h-34v-58a40 40 0 0 0-80 0v58z" fill="url(#lkChromeB)"/>
+            <path class="lk-neon lk-neon--arc" d="M153 226v-52a57 57 0 0 1 114 0v52"
+                  fill="none" stroke="#3E86FF" stroke-width="5" stroke-linecap="round" filter="url(#lkGlow)"/>
+        
+            <!-- corps -->
+            <rect x="70" y="222" width="280" height="244" rx="42" fill="url(#lkChrome)"/>
+            <rect x="70" y="222" width="280" height="244" rx="42" fill="none" stroke="#59647C" stroke-width="1.4" opacity=".6"/>
+            <path d="M92 240a30 30 0 0 1 30-18h176a30 30 0 0 1 30 18c-40-10-96-14-118-14s-78 4-118 14z" fill="#fff" opacity=".45"/>
+            <rect x="82" y="234" width="256" height="220" rx="32" fill="#0A1020" opacity=".9"/>
+            <rect x="86" y="238" width="248" height="212" rx="26" fill="url(#lkGlass)"/>
+        
+            <!-- grille technique sur la vitre -->
+            <g clip-path="url(#lkFaceClip)" opacity=".5">
+              <g class="lk-grid" stroke="#2E7BFF" stroke-width=".7" opacity=".22">
+                <path d="M86 268h248M86 298h248M86 328h248M86 358h248M86 388h248M86 418h248"/>
+                <path d="M116 238v212M146 238v212M176 238v212M206 238v212M236 238v212M266 238v212M296 238v212"/>
+              </g>
+              <rect class="lk-scan" x="86" y="238" width="248" height="54" fill="url(#lkScanG)" opacity=".6"/>
+            </g>
+        
+            <!-- neons du corps : lumiere qui court le long des aretes -->
+            <rect class="lk-neon lk-neon--body" x="92" y="244" width="236" height="200" rx="22"
+                  fill="none" stroke="#3E86FF" stroke-width="4.5" filter="url(#lkGlow)"/>
+            <rect class="lk-neon lk-neon--body2" x="78" y="230" width="264" height="228" rx="36"
+                  fill="none" stroke="#6FA6FF" stroke-width="2.6" opacity=".75" filter="url(#lkGlow)"/>
+        
+            <!-- anneau central -->
+            <circle class="lk-ring" cx="210" cy="344" r="62" fill="none" stroke="#3E86FF"
+                    stroke-width="5" stroke-linecap="round" filter="url(#lkGlow)"/>
+            <circle class="lk-ring2" cx="210" cy="344" r="74" fill="none" stroke="#5B8CFF"
+                    stroke-width="1.6" opacity=".5" stroke-dasharray="3 9"/>
+        
+            <!-- ecusson DV -->
+            <g class="lk-shield" filter="url(#lkGlowS)">
+              <path d="M210 306l38 15v31c0 25-18 40-38 47-20-7-38-22-38-47v-31z" fill="#DCE8FF" opacity=".95"/>
+              <path d="M210 306l38 15v11c-11-7-24-11-38-11s-27 4-38 11v-11z" fill="#fff" opacity=".55"/>
+              <path d="M195 324h11a15 15 0 0 1 0 30h-11z" fill="#0B1226"/>
+              <path d="M214 324h9l5.5 18 5.5-18h9l-10 30h-9z" fill="#0B1226"/>
+            </g>
+        
+            <!-- micro-typo -->
+            <g class="lk-txt" fill="#9FC0FF" opacity=".55">
+              <rect x="104" y="256" width="46" height="3" rx="1.5"/>
+              <rect x="104" y="264" width="30" height="3" rx="1.5"/>
+              <rect x="248" y="256" width="66" height="3" rx="1.5"/>
+              <rect x="266" y="264" width="48" height="3" rx="1.5"/>
+              <rect x="104" y="418" width="38" height="3" rx="1.5"/>
+              <rect x="104" y="426" width="30" height="3" rx="1.5"/>
+              <rect x="256" y="418" width="58" height="3" rx="1.5"/>
+              <rect x="272" y="426" width="42" height="3" rx="1.5"/>
+            </g>
+            <rect class="lk-slot" x="196" y="428" width="28" height="4" rx="2" fill="#4C8CFF" filter="url(#lkGlow)"/>
+        
+            <!-- reflet speculaire qui balaie le chrome -->
+            <g clip-path="url(#lkChromeClip)">
+              <rect class="lk-sweep" x="-220" y="80" width="86" height="460" fill="url(#lkSweep)" transform="skewX(-18)"/>
+            </g>
+          </g>
+        </svg>
     </div>
   </div>
 </section>
