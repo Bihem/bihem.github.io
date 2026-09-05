@@ -20,9 +20,17 @@
   var copyBtn = root.querySelector(".dviz__copy");
   var toast   = root.querySelector(".dviz__toast");
 
-  /* ---- accessibilité : mouvement réduit = tout visible, rien ne bouge ---- */
+  /* ---- mouvement réduit : de simples fondus, aucun déplacement ---- */
   if (reduce) {
-    gsap.set(root.querySelectorAll(".dl"), { opacity: 1 });
+    var order = ["ground", "folder-bk", "folder", "f-white", "f-image", "f-doc", "f-video",
+      "lock", "plane", "collab", "devices", "pdf", "green", "vidblue", "link",
+      "c-data", "t-data", "c-share", "t-share", "c-collab", "t-collab",
+      "c-links", "t-links", "c-access", "t-access", "c-files", "t-files"];
+    gsap.set(root.querySelectorAll(".dl"), { opacity: 0 });
+    gsap.to(pick(order), {
+      opacity: 1, duration: .5, stagger: .055, ease: "none",
+      scrollTrigger: { trigger: root, start: "top 80%" }
+    });
     bindCopy();
     return;
   }
@@ -34,9 +42,17 @@
   });
 
   var E = "power3.out";
+  /* la séquence se rejoue à chaque fois que la section revient dans le champ */
   var tl = gsap.timeline({
+    paused: true,
     defaults: { ease: E },
-    scrollTrigger: { trigger: root, start: "top 74%", once: true }
+    scrollTrigger: {
+      trigger: root, start: "top 78%", end: "bottom 12%",
+      onEnter:      function () { tl.play(0); },
+      onEnterBack:  function () { tl.play(0); },
+      onLeave:      function () { tl.pause(0); },
+      onLeaveBack:  function () { tl.pause(0); }
+    }
   });
 
   /* 1 · le dossier arrive */
@@ -102,7 +118,10 @@
     ["f-doc",   1.4, 6.6], ["f-image", 1.5, 5.2], ["pdf",     1.6, 6.2],
     ["green",   1.4, 5.6], ["vidblue", 1.7, 6.8]
   ];
+  var floating = false;
   tl.call(function () {
+    if (floating) return;          /* une seule fois, même si la séquence rejoue */
+    floating = true;
     FLOAT.forEach(function (f) {
       var el = q(f[0]);
       if (!el) return;
