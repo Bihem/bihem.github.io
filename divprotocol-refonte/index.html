@@ -86,7 +86,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .lead{font-size:clamp(1.125rem,1.03rem + .38vw,1.3125rem);line-height:1.6;color:var(--muted);max-width:64ch}
 .center .lead{margin-inline:auto}
 .head{max-width:780px;margin:0 auto clamp(56px,6vw,88px)}
-.head h2{margin-inline:auto}
+.head.center h2,.head.center h3,.cta h1,.cta h2,.cta h3{margin-inline:auto}
+.head:not(.center) h2,.head:not(.center) h3{margin-inline:0}
 .head.center h2{max-width:22ch}
 .head h2{margin-bottom:20px}
 .kicker{
@@ -136,12 +137,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   border-bottom:1px solid transparent;transition:border-color .3s;
 }
 .hdr.stuck{border-bottom-color:var(--line)}
-.hdr__in{max-width:1240px;margin:0 auto;padding:0 22px;height:100%;display:flex;align-items:center;gap:28px;min-width:0}
+.hdr__in{position:relative;max-width:1240px;margin:0 auto;padding:0 22px;height:100%;display:flex;align-items:center;gap:28px;min-width:0}
 .logo{display:flex;align-items:center;gap:8px;font-size:16px;font-weight:600;color:var(--ink);letter-spacing:-.02em;flex:none}
 .logo img{height:26px;width:auto;display:block;flex:none}
 .logo i{width:24px;height:24px;border-radius:7px;background:var(--accent);display:grid;place-items:center;flex:none}
 .logo i svg{width:11px;height:11px}
-.nav{display:flex;align-items:center;gap:2px;min-width:0}
+.nav{position:absolute;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:2px;white-space:nowrap}
 .nav a{padding:6px 13px;border-radius:8px;font-size:15px;font-weight:450;color:var(--ink-2);transition:color .2s}
 .nav a:hover{color:var(--ink)}
 .hdr__r{margin-left:auto;display:flex;align-items:center;gap:10px;flex:none}
@@ -378,17 +379,17 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .cta__b{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 
 /* ==================== PIED DE PAGE ==================== */
-.ftr{background:var(--bg-alt);padding:60px 0 34px;font-size:14px}
+.ftr{background:var(--ink);color:rgba(255,255,255,.72);padding:60px 0 34px;font-size:14px}
 .ftr__top{display:grid;grid-template-columns:1.6fr repeat(3,1fr);gap:36px;padding-bottom:34px}
-.ftr__about{color:var(--muted);margin:14px 0 0;max-width:32ch;line-height:1.55}
-.ftr h5{font-size:13px;font-weight:600;color:var(--ink);margin:0 0 14px;letter-spacing:-.01em}
+.ftr__about{color:rgba(255,255,255,.62);margin:14px 0 0;max-width:32ch;line-height:1.55}
+.ftr h5{font-size:13px;font-weight:600;color:#fff;margin:0 0 14px;letter-spacing:-.01em}
 .ftr li{margin-bottom:9px}
-.ftr li a{color:var(--muted)}
-.ftr li a:hover{color:var(--ink)}
-.ftr__bot{border-top:1px solid var(--line);padding-top:24px;display:flex;justify-content:space-between;
+.ftr li a{color:rgba(255,255,255,.66)}
+.ftr li a:hover{color:#fff}
+.ftr__bot{border-top:1px solid rgba(255,255,255,.14);padding-top:24px;display:flex;justify-content:space-between;
   gap:16px;flex-wrap:wrap;color:var(--muted);font-size:12.5px}
 .ftr__bot nav{display:flex;gap:20px;flex-wrap:wrap}
-.ftr__bot a:hover{color:var(--ink)}
+.ftr__bot a:hover{color:#fff}
 
 /* ————— Révélation, discrète ————— */
 .rv{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
@@ -907,7 +908,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   <div class="wrap">
     <div class="ftr__top">
       <div>
-        <a href="#top" class="logo" aria-label="DIV Protocol, accueil"><img src="logo/div-logo-horizontale.svg" alt="DIV Protocol" width="122" height="26" decoding="async"></a>
+        <a href="#top" class="logo" aria-label="DIV Protocol, accueil"><img src="logo/div-logo-horizontale-blanc.svg" alt="DIV Protocol" width="122" height="26" decoding="async"></a>
         <p class="ftr__about">La suite collaborative souveraine qui rend aux entreprises la propriété totale de leurs données. Conçue et hébergée en Europe.</p>
       </div>
       <nav aria-label="Produit"><h5>Produit</h5><ul>
