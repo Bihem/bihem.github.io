@@ -337,26 +337,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .counters{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;text-align:center;margin-bottom:clamp(48px,6vw,76px)}
 .counter b{display:block;font-size:clamp(2.2rem,4vw,3rem);font-weight:700;color:var(--ink);letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
 .counter span{display:block;font-size:14px;color:var(--muted);margin-top:8px}
-.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.quote{background:var(--card);border-radius:var(--r-card);padding:30px 28px;display:flex;flex-direction:column}
-.quote p{font-size:17px;line-height:1.65;color:var(--ink-2);margin:0 0 22px;flex:1}
-.quote footer{font-size:14px}
-.quote b{display:block;color:var(--ink);font-weight:600}
-.quote em{font-style:normal;color:var(--muted);font-size:13px}
-.stars{display:flex;gap:2px;color:#F5A623;margin-bottom:16px}
 
 /* Chiffres publiés par DIV Protocol (section « Le problème », divprotocol.com/fr) */
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(28px,3.5vw,56px)}
 .stat{padding-top:0}
 .stat b{display:block;font-family:Poppins,Inter,sans-serif;font-size:clamp(2.5rem,1.9rem + 2.2vw,3.75rem);font-weight:600;line-height:1;letter-spacing:-.035em;color:var(--ink);margin-bottom:16px;font-variant-numeric:tabular-nums}
 .stat p{color:var(--muted);font-size:17px;line-height:1.55;max-width:34ch;margin:0}
-
-
-.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(28px,3.5vw,56px);
-  margin-bottom:clamp(64px,7vw,104px)}
-.pillar{position:relative;padding-top:0}
-.section--alt .pillar h3{font-size:clamp(1.375rem,1.2rem + .6vw,1.75rem);margin-bottom:14px;max-width:14ch}
-.pillar p{font-size:17px;line-height:1.62;margin:0;color:var(--muted);max-width:34ch}
 
 
 /* ==================== 8. CERTIFICATIONS ==================== */
@@ -398,7 +384,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .why.rev .why__v{order:0}
   .illu{max-width:520px}
   .viz{max-width:460px}
-  .pillars{grid-template-columns:1fr;gap:36px}
   .stats{grid-template-columns:1fr;gap:34px}
   .nav{display:none}
   .burger{display:grid}
@@ -406,7 +391,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .cards{grid-template-columns:repeat(2,1fr)}
   .blurbs{grid-template-columns:repeat(2,1fr)}
     .counters{grid-template-columns:repeat(2,1fr);gap:36px}
-  .quotes,.certs{grid-template-columns:1fr}
+  .certs{grid-template-columns:1fr}
   .alt{grid-template-columns:1fr;gap:36px}
   .alt.rev .alt__v{order:0}
   .ftr__top{grid-template-columns:1fr 1fr}
@@ -431,8 +416,27 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .rv{opacity:1;transform:none}
 }
 
+/* ——— Ils parlent de nous : bandeau de logos ——— */
+.mq{position:relative;overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);
+          mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
+.mq__track{display:flex;align-items:center;width:max-content;gap:clamp(48px,6vw,92px);
+  animation:mqScroll 40s linear infinite;will-change:transform}
+.mq:hover .mq__track{animation-play-state:paused}
+@keyframes mqScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.mq__i{display:flex;align-items:center;flex:none;
+  transition:filter .3s var(--ease),opacity .3s var(--ease)}
+.mq__i img{height:clamp(52px,5.4vw,68px);width:auto;display:block}
+.mq:hover .mq__i{filter:grayscale(100%);opacity:.34}
+.mq:hover .mq__i:hover{filter:none;opacity:1}
+.mq__i:focus-visible{outline:2px solid var(--accent);outline-offset:6px;border-radius:6px}
+@media(prefers-reduced-motion:reduce){
+  .mq{overflow-x:auto;-webkit-mask-image:none;mask-image:none}
+  .mq__track{animation:none}
+}
+
 /* ——— Descriptions en noir (fin de feuille : doit primer sur les regles ci-dessus) ——— */
-.lead,.card p,.blurb p,.pillar p,.stat p,.cert p,.mini span,.hero__note{color:var(--ink);font-weight:400}
+.lead,.card p,.blurb p,.stat p,.cert p,.mini span,.hero__note{color:var(--ink);font-weight:400}
 </style>
 </head>
 <body>
@@ -486,7 +490,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       <a href="#produits">Produits</a>
       <a href="#pourquoi">Solutions</a>
       <a href="#entreprise">Entreprise</a>
-      <a href="#confiance">Ressources</a>
+      <a href="#presse">Ressources</a>
     </nav>
     <div class="hdr__r">
       <a href="#contact" class="sep">Se connecter</a>
@@ -502,7 +506,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   <a href="#produits" class="item">Produits <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
   <a href="#pourquoi" class="item">Solutions <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
   <a href="#entreprise" class="item">Entreprise <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
-    <a href="#confiance" class="item">Ressources <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
+    <a href="#presse" class="item">Ressources <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
   <div class="cta">
     <a href="#contact" class="btn btn--primary">S'inscrire</a>
     <a href="#contact" class="btn btn--line">Se connecter</a>
@@ -653,7 +657,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       <div class="alt__t rv">
         <h2>Aucune donnée ne peut être lue sans votre accord</h2>
         <p class="lead">Vos fichiers sont chiffrés dans votre navigateur, avant le moindre envoi. La clé ne quitte jamais votre poste et ne transite jamais par nos serveurs. Ce que nous stockons est, pour nous, indéchiffrable.</p>
-        <a href="#confiance" class="link">En savoir plus sur la sécurité <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="#presse" class="link">En savoir plus sur la sécurité <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
       <div class="alt__v rv d1">
         <div class="alt__grid">
@@ -814,53 +818,27 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   </div>
 </section>
 
-<!-- ==================== CONFIANCE ==================== -->
-<section class="section" id="confiance">
+<!-- ==================== ILS PARLENT DE NOUS ==================== -->
+<section class="section" id="presse">
   <div class="wrap">
     <div class="head center">
-      <h2 class="rv">Ils nous font confiance</h2>
-      <p class="lead rv d1">Cabinets d'avocats, études notariales et directions juridiques qui ont quitté une suite américaine.</p>
+      <h2 class="rv">Ils parlent de nous</h2>
     </div>
-
-    <!-- Aucune statistique chiffrée : DIV Protocol n'en publie pas.
-         Ces trois principes sont repris tels quels de divprotocol.com. -->
-    <div class="pillars">
-      <div class="pillar rv">
-        <h3>Zéro lecture sans accord</h3>
-        <p>La clé de chiffrement est exclusivement en votre possession. Vous seul y avez accès.</p>
+    <div class="mq rv d1">
+      <div class="mq__track">
+        <a class="mq__i" href="https://www.bfmtv.com/economie/replay-emissions/le-pitch/video-le-pitch-div-protocol-propose-un-cloud-souverain-06-02_VN-202602060125.html" target="_blank" rel="noopener noreferrer"><img src="presse/1.png" alt="BFMTV" loading="lazy" decoding="async"></a>
+        <a class="mq__i" href="https://www.capital.fr/entreprises-marches/div-protocol-depuis-leurs-16-ans-ils-securisent-la-data-des-entreprises-1522497" target="_blank" rel="noopener noreferrer"><img src="presse/2.png" alt="Capital" loading="lazy" decoding="async"></a>
+        <a class="mq__i" href="https://www.ledauphine.com/economie/2024/01/04/ces-trois-jeunes-haut-savoyards-veulent-revolutionner-le-stockage-de-documents-sensibles" target="_blank" rel="noopener noreferrer"><img src="presse/3.png" alt="Le Dauphiné Libéré" loading="lazy" decoding="async"></a>
+        <a class="mq__i" href="https://www.leprogres.fr/economie/2024/01/04/div-protocol-veut-revolutionner-le-stockage-de-documents-sensibles" target="_blank" rel="noopener noreferrer"><img src="presse/4.png" alt="Le Progrès" loading="lazy" decoding="async"></a>
+        <a class="mq__i" href="https://www.linkedin.com/posts/incubateur-telecomparis_nouvelle-p%C3%A9pite-%C3%A0-lincubateur-t%C3%A9l%C3%A9com-activity-7419280067786076160-nLHd/" target="_blank" rel="noopener noreferrer"><img src="presse/5.png" alt="Incubateur Télécom Paris" loading="lazy" decoding="async"></a>
+        <a class="mq__i" href="https://mondenumerique.info/episode/a-18-ans-il-veut-revolutionner-le-cloud-gaspard-bonnot-div-protocol" target="_blank" rel="noopener noreferrer"><img src="presse/6.png" alt="Monde Numérique" loading="lazy" decoding="async"></a>
+        <a class="mq__i" href="https://www.bfmtv.com/economie/replay-emissions/le-pitch/video-le-pitch-div-protocol-propose-un-cloud-souverain-06-02_VN-202602060125.html" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1"><img src="presse/1.png" alt="" loading="lazy" decoding="async"></a>
+        <a class="mq__i" href="https://www.capital.fr/entreprises-marches/div-protocol-depuis-leurs-16-ans-ils-securisent-la-data-des-entreprises-1522497" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1"><img src="presse/2.png" alt="" loading="lazy" decoding="async"></a>
+        <a class="mq__i" href="https://www.ledauphine.com/economie/2024/01/04/ces-trois-jeunes-haut-savoyards-veulent-revolutionner-le-stockage-de-documents-sensibles" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1"><img src="presse/3.png" alt="" loading="lazy" decoding="async"></a>
+        <a class="mq__i" href="https://www.leprogres.fr/economie/2024/01/04/div-protocol-veut-revolutionner-le-stockage-de-documents-sensibles" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1"><img src="presse/4.png" alt="" loading="lazy" decoding="async"></a>
+        <a class="mq__i" href="https://www.linkedin.com/posts/incubateur-telecomparis_nouvelle-p%C3%A9pite-%C3%A0-lincubateur-t%C3%A9l%C3%A9com-activity-7419280067786076160-nLHd/" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1"><img src="presse/5.png" alt="" loading="lazy" decoding="async"></a>
+        <a class="mq__i" href="https://mondenumerique.info/episode/a-18-ans-il-veut-revolutionner-le-cloud-gaspard-bonnot-div-protocol" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1"><img src="presse/6.png" alt="" loading="lazy" decoding="async"></a>
       </div>
-      <div class="pillar rv d1">
-        <h3>Zéro point unique</h3>
-        <p>Les fichiers sont distribués sur plusieurs hébergeurs distincts, pour la protection comme pour la disponibilité.</p>
-      </div>
-      <div class="pillar rv d2">
-        <h3>Zéro donnée en notre possession</h3>
-        <p>Nous ne conservons aucune information permettant de déchiffrer ou d'accéder aux données.</p>
-      </div>
-    </div>
-
-    <div class="quotes">
-      <figure class="quote rv" style="margin:0">
-        <span class="stars" aria-label="5 sur 5">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
-        </span>
-        <p>« DIV nous a permis de remettre le cabinet au niveau de sécurité maximale qu'attendent nos clients, avec une souveraineté des données poussée jusqu'au cœur de notre activité. On dort beaucoup mieux la nuit. »</p>
-        <footer><b>Partenaire d'un cabinet</b><em>Avocats d'affaires · Bordeaux</em></footer>
-      </figure>
-      <figure class="quote rv d1" style="margin:0">
-        <span class="stars" aria-label="5 sur 5">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
-        </span>
-        <p>« Avant DIV, je travaillais sur un disque dur posé sur mon bureau. Aujourd'hui, on a une vraie plateforme collaborative chiffrée, accessible partout, et sans rien céder sur la confidentialité. »</p>
-        <footer><b>Notaire</b><em>Étude notariale · Île-de-France</em></footer>
-      </figure>
-      <figure class="quote rv d2" style="margin:0">
-        <span class="stars" aria-label="5 sur 5">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
-        </span>
-        <p>« On a quitté une solution américaine pour passer sur DIV. Le produit n'a rien à envier aux Big Tech, et on garde nos données chez nous. »</p>
-        <footer><b>Avocat</b><em>Cabinet indépendant · Lyon</em></footer>
-      </figure>
     </div>
   </div>
 </section>
@@ -908,7 +886,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
         <li><a href="#fonctions">Fonctionnalités</a></li></ul></nav>
       <nav aria-label="Entreprise"><h5>Entreprise</h5><ul>
         <li><a href="#securite">Sécurité</a></li><li><a href="#certifications">Conformité</a></li>
-        <li><a href="#entreprise">Offre Entreprise</a></li><li><a href="#confiance">Clients</a></li></ul></nav>
+        <li><a href="#entreprise">Offre Entreprise</a></li><li><a href="#presse">Clients</a></li></ul></nav>
       <nav aria-label="Contact"><h5>Contact</h5><ul>
         <li><a href="mailto:contact@divprotocol.com">contact@divprotocol.com</a></li>
         <li><a href="#contact">Demander une démo</a></li></ul></nav>
