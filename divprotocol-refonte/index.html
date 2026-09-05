@@ -202,11 +202,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .alt .lead{margin-bottom:24px}
 .alt__v{display:flex;justify-content:center}
 .alt__v .ico{width:clamp(120px,20vw,190px);height:auto}
-.alt__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;width:100%;max-width:420px}
-.mini{background:var(--card);border-radius:16px;padding:22px 20px;text-align:center}
-.mini .ico{width:58px;height:58px;margin:0 auto 12px}
-.mini b{display:block;font-size:14.5px;font-weight:600;color:var(--ink);letter-spacing:-.015em}
-.mini span{display:block;font-size:12.5px;color:var(--muted);margin-top:2px}
 
 /* ─────────── DIV Drive : fenêtre applicative ─────────── */
 /* ===== Illustration DIV Drive ===== */
@@ -424,6 +419,36 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 }
 
 
+/* ——— Cadenas DIV : jeu de lumière ——— */
+.lockx{position:relative;width:100%;max-width:440px;aspect-ratio:1;margin:0 auto;isolation:isolate}
+.lockx__body{position:relative;z-index:2;animation:lockFloat 6.4s ease-in-out infinite;will-change:transform}
+.lockx__body img{display:block;width:100%;height:auto;
+  filter:drop-shadow(0 26px 44px rgba(12,20,64,.24))}
+@keyframes lockFloat{0%,100%{transform:translateY(-7px)}50%{transform:translateY(7px)}}
+
+/* lueur d ambiance, respiration lente */
+.lockx__glow{position:absolute;z-index:1;left:50%;top:53%;width:80%;aspect-ratio:1;
+  transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(46,116,255,.40),rgba(91,46,255,.15) 56%,transparent 74%);
+  filter:blur(26px);animation:lockPulse 5.4s ease-in-out infinite}
+@keyframes lockPulse{
+  0%,100%{opacity:.5;transform:translate(-50%,-50%) scale(.93)}
+  50%    {opacity:1;transform:translate(-50%,-50%) scale(1.07)}}
+
+/* reflet spéculaire, confiné à la silhouette du cadenas */
+.lockx__shine{position:absolute;inset:0;z-index:3;pointer-events:none;mix-blend-mode:screen;
+  -webkit-mask:url(securite/cadenas-masque.png) center/100% 100% no-repeat;
+          mask:url(securite/cadenas-masque.png) center/100% 100% no-repeat;
+  background:linear-gradient(112deg,transparent 42%,rgba(255,255,255,.92) 50%,transparent 58%);
+  background-size:300% 100%;background-repeat:no-repeat;
+  animation:lockSweep 7.2s cubic-bezier(.45,0,.25,1) infinite}
+@keyframes lockSweep{0%{background-position:230% 0}42%,100%{background-position:-130% 0}}
+
+@media(prefers-reduced-motion:reduce){
+  .lockx__body,.lockx__glow,.lockx__shine{animation:none}
+  .lockx__shine{opacity:0}
+}
+
 /* ——— Ils parlent de nous : bandeau de logos ——— */
 .mq{position:relative;overflow:hidden;
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);
@@ -444,7 +469,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 }
 
 /* ——— Descriptions en noir (fin de feuille : doit primer sur les regles ci-dessus) ——— */
-.lead,.card p,.blurb p,.stat p,.cert p,.mini span,.hero__note{color:var(--ink);font-weight:400}
+.lead,.card p,.blurb p,.stat p,.cert p,.hero__note{color:var(--ink);font-weight:400}
 </style>
 </head>
 <body>
@@ -667,11 +692,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
         <a href="#presse" class="link">En savoir plus sur la sécurité <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
       <div class="alt__v rv d1">
-        <div class="alt__grid">
-          <div class="mini"><img class="ico" src="icons3d/chiffrement.png" alt="" width="64" height="64" loading="lazy" decoding="async"><b>Chiffrement E2E</b><span>Clé locale uniquement</span></div>
-          <div class="mini"><img class="ico" src="icons3d/serveur.png" alt="" width="64" height="64" loading="lazy" decoding="async"><b>Multi-hébergeurs</b><span>Fragments répartis</span></div>
-          <div class="mini"><img class="ico" src="icons3d/acces.png" alt="" width="64" height="64" loading="lazy" decoding="async"><b>Permissions fines</b><span>Par rôle et dossier</span></div>
-          <div class="mini"><img class="ico" src="icons3d/reseau.png" alt="" width="64" height="64" loading="lazy" decoding="async"><b>Hors Cloud Act</b><span>Juridiction européenne</span></div>
+        <div class="lockx" role="img" aria-label="Cadenas DIV Protocol : le chiffrement se fait chez vous, la clé ne sort jamais de votre poste.">
+          <span class="lockx__glow"></span>
+          <div class="lockx__body">
+            <img src="securite/cadenas.webp" alt="" width="900" height="900" loading="lazy" decoding="async">
+            <span class="lockx__shine"></span>
+          </div>
         </div>
       </div>
     </div>
