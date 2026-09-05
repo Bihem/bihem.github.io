@@ -379,6 +379,13 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @keyframes drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
 
 /* ==================== RESPONSIVE ==================== */
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.quote{background:var(--card);border-radius:var(--r-card);padding:30px 28px;display:flex;flex-direction:column}
+.quote p{font-size:17px;line-height:1.65;color:var(--ink-2);margin:0 0 22px;flex:1}
+.quote footer{font-size:14px}
+.quote b{display:block;color:var(--ink);font-weight:600}
+.quote em{font-style:normal;color:var(--muted);font-size:13px}
+.stars{display:flex;gap:2px;color:#F5A623;margin-bottom:16px}
 @media(max-width:1023px){
   .why{grid-template-columns:1fr;gap:44px}
   .why.rev .why__v{order:0}
@@ -391,7 +398,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .cards{grid-template-columns:repeat(2,1fr)}
   .blurbs{grid-template-columns:repeat(2,1fr)}
     .counters{grid-template-columns:repeat(2,1fr);gap:36px}
-  .certs{grid-template-columns:1fr}
+  .quotes,.certs{grid-template-columns:1fr}
   .alt{grid-template-columns:1fr;gap:36px}
   .alt.rev .alt__v{order:0}
   .ftr__top{grid-template-columns:1fr 1fr}
@@ -415,6 +422,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   *,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}
   .rv{opacity:1;transform:none}
 }
+
 
 /* ——— Ils parlent de nous : bandeau de logos ——— */
 .mq{position:relative;overflow:hidden;
@@ -814,6 +822,35 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
         <a href="#contact" class="btn btn--light" style="margin-top:8px">En savoir plus</a>
       </div>
       <div class="alt__v rv d1"><span class="tile"><img class="ico" src="icons3d/equipe.png" alt="" width="64" height="64" loading="lazy" decoding="async"></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== AVIS CLIENTS ==================== -->
+<section class="section section--alt" id="avis">
+  <div class="wrap">
+    <div class="quotes">
+      <figure class="quote rv" style="margin:0">
+        <span class="stars" aria-label="5 sur 5">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+        </span>
+        <p>« DIV nous a permis de remettre le cabinet au niveau de sécurité maximale qu'attendent nos clients, avec une souveraineté des données poussée jusqu'au cœur de notre activité. On dort beaucoup mieux la nuit. »</p>
+        <footer><b>Partenaire d'un cabinet</b><em>Avocats d'affaires · Bordeaux</em></footer>
+      </figure>
+      <figure class="quote rv d1" style="margin:0">
+        <span class="stars" aria-label="5 sur 5">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+        </span>
+        <p>« Avant DIV, je travaillais sur un disque dur posé sur mon bureau. Aujourd'hui, on a une vraie plateforme collaborative chiffrée, accessible partout, et sans rien céder sur la confidentialité. »</p>
+        <footer><b>Notaire</b><em>Étude notariale · Île-de-France</em></footer>
+      </figure>
+      <figure class="quote rv d2" style="margin:0">
+        <span class="stars" aria-label="5 sur 5">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+        </span>
+        <p>« On a quitté une solution américaine pour passer sur DIV. Le produit n'a rien à envier aux Big Tech, et on garde nos données chez nous. »</p>
+        <footer><b>Avocat</b><em>Cabinet indépendant · Lyon</em></footer>
+      </figure>
     </div>
   </div>
 </section>
