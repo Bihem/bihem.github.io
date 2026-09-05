@@ -212,26 +212,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .mini span{display:block;font-size:12.5px;color:var(--muted);margin-top:2px}
 
 /* ─────────── DIV Drive : fenêtre applicative ─────────── */
-/* ===== Illustration DIV Drive animée (GSAP) ===== */
-.dviz{width:100%;max-width:1120px;margin:0 auto}
-.dviz__in{position:relative;width:100%;aspect-ratio:1586/992}
-.dviz .dl{position:absolute;display:block;height:auto;will-change:transform,opacity;
-  transform-origin:50% 60%;backface-visibility:hidden}
-.dviz .hit{cursor:pointer}
-.dviz__copy{position:absolute;left:64.4%;top:52.6%;width:5.9%;height:5.2%;
-  border:0;background:transparent;border-radius:100px;padding:0;cursor:pointer;z-index:40;
-  transition:transform .22s var(--ease)}
-.dviz__copy:hover{transform:translateY(-1.5px) scale(1.04)}
-.dviz__copy:active{transform:scale(.97)}
-.dviz__copy:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-.dviz__toast{position:absolute;left:64.4%;top:45%;z-index:41;
-  display:inline-flex;align-items:center;gap:6px;white-space:nowrap;
-  font-size:13.5px;font-weight:600;color:#fff;background:var(--secure);
-  padding:7px 13px;border-radius:100px;opacity:0;transform:translateY(6px);pointer-events:none;
-  box-shadow:0 6px 18px rgba(16,185,129,.32)}
-.dviz__cap{margin:26px auto 0;text-align:center;font-size:13.5px;color:var(--muted)}
+/* ===== Illustration DIV Drive ===== */
+.dfig{width:100%;max-width:1120px;margin:0 auto;padding:0}
+.dfig img{display:block;width:100%;height:auto}
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-@media(max-width:640px){.dviz__cap{margin-top:18px}}
 .app{max-width:1080px;margin:0 auto;background:#fff;border:1px solid var(--line);
   border-radius:22px;overflow:hidden;
   box-shadow:0 2px 6px rgba(10,16,37,.04),0 32px 80px rgba(10,16,37,.10)}
@@ -716,42 +700,13 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       <p class="lead rv d2">Fichiers, dossiers, permissions, recherche et collaboration. Tout ce que vos équipes attendent d'un drive — avec le chiffrement en dessous.</p>
     </div>
 
-    <div class="dviz rv d1" id="dviz">
-    <div class="dviz__in">
-      <img class="dl" data-k="t-data" src="drive/t-data.png" alt="" style="left:3.3417%;top:14.7177%;width:24.0858%;z-index:27" loading="lazy" decoding="async">
-      <img class="dl" data-k="t-share" src="drive/t-share.png" alt="" style="left:42.4338%;top:3.7298%;width:29.256%;z-index:26" loading="lazy" decoding="async">
-      <img class="dl" data-k="t-collab" src="drive/t-collab.png" alt="" style="left:73.5183%;top:17.2379%;width:24.2119%;z-index:25" loading="lazy" decoding="async">
-      <img class="dl" data-k="t-links" src="drive/t-links.png" alt="" style="left:75.4098%;top:46.4718%;width:22.3203%;z-index:24" loading="lazy" decoding="async">
-      <img class="dl" data-k="t-access" src="drive/t-access.png" alt="" style="left:3.3417%;top:63.5081%;width:19.6721%;z-index:23" loading="lazy" decoding="async">
-      <img class="dl" data-k="t-files" src="drive/t-files.png" alt="" style="left:74.5902%;top:71.9758%;width:23.14%;z-index:22" loading="lazy" decoding="async">
-      <img class="dl" data-k="c-data" src="drive/c-data.png" alt="" style="left:26.9861%;top:18.6492%;width:4.0984%;z-index:21" loading="lazy" decoding="async">
-      <img class="dl" data-k="c-share" src="drive/c-share.png" alt="" style="left:49.0542%;top:13.9113%;width:1.5763%;z-index:20" loading="lazy" decoding="async">
-      <img class="dl" data-k="c-collab" src="drive/c-collab.png" alt="" style="left:72.7617%;top:17.2379%;width:2.7743%;z-index:19" loading="lazy" decoding="async">
-      <img class="dl" data-k="c-links" src="drive/c-links.png" alt="" style="left:70.3657%;top:51.6129%;width:5.6747%;z-index:18" loading="lazy" decoding="async">
-      <img class="dl" data-k="c-access" src="drive/c-access.png" alt="" style="left:22.6356%;top:66.9355%;width:2.9634%;z-index:17" loading="lazy" decoding="async">
-      <img class="dl" data-k="c-files" src="drive/c-files.png" alt="" style="left:70.681%;top:72.6815%;width:4.7919%;z-index:16" loading="lazy" decoding="async">
-      <img class="dl" data-k="link" src="drive/link.png" alt="" style="left:44.0101%;top:52.8226%;width:26.86%;z-index:15" loading="lazy" decoding="async">
-      <img class="dl" data-k="pdf" src="drive/pdf.png" alt="" style="left:44.0101%;top:72.7823%;width:9.4578%;z-index:14" loading="lazy" decoding="async">
-      <img class="dl" data-k="green" src="drive/green.png" alt="" style="left:52.7112%;top:69.1532%;width:8.575%;z-index:13" loading="lazy" decoding="async">
-      <img class="dl" data-k="vidblue" src="drive/vidblue.png" alt="" style="left:60.6557%;top:70.5645%;width:9.8361%;z-index:12" loading="lazy" decoding="async">
-      <img class="dl" data-k="devices" src="drive/devices.png" alt="" style="left:24.4641%;top:56.0484%;width:16.1412%;z-index:11" loading="lazy" decoding="async">
-      <img class="dl" data-k="plane" src="drive/plane.png" alt="" style="left:44.3253%;top:15.9274%;width:9.4578%;z-index:10" loading="lazy" decoding="async">
-      <img class="dl" data-k="collab" src="drive/collab.png" alt="" style="left:59.773%;top:17.2379%;width:16.0151%;z-index:9" loading="lazy" decoding="async">
-      <img class="dl" data-k="lock" src="drive/lock.png" alt="" style="left:20.0504%;top:23.9919%;width:14.5019%;z-index:8" loading="lazy" decoding="async">
-      <img class="dl" data-k="folder" src="drive/folder.png" alt="" style="left:34.5523%;top:40.121%;width:29.6343%;z-index:7" loading="lazy" decoding="async">
-      <img class="dl" data-k="f-video" src="drive/f-video.png" alt="" style="left:48.4237%;top:32.2581%;width:9.4578%;z-index:6" loading="lazy" decoding="async">
-      <img class="dl" data-k="f-doc" src="drive/f-doc.png" alt="" style="left:42.7491%;top:29.0323%;width:8.8272%;z-index:5" loading="lazy" decoding="async">
-      <img class="dl" data-k="f-image" src="drive/f-image.png" alt="" style="left:36.7591%;top:27.4194%;width:9.773%;z-index:4" loading="lazy" decoding="async">
-      <img class="dl" data-k="f-white" src="drive/f-white.png" alt="" style="left:38.966%;top:23.3871%;width:11.6015%;z-index:3" loading="lazy" decoding="async">
-      <img class="dl" data-k="folder-bk" src="drive/folder-bk.png" alt="" style="left:34.5523%;top:29.8387%;width:29.6343%;z-index:2" loading="lazy" decoding="async">
-      <img class="dl" data-k="ground" src="drive/ground.png" alt="" style="left:18.9155%;top:54.4355%;width:58.6381%;z-index:1" loading="lazy" decoding="async">
-      <button class="dviz__copy" type="button" data-url="https://divprotocol.com/partage">
-        <span class="vh">Copier le lien de partage</span>
-      </button>
-      <span class="dviz__toast" aria-live="polite"></span>
-    </div>
-    <p class="dviz__cap">Illustration DIV Protocol — animée pour ce concept de refonte.</p>
-  </div>
+    <figure class="dfig rv d1">
+    <picture>
+      <source srcset="drive/illustration.webp" type="image/webp">
+      <img src="drive/illustration.png" width="1586" height="992" decoding="async"
+           alt="DIV Drive : un dossier chiffré entouré de ses fichiers, du partage sécurisé, de la collaboration, des liens personnalisés et de l'accès multi-appareils.">
+    </picture>
+  </figure>
   </div>
 
 </section>
@@ -1265,8 +1220,5 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   a.addEventListener('click',function(){set(true)});
 })();
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-<script src="drive-anim.js?v=3" defer></script>
 </body>
 </html>
