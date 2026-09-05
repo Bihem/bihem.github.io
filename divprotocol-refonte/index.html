@@ -322,11 +322,17 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 /* Visuels 3D — section « Pourquoi DIV ». Rendus livrés tels quels,
    inclinés au survol par le runtime motion (§12). */
 .why__v{perspective:1100px}
-.viz3d{display:block;width:100%;max-width:500px;height:auto;margin:0 auto;
+.viz3d-w{display:block;width:100%;max-width:500px;margin:0 auto;
+  /* flottement piloté par le défilement — suit la molette, sans transition */
+  transform:translate3d(0,var(--sy,0px),0) rotate(var(--sr,0deg));
+  will-change:auto;
+}
+.viz3d{display:block;width:100%;height:auto;
   transition:transform var(--m-medium) var(--e-main)}
 /* Le visuel passe en état « actif » quand il devient le sujet de l'écran,
    à la manière du média de mega.io qui bascule en vidéo. Transform seul. */
 .mo .why__v.live .viz3d{transform:translateY(-6px)}
+.mo .why__v.live .viz3d-w{will-change:transform}
 .illu .ground{fill:url(#gGround)}
 .illu .satlab{font:600 15px Inter,sans-serif;fill:#0A1025;letter-spacing:-.01em}
 .illu .float,.illu .sat{animation:drift var(--d,7s) ease-in-out infinite;
@@ -744,9 +750,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       </div>
 
       <figure class="why__v rv-ic d1">
-        <img class="viz3d" src="pourquoi/stockage.webp?v=3" width="1162" height="952"
+        <span class="viz3d-w"><img class="viz3d" src="pourquoi/stockage.webp?v=3" width="1162" height="952"
              loading="lazy" decoding="async"
-             alt="Un nuage de stockage chiffré au-dessus d'un dossier DIV rempli de documents, d'images et de vidéos, avec sa jauge d'espace.">
+             alt="Un nuage de stockage chiffré au-dessus d'un dossier DIV rempli de documents, d'images et de vidéos, avec sa jauge d'espace."></span>
       </figure>
     </article>
 
@@ -759,9 +765,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       </div>
 
       <figure class="why__v rv-ic d1">
-        <img class="viz3d" src="pourquoi/partage.webp?v=2" width="1149" height="869"
+        <span class="viz3d-w"><img class="viz3d" src="pourquoi/partage.webp?v=2" width="1149" height="869"
              loading="lazy" decoding="async"
-             alt="Un document partagé au centre d'un anneau reliant trois destinataires, avec le bouton de partage sécurisé.">
+             alt="Un document partagé au centre d'un anneau reliant trois destinataires, avec le bouton de partage sécurisé."></span>
       </figure>
     </article>
 
@@ -774,9 +780,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       </div>
 
       <figure class="why__v rv-ic d1">
-        <img class="viz3d" src="pourquoi/controle.webp" width="1299" height="887"
+        <span class="viz3d-w"><img class="viz3d" src="pourquoi/controle.webp" width="1299" height="887"
              loading="lazy" decoding="async"
-             alt="Un bouclier protégeant l'identité devant un dossier de documents, relié à un cadenas et à un panneau de réglages d'accès.">
+             alt="Un bouclier protégeant l'identité devant un dossier de documents, relié à un cadenas et à un panneau de réglages d'accès."></span>
       </figure>
     </article>
 
@@ -789,9 +795,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       </div>
 
       <figure class="why__v rv-ic d1">
-        <img class="viz3d" src="pourquoi/appareils.webp" width="1200" height="758"
+        <span class="viz3d-w"><img class="viz3d" src="pourquoi/appareils.webp" width="1200" height="758"
              loading="lazy" decoding="async"
-             alt="Un ordinateur, un téléphone et une tablette reliés autour d'un globe, un bouclier protégeant l'identité au centre.">
+             alt="Un ordinateur, un téléphone et une tablette reliés autour d'un globe, un bouclier protégeant l'identité au centre."></span>
       </figure>
     </article>
   </div>
@@ -1040,6 +1046,39 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       en.forEach(function(e){ e.target.classList.toggle("live", e.isIntersecting); });
     },{rootMargin:"-32% 0px -32% 0px",threshold:0});
     $$(".why__v").forEach(function(el){ mid.observe(el); });
+  })();
+
+  /* ——— Section « Pourquoi » : les quatre visuels flottent au défilement.
+         Chacun a son amplitude et son sens, calculés depuis sa position
+         dans la fenêtre. Un seul écouteur, une seule frame. ——— */
+  (function(){
+    var ws=$$(".viz3d-w"); if(!ws.length || reduce) return;
+    var petit=innerWidth<700;
+    var AMP=[34,-28,30,-26].map(function(v){return petit?v*0.5:v});
+    var ROT=[1.1,-0.9,1.0,-0.8].map(function(v){return petit?v*0.5:v});
+    var tick=false, seen=false;
+    function frame(){
+      tick=false;
+      var vh=innerHeight;
+      for(var i=0;i<ws.length;i++){
+        var w=ws[i], r=w.getBoundingClientRect();
+        if(r.bottom<-200 || r.top>vh+200) continue;      /* hors champ : on ne calcule pas */
+        var c=r.top + r.height/2;
+        var p=(vh/2 - c)/(vh/2 + r.height/2);            /* -1 en bas, +1 en haut */
+        p = p<-1?-1:p>1?1:p;
+        w.style.setProperty("--sy",(p*AMP[i%AMP.length]).toFixed(1)+"px");
+        w.style.setProperty("--sr",(p*ROT[i%ROT.length]).toFixed(2)+"deg");
+      }
+    }
+    function onScroll(){ if(!tick){ tick=true; requestAnimationFrame(frame); } }
+    /* on n'écoute que si la section a déjà été approchée */
+    new IntersectionObserver(function(en){
+      var any=en.some(function(e){return e.isIntersecting});
+      if(any && !seen){ seen=true; frame(); }
+    },{rootMargin:"300px 0px"}).observe($("#pourquoi") || ws[0]);
+    addEventListener("scroll", onScroll, {passive:true});
+    addEventListener("resize", onScroll, {passive:true});
+    frame();
   })();
 
   /* ——— Objets 3D : inclinaison qui suit le curseur, plafonnée (§12) ——— */
