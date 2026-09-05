@@ -251,6 +251,55 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   filter:drop-shadow(0 30px 34px rgba(10,16,37,.18));
 }
 @media(prefers-reduced-motion:reduce){ .dscene .dl-card{transition:none} }
+/* ——— Section « Un vrai logiciel » : scène animée ———
+   L'illustration d'origine est découpée en 15 calques. Rien n'est redessiné :
+   au repos, la recomposition est identique au fichier source.
+   Trois couches de mouvement, indépendantes : entrée en cascade, flottement
+   d'ambiance par calque, et les documents qui se rangent puis ressortent. */
+.dscene{position:relative;width:100%;aspect-ratio:1586/992}
+.dscene .dl-base{position:absolute;inset:0;width:100%;height:auto;display:block}
+.dl{position:absolute;display:block;
+  transform:translate3d(calc(var(--px,0px) * var(--d,0)), calc(var(--py,0px) * var(--d,0) + var(--enter,0px)), 0);
+  transition:transform var(--m-cine) var(--e-main), opacity var(--m-slow) var(--e-main);
+  transition-delay:var(--dl,0ms);
+}
+.dl img{display:block;width:100%;height:auto}
+.mo .dscene .dl{opacity:0;--enter:26px}
+.mo .dscene.on .dl{opacity:1;--enter:0px}
+
+/* flottement d'ambiance : sept rythmes différents, jamais synchrones */
+@keyframes fla{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.6%)}}
+@keyframes flb{0%,100%{transform:translateY(0)}50%{transform:translateY(-4.2%)}}
+@keyframes flc{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.1%)}}
+@keyframes fld{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.9%)}}
+@keyframes fle{0%,100%{transform:translateY(0)}50%{transform:translateY(-5.5%)}}
+@keyframes flf{0%,100%{transform:translateY(0)}50%{transform:translateY(-4.4%)}}
+@keyframes flg{0%,100%{transform:translateY(0)}50%{transform:translateY(-1.6%)}}
+.mo .dscene.on .fl-a img{animation:fla 6.4s ease-in-out -0.4s infinite}
+.mo .dscene.on .fl-b img{animation:flb 5.2s ease-in-out -2.1s infinite}
+.mo .dscene.on .fl-c img{animation:flc 7.1s ease-in-out -1.3s infinite}
+.mo .dscene.on .fl-d img{animation:fld 6.8s ease-in-out -3.4s infinite}
+.mo .dscene.on .fl-e img{animation:fle 8.3s ease-in-out -0.9s infinite}
+.mo .dscene.on .fl-f img{animation:flf 9.1s ease-in-out -4.2s infinite}
+.mo .dscene.on .fl-g img{animation:flg 7.7s ease-in-out -2.8s infinite}
+
+/* les documents : rangés dans le dossier, puis ressortis un par un */
+.dscene .doc img{
+  transform-origin:50% 60%;
+  filter:drop-shadow(0 6px 12px rgba(10,16,37,.10));
+  transition:transform 900ms var(--e-main), filter 900ms var(--e-main);
+}
+.mo .dscene .doc.tucked img{
+  transform:translate(var(--tx),var(--ty)) scale(.74) rotate(-2deg);
+  filter:drop-shadow(0 30px 34px rgba(10,16,37,.18));
+}
+/* mobile : on garde l'entrée et le cycle des documents, on coupe les
+   flottements d'ambiance — 11 calques animés en continu n'y valent rien */
+@media(max-width:700px){ .dscene .dl img{animation:none!important} }
+@media(prefers-reduced-motion:reduce){
+  .dscene .dl{opacity:1!important;transform:none!important}
+  .dscene img{animation:none!important;transition:none!important}
+}
 .dfig{width:100%;max-width:1120px;margin:0 auto;padding:0}
 .dfig img{display:block;width:100%;height:auto}
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
@@ -722,16 +771,23 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
     <figure class="dfig rv-ui d1">
       <div class="dscene" id="dscene" role="img"
-           aria-label="DIV Drive : un dossier chiffré entouré de ses fichiers, du partage sécurisé, de la collaboration, des liens personnalisés et de l'accès multi-appareils. Les documents rangés dans le dossier en ressortent un par un.">
+           aria-label="DIV Drive : un dossier chiffré entouré de ses fichiers, du partage sécurisé, de la collaboration, des liens personnalisés et de l'accès multi-appareils. Les documents se rangent dans le dossier puis en ressortent un par un.">
         <img class="dl-base" src="drive/anim-base.webp" width="1586" height="992" decoding="async" alt="">
-        <img class="dl-card" data-c="0" src="drive/anim-pdf.webp" width="124" height="187" loading="lazy" decoding="async" alt=""
-             style="left:44.704%;top:74.395%;width:7.818%;--tx:-21.0%;--ty:-139.8%">
-        <img class="dl-card" data-c="1" src="drive/anim-img.webp" width="123" height="186" loading="lazy" decoding="async" alt=""
-             style="left:53.594%;top:69.960%;width:7.755%;--tx:-135.4%;--ty:-116.7%">
-        <img class="dl-card" data-c="2" src="drive/anim-vid.webp" width="127" height="200" loading="lazy" decoding="async" alt=""
-             style="left:62.232%;top:65.524%;width:8.008%;--tx:-240.6%;--ty:-90.0%">
-        <img class="dl-front" src="drive/anim-front.webp" width="590" height="302" loading="lazy" decoding="async" alt=""
-             style="left:36.003%;top:40.222%;width:37.201%">
+        <span class="dl fl-e" style="left:3.09%;top:14.718%;width:28.436%;--d:0.16;--dl:420ms"><img src="drive/anim-p1.webp" width="451" height="126" loading="lazy" decoding="async" alt=""></span>
+        <span class="dl fl-f" style="left:42.434%;top:3.629%;width:29.256%;--d:0.2;--dl:340ms"><img src="drive/anim-p2.webp" width="464" height="156" loading="lazy" decoding="async" alt=""></span>
+        <span class="dl fl-e" style="left:73.455%;top:17.036%;width:24.338%;--d:0.16;--dl:470ms"><img src="drive/anim-p3.webp" width="386" height="105" loading="lazy" decoding="async" alt=""></span>
+        <span class="dl fl-f" style="left:74.527%;top:46.169%;width:23.203%;--d:0.14;--dl:520ms"><img src="drive/anim-p4.webp" width="368" height="124" loading="lazy" decoding="async" alt=""></span>
+        <span class="dl fl-e" style="left:3.153%;top:63.508%;width:20.681%;--d:0.18;--dl:560ms"><img src="drive/anim-p5.webp" width="328" height="98" loading="lazy" decoding="async" alt=""></span>
+        <span class="dl fl-f" style="left:74.527%;top:71.875%;width:23.203%;--d:0.14;--dl:610ms"><img src="drive/anim-p6.webp" width="368" height="117" loading="lazy" decoding="async" alt=""></span>
+        <span class="dl fl-a" style="left:22.068%;top:24.899%;width:12.232%;--d:0.3;--dl:80ms"><img src="drive/anim-lock.webp" width="194" height="291" loading="lazy" decoding="async" alt=""></span>
+        <span class="dl fl-b" style="left:45.46%;top:16.633%;width:8.134%;--d:0.42;--dl:180ms"><img src="drive/anim-plane.webp" width="129" height="176" loading="lazy" decoding="async" alt=""></span>
+        <span class="dl fl-c" style="left:61.034%;top:19.758%;width:12.106%;--d:0.26;--dl:130ms"><img src="drive/anim-team.webp" width="192" height="268" loading="lazy" decoding="async" alt=""></span>
+        <span class="dl fl-d" style="left:25.473%;top:57.46%;width:12.863%;--d:0.36;--dl:230ms"><img src="drive/anim-dev.webp" width="204" height="285" loading="lazy" decoding="async" alt=""></span>
+        <span class="dl doc" style="left:44.136%;top:72.581%;width:9.142%;--d:0.44;--dl:660ms;--tx:-19.0%;--ty:-121.4%"><img src="drive/anim-pdf.webp" width="145" height="210" loading="lazy" decoding="async" alt=""></span>
+        <span class="dl doc" style="left:54.288%;top:71.069%;width:6.999%;--d:0.4;--dl:700ms;--tx:-154.5%;--ty:-129.9%"><img src="drive/anim-img.webp" width="111" height="169" loading="lazy" decoding="async" alt=""></span>
+        <span class="dl doc" style="left:62.232%;top:65.423%;width:8.008%;--d:0.46;--dl:740ms;--tx:-240.6%;--ty:-90.5%"><img src="drive/anim-vid.webp" width="127" height="195" loading="lazy" decoding="async" alt=""></span>
+        <span class="dl" style="left:36.003%;top:40.222%;width:16.015%;--d:0.06;--dl:0ms"><img src="drive/anim-front.webp" width="254" height="230" loading="lazy" decoding="async" alt=""></span>
+        <span class="dl fl-g" style="left:43.253%;top:50.202%;width:30.391%;--d:0.1;--dl:300ms"><img src="drive/anim-url.webp" width="482" height="200" loading="lazy" decoding="async" alt=""></span>
       </div>
     </figure>
   </div>
@@ -1069,26 +1125,56 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     $$(".why__v").forEach(function(el){ mid.observe(el); });
   })();
 
-  /* ——— Illustration DIV Drive : les documents se rangent, puis ressortent
-         un par un. Ne tourne que lorsque la section est à l'écran. ——— */
+  /* ——— Scène DIV Drive : entrée en cascade, flottement d'ambiance,
+         parallaxe à la souris, et les documents qui se rangent puis
+         ressortent un par un. Tout s'arrête hors écran. ——— */
   (function(){
-    var sc=$("#dscene"); if(!sc || reduce) return;
-    var cards=$$(".dl-card",sc), t=[], live=false;
-    var IN_STAGGER=190, HOLD=700, OUT_GAP=780, MOVE=900, REST=1500;
+    var sc=$("#dscene"); if(!sc) return;
+    var docs=$$(".doc",sc), t=[], live=false;
+    var IN=200, HOLD=750, GAP=820, MOVE=900, REST=1600;
+
+    if(reduce){ sc.classList.add("on"); return; }
+
     function clear(){ t.forEach(clearTimeout); t=[]; }
     function cycle(){
       if(!live) return;
-      cards.forEach(function(c,i){ t.push(setTimeout(function(){ c.classList.add("tucked"); }, i*IN_STAGGER)); });
-      var afterIn = (cards.length-1)*IN_STAGGER + MOVE + HOLD;
-      cards.forEach(function(c,i){ t.push(setTimeout(function(){ c.classList.remove("tucked"); }, afterIn + i*OUT_GAP)); });
-      t.push(setTimeout(cycle, afterIn + (cards.length-1)*OUT_GAP + MOVE + REST));
+      docs.forEach(function(d,i){ t.push(setTimeout(function(){ d.classList.add("tucked"); }, i*IN)); });
+      var after=(docs.length-1)*IN + MOVE + HOLD;
+      docs.forEach(function(d,i){ t.push(setTimeout(function(){ d.classList.remove("tucked"); }, after + i*GAP)); });
+      t.push(setTimeout(cycle, after + (docs.length-1)*GAP + MOVE + REST));
     }
+
+    /* entrée : une seule fois, puis le cycle démarre */
+    var seen=false;
     new IntersectionObserver(function(en){
       en.forEach(function(e){
-        if(e.isIntersecting){ if(!live){ live=true; cycle(); } }
-        else { live=false; clear(); cards.forEach(function(c){ c.classList.remove("tucked"); }); }
+        if(e.isIntersecting){
+          if(!seen){ seen=true; sc.classList.add("on"); }
+          if(!live){ live=true; t.push(setTimeout(cycle, seen?1400:0)); }
+        } else {
+          live=false; clear();
+          docs.forEach(function(d){ d.classList.remove("tucked"); });
+        }
       });
-    },{threshold:.25}).observe(sc);
+    },{threshold:.2}).observe(sc);
+
+    /* parallaxe : chaque calque se déplace selon sa profondeur */
+    if(matchMedia("(hover:hover) and (pointer:fine)").matches){
+      var raf=null,mx=0,my=0;
+      sc.addEventListener("pointermove",function(e){
+        var r=sc.getBoundingClientRect();
+        mx=((e.clientX-r.left)/r.width-.5)*2; my=((e.clientY-r.top)/r.height-.5)*2;
+        if(!raf) raf=requestAnimationFrame(function(){
+          raf=null;
+          sc.style.setProperty("--px",(mx*-18).toFixed(1)+"px");
+          sc.style.setProperty("--py",(my*-14).toFixed(1)+"px");
+        });
+      });
+      sc.addEventListener("pointerleave",function(){
+        if(raf){cancelAnimationFrame(raf);raf=null}
+        sc.style.setProperty("--px","0px"); sc.style.setProperty("--py","0px");
+      });
+    }
   })();
 
   /* ——— Objets 3D : inclinaison qui suit le curseur, plafonnée (§12) ——— */
