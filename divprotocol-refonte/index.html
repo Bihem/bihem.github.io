@@ -16,7 +16,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%235100FF'/%3E%3Cpath d='M10 8h6a8 8 0 0 1 0 16h-6z' fill='%23fff'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ==========================================================================
    DIV PROTOCOL — architecture mega.io/fr · direction Apple / Google
@@ -36,7 +36,7 @@
   /* Surfaces et texte */
   --bg:#FFFFFF;
   --bg-alt:#F7F8FC;
-  --ink:#0A1025;
+  --ink:#000000;
   --muted:#667085;
   --line:rgba(10,16,37,.08);
   --line-soft:rgba(10,16,37,.06);
@@ -80,20 +80,16 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 22px}
-.section{padding:clamp(72px,8vw,124px) 0}
+.section{padding:clamp(52px,5.5vw,76px) 0}
 .section--alt{background:var(--bg-alt);--card:#FFFFFF;--card-h:#FAFAFB}
 .center{text-align:center}
 .lead{font-size:clamp(1.125rem,1.03rem + .38vw,1.3125rem);line-height:1.6;color:var(--muted);max-width:64ch}
 .center .lead{margin-inline:auto}
-.head{max-width:780px;margin:0 auto clamp(56px,6vw,88px)}
+.head{max-width:780px;margin:0 auto clamp(36px,4vw,52px)}
 .head.center h2,.head.center h3,.cta h1,.cta h2,.cta h3{margin-inline:auto}
 .head:not(.center) h2,.head:not(.center) h3{margin-inline:0}
 .head.center h2{max-width:22ch}
 .head h2{margin-bottom:20px}
-.kicker{
-  display:inline-block;font-size:.8125rem;font-weight:600;letter-spacing:.02em;
-  color:var(--accent);margin-bottom:14px;
-}
 
 /* ————— Boutons : pilule, chrome neutre ————— */
 .btn{
@@ -162,7 +158,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .drawer .cta .btn{width:100%}
 
 /* ==================== 1. HERO ==================== */
-.hero{padding:calc(var(--nav-h) + var(--banner-h) + 72px) 0 clamp(48px,6vw,84px);text-align:center}
+.hero{padding:calc(var(--nav-h) + var(--banner-h) + 72px) 0 clamp(52px,5.5vw,76px);text-align:center}
 .hero h1{max-width:14ch;margin:0 auto 20px}
 .hero .lead{margin:0 auto 30px;max-width:52ch}
 .hero__cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
@@ -285,7 +281,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 #pourquoi .why__chips li{border-color:rgba(10,16,37,.16)}
 .why{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.04fr);
   gap:clamp(48px,7vw,120px);align-items:center}
-.why + .why{margin-top:clamp(96px,13vw,200px)}
+.why + .why{margin-top:clamp(64px,7vw,104px)}
 .why.rev .why__v{order:-1}
 .why__t h3{margin-bottom:20px}
 .why__t .lead{margin-bottom:30px}
@@ -319,8 +315,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .illu .satlab{font:600 15px Inter,sans-serif;fill:#0A1025;letter-spacing:-.01em}
 .illu .float,.illu .sat{animation:drift var(--d,7s) ease-in-out infinite;
   animation-delay:var(--dl,0s);transform-box:fill-box;transform-origin:center}
-.kicker{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.09em;
-  text-transform:uppercase;color:var(--purple);margin:0 0 18px}
 
 /* ==================== 4. LISTE D'AVANTAGES ==================== */
 .blurbs{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(30px,4vw,52px)}
@@ -335,8 +329,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .band{background:var(--ink);color:rgba(255,255,255,.72)}
 .band h2{color:#fff;margin-bottom:16px}
 .band .lead{color:rgba(255,255,255,.72)}
-.band .kicker{color:#fff;opacity:.6}
-.tile{display:grid;place-items:center;width:clamp(150px,20vw,196px);aspect-ratio:1;
+.band .tile{display:grid;place-items:center;width:clamp(150px,20vw,196px);aspect-ratio:1;
   background:#fff;border-radius:34px}
 .tile .ico{width:70%;height:auto}
 
@@ -354,14 +347,14 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 /* Chiffres publiés par DIV Protocol (section « Le problème », divprotocol.com/fr) */
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(28px,3.5vw,56px)}
-.stat{padding-top:32px;border-top:2px solid var(--purple)}
+.stat{padding-top:0}
 .stat b{display:block;font-family:Poppins,Inter,sans-serif;font-size:clamp(2.5rem,1.9rem + 2.2vw,3.75rem);font-weight:600;line-height:1;letter-spacing:-.035em;color:var(--ink);margin-bottom:16px;font-variant-numeric:tabular-nums}
 .stat p{color:var(--muted);font-size:17px;line-height:1.55;max-width:34ch;margin:0}
 
 
 .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(28px,3.5vw,56px);
   margin-bottom:clamp(64px,7vw,104px)}
-.pillar{position:relative;padding-top:38px;border-top:2px solid var(--purple)}
+.pillar{position:relative;padding-top:0}
 .section--alt .pillar h3{font-size:clamp(1.375rem,1.2rem + .6vw,1.75rem);margin-bottom:14px;max-width:14ch}
 .pillar p{font-size:17px;line-height:1.62;margin:0;color:var(--muted);max-width:34ch}
 
@@ -439,7 +432,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 }
 
 /* ——— Descriptions en noir (fin de feuille : doit primer sur les regles ci-dessus) ——— */
-.lead,.card p,.blurb p,.pillar p,.stat p,.cert p,.mini span,.hero__note{color:var(--ink);font-weight:300}
+.lead,.card p,.blurb p,.pillar p,.stat p,.cert p,.mini span,.hero__note{color:var(--ink);font-weight:400}
 </style>
 </head>
 <body>
@@ -567,7 +560,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 <section class="section" id="probleme">
   <div class="wrap">
     <div class="head center rv">
-      <p class="kicker">Le problème</p>
       <h2>Vos données sensibles ne vous appartiennent déjà plus.</h2>
       <p class="lead">Stocker vos documents chez Google, Microsoft ou AWS signifie leur donner la capacité de lire, analyser, copier ou transmettre vos contenus, sur réquisition ou incident. Vous perdez la souveraineté de vos données.</p>
     </div>
@@ -639,7 +631,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 <section class="section" id="drive">
   <div class="wrap">
     <div class="head center">
-      <p class="kicker rv">DIV Drive · Disponible</p>
       <h2 class="rv d1">Un vrai logiciel, pas une promesse</h2>
       <p class="lead rv d2">Fichiers, dossiers, permissions, recherche et collaboration. Tout ce que vos équipes attendent d'un drive — avec le chiffrement en dessous.</p>
     </div>
@@ -660,7 +651,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   <div class="wrap">
     <div class="alt">
       <div class="alt__t rv">
-        <p class="kicker">Sécurité</p>
         <h2>Aucune donnée ne peut être lue sans votre accord</h2>
         <p class="lead">Vos fichiers sont chiffrés dans votre navigateur, avant le moindre envoi. La clé ne quitte jamais votre poste et ne transite jamais par nos serveurs. Ce que nous stockons est, pour nous, indéchiffrable.</p>
         <a href="#confiance" class="link">En savoir plus sur la sécurité <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -681,7 +671,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 <section class="section" id="pourquoi">
   <div class="wrap">
     <div class="head center">
-      <p class="kicker rv">Pourquoi DIV</p>
       <h2 class="rv d1">Quatre raisons de reprendre la main sur vos documents</h2>
     </div>
 
@@ -816,7 +805,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   <div class="wrap">
     <div class="alt">
       <div class="alt__t rv">
-        <p class="kicker">Entreprise</p>
         <h2>Faites grandir votre organisation sans céder sur la souveraineté</h2>
         <p class="lead">Du cabinet indépendant à la direction juridique d'un groupe : hébergement dédié, SSO, journal d'audit unifié et accompagnement conformité aux côtés de votre RSSI.</p>
         <a href="#contact" class="btn btn--light" style="margin-top:8px">En savoir plus</a>
