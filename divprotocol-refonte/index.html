@@ -205,16 +205,27 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @media(max-width:600px){ .stage{max-width:420px} }
 
 /* ==================== 2. GRILLE PRODUITS ==================== */
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;perspective:1300px}
 .card{
   background:#fff;border:1px solid var(--line-soft);border-radius:var(--r-card);
   padding:36px 32px 32px;display:flex;flex-direction:column;
   box-shadow:var(--sh-card);
   transition:transform var(--m-ui) var(--e-ui),box-shadow var(--m-ui) var(--e-ui),border-color var(--m-ui) var(--e-ui);
+  transform-style:preserve-3d;
+  transform:translateY(var(--ly,0px)) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) scale(var(--sc,1));
 }
-.card:hover{transform:translateY(-4px);box-shadow:var(--sh-card-h);border-color:rgba(10,16,37,.12)}
+.card:hover{box-shadow:var(--sh-card-h);border-color:rgba(10,16,37,.12)}
+/* la revelation .rv pose transform:none avec une specificite superieure :
+   on la reprend ici, sinon la rotation 3D ne s'applique jamais */
+.mo .card.rv.in{transform:translateY(var(--ly,0px)) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) scale(var(--sc,1))}
+/* sans pointeur fin (tactile), on garde le simple soulevement */
+@media not all and (hover:hover){ .card:hover,.mo .card.rv.in:hover{transform:translateY(-4px)} }
+/* le contenu se detache legerement de la carte pendant la rotation */
+.card .ico,.card h3{transform:translateZ(0);transition:transform var(--m-medium) var(--e-main)}
+
+.card:hover h3{transform:translateZ(18px)}
 .card .ico{width:68px;height:68px;margin-bottom:20px;transition:transform var(--m-medium) var(--e-main)}
-.card:hover .ico{transform:scale(1.05) translateY(-2px)}
+.card:hover .ico{transform:translateZ(38px) scale(1.06) translateY(-2px)}
 .card h3{margin-bottom:8px}
 .card p{font-size:17px;line-height:1.62;margin:0 0 20px;color:var(--muted)}
 .card .link{margin-top:auto;font-size:15px}
@@ -1046,6 +1057,36 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       en.forEach(function(e){ e.target.classList.toggle("live", e.isIntersecting); });
     },{rootMargin:"-32% 0px -32% 0px",threshold:0});
     $$(".why__v").forEach(function(el){ mid.observe(el); });
+  })();
+
+  /* ——— Cartes produit : au survol, la carte pivote en 3D comme si elle
+         amorçait un retournement. L'angle suit la position du curseur. ——— */
+  (function(){
+    if(reduce || !matchMedia("(hover:hover) and (pointer:fine)").matches) return;
+    $$(".card").forEach(function(c){
+      var raf=null, rx=0, ry=0;
+      function apply(){
+        raf=null;
+        c.style.setProperty("--rx",rx.toFixed(2)+"deg");
+        c.style.setProperty("--ry",ry.toFixed(2)+"deg");
+      }
+      c.addEventListener("pointerenter",function(){
+        c.style.setProperty("--ly","-6px"); c.style.setProperty("--sc","1.012");
+      });
+      c.addEventListener("pointermove",function(e){
+        var r=c.getBoundingClientRect();
+        var px=(e.clientX-r.left)/r.width-.5;     /* -0.5 … 0.5 */
+        var py=(e.clientY-r.top)/r.height-.5;
+        ry = px*22;                                /* jusqu'a ±11° */
+        rx = -py*14;                               /* jusqu'a ±7°  */
+        if(!raf) raf=requestAnimationFrame(apply);
+      });
+      c.addEventListener("pointerleave",function(){
+        if(raf){cancelAnimationFrame(raf);raf=null}
+        c.style.setProperty("--rx","0deg"); c.style.setProperty("--ry","0deg");
+        c.style.setProperty("--ly","0px");  c.style.setProperty("--sc","1");
+      });
+    });
   })();
 
   /* ——— Section « Pourquoi » : les quatre visuels flottent au défilement.
