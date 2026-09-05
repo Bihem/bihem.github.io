@@ -1,1160 +1,865 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>DIV Protocol — La suite collaborative souveraine européenne</title>
-<meta name="description" content="DIV Protocol construit la suite européenne d'outils de travail souverains, chiffrés et auditables. Drive chiffré de bout en bout et preuve d'intégrité blockchain.">
-<link rel="canonical" href="https://dikengadesign.fr/divprotocol-refonte/">
-<meta name="robots" content="index,follow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DIV Protocol — La suite collaborative souveraine</title>
+<meta name="description" content="DIV Protocol construit la suite européenne d'outils de travail souverains, chiffrés et auditables. Vos données vous appartiennent.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#FFFFFF">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
-<meta property="og:title" content="DIV Protocol — La suite collaborative souveraine européenne">
-<meta property="og:description" content="Vos données vous appartiennent. Drive chiffré de bout en bout, clés chez vous, architecture distribuée en Europe.">
-<meta property="og:url" content="https://dikengadesign.fr/divprotocol-refonte/">
-<meta property="og:image" content="https://dikengadesign.fr/divprotocol-refonte/icons/hero.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#FFFFFF">
+<meta property="og:site_name" content="DIV Protocol">
+<meta property="og:title" content="DIV Protocol — La suite collaborative souveraine">
+<meta property="og:description" content="Vos données vous appartiennent. Reprenons-en le contrôle, ensemble.">
+<meta property="og:image" content="icons/hero.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%235100FF'/%3E%3Cpath d='M10 8h6a8 8 0 0 1 0 16h-6z' fill='%23fff'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="icon" href="logo/div-logo-horizontale.svg" type="image/svg+xml">
-
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ==========================================================================
-   DIV PROTOCOL — concept de refonte (maquette Dikenga Design, non officielle)
-   Direction : minimalisme technique européen. Le premium vient de la
-   typographie, de l'espace et de la précision — jamais de l'effet.
+   DIV PROTOCOL — architecture mega.io/fr · direction Apple / Google
+   Fond blanc, chrome neutre, la couleur vient uniquement des icônes.
    ========================================================================== */
 
 :root{
-  /* — Marque ————————————————————————————————— */
-  --div:#5B2EFF;              /* bleu DIV, couleur principale conservée */
-  --div-press:#4A1FE0;
-  --div-soft:#F1EDFF;
-  --volt:#1687FF;             /* bleu électrique, accent seulement */
-  --volt-soft:#E8F2FF;
-
-  /* — Surfaces ——————————————————————————————— */
-  --night:#07091A;            /* bleu nuit presque noir */
-  --night-2:#0E1330;
-  --white:#FFFFFF;
-  --off:#F7F8FB;              /* blanc légèrement cassé */
-  --ink:#07091A;
-  --cool:#5F6879;             /* gris froid — 5,6:1 sur blanc */
-  --cool-2:#646D80;           /* libellés — 5,2:1 sur blanc, 4,9:1 sur blanc cassé */
-  --line:rgba(7,9,26,.09);
-  --line-2:rgba(7,9,26,.055);
-  --line-dark:rgba(255,255,255,.10);
-  --line-dark-2:rgba(255,255,255,.055);
-
-  /* — Rythme ————————————————————————————————— */
-  --maxw:1280px;
-  --gut:clamp(20px,4vw,40px);
-  --sec:clamp(104px,11vw,184px);
+  /* Marque */
+  --purple:#5B2EFF;      --purple-2:#753BFF;   --purple-soft:#F1EDFF;
+  /* Couleurs fonctionnelles : chaque domaine produit a la sienne */
+  --cloud:#1687FF;       --cloud-soft:#E8F2FF;
+  --secure:#10B981;      --secure-soft:#E6F7F1;
+  --collab:#8B5CF6;      --collab-soft:#F1ECFE;
+  --docs:#4F8CFF;        --docs-soft:#EAF1FF;
+  --alert:#FF4D67;       --alert-soft:#FFECEF;
+  --star:#FFB020;        --star-soft:#FFF4E2;
+  /* Surfaces et texte */
+  --bg:#FFFFFF;
+  --bg-alt:#F7F8FC;
+  --ink:#000000;
+  --muted:#667085;
+  --line:rgba(10,16,37,.08);
+  --line-soft:rgba(10,16,37,.06);
+  /* Rythme */
+  --maxw:1240px;
+  --pad-section:clamp(88px,10vw,180px);
   --nav-h:73px;
   --banner-h:34px;
-  --r:12px;
-  --r-lg:18px;
+  --r-btn:12px;
+  --r-card:28px;
   --ease:cubic-bezier(.22,.61,.36,1);
-  --ease-out:cubic-bezier(.16,1,.3,1);
+  --sh-card:0 1px 2px rgba(10,16,37,.04), 0 8px 24px rgba(10,16,37,.05);
+  --sh-card-h:0 2px 4px rgba(10,16,37,.05), 0 18px 44px rgba(10,16,37,.09);
 }
 
+/* alias de transition depuis l'ancien jeu de variables */
+:root{--accent:var(--purple);--accent-soft:var(--purple-soft);--card:#FFFFFF;--card-h:#FFFFFF;--ink-2:#2A3141}
 *,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;overflow-x:hidden;scroll-padding-top:calc(var(--nav-h) + var(--banner-h) + 20px)}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;overflow-x:hidden}
 body{
-  margin:0;background:var(--white);color:var(--ink);
+  margin:0;background:var(--bg);color:var(--muted);
   font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  font-size:17px;line-height:1.6;letter-spacing:-.011em;
+  font-size:17.5px;line-height:1.68;letter-spacing:-.009em;
   font-feature-settings:"cv01","ss03";
-  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
 }
-img,svg,video{max-width:100%;display:block}
+h1,h2,h3,h4,.display{font-family:Poppins,Inter,-apple-system,"Segoe UI",Arial,sans-serif;
+  color:var(--ink);margin:0;text-wrap:balance}
+h1{font-size:clamp(2.75rem,1.9rem + 3.2vw,4.5rem);font-weight:700;line-height:1.08;letter-spacing:-.028em;max-width:16ch}
+h2{font-size:clamp(2.125rem,1.6rem + 2.1vw,3.5rem);font-weight:600;line-height:1.15;letter-spacing:-.022em;max-width:20ch}
+h3{font-size:clamp(1.625rem,1.35rem + 1vw,2.25rem);font-weight:600;line-height:1.22;letter-spacing:-.018em;max-width:18ch}
+h4{font-size:1.3125rem;font-weight:600;line-height:1.38;letter-spacing:-.014em}
+p{margin:0 0 1rem}
 a{color:inherit;text-decoration:none}
-button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 ul,ol{margin:0;padding:0;list-style:none}
-h1,h2,h3,h4{margin:0;font-family:Poppins,Inter,sans-serif;color:var(--ink);text-wrap:balance}
-p{margin:0}
-:focus-visible{outline:2px solid var(--div);outline-offset:3px;border-radius:4px}
+img{max-width:100%;display:block}
+.ico{display:block;height:auto}
+img.ico{object-fit:contain;width:auto;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2.5px solid var(--accent);outline-offset:3px;border-radius:6px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-/* — Échelle typographique ————————————————————————— */
-h1{font-size:clamp(3.1rem,2.1rem + 4.2vw,6rem);font-weight:700;line-height:1.02;letter-spacing:-.035em}
-h2{font-size:clamp(2.4rem,1.7rem + 3vw,4.5rem);font-weight:600;line-height:1.06;letter-spacing:-.03em}
-h3{font-size:clamp(1.5rem,1.25rem + 1vw,2.1rem);font-weight:600;line-height:1.2;letter-spacing:-.022em}
-h4{font-size:1.125rem;font-weight:600;line-height:1.35;letter-spacing:-.015em}
-.lead{font-size:clamp(1.0625rem,1rem + .35vw,1.25rem);line-height:1.62;color:var(--cool);max-width:58ch}
-.mono{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;font-feature-settings:normal}
-.kicker{
-  font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;
-  font-size:11.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--cool-2);display:inline-block;
-}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.section{padding:clamp(52px,5.5vw,76px) 0}
+.section--alt{background:var(--bg-alt);--card:#FFFFFF;--card-h:#FAFAFB}
+.center{text-align:center}
+.lead{font-size:clamp(1.125rem,1.03rem + .38vw,1.3125rem);line-height:1.6;color:var(--muted);max-width:64ch}
+.center .lead{margin-inline:auto}
+.head{max-width:880px;margin:0 auto clamp(36px,4vw,52px)}
+.head.center h2,.head.center h3,.cta h1,.cta h2,.cta h3{margin-inline:auto}
+.head:not(.center) h2,.head:not(.center) h3{margin-inline:0}
+.head.center h2{max-width:30ch}
+.head h2{margin-bottom:20px}
 
-/* — Ossature ———————————————————————————————— */
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut)}
-.sec{padding:var(--sec) 0;position:relative}
-.sec--tight{padding:calc(var(--sec) * .62) 0}
-.sec--off{background:var(--off)}
-.sec--dark{background:var(--night);color:rgba(255,255,255,.66)}
-.sec--dark h2,.sec--dark h3,.sec--dark h4{color:#fff}
-.sec--dark .lead{color:rgba(255,255,255,.62)}
-.sec--dark .kicker{color:rgba(255,255,255,.58)}
-.head{max-width:820px}
-.head .kicker{margin-bottom:22px}
-.head h2{max-width:19ch}
-.head .lead{margin-top:24px}
-.head--c{margin-inline:auto;text-align:center}
-.head--c .lead{margin-inline:auto}
-
-/* — Boutons ————————————————————————————————— */
+/* ————— Boutons : pilule, chrome neutre ————— */
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  height:48px;padding:0 24px;border-radius:var(--r);
-  font-size:15.5px;font-weight:600;letter-spacing:-.008em;line-height:1;white-space:nowrap;
-  transition:background .22s var(--ease),color .22s var(--ease),border-color .22s var(--ease),transform .22s var(--ease);
+  height:48px;padding:0 26px;border-radius:var(--r-btn);
+  font-size:16.5px;font-weight:600;letter-spacing:-.008em;line-height:1;white-space:nowrap;
+  transition:background .2s,color .2s,border-color .2s,transform .2s,opacity .2s;
 }
-.btn:active{transform:translateY(1px)}
-.btn--primary{background:var(--div);color:#fff}
-.btn--primary:hover{background:var(--div-press)}
-.btn--line{border:1px solid var(--line);color:var(--ink);background:var(--white)}
-.btn--line:hover{border-color:var(--ink)}
-.btn--ghost-d{border:1px solid var(--line-dark);color:#fff}
-.btn--ghost-d:hover{border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.05)}
-.btn--light{background:#fff;color:var(--night)}
-.btn--light:hover{background:#EDEEF5}
-.btn--sm{height:32px;padding:0 13px;font-size:13px;border-radius:9px}
-.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
-.head--c .cta-row{justify-content:center}
+.btn--primary{background:var(--accent);color:#fff}
+.btn--primary:hover{opacity:.88;transform:translateY(-1px)}
+.btn--dark{background:var(--ink);color:#fff}
+.btn--dark:hover{opacity:.85;transform:translateY(-1px)}
+.btn--soft{background:var(--accent-soft);color:var(--accent)}
+.btn--soft:hover{background:#E9E2FF;transform:translateY(-1px)}
+.btn--line{border:1px solid var(--line);color:var(--ink);background:var(--bg)}
+.btn--line:hover{border-color:var(--ink);transform:translateY(-1px)}
+.btn--light{background:#fff;color:var(--ink)}
+.btn--light:hover{opacity:.9;transform:translateY(-1px)}
+.btn--sm{height:32px;padding:0 12px;font-size:13px}
+.btn:active{transform:none}
 
-.link{display:inline-flex;align-items:center;min-height:24px;gap:7px;font-size:15.5px;font-weight:500;color:var(--ink)}
-.link svg{transition:transform .25s var(--ease-out)}
+.link{display:inline-flex;align-items:center;gap:7px;font-size:16.5px;font-weight:500;color:var(--ink)}
+.link svg{transition:transform .25s cubic-bezier(.2,.9,.3,1)}
 .link:hover svg{transform:translateX(4px)}
-.sec--dark .link{color:#fff}
 
-/* — Révélation au défilement ————————————————————— */
-.rv{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease-out),transform .7s var(--ease-out)}
-.rv.in{opacity:1;transform:none}
-.d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}.d4{transition-delay:.28s}
-
-/* ==========================================================================
-   BANDEAU + NAVIGATION
-   ========================================================================== */
-.banner{
-  position:fixed;top:0;left:0;right:0;height:var(--banner-h);z-index:950;
-  background:var(--night);color:rgba(255,255,255,.8);
-  display:flex;align-items:center;justify-content:center;
-  font-size:12px;letter-spacing:0;text-align:center;padding:0 14px;
+/* ————— Bandeau concept ————— */
+.concept{
+  position:fixed;inset:0 0 auto;height:var(--banner-h);z-index:1000;
+  display:flex;align-items:center;justify-content:center;gap:6px;padding:0 16px;
+  background:var(--ink);color:rgba(255,255,255,.82);font-size:12px;text-align:center;letter-spacing:0;
 }
-.banner b{color:#fff;font-weight:600}
-.banner span{color:rgba(255,255,255,.5)}
+.concept strong{color:#fff;font-weight:600}
+.concept em{font-style:normal;opacity:.55}
+@media(max-width:700px){.concept em{display:none}}
 
+/* ————— En-tête façon Apple : fin, discret, translucide ————— */
 .hdr{
   position:fixed;top:var(--banner-h);left:0;right:0;height:var(--nav-h);z-index:900;
-  transition:height .3s var(--ease),background .3s var(--ease),border-color .3s var(--ease),backdrop-filter .3s;
-  border-bottom:1px solid transparent;background:rgba(255,255,255,.72);
-  -webkit-backdrop-filter:saturate(180%) blur(18px);backdrop-filter:saturate(180%) blur(18px);
+  background:rgba(255,255,255,.78);backdrop-filter:saturate(180%) blur(20px);
+  -webkit-backdrop-filter:saturate(180%) blur(20px);
+  border-bottom:1px solid transparent;transition:border-color .3s;
 }
-.hdr.stuck{height:60px;background:rgba(255,255,255,.86);border-bottom-color:var(--line-2)}
-.hdr__in{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut);height:100%;display:flex;align-items:center;gap:26px;position:relative}
-.logo{display:flex;align-items:center;flex:none}
-.logo img{height:24px;width:auto}
+.hdr.stuck{border-bottom-color:var(--line)}
+.hdr__in{position:relative;max-width:1240px;margin:0 auto;padding:0 22px;height:100%;display:flex;align-items:center;gap:28px;min-width:0}
+.logo{display:flex;align-items:center;gap:8px;font-size:16px;font-weight:600;color:var(--ink);letter-spacing:-.02em;flex:none}
+.logo img{height:26px;width:auto;display:block;flex:none}
+.logo i{width:24px;height:24px;border-radius:7px;background:var(--accent);display:grid;place-items:center;flex:none}
+.logo i svg{width:11px;height:11px}
 .nav{position:absolute;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:2px;white-space:nowrap}
-.nav a{padding:7px 10px;border-radius:8px;font-size:13.5px;font-weight:450;color:var(--cool);transition:color .2s}
+.nav a{padding:6px 8px;border-radius:8px;font-size:13px;font-weight:400;color:var(--ink-2);transition:color .2s}
 .nav a:hover{color:var(--ink)}
 .hdr__r{margin-left:auto;display:flex;align-items:center;gap:10px;flex:none}
-.hdr__r .sep{display:inline-flex;align-items:center;min-height:26px;padding:0 4px;font-size:13.5px;color:var(--cool)}
+.hdr__r .sep{font-size:13px;color:var(--ink-2)}
 .hdr__r .sep:hover{color:var(--ink)}
-.kbd{
-  display:inline-flex;align-items:center;gap:5px;height:30px;padding:0 9px;border-radius:8px;
-  border:1px solid var(--line);color:var(--cool);font-size:12px;font-weight:500;
-  transition:border-color .2s,color .2s;
-}
-.kbd:hover{border-color:var(--ink);color:var(--ink)}
-.kbd kbd{font-family:inherit;font-size:12px}
 .burger{display:none;width:34px;height:34px;border-radius:8px;place-items:center;color:var(--ink)}
 
-/* — Palette de commandes (⌘K) ————————————————————— */
-.cmdk{position:fixed;inset:0;z-index:1000;display:none;padding:14vh 20px 20px}
-.cmdk[data-open]{display:block}
-.cmdk__veil{position:absolute;inset:0;background:rgba(7,9,26,.34);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);animation:fade .18s var(--ease)}
-.cmdk__box{
-  position:relative;max-width:540px;margin:0 auto;background:#fff;border-radius:16px;
-  border:1px solid var(--line);box-shadow:0 24px 70px rgba(7,9,26,.22);overflow:hidden;
-  animation:pop .2s var(--ease-out);
-}
-@keyframes fade{from{opacity:0}}
-@keyframes pop{from{opacity:0;transform:translateY(-8px) scale(.985)}}
-.cmdk__in{display:flex;align-items:center;gap:11px;padding:15px 17px;border-bottom:1px solid var(--line-2)}
-.cmdk__in svg{color:var(--cool-2);flex:none}
-.cmdk__in input{flex:1;border:0;outline:0;font:inherit;font-size:15.5px;color:var(--ink);background:none}
-.cmdk__in input::placeholder{color:var(--cool-2)}
-.cmdk__list{max-height:min(52vh,380px);overflow:auto;padding:8px}
-.cmdk__grp{padding:9px 11px 5px;font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--cool-2)}
-.cmdk__it{
-  display:flex;align-items:center;gap:11px;width:100%;padding:9px 11px;border-radius:9px;
-  font-size:14.5px;color:var(--ink);text-align:left;
-}
-.cmdk__it .m{margin-left:auto;font-size:12px;color:var(--cool-2)}
-.cmdk__it[aria-selected="true"]{background:var(--div-soft);color:var(--div)}
-.cmdk__it[aria-selected="true"] .m{color:var(--div)}
-.cmdk__none{padding:22px 12px;text-align:center;color:var(--cool);font-size:14.5px}
-
-/* — Tiroir mobile ——————————————————————————— */
 .drawer{
-  position:fixed;inset:calc(var(--nav-h) + var(--banner-h)) 0 0;z-index:880;background:var(--white);
-  padding:18px var(--gut) 40px;overflow-y:auto;
-  transform:translateX(100%);visibility:hidden;transition:transform .34s var(--ease-out),visibility .34s;
+  position:fixed;inset:calc(var(--nav-h) + var(--banner-h)) 0 0;z-index:880;background:var(--bg);
+  padding:20px 22px 40px;overflow-y:auto;max-width:100vw;
+  transform:translateX(100%);visibility:hidden;transition:transform .35s cubic-bezier(.3,.9,.3,1),visibility .35s;
 }
 .drawer.open{transform:none;visibility:visible}
-.drawer a.item{display:flex;align-items:center;justify-content:space-between;padding:17px 2px;
-  font-size:21px;font-weight:600;letter-spacing:-.02em;border-bottom:1px solid var(--line-2)}
-.drawer .cta{display:flex;flex-direction:column;gap:10px;margin-top:24px}
+.drawer a.item{display:flex;align-items:center;justify-content:space-between;padding:18px 2px;
+  font-size:22px;font-weight:600;color:var(--ink);letter-spacing:-.02em;border-bottom:1px solid var(--line)}
+.drawer .cta{display:flex;flex-direction:column;gap:10px;margin-top:26px}
 .drawer .cta .btn{width:100%}
 
-/* ==========================================================================
-   01 · HERO + DÉMONSTRATION PRODUIT
-   ========================================================================== */
-.hero{padding:calc(var(--nav-h) + var(--banner-h) + clamp(60px,7vw,104px)) 0 0;text-align:center;position:relative;overflow:hidden}
-.hero::before{
-  content:"";position:absolute;inset:-10% -20% auto;height:60vh;pointer-events:none;
-  background:radial-gradient(60% 60% at 50% 0%,rgba(91,46,255,.07),transparent 70%);
+/* ==================== 1. HERO ==================== */
+.hero{padding:calc(var(--nav-h) + var(--banner-h) + 72px) 0 clamp(52px,5.5vw,76px);text-align:center}
+.hero h1{max-width:14ch;margin:0 auto 20px}
+.hero .lead{margin:0 auto 30px;max-width:52ch}
+.hero__cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.hero__note{margin-top:16px;font-size:14px;color:var(--muted)}
+/* Scène : l'illustration d'origine, découpée en calques animables */
+.scene{position:absolute;inset:0}
+.ly{position:absolute;height:auto;transform-origin:50% 50%;will-change:transform,opacity;backface-visibility:hidden}
+.bloom{
+  position:absolute;left:50.2%;top:77.2%;width:34%;aspect-ratio:1;translate:-50% -50%;
+  border-radius:50%;pointer-events:none;z-index:3;opacity:0;
+  background:radial-gradient(circle, rgba(190,150,255,.95) 0%, rgba(124,58,237,.55) 38%, rgba(80,0,255,0) 70%);
+  mix-blend-mode:screen;
 }
-.hero h1{margin:0 auto;max-width:13ch}
-.hero .lead{margin:26px auto 0;max-width:50ch;font-size:clamp(1.0625rem,1rem + .4vw,1.3125rem)}
-.hero .cta-row{margin-top:34px}
+/* Scène : le socle reste fixe, les fichiers y entrent au scroll */
+.stage{position:relative;width:100%;max-width:860px;margin:clamp(24px,3vw,44px) auto 0;aspect-ratio:1226/1283}
+@media(max-width:900px){ .stage{max-width:620px} }
+@media(max-width:600px){ .stage{max-width:420px} }
 
-/* Fenêtre produit flottante */
-.app{
-  position:relative;margin:clamp(56px,7vw,88px) auto 0;max-width:1100px;
-  border:1px solid var(--line);border-radius:var(--r-lg);background:#fff;overflow:hidden;
-  box-shadow:0 2px 6px rgba(7,9,26,.04),0 30px 70px -20px rgba(7,9,26,.16);
-  text-align:left;
+/* ==================== 2. GRILLE PRODUITS ==================== */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{
+  background:#fff;border:1px solid var(--line-soft);border-radius:var(--r-card);
+  padding:36px 32px 32px;display:flex;flex-direction:column;
+  box-shadow:var(--sh-card);
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease);
 }
-.app__bar{display:flex;align-items:center;gap:9px;padding:12px 16px;border-bottom:1px solid var(--line-2);background:var(--off)}
-.app__dots{display:flex;gap:6px}
-.app__dots i{width:9px;height:9px;border-radius:50%;background:rgba(7,9,26,.13)}
-.app__url{
-  margin-left:8px;height:26px;flex:1;max-width:280px;border-radius:7px;background:#fff;border:1px solid var(--line-2);
-  display:flex;align-items:center;gap:7px;padding:0 10px;font-size:11.5px;color:var(--cool);
-}
-.app__url svg{width:11px;height:11px;color:var(--secure,#10B981);flex:none}
-.app__body{display:grid;grid-template-columns:196px minmax(0,1fr);min-height:352px}
-.app__side{border-right:1px solid var(--line-2);padding:16px 12px;background:#fff}
-.app__side .grp{font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--cool-2);padding:0 10px 9px}
-.app__side a,.app__side span{
-  display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;
-  font-size:13.5px;color:var(--cool);transition:background .18s,color .18s;
-}
-.app__side .on{background:var(--div-soft);color:var(--div);font-weight:500}
-.app__side i{width:15px;height:15px;flex:none;display:grid;place-items:center}
-.app__side svg{width:15px;height:15px}
-.app__main{padding:18px 20px;min-width:0}
-.app__crumb{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--cool-2);margin-bottom:15px}
+.card:hover{transform:translateY(-4px);box-shadow:var(--sh-card-h);border-color:rgba(10,16,37,.12)}
+.card .ico{width:68px;height:68px;margin-bottom:20px;transition:transform .4s cubic-bezier(.2,.9,.3,1)}
+.card:hover .ico{transform:scale(1.08) translateY(-2px)}
+.card h3{margin-bottom:8px}
+.card p{font-size:17px;line-height:1.62;margin:0 0 20px;color:var(--muted)}
+.card .link{margin-top:auto;font-size:15px}
+.tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.02em;color:var(--muted);
+  background:#fff;padding:4px 10px;border-radius:100px;margin-bottom:14px;align-self:flex-start}
 
-.rows{border:1px solid var(--line-2);border-radius:10px;overflow:hidden}
-.row{
-  display:grid;grid-template-columns:minmax(0,1fr) 92px 108px;align-items:center;gap:12px;
-  padding:11px 14px;font-size:13.5px;border-bottom:1px solid var(--line-2);
-  transition:background .18s;position:relative;
-}
-.row:last-child{border-bottom:0}
-.row:hover{background:var(--off)}
-.row__n{display:flex;align-items:center;gap:10px;min-width:0}
-.row__n b{font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.row__ic{width:26px;height:26px;border-radius:7px;display:grid;place-items:center;flex:none;background:var(--volt-soft);color:var(--volt)}
-.row__ic svg{width:14px;height:14px}
-.row__ic.f{background:var(--div-soft);color:var(--div)}
-.row__m{font-size:12px;color:var(--cool-2);white-space:nowrap}
-.row__s{justify-self:end}
-.pill{
-  display:inline-flex;align-items:center;gap:6px;height:23px;padding:0 9px;border-radius:100px;
-  font-size:11px;font-weight:500;letter-spacing:.01em;white-space:nowrap;
-  background:var(--off);color:var(--cool);border:1px solid var(--line-2);
-}
-.pill i{width:5px;height:5px;border-radius:50%;background:currentColor;flex:none}
-.pill--ok{background:rgba(16,185,129,.09);color:#047857;border-color:rgba(16,185,129,.18)}
-.pill--go{background:var(--div-soft);color:var(--div);border-color:rgba(91,46,255,.16)}
-.row .hint{
-  position:absolute;left:52px;bottom:calc(100% - 6px);z-index:4;
-  background:var(--night);color:#fff;font-size:11.5px;padding:5px 9px;border-radius:7px;white-space:nowrap;
-  opacity:0;transform:translateY(4px);transition:opacity .2s,transform .2s;pointer-events:none;
-}
-.row:hover .hint,.row:focus-within .hint{opacity:1;transform:none}
+/* ==================== 3. BLOCS ALTERNÉS ==================== */
+.alt{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,88px);align-items:center}
+.alt + .alt{margin-top:clamp(64px,8vw,116px)}
+.alt.rev .alt__v{order:-1}
+.alt h2{margin-bottom:18px}
+.alt .lead{margin-bottom:24px}
+.alt__v{display:flex;justify-content:center}
+.alt__v .ico{width:clamp(120px,20vw,190px);height:auto}
 
-/* Séquence de chiffrement du hero */
-.seq{margin-top:16px;border:1px solid var(--line-2);border-radius:10px;padding:14px 16px;background:var(--off)}
-.seq__t{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:11px}
-.seq__f{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:500}
-.seq__f svg{width:15px;height:15px;color:var(--div)}
-.seq__st{font-size:12.5px;color:var(--div);font-weight:500;min-height:1.2em}
-.seq__track{height:3px;border-radius:100px;background:rgba(7,9,26,.08);overflow:hidden}
-.seq__fill{height:100%;width:0;background:var(--div);border-radius:100px;transition:width .5s var(--ease)}
-.seq__steps{display:flex;flex-wrap:wrap;gap:5px;margin-top:11px}
-.seq__steps li{
-  font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;
-  padding:4px 8px;border-radius:6px;background:#fff;border:1px solid var(--line-2);color:var(--cool-2);
-  transition:color .3s,border-color .3s,background .3s;
-}
-.seq__steps li.on{color:var(--div);border-color:rgba(91,46,255,.28);background:var(--div-soft)}
-.seq__steps li.done{color:#047857;border-color:rgba(16,185,129,.2);background:rgba(16,185,129,.07)}
+/* ─────────── DIV Drive : fenêtre applicative ─────────── */
+/* ===== Illustration DIV Drive ===== */
+.dfig{width:100%;max-width:1120px;margin:0 auto;padding:0}
+.dfig img{display:block;width:100%;height:auto}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.app{max-width:1080px;margin:0 auto;background:#fff;border:1px solid var(--line);
+  border-radius:22px;overflow:hidden;
+  box-shadow:0 2px 6px rgba(10,16,37,.04),0 32px 80px rgba(10,16,37,.10)}
+.app__bar{display:flex;align-items:center;gap:8px;padding:14px 18px;
+  background:var(--bg-alt);border-bottom:1px solid var(--line-soft);min-width:0}
+.dot{width:10px;height:10px;border-radius:50%;flex:none}
+.app__url{margin-left:10px;flex:1;min-width:0;font-size:12px;color:var(--muted);
+  background:#fff;border:1px solid var(--line-soft);border-radius:8px;padding:6px 14px;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.app__body{display:grid;grid-template-columns:236px minmax(0,1fr)}
+.app__side{border-right:1px solid var(--line-soft);padding:20px 14px;background:#FCFCFE;min-width:0}
+.side-h{font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--muted);padding:0 10px;margin:0 0 10px}
+.side-h + .side-h{margin-top:26px}
+.navi{display:flex;align-items:center;gap:11px;padding:10px;border-radius:10px;
+  font-size:14px;font-weight:500;color:var(--ink)}
+.navi svg{width:17px;height:17px;flex:none;opacity:.5}
+.navi i{width:9px;height:9px;border-radius:3px;flex:none}
+.navi em{margin-left:auto;font-style:normal;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.navi.is-on{background:var(--purple-soft);color:var(--purple)}
+.navi.is-on svg{opacity:1}
+.app__main{padding:20px 22px;min-width:0}
+.app__top{display:flex;align-items:center;gap:12px;margin-bottom:16px;min-width:0}
+.search{flex:1;min-width:0;display:flex;align-items:center;gap:10px;padding:10px 14px;
+  border-radius:10px;background:var(--bg-alt);border:1px solid var(--line-soft);
+  font-size:13.5px;color:var(--muted)}
+.search svg{width:15px;height:15px;flex:none;opacity:.5}
+.search span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.chip{font-size:12px;font-weight:600;padding:7px 12px;border-radius:100px;white-space:nowrap;flex:none}
+.chip--secure{background:var(--secure-soft);color:#07835C}
+.faces{display:flex;flex:none}
+.faces i{width:28px;height:28px;border-radius:50%;margin-left:-8px;display:grid;place-items:center;
+  font-style:normal;font-size:10.5px;font-weight:600;color:#fff;border:2px solid #fff}
+.faces i.more{background:var(--bg-alt);color:var(--muted)}
+.crumb{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--muted);margin-bottom:12px}
+.crumb svg{width:12px;height:12px;flex:none}
+.crumb b{color:var(--ink);font-weight:600}
+.frow{display:flex;align-items:center;gap:14px;padding:13px 10px;border-radius:12px}
+.frow + .frow{border-top:1px solid var(--line-soft)}
+.ftype{width:36px;height:36px;border-radius:10px;flex:none;display:grid;place-items:center;
+  color:#fff;font-size:9.5px;font-weight:700;letter-spacing:.02em}
+.ftxt{min-width:0;flex:1}
+.ftxt b{display:block;font-size:14px;font-weight:600;color:var(--ink);
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ftxt span{display:block;font-size:12.5px;color:var(--muted);
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.perm,.e2e{flex:none;font-size:11.5px;font-weight:600;padding:5px 11px;border-radius:100px;white-space:nowrap}
+.perm{background:var(--docs-soft);color:#2C64C8}
+.perm--read{background:var(--bg-alt);color:var(--muted)}
+.e2e{background:var(--secure-soft);color:#07835C}
+.upload{display:flex;align-items:center;gap:12px;margin-top:16px;padding:12px 14px;
+  border-radius:12px;background:var(--purple-soft);min-width:0}
+.upload svg{width:16px;height:16px;flex:none;color:var(--purple)}
+.upload b{font-size:13px;font-weight:600;color:var(--ink);white-space:nowrap}
+.upload .bar{flex:1;min-width:0;height:6px;border-radius:3px;background:rgba(91,46,255,.16);overflow:hidden}
+.upload .bar i{display:block;height:100%;border-radius:3px;background:var(--purple);
+  animation:up 5s ease-in-out infinite}
+@keyframes up{0%{width:10%}70%{width:92%}100%{width:10%}}
+.upload .pct{font-size:12px;color:var(--muted);white-space:nowrap}
 
-/* ==========================================================================
-   02 · BARRE DE CONFIANCE
-   ========================================================================== */
-.trust{border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2);padding:22px 0}
-.trust ul{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px clamp(20px,4vw,54px)}
-.trust li{
-  font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--cool-2);display:flex;align-items:center;gap:9px;
-}
-.trust li::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--div);opacity:.55;flex:none}
 
-/* ==========================================================================
-   03 · COMMENT DIV FONCTIONNE (défilement)
-   ========================================================================== */
-.how{position:relative}
-.how__grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(40px,6vw,96px);align-items:start}
-.how__steps{display:flex;flex-direction:column;gap:2px}
-.step{
-  display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px;
-  padding:22px 0 24px;border-top:1px solid var(--line-2);opacity:.34;transition:opacity .45s var(--ease);
-}
-.step:last-child{border-bottom:1px solid var(--line-2)}
-.step.on{opacity:1}
-.step__n{
-  font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:.1em;color:var(--cool-2);
-  padding-top:5px;transition:color .45s;
-}
-.step.on .step__n{color:var(--div)}
-.step h3{font-size:1.22rem;letter-spacing:-.018em}
-.step p{margin-top:7px;color:var(--cool);font-size:15.5px;max-width:46ch}
-.how__stage{
-  position:sticky;top:calc(var(--nav-h) + var(--banner-h) + 40px);
-  aspect-ratio:1/.82;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--off);
-  display:grid;place-items:center;overflow:hidden;
-}
-.stage__inner{position:relative;width:100%;height:100%;display:grid;place-items:center}
-.doc{
-  position:relative;width:118px;height:150px;border-radius:11px;background:#fff;border:1px solid var(--line);
-  box-shadow:0 10px 30px -12px rgba(7,9,26,.18);display:flex;flex-direction:column;gap:8px;
-  padding:20px 16px;transition:transform .6s var(--ease-out),opacity .5s;
-}
-.doc i{display:block;height:5px;border-radius:3px;background:rgba(7,9,26,.1)}
-.doc i:nth-child(1){width:70%;background:var(--volt);opacity:.75}
-.doc i:nth-child(2){width:100%}
-.doc i:nth-child(3){width:86%}
-.doc i:nth-child(4){width:54%}
-.doc__tag{
-  position:absolute;left:50%;transform:translateX(-50%);bottom:-30px;white-space:nowrap;
-  font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--cool-2);
-}
-.doc.enc{background:var(--night);border-color:transparent}
-.doc.enc i{background:rgba(255,255,255,.16)}
-.doc.enc i:nth-child(1){background:var(--volt);opacity:1}
-.frag{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
-.frag b{
-  position:absolute;width:52px;height:66px;border-radius:8px;background:var(--night);
-  display:grid;place-items:center;font-family:"JetBrains Mono",monospace;font-size:10px;color:rgba(255,255,255,.7);
-  opacity:0;transform:translate(0,0) scale(.9);transition:opacity .5s var(--ease),transform .7s var(--ease-out);
-}
-.frag.on b{opacity:1}
-.frag.on b:nth-child(1){transform:translate(-96px,-26px)}
-.frag.on b:nth-child(2){transform:translate(0,-4px)}
-.frag.on b:nth-child(3){transform:translate(96px,-26px)}
-.nodes{position:absolute;left:0;right:0;bottom:34px;display:flex;justify-content:center;gap:clamp(10px,3vw,26px);opacity:0;transition:opacity .5s var(--ease)}
-.nodes.on{opacity:1}
-.node{
-  border:1px solid var(--line);background:#fff;border-radius:9px;padding:9px 11px;text-align:center;min-width:92px;
-  font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--cool-2);
-}
-.node b{display:block;color:var(--ink);font-size:11px;letter-spacing:.04em;margin-bottom:2px}
-.node.ok{border-color:rgba(16,185,129,.3)}
-.node.ok b{color:#047857}
-.verif{position:absolute;inset:auto 0 34px;display:flex;flex-direction:column;align-items:center;gap:7px;opacity:0;transition:opacity .5s}
-.verif.on{opacity:1}
-.verif span{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink)}
-.verif svg{width:15px;height:15px;color:#047857;flex:none}
+.hash{display:inline-block;margin-top:14px;font-family:ui-monospace,Menlo,monospace;
+  font-size:12px;color:var(--purple);background:var(--purple-soft);padding:7px 12px;border-radius:8px}
 
-/* ==========================================================================
-   04 · DIV DRIVE  ·  05 · DIV CHECK
-   ========================================================================== */
-.prod__head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:26px;margin-bottom:clamp(40px,5vw,64px)}
-.app--wide{max-width:100%;margin-top:0}
-.app--wide .app__body{grid-template-columns:206px minmax(0,1fr) 236px;min-height:420px}
-.app__panel{border-left:1px solid var(--line-2);padding:18px 18px;background:#fff}
-.app__panel .grp{font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--cool-2);margin-bottom:14px}
-.kv{display:flex;flex-direction:column;gap:14px}
-.kv div{display:flex;flex-direction:column;gap:3px}
-.kv dt{font-size:12px;color:var(--cool-2)}
-.kv dd{margin:0;font-size:13.5px;font-weight:500;display:flex;align-items:center;gap:7px}
-.kv dd .dot{width:6px;height:6px;border-radius:50%;background:#10B981;flex:none}
-.share{margin-top:18px;padding-top:16px;border-top:1px solid var(--line-2)}
-.share__out{
-  margin-top:11px;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--cool);
-  background:var(--off);border:1px solid var(--line-2);border-radius:8px;padding:9px 10px;word-break:break-all;
-  display:none;
-}
-.share__out.on{display:block;animation:pop .22s var(--ease-out)}
-.share__out b{color:var(--div);font-weight:500}
+/* ─────────── Blocs éditoriaux « Pourquoi » ─────────── */
+#pourquoi .why__chips li{border-color:rgba(10,16,37,.16)}
+.why{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.04fr);
+  gap:clamp(48px,7vw,120px);align-items:center}
+.why + .why{margin-top:clamp(64px,7vw,104px)}
+.why.rev .why__v{order:-1}
+.why__t h3{margin-bottom:20px}
+.why__t .lead{margin-bottom:30px}
+.why__chips{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 34px}
+.why__chips li{display:inline-flex;align-items:center;gap:9px;font-size:15px;font-weight:500;
+  color:var(--ink);background:#fff;border:1px solid var(--line-soft);
+  padding:9px 16px;border-radius:100px}
+.why__chips li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--purple);flex:none}
+.why__chips li[data-c="cloud"]::before{background:var(--cloud)}
+.why__chips li[data-c="secure"]::before{background:var(--secure)}
+.why__chips li[data-c="collab"]::before{background:var(--collab)}
+.why__chips li[data-c="docs"]::before{background:var(--docs)}
+.why__chips li[data-c="star"]::before{background:var(--star)}
+.why__v{margin:0;display:flex;justify-content:center;min-width:0}
+.illu{width:100%;max-width:620px;height:auto;display:block}
+/* Scènes 3D animées — section « Pourquoi DIV » */
+.viz{position:relative;width:100%;max-width:500px;aspect-ratio:1/.88;margin:0 auto}
+/* rendu 3D livré tel quel (fond blanc opaque, ombre violette conservée) */
+.viz3d{display:block;width:100%;max-width:500px;height:auto;margin:0 auto}
+.viz .lay{position:absolute;height:auto;display:block;
+  filter:drop-shadow(0 16px 26px rgba(10,16,37,.14));
+  animation:drift3d var(--d,8s) ease-in-out infinite;animation-delay:var(--dl,0s);will-change:transform}
+@keyframes drift3d{
+  0%,100%{transform:translateY(0) rotate(calc(var(--r,0deg) * .35))}
+  50%    {transform:translateY(-15px) rotate(calc(var(--r,0deg) * -1))}}
+.viz .sh{position:absolute;left:50%;bottom:7%;width:46%;height:8%;transform:translateX(-50%);
+  background:radial-gradient(closest-side,rgba(10,16,37,.16),rgba(10,16,37,0));z-index:0}
+.viz .ring{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);border-radius:50%;
+  border:2px dashed rgba(10,16,37,.07);z-index:0}
+.viz .ring.r1{width:78%;aspect-ratio:1}
+.viz .ring.r2{width:54%;aspect-ratio:1;border-color:rgba(10,16,37,.055)}
+.illu .ground{fill:url(#gGround)}
+.illu .satlab{font:600 15px Inter,sans-serif;fill:#0A1025;letter-spacing:-.01em}
+.illu .float,.illu .sat{animation:drift var(--d,7s) ease-in-out infinite;
+  animation-delay:var(--dl,0s);transform-box:fill-box;transform-origin:center}
 
-.people{display:flex;align-items:center;gap:-6px;margin-top:16px}
-.people b{
-  width:28px;height:28px;border-radius:50%;display:grid;place-items:center;margin-right:-7px;
-  background:var(--div-soft);color:var(--div);font-size:11px;font-weight:600;border:2px solid #fff;position:relative;cursor:default;
-}
-.people b:hover{z-index:3}
-.people b span{
-  position:absolute;bottom:calc(100% + 7px);left:50%;transform:translateX(-50%) translateY(4px);
-  background:var(--night);color:#fff;font-size:11px;font-weight:400;padding:5px 9px;border-radius:7px;white-space:nowrap;
-  opacity:0;transition:opacity .2s,transform .2s;pointer-events:none;
-}
-.people b:hover span{opacity:1;transform:translateX(-50%)}
+/* ==================== 4. LISTE D'AVANTAGES ==================== */
+.blurbs{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(30px,4vw,52px)}
+.blurb .ico{width:62px;height:62px;margin-bottom:18px}
+.blurb h4{margin-bottom:8px}
+.blurb p{font-size:17px;line-height:1.62;margin:0;color:var(--muted)}
 
-/* DIV Check */
-.check{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(34px,5vw,72px);align-items:center}
-.checkbox{border:1px solid var(--line);border-radius:var(--r-lg);background:#fff;overflow:hidden;box-shadow:0 2px 6px rgba(7,9,26,.04),0 24px 56px -24px rgba(7,9,26,.14)}
-.checkbox__t{display:flex;align-items:center;gap:11px;padding:16px 18px;border-bottom:1px solid var(--line-2);background:var(--off)}
-.checkbox__t svg{width:17px;height:17px;color:var(--div)}
-.checkbox__t b{font-size:14px;font-weight:500}
-.checkbox__b{padding:18px}
-.cfield{padding:13px 0;border-bottom:1px solid var(--line-2)}
-.cfield:last-of-type{border-bottom:0}
-.cfield dt{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--cool-2);margin-bottom:6px}
-.cfield dd{margin:0;font-size:13.5px;font-family:"JetBrains Mono",monospace;word-break:break-all;min-height:1.3em;color:var(--ink)}
-.cfield dd.ok{color:#047857;font-weight:500;display:flex;align-items:center;gap:7px}
-.cfield dd svg{width:14px;height:14px;flex:none}
+/* ==================== 5. COMPARATIF ==================== */
+.ok{color:#1D9A6C}.ko{color:#C4C4CC}
 
-/* ==========================================================================
-   06 · BÉNÉFICES
-   ========================================================================== */
-.bens{display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:clamp(28px,3.4vw,52px)}
-.ben{padding-top:26px;border-top:1px solid var(--line)}
-.ben__ic{width:112px;height:112px;margin-bottom:18px;transition:transform .5s var(--ease-out)}
-.ben:hover .ben__ic{transform:translateY(-6px)}
-.ben h4{margin-bottom:8px}
-.ben p{color:var(--cool);font-size:15px;line-height:1.55}
+/* ==================== 6. BANDEAU SOMBRE ==================== */
+.band{background:var(--ink);color:rgba(255,255,255,.72)}
+.band h2{color:#fff;margin-bottom:16px}
+.band .lead{color:rgba(255,255,255,.72)}
+.band .tile{display:grid;place-items:center;width:clamp(150px,20vw,196px);aspect-ratio:1;
+  background:#fff;border-radius:34px}
+.tile .ico{width:70%;height:auto}
 
-/* ==========================================================================
-   07 · ARCHITECTURE (sombre)
-   ========================================================================== */
-.arch{margin-top:clamp(48px,6vw,80px);display:flex;flex-direction:column;align-items:center;gap:0}
-.arch__n{
-  border:1px solid var(--line-dark);border-radius:11px;padding:14px 20px;min-width:min(300px,86vw);text-align:center;
-  background:rgba(255,255,255,.02);
-}
-.arch__n b{display:block;color:#fff;font-size:14px;font-weight:500;letter-spacing:-.01em}
-.arch__n span{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.56)}
-.arch__n.accent{border-color:rgba(91,46,255,.5);background:rgba(91,46,255,.1)}
-.arch__row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
-.arch__row .arch__n{min-width:150px}
-.arch__l{width:1px;height:40px;background:rgba(255,255,255,.18);position:relative;overflow:hidden}
-.arch__l::after{
-  content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent,var(--volt),transparent);
-  transform:translateY(-100%);
-}
-.arch.in .arch__l::after{animation:flow 2.4s var(--ease) infinite}
-@keyframes flow{0%{transform:translateY(-100%)}60%,100%{transform:translateY(100%)}}
-.arch__l:nth-of-type(2)::after{animation-delay:.3s}
-.arch__l:nth-of-type(3)::after{animation-delay:.6s}
+/* ==================== 7. COMPTEURS + AVIS ==================== */
+.counters{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;text-align:center;margin-bottom:clamp(48px,6vw,76px)}
+.counter b{display:block;font-size:clamp(2.2rem,4vw,3rem);font-weight:700;color:var(--ink);letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+.counter span{display:block;font-size:14px;color:var(--muted);margin-top:8px}
 
-/* ==========================================================================
-   08 · SECURITY CENTER
-   ========================================================================== */
-.scen{border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:#fff}
-.scen__t{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding:17px 20px;border-bottom:1px solid var(--line-2);background:var(--off)}
-.scen__t b{font-size:14px;font-weight:600;letter-spacing:-.01em}
-.scen__st{display:flex;align-items:center;gap:8px;font-size:12.5px;color:#047857;font-weight:500}
-.scen__st i{width:7px;height:7px;border-radius:50%;background:#10B981;position:relative}
-.scen__st i::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid rgba(16,185,129,.4);animation:ping 2.4s var(--ease) infinite}
-@keyframes ping{0%{transform:scale(.7);opacity:1}70%,100%{transform:scale(1.5);opacity:0}}
-.scen__g{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
-.scen__i{padding:19px 20px;border-right:1px solid var(--line-2);border-bottom:1px solid var(--line-2)}
-.scen__i dt{font-size:13px;color:var(--cool);margin-bottom:7px}
-.scen__i dd{margin:0;display:flex;align-items:center;gap:8px;font-size:14.5px;font-weight:500}
-.scen__i dd i{width:6px;height:6px;border-radius:50%;background:#10B981;flex:none}
-.scen__i dd i.ctl{background:var(--volt)}
-.scen__f{padding:17px 20px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+/* Chiffres publiés par DIV Protocol (section « Le problème », divprotocol.com/fr) */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(28px,3.5vw,56px)}
+.stat{padding-top:0}
+.stat b{display:block;font-family:Poppins,Inter,sans-serif;font-size:clamp(2.5rem,1.9rem + 2.2vw,3.75rem);font-weight:600;line-height:1;letter-spacing:-.035em;color:var(--ink);margin-bottom:16px;font-variant-numeric:tabular-nums}
+.stat p{color:var(--muted);font-size:17px;line-height:1.55;max-width:34ch;margin:0}
 
-/* ==========================================================================
-   09 · CHIFFRES
-   ========================================================================== */
-.nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:clamp(36px,5vw,72px)}
-.num b{
-  display:block;font-family:Poppins,Inter,sans-serif;font-weight:600;line-height:.94;letter-spacing:-.045em;
-  font-size:clamp(3.4rem,2.2rem + 4.4vw,6.2rem);color:var(--ink);font-variant-numeric:tabular-nums;
-}
-.num span{
-  display:block;margin-top:16px;font-family:"JetBrains Mono",monospace;
-  font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--cool-2);max-width:22ch;line-height:1.7;
-}
-.nums--src{margin-top:clamp(40px,5vw,64px);font-size:13px;color:var(--cool-2);max-width:70ch}
 
-/* ==========================================================================
-   10 · COMPARAISON
-   ========================================================================== */
-.cmp{width:100%;border-collapse:collapse;font-size:14.5px}
-.cmp caption{text-align:left;color:var(--cool);font-size:14px;margin-bottom:18px}
-.cmp th,.cmp td{padding:16px 18px;text-align:left;border-bottom:1px solid var(--line-2);vertical-align:top}
-.cmp thead th{
-  font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--cool-2);font-weight:500;border-bottom-color:var(--line);
-}
-.cmp tbody th{font-weight:500;color:var(--ink);width:30%}
-.cmp td{color:var(--cool)}
-.cmp .c-div{background:var(--div-soft);color:var(--ink);font-weight:500}
-.cmp thead .c-div{color:var(--div);font-weight:600}
-.cmp tbody tr:last-child th,.cmp tbody tr:last-child td{border-bottom:0}
-.cmp-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r-lg);background:#fff}
+/* ==================== 8. CERTIFICATIONS ==================== */
+.certs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.cert{background:var(--card);border-radius:var(--r-card);padding:32px 28px;text-align:center}
+.cert .ico{width:62px;height:62px;margin:0 auto 18px}
+.cert h4{margin-bottom:8px}
+.cert p{font-size:16px;line-height:1.6;margin:0;color:var(--muted)}
 
-/* ==========================================================================
-   11 · ENTREPRISE  ·  12 · TRUST CENTER
-   ========================================================================== */
-.tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:30px}
-.tags li{
-  padding:8px 14px;border-radius:100px;border:1px solid var(--line);font-size:13.5px;color:var(--ink);
-  transition:border-color .2s,background .2s;
-}
-.tags li:hover{border-color:var(--ink)}
-.sec--dark .tags li{border-color:var(--line-dark);color:rgba(255,255,255,.8)}
-.sec--dark .tags li:hover{border-color:rgba(255,255,255,.42)}
-.feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:2px 32px;margin-top:44px}
-.feats li{display:flex;align-items:flex-start;gap:11px;padding:13px 0;border-top:1px solid var(--line-2);font-size:15px}
-.sec--dark .feats li{border-top-color:var(--line-dark-2)}
-.feats svg{width:15px;height:15px;color:var(--div);flex:none;margin-top:4px}
-.sec--dark .feats svg{color:var(--volt)}
+/* ==================== 9. CTA ==================== */
+.cta{text-align:center}
+.cta h2{margin-bottom:16px}
+.cta .lead{margin:0 auto 30px}
+.cta__b{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 
-.tc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px 34px}
-.tc div{padding:22px 4px;border-top:1px solid var(--line)}
-.tc dt{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--cool-2);margin-bottom:9px}
-.tc dd{margin:0;font-size:16px;font-weight:500;letter-spacing:-.012em}
-.tc small{display:block;margin-top:6px;font-size:12.5px;color:var(--cool);font-weight:400;line-height:1.5}
-
-/* ==========================================================================
-   13 · TÉMOIGNAGES  ·  14 · PRESSE
-   ========================================================================== */
-.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(28px,3vw,48px)}
-.quote{padding-top:26px;border-top:1px solid var(--line)}
-.quote p{font-size:17px;line-height:1.55;letter-spacing:-.014em}
-.quote footer{margin-top:20px;font-size:13px;color:var(--cool-2)}
-
-.press{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(28px,3.4vw,56px);align-items:start}
-.press__list{display:flex;flex-direction:column}
-.pitem{display:flex;align-items:flex-start;gap:18px;padding:20px 0;border-top:1px solid var(--line-2);transition:opacity .2s}
-.pitem:hover{opacity:.62}
-.pitem img{width:74px;height:auto;flex:none;filter:grayscale(1) contrast(.9);opacity:.62;margin-top:3px;transition:opacity .2s}
-.pitem:hover img{opacity:.9}
-.pitem__c{min-width:0}
-.pitem__c b{display:block;font-size:15.5px;font-weight:500;letter-spacing:-.014em;line-height:1.4}
-.pitem__c em{display:block;margin-top:5px;font-style:normal;font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--cool-2)}
-.pfeat{border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(26px,3vw,38px);background:var(--off)}
-.pfeat img{width:96px;height:auto;filter:grayscale(1) contrast(.9);opacity:.7;margin-bottom:24px}
-.pfeat b{display:block;font-family:Poppins,Inter,sans-serif;font-size:clamp(1.25rem,1.1rem + .7vw,1.6rem);font-weight:600;letter-spacing:-.022em;line-height:1.22}
-.pfeat em{display:block;margin-top:14px;font-style:normal;font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--cool-2)}
-.pfeat .link{margin-top:22px}
-
-/* ==========================================================================
-   15 · CTA FINAL  ·  16 · PIED DE PAGE
-   ========================================================================== */
-.final{background:var(--night);color:#fff;position:relative;overflow:hidden;text-align:center}
-.final canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.5}
-.final .wrap{position:relative;z-index:2}
-.final h2{color:#fff;max-width:15ch;margin:0 auto;font-size:clamp(2.5rem,1.7rem + 3.4vw,5rem)}
-.final .lead{color:rgba(255,255,255,.62);margin:26px auto 0;max-width:52ch}
-
-.ftr{background:var(--night);color:rgba(255,255,255,.55);padding:64px 0 34px;font-size:14px;border-top:1px solid var(--line-dark-2)}
-.ftr__g{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(4,minmax(0,1fr));gap:36px 26px}
-.ftr__brand img{height:24px;width:auto;margin-bottom:16px}
-.ftr__brand p{max-width:30ch;font-size:13.5px;line-height:1.6;color:rgba(255,255,255,.56)}
-.ftr h5{margin:0 0 14px;font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:rgba(255,255,255,.56);font-weight:500}
-.ftr li{margin-bottom:5px}
-.ftr li a{display:inline-flex;align-items:center;min-height:24px}
-.ftr a:hover{color:#fff}
-.ftr__bot{margin-top:52px;padding-top:22px;border-top:1px solid var(--line-dark-2);display:flex;flex-wrap:wrap;gap:12px 26px;justify-content:space-between;font-size:13px;color:rgba(255,255,255,.56)}
+/* ==================== PIED DE PAGE ==================== */
+.ftr{background:var(--ink);color:rgba(255,255,255,.72);padding:60px 0 34px;font-size:14px}
+.ftr__top{display:grid;grid-template-columns:1.6fr repeat(3,1fr);gap:36px;padding-bottom:34px}
+.ftr__about{color:rgba(255,255,255,.62);margin:14px 0 0;max-width:32ch;line-height:1.55}
+.ftr h5{font-size:13px;font-weight:600;color:#fff;margin:0 0 14px;letter-spacing:-.01em}
+.ftr li{margin-bottom:9px}
+.ftr li a{color:rgba(255,255,255,.66)}
+.ftr li a:hover{color:#fff}
+.ftr__bot{border-top:1px solid rgba(255,255,255,.14);padding-top:24px;display:flex;justify-content:space-between;
+  gap:16px;flex-wrap:wrap;color:rgba(255,255,255,.55);font-size:12.5px}
 .ftr__bot nav{display:flex;gap:20px;flex-wrap:wrap}
+.ftr__bot a:hover{color:#fff}
 
-/* ==========================================================================
-   RESPONSIVE
-   ========================================================================== */
-@media (max-width:1080px){
-  .app--wide .app__body{grid-template-columns:180px minmax(0,1fr)}
-  .app__panel{display:none}
-  .press{grid-template-columns:1fr}
-}
-@media (max-width:900px){
-  .scen__g{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .tc{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .how__grid{grid-template-columns:1fr;gap:40px}
-  .how__stage{position:relative;top:auto;order:-1;aspect-ratio:1/.78}
-  .check{grid-template-columns:1fr}
-  .ftr__g{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .ftr__brand{grid-column:1/-1}
-}
-@media (max-width:820px){
+/* ————— Révélation, discrète ————— */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.09s}.d2{transition-delay:.18s}.d3{transition-delay:.27s}
+.d4{transition-delay:.36s}.d5{transition-delay:.45s}
+@keyframes drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+
+/* ==================== RESPONSIVE ==================== */
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(36px,4.5vw,76px)}
+.quote{display:flex;flex-direction:column}
+.quote p{font-size:17.5px;line-height:1.7;color:var(--ink);margin:0 0 24px;flex:1}
+.quote footer{font-size:14px}
+.quote b{display:block;color:var(--ink);font-weight:600}
+.quote em{font-style:normal;color:var(--muted);font-size:13px}
+.stars{display:flex;gap:2px;color:#F5A623;margin-bottom:16px}
+@media(max-width:1023px){
+  .why{grid-template-columns:1fr;gap:44px}
+  .why.rev .why__v{order:0}
+  .illu{max-width:520px}
+  .viz{max-width:415px}
+  .viz3d{max-width:430px}
+  .stats{grid-template-columns:1fr;gap:34px}
   .nav{display:none}
-  .kbd{display:none}
-  .hdr__r .sep{display:none}
   .burger{display:grid}
+  .hdr__r .sep{display:none}
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .blurbs{grid-template-columns:repeat(2,1fr)}
+    .counters{grid-template-columns:repeat(2,1fr);gap:36px}
+  .quotes,.certs{grid-template-columns:1fr}
+  .alt{grid-template-columns:1fr;gap:36px}
+  .alt.rev .alt__v{order:0}
+  .ftr__top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:900px){
   .app__body{grid-template-columns:1fr}
-  .app--wide .app__body{grid-template-columns:1fr}
   .app__side{display:none}
-  .row{grid-template-columns:minmax(0,1fr) auto}
-  .row__m{display:none}
-  .step{grid-template-columns:1fr;gap:6px}
-  .step__n{padding-top:0}
-  .frag.on b:nth-child(1){transform:translate(-64px,-18px)}
-  .frag.on b:nth-child(3){transform:translate(64px,-18px)}
+  .app__top .chip,.app__top .faces{display:none}
+  .frow .perm{display:none}
 }
-@media (max-width:560px){
-  .scen__g{grid-template-columns:1fr}
-  .tc{grid-template-columns:1fr}
-  .hero{text-align:left}
-  .hero h1,.hero .lead{margin-inline:0}
-  .hero .cta-row{justify-content:flex-start}
-  .hero .cta-row .btn{width:100%}
-  .head--c{text-align:left}
-  .head--c .lead{margin-inline:0}
-  .nodes{flex-direction:column;align-items:center;gap:6px;bottom:18px}
-  .node{min-width:120px}
-  .ftr__g{grid-template-columns:1fr}
+@media(max-width:640px){
+  .frow{gap:10px;padding:12px 6px}
+  .app__main{padding:16px 14px}
+  .cards,.blurbs{grid-template-columns:1fr}
+  .hero__cta .btn,.cta__b .btn{width:100%}
+  .ftr__top{grid-template-columns:1fr;gap:28px}
+  .card{padding:28px 24px}
 }
-
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}
   .rv{opacity:1;transform:none}
 }
+
+
+/* ——— Cadenas DIV ——— */
+.lock3d{display:block;width:100%;max-width:460px;height:auto;margin:0 auto}
+/* ——— Ils parlent de nous : bandeau de logos ——— */
+.mq{position:relative;overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);
+          mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
+.mq__track{display:flex;align-items:center;width:max-content;gap:clamp(48px,6vw,92px);
+  animation:mqScroll 40s linear infinite;will-change:transform}
+.mq:hover .mq__track{animation-play-state:paused}
+@keyframes mqScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.mq__i{display:flex;align-items:center;flex:none;
+  transition:filter .3s var(--ease),opacity .3s var(--ease)}
+.mq__i img{height:clamp(52px,5.4vw,68px);width:auto;display:block}
+.mq:hover .mq__i{filter:grayscale(100%);opacity:.34}
+.mq:hover .mq__i:hover{filter:none;opacity:1}
+.mq__i:focus-visible{outline:2px solid var(--accent);outline-offset:6px;border-radius:6px}
+@media(prefers-reduced-motion:reduce){
+  .mq{overflow-x:auto;-webkit-mask-image:none;mask-image:none}
+  .mq__track{animation:none}
+}
+
+/* ——— Descriptions en noir (fin de feuille : doit primer sur les regles ci-dessus) ——— */
+.lead,.card p,.blurb p,.stat p,.cert p,.hero__note{color:var(--ink);font-weight:400;letter-spacing:-.011em}
 </style>
 </head>
 <body>
 
-<div class="banner" role="note">
-  <span><b>Concept de refonte</b> — maquette Dikenga&nbsp;Design. <span>Non officielle, sans lien avec DIV&nbsp;Protocol.</span></span>
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+<defs>
+
+  <linearGradient id="gPurple" x1=".1" y1="0" x2=".85" y2="1"><stop offset="0" stop-color="#8B62FF"/><stop offset="55%" stop-color="#753BFF"/><stop offset="100%" stop-color="#5B2EFF"/></linearGradient>
+  <linearGradient id="gPurpleDeep" x1=".1" y1="0" x2=".85" y2="1"><stop offset="0" stop-color="#6B3AFF"/><stop offset="100%" stop-color="#4423C4"/></linearGradient>
+  <linearGradient id="gCloud" x1=".15" y1="0" x2=".8" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="48%" stop-color="#DCEBFF"/><stop offset="100%" stop-color="#9CC6FF"/></linearGradient>
+  <linearGradient id="gDoc" x1=".1" y1="0" x2=".85" y2="1"><stop offset="0" stop-color="#7FB0FF"/><stop offset="100%" stop-color="#4F8CFF"/></linearGradient>
+  <linearGradient id="gDocs2" x1=".1" y1="0" x2=".85" y2="1"><stop offset="0" stop-color="#63B0FF"/><stop offset="100%" stop-color="#1687FF"/></linearGradient>
+  <linearGradient id="gSecure" x1=".1" y1="0" x2=".85" y2="1"><stop offset="0" stop-color="#43D9A6"/><stop offset="100%" stop-color="#10B981"/></linearGradient>
+  <linearGradient id="gCollab" x1=".1" y1="0" x2=".85" y2="1"><stop offset="0" stop-color="#AC8CFF"/><stop offset="100%" stop-color="#8B5CF6"/></linearGradient>
+  <linearGradient id="gShield" x1=".12" y1="0" x2=".82" y2="1"><stop offset="0" stop-color="#2ED2A0"/><stop offset="46%" stop-color="#4B7BFF"/><stop offset="100%" stop-color="#5B2EFF"/></linearGradient>
+  <linearGradient id="gScreen" x1="0" y1="0" x2=".7" y2="1"><stop offset="0" stop-color="#1B2140"/><stop offset="100%" stop-color="#0E1330"/></linearGradient>
+  <linearGradient id="gGloss" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".34"/><stop offset="52%" stop-color="#fff" stop-opacity="0"/></linearGradient>
+  <linearGradient id="gGlass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset="100%" stop-color="#fff" stop-opacity=".3"/></linearGradient>
+  <radialGradient id="gGround" cx=".5" cy=".5" r=".5">
+    <stop offset="0" stop-color="#0A1025" stop-opacity=".13"/>
+    <stop offset="55%" stop-color="#0A1025" stop-opacity=".05"/>
+    <stop offset="100%" stop-color="#0A1025" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="gPath" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5B2EFF" stop-opacity=".45"/><stop offset="100%" stop-color="#1687FF" stop-opacity=".2"/></linearGradient>
+  <linearGradient id="gv" x1="0" y1="0" x2=".7" y2="1"><stop offset="0" stop-color="#7C4DFF"/><stop offset="100%" stop-color="#5B21B6"/></linearGradient>
+  <linearGradient id="gvl" x1="0" y1="0" x2=".7" y2="1"><stop offset="0" stop-color="#9B72FF"/><stop offset="100%" stop-color="#6D3BE8"/></linearGradient>
+  <linearGradient id="gb" x1="0" y1="0" x2=".7" y2="1"><stop offset="0" stop-color="#4E96FF"/><stop offset="100%" stop-color="#1D4ED8"/></linearGradient>
+  <linearGradient id="gbl" x1="0" y1="0" x2=".7" y2="1"><stop offset="0" stop-color="#8FC0FF"/><stop offset="100%" stop-color="#3B82F6"/></linearGradient>
+  <linearGradient id="gr" x1="0" y1="0" x2=".7" y2="1"><stop offset="0" stop-color="#FF6B5E"/><stop offset="100%" stop-color="#DC2626"/></linearGradient>
+  <linearGradient id="gg" x1="0" y1="0" x2=".7" y2="1"><stop offset="0" stop-color="#34D399"/><stop offset="100%" stop-color="#059669"/></linearGradient>
+  <linearGradient id="gy" x1="0" y1="0" x2=".7" y2="1"><stop offset="0" stop-color="#FCD34D"/><stop offset="100%" stop-color="#F59E0B"/></linearGradient>
+  <linearGradient id="gn" x1="0" y1="0" x2=".7" y2="1"><stop offset="0" stop-color="#F1F4FA"/><stop offset="100%" stop-color="#CBD3E1"/></linearGradient>
+  <linearGradient id="gd" x1="0" y1="0" x2=".7" y2="1"><stop offset="0" stop-color="#4B5563"/><stop offset="100%" stop-color="#1F2937"/></linearGradient>
+
+  <!-- Pièces volantes du hero -->
+  </defs>
+</svg>
+
+
+<div class="concept">
+  <strong>Concept de refonte</strong> — maquette Dikenga Design.
+  <em>Non officielle, sans lien avec DIV&nbsp;Protocol.</em>
 </div>
 
 <header class="hdr" id="hdr">
   <div class="hdr__in">
     <a href="#top" class="logo" aria-label="DIV Protocol, accueil">
-      <img src="logo/div-logo-horizontale.svg" alt="DIV Protocol" width="122" height="24" decoding="async">
+      <img src="logo/div-logo-horizontale.svg" alt="DIV Protocol" width="122" height="26" decoding="async">
     </a>
     <nav class="nav" aria-label="Navigation principale">
-      <a href="#drive">Produit</a>
-      <a href="#securite">Sécurité</a>
-      <a href="#entreprise">Solutions</a>
+      <a href="#produits">Produits</a>
+      <a href="#pourquoi">Solutions</a>
       <a href="#entreprise">Entreprise</a>
       <a href="#presse">Ressources</a>
     </nav>
     <div class="hdr__r">
-      <button class="kbd" id="cmdkBtn" aria-label="Ouvrir la palette de commandes (Commande K)">
-        <kbd>⌘</kbd><kbd>K</kbd>
-      </button>
-      <a href="#final" class="sep">Connexion</a>
-      <a href="#final" class="btn btn--primary btn--sm">Demander une démo</a>
+      <a href="#contact" class="sep">Se connecter</a>
+      <a href="#contact" class="btn btn--primary btn--sm">S'inscrire</a>
       <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="drawer">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
       </button>
     </div>
   </div>
 </header>
 
 <div class="drawer" id="drawer" aria-hidden="true">
-  <a href="#drive" class="item">Produit <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
-  <a href="#securite" class="item">Sécurité <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
+  <a href="#produits" class="item">Produits <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
+  <a href="#pourquoi" class="item">Solutions <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
   <a href="#entreprise" class="item">Entreprise <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
-  <a href="#trust" class="item">Trust Center <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
-  <a href="#presse" class="item">Ressources <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
+    <a href="#presse" class="item">Ressources <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></a>
   <div class="cta">
-    <a href="#final" class="btn btn--primary">Demander une démo</a>
-    <a href="#final" class="btn btn--line">Connexion</a>
-  </div>
-</div>
-
-<div class="cmdk" id="cmdk" role="dialog" aria-modal="true" aria-label="Palette de commandes">
-  <div class="cmdk__veil" data-close></div>
-  <div class="cmdk__box">
-    <div class="cmdk__in">
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
-      <input id="cmdkIn" type="text" placeholder="Rechercher une page, un produit, une ressource…" autocomplete="off" spellcheck="false" aria-controls="cmdkList">
-      <span class="mono" style="font-size:11px;color:var(--cool-2)">ESC</span>
-    </div>
-    <div class="cmdk__list" id="cmdkList" role="listbox" aria-label="Résultats"></div>
+    <a href="#contact" class="btn btn--primary">S'inscrire</a>
+    <a href="#contact" class="btn btn--line">Se connecter</a>
   </div>
 </div>
 
 <main id="top">
 
-<!-- ==================== 01 · HERO + DÉMONSTRATION PRODUIT ==================== -->
+<!-- ==================== HERO ==================== -->
 <section class="hero">
   <div class="wrap">
-    <h1 class="rv in">Vos données<br>vous appartiennent.</h1>
-    <p class="lead rv d1">La suite collaborative souveraine européenne qui protège vos fichiers, vos échanges et vos preuves numériques.</p>
-    <div class="cta-row rv d2">
-      <a href="#final" class="btn btn--primary">Demander une démo</a>
-      <a href="#drive" class="btn btn--line">Découvrir DIV</a>
+    <h1 class="rv">Vos données vous appartiennent</h1>
+    <p class="lead rv d1">DIV Protocol construit la suite européenne d'outils de travail souverains, chiffrés et auditables. Un drive sécurisé aujourd'hui, un audit log blockchain demain.</p>
+    <div class="hero__cta rv d2">
+      <a href="#contact" class="btn btn--primary">Demander une démo</a>
+      <a href="#produits" class="btn btn--line">Découvrir la plateforme</a>
     </div>
+    <p class="hero__note rv d3">Chiffrement de bout en bout · Hébergement 100 % européen · Hors Cloud Act</p>
+  </div>
 
-    <div class="app rv d3" role="img" aria-label="Interface DIV Drive : un fichier Contrat-client.pdf est chiffré localement puis distribué sur plusieurs hébergeurs européens.">
-      <div class="app__bar">
-        <div class="app__dots"><i></i><i></i><i></i></div>
-        <div class="app__url">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>
-          app.divprotocol.com
-        </div>
-      </div>
-      <div class="app__body">
-        <aside class="app__side">
-          <p class="grp">Espace</p>
-          <span class="on"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10l9-7 9 7v9a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></i>Accueil</span>
-          <span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></i>Mes fichiers</span>
-          <span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></i>Partagés</span>
-          <span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg></i>Coffre</span>
-          <span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></i>Activité</span>
-        </aside>
-        <div class="app__main">
-          <div class="app__crumb"><span>Accueil</span><span>/</span><span style="color:var(--ink)">Documents</span></div>
-          <div class="rows">
-            <div class="row">
-              <div class="row__n"><span class="row__ic f"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></span><b>Contrats</b></div>
-              <span class="row__m">12 fichiers</span>
-              <span class="row__s pill"><i></i>Chiffré</span>
-              <span class="hint">Chiffré de bout en bout</span>
-            </div>
-            <div class="row">
-              <div class="row__n"><span class="row__ic f"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></span><b>Clients</b></div>
-              <span class="row__m">48 fichiers</span>
-              <span class="row__s pill"><i></i>Chiffré</span>
-              <span class="hint">Chiffré de bout en bout</span>
-            </div>
-            <div class="row">
-              <div class="row__n"><span class="row__ic f"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></span><b>Finance</b></div>
-              <span class="row__m">7 fichiers</span>
-              <span class="row__s pill"><i></i>Chiffré</span>
-              <span class="hint">Chiffré de bout en bout</span>
-            </div>
-            <div class="row">
-              <div class="row__n"><span class="row__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M14 3v5h5"/><path d="M6 3h8l5 5v13H6z"/></svg></span><b>Contrat-client.pdf</b></div>
-              <span class="row__m">1,4 Mo</span>
-              <span class="row__s pill pill--go" id="heroPill"><i></i><span id="heroPillT">En cours</span></span>
-              <span class="hint">Clé de chiffrement : votre appareil</span>
-            </div>
-          </div>
-
-          <div class="seq" aria-hidden="true">
-            <div class="seq__t">
-              <span class="seq__f"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M14 3v5h5"/><path d="M6 3h8l5 5v13H6z"/></svg>Contrat-client.pdf</span>
-              <span class="seq__st" id="seqSt">Téléversement…</span>
-            </div>
-            <div class="seq__track"><span class="seq__fill" id="seqFill"></span></div>
-            <ul class="seq__steps" id="seqSteps">
-              <li>Téléversement</li><li>Chiffrement local</li><li>Chiffré</li><li>Distribué en Europe</li><li>Vérifié</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+  <div class="stage rv d3" id="stage">
+    <div class="scene" id="scene" role="img"
+         aria-label="Illustration DIV Protocol : un dossier, un document, une vidéo et une image flottent au-dessus d'un nuage, d'une plateforme d'hébergement européenne et du boîtier chiffré qui les absorbe.">
+      <img class="ly" data-k="base" src="hero/base.png?v=25" alt="" aria-hidden="true" decoding="async"
+           style="left:26.1011%;top:41.6212%;width:47.3899%;z-index:2">
+      <img class="ly" data-k="misc" src="hero/misc.png?v=25" alt="" aria-hidden="true" decoding="async"
+           style="left:30.1794%;top:7.3266%;width:34.4209%;z-index:3">
+      <img class="ly" data-k="doc" src="hero/doc.png?v=25" alt="" aria-hidden="true" decoding="async"
+           style="left:35.8075%;top:18.4723%;width:11.0114%;z-index:4">
+      <img class="ly" data-k="video" src="hero/video.png?v=25" alt="" aria-hidden="true" decoding="async"
+           style="left:31.5661%;top:32.424%;width:11.1746%;z-index:5">
+      <img class="ly" data-k="image" src="hero/image.png?v=25" alt="" aria-hidden="true" decoding="async"
+           style="left:57.0962%;top:25.721%;width:11.5008%;z-index:6">
+      <img class="ly" data-k="folder" src="hero/folder.png?v=25" alt="" aria-hidden="true" decoding="async"
+           style="left:41.5987%;top:6.5472%;width:18.7602%;z-index:7">
+      <img class="ly" data-k="pill1" src="hero/pill1.png?v=25" alt="" aria-hidden="true" decoding="async"
+           style="left:3.2626%;top:11.0678%;width:26.6721%;z-index:9">
+      <img class="ly" data-k="pill2" src="hero/pill2.png?v=25" alt="" aria-hidden="true" decoding="async"
+           style="left:64.845%;top:4.4427%;width:32.0555%;z-index:10">
+      <img class="ly" data-k="pill3" src="hero/pill3.png?v=25" alt="" aria-hidden="true" decoding="async"
+           style="left:68.7602%;top:24.3959%;width:28.7928%;z-index:11">
+      <img class="ly" data-k="pill4" src="hero/pill4.png?v=25" alt="" aria-hidden="true" decoding="async"
+           style="left:3.2626%;top:33.2814%;width:27.4062%;z-index:12">
+      <img class="ly" data-k="pill5" src="hero/pill5.png?v=25" alt="" aria-hidden="true" decoding="async"
+           style="left:61.9086%;top:46.9992%;width:35.6444%;z-index:13">
+      <img class="ly" data-k="pill6" src="hero/pill6.png?v=25" alt="" aria-hidden="true" decoding="async"
+           style="left:2.7732%;top:61.5744%;width:27.5693%;z-index:14">
+      <span class="bloom" aria-hidden="true"></span>
     </div>
   </div>
 </section>
 
-<!-- ==================== 02 · BARRE DE CONFIANCE ==================== -->
-<section class="trust" aria-label="Garanties DIV Protocol">
+<!-- ==================== PRODUITS ==================== -->
+<!-- ==================== LE PROBLEME (chiffres publiés par DIV Protocol) ==================== -->
+<section class="section" id="probleme">
   <div class="wrap">
-    <ul>
-      <li>Architecture distribuée en Europe</li>
-      <li>Chiffrement de bout en bout</li>
-      <li>Clés chez vous</li>
-      <li>Conforme RGPD</li>
-      <li>Zéro donnée en notre possession</li>
-    </ul>
-  </div>
-</section>
-
-<!-- ==================== 03 · COMMENT DIV FONCTIONNE ==================== -->
-<section class="sec how" id="fonctionnement">
-  <div class="wrap">
-    <div class="head rv" style="margin-bottom:clamp(48px,6vw,84px)">
-      <span class="kicker">Fonctionnement</span>
-      <h2>Votre fichier ne quitte jamais votre appareil en clair.</h2>
+    <div class="head center rv">
+      <h2>Vos données sensibles ne vous appartiennent déjà plus.</h2>
+      <p class="lead">Stocker vos documents chez Google, Microsoft ou AWS signifie leur donner la capacité de lire, analyser, copier ou transmettre vos contenus, sur réquisition ou incident. Vous perdez la souveraineté de vos données.</p>
     </div>
-
-    <div class="how__grid">
-      <ol class="how__steps" id="howSteps">
-        <li class="step on" data-step="0">
-          <span class="step__n">01</span>
-          <div><h3>Sur votre appareil</h3><p>Le document reste lisible uniquement là où il a été créé. Rien n'est envoyé avant d'avoir été protégé.</p></div>
-        </li>
-        <li class="step" data-step="1">
-          <span class="step__n">02</span>
-          <div><h3>Chiffrement local</h3><p>Le chiffrement s'exécute chez vous, avant tout envoi. La clé reste exclusivement en votre possession.</p></div>
-        </li>
-        <li class="step" data-step="2">
-          <span class="step__n">03</span>
-          <div><h3>Distribution</h3><p>Le contenu protégé est réparti sur plusieurs hébergeurs européens distincts : aucun point unique de défaillance, aucun dépositaire unique.</p></div>
-        </li>
-        <li class="step" data-step="3">
-          <span class="step__n">04</span>
-          <div><h3>Hébergement européen</h3><p>Les données restent dans l'Union européenne, chez des opérateurs distincts, hors de portée d'une réquisition extraterritoriale unique.</p></div>
-        </li>
-        <li class="step" data-step="4">
-          <span class="step__n">05</span>
-          <div><h3>Vérification</h3><p>L'intégrité se prouve : empreinte du document, antériorité certaine, journal d'audit ancré. Sans jamais divulguer le contenu.</p></div>
-        </li>
-      </ol>
-
-      <div class="how__stage" aria-hidden="true">
-        <div class="stage__inner">
-          <div class="doc" id="howDoc"><i></i><i></i><i></i><i></i><span class="doc__tag" id="howTag">document.pdf</span></div>
-          <div class="frag" id="howFrag"><b>01</b><b>02</b><b>03</b></div>
-          <div class="nodes" id="howNodes">
-            <div class="node"><b>Hébergeur A</b>Union européenne</div>
-            <div class="node"><b>Hébergeur B</b>Union européenne</div>
-            <div class="node"><b>Hébergeur C</b>Union européenne</div>
-          </div>
-          <div class="verif" id="howVerif">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Intégrité vérifiée</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Antériorité certaine</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Accès contrôlé</span>
-          </div>
-        </div>
-      </div>
+    <!-- Les trois chiffres ci-dessous sont repris tels quels de divprotocol.com/fr.
+         Aucune valeur n'est estimée ni extrapolée. -->
+    <div class="stats">
+      <div class="stat rv"><b>94&#8239;%</b><p>des données européennes sont hébergées chez des opérateurs soumis au Cloud Act américain.</p></div>
+      <div class="stat rv d1"><b>1/3</b><p>des entreprises ont subi une fuite ou un incident de confidentialité documentaire ces 24 derniers mois.</p></div>
+      <div class="stat rv d2"><b>Zéro</b><p>alternative européenne complète aux suites US pour la productivité documentaire. Jusqu'à aujourd'hui.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ==================== 04 · DIV DRIVE ==================== -->
-<section class="sec sec--off" id="drive">
+<section class="section section--alt" id="produits">
   <div class="wrap">
-    <div class="prod__head">
-      <div class="head rv">
-        <span class="kicker">Produit</span>
-        <h2>DIV Drive</h2>
-        <p class="lead">Stocker, collaborer, partager. Sans abandonner le contrôle.</p>
-      </div>
-      <a href="#final" class="link rv d1">Demander une démo <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <div class="head center">
+      <h2 class="rv">Stockez, partagez, collaborez et prouvez. Au même endroit.</h2>
+      <p class="lead rv d1">Une suite souveraine qui réunit le stockage chiffré, la preuve d'intégrité et, demain, toute la productivité documentaire de vos équipes.</p>
     </div>
 
-    <div class="app app--wide rv d1">
-      <div class="app__bar">
-        <div class="app__dots"><i></i><i></i><i></i></div>
-        <div class="app__url">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>
-          app.divprotocol.com/drive
-        </div>
-      </div>
-      <div class="app__body">
-        <aside class="app__side">
-          <p class="grp">Espace</p>
-          <span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10l9-7 9 7v9a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></i>Accueil</span>
-          <span class="on"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></i>Mes fichiers</span>
-          <span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></i>Partagés</span>
-          <span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg></i>Coffre</span>
-          <span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></i>Activité</span>
-        </aside>
+    <div class="cards">
+      <article class="card rv">
+        <img class="ico" src="icons3d/drive.png" alt="" width="64" height="64" loading="lazy" decoding="async">
+        <h3>DIV Drive</h3>
+        <p>Stockage chiffré, projets partagés, collaboration temps réel et partage sécurisé aux tiers. Vos équipes travaillent sans jamais perdre le contrôle.</p>
+        <a href="#pourquoi" class="link">Découvrir DIV Drive <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
 
-        <div class="app__main">
-          <div class="app__crumb"><span>Mes fichiers</span><span>/</span><span style="color:var(--ink)">Dossier client — Delcourt</span></div>
-          <div class="rows">
-            <div class="row"><div class="row__n"><span class="row__ic f"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></span><b>Pièces du dossier</b></div><span class="row__m">Modifié hier</span><span class="row__s pill"><i></i>Chiffré</span><span class="hint">Chiffré de bout en bout · clé locale</span></div>
-            <div class="row"><div class="row__n"><span class="row__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M14 3v5h5"/><path d="M6 3h8l5 5v13H6z"/></svg></span><b>Contrat-client.pdf</b></div><span class="row__m">1,4 Mo</span><span class="row__s pill pill--ok"><i></i>Vérifié</span><span class="hint">Empreinte ancrée · antériorité certaine</span></div>
-            <div class="row"><div class="row__n"><span class="row__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M14 3v5h5"/><path d="M6 3h8l5 5v13H6z"/></svg></span><b>Conclusions-v4.docx</b></div><span class="row__m">312 Ko</span><span class="row__s pill"><i></i>Chiffré</span><span class="hint">Édition collaborative active</span></div>
-            <div class="row"><div class="row__n"><span class="row__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M14 3v5h5"/><path d="M6 3h8l5 5v13H6z"/></svg></span><b>Annexes-2026.xlsx</b></div><span class="row__m">88 Ko</span><span class="row__s pill"><i></i>Chiffré</span><span class="hint">Permissions fines · lecture seule</span></div>
-          </div>
+      <article class="card rv d1">
+        <img class="ico" src="icons3d/check.png" alt="" width="64" height="64" loading="lazy" decoding="async">
+        <h3>DIV Check</h3>
+        <p>Chaque action devient une preuve infalsifiable : empreinte cryptographique, horodatage public et journal d'audit prêt à produire devant un juge.</p>
+        <a href="#pourquoi" class="link">Découvrir DIV Check <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
 
-          <div class="people" aria-label="Personnes ayant accès">
-            <b>MB<span>Marie B. — Éditeur</span></b>
-            <b>TL<span>Thomas L. — Éditeur</span></b>
-            <b>AR<span>Alice R. — Lecture seule</span></b>
-            <b style="background:var(--off);color:var(--cool)">+3<span>3 autres membres</span></b>
-          </div>
-        </div>
+      <article class="card rv d2">
+        <img class="ico" src="icons3d/applications.png" alt="" width="64" height="64" loading="lazy" decoding="async">
+        <h3>Suite DIV</h3>
+        <p>Drive et Check réunis, avec une seule identité, une seule clé et un seul contrat. Les modules à venir sont inclus au fil de leur sortie.</p>
+        <a href="#contact" class="link">Demander une démo <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
 
-        <aside class="app__panel">
-          <p class="grp">Sécurité</p>
-          <dl class="kv">
-            <div><dt>Chiffrement</dt><dd><span class="dot"></span>Bout en bout</dd></div>
-            <div><dt>Localisation des données</dt><dd><span class="dot"></span>Union européenne</dd></div>
-            <div><dt>Clé de chiffrement</dt><dd><span class="dot"></span>Votre appareil</dd></div>
-            <div><dt>Intégrité</dt><dd><span class="dot"></span>Vérifiée</dd></div>
-          </dl>
-          <div class="share">
-            <button class="btn btn--line btn--sm" id="shareBtn" style="width:100%;height:34px" aria-controls="shareOut">Partager en lien sécurisé</button>
-            <p class="share__out" id="shareOut" role="status"></p>
-          </div>
-        </aside>
-      </div>
+      <article class="card rv">
+        <span class="tag">Bientôt</span>
+        <img class="ico" src="icons3d/mail.png" alt="" width="64" height="64" loading="lazy" decoding="async">
+        <h3>DIV Mail</h3>
+        <p>La messagerie professionnelle souveraine : vos échanges chiffrés, hébergés en Europe, sans analyse publicitaire ni indexation de contenu.</p>
+      </article>
+
+      <article class="card rv d1">
+        <span class="tag">Bientôt</span>
+        <img class="ico" src="icons3d/message.png" alt="" width="64" height="64" loading="lazy" decoding="async">
+        <h3>DIV Message &amp; Visio</h3>
+        <p>Messagerie d'équipe et réunions vidéo chiffrées de bout en bout, sans conservation de métadonnées exploitables.</p>
+      </article>
+
+      <article class="card rv d2">
+        <span class="tag">Bientôt</span>
+        <img class="ico" src="icons3d/calendrier.png" alt="" width="64" height="64" loading="lazy" decoding="async">
+        <h3>DIV Calendrier</h3>
+        <p>Agendas partagés et disponibilités d'équipe, sans révéler qui rencontre qui — ni à nous, ni à personne.</p>
+      </article>
     </div>
-
-    <ul class="feats rv d2" style="margin-top:clamp(40px,5vw,60px)">
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Chiffrement de bout en bout</li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Architecture distribuée en Europe</li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Recherche précise multi-critères</li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Permissions fines et rôles</li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Projets partagés</li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Édition collaborative</li>
-    </ul>
   </div>
 </section>
 
-<!-- ==================== 05 · DIV CHECK ==================== -->
-<section class="sec" id="check">
+
+<!-- ==================== DIV DRIVE ==================== -->
+<section class="section" id="drive">
   <div class="wrap">
-    <div class="check">
-      <div class="rv">
-        <span class="kicker">Produit</span>
-        <h2 style="margin-top:22px">Prouvez que rien n'a été modifié.</h2>
-        <p class="lead" style="margin-top:24px">L'empreinte du document est calculée dans votre navigateur, puis ancrée sur une blockchain publique. Le certificat est vérifiable par n'importe quel tiers — sans jamais divulguer le contenu.</p>
-        <ul class="feats" style="margin-top:34px">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Preuve d'intégrité</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Antériorité certaine</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Certificat PDF autoportant</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Journal d'audit ancré</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Zéro divulgation du contenu</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Inclus dans la suite DIV</li>
-        </ul>
+    <div class="head center">
+      <h2 class="rv d1">Un vrai logiciel, pas une promesse</h2>
+      <p class="lead rv d2">Fichiers, dossiers, permissions, recherche et collaboration. Tout ce que vos équipes attendent d'un drive — avec le chiffrement en dessous.</p>
+    </div>
+
+    <figure class="dfig rv d1">
+    <picture>
+      <img src="drive/illustration.webp" width="1586" height="992" decoding="async"
+           alt="DIV Drive : un dossier chiffré entouré de ses fichiers, du partage sécurisé, de la collaboration, des liens personnalisés et de l'accès multi-appareils.">
+    </picture>
+  </figure>
+  </div>
+
+</section>
+
+<!-- ==================== SÉCURITÉ ==================== -->
+<section class="section" id="securite">
+  <div class="wrap">
+    <div class="alt">
+      <div class="alt__t rv">
+        <h2>Aucune donnée ne peut être lue sans votre accord</h2>
+        <p class="lead">Vos fichiers sont chiffrés dans votre navigateur, avant le moindre envoi. La clé ne quitte jamais votre poste et ne transite jamais par nos serveurs. Ce que nous stockons est, pour nous, indéchiffrable.</p>
+        <a href="#presse" class="link">En savoir plus sur la sécurité <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="alt__v rv d1">
+        <img class="lock3d" src="securite/cadenas.webp" width="900" height="900"
+             loading="lazy" decoding="async"
+             alt="Cadenas DIV Protocol : le chiffrement se fait sur votre poste, la clé n'en sort jamais.">
+    </div>
+  </div>
+</section>
+
+<!-- ==================== POURQUOI ==================== -->
+<section class="section" id="pourquoi">
+  <div class="wrap">
+    <div class="head center">
+      <h2 class="rv d1">Quatre raisons de reprendre la main sur vos documents</h2>
+    </div>
+
+    <!-- ───────── 01 · Espace ───────── -->
+    <article class="why">
+      <div class="why__t rv">
+        <h3>Ne soyez jamais à court d'espace</h3>
+        <p class="lead">Le stockage suit la croissance de vos dossiers, sans que le chiffrement devienne jamais une option payante. Il est inclus par défaut, sur chaque fichier, dès le premier octet.</p>
+        <a href="#produits" class="link">Découvrir DIV Drive <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
 
-      <div class="checkbox rv d1">
-        <div class="checkbox__t">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M14 3v5h5"/><path d="M6 3h8l5 5v13H6z"/></svg>
-          <b>contrat-client.pdf</b>
-          <span class="pill" style="margin-left:auto">1,4 Mo</span>
-        </div>
-        <div class="checkbox__b">
-          <dl>
-            <div class="cfield"><dt>Empreinte SHA-256</dt><dd id="ckHash">—</dd></div>
-            <div class="cfield"><dt>Horodatage</dt><dd id="ckTime">—</dd></div>
-            <div class="cfield"><dt>Intégrité</dt><dd id="ckInt">—</dd></div>
-            <div class="cfield"><dt>Preuve</dt><dd id="ckProof">—</dd></div>
-          </dl>
-          <button class="btn btn--primary" id="ckBtn" style="width:100%;margin-top:18px">Vérifier le document</button>
-          <p class="mono" style="margin-top:12px;font-size:10.5px;letter-spacing:.06em;color:var(--cool-2);text-align:center">Empreinte calculée dans votre navigateur</p>
-        </div>
+      <figure class="why__v rv d1">
+        <img class="viz3d" src="pourquoi/stockage.webp?v=3" width="1162" height="952"
+             loading="lazy" decoding="async"
+             alt="Un nuage de stockage chiffré au-dessus d'un dossier DIV rempli de documents, d'images et de vidéos, avec sa jauge d'espace.">
+      </figure>
+    </article>
+
+    <!-- ───────── 02 · Partage ───────── -->
+    <article class="why rev">
+      <div class="why__t rv">
+        <h3>Partagez avec n'importe qui, même sans compte</h3>
+        <p class="lead">Un lien à expiration, protégé par mot de passe, en lecture seule ou en édition. Votre confrère ouvre le document sans créer de compte, et l'accès se referme tout seul.</p>
+        <a href="#fonctions" class="link">Voir toutes les fonctions <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- ==================== 06 · BÉNÉFICES ==================== -->
-<section class="sec sec--off" id="benefices">
-  <div class="wrap">
-    <div class="head rv" style="margin-bottom:clamp(48px,6vw,80px)">
-      <span class="kicker">Bénéfices</span>
-      <h2>Quatre raisons de reprendre la main sur vos documents.</h2>
-    </div>
-    <div class="bens">
-      <article class="ben rv"><img class="ben__ic" src="pourquoi/stockage.webp" width="1162" height="952" loading="lazy" decoding="async" alt=""><h4>Espace &amp; stockage</h4><p>Le stockage suit la croissance de vos dossiers, sans que le chiffrement devienne une option payante.</p></article>
-      <article class="ben rv d1"><img class="ben__ic" src="pourquoi/partage.webp" width="1149" height="869" loading="lazy" decoding="async" alt=""><h4>Partage sécurisé</h4><p>Un lien protégé, en lecture seule ou en édition. Votre confrère ouvre le document sans créer de compte.</p></article>
-      <article class="ben rv d2"><img class="ben__ic" src="pourquoi/controle.webp" width="1299" height="887" loading="lazy" decoding="async" alt=""><h4>Contrôle des données</h4><p>Permissions fines, rôles, révocation immédiate. Une garantie technique avant d'être contractuelle.</p></article>
-      <article class="ben rv d3"><img class="ben__ic" src="pourquoi/appareils.webp" width="1200" height="758" loading="lazy" decoding="async" alt=""><h4>Travail multi-appareils</h4><p>Web, ordinateur, mobile. Vos modifications se répliquent, chiffrées à chaque étape.</p></article>
-    </div>
-  </div>
-</section>
+      <figure class="why__v rv d1">
+        <img class="viz3d" src="pourquoi/partage.webp?v=2" width="1149" height="869"
+             loading="lazy" decoding="async"
+             alt="Un document partagé au centre d'un anneau reliant trois destinataires, avec le bouton de partage sécurisé.">
+      </figure>
+    </article>
 
-<!-- ==================== 07 · ARCHITECTURE ==================== -->
-<section class="sec sec--dark" id="securite">
-  <div class="wrap">
-    <div class="head head--c rv">
-      <span class="kicker">Architecture</span>
-      <h2>Conçu autrement.</h2>
-      <p class="lead">Aucune donnée ne peut être lue sans l'accord explicite de l'entreprise qui en est propriétaire. Ce n'est pas une promesse commerciale : c'est la forme de l'architecture.</p>
-    </div>
-
-    <div class="arch rv d1" id="arch">
-      <div class="arch__n"><b>Votre appareil</b><span>Document en clair</span></div>
-      <div class="arch__l"></div>
-      <div class="arch__n accent"><b>Chiffrement local</b><span>Clé en votre possession</span></div>
-      <div class="arch__l"></div>
-      <div class="arch__row">
-        <div class="arch__n"><b>Hébergeur A</b><span>Union européenne</span></div>
-        <div class="arch__n"><b>Hébergeur B</b><span>Union européenne</span></div>
-        <div class="arch__n"><b>Hébergeur C</b><span>Union européenne</span></div>
+    <!-- ───────── 03 · Contrôle ───────── -->
+    <article class="why">
+      <div class="why__t rv">
+        <h3>Gardez le contrôle de vos données</h3>
+        <p class="lead">Accorder un accès limité ou complet, empêcher un nouvel arrivant de lire l'historique, révoquer en un clic : vos données vous appartiennent. C'est une garantie technique avant d'être contractuelle.</p>
+        <a href="#certifications" class="link">Voir nos certifications <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
-      <div class="arch__l"></div>
-      <div class="arch__n"><b>DIV Check</b><span>Empreinte ancrée</span></div>
-      <div class="arch__l"></div>
-      <div class="arch__n accent"><b>Preuve vérifiable</b><span>Par n'importe quel tiers</span></div>
-    </div>
 
-    <ul class="feats rv d2" style="margin-top:clamp(52px,6vw,80px)">
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg><span><b style="display:block;color:#fff;font-weight:500">Zéro lecture sans accord</b>La clé de chiffrement est exclusivement en votre possession.</span></li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg><span><b style="display:block;color:#fff;font-weight:500">Zéro point unique</b>Les fichiers sont distribués sur plusieurs hébergeurs distincts.</span></li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg><span><b style="display:block;color:#fff;font-weight:500">Zéro donnée en notre possession</b>Aucune information permettant de déchiffrer n'est conservée.</span></li>
-    </ul>
-  </div>
-</section>
+      <figure class="why__v rv d1">
+        <img class="viz3d" src="pourquoi/controle.webp" width="1299" height="887"
+             loading="lazy" decoding="async"
+             alt="Un bouclier protégeant l'identité devant un dossier de documents, relié à un cadenas et à un panneau de réglages d'accès.">
+      </figure>
+    </article>
 
-<!-- ==================== 08 · SECURITY CENTER ==================== -->
-<section class="sec" id="center">
-  <div class="wrap">
-    <div class="head rv" style="margin-bottom:clamp(40px,5vw,64px)">
-      <span class="kicker">Supervision</span>
-      <h2>Security Center</h2>
-      <p class="lead">L'état de sécurité de votre organisation, lisible d'un coup d'œil.</p>
-    </div>
-
-    <div class="scen rv d1">
-      <div class="scen__t">
-        <b>État de la sécurité</b>
-        <span class="scen__st"><i></i>Tous les systèmes opérationnels</span>
+    <!-- ───────── 04 · Appareils ───────── -->
+    <article class="why rev">
+      <div class="why__t rv">
+        <h3>Travaillez partout, sans perdre le contrôle</h3>
+        <p class="lead">Web, ordinateur, mobile : la synchronisation réplique vos modifications en temps réel, chiffrées à chaque étape. Vous travaillez toujours sur la dernière version, où que vous soyez.</p>
+        <a href="#contact" class="link">Demander une démo <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
-      <div class="scen__g">
-        <dl class="scen__i"><dt>Chiffrement</dt><dd><i></i>Actif</dd></dl>
-        <dl class="scen__i"><dt>Chiffrement côté client</dt><dd><i></i>Actif</dd></dl>
-        <dl class="scen__i"><dt>Hébergement européen</dt><dd><i></i>Actif</dd></dl>
-        <dl class="scen__i"><dt>Accès externes</dt><dd><i class="ctl"></i>Contrôlés</dd></dl>
-        <dl class="scen__i"><dt>Clés de chiffrement</dt><dd><i></i>Contrôlées par le client</dd></dl>
-        <dl class="scen__i"><dt>Journal d'audit</dt><dd><i></i>Ancré</dd></dl>
+
+      <figure class="why__v rv d1">
+        <img class="viz3d" src="pourquoi/appareils.webp" width="1200" height="758"
+             loading="lazy" decoding="async"
+             alt="Un ordinateur, un téléphone et une tablette reliés autour d'un globe, un bouclier protégeant l'identité au centre.">
+      </figure>
+    </article>
+  </div>
+</section>
+
+<!-- ==================== CE QUE VOUS OBTENEZ ==================== -->
+<section class="section" id="fonctions">
+  <div class="wrap">
+    <div class="head center">
+      <h2 class="rv">Tout ce dont vos équipes ont besoin</h2>
+      <p class="lead rv d1">Les fonctions du quotidien, sans compromis sur la confidentialité.</p>
+    </div>
+    <div class="blurbs">
+      <div class="blurb rv"><img class="ico" src="icons3d/document.png" alt="" width="64" height="64" loading="lazy" decoding="async">
+        <h4>Édition collaborative</h4><p>Travaillez à plusieurs sur le même document, en temps réel, sans jamais l'exposer en clair sur nos serveurs.</p></div>
+      <div class="blurb rv d1"><img class="ico" src="icons3d/sync.png" alt="" width="64" height="64" loading="lazy" decoding="async">
+        <h4>Synchronisation continue</h4><p>Un dossier local identique sur tous les postes de l'équipe, avec résolution des conflits et détection des modifications concurrentes.</p></div>
+      <div class="blurb rv d2"><img class="ico" src="icons3d/historique.png" alt="" width="64" height="64" loading="lazy" decoding="async">
+        <h4>Historique des versions</h4><p>Chaque enregistrement crée une version chiffrée. Comparez, restaurez, ou produisez l'état exact d'un document à une date donnée.</p></div>
+      <div class="blurb rv"><img class="ico" src="icons3d/utilisateur.png" alt="" width="64" height="64" loading="lazy" decoding="async">
+        <h4>Rôles et permissions</h4><p>Lecture seule ou édition, par dossier ou par document. Les droits suivent vos règles internes, pas l'inverse.</p></div>
+      <div class="blurb rv d1"><img class="ico" src="icons3d/partager.png" alt="" width="64" height="64" loading="lazy" decoding="async">
+        <h4>Projets partagés</h4><p>Regroupez les dossiers d'une affaire, invitez les intervenants, et coupez l'accès dès la clôture du dossier.</p></div>
+      <div class="blurb rv d2"><img class="ico" src="icons3d/importer.png" alt="" width="64" height="64" loading="lazy" decoding="async">
+        <h4>Transferts rapides</h4><p>Envois par lots, glisser-déposer de dossiers entiers, reprise automatique en cas de coupure. Aucune limite par fichier.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== BANDEAU ENTREPRISE ==================== -->
+<section class="section band" id="entreprise">
+  <div class="wrap">
+    <div class="alt">
+      <div class="alt__t rv">
+        <h2>Faites grandir votre organisation sans céder sur la souveraineté</h2>
+        <p class="lead">Du cabinet indépendant à la direction juridique d'un groupe : hébergement dédié, SSO, journal d'audit unifié et accompagnement conformité aux côtés de votre RSSI.</p>
+        <a href="#contact" class="btn btn--light" style="margin-top:8px">En savoir plus</a>
       </div>
-      <div class="scen__f">
-        <span class="mono" style="font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--cool-2)">Mise à jour en continu</span>
-        <a href="#securite" class="link" style="font-size:14.5px">Explorer l'architecture de sécurité <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      </div>
+      <div class="alt__v rv d1"><span class="tile"><img class="ico" src="icons3d/equipe.png" alt="" width="64" height="64" loading="lazy" decoding="async"></span></div>
     </div>
   </div>
 </section>
 
-<!-- ==================== 09 · CHIFFRES ==================== -->
-<section class="sec sec--tight" id="chiffres">
+<!-- ==================== AVIS CLIENTS ==================== -->
+<section class="section" id="avis">
   <div class="wrap">
-    <div class="nums">
-      <div class="num rv"><b>94 %</b><span>des données européennes hébergées chez des opérateurs soumis au Cloud Act</span></div>
-      <div class="num rv d1"><b>1/3</b><span>des entreprises touchées par une fuite documentaire en 24 mois</span></div>
-      <div class="num rv d2"><b>Zéro</b><span>clé de déchiffrement conservée par DIV</span></div>
-      <div class="num rv d3"><b>E2E</b><span>chiffrement de bout en bout par défaut</span></div>
-    </div>
-    <p class="nums--src rv">Les deux premiers chiffres sont ceux publiés par DIV Protocol sur son site, sans source citée à ce jour. Les deux suivants découlent directement de l'architecture décrite ci-dessus.</p>
-  </div>
-</section>
-
-<!-- ==================== 10 · COMPARAISON ==================== -->
-<section class="sec sec--off" id="comparaison">
-  <div class="wrap">
-    <div class="head rv" style="margin-bottom:clamp(40px,5vw,58px)">
-      <span class="kicker">Comparaison</span>
-      <h2>Ce qui change concrètement.</h2>
-    </div>
-    <div class="cmp-wrap rv d1">
-      <table class="cmp">
-        <caption class="visually-hidden" style="padding:18px 18px 0">Comparaison des configurations standard, relevée le 5 septembre 2026. Les offres évoluent : à revérifier avant toute publication.</caption>
-        <thead>
-          <tr><th scope="col">Caractéristique</th><th scope="col" class="c-div">DIV Protocol</th><th scope="col">Google Drive</th><th scope="col">Microsoft OneDrive</th></tr>
-        </thead>
-        <tbody>
-          <tr><th scope="row">Localisation des données</th><td class="c-div">Union européenne</td><td>Multi-régions, options de résidence selon l'offre</td><td>Multi-régions, options de résidence selon l'offre</td></tr>
-          <tr><th scope="row">Chiffrement côté client</th><td class="c-div">Par défaut</td><td>Option selon l'offre</td><td>Non activé par défaut</td></tr>
-          <tr><th scope="row">Propriété des clés</th><td class="c-div">Le client</td><td>Le fournisseur, ou service de clés externe selon l'offre</td><td>Le fournisseur</td></tr>
-          <tr><th scope="row">Infrastructure</th><td class="c-div">Plusieurs hébergeurs européens distincts</td><td>Opérateur unique de droit américain</td><td>Opérateur unique de droit américain</td></tr>
-          <tr><th scope="row">Répartition des fichiers</th><td class="c-div">Distribués sur des hébergeurs distincts</td><td>Infrastructure du fournisseur</td><td>Infrastructure du fournisseur</td></tr>
-          <tr><th scope="row">Preuve d'intégrité</th><td class="c-div">DIV Check, empreinte ancrée</td><td>Historique de versions</td><td>Historique de versions</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== 11 · ENTREPRISE ==================== -->
-<section class="sec" id="entreprise">
-  <div class="wrap">
-    <div class="head rv">
-      <span class="kicker">Entreprise</span>
-      <h2>Pour les organisations qui ne peuvent pas transiger.</h2>
-      <p class="lead">Professions réglementées, secret professionnel, données critiques : DIV s'adresse aux structures dont la confidentialité est le cœur de métier.</p>
-    </div>
-    <ul class="tags rv d1">
-      <li>Juridique</li><li>Finance</li><li>Santé</li><li>Secteur public</li><li>Technologie</li><li>Industries sensibles</li>
-    </ul>
-    <ul class="feats rv d2">
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Permissions avancées</li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Journal d'audit</li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Gestion des équipes</li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Partage sécurisé aux tiers</li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Souveraineté des données</li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Administration centralisée</li>
-    </ul>
-    <div class="cta-row rv d3"><a href="#final" class="btn btn--primary">Parler à notre équipe</a></div>
-  </div>
-</section>
-
-<!-- ==================== 12 · TRUST CENTER ==================== -->
-<section class="sec sec--off" id="trust">
-  <div class="wrap">
-    <div class="head rv" style="margin-bottom:clamp(36px,4.5vw,56px)">
-      <span class="kicker">Transparence</span>
-      <h2>DIV Trust Center</h2>
-    </div>
-    <dl class="tc rv d1">
-      <div><dt>Localisation des données</dt><dd>Union européenne</dd></div>
-      <div><dt>Chiffrement</dt><dd>De bout en bout</dd></div>
-      <div><dt>Propriété des clés</dt><dd>Le client</dd></div>
-      <div><dt>Infrastructure</dt><dd>Hébergeurs européens<small>Datacenters qualifiés SecNumCloud et certifiés ISO&nbsp;27001. Ces qualifications portent sur l'infrastructure d'hébergement, non sur DIV&nbsp;Protocol.</small></dd></div>
-      <div><dt>RGPD</dt><dd>Conforme</dd></div>
-      <div><dt>Documentation sécurité</dt><dd>Sur demande</dd></div>
-    </dl>
-    <div class="cta-row rv d2"><a href="#final" class="btn btn--line">Consulter le Trust Center</a></div>
-  </div>
-</section>
-
-<!-- ==================== 13 · TÉMOIGNAGES ==================== -->
-<section class="sec" id="clients">
-  <div class="wrap">
-    <div class="head rv" style="margin-bottom:clamp(44px,5vw,68px)">
-      <span class="kicker">Clients</span>
-      <h2>Confiés à des données critiques.</h2>
-    </div>
     <div class="quotes">
-      <blockquote class="quote rv"><p>« DIV nous a permis de remettre le cabinet au niveau de sécurité maximale qu'attendent nos clients, avec une souveraineté des données poussée jusqu'au cœur de notre activité. On dort beaucoup mieux la nuit. »</p><footer>Partenaire d'un cabinet à Bordeaux</footer></blockquote>
-      <blockquote class="quote rv d1"><p>« Avant DIV, je travaillais sur un disque dur posé sur mon bureau. Aujourd'hui, on a une vraie plateforme collaborative chiffrée, accessible partout, et sans rien céder sur la confidentialité. »</p><footer>Notaire</footer></blockquote>
-      <blockquote class="quote rv d2"><p>« On a quitté une solution américaine pour passer sur DIV. Ça fait plaisir de voir des Français livrer ce niveau de qualité et de sécurité. On garde nos données chez nous. »</p><footer>Avocat</footer></blockquote>
+      <figure class="quote rv" style="margin:0">
+        <span class="stars" aria-label="5 sur 5">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+        </span>
+        <p>« DIV nous a permis de remettre le cabinet au niveau de sécurité maximale qu'attendent nos clients, avec une souveraineté des données poussée jusqu'au cœur de notre activité. On dort beaucoup mieux la nuit. »</p>
+        <footer><b>Partenaire d'un cabinet</b><em>Avocats d'affaires · Bordeaux</em></footer>
+      </figure>
+      <figure class="quote rv d1" style="margin:0">
+        <span class="stars" aria-label="5 sur 5">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+        </span>
+        <p>« Avant DIV, je travaillais sur un disque dur posé sur mon bureau. Aujourd'hui, on a une vraie plateforme collaborative chiffrée, accessible partout, et sans rien céder sur la confidentialité. »</p>
+        <footer><b>Notaire</b><em>Étude notariale · Île-de-France</em></footer>
+      </figure>
+      <figure class="quote rv d2" style="margin:0">
+        <span class="stars" aria-label="5 sur 5">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+        </span>
+        <p>« On a quitté une solution américaine pour passer sur DIV. Le produit n'a rien à envier aux Big Tech, et on garde nos données chez nous. »</p>
+        <footer><b>Avocat</b><em>Cabinet indépendant · Lyon</em></footer>
+      </figure>
     </div>
   </div>
 </section>
 
-<!-- ==================== 14 · PRESSE ==================== -->
-<section class="sec sec--off" id="presse">
+<!-- ==================== ILS PARLENT DE NOUS ==================== -->
+<section class="section" id="presse">
   <div class="wrap">
-    <div class="head rv" style="margin-bottom:clamp(40px,5vw,60px)">
-      <span class="kicker">Presse</span>
-      <h2>Ils parlent de DIV.</h2>
+    <div class="head center">
+      <h2 class="rv">Ils parlent de nous</h2>
     </div>
-    <div class="press">
-      <a class="pfeat rv d1" href="https://www.bfmtv.com/economie/replay-emissions/le-pitch/video-le-pitch-div-protocol-propose-un-cloud-souverain-06-02_VN-202602060125.html" target="_blank" rel="noopener">
-        <img src="presse/1.png" alt="BFM Business" width="96" height="32" loading="lazy" decoding="async">
-        <b>« Le Pitch » : DIV Protocol propose un cloud souverain</b>
-        <em>BFM Business · 6 février 2026</em>
-        <span class="link">Lire l'article <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></span>
-      </a>
-      <div class="press__list rv d2">
-        <a class="pitem" href="https://www.capital.fr/entreprises-marches/div-protocol-depuis-leurs-16-ans-ils-securisent-la-data-des-entreprises-1522497" target="_blank" rel="noopener">
-          <img src="presse/2.png" alt="Capital" width="74" height="26" loading="lazy" decoding="async">
-          <span class="pitem__c"><b>Depuis leurs 16 ans, ils sécurisent la data des entreprises</b><em>Capital</em></span>
-        </a>
-        <a class="pitem" href="https://mondenumerique.info/episode/a-18-ans-il-veut-revolutionner-le-cloud-gaspard-bonnot-div-protocol" target="_blank" rel="noopener">
-          <img src="presse/6.png" alt="Monde Numérique" width="74" height="26" loading="lazy" decoding="async">
-          <span class="pitem__c"><b>À 18 ans, il veut révolutionner le cloud</b><em>Monde Numérique</em></span>
-        </a>
-        <a class="pitem" href="https://www.ledauphine.com/economie/2024/01/04/ces-trois-jeunes-haut-savoyards-veulent-revolutionner-le-stockage-de-documents-sensibles" target="_blank" rel="noopener">
-          <img src="presse/3.png" alt="Le Dauphiné Libéré" width="74" height="26" loading="lazy" decoding="async">
-          <span class="pitem__c"><b>Ces trois jeunes Haut-Savoyards veulent révolutionner le stockage de documents sensibles</b><em>Le Dauphiné Libéré · 4 janvier 2024</em></span>
-        </a>
-        <a class="pitem" href="https://www.leprogres.fr/economie/2024/01/04/div-protocol-veut-revolutionner-le-stockage-de-documents-sensibles" target="_blank" rel="noopener">
-          <img src="presse/4.png" alt="Le Progrès" width="74" height="26" loading="lazy" decoding="async">
-          <span class="pitem__c"><b>DIV Protocol veut révolutionner le stockage de documents sensibles</b><em>Le Progrès · 4 janvier 2024</em></span>
-        </a>
-        <a class="pitem" href="https://www.linkedin.com/posts/incubateur-telecomparis_nouvelle-p%C3%A9pite-%C3%A0-lincubateur-t%C3%A9l%C3%A9com-activity-7419280067786076160-nLHd/" target="_blank" rel="noopener">
-          <img src="presse/5.png" alt="Incubateur Télécom Paris" width="74" height="26" loading="lazy" decoding="async">
-          <span class="pitem__c"><b>Nouvelle pépite à l'Incubateur Télécom Paris</b><em>Incubateur Télécom Paris</em></span>
-        </a>
+    <div class="mq rv d1">
+      <div class="mq__track">
+        <a class="mq__i" href="https://www.bfmtv.com/economie/replay-emissions/le-pitch/video-le-pitch-div-protocol-propose-un-cloud-souverain-06-02_VN-202602060125.html" target="_blank" rel="noopener noreferrer"><img src="presse/1.png" alt="BFMTV" loading="lazy" decoding="async"></a>
+        <a class="mq__i" href="https://www.capital.fr/entreprises-marches/div-protocol-depuis-leurs-16-ans-ils-securisent-la-data-des-entreprises-1522497" target="_blank" rel="noopener noreferrer"><img src="presse/2.png" alt="Capital" loading="lazy" decoding="async"></a>
+        <a class="mq__i" href="https://www.ledauphine.com/economie/2024/01/04/ces-trois-jeunes-haut-savoyards-veulent-revolutionner-le-stockage-de-documents-sensibles" target="_blank" rel="noopener noreferrer"><img src="presse/3.png" alt="Le Dauphiné Libéré" loading="lazy" decoding="async"></a>
+        <a class="mq__i" href="https://www.leprogres.fr/economie/2024/01/04/div-protocol-veut-revolutionner-le-stockage-de-documents-sensibles" target="_blank" rel="noopener noreferrer"><img src="presse/4.png" alt="Le Progrès" loading="lazy" decoding="async"></a>
+        <a class="mq__i" href="https://www.linkedin.com/posts/incubateur-telecomparis_nouvelle-p%C3%A9pite-%C3%A0-lincubateur-t%C3%A9l%C3%A9com-activity-7419280067786076160-nLHd/" target="_blank" rel="noopener noreferrer"><img src="presse/5.png" alt="Incubateur Télécom Paris" loading="lazy" decoding="async"></a>
+        <a class="mq__i" href="https://mondenumerique.info/episode/a-18-ans-il-veut-revolutionner-le-cloud-gaspard-bonnot-div-protocol" target="_blank" rel="noopener noreferrer"><img src="presse/6.png" alt="Monde Numérique" loading="lazy" decoding="async"></a>
+        <a class="mq__i" href="https://www.bfmtv.com/economie/replay-emissions/le-pitch/video-le-pitch-div-protocol-propose-un-cloud-souverain-06-02_VN-202602060125.html" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1"><img src="presse/1.png" alt="" loading="lazy" decoding="async"></a>
+        <a class="mq__i" href="https://www.capital.fr/entreprises-marches/div-protocol-depuis-leurs-16-ans-ils-securisent-la-data-des-entreprises-1522497" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1"><img src="presse/2.png" alt="" loading="lazy" decoding="async"></a>
+        <a class="mq__i" href="https://www.ledauphine.com/economie/2024/01/04/ces-trois-jeunes-haut-savoyards-veulent-revolutionner-le-stockage-de-documents-sensibles" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1"><img src="presse/3.png" alt="" loading="lazy" decoding="async"></a>
+        <a class="mq__i" href="https://www.leprogres.fr/economie/2024/01/04/div-protocol-veut-revolutionner-le-stockage-de-documents-sensibles" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1"><img src="presse/4.png" alt="" loading="lazy" decoding="async"></a>
+        <a class="mq__i" href="https://www.linkedin.com/posts/incubateur-telecomparis_nouvelle-p%C3%A9pite-%C3%A0-lincubateur-t%C3%A9l%C3%A9com-activity-7419280067786076160-nLHd/" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1"><img src="presse/5.png" alt="" loading="lazy" decoding="async"></a>
+        <a class="mq__i" href="https://mondenumerique.info/episode/a-18-ans-il-veut-revolutionner-le-cloud-gaspard-bonnot-div-protocol" target="_blank" rel="noopener noreferrer" aria-hidden="true" tabindex="-1"><img src="presse/6.png" alt="" loading="lazy" decoding="async"></a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ==================== 15 · CTA FINAL ==================== -->
-<section class="sec final" id="final">
-  <canvas id="frag" aria-hidden="true"></canvas>
+<!-- ==================== CERTIFICATIONS ==================== -->
+<section class="section section--alt" id="certifications">
   <div class="wrap">
-    <h2 class="rv">Reprenez le contrôle de vos données.</h2>
-    <p class="lead rv d1">Découvrez une autre manière de stocker, partager et protéger les données critiques de votre organisation.</p>
-    <div class="cta-row rv d2">
-      <a href="https://divprotocol.com/fr" target="_blank" rel="noopener" class="btn btn--light">Demander une démo</a>
-      <a href="#drive" class="btn btn--ghost-d">Découvrir DIV</a>
+    <div class="head center">
+      <h2 class="rv">La sécurité de vos données n'est pas une option</h2>
+    </div>
+    <div class="certs">
+      <div class="cert rv"><img class="ico" src="icons3d/securite.png" alt="" width="64" height="64" loading="lazy" decoding="async">
+        <h4>Conforme RGPD</h4><p>Nous garantissons la souveraineté de vos données avec une conformité stricte au RGPD, sans transfert hors Union européenne.</p></div>
+      <div class="cert rv d1"><img class="ico" src="icons3d/serveur.png" alt="" width="64" height="64" loading="lazy" decoding="async">
+        <h4>SecNumCloud</h4><p>Nos datacenters assurent une protection maximale : l'infrastructure garantit la confidentialité et l'intégrité de vos données.</p></div>
+      <div class="cert rv d2"><img class="ico" src="icons3d/parametres.png" alt="" width="64" height="64" loading="lazy" decoding="async">
+        <h4>ISO 27001</h4><p>Nos datacenters certifiés ISO 27001 assurent une gestion proactive des risques pour protéger vos données à chaque étape.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CTA ==================== -->
+<section class="section cta" id="contact">
+  <div class="wrap">
+    <h2 class="rv">Rejoignez l'écosystème souverain</h2>
+    <p class="lead rv d1">30 minutes avec un membre de l'équipe : on vous montre l'outil en conditions réelles et on répond à vos contraintes de sécurité, IT et conformité.</p>
+    <div class="cta__b rv d2">
+      <a href="mailto:contact@divprotocol.com" class="btn btn--primary">Demander une démo</a>
+      <a href="#produits" class="btn btn--line">Découvrir la plateforme</a>
     </div>
   </div>
 </section>
@@ -1163,19 +868,24 @@ h4{font-size:1.125rem;font-weight:600;line-height:1.35;letter-spacing:-.015em}
 
 <footer class="ftr">
   <div class="wrap">
-    <div class="ftr__g">
-      <div class="ftr__brand">
-        <img src="logo/div-logo-horizontale-blanc.svg" alt="DIV Protocol" width="122" height="24" loading="lazy" decoding="async">
-        <p>La suite européenne d'outils de travail souverains, chiffrés et auditables.</p>
+    <div class="ftr__top">
+      <div>
+        <a href="#top" class="logo" aria-label="DIV Protocol, accueil"><img src="logo/div-logo-horizontale-blanc.svg" alt="DIV Protocol" width="122" height="26" decoding="async"></a>
+        <p class="ftr__about">La suite collaborative souveraine qui rend aux entreprises la propriété totale de leurs données. Conçue et hébergée en Europe.</p>
       </div>
-      <nav aria-label="Produit"><h5>Produit</h5><ul><li><a href="#drive">DIV Drive</a></li><li><a href="#check">DIV Check</a></li></ul></nav>
-      <nav aria-label="Entreprise"><h5>Entreprise</h5><ul><li><a href="#entreprise">À propos</a></li><li><a href="#securite">Sécurité</a></li><li><a href="#trust">Trust Center</a></li></ul></nav>
-      <nav aria-label="Ressources"><h5>Ressources</h5><ul><li><a href="#center">Documentation</a></li><li><a href="#presse">Presse</a></li></ul></nav>
-      <nav aria-label="Légal"><h5>Légal</h5><ul><li><a href="#top">Confidentialité</a></li><li><a href="#top">Conditions</a></li></ul></nav>
+      <nav aria-label="Produit"><h5>Produit</h5><ul>
+        <li><a href="#produits">DIV Drive</a></li><li><a href="#produits">DIV Check</a></li>
+        <li><a href="#fonctions">Fonctionnalités</a></li></ul></nav>
+      <nav aria-label="Entreprise"><h5>Entreprise</h5><ul>
+        <li><a href="#securite">Sécurité</a></li><li><a href="#certifications">Conformité</a></li>
+        <li><a href="#entreprise">Offre Entreprise</a></li><li><a href="#presse">Clients</a></li></ul></nav>
+      <nav aria-label="Contact"><h5>Contact</h5><ul>
+        <li><a href="mailto:contact@divprotocol.com">contact@divprotocol.com</a></li>
+        <li><a href="#contact">Demander une démo</a></li></ul></nav>
     </div>
     <div class="ftr__bot">
-      <span>DIV Protocol © 2026 — Built in Europe.</span>
-      <span>Concept de refonte non officiel — Dikenga Design.</span>
+      <span>© 2026 DIV Protocol. Hébergé en Europe. — Concept de refonte par <a href="https://dikengadesign.fr" style="text-decoration:underline">Dikenga Design</a>, non affilié.</span>
+      <nav aria-label="Légal"><a href="#top">Confidentialité</a><a href="#top">Cookies</a><a href="#top">Mentions légales</a><a href="#top">CGU</a></nav>
     </div>
   </div>
 </footer>
@@ -1183,211 +893,92 @@ h4{font-size:1.125rem;font-weight:600;line-height:1.35;letter-spacing:-.015em}
 <script>
 (function(){
   "use strict";
-  var $=function(s,c){return (c||document).querySelector(s)};
-  var $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
-  var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var $=function(s,c){return (c||document).querySelector(s)}, $$=function(s,c){return [].slice.call((c||document).querySelectorAll(s))};
 
-  /* — Révélation au défilement — */
-  if("IntersectionObserver" in window && !reduce){
-    var io=new IntersectionObserver(function(es){
-      es.forEach(function(e){ if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);} });
-    },{rootMargin:"0px 0px -12% 0px",threshold:.08});
-    $$(".rv").forEach(function(el){io.observe(el)});
-  } else { $$(".rv").forEach(function(el){el.classList.add("in")}); }
-
-  /* — En-tête compacte au défilement — */
   var hdr=$("#hdr");
-  var onScroll=function(){ hdr.classList.toggle("stuck", window.scrollY>12); };
-  onScroll(); window.addEventListener("scroll",onScroll,{passive:true});
+  function onScroll(){ hdr.classList.toggle("stuck", scrollY>4); }
+  onScroll(); addEventListener("scroll", onScroll, {passive:true});
 
-  /* — Tiroir mobile — */
   var burger=$("#burger"), drawer=$("#drawer");
-  var setDrawer=function(open){
-    drawer.classList.toggle("open",open);
-    drawer.setAttribute("aria-hidden",open?"false":"true");
-    burger.setAttribute("aria-expanded",open?"true":"false");
-    document.body.style.overflow=open?"hidden":"";
-  };
-  burger.addEventListener("click",function(){setDrawer(!drawer.classList.contains("open"))});
-  $$("#drawer a").forEach(function(a){a.addEventListener("click",function(){setDrawer(false)})});
-
-  /* — Palette de commandes (⌘K) — */
-  var cmdk=$("#cmdk"), cin=$("#cmdkIn"), clist=$("#cmdkList"), cidx=0;
-  var ITEMS=[
-    {g:"Produit",  t:"DIV Drive",     h:"#drive"},
-    {g:"Produit",  t:"DIV Check",     h:"#check"},
-    {g:"Sécurité", t:"Architecture de sécurité", h:"#securite"},
-    {g:"Sécurité", t:"Security Center", h:"#center"},
-    {g:"Sécurité", t:"Trust Center",  h:"#trust"},
-    {g:"Ressources",t:"Documentation",h:"#center"},
-    {g:"Ressources",t:"Presse",       h:"#presse"},
-    {g:"Ressources",t:"Comparaison",  h:"#comparaison"},
-    {g:"Contact",  t:"Demander une démo", h:"#final"}
-  ];
-  var render=function(q){
-    q=(q||"").trim().toLowerCase();
-    var hits=ITEMS.filter(function(i){return !q || i.t.toLowerCase().indexOf(q)>-1 || i.g.toLowerCase().indexOf(q)>-1});
-    if(!hits.length){clist.innerHTML='<p class="cmdk__none">Aucun résultat.</p>';return[]}
-    var html="",last="";
-    hits.forEach(function(i,n){
-      if(i.g!==last){html+='<p class="cmdk__grp">'+i.g+"</p>";last=i.g}
-      html+='<button class="cmdk__it" role="option" data-h="'+i.h+'" data-n="'+n+'" aria-selected="'+(n===cidx)+'">'+i.t+'<span class="m">↵</span></button>';
-    });
-    clist.innerHTML=html; return hits;
-  };
-  var cur=[];
-  var openCmdk=function(){
-    cmdk.setAttribute("data-open","");cidx=0;cin.value="";cur=render("");
-    document.body.style.overflow="hidden";setTimeout(function(){cin.focus()},20);
-  };
-  var closeCmdk=function(){cmdk.removeAttribute("data-open");document.body.style.overflow="";};
-  var go=function(i){ if(!cur[i])return; var h=cur[i].h; closeCmdk(); location.hash=h; };
-  $("#cmdkBtn").addEventListener("click",openCmdk);
-  cmdk.addEventListener("click",function(e){if(e.target.hasAttribute("data-close"))closeCmdk()});
-  cin.addEventListener("input",function(){cidx=0;cur=render(cin.value)});
-  clist.addEventListener("click",function(e){
-    var b=e.target.closest(".cmdk__it"); if(b){cidx=+b.dataset.n;go(cidx)}
-  });
-  document.addEventListener("keydown",function(e){
-    var mod=e.metaKey||e.ctrlKey;
-    if(mod && e.key.toLowerCase()==="k"){e.preventDefault();cmdk.hasAttribute("data-open")?closeCmdk():openCmdk();return}
-    if(!cmdk.hasAttribute("data-open"))return;
-    if(e.key==="Escape"){e.preventDefault();closeCmdk()}
-    else if(e.key==="ArrowDown"){e.preventDefault();cidx=Math.min(cidx+1,cur.length-1);render(cin.value)}
-    else if(e.key==="ArrowUp"){e.preventDefault();cidx=Math.max(cidx-1,0);render(cin.value)}
-    else if(e.key==="Enter"){e.preventDefault();go(cidx)}
-  });
-
-  /* — Séquence de chiffrement du hero — */
-  var STEPS=[
-    {t:"Téléversement…",       p:16, pill:"En cours"},
-    {t:"Chiffrement local…",   p:40, pill:"Chiffrement"},
-    {t:"Chiffré",              p:62, pill:"Chiffré"},
-    {t:"Distribué en Europe",  p:84, pill:"Distribué"},
-    {t:"Vérifié",              p:100,pill:"Vérifié"}
-  ];
-  var seqSt=$("#seqSt"), seqFill=$("#seqFill"), seqLis=$$("#seqSteps li"),
-      hPill=$("#heroPill"), hPillT=$("#heroPillT"), si=0, seqTimer=null;
-  var tick=function(){
-    var s=STEPS[si];
-    seqSt.textContent=s.t; seqFill.style.width=s.p+"%"; hPillT.textContent=s.pill;
-    hPill.className="pill "+(si>=4?"pill--ok":"pill--go");
-    seqLis.forEach(function(li,n){li.className = n<si?"done":(n===si?"on":"")});
-    si=(si+1)%STEPS.length;
-  };
-  if(!reduce){ tick(); seqTimer=setInterval(tick,2100); }
-  else { si=4; tick(); }
-
-  /* — Parcours « comment ça marche » piloté par le défilement — */
-  var steps=$$("#howSteps .step"), hDoc=$("#howDoc"), hTag=$("#howTag"),
-      hFrag=$("#howFrag"), hNodes=$("#howNodes"), hVerif=$("#howVerif");
-  var TAGS=["document.pdf","chiffrement local","fragments protégés","hébergeurs européens","preuve vérifiable"];
-  var applyStep=function(k){
-    steps.forEach(function(el,n){el.classList.toggle("on",n===k)});
-    hTag.textContent=TAGS[k];
-    hDoc.classList.toggle("enc",k>=1);
-    hDoc.style.opacity = k>=2 ? "0" : "1";
-    hDoc.style.transform = k>=2 ? "scale(.86)" : "none";
-    hFrag.classList.toggle("on",k>=2 && k<4);
-    hNodes.classList.toggle("on",k===3);
-    $$("#howNodes .node").forEach(function(n){n.classList.toggle("ok",k>=3)});
-    hVerif.classList.toggle("on",k===4);
-  };
-  if(steps.length){
-    if("IntersectionObserver" in window && !reduce){
-      var so=new IntersectionObserver(function(es){
-        es.forEach(function(e){ if(e.isIntersecting) applyStep(+e.target.dataset.step); });
-      },{rootMargin:"-45% 0px -45% 0px",threshold:0});
-      steps.forEach(function(el){so.observe(el)});
-    }
-    steps.forEach(function(el){
-      el.addEventListener("mouseenter",function(){applyStep(+el.dataset.step)});
-    });
-    applyStep(0);
+  function setDrawer(open){
+    drawer.classList.toggle("open", open);
+    drawer.setAttribute("aria-hidden", open?"false":"true");
+    burger.setAttribute("aria-expanded", open?"true":"false");
+    burger.setAttribute("aria-label", open?"Fermer le menu":"Ouvrir le menu");
+    document.body.style.overflow = open?"hidden":"";
   }
+  burger.addEventListener("click", function(){ setDrawer(!drawer.classList.contains("open")); });
+  drawer.addEventListener("click", function(e){ if(e.target.closest("a")) setDrawer(false); });
+  addEventListener("keydown", function(e){ if(e.key==="Escape" && drawer.classList.contains("open")) setDrawer(false); });
 
-  /* — Partage en lien sécurisé — */
-  var sBtn=$("#shareBtn"), sOut=$("#shareOut");
-  if(sBtn){
-    sBtn.addEventListener("click",function(){
-      var b=new Uint8Array(9); (crypto.getRandomValues?crypto.getRandomValues(b):b);
-      var id=Array.prototype.map.call(b,function(x){return ("0"+x.toString(16)).slice(-2)}).join("");
-      sOut.innerHTML='<b>Lien créé</b> · expire dans 7 jours · lecture seule<br>share.divprotocol.com/'+id;
-      sOut.classList.add("on");
-      sBtn.textContent="Lien sécurisé généré";
-    });
-  }
+  var revs=$$(".rv");
+  if("IntersectionObserver" in window && !reduce){
+    var io=new IntersectionObserver(function(en){
+      en.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
+    },{threshold:.12, rootMargin:"0px 0px -5% 0px"});
+    revs.forEach(function(el){ io.observe(el); });
+  } else revs.forEach(function(el){ el.classList.add("in"); });
 
-  /* — DIV Check : empreinte réellement calculée dans le navigateur — */
-  var ckBtn=$("#ckBtn");
-  if(ckBtn){
-    ckBtn.addEventListener("click",function(){
-      var hash=$("#ckHash"), time=$("#ckTime"), integ=$("#ckInt"), proof=$("#ckProof");
-      var ok='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>';
-      hash.textContent="calcul en cours…"; time.textContent="—";
-      integ.textContent="—"; integ.className=""; proof.textContent="—"; proof.className="";
-      ckBtn.disabled=true; ckBtn.textContent="Vérification…";
-      var data=new TextEncoder().encode("contrat-client.pdf|DIV Protocol|"+Date.now());
-      var done=function(hex){
-        hash.textContent=hex;
-        var d=new Date();
-        var mm=["JAN","FÉV","MAR","AVR","MAI","JUIN","JUIL","AOÛT","SEP","OCT","NOV","DÉC"][d.getMonth()];
-        var pad=function(n){return ("0"+n).slice(-2)};
-        time.textContent=pad(d.getDate())+" "+mm+" "+d.getFullYear()+" — "+pad(d.getHours())+":"+pad(d.getMinutes())+":"+pad(d.getSeconds());
-        setTimeout(function(){ integ.className="ok"; integ.innerHTML=ok+"VÉRIFIÉE"; },260);
-        setTimeout(function(){
-          proof.className="ok"; proof.innerHTML=ok+"CONFIRMÉE";
-          ckBtn.disabled=false; ckBtn.textContent="Vérifier à nouveau";
-        },560);
-      };
-      if(window.crypto && crypto.subtle && crypto.subtle.digest){
-        crypto.subtle.digest("SHA-256",data).then(function(buf){
-          done(Array.prototype.map.call(new Uint8Array(buf),function(x){return ("0"+x.toString(16)).slice(-2)}).join(""));
-        }).catch(function(){ done("indisponible hors contexte sécurisé (HTTPS)"); });
-      } else { done("indisponible dans ce navigateur"); }
-    });
-  }
-
-  /* — Fragments cryptographiques du CTA final — */
-  var cv=$("#frag");
-  if(cv && !reduce){
-    var ctx=cv.getContext("2d"), pts=[], raf=null, W=0, H=0;
-    var size=function(){
-      var r=cv.getBoundingClientRect(), dpr=Math.min(window.devicePixelRatio||1,2);
-      W=r.width; H=r.height; cv.width=W*dpr; cv.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
-      pts=[]; var n=Math.round(Math.min(46,W/26));
-      for(var i=0;i<n;i++) pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.15,vy:(Math.random()-.5)*.15,s:1+Math.random()*1.4});
-    };
-    var draw=function(){
-      ctx.clearRect(0,0,W,H);
-      for(var i=0;i<pts.length;i++){
-        var p=pts[i]; p.x+=p.vx; p.y+=p.vy;
-        if(p.x<0)p.x=W; if(p.x>W)p.x=0; if(p.y<0)p.y=H; if(p.y>H)p.y=0;
-        for(var j=i+1;j<pts.length;j++){
-          var q=pts[j], dx=p.x-q.x, dy=p.y-q.y, d=Math.sqrt(dx*dx+dy*dy);
-          if(d<118){ ctx.strokeStyle="rgba(140,160,255,"+(.13*(1-d/118))+")"; ctx.lineWidth=1;
-            ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.stroke(); }
-        }
-        ctx.fillStyle="rgba(180,195,255,.34)";
-        ctx.fillRect(p.x-p.s/2,p.y-p.s/2,p.s,p.s);
-      }
-      raf=requestAnimationFrame(draw);
-    };
-    var vis=new IntersectionObserver(function(es){
-      es.forEach(function(e){
-        if(e.isIntersecting){ if(!raf){size();draw()} }
-        else if(raf){cancelAnimationFrame(raf);raf=null}
+  /* Scène du hero : tout converge vers le boîtier à mesure qu'on descend */
+  (function(){
+    var stage=$("#stage"); if(!stage) return;
+    var flies=$$(".fly",stage), pins=$$(".pin,.links",stage), geo=[], tick=false, S0=0, S1=1;
+    function measure(){
+      var W=stage.offsetWidth, H=stage.offsetHeight, vh=innerHeight;
+      geo=flies.map(function(el){
+        return { el:el,
+          dx: W*0.50 - (el.offsetLeft + el.offsetWidth/2),
+          dy: H*0.415 - (el.offsetTop + el.offsetHeight/2) };
       });
-    },{threshold:.05});
-    vis.observe(cv);
-    window.addEventListener("resize",function(){ if(raf) size(); },{passive:true});
+      /* position absolue de la fente du boîtier dans le document */
+      var slot = stage.getBoundingClientRect().top + scrollY + H*0.415;
+      S0 = Math.max(0, slot - vh*0.92);   /* départ : la fente arrive en bas d'écran */
+      S1 = slot - vh*0.45;                /* fin : la fente atteint le milieu */
+      if(S1 - S0 < 160) S1 = S0 + 160;
+    }
+    function frame(){
+      var p=(scrollY - S0)/(S1 - S0);
+      p = p<0 ? 0 : p>1 ? 1 : p;
+      var e = p*p*(3-2*p);
+      geo.forEach(function(g){
+        g.el.style.transform="translate("+(g.dx*e).toFixed(1)+"px,"+(g.dy*e).toFixed(1)+"px) scale("+(1-.82*e).toFixed(3)+")";
+        g.el.style.opacity=(1-Math.pow(e,1.7)*.96).toFixed(3);
+      });
+      var q=Math.min(1,p*1.5);
+      pins.forEach(function(el){
+        el.style.opacity=(1-q).toFixed(3);
+        el.style.transform="translateY("+(q*16).toFixed(1)+"px)";
+      });
+      tick=false;
+    }
+    if(reduce){ return; }
+    measure(); frame();
+    addEventListener("scroll", function(){ if(!tick){ tick=true; requestAnimationFrame(frame); } }, {passive:true});
+    addEventListener("resize", function(){ measure(); frame(); });
+    if(document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ measure(); frame(); });
+  })();
+
+  function count(el){
+    var to=parseFloat(el.dataset.to), sfx=el.dataset.suffix||"", t0=null, dur=1400;
+    if(to===0){ el.innerHTML="0"+sfx; return; }
+    function step(ts){
+      if(!t0) t0=ts;
+      var p=Math.min((ts-t0)/dur,1);
+      el.innerHTML=Math.round(to*(1-Math.pow(1-p,3)))+sfx;
+      if(p<1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
   }
+  var nums=$$("[data-to]");
+  if("IntersectionObserver" in window && !reduce){
+    var io2=new IntersectionObserver(function(en){
+      en.forEach(function(e){ if(e.isIntersecting){ count(e.target); io2.unobserve(e.target); } });
+    },{threshold:.6});
+    nums.forEach(function(el){ io2.observe(el); });
+  } else nums.forEach(function(el){ el.innerHTML=el.dataset.to+(el.dataset.suffix||""); });
 })();
 </script>
-
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"SoftwareApplication","name":"DIV Protocol","applicationCategory":"BusinessApplication","operatingSystem":"Web, macOS, Windows, iOS, Android","description":"Suite européenne d'outils de travail souverains, chiffrés et auditables : drive chiffré de bout en bout et preuve d'intégrité vérifiable.","url":"https://divprotocol.com/fr","inLanguage":"fr","publisher":{"@type":"Organization","name":"DIV Protocol","url":"https://divprotocol.com"}}
-</script>
-
+<script src="hero-anim.js?v=1" defer></script>
 </body>
 </html>
