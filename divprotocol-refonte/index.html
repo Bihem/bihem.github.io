@@ -232,6 +232,25 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 /* ─────────── DIV Drive : fenêtre applicative ─────────── */
 /* ===== Illustration DIV Drive ===== */
+/* ——— Section « Un vrai logiciel » : illustration animée ———
+   L'image d'origine est découpée en calques : un fond nettoyé, les trois
+   documents posés au sol, et le rabat du dossier qui passe par-dessus.
+   Les documents entrent dans le dossier, puis en ressortent un par un. */
+.dscene{position:relative;width:100%;aspect-ratio:1586/992}
+.dscene>img{position:absolute;display:block}
+.dscene .dl-base{left:0;top:0;width:100%;height:auto}
+.dscene .dl-card{
+  height:auto;transform-origin:50% 60%;
+  filter:drop-shadow(0 6px 12px rgba(10,16,37,.10));
+  transition:transform var(--d-move,900ms) var(--e-main),
+             filter   var(--d-move,900ms) var(--e-main);
+}
+.dscene .dl-front{height:auto;pointer-events:none}
+.mo .dscene .dl-card.tucked{
+  transform:translate(var(--tx),var(--ty)) scale(.74) rotate(-2deg);
+  filter:drop-shadow(0 30px 34px rgba(10,16,37,.18));
+}
+@media(prefers-reduced-motion:reduce){ .dscene .dl-card{transition:none} }
 .dfig{width:100%;max-width:1120px;margin:0 auto;padding:0}
 .dfig img{display:block;width:100%;height:auto}
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
@@ -701,12 +720,20 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       <p class="lead rv d2">Fichiers, dossiers, permissions, recherche et collaboration. Tout ce que vos équipes attendent d'un drive — avec le chiffrement en dessous.</p>
     </div>
 
-    <figure class="dfig rv d1">
-    <picture>
-      <img src="drive/illustration.webp" width="1586" height="992" decoding="async"
-           alt="DIV Drive : un dossier chiffré entouré de ses fichiers, du partage sécurisé, de la collaboration, des liens personnalisés et de l'accès multi-appareils.">
-    </picture>
-  </figure>
+    <figure class="dfig rv-ui d1">
+      <div class="dscene" id="dscene" role="img"
+           aria-label="DIV Drive : un dossier chiffré entouré de ses fichiers, du partage sécurisé, de la collaboration, des liens personnalisés et de l'accès multi-appareils. Les documents rangés dans le dossier en ressortent un par un.">
+        <img class="dl-base" src="drive/anim-base.webp" width="1586" height="992" decoding="async" alt="">
+        <img class="dl-card" data-c="0" src="drive/anim-pdf.webp" width="124" height="187" loading="lazy" decoding="async" alt=""
+             style="left:44.704%;top:74.395%;width:7.818%;--tx:-21.0%;--ty:-139.8%">
+        <img class="dl-card" data-c="1" src="drive/anim-img.webp" width="123" height="186" loading="lazy" decoding="async" alt=""
+             style="left:53.594%;top:69.960%;width:7.755%;--tx:-135.4%;--ty:-116.7%">
+        <img class="dl-card" data-c="2" src="drive/anim-vid.webp" width="127" height="200" loading="lazy" decoding="async" alt=""
+             style="left:62.232%;top:65.524%;width:8.008%;--tx:-240.6%;--ty:-90.0%">
+        <img class="dl-front" src="drive/anim-front.webp" width="590" height="302" loading="lazy" decoding="async" alt=""
+             style="left:36.003%;top:40.222%;width:37.201%">
+      </div>
+    </figure>
   </div>
 
 </section>
@@ -1040,6 +1067,28 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       en.forEach(function(e){ e.target.classList.toggle("live", e.isIntersecting); });
     },{rootMargin:"-32% 0px -32% 0px",threshold:0});
     $$(".why__v").forEach(function(el){ mid.observe(el); });
+  })();
+
+  /* ——— Illustration DIV Drive : les documents se rangent, puis ressortent
+         un par un. Ne tourne que lorsque la section est à l'écran. ——— */
+  (function(){
+    var sc=$("#dscene"); if(!sc || reduce) return;
+    var cards=$$(".dl-card",sc), t=[], live=false;
+    var IN_STAGGER=190, HOLD=700, OUT_GAP=780, MOVE=900, REST=1500;
+    function clear(){ t.forEach(clearTimeout); t=[]; }
+    function cycle(){
+      if(!live) return;
+      cards.forEach(function(c,i){ t.push(setTimeout(function(){ c.classList.add("tucked"); }, i*IN_STAGGER)); });
+      var afterIn = (cards.length-1)*IN_STAGGER + MOVE + HOLD;
+      cards.forEach(function(c,i){ t.push(setTimeout(function(){ c.classList.remove("tucked"); }, afterIn + i*OUT_GAP)); });
+      t.push(setTimeout(cycle, afterIn + (cards.length-1)*OUT_GAP + MOVE + REST));
+    }
+    new IntersectionObserver(function(en){
+      en.forEach(function(e){
+        if(e.isIntersecting){ if(!live){ live=true; cycle(); } }
+        else { live=false; clear(); cards.forEach(function(c){ c.classList.remove("tucked"); }); }
+      });
+    },{threshold:.25}).observe(sc);
   })();
 
   /* ——— Objets 3D : inclinaison qui suit le curseur, plafonnée (§12) ——— */
