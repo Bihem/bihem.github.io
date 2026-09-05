@@ -282,6 +282,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   font-size:12px;color:var(--purple);background:var(--purple-soft);padding:7px 12px;border-radius:8px}
 
 /* ─────────── Blocs éditoriaux « Pourquoi » ─────────── */
+/* Pourquoi DIV : fond blanc, textes en noir */
+#pourquoi .lead{color:var(--ink)}
+#pourquoi .why__chips li{border-color:rgba(10,16,37,.16)}
 .why{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.04fr);
   gap:clamp(48px,7vw,120px);align-items:center}
 .why + .why{margin-top:clamp(96px,13vw,200px)}
@@ -674,7 +677,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 </section>
 
 <!-- ==================== POURQUOI ==================== -->
-<section class="section section--alt" id="pourquoi">
+<section class="section" id="pourquoi">
   <div class="wrap">
     <div class="head center">
       <p class="kicker rv">Pourquoi DIV</p>
