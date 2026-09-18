@@ -461,21 +461,21 @@ figure.pleine.montage { overflow: visible; border-radius: 0; margin-inline: auto
   list-style: none;
   margin: 0;
   padding: 0;
-  font-size: 42px;
-  line-height: 48px;
+  font-size: 32px;
+  line-height: 37px;
   font-weight: 700;
   letter-spacing: -0.01em;
 }
 .geant-liste li { margin: 0; }
 
 @media (min-width: 1250px) {
-  .geant-liste { font-size: 55px; line-height: 60px; }
+  .geant-liste { font-size: 40px; line-height: 46px; }
 }
 
 @media (max-width: 900px) {
   .geant-ligne { grid-template-columns: 1fr; }
   .geant-colonne { grid-column: 1; }
-  .geant-liste { font-size: 34px; line-height: 39px; }
+  .geant-liste { font-size: 26px; line-height: 30px; }
 }
 
 /* --------------------------------------------------- Menu burger --- */
