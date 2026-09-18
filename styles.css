@@ -863,3 +863,18 @@ figure.pleine.montage { overflow: visible; border-radius: 0; margin-inline: auto
 
 h1, h2, .display, .titre-article, .billet-titre { text-wrap: balance; }
 .chapo, .billet-extrait { text-wrap: pretty; }
+
+/* --------------------------------- Présentations sur petit écran --- */
+/* La présentation Talseume est une toile fixe de 1280 px : réduite à la
+   largeur d'un téléphone, son texte tombe à 4 px. Sous 700 px on l'échange
+   contre un lien qui l'ouvre en plein écran, où elle reste lisible.
+   La présentation StudioBooking, elle, se réorganise seule — on n'y touche pas. */
+
+.relais-mobile { display: none; }
+
+@media (max-width: 700px) {
+  .relais-mobile { display: block; text-align: center; margin: 0; }
+  /* !important est nécessaire : le cadre porte « display:block » en style
+     en ligne, qui l'emporterait sur une règle de feuille de style. */
+  iframe[src*="talseume-presentation"] { display: none !important; }
+}
