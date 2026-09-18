@@ -875,10 +875,8 @@ h1, h2, .display, .titre-article, .billet-titre { text-wrap: balance; }
 @media (max-width: 700px) {
   .relais-mobile { display: block; text-align: center; margin: 0; }
   /* !important est nécessaire : le cadre porte « display:block » en style
-     en ligne, qui l'emporterait sur une règle de feuille de style.
-     On masque aussi son encadrement, sinon la barre d'adresse resterait seule. */
+     en ligne, qui l'emporterait sur une règle de feuille de style. */
   iframe[src*="talseume-presentation"] { display: none !important; }
-  .cadre-demo:has(iframe[src*="talseume-presentation"]) { display: none; }
 }
 
 /* Diapositives au format paysage : même boîte que les autres — même largeur,
@@ -931,26 +929,4 @@ h1, h2, .display, .titre-article, .billet-titre { text-wrap: balance; }
 figure.pleine.angles-droits,
 figure.pleine.angles-droits > img { border-radius: 0; }
 
-/* ------------------------------------------ Cadre de démonstration --- */
-/* Ces présentations reproduisent des sites entiers, barre de navigation
-   comprise : sans cadre, le visiteur croit avoir quitté le portfolio.
-   Une fine barre portant l'adresse rétablit le contexte.                 */
 
-.cadre-demo {
-  width: min(100%, 50rem);
-  margin-inline: auto;
-  border: 1px solid var(--gris-bord);
-  border-radius: .75rem;
-  overflow: clip;
-  background: var(--blanc);
-}
-.cadre-demo-barre {
-  display: block;
-  padding: .55rem .9rem;
-  border-bottom: 1px solid var(--gris-bord);
-  background: var(--gris-fond);
-  font-size: var(--t-petit);
-  color: var(--gris);
-  letter-spacing: .02em;
-}
-.cadre-demo iframe { display: block; width: 100%; }
