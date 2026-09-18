@@ -367,7 +367,7 @@
     });
     piste.style.scrollSnapType = 'none';
 
-    var VITESSE = 60;          /* pixels par seconde */
+    var VITESSE = 100;         /* pixels par seconde */
     var enMarche = false, dernier = 0, boucle = null, reprise = null;
     /* position tenue à part, en flottant : à 60 images par seconde chaque pas
        vaut 0,7 px, et l'arrondi de scrollLeft mangerait tout le déplacement. */
@@ -378,7 +378,10 @@
     function pas(t) {
       if (!enMarche) return;
       if (!dernier) dernier = t;
-      var dt = Math.min((t - dernier) / 1000, 0.05);
+      /* Le plafond évite un saut brutal au retour d'un onglet en arrière-plan,
+         mais s'il est trop bas, chaque image lente ampute le déplacement et la
+         vitesse réelle tombe sous la vitesse demandée. 0,1 s est le compromis. */
+      var dt = Math.min((t - dernier) / 1000, 0.1);
       dernier = t;
       position += VITESSE * dt;
       if (position >= moitie()) position -= moitie();
