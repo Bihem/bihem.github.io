@@ -632,6 +632,10 @@ figure.pleine.montage { overflow: visible; border-radius: 0; margin-inline: auto
   /* resserré pour que les trois verrous tiennent sur une ligne en 375 px */
   .logos { gap: 16px 20px; }
   .logos span { font-size: 15px; }
+
+  /* certains intitulés passent sur deux lignes en 375 px : sans cet écart,
+     on ne voit plus où l'un finit et où le suivant commence. */
+  .geant-liste li + li { margin-top: .3em; }
 }
 
 /* ----------------------------------------------- Bandeau d'outils --- */
