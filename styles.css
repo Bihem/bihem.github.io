@@ -878,3 +878,8 @@ h1, h2, .display, .titre-article, .billet-titre { text-wrap: balance; }
      en ligne, qui l'emporterait sur une règle de feuille de style. */
   iframe[src*="talseume-presentation"] { display: none !important; }
 }
+
+/* Diapositives au format paysage : les cadrer en 4/5 comme les autres
+   amputerait la mise en page qu'elles montrent. */
+.diapo--paysage { width: min(66vw, 34rem); }
+.diapo--paysage img { aspect-ratio: 3 / 2; object-fit: contain; background: var(--gris-fond); }

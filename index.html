@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=9b649edc">
+<link rel="stylesheet" href="styles.css?v=e29b8f9a">
 </head>
 <body>
 
@@ -113,12 +113,27 @@
           <img width="1200" height="3500" src="img/delorme-design-system.webp" alt="Le design system de Maison Delorme : couleurs, typographie, composants" loading="lazy">
           <figcaption><b>Maison Delorme</b><span>Design system</span></figcaption>
         </figure>
+
+        <figure class="diapo diapo--paysage">
+          <img width="1536" height="1024" src="img/adidas-hero.webp" alt="Page d’accueil du concept Adidas Harden Vol.10" loading="lazy">
+          <figcaption><b>Adidas Harden Vol.10</b><span>Page d’accueil</span></figcaption>
+        </figure>
+
+        <figure class="diapo diapo--paysage">
+          <img width="1536" height="1024" src="img/adidas-produit.webp" alt="Fiche produit du concept Adidas Harden Vol.10" loading="lazy">
+          <figcaption><b>Adidas Harden Vol.10</b><span>Fiche produit</span></figcaption>
+        </figure>
+
+        <figure class="diapo diapo--paysage">
+          <img width="1536" height="1024" src="img/adidas-details.webp" alt="Page détails du concept Adidas Harden Vol.10" loading="lazy">
+          <figcaption><b>Adidas Harden Vol.10</b><span>Le sens du détail</span></figcaption>
+        </figure>
       </div>
 
       <div class="carrousel-commandes">
         <button class="carrousel-bouton" id="precedent" type="button" aria-label="Visuel précédent">←</button>
         <button class="carrousel-bouton" id="suivant" type="button" aria-label="Visuel suivant">→</button>
-        <span class="carrousel-compteur" id="compteur" aria-live="polite">1 / 4</span>
+        <span class="carrousel-compteur" id="compteur" aria-live="polite">1 / 7</span>
       </div>
     </div>
   </section>
@@ -390,11 +405,19 @@
       reprise = setTimeout(demarrer, 2000);
     }
 
+    /* Les diapositives n'ont plus toutes la même largeur : on repère celle
+       dont le centre est le plus proche du centre de la piste. */
     function majCompteur() {
       if (!compteur) return;
-      var l = originaux[0].offsetWidth + 20;
-      var i = Math.round(piste.scrollLeft / l) % nb;
-      compteur.textContent = (i + 1) + ' / ' + nb;
+      var centre = piste.scrollLeft + piste.clientWidth / 2;
+      var meilleur = 0, ecartMin = Infinity;
+      for (var k = 0; k < nb; k++) {
+        var e = originaux[k];
+        var c = e.offsetLeft + e.offsetWidth / 2;
+        var ecart = Math.abs(c - centre);
+        if (ecart < ecartMin) { ecartMin = ecart; meilleur = k; }
+      }
+      compteur.textContent = (meilleur + 1) + ' / ' + nb;
     }
 
     piste.addEventListener('mouseenter', arreter);
@@ -413,7 +436,13 @@
 
     function decaler(sens) {
       pauseEtReprise();
-      piste.scrollBy({ left: sens * (originaux[0].offsetWidth + 20), behavior: 'smooth' });
+      var centre = piste.scrollLeft + piste.clientWidth / 2;
+      var courant = originaux[0], ecartMin = Infinity;
+      originaux.forEach(function (e) {
+        var ecart = Math.abs(e.offsetLeft + e.offsetWidth / 2 - centre);
+        if (ecart < ecartMin) { ecartMin = ecart; courant = e; }
+      });
+      piste.scrollBy({ left: sens * (courant.offsetWidth + 20), behavior: 'smooth' });
     }
     prec.addEventListener('click', function () { decaler(-1); });
     suiv.addEventListener('click', function () { decaler(1); });
