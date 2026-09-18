@@ -883,3 +883,41 @@ h1, h2, .display, .titre-article, .billet-titre { text-wrap: balance; }
    même hauteur. « contain » évite de recadrer : la mise en page reste entière,
    simplement centrée dans le cadre. */
 .diapo--paysage img { object-fit: contain; background: var(--gris-fond); }
+
+/* ------------------------------------------- Carrousel dynamique --- */
+/* La piste est elle-même le moteur : « view(inline) » suit la position de
+   chaque diapositive dans son défilement horizontal. Aucun script.
+   On anime « scale » et non « transform », que l'on garde pour le survol. */
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view(inline)) {
+    .diapo {
+      animation: diapo-emphase both linear;
+      animation-timeline: view(inline);
+      animation-range: entry 0% exit 100%;
+      will-change: scale, opacity;
+    }
+    @keyframes diapo-emphase {
+      0%   { scale: .88; opacity: .35; }
+      44%  { scale: 1;   opacity: 1; }
+      56%  { scale: 1;   opacity: 1; }
+      100% { scale: .88; opacity: .35; }
+    }
+
+    /* la légende arrive un peu après l'image */
+    .diapo figcaption {
+      animation: legende-apparait both linear;
+      animation-timeline: view(inline);
+      animation-range: entry 20% entry 90%;
+    }
+    @keyframes legende-apparait {
+      from { opacity: 0; translate: 0 10px; }
+      to   { opacity: 1; translate: 0 0; }
+    }
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .diapo img { transition: transform .5s cubic-bezier(.22, 1, .36, 1); }
+  .diapo:hover img { transform: scale(1.04); }
+}
