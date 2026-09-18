@@ -183,6 +183,8 @@ p:last-child { margin-bottom: 0; }
   background: var(--gris-fond);
 }
 .hero-texte { max-width: 34rem; }   /* 544px — largeur de lecture de julius.fm */
+/* description du héros : plus petite que le corps du site, sur demande */
+.hero-texte .chapo { font-size: 16px; line-height: 25px; }
 .hero-texte .nom { font-size: 1.75rem; font-weight: 700; letter-spacing: -0.01em; }
 .hero-texte .role { font-size: var(--t-corps); }
 .hero-visuel { position: relative; justify-self: end; }
