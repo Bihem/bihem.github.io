@@ -732,3 +732,134 @@ figure.pleine.montage { overflow: visible; border-radius: 0; margin-inline: auto
   align-items: center;
   justify-content: space-between;
 }
+
+/* ==========================================================================
+   Animations — API natives récentes, sans bibliothèque
+   Tout est en amélioration progressive : un navigateur qui ne connaît pas
+   ces règles affiche le site normalement, simplement sans le mouvement.
+   ========================================================================== */
+
+/* ---- 1. Transitions entre les pages (View Transitions API) --------------- */
+/* Le navigateur fond une page dans l'autre au lieu du flash blanc habituel. */
+
+@view-transition { navigation: auto; }
+
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root) {
+    animation: vt-sortie .28s cubic-bezier(.4, 0, 1, 1) both;
+  }
+  ::view-transition-new(root) {
+    animation: vt-entree .42s cubic-bezier(0, 0, .2, 1) both;
+  }
+  @keyframes vt-sortie { to { opacity: 0; transform: translateY(-8px); } }
+  @keyframes vt-entree { from { opacity: 0; transform: translateY(12px); } }
+
+  /* l'en-tête ne bouge pas pendant la transition : il est commun aux pages */
+  .entete { view-transition-name: entete; }
+  ::view-transition-group(entete) { animation-duration: .3s; }
+}
+
+/* ---- 2. Jauge de progression de lecture --------------------------------- */
+/* Pilotée par le défilement du document, aucune ligne de JavaScript. */
+
+@supports (animation-timeline: scroll()) {
+  .jauge {
+    position: fixed;
+    inset: 0 0 auto 0;
+    height: 2px;
+    z-index: 70;
+    background: var(--noir);
+    transform-origin: 0 50%;
+    scale: 0 1;
+    animation: jauge-avance linear both;
+    animation-timeline: scroll(root);
+  }
+  @keyframes jauge-avance { to { scale: 1 1; } }
+}
+
+/* ---- 3. Révélations en cascade ------------------------------------------ */
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+
+    /* Les services : on anime « translate », pas « transform », et surtout
+       pas l'opacité — sinon le remplissage de l'animation la verrouille et
+       l'effet de survol plus bas n'a plus aucun effet. */
+    .geant-liste li {
+      animation: glisse-douce both linear;
+      animation-timeline: view();
+      animation-range: entry 10% entry 58%;
+    }
+
+    /* pareil pour les vignettes du blog */
+    .billet {
+      animation: monte-doux both linear;
+      animation-timeline: view();
+      animation-range: entry 5% entry 45%;
+    }
+
+    /* les pastilles de contact et la rangée d'outils */
+    .pastilles li, .logos li {
+      animation: monte-doux both linear;
+      animation-timeline: view();
+      animation-range: entry 0% entry 40%;
+    }
+
+    /* « translate » est une propriété à part entière : elle se compose avec
+       « transform », que l'on réserve aux survols. Les deux coexistent. */
+    @keyframes monte-doux {
+      from { opacity: 0; translate: 0 18px; }
+      to   { opacity: 1; translate: 0 0; }
+    }
+    @keyframes glisse-douce {
+      from { translate: 0 18px; }
+      to   { translate: 0 0; }
+    }
+
+    /* le portrait suit le défilement avec un léger retard */
+    .portrait-grand {
+      animation: portrait-parallaxe both linear;
+      animation-timeline: view();
+      animation-range: cover 0% cover 100%;
+    }
+    @keyframes portrait-parallaxe {
+      from { translate: 0 -14px; }
+      to   { translate: 0 14px; }
+    }
+
+    /* un filet apparaît sous l'en-tête dès qu'on quitte le haut de page */
+    .entete {
+      animation: entete-filet both linear;
+      animation-timeline: scroll(root);
+      animation-range: 0 120px;
+    }
+    @keyframes entete-filet {
+      to { border-bottom-color: var(--gris-bord); }
+    }
+  }
+}
+
+/* ---- 4. Micro-interactions au survol ------------------------------------ */
+
+@media (hover: hover) and (pointer: fine) {
+  .billet {
+    transition: transform .35s cubic-bezier(.22, 1, .36, 1),
+                opacity .25s ease;
+  }
+  .billet:hover { transform: translateX(6px); }
+
+  .geant-liste li {
+    transition: opacity .3s ease, transform .35s cubic-bezier(.22, 1, .36, 1);
+  }
+  .geant-ligne:hover .geant-liste li { opacity: .45; }
+  .geant-liste li:hover { opacity: 1; transform: translateX(8px); }
+
+  .logos li { transition: transform .35s cubic-bezier(.22, 1, .36, 1); }
+  .logos li:hover { transform: translateY(-3px); }
+}
+
+/* ---- 5. Finitions typographiques ---------------------------------------- */
+/* Équilibre les retours à la ligne des titres au lieu de laisser un mot seul. */
+
+h1, h2, .display, .titre-article, .billet-titre { text-wrap: balance; }
+.chapo, .billet-extrait { text-wrap: pretty; }
