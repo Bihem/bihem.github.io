@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0A0A0A" />
+  <meta name="format-detection" content="telephone=no, email=no, address=no" />
+  <title>Canal 93 — Musiques actuelles · Bobigny · Salle de concerts & studios</title>
+  <meta name="description" content="Canal 93 est un lieu de musiques actuelles de proximité, situé à Bobigny au cœur de la Seine-Saint-Denis. Salle de concerts 363 places debout, studios de répétition, enregistrement, danse et podcast." />
+  <meta property="og:title" content="Canal 93 — Salle de concerts & studios à Bobigny" />
+  <meta property="og:description" content="L'énergie du live. La culture en mouvement." />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" />
+
+  <!-- Design system -->
+  <link rel="stylesheet" href="assets/css/tokens.css?v=9k" />
+  <link rel="stylesheet" href="assets/css/base.css?v=9k" />
+  <link rel="stylesheet" href="assets/css/components.css?v=9k" />
+  <link rel="stylesheet" href="assets/css/app.css?v=9k" />
+  <link rel="stylesheet" href="assets/css/responsive.css?v=9k" />
+
+  <!-- Favicon (minimal SVG inline) -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/c93-favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/img/c93-icon-192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/img/c93-icon-512.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/c93-apple-touch.png" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicVenue",
+    "@id": "https://dikengadesign.fr/canal93/#venue",
+    "name": "Canal 93",
+    "alternateName": "Canal 93 Bobigny",
+    "description": "Lieu de musiques actuelles à Bobigny, Seine-Saint-Denis. Salle de 363 places, studios de répétition, enregistrement et danse, ateliers et résidences.",
+    "url": "https://dikengadesign.fr/canal93/",
+    "logo": "https://dikengadesign.fr/canal93/assets/img/c93-icon-512.png",
+    "image": "https://dikengadesign.fr/canal93/assets/img/c93-icon-512.png",
+    "telephone": "+33149911050",
+    "email": "communication@canal93.net",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "63 avenue Jean Jaurès",
+      "postalCode": "93000",
+      "addressLocality": "Bobigny",
+      "addressRegion": "Île-de-France",
+      "addressCountry": "FR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 48.9106,
+      "longitude": 2.4453
+    },
+    "openingHours": "Tu-Sa 15:00-22:00",
+    "sameAs": [
+      "https://www.instagram.com/canal93.bobigny",
+      "https://www.facebook.com/Canal93.Bobigny",
+      "https://www.tiktok.com/@canal93.bobigny",
+      "https://www.youtube.com/@canal93.bobigny",
+      "https://canal93.com"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ========= PAGE LOAD (curtain reveal en 2 panneaux) ========= -->
+  <div class="page-load" id="pageLoad">
+    <div class="page-load-half top"></div>
+    <div class="page-load-half bottom"></div>
+    <img class="page-load-logo" src="assets/img/canal93-logo.png" alt="Canal 93 — Bobigny" />
+  </div>
+
+  <!-- ========= HEADER ========= -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="Canal 93 — Accueil">
+        <span class="brand-mark">C93</span>
+        <img src="assets/img/canal93-logo.png" alt="Canal 93 — Bobigny" class="brand-logo" />
+      </a>
+
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="#programmation">Programmation</a>
+        <a href="#terre-hip-hop">Terre Hip Hop</a>
+        <a href="#studios">Studios</a>
+        <a href="#actions">Actions culturelles</a>
+        <a href="#lieu">Le lieu</a>
+      </nav>
+
+      <div class="header-cta">
+        <button class="icon-btn" id="searchBtn" aria-label="Rechercher" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        </button>
+        <a href="espace-membre.html" class="icon-btn" aria-label="Espace membre">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+        </a>
+        <button class="burger menu-trigger" id="burgerBtn" aria-label="Ouvrir le menu" aria-expanded="false">
+          <span class="menu-label">Menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========= SEARCH BAR ========= -->
+  <div class="search-bar" id="searchBar" aria-hidden="true">
+    <div class="search-bar-inner">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <form id="searchForm" style="display:contents;">
+        <input type="search" id="searchInput" placeholder="Rechercher un concert, un studio, un artiste…" autocomplete="off" />
+      </form>
+      <span class="search-bar-hint">↵ Entrée</span>
+      <button class="search-bar-close" id="searchClose" aria-label="Fermer la recherche">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ========= OVERLAY MENU ========= -->
+  <nav class="overlay-nav" id="overlayNav" aria-hidden="true" aria-label="Menu principal">
+    <div class="overlay-nav-head">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">C93</span>
+        <img src="assets/img/canal93-logo.png" alt="Canal 93 — Bobigny" class="brand-logo" />
+      </a>
+      <button class="overlay-nav-close" id="overlayClose" aria-label="Fermer le menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <div class="overlay-nav-body">
+
+      <div class="overlay-nav-col">
+        <h4>01 — Programmation</h4>
+        <ul>
+          <li><a href="agenda.html">Agenda & billetterie<span class="arrow">↗</span></a></li>
+          <li><a href="terre-hip-hop.html">Terre Hip Hop<span class="arrow">↗</span></a></li>
+          <li><a href="photos.html">Photos & vidéos<span class="arrow">↗</span></a></li>
+        </ul>
+      </div>
+
+      <div class="overlay-nav-col">
+        <h4>02 — Studios</h4>
+        <ul>
+          <li><a href="studios-repetition.html">Répétition<span class="arrow">↗</span></a></li>
+          <li><a href="studio-enregistrement.html">Enregistrement<span class="arrow">↗</span></a></li>
+          <li><a href="studio-danse.html">Danse<span class="arrow">↗</span></a></li>
+          <li><a href="grande-salle.html">Grande salle<span class="arrow">↗</span></a></li>
+        </ul>
+      </div>
+
+      <div class="overlay-nav-col">
+        <h4>03 — Nos projets</h4>
+        <ul>
+          <li><a href="ateliers.html">Ateliers musique<span class="arrow">↗</span></a></li>
+          <li><a href="actions-culturelles.html">Actions culturelles<span class="arrow">↗</span></a></li>
+          <li><a href="residences.html">Résidences<span class="arrow">↗</span></a></li>
+          <li><a href="masterclass.html">Masterclass<span class="arrow">↗</span></a></li>
+        </ul>
+      </div>
+
+      <div class="overlay-nav-col">
+        <h4>04 — Canal 93</h4>
+        <ul>
+          <li><a href="le-projet.html">Le projet<span class="arrow">↗</span></a></li>
+          <li><a href="le-lieu.html">Le lieu<span class="arrow">↗</span></a></li>
+          <li><a href="infos-pratiques.html">Infos pratiques<span class="arrow">↗</span></a></li>
+          <li><a href="contact.html">Contact<span class="arrow">↗</span></a></li>
+          <li><a href="fiches-techniques.html">Espace pro · Fiches techniques<span class="arrow">↗</span></a></li>
+          <li><a href="privatisation.html">Privatisation &amp; tarifs<span class="arrow">↗</span></a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="overlay-nav-foot">
+      <div class="theme-toggle" role="group" aria-label="Choix du thème">
+        <button type="button" data-theme="dark" class="active" aria-pressed="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          Sombre
+        </button>
+        <button type="button" data-theme="light" aria-pressed="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          Clair
+        </button>
+      </div>
+      <div class="contact">
+        <span>63 av. Jean Jaurès · 93000 Bobigny</span>
+        <span><a href="tel:0149911050">Accueil 01 49 91 10 50</a> · <a href="tel:0148914774">Studios 01 48 91 47 74</a> · <a href="mailto:communication@canal93.net">communication@canal93.net</a></span>
+      </div>
+      <div class="socials">
+        <a href="https://www.instagram.com/canal93.bobigny" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg></a>
+        <a href="https://www.facebook.com/Canal93.Bobigny" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7.5C13 6.5 13.5 6 14.5 6H17V2.2C16.5 2 15.4 2 14.3 2 11.6 2 10 3.6 10 6.5V10H7v4h3v8h3z"/></svg></a>
+        <a href="https://www.tiktok.com/@canal93.bobigny" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 8.4c-1.7 0-3.2-.8-4.2-2v8.3c0 3.4-2.7 6-6 6s-6-2.6-6-6 2.7-6 6-6c.3 0 .6 0 .9.1V12c-.3-.1-.6-.1-.9-.1-1.6 0-3 1.3-3 3s1.4 3 3 3 3-1.3 3-3V2h3c.4 2.5 2.4 4.4 4.9 4.5v1.9z"/></svg></a>
+        <a href="https://www.youtube.com/@canal93.bobigny" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 7c-.3-1-1.1-1.8-2.1-2.1C19 4.4 12 4.4 12 4.4s-7 0-8.9.5C2.1 5.2 1.3 6 1 7c-.5 1.9-.5 5-.5 5s0 3.1.5 5c.3 1 1.1 1.8 2.1 2.1 1.9.5 8.9.5 8.9.5s7 0 8.9-.5c1-.3 1.8-1.1 2.1-2.1.5-1.9.5-5 .5-5s0-3.1-.5-5zM10 15V9l5 3-5 3z"/></svg></a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========= HERO ========= -->
+  <section class="hero" id="hero">
+    <div class="hero-media">
+      <!-- Vraie photo Canal 93 — concert grand bal raï 2023 -->
+      <img src="https://static.wixstatic.com/media/7bc4b7_761d3d605aaf48e3b6708659fc5ecf0c~mv2.jpg" alt="Concert grand bal raï Canal 93" />
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-grid-lines"></div>
+    <div class="hero-grain" aria-hidden="true"></div>
+    <div class="hero-spotlight" aria-hidden="true"></div>
+
+    <div class="container hero-content">
+      <div class="hero-meta-bar reveal">
+        <div class="meta-group">
+          <div class="meta-item">
+            <small>Saison</small>
+            <strong>Mai → Juin 2026</strong>
+          </div>
+          <div class="meta-item hide-mobile">
+            <small>Localisation</small>
+            <strong>Bobigny · 48.9106° N</strong>
+          </div>
+        </div>
+        <span class="badge badge-live">Yaniss Odua · 22 mai</span>
+      </div>
+
+      <h1 class="hero-title reveal" data-delay="1">
+        Musiques <em>actuelles</em><br>
+        au cœur du <em>93.</em>
+      </h1>
+
+      <p class="hero-sub reveal" data-delay="2">
+        Canal 93 est un lieu de musiques actuelles de proximité situé à Bobigny au cœur de la Seine-Saint-Denis. Salle de concerts 363 places debout, 4 studios de répétition, studio d'enregistrement, studio de danse et bar-restaurant — depuis 2002.
+      </p>
+
+      <div class="hero-actions reveal" data-delay="3">
+        <a href="#programmation" class="btn btn-primary btn-lg">
+          Voir la programmation
+          <span class="btn-icon">→</span>
+        </a>
+        <a href="#studios" class="btn btn-ghost btn-lg">
+          Réserver un studio
+        </a>
+      </div>
+
+      <!-- Hero next-concerts mini strip -->
+      <div class="hero-next reveal" data-delay="4" aria-label="Prochains concerts">
+        <div class="hero-next-head">
+          <span class="eyebrow"><span class="dot live-dot"></span>Prochains rendez-vous<span class="waveform" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span></span>
+          <a href="agenda.html" class="hero-next-all">Toute la saison <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="hero-next-track">
+          <a href="https://my.weezevent.com/yaniss-odua-fnx" target="_blank" rel="noopener" class="hero-next-card">
+            <div class="hero-next-date"><strong>22</strong><small>Mai</small></div>
+            <div class="hero-next-body">
+              <span class="hero-next-genre">Reggae · Plateau</span>
+              <h4>Yaniss Odua &amp; FNX</h4>
+              <span class="hero-next-meta">20H00 · dès 13 €</span>
+            </div>
+            <span class="hero-next-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a href="https://my.weezevent.com/nayra-haze-musazi" target="_blank" rel="noopener" class="hero-next-card">
+            <div class="hero-next-date"><strong>05</strong><small>Juin</small></div>
+            <div class="hero-next-body">
+              <span class="hero-next-genre">Rap · Plateau</span>
+              <h4>Nayra + Haze Musazi</h4>
+              <span class="hero-next-meta">20H00 · dès 13 €</span>
+            </div>
+            <span class="hero-next-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a href="https://my.weezevent.com/samira-brahmia-3" target="_blank" rel="noopener" class="hero-next-card">
+            <div class="hero-next-date"><strong>12</strong><small>Juin</small></div>
+            <div class="hero-next-body">
+              <span class="hero-next-genre">Raï Rock · Pink Casbah</span>
+              <h4>Samira Brahmia</h4>
+              <span class="hero-next-meta">20H00 · dès 13 €</span>
+            </div>
+            <span class="hero-next-arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <span class="hero-scroll" aria-hidden="true">Scroll · Explore</span>
+  </section>
+
+  <!-- ========= MARQUEE BAR ========= -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Saison Mai → Juin 2026<span class="sep"></span></span>
+      <span>Reggae · Raï · Rap · Hip-Hop<span class="sep"></span></span>
+      <span>Résidences artistes<span class="sep"></span></span>
+      <span>Studios Mardi → Samedi · 15h-22h<span class="sep"></span></span>
+      <span>Ateliers musique<span class="sep"></span></span>
+      <span>Masterclass<span class="sep"></span></span>
+      <span>Saison Mai → Juin 2026<span class="sep"></span></span>
+      <span>Reggae · Raï · Rap · Hip-Hop<span class="sep"></span></span>
+      <span>Résidences artistes<span class="sep"></span></span>
+      <span>Studios Mardi → Samedi · 15h-22h<span class="sep"></span></span>
+      <span>Ateliers musique<span class="sep"></span></span>
+      <span>Masterclass<span class="sep"></span></span>
+    </div>
+  </div>
+
+  <!-- ========= PROGRAMMATION ========= -->
+  <section id="programmation">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow"><span class="dot"></span>01 — Programmation</p>
+          <h2 style="margin-top:16px;">Concerts &<br><em>résidences.</em></h2>
+        </div>
+        <p class="lede">
+          Une saison hybride entre têtes d'affiche, scènes émergentes et créations en résidence. La billetterie est ouverte en ligne pour tous nos rendez-vous.
+        </p>
+      </div>
+
+      <div class="prog-controls reveal" data-delay="1">
+        <button class="chip active">Tout</button>
+        <button class="chip">Reggae</button>
+        <button class="chip">Raï</button>
+        <button class="chip">Rap</button>
+        <button class="chip">Hip-Hop</button>
+        <button class="chip">Festival</button>
+        <button class="chip">Masterclass</button>
+      </div>
+
+      <div class="prog-grid">
+
+        <!-- Featured slider : À l'affiche — défile auto entre les concerts à venir -->
+        <div class="featured-slider" id="featuredSlider" data-autoplay="5200">
+          <div class="featured-track" id="featuredTrack">
+
+            <!-- Slide 1 : Yaniss Odua -->
+            <article class="card event-card event-featured featured-slide active">
+              <div class="card-media">
+                <img src="https://static.wixstatic.com/media/7bc4b7_793c056502f64ca7a886d809d34c5e9b~mv2.png" alt="Yaniss Odua & FNX feat. Trinity Rebel" />
+                <div class="event-card-date"><strong>22</strong><small>Mai 26</small></div>
+                <span class="event-card-badge badge badge-soon">À l'affiche</span>
+                <div class="event-card-bottom">
+                  <span class="genre">Reggae · France</span>
+                  <h3 class="artist">Yaniss Odua<br>& FNX</h3>
+                </div>
+              </div>
+              <div class="event-featured-body">
+                <p class="eyebrow"><span class="dot"></span>Plateau Reggae · feat. Trinity Rebel</p>
+                <p class="text-soft" style="font-size:var(--t-md);line-height:1.55;">
+                  Yaniss Odua, figure majeure du reggae francophone depuis 20 ans, partage le plateau avec FNX et la légende Trinity Rebel.
+                </p>
+                <ul class="feature-list">
+                  <li>Grande salle · 363 places debout</li>
+                  <li>Ouverture des portes 20h00</li>
+                </ul>
+                <div class="countdown"><span>Concert dans</span><strong data-cd="2026-05-22T20:00:00">— : — : —</strong></div>
+                <div class="flex gap-3" style="margin-top:8px;flex-wrap:wrap;">
+                  <a href="https://my.weezevent.com/yaniss-odua-fnx" target="_blank" rel="noopener" class="btn btn-primary">Billetterie · dès 13 €</a>
+                  <a href="agenda.html" class="btn btn-ghost">Détails</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Slide 2 : Nayra + Haze Musazi -->
+            <article class="card event-card event-featured featured-slide">
+              <div class="card-media">
+                <img src="https://static.wixstatic.com/media/7bc4b7_26ee4f20d0ba4f9485f9d7817c453704~mv2.png" alt="NAYRA + HAZE MUSAZI" />
+                <div class="event-card-date"><strong>05</strong><small>Juin 26</small></div>
+                <span class="event-card-badge badge badge-soon">À l'affiche</span>
+                <div class="event-card-bottom">
+                  <span class="genre">Rap · Plateau</span>
+                  <h3 class="artist">Nayra<br>+ Haze Musazi</h3>
+                </div>
+              </div>
+              <div class="event-featured-body">
+                <p class="eyebrow"><span class="dot"></span>Plateau Rap · Scène émergente</p>
+                <p class="text-soft" style="font-size:var(--t-md);line-height:1.55;">
+                  Soirée rap avec Nayra et Haze Musazi — deux voix montantes de la scène francophone qui croisent leurs univers le temps d'un plateau.
+                </p>
+                <ul class="feature-list">
+                  <li>Grande salle · 363 places debout</li>
+                  <li>Ouverture des portes 20h00</li>
+                </ul>
+                <div class="countdown"><span>Concert dans</span><strong data-cd="2026-06-05T20:00:00">— : — : —</strong></div>
+                <div class="flex gap-3" style="margin-top:8px;flex-wrap:wrap;">
+                  <a href="https://my.weezevent.com/nayra-haze-musazi" target="_blank" rel="noopener" class="btn btn-primary">Billetterie · dès 13 €</a>
+                  <a href="agenda.html" class="btn btn-ghost">Détails</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Slide 3 : Samira Brahmia -->
+            <article class="card event-card event-featured featured-slide">
+              <div class="card-media">
+                <img src="https://static.wixstatic.com/media/7bc4b7_40b52d6da9cd457cbca4bd82d198e356~mv2.jpg" alt="Samira Brahmia Pink Casbah" />
+                <div class="event-card-date"><strong>12</strong><small>Juin 26</small></div>
+                <span class="event-card-badge badge badge-soon">À l'affiche</span>
+                <div class="event-card-bottom">
+                  <span class="genre">Raï Rock · Algérie/FR</span>
+                  <h3 class="artist">Samira<br>Brahmia</h3>
+                </div>
+              </div>
+              <div class="event-featured-body">
+                <p class="eyebrow"><span class="dot"></span>Pink Casbah · Raï Rock</p>
+                <p class="text-soft" style="font-size:var(--t-md);line-height:1.55;">
+                  Samira Brahmia revient avec son projet Pink Casbah — un raï rock vibrant qui fait dialoguer héritage algérien et énergie contemporaine.
+                </p>
+                <ul class="feature-list">
+                  <li>Grande salle · 363 places debout</li>
+                  <li>Ouverture des portes 20h00</li>
+                </ul>
+                <div class="countdown"><span>Concert dans</span><strong data-cd="2026-06-12T20:00:00">— : — : —</strong></div>
+                <div class="flex gap-3" style="margin-top:8px;flex-wrap:wrap;">
+                  <a href="https://my.weezevent.com/samira-brahmia-3" target="_blank" rel="noopener" class="btn btn-primary">Billetterie · dès 13 €</a>
+                  <a href="agenda.html" class="btn btn-ghost">Détails</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Slide 4 : Chazil -->
+            <article class="card event-card event-featured featured-slide">
+              <div class="card-media">
+                <img src="https://static.wixstatic.com/media/7bc4b7_a490a16c31a549a9a14503052f8b6ec3~mv2.png" alt="Chazil concert raï" />
+                <div class="event-card-date"><strong>26</strong><small>Juin 26</small></div>
+                <span class="event-card-badge badge badge-soon">À l'affiche</span>
+                <div class="event-card-bottom">
+                  <span class="genre">Raï · Live</span>
+                  <h3 class="artist">Chazil<br>Live Show</h3>
+                </div>
+              </div>
+              <div class="event-featured-body">
+                <p class="eyebrow"><span class="dot"></span>Raï · Live Show</p>
+                <p class="text-soft" style="font-size:var(--t-md);line-height:1.55;">
+                  Chazil clôture la saison avec un live show 100% raï — entre tradition et modernité, une énergie scénique unique.
+                </p>
+                <ul class="feature-list">
+                  <li>Grande salle · 363 places debout</li>
+                  <li>Ouverture des portes 20h00</li>
+                </ul>
+                <div class="countdown"><span>Concert dans</span><strong data-cd="2026-06-26T20:00:00">— : — : —</strong></div>
+                <div class="flex gap-3" style="margin-top:8px;flex-wrap:wrap;">
+                  <a href="agenda.html" class="btn btn-primary">Billetterie · dès 13 €</a>
+                  <a href="agenda.html" class="btn btn-ghost">Détails</a>
+                </div>
+              </div>
+            </article>
+
+          </div>
+
+        </div>
+
+        <a href="https://my.weezevent.com/nayra-haze-musazi" target="_blank" rel="noopener" class="card event-card reveal" data-delay="2">
+          <div class="card-media">
+            <img src="https://static.wixstatic.com/media/7bc4b7_26ee4f20d0ba4f9485f9d7817c453704~mv2.png" alt="NAYRA + HAZE MUSAZI" />
+            <div class="event-card-date"><strong>05</strong><small>Juin 26</small></div>
+            <span class="event-card-badge badge">Billets dispo</span>
+            <div class="event-card-bottom">
+              <span class="genre">Rap · Plateau</span>
+              <h3 class="artist">Nayra<br>+ Haze Musazi</h3>
+            </div>
+          </div>
+          <div class="event-card-foot">
+            <span class="mono text-mute">20H00 · Grande salle</span>
+            <span class="card-price">dès 13 €</span>
+          </div>
+        </a>
+
+        <a href="https://my.weezevent.com/samira-brahmia-3" target="_blank" rel="noopener" class="card event-card reveal" data-delay="3">
+          <div class="card-media">
+            <img src="https://static.wixstatic.com/media/7bc4b7_40b52d6da9cd457cbca4bd82d198e356~mv2.jpg" alt="Samira Brahmia Pink Casbah" />
+            <div class="event-card-date"><strong>12</strong><small>Juin 26</small></div>
+            <span class="event-card-badge badge badge-soon">À ne pas manquer</span>
+            <div class="event-card-bottom">
+              <span class="genre">Raï Rock · Algérie/FR</span>
+              <h3 class="artist">Samira<br>Brahmia</h3>
+            </div>
+          </div>
+          <div class="event-card-foot">
+            <span class="mono text-mute">20H00 · Pink Casbah</span>
+            <span class="card-price">dès 13 €</span>
+          </div>
+        </a>
+
+        <article class="card event-card reveal" data-delay="4">
+          <div class="card-media">
+            <img src="https://static.wixstatic.com/media/7bc4b7_a490a16c31a549a9a14503052f8b6ec3~mv2.png" alt="Chazil concert raï" />
+            <div class="event-card-date"><strong>26</strong><small>Juin 26</small></div>
+            <span class="event-card-badge badge">Billets dispo</span>
+            <div class="event-card-bottom">
+              <span class="genre">Raï · Live</span>
+              <h3 class="artist">Chazil<br>Live Show</h3>
+            </div>
+          </div>
+          <div class="event-card-foot">
+            <span class="mono text-mute">20H00 · Grande salle</span>
+            <span class="card-price">dès 13 €</span>
+          </div>
+        </article>
+
+        <a href="https://my.weezevent.com/blvr-festival" target="_blank" rel="noopener" class="card event-card reveal" data-delay="5">
+          <div class="card-media">
+            <img src="https://static.wixstatic.com/media/7bc4b7_f4672112cb5841698246d68ea0edddce~mv2.png" alt="BLVR du Rap Festival" />
+            <div class="event-card-date"><strong>JUIN</strong><small>2026</small></div>
+            <span class="event-card-badge badge badge-soon">Festival</span>
+            <div class="event-card-bottom">
+              <span class="genre">Rap indépendant · Festival</span>
+              <h3 class="artist">BLVR du Rap<br>Festival</h3>
+            </div>
+          </div>
+          <div class="event-card-foot">
+            <span class="mono text-mute">Multi-dates · Hip-Hop</span>
+            <span class="card-price">dès 13 €</span>
+          </div>
+        </a>
+
+        <a href="masterclass.html" class="card event-card reveal" data-delay="2">
+          <div class="card-media">
+            <img src="https://static.wixstatic.com/media/7bc4b7_22b88ec9999d493c846354254e1b2cae~mv2.jpg" alt="MAAD'STERCLASS Super Raï Band" />
+            <div class="event-card-date"><strong>MAAD</strong><small>'STER</small></div>
+            <span class="event-card-badge badge badge-soon">Gratuit · sur inscription</span>
+            <div class="event-card-bottom">
+              <span class="genre">Masterclass · Transmission</span>
+              <h3 class="artist">Super<br>Raï Band</h3>
+            </div>
+          </div>
+          <div class="event-card-foot">
+            <span class="mono text-mute">Masterclass musicale</span>
+            <span class="card-price">Gratuit</span>
+          </div>
+        </a>
+
+        <a href="terre-hip-hop.html" class="card event-card thh-card reveal" data-delay="3">
+          <div class="card-media">
+            <div class="thh-card-bg"></div>
+            <img src="assets/img/terre-hip-hop-logo.jpg" alt="Terre Hip-Hop — Open Mic Contest" class="thh-card-logo" />
+            <div class="event-card-date"><strong>20</strong><small>Juin 26</small></div>
+            <span class="event-card-badge badge badge-soon">Open Mic · Gratuit</span>
+            <div class="event-card-bottom">
+              <span class="genre">Hip-Hop · Freestyle Contest</span>
+              <h3 class="artist">Terre Hip Hop<br>Contest</h3>
+            </div>
+          </div>
+          <div class="event-card-foot">
+            <span class="mono text-mute">Trap · Drill · Boom Bap</span>
+            <span class="card-price">Gratuit</span>
+          </div>
+        </a>
+
+      </div>
+
+      <div class="flex items-center gap-3 reveal" style="justify-content:center;margin-top:48px;">
+        <a href="agenda.html" class="link-arrow">Voir toute la saison</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========= STUDIOS ========= -->
+  <section id="studios" style="background:linear-gradient(180deg, transparent, rgba(255,255,255,0.02));">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow"><span class="dot"></span>02 — Studios</p>
+          <h2 style="margin-top:16px;">Quatre studios.<br>Une seule <em>énergie.</em></h2>
+        </div>
+        <p class="lede">
+          Répétition, enregistrement, danse, podcast — nos studios équipés sont accessibles aux artistes professionnels et amateurs, 7 jours sur 7, en plein cœur du 93.
+        </p>
+      </div>
+
+      <div class="studios-grid">
+
+        <a href="studios-repetition.html" class="studio-card reveal" data-delay="1">
+          <img src="https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?auto=format&fit=crop&w=1200&q=85" alt="Studio de répétition — instruments, amplis, ambiance live" />
+          <div class="studio-card-body">
+            <span class="studio-num">Studios · 01 → 04</span>
+            <h3 class="studio-name">Répétition</h3>
+            <div class="studio-tags">
+              <span>Backline</span>
+              <span>Tarif solidaire</span>
+              <span>Forfaits</span>
+            </div>
+            <div class="studio-foot">
+              <span class="price">Solo dès 5 €/h</span>
+              <span class="link-arrow">Découvrir</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="studio-enregistrement.html" class="studio-card reveal" data-delay="2">
+          <img src="https://images.unsplash.com/photo-1598653222000-6b7b7a552625?auto=format&fit=crop&w=1200&q=85" alt="Studio d'enregistrement — console, micros, ambiance pro" />
+          <div class="studio-card-body">
+            <span class="studio-num">Studio · 05</span>
+            <h3 class="studio-name">Enregistrement</h3>
+            <div class="studio-tags">
+              <span>Cabine isolée</span>
+              <span>Matériel pro</span>
+              <span>Rénové</span>
+            </div>
+            <div class="studio-foot">
+              <span class="price">Dès 30 €/h</span>
+              <span class="link-arrow">Découvrir</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="studio-danse.html" class="studio-card reveal" data-delay="3">
+          <img src="https://static.wixstatic.com/media/7bc4b7_ee2cf55292e54fdcb8a0a71fe7b53b74~mv2.jpg" alt="Studio de danse Canal 93" />
+          <div class="studio-card-body">
+            <span class="studio-num">Studio · 06</span>
+            <h3 class="studio-name">Danse</h3>
+            <div class="studio-tags">
+              <span>41 m² parquet</span>
+              <span>Miroirs</span>
+              <span>Sono</span>
+            </div>
+            <div class="studio-foot">
+              <span class="price">Sur devis</span>
+              <span class="link-arrow">Découvrir</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="grande-salle.html" class="studio-card reveal" data-delay="4">
+          <img src="https://static.wixstatic.com/media/7bc4b7_1ad7e10e0b1e4db283e2e15262ebb38c~mv2.jpg" alt="Grande salle de concert" />
+          <div class="studio-card-body">
+            <span class="studio-num">Salle</span>
+            <h3 class="studio-name">Grande salle</h3>
+            <div class="studio-tags">
+              <span>Privatisation</span>
+              <span>Acoustique pro</span>
+              <span>Régie complète</span>
+            </div>
+            <div class="studio-foot">
+              <span class="price">Privatisation sur devis</span>
+              <span class="link-arrow">Découvrir</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========= ACTIONS CULTURELLES ========= -->
+  <section id="actions" class="grid-bg">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow"><span class="dot"></span>03 — Actions culturelles</p>
+          <h2 style="margin-top:16px;">Transmettre,<br>accompagner,<br><em>révéler.</em></h2>
+        </div>
+        <p class="lede">
+          Ateliers, masterclass, résidences et accompagnement d'artistes — Canal 93 est un acteur culturel engagé sur son territoire depuis plus de 20 ans.
+        </p>
+      </div>
+
+      <div class="timeline reveal" data-delay="1">
+
+        <div class="timeline-item">
+          <p class="date">Saison 2026 · Gratuit sur inscription</p>
+          <h3>MAAD'STERCLASS 93 — Super Raï Band</h3>
+          <p>Masterclass musicale ouverte et gratuite portée par Canal 93. Transmission live avec un collectif raï emblématique. Inscriptions via canal93.com/masterclass.</p>
+        </div>
+
+        <div class="timeline-item">
+          <p class="date">Tout au long de l'année</p>
+          <h3>Résidences de création</h3>
+          <p>Accompagnement d'artistes professionnels et amateurs : résidences de création, résidences de recherche, résidences tremplin, résidences d'artistes associés. Soutien aux pratiques émergentes du territoire.</p>
+        </div>
+
+        <div class="timeline-item">
+          <p class="date">Saison · Scolaires &amp; particuliers</p>
+          <h3>Ateliers musique &amp; danse</h3>
+          <p>Ateliers d'éducation artistique pour scolaires, groupes constitués et particuliers : instruments, chant, danse. Une mission d'action culturelle au cœur du projet.</p>
+        </div>
+
+        <div class="timeline-item">
+          <p class="date">Programmation éclectique · saison</p>
+          <h3>Musiques populaires &amp; métissées</h3>
+          <p>De Electro Deluxe à Oxmo Puccino, de Ben l'Oncle Soul à la Section d'Assault — la programmation Canal 93 épouse les contours des musiques populaires : reggae, raï, rap, hip-hop, soul, électro.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========= LE LIEU (ABOUT) ========= -->
+  <section id="lieu" class="grid-bg">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-media reveal">
+          <img src="https://static.wixstatic.com/media/7bc4b7_761d3d605aaf48e3b6708659fc5ecf0c~mv2.jpg" alt="Canal 93 — Grand bal raï 2023" />
+          <span class="badge">Ouvert en 2002 · Bobigny</span>
+        </div>
+        <div class="about-text reveal" data-delay="1">
+          <p class="eyebrow"><span class="dot"></span>04 — Le projet</p>
+          <h2 style="margin-top:16px;">Un équipement<br>dédié aux <em>musiques actuelles</em><br>en Seine-Saint-Denis.</h2>
+          <p>
+            Ouvert en 2002 par la Ville de Bobigny, Canal 93 est un équipement reconnu nationalement pour la qualité de sa salle de concert et son acoustique. Une salle de 363 places debout, 4 studios de répétition, 1 studio d'enregistrement, un studio de danse, un bar-restaurant et des espaces de travail forment un ensemble architectural cohérent.
+          </p>
+          <p>
+            Trois axes guident notre projet : <strong>diffusion</strong> (programmation contemporaine populaire et métissée), <strong>accompagnement des pratiques musicales</strong> (résidences de création, recherche, tremplins) et <strong>action culturelle</strong> (ateliers, transmission, éducation artistique).
+          </p>
+          <p class="text-mute" style="font-style:italic;">
+            « Populaire, métissé et fraternel. » — De Electro Deluxe à Oxmo Puccino, de Ben l'Oncle Soul à la Section d'Assault, la programmation épouse les contours des musiques populaires.
+          </p>
+
+          <div class="stats-grid" style="margin-top:48px;">
+            <div class="stat"><span class="num">363</span><span class="label">places · grande salle</span></div>
+            <div class="stat"><span class="num">05</span><span class="label">studios · 4 répé + enreg.</span></div>
+            <div class="stat"><span class="num">50</span><span class="label">événements / an</span></div>
+            <div class="stat"><span class="num">2002</span><span class="label">année d'ouverture</span></div>
+          </div>
+
+          <div class="flex gap-3" style="margin-top:40px;">
+            <a href="le-projet.html" class="btn btn-ghost">Le projet</a>
+            <a href="le-lieu.html" class="btn btn-ghost">Le lieu</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========= SOCIAL PROOF / TESTIMONIALS ========= -->
+  <section class="grid-bg">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <p class="eyebrow"><span class="dot"></span>05 — Programmation passée</p>
+          <h2 style="margin-top:16px;">Ils sont passés<br>par <em>Canal 93.</em></h2>
+        </div>
+        <p class="lede">
+          De la scène nationale à l'émergence locale — depuis 2002, Canal 93 accueille les voix qui font les musiques populaires d'aujourd'hui.
+        </p>
+      </div>
+
+      <div class="photo-slider reveal" id="photoSlider">
+        <div class="photo-slider-track" id="photoTrack">
+          <div class="photo-slide"><img src="https://static.wixstatic.com/media/7bc4b7_ef0c0e233996420ca0c15117db9e0125~mv2.jpg" alt="Canal 93 — concert" loading="lazy" /><div class="photo-slide-caption"><span class="num">01 / 20</span><span class="label">Live · Canal 93</span></div></div>
+          <div class="photo-slide"><img src="https://static.wixstatic.com/media/7bc4b7_94da87b4c6e14977af68bb1f9da8397e~mv2.jpg" alt="Canal 93 — concert" loading="lazy" /><div class="photo-slide-caption"><span class="num">02 / 20</span><span class="label">Live · Canal 93</span></div></div>
+          <div class="photo-slide"><img src="https://static.wixstatic.com/media/7bc4b7_ff522264b8964042929dab07c65d4d72~mv2.jpg" alt="Canal 93 — concert" loading="lazy" /><div class="photo-slide-caption"><span class="num">03 / 20</span><span class="label">Live · Canal 93</span></div></div>
+          <div class="photo-slide"><img src="https://static.wixstatic.com/media/7bc4b7_a85b9b13056048a89d9f41693defe178~mv2.jpg" alt="Canal 93 — concert" loading="lazy" /><div class="photo-slide-caption"><span class="num">04 / 20</span><span class="label">Live · Canal 93</span></div></div>
+          <div class="photo-slide"><img src="https://static.wixstatic.com/media/7bc4b7_f6e31d2811354fc2a3ed93e964b104c2~mv2.jpg" alt="Canal 93 — concert" loading="lazy" /><div class="photo-slide-caption"><span class="num">05 / 20</span><span class="label">Live · Canal 93</span></div></div>
+          <div class="photo-slide"><img src="https://static.wixstatic.com/media/7bc4b7_082550a818c144f6be8e05fe01f86f88~mv2.png" alt="Canal 93 — affiche" loading="lazy" /><div class="photo-slide-caption"><span class="num">06 / 20</span><span class="label">Programmation</span></div></div>
+          <div class="photo-slide"><img src="https://static.wixstatic.com/media/7bc4b7_eab38f94cdf24e1ab734cb727bb0c0b5~mv2.png" alt="Canal 93 — affiche" loading="lazy" /><div class="photo-slide-caption"><span class="num">07 / 20</span><span class="label">Programmation</span></div></div>
+          <div class="photo-slide"><img src="https://static.wixstatic.com/media/7bc4b7_ff3eaf976cbb4422a75768601d99a319~mv2.png" alt="Canal 93 — affiche" loading="lazy" /><div class="photo-slide-caption"><span class="num">08 / 20</span><span class="label">Programmation</span></div></div>
+          <div class="photo-slide"><img src="https://static.wixstatic.com/media/7bc4b7_7cf1bd4c99924e7faeb86e8cb31de074~mv2.png" alt="Canal 93 — affiche" loading="lazy" /><div class="photo-slide-caption"><span class="num">09 / 20</span><span class="label">Programmation</span></div></div>
+          <div class="photo-slide"><img src="https://static.wixstatic.com/media/7bc4b7_b9d0f27deffe4915b06faa0fbd278818~mv2.jpg" alt="Canal 93 — concert" loading="lazy" /><div class="photo-slide-caption"><span class="num">10 / 20</span><span class="label">Live · Canal 93</span></div></div>
+          <div class="photo-slide"><img src="https://static.wixstatic.com/media/7bc4b7_fe6fab1b275845d2afe289e188a587c3~mv2.jpg" alt="Canal 93 — concert" loading="lazy" /><div class="photo-slide-caption"><span class="num">11 / 20</span><span class="label">Live · Canal 93</span></div></div>
+          <div class="photo-slide"><img src="https://static.wixstatic.com/media/7bc4b7_c594603697e34a9b90ad4464cc333fa6~mv2.jpg" alt="Canal 93 — concert" loading="lazy" /><div class="photo-slide-caption"><span class="num">12 / 20</span><span class="label">Live · Canal 93</span></div></div>
+          <div class="photo-slide"><img src="https://static.wixstatic.com/media/7bc4b7_de0ce769b5264bc9abf0eb25875e94b2~mv2.jpg" alt="Canal 93 — concert" loading="lazy" /><div class="photo-slide-caption"><span class="num">13 / 20</span><span class="label">Live · Canal 93</span></div></div>
+          <div class="photo-slide"><img src="https://static.wixstatic.com/media/7bc4b7_9742849a094a4dd3a4020bf56a70a76d~mv2.jpg" alt="Canal 93 — concert" loading="lazy" /><div class="photo-slide-caption"><span class="num">14 / 20</span><span class="label">Live · Canal 93</span></div></div>
+          <div class="photo-slide"><img src="https://static.wixstatic.com/media/7bc4b7_9bf728f4f3574dddaaa7e052dc1195bc~mv2.jpg" alt="Canal 93 — concert" loading="lazy" /><div class="photo-slide-caption"><span class="num">15 / 20</span><span class="label">Live · Canal 93</span></div></div>
+          <div class="photo-slide"><img src="https://static.wixstatic.com/media/7bc4b7_f5aa70b04153486b8785a11a8178cc4d~mv2.jpg" alt="Canal 93 — concert" loading="lazy" /><div class="photo-slide-caption"><span class="num">16 / 20</span><span class="label">Live · Canal 93</span></div></div>
+          <div class="photo-slide"><img src="https://static.wixstatic.com/media/7bc4b7_80772f21f270464596b162e8689b19dd~mv2.jpg" alt="Canal 93 — concert" loading="lazy" /><div class="photo-slide-caption"><span class="num">17 / 20</span><span class="label">Live · Canal 93</span></div></div>
+          <div class="photo-slide"><img src="https://static.wixstatic.com/media/7bc4b7_9b276657fdb04140bdf5878619b1d0bd~mv2.jpg" alt="Canal 93 — concert" loading="lazy" /><div class="photo-slide-caption"><span class="num">18 / 20</span><span class="label">Live · Canal 93</span></div></div>
+          <div class="photo-slide"><img src="https://static.wixstatic.com/media/7bc4b7_bf92c5a7ab46413c8d47ac4e7a4e7e98~mv2.jpg" alt="Canal 93 — concert" loading="lazy" /><div class="photo-slide-caption"><span class="num">19 / 20</span><span class="label">Live · Canal 93</span></div></div>
+          <div class="photo-slide"><img src="https://static.wixstatic.com/media/7bc4b7_dc4e16e0a4d84015b48cb414a37f9e10~mv2.jpg" alt="Canal 93 — concert" loading="lazy" /><div class="photo-slide-caption"><span class="num">20 / 20</span><span class="label">Live · Canal 93</span></div></div>
+        </div>
+
+        <div class="photo-slider-controls">
+          <div class="photo-slider-count"><strong id="photoCurrent">01</strong> / 20 · Galerie complète</div>
+          <div class="photo-slider-progress"><span id="photoProgress"></span></div>
+          <div class="photo-slider-nav">
+            <button type="button" id="photoPrev" aria-label="Photo précédente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+            <button type="button" id="photoNext" aria-label="Photo suivante"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========= NEWSLETTER ========= -->
+  <section>
+    <div class="container">
+      <div class="newsletter reveal">
+        <div class="newsletter-inner">
+          <div>
+            <p class="eyebrow"><span class="dot"></span>Newsletter</p>
+            <h2 style="margin-top:12px;">Reste connecté·e à la <em>scène.</em></h2>
+            <p style="font-size:var(--t-md);">
+              Programmation, résidences, places en avant-première et ouvertures de studio — une fois par mois, jamais plus.
+            </p>
+          </div>
+          <form class="newsletter-form" onsubmit="event.preventDefault();this.querySelector('button').textContent='Inscrit ·✓';">
+            <div class="input-group">
+              <input type="email" class="input" placeholder="ton@email.fr" required />
+              <button type="submit" class="btn btn-primary">Je m'inscris</button>
+            </div>
+            <span class="newsletter-disclaimer">RGPD · 1 clic pour te désinscrire</span>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========= INFOS PRATIQUES / FOOTER ========= -->
+  <footer class="site-footer" id="infos">
+    <div class="container">
+
+      <!-- Big footer CTA -->
+      <div class="footer-mega-cta reveal">
+        <p class="eyebrow"><span class="dot"></span>Prochain concert · 22 mai</p>
+        <h2>Viens vivre le <em>live</em> à Bobigny.</h2>
+        <p class="sub">Réservez vos places en ligne ou venez répéter, enregistrer, danser dans nos studios professionnels. Canal 93, c'est une scène et une fabrique de musiques actuelles.</p>
+        <div class="actions">
+          <a href="agenda.html" class="btn btn-primary btn-lg">Billetterie<span class="btn-icon">→</span></a>
+          <a href="studios-repetition.html" class="btn btn-ghost btn-lg">Réserver un studio</a>
+        </div>
+      </div>
+
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <p class="eyebrow"><span class="dot"></span>Infos pratiques</p>
+          <img src="assets/img/c93-mark.png?v=9k" alt="Canal 93 — Bobigny" class="footer-logo" />
+          <p>63 avenue Jean Jaurès · 93000 Bobigny · Métro L5 Bobigny–Pablo Picasso · Bus 301 · 147 · 322 · N13 · N45 · Tram T1. Bar &amp; restauration les soirs de concert.</p>
+
+          <div class="flex flex-col gap-2" style="margin-top:32px;">
+            <a href="tel:0149911050" class="link-arrow">Accueil · 01 49 91 10 50</a>
+            <a href="tel:0148914774" class="link-arrow">Studios · 01 48 91 47 74</a>
+            <a href="mailto:communication@canal93.net" class="link-arrow">communication@canal93.net</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="socials reveal" style="margin-bottom:48px;">
+        <a href="https://www.instagram.com/canal93.bobigny" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg></a>
+        <a href="https://www.facebook.com/Canal93.Bobigny" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7.5C13 6.5 13.5 6 14.5 6H17V2.2C16.5 2 15.4 2 14.3 2 11.6 2 10 3.6 10 6.5V10H7v4h3v8h3z"/></svg></a>
+        <a href="https://www.tiktok.com/@canal93.bobigny" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 8.4c-1.7 0-3.2-.8-4.2-2v8.3c0 3.4-2.7 6-6 6s-6-2.6-6-6 2.7-6 6-6c.3 0 .6 0 .9.1V12c-.3-.1-.6-.1-.9-.1-1.6 0-3 1.3-3 3s1.4 3 3 3 3-1.3 3-3V2h3c.4 2.5 2.4 4.4 4.9 4.5v1.9z"/></svg></a>
+        <a href="https://www.youtube.com/@canal93.bobigny" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 7c-.3-1-1.1-1.8-2.1-2.1C19 4.4 12 4.4 12 4.4s-7 0-8.9.5C2.1 5.2 1.3 6 1 7c-.5 1.9-.5 5-.5 5s0 3.1.5 5c.3 1 1.1 1.8 2.1 2.1 1.9.5 8.9.5 8.9.5s7 0 8.9-.5c1-.3 1.8-1.1 2.1-2.1.5-1.9.5-5 .5-5s0-3.1-.5-5zM10 15V9l5 3-5 3z"/></svg></a>
+      </div>
+
+      <div class="partner-logos reveal" aria-label="Partenaires institutionnels">
+        <img src="https://static.wixstatic.com/media/7bc4b7_5e331eee969b477ea0c351074c89f07f~mv2.png" alt="Ministère de la Culture" title="Ministère de la Culture" loading="lazy" />
+        <img src="https://static.wixstatic.com/media/7bc4b7_11480a1f14e4494ea46b49cfc21a166c~mv2.png" alt="Préfet Région Île-de-France" title="Préfet de la Région d'Île-de-France" loading="lazy" />
+        <img src="https://static.wixstatic.com/media/7bc4b7_664d4068555a4ae1bad727e011b3579b~mv2.png" alt="Ville de Bobigny" title="Ville de Bobigny — Grand Paris" loading="lazy" />
+        <img src="https://static.wixstatic.com/media/7bc4b7_82772b1abd094faaaa177df68445256b~mv2.png" alt="Seine-Saint-Denis" title="Seine-Saint-Denis — Le Département" loading="lazy" />
+        <img src="https://static.wixstatic.com/media/7bc4b7_18c0b300ddaa4732b8d901818bcbc18a~mv2.png" alt="CAF Seine-Saint-Denis" title="CAF — Allocations Familiales 93" loading="lazy" />
+        <img src="https://static.wixstatic.com/media/7bc4b7_5c0170379f1e41588dac2541fd6e2fa3~mv2.png" alt="FONPEPS" title="FONPEPS" loading="lazy" />
+        <img src="https://static.wixstatic.com/media/7bc4b7_2bb5f091907c4ee69e135f23ef418da0~mv2.png" alt="Centre national de la musique" title="CNM — Centre national de la musique" loading="lazy" />
+        <img src="https://static.wixstatic.com/media/7bc4b7_a39e9d950d9b40c89c397d1ddbb21b2a~mv2.png" alt="AM Multitech SAS" title="AM Multitech SAS" loading="lazy" />
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Canal 93 · Bobigny · Tous droits réservés</span>
+        <span class="hide-mobile">63 av. Jean Jaurès · 93000 Bobigny · 48.9106° N, 2.4453° E</span>
+        <span><a href="#mentions" onclick="alert('Mentions légales — page à compléter avec données légales Canal 93.');return false;" class="text-soft">Mentions légales</a> · Refonte UI/UX 2026 · <a href="https://dikengadesign.fr" target="_blank" rel="noopener" class="text-acid">Dikenga Design</a></span>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ========= STICKY MOBILE CTA ========= -->
+  <div class="sticky-cta" id="stickyCta" aria-hidden="true">
+    <a href="agenda.html" class="primary">
+      Billetterie
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+    <a href="studios-repetition.html" class="secondary">
+      Studio
+    </a>
+  </div>
+
+  <!-- ========= BACK TO TOP ========= -->
+  <button class="back-to-top" id="backToTop" aria-label="Retour en haut de page" type="button">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <!-- ========= VIDEO MODAL ========= -->
+  <div class="video-modal" id="videoModal" aria-hidden="true" role="dialog" aria-label="Lecteur vidéo">
+    <button class="video-modal-close" id="videoModalClose" aria-label="Fermer la vidéo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="video-modal-frame">
+      <iframe id="videoModalIframe" src="" title="Vidéo" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- ========= LIGHTBOX ========= -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Galerie photo">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Fermer">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <button class="lightbox-nav prev" id="lightboxPrev" aria-label="Photo précédente">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 6l-6 6 6 6"/></svg>
+    </button>
+    <figure class="lightbox-figure">
+      <img id="lightboxImg" alt="" />
+      <figcaption id="lightboxCaption">
+        <span class="num" id="lightboxNum">01 / 20</span>
+        <span class="label" id="lightboxLabel">Canal 93</span>
+      </figcaption>
+    </figure>
+    <button class="lightbox-nav next" id="lightboxNext" aria-label="Photo suivante">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+  </div>
+
+  <!-- ========= SCRIPTS ========= -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="assets/js/app.js?v=2026-05-16m"></script>
+
+</body>
+</html>

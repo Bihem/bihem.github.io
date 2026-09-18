@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Interfaces IA agentique : comment designer la confiance en 2026 | Dikenga</title>
+<meta name="description" content="En 2026, l&#x27;IA ne se contente plus de suggérer : elle agit. Un agent peut réserver un rendez-vous, remplir un formulaire, comparer des prix ou déclencher…">
+<link rel="canonical" href="https://dikengadesign.fr/blog/interfaces-ia-agentique-comment-designer-la-confiance-en-2026.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Interfaces IA agentique : comment designer la confiance en 2026">
+<meta property="og:description" content="En 2026, l&#x27;IA ne se contente plus de suggérer : elle agit. Un agent peut réserver un rendez-vous, remplir un formulaire, comparer des prix ou déclencher…">
+<meta property="og:url" content="https://dikengadesign.fr/blog/interfaces-ia-agentique-comment-designer-la-confiance-en-2026.html">
+<link rel="icon" href="/img/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css?v=ed5b0b5a">
+</head>
+<body>
+
+<header class="entete">
+  <a class="marque" href="/index.html">Dikenga</a>
+  <button class="burger" id="burger" type="button"
+          aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu-principal">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="menu-principal" aria-label="Navigation principale">
+    <a href="/projets.html">Projets</a>
+    <a href="/index.html#services">Services</a>
+    <a href="/blog.html" aria-current="page">Blog</a>
+    <a href="/contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+  <article>
+    <section class="hero enveloppe">
+      <div class="colonne">
+        <span class="sur-titre">IA &amp; Design · 02 Septembre 2026 · 5 min de lecture</span>
+        <h1 class="titre-article">Interfaces IA agentique : comment designer la confiance en 2026</h1>
+      </div>
+    </section>
+
+    <section class="chapitre enveloppe" style="padding-top:0">
+      <div class="colonne article">
+        <p>En 2026, l'IA ne se contente plus de suggérer : elle agit. Un agent peut réserver un rendez-vous, remplir un formulaire, comparer des prix ou déclencher un paiement sans que l'utilisateur valide chaque étape. C'est ce qu'on appelle l'<strong>IA agentique</strong>, et elle change radicalement la façon dont on doit penser l'interface. Le problème n'est plus « comment afficher l'information » mais « comment donner confiance à quelqu'un qui délègue une action à un système qu'il ne voit pas travailler ».</p>
+        <p>Pour une startup ou une PME qui intègre ce type de fonctionnalité, mal designer cette relation de confiance revient à perdre l'utilisateur au premier incident : une action mal comprise, un agent qui va trop loin, une absence de moyen de reprendre la main. Voici les principes concrets pour éviter ça.</p>
+        <h2>1. Rendre l'action de l'IA visible avant qu'elle n'agisse</h2>
+        <p>La pire expérience agentique, c'est celle où l'utilisateur découvre après coup ce que le système a fait. Un bon design agentique affiche systématiquement une <strong>prévisualisation de l'intention</strong> : « Je vais réserver ce créneau à 14h, envoyer cet email, dépenser 45€ » avant l'exécution. Ce n'est pas une confirmation lourde façon pop-up de 2015, mais un état intermédiaire clair, souvent une simple ligne de texte avec un bouton d'annulation à portée de main pendant 3 à 5 secondes.</p>
+        <h2>2. Distinguer les actions réversibles des actions critiques</h2>
+        <p>Toutes les actions n'ont pas le même poids. Classez-les en deux catégories dès la phase de conception :</p>
+        <ul>
+        <li><strong>Réversibles et à faible enjeu</strong> (trier une liste, filtrer des résultats, rédiger un brouillon) : l'agent peut agir directement, sans friction.</li>
+        <li><strong>Irréversibles ou sensibles</strong> (paiement, envoi d'un message à un tiers, suppression de données) : validation explicite obligatoire, jamais d'exécution automatique silencieuse.</li>
+        </ul>
+        <p>Cette hiérarchisation doit être visible dans votre design system : un composant "action agent" différent selon le niveau de risque, avec un code couleur et un niveau de friction cohérents sur tout le produit.</p>
+        <h2>3. Garder une trace lisible, pas un log technique</h2>
+        <p>Quand un agent agit à la place de l'utilisateur, celui-ci doit pouvoir répondre à une question simple : « qu'est-ce qui s'est passé pendant que je n'étais pas là ? ». Un historique d'actions en langage naturel, horodaté, avec la possibilité d'annuler ou de corriger, est aujourd'hui aussi indispensable qu'un bouton retour. Évitez les logs bruts type console développeur : personne ne les lit, et ils cassent la confiance au lieu de la construire.</p>
+        <h2>4. Laisser un interrupteur général, toujours accessible</h2>
+        <p>Le contrôle perçu compte autant que le contrôle réel. Un réglage clair — « Mode autonome activé / désactivé » — accessible en un clic depuis n'importe quel écran, rassure même les utilisateurs qui ne l'utiliseront jamais. À l'inverse, une IA qui agit sans qu'on sache comment la freiner génère de l'anxiété, même quand elle fonctionne parfaitement.</p>
+        <h2>5. Designer l'échec autant que le succès</h2>
+        <p>Un agent qui échoue silencieusement est pire qu'une interface classique en panne. Prévoyez systématiquement l'état d'erreur agentique : que s'est-il passé, pourquoi, et que peut faire l'utilisateur maintenant ? Un message du type « Je n'ai pas pu confirmer votre réservation, le créneau n'est plus disponible » avec une action de reprise immédiate transforme un échec en simple friction, au lieu d'une perte de confiance durable.</p>
+        <h2>Ce qu'il faut retenir</h2>
+        <p>L'IA agentique n'est pas une fonctionnalité qu'on ajoute à une interface existante : c'est une nouvelle couche de relation entre l'utilisateur et le produit, basée sur la délégation. Les produits qui gagneront en 2026 ne seront pas ceux avec l'agent le plus « intelligent », mais ceux où l'utilisateur sait à tout moment ce qui se passe, peut intervenir en une seconde, et n'a jamais l'impression de perdre le contrôle.</p>
+        <p>Vous intégrez de l'IA agentique dans votre produit et vous voulez que ça reste clair pour vos utilisateurs ? <a href="https://dikengadesign.fr/contact.html">Discutons de votre interface</a> — <a href="https://dikengadesign.fr">dikengadesign.fr</a>.</p>
+
+        <div class="article-pied">
+          <a href="/blog.html">← Tous les articles</a>
+          <a class="bouton bouton--clair" href="/contact.html">Parler de votre projet</a>
+        </div>
+      </div>
+    </section>
+  </article>
+
+</main>
+
+<footer class="pied enveloppe">
+  <div class="pleine pied-rangee" style="margin:0">
+    <div>© 2026 Dikenga — Mes-reves Bouzanga</div>
+    <div>
+      <a href="/index.html">Accueil</a> ·
+      <a href="/mentions-legales.html">Mentions légales</a> ·
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<a class="retour-haut" href="#" id="retourHaut">Retour en haut ↑</a>
+
+<script>
+  (function () {
+    var p = document.getElementById('retourHaut');
+    function maj() { p.classList.toggle('visible', window.scrollY > 800); }
+    window.addEventListener('scroll', maj, { passive: true });
+    maj();
+    p.addEventListener('click', function (e) { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  })();
+</script>
+<script src="/menu.js?v=21dbd46f" defer></script>
+</body>
+</html>

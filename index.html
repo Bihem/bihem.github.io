@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mes-reves Bouzanga — Designer d’interfaces, Paris | Dikenga</title>
+<meta name="description" content="Je conçois des interfaces web et des identités digitales depuis Paris. Du premier écran Figma jusqu’au site en production : design, intégration, mise en ligne.">
+<link rel="icon" href="img/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta property="og:title" content="Mes-reves Bouzanga — Designer d’interfaces, Paris">
+<meta property="og:description" content="Design, intégration et mise en ligne d’interfaces web. Dikenga, Paris.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=ed5b0b5a">
+</head>
+<body>
+
+<header class="entete">
+  <a class="marque" href="index.html">Dikenga</a>
+  <button class="burger" id="burger" type="button"
+          aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu-principal">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="menu-principal" aria-label="Navigation principale">
+    <a href="projets.html">Projets</a>
+    <a href="#services">Services</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ============================================================ HERO -->
+  <section class="hero enveloppe">
+    <div class="hero-duo">
+
+      <div class="hero-texte">
+        <h1 class="nom" style="margin-bottom:.1rem">Mes-reves Bouzanga</h1>
+        <p class="role" style="color:var(--gris);margin-bottom:1.25rem">Designer d’interfaces — Paris</p>
+
+        <ul class="logos">
+          <li><img src="img/logo-claude.svg" alt="" width="24" height="24"><span>Claude Code</span></li>
+          <li><img src="img/logo-chatgpt.svg" alt="" width="24" height="24"><span>ChatGPT</span></li>
+          <li><img src="img/logo-figma.svg" alt="" width="16" height="24"><span>Figma</span></li>
+        </ul>
+
+        <p class="chapo">
+          Bonjour ! Je suis UI/UX Designer freelance, passionné par les nouvelles
+          technologies, l’intelligence artificielle et le design digital.
+        </p>
+
+        <p class="chapo">
+          J’aime comprendre les problèmes, imaginer des solutions et transformer des
+          besoins complexes en interfaces claires, intuitives et agréables à utiliser.
+        </p>
+
+        <p class="chapo">
+          Je conçois des sites web, applications et produits digitaux, en plaçant toujours
+          l’utilisateur au centre de ma réflexion. J’utilise également l’IA et les nouvelles
+          technologies pour enrichir mon processus créatif et concevoir des expériences
+          plus modernes et efficaces.
+        </p>
+
+        <p class="chapo">
+          Je suis actuellement ouvert aux missions freelance et aux nouvelles collaborations.
+        </p>
+
+        <ul class="pastilles">
+          <li><a href="https://www.instagram.com/dikengadesign/" target="_blank" rel="noopener">Instagram <span class="fleche" aria-hidden="true">↗</span></a></li>
+          <li><a href="https://www.linkedin.com/in/dikengadesign/" target="_blank" rel="noopener">LinkedIn <span class="fleche" aria-hidden="true">↗</span></a></li>
+          <li><a href="mailto:uiuxmesreves@gmail.com">E-mail <span class="fleche" aria-hidden="true">↗</span></a></li>
+        </ul>
+
+        <p class="discret" style="margin-top:1.75rem">Faites défiler ↓</p>
+      </div>
+
+      <div class="hero-visuel">
+        <img class="portrait-grand" src="img/portrait-mes-reves.webp" alt="Portrait de Mes-reves Bouzanga" width="320" height="320" fetchpriority="high">
+        <span class="manuscrit">on commence par le début</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================== CARROUSEL -->
+  <section class="chapitre chapitre--haut enveloppe">
+
+    <div class="pleine carrousel reveler">
+      <div class="carrousel-piste" id="piste" tabindex="0" role="region" aria-label="Sélection de réalisations">
+
+        <figure class="diapo">
+          <img width="1856" height="2266" src="img/tennis-splash-mockup.webp" alt="Écran d’accueil de l’application tennis" loading="lazy">
+          <figcaption><b>Application tennis</b><span>Écran d’accueil</span></figcaption>
+        </figure>
+
+        <figure class="diapo">
+          <img width="1140" height="1380" src="img/tennis-mockup-phone.webp" alt="Tableau de bord de l’application tennis" loading="lazy">
+          <figcaption><b>Application tennis</b><span>Tableau de bord</span></figcaption>
+        </figure>
+
+        <figure class="diapo diapo--haute">
+          <img width="1200" height="3009" src="img/delorme-site.webp" alt="Le site Maison Delorme Couverture, en desktop et en mobile" loading="lazy">
+          <figcaption><b>Maison Delorme</b><span>Site couvreur</span></figcaption>
+        </figure>
+
+        <figure class="diapo diapo--haute">
+          <img width="1200" height="3500" src="img/delorme-design-system.webp" alt="Le design system de Maison Delorme : couleurs, typographie, composants" loading="lazy">
+          <figcaption><b>Maison Delorme</b><span>Design system</span></figcaption>
+        </figure>
+      </div>
+
+      <div class="carrousel-commandes">
+        <button class="carrousel-bouton" id="precedent" type="button" aria-label="Visuel précédent">←</button>
+        <button class="carrousel-bouton" id="suivant" type="button" aria-label="Visuel suivant">→</button>
+        <span class="carrousel-compteur" id="compteur" aria-live="polite">1 / 4</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================== TALSEUME -->
+  <section class="chapitre enveloppe">
+    <div class="colonne reveler">
+      <span class="sur-titre">Projet · e-commerce · 2026</span>
+      <h2>Talseume, une boutique qui coûte quinze euros par mois.</h2>
+      <p>
+        J’ai conçu et développé Talseume de bout en bout : direction artistique, interface,
+        intégration, paiement Stripe, hébergement sur le réseau Cloudflare. Coton bio,
+        matériaux recyclés, et une esthétique éditoriale qui ne ressemble pas à un thème Shopify.
+      </p>
+    </div>
+
+    <figure class="pleine montage reveler">
+      <iframe class="montage-cadre" src="talseume-montage.html" loading="lazy"
+              title="La boutique Talseume qui défile sur un MacBook"></iframe>
+      <figcaption class="discret" style="font-size:var(--t-petit);margin-top:.75rem;text-align:center">
+        talseume.com, drop SS26, paiement Stripe et Klarna, hébergement edge.
+      </figcaption>
+    </figure>
+
+    <div class="colonne reveler">
+      <p style="margin-top:1.5rem">
+        <a class="bouton bouton--clair" href="projets.html">Lire l’étude de cas</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- =================================================== STUDIOBOOKING -->
+  <section class="chapitre enveloppe fond-gris">
+    <div class="colonne reveler">
+      <span class="sur-titre">Projet · SaaS · 2025 → 2026</span>
+      <h2>StudioBooking, du design à la production.</h2>
+      <p>
+        Un SaaS de réservation de studios que j’ai imaginé, dessiné et mis en production.
+        C’est le projet qui m’a appris le plus : concevoir une interface, c’est une chose ;
+        la tenir en ligne quand de vrais utilisateurs s’en servent, c’en est une autre.
+      </p>
+    </div>
+
+    <div class="colonne reveler">
+      <p style="margin-top:1.5rem">
+        <a class="bouton bouton--clair" href="projets.html">Lire l’étude de cas</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ====================================================== MÉTHODE -->
+  <section class="chapitre enveloppe">
+    <div class="colonne reveler">
+      <span class="sur-titre">Comment je travaille</span>
+      <h2>Un échange, des maquettes, une mise en ligne.</h2>
+      <p>
+        On commence par un échange, gratuit, pour comprendre le problème.
+        Puis viennent les maquettes, les allers-retours, et la mise en ligne.
+        Acompte de 50 % au démarrage, solde à la livraison. Réponse sous vingt-quatre heures.
+      </p>
+      <p style="margin-top:2rem"><a class="bouton bouton--clair" href="contact.html">Me contacter</a></p>
+    </div>
+  </section>
+
+  <!-- ====================================================== SERVICES -->
+  <section class="geant" id="services">
+    <div class="enveloppe">
+      <div class="pleine geant-bloc">
+        <div class="geant-ligne reveler">
+          <div class="geant-colonne">
+          <span class="sur-titre geant-cle">Services</span>
+          <ul class="geant-liste">
+            <li>Design d’interface</li>
+            <li>Design system</li>
+            <li>Audit UX</li>
+            <li>Site web &amp;<br>mise en ligne</li>
+          </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================= BANDEAU OUTILS -->
+  <section class="bandeau" aria-label="Les outils avec lesquels je travaille">
+    <div class="bandeau-piste">
+      <ul class="bandeau-serie">
+        <li><img src="img/logo-claude.svg" alt="Claude Code"></li>
+        <li><img src="img/logo-chatgpt.svg" alt="ChatGPT"></li>
+        <li><img src="img/logo-n8n.svg" alt="n8n"></li>
+        <li><img src="img/logo-photoshop.svg" alt="Photoshop"></li>
+        <li><img src="img/logo-illustrator.svg" alt="Illustrator"></li>
+        <li><img src="img/logo-aftereffects.svg" alt="After Effects"></li>
+        <li><img src="img/logo-indesign.svg" alt="InDesign"></li>
+        <li><img width="192" height="192" src="img/logo-higgsfield.png" alt="Higgsfield"></li>
+        <li><img src="img/logo-claude.svg" alt=""></li>
+        <li><img src="img/logo-chatgpt.svg" alt=""></li>
+        <li><img src="img/logo-n8n.svg" alt=""></li>
+        <li><img src="img/logo-photoshop.svg" alt=""></li>
+        <li><img src="img/logo-illustrator.svg" alt=""></li>
+        <li><img src="img/logo-aftereffects.svg" alt=""></li>
+        <li><img src="img/logo-indesign.svg" alt=""></li>
+        <li><img width="192" height="192" src="img/logo-higgsfield.png" alt=""></li>
+        <li><img src="img/logo-claude.svg" alt=""></li>
+        <li><img src="img/logo-chatgpt.svg" alt=""></li>
+        <li><img src="img/logo-n8n.svg" alt=""></li>
+        <li><img src="img/logo-photoshop.svg" alt=""></li>
+        <li><img src="img/logo-illustrator.svg" alt=""></li>
+        <li><img src="img/logo-aftereffects.svg" alt=""></li>
+        <li><img src="img/logo-indesign.svg" alt=""></li>
+        <li><img width="192" height="192" src="img/logo-higgsfield.png" alt=""></li>
+        <li><img src="img/logo-claude.svg" alt=""></li>
+        <li><img src="img/logo-chatgpt.svg" alt=""></li>
+        <li><img src="img/logo-n8n.svg" alt=""></li>
+        <li><img src="img/logo-photoshop.svg" alt=""></li>
+        <li><img src="img/logo-illustrator.svg" alt=""></li>
+        <li><img src="img/logo-aftereffects.svg" alt=""></li>
+        <li><img src="img/logo-indesign.svg" alt=""></li>
+        <li><img width="192" height="192" src="img/logo-higgsfield.png" alt=""></li>
+      </ul>
+      <ul class="bandeau-serie" aria-hidden="true">
+        <li><img src="img/logo-claude.svg" alt=""></li>
+        <li><img src="img/logo-chatgpt.svg" alt=""></li>
+        <li><img src="img/logo-n8n.svg" alt=""></li>
+        <li><img src="img/logo-photoshop.svg" alt=""></li>
+        <li><img src="img/logo-illustrator.svg" alt=""></li>
+        <li><img src="img/logo-aftereffects.svg" alt=""></li>
+        <li><img src="img/logo-indesign.svg" alt=""></li>
+        <li><img width="192" height="192" src="img/logo-higgsfield.png" alt=""></li>
+        <li><img src="img/logo-claude.svg" alt=""></li>
+        <li><img src="img/logo-chatgpt.svg" alt=""></li>
+        <li><img src="img/logo-n8n.svg" alt=""></li>
+        <li><img src="img/logo-photoshop.svg" alt=""></li>
+        <li><img src="img/logo-illustrator.svg" alt=""></li>
+        <li><img src="img/logo-aftereffects.svg" alt=""></li>
+        <li><img src="img/logo-indesign.svg" alt=""></li>
+        <li><img width="192" height="192" src="img/logo-higgsfield.png" alt=""></li>
+        <li><img src="img/logo-claude.svg" alt=""></li>
+        <li><img src="img/logo-chatgpt.svg" alt=""></li>
+        <li><img src="img/logo-n8n.svg" alt=""></li>
+        <li><img src="img/logo-photoshop.svg" alt=""></li>
+        <li><img src="img/logo-illustrator.svg" alt=""></li>
+        <li><img src="img/logo-aftereffects.svg" alt=""></li>
+        <li><img src="img/logo-indesign.svg" alt=""></li>
+        <li><img width="192" height="192" src="img/logo-higgsfield.png" alt=""></li>
+        <li><img src="img/logo-claude.svg" alt=""></li>
+        <li><img src="img/logo-chatgpt.svg" alt=""></li>
+        <li><img src="img/logo-n8n.svg" alt=""></li>
+        <li><img src="img/logo-photoshop.svg" alt=""></li>
+        <li><img src="img/logo-illustrator.svg" alt=""></li>
+        <li><img src="img/logo-aftereffects.svg" alt=""></li>
+        <li><img src="img/logo-indesign.svg" alt=""></li>
+        <li><img width="192" height="192" src="img/logo-higgsfield.png" alt=""></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ======================================================= CONTACT -->
+  <section class="chapitre enveloppe">
+    <div class="colonne reveler">
+      <span class="sur-titre">Parlons-en</span>
+      <h2>Si vous avez un projet, écrivez-moi.</h2>
+      <p>Je réponds vite, et le premier échange ne coûte rien.</p>
+      <p class="manuscrit">à bientôt</p>
+      <p style="margin-top:1.5rem">
+        <a class="bouton" href="mailto:uiuxmesreves@gmail.com">uiuxmesreves@gmail.com</a>
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="pied enveloppe">
+  <div class="pleine pied-rangee" style="margin:0">
+    <div>© 2026 Dikenga — Mes-reves Bouzanga</div>
+    <div>
+      <a href="mentions-legales.html">Mentions légales</a> ·
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<a class="retour-haut" href="#" id="retourHaut">Retour en haut ↑</a>
+
+<script>
+  (function () {
+    var pastille = document.getElementById('retourHaut');
+    var seuil = 800;
+    function maj() {
+      pastille.classList.toggle('visible', window.scrollY > seuil);
+    }
+    window.addEventListener('scroll', maj, { passive: true });
+    maj();
+    pastille.addEventListener('click', function (e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+
+  /* ---- Carrousel : défilement continu ---- */
+  (function () {
+    var piste = document.getElementById('piste');
+    if (!piste) return;
+
+    var originaux = [].slice.call(piste.querySelectorAll('.diapo'));
+    var nb = originaux.length;
+    var prec = document.getElementById('precedent');
+    var suiv = document.getElementById('suivant');
+    var compteur = document.getElementById('compteur');
+
+    /* on double la série pour que la boucle soit invisible */
+    originaux.forEach(function (d) {
+      var copie = d.cloneNode(true);
+      copie.setAttribute('aria-hidden', 'true');
+      piste.appendChild(copie);
+    });
+    piste.style.scrollSnapType = 'none';
+
+    var VITESSE = 42;          /* pixels par seconde */
+    var enMarche = false, dernier = 0, boucle = null, reprise = null;
+    /* position tenue à part, en flottant : à 60 images par seconde chaque pas
+       vaut 0,7 px, et l'arrondi de scrollLeft mangerait tout le déplacement. */
+    var position = 0;
+
+    function moitie() { return piste.scrollWidth / 2; }
+
+    function pas(t) {
+      if (!enMarche) return;
+      if (!dernier) dernier = t;
+      var dt = Math.min((t - dernier) / 1000, 0.05);
+      dernier = t;
+      position += VITESSE * dt;
+      if (position >= moitie()) position -= moitie();
+      piste.scrollLeft = position;
+      majCompteur();
+      boucle = requestAnimationFrame(pas);
+    }
+
+    function demarrer() {
+      if (enMarche) return;
+      enMarche = true; dernier = 0;
+      position = piste.scrollLeft;   /* on repart d'où l'utilisateur a laissé */
+      boucle = requestAnimationFrame(pas);
+    }
+    function arreter() {
+      enMarche = false;
+      if (boucle) cancelAnimationFrame(boucle);
+      boucle = null;
+    }
+    /* après une manipulation, on repart tout seul au bout de 2 s */
+    function pauseEtReprise() {
+      arreter();
+      clearTimeout(reprise);
+      reprise = setTimeout(demarrer, 2000);
+    }
+
+    function majCompteur() {
+      if (!compteur) return;
+      var l = originaux[0].offsetWidth + 20;
+      var i = Math.round(piste.scrollLeft / l) % nb;
+      compteur.textContent = (i + 1) + ' / ' + nb;
+    }
+
+    piste.addEventListener('mouseenter', arreter);
+    piste.addEventListener('mouseleave', demarrer);
+    piste.addEventListener('focusin', arreter);
+    piste.addEventListener('focusout', demarrer);
+    /* On ne met en pause que si la piste bouge autrement que par notre boucle :
+       un glissement vertical de la page ne doit pas arrêter le défilement. */
+    piste.addEventListener('scroll', function () {
+      if (!enMarche) return;
+      if (Math.abs(piste.scrollLeft - position) > 2) {
+        position = piste.scrollLeft;
+        pauseEtReprise();
+      }
+    }, { passive: true });
+
+    function decaler(sens) {
+      pauseEtReprise();
+      piste.scrollBy({ left: sens * (originaux[0].offsetWidth + 20), behavior: 'smooth' });
+    }
+    prec.addEventListener('click', function () { decaler(-1); });
+    suiv.addEventListener('click', function () { decaler(1); });
+    piste.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { e.preventDefault(); decaler(1); }
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); decaler(-1); }
+    });
+
+    document.addEventListener('visibilitychange', function () {
+      document.hidden ? arreter() : demarrer();
+    });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (e) {
+        e[0].isIntersecting ? demarrer() : arreter();
+      }, { threshold: 0.2 }).observe(piste);
+    }
+
+    demarrer();
+  })();
+
+</script>
+
+<script src="menu.js?v=21dbd46f" defer></script>
+</body>
+</html>

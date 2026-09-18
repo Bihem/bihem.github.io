@@ -1,0 +1,728 @@
+/* ==========================================================================
+   Dikenga — refonte 2026
+   Direction artistique : récit éditorial une colonne (julius.fm)
+   Palette monochrome relevée sur basseylakaf.com
+   ========================================================================== */
+
+:root {
+  /* Couleurs — relevées sur basseylakaf.com */
+  --noir:        #111111;
+  --noir-pur:    #000000;
+  --gris:        #746D6D;
+  --gris-bord:   #D9D9D9;
+  --gris-voile:  #EBE9E9;
+  --gris-fond:   #F2F0F0;
+  --blanc:       #FFFFFF;
+
+  /* Typographie — relevée sur julius.fm : police système, corps 18 / 27,9 */
+  --sans: -apple-system, "system-ui", Inter, "Segoe UI", system-ui, sans-serif;
+  --main: "Caveat", cursive;
+
+  --t-display: clamp(2.75rem, 7vw, 5rem);   /* 44 → 80 */
+  --t-titre:   clamp(1.75rem, 3.4vw, 2.5rem); /* 28 → 40 */
+  --t-sous:    1.125rem;  /* 18 — même taille que le corps, comme sur julius.fm */
+  --t-corps:   1.125rem;  /* 18 */
+  --t-petit:   0.875rem;  /* 14 */
+  --interligne: 1.55;     /* 27,9 / 18 */
+
+  /* Rythme */
+  --mesure: 38rem;        /* 608px — largeur de lecture */
+  --large:  75rem;        /* 1200px — largeur des visuels */
+  --marge:  1.25rem;
+
+  --chapitre: clamp(2.75rem, 5vw, 4.5rem);
+}
+
+/* --------------------------------------------------------------- Base --- */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--blanc);
+  color: var(--noir);
+  font-family: var(--sans);
+  font-size: var(--t-corps);
+  line-height: var(--interligne);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: inherit; text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--noir);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection { background: var(--noir); color: var(--blanc); }
+
+/* ------------------------------------------------------------ Gabarit --- */
+
+.enveloppe { width: 100%; padding-inline: var(--marge); }
+
+.colonne {
+  width: min(100%, var(--mesure));
+  margin-inline: auto;
+}
+
+/* Visuel qui déborde de la colonne de lecture */
+.pleine {
+  width: min(100%, var(--large));
+  margin-inline: auto;
+  margin-block: 2.5rem;
+}
+
+/* Le cadre découpe l'image : le léger dézoom au défilement ne déborde plus */
+.pleine > figure,
+figure.pleine { margin-inline: 0; }
+.pleine > figure > img,
+figure.pleine > img { border-radius: 1.25rem; }
+figure.pleine, .pleine > figure { overflow: clip; border-radius: 1.25rem; }
+figure.pleine figcaption, .pleine > figure figcaption { padding-top: .75rem; }
+
+.chapitre { padding-block: var(--chapitre); }
+/* Section remontée : le carrousel démarre juste sous le hero */
+.chapitre--haut { padding-top: 0; padding-bottom: 1.5rem; }
+.chapitre--haut .pleine { margin-top: 0; margin-bottom: 1.25rem; }
+
+/* Rupture pleine largeur en noir — emprunt à Bassey Lakaf */
+.rupture {
+  background: var(--noir-pur);
+  color: var(--blanc);
+  padding-block: var(--chapitre);
+}
+.rupture a { color: var(--blanc); }
+
+.fond-gris { background: var(--gris-fond); }
+
+/* ------------------------------------------------------- Typographie --- */
+
+h1, h2, h3 { line-height: 1.12; letter-spacing: -0.02em; margin: 0 0 1rem; font-weight: 700; }
+
+.display { font-size: var(--t-display); letter-spacing: -0.035em; }
+h2 { font-size: var(--t-titre); }
+h3 { font-size: var(--t-sous); letter-spacing: -0.01em; }
+
+p { margin: 0 0 0.9rem; }
+p:last-child { margin-bottom: 0; }
+
+.chapo { font-size: var(--t-sous); color: var(--noir); }
+.discret { color: var(--gris); }
+
+.sur-titre {
+  font-size: var(--t-petit);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gris);
+  margin-bottom: 1.25rem;
+  display: block;
+}
+
+/* Annotation manuscrite — emprunt à julius.fm */
+.manuscrit {
+  font-family: var(--main);
+  font-size: 1.6rem;
+  line-height: 1.15;
+  color: var(--gris);
+  transform: rotate(-4deg);
+  display: inline-block;
+}
+
+/* ------------------------------------------------------------- Entête --- */
+
+.entete {
+  position: sticky; top: 0; z-index: 40;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem var(--marge);
+  background: color-mix(in srgb, var(--blanc) 86%, transparent);
+  backdrop-filter: saturate(1.3) blur(10px);
+  border-bottom: 1px solid transparent;
+}
+.entete .marque { font-weight: 700; letter-spacing: -0.02em; text-decoration: none; }
+.entete nav { display: flex; gap: 1.25rem; font-size: var(--t-petit); }
+.entete nav a { color: var(--gris); text-decoration: none; }
+.entete nav a:hover, .entete nav a[aria-current="page"] { color: var(--noir); }
+
+/* --------------------------------------------------------------- Hero --- */
+
+.hero { padding-block: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 3vw, 2.5rem); }
+
+.portrait {
+  width: clamp(9rem, 22vw, 13rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--gris-fond);
+}
+
+.hero-haut {
+  display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+/* Hero en deux colonnes : texte à gauche, portrait à droite */
+.hero-duo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: start;
+  width: min(100%, 70.5rem);   /* 1128px — marges de 154/158px a 1440, comme julius.fm */
+  margin-inline: auto;
+}
+.hero-duo .portrait-grand {
+  width: clamp(13rem, 21vw, 19.2rem);   /* 307px max, comme julius.fm */
+  aspect-ratio: 1;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--gris-fond);
+}
+.hero-texte { max-width: 34rem; }   /* 544px — largeur de lecture de julius.fm */
+.hero-texte .nom { font-size: 1.75rem; font-weight: 700; letter-spacing: -0.01em; }
+.hero-texte .role { font-size: var(--t-corps); }
+.hero-visuel { position: relative; justify-self: end; }
+.hero-visuel .manuscrit {
+  position: absolute;
+  left: -5.5rem; bottom: 1.5rem;
+  transform: rotate(-8deg);
+  max-width: 7rem;
+  text-align: right;
+}
+
+/* Liens de contact en pastilles */
+/* Pastilles de contact — anatomie relevée sur julius.fm :
+   pas de bordure, une ombre douce portée par un pseudo-élément qui grandit au survol. */
+.pastilles { display: flex; flex-wrap: wrap; gap: .75rem; margin: 1.4rem 0 0; padding: 0; list-style: none; }
+.pastilles a {
+  position: relative; isolation: isolate;
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 12px 14px 12px 16px;
+  border: 0; border-radius: 999px;
+  background: var(--blanc); color: var(--noir);
+  text-decoration: none;
+  font-size: 17px; font-weight: 500; line-height: 21px;
+  transform-origin: 50% center;
+  backface-visibility: hidden;
+  transition: transform .3s cubic-bezier(.22,1,.36,1);
+}
+.pastilles a::after {
+  content: ""; position: absolute; inset: 0;
+  border-radius: inherit; z-index: -1; pointer-events: none;
+  box-shadow: rgba(0, 0, 0, .14) 0 6px 24px;
+  transition: box-shadow .3s ease;
+}
+.pastilles a:hover::after { box-shadow: rgba(0, 0, 0, .2) 0 12px 34px; }
+.pastilles a:hover .fleche { color: var(--noir); }
+.pastilles a:active { transform: scale(.97); }
+.pastilles .fleche { color: var(--gris); transition: color .3s ease; }
+
+@media (max-width: 52rem) {
+  .hero-duo { grid-template-columns: 1fr; justify-items: start; }
+  .hero-visuel { justify-self: start; order: -1; margin-bottom: 1.5rem; }
+  .hero-visuel .manuscrit { position: static; transform: rotate(-4deg); max-width: none; text-align: left; display: block; margin-top: .5rem; }
+}
+
+.identite .nom { font-size: var(--t-titre); font-weight: 700; letter-spacing: -0.02em; }
+.identite .role { color: var(--gris); font-size: var(--t-sous); }
+
+/* ------------------------------------------------------------ Boutons --- */
+
+.bouton {
+  display: inline-flex; align-items: center; gap: .55rem;
+  min-height: 44px; padding: 0 1.25rem;
+  border: 1px solid var(--noir); border-radius: 999px;
+  background: var(--noir); color: var(--blanc);
+  font: 500 var(--t-corps)/1 var(--sans);
+  text-decoration: none; cursor: pointer;
+  transition: background-color .25s ease, color .25s ease, transform .15s ease;
+}
+.bouton:hover { background: transparent; color: var(--noir); }
+.bouton:active { transform: scale(.97); }
+
+.bouton--clair { background: transparent; color: var(--noir); }
+.bouton--clair:hover { background: var(--noir); color: var(--blanc); }
+
+.rupture .bouton { background: var(--blanc); color: var(--noir); border-color: var(--blanc); }
+.rupture .bouton:hover { background: transparent; color: var(--blanc); }
+
+/* -------------------------------------------------------------- Liste --- */
+
+.liste-nue { list-style: none; margin: 0; padding: 0; }
+
+.faits { display: grid; gap: 0; margin-block: 2rem; }
+.faits div {
+  display: flex; justify-content: space-between; gap: 1.5rem;
+  padding: .85rem 0; border-top: 1px solid var(--gris-bord);
+}
+.faits div:last-child { border-bottom: 1px solid var(--gris-bord); }
+.faits dt, .faits .cle { color: var(--gris); }
+.faits .valeur { font-weight: 500; text-align: right; }
+
+/* -------------------------------------------------------------- Cartes --- */
+
+.cartes { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
+
+.carte {
+  border: 1px solid var(--gris-bord);
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  background: var(--blanc);
+}
+.carte h3 { margin-bottom: .5rem; }
+.carte p { color: var(--gris); margin: 0; font-size: var(--t-corps); }
+
+/* ---------------------------------------------------------- Carrousel --- */
+
+.carrousel { position: relative; }
+
+.carrousel-piste {
+  display: flex;
+  max-width: 100%;
+  gap: 1.25rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  /* surtout pas scroll-behavior: smooth ici : chaque scrollLeft += du défilement
+     automatique deviendrait une animation, et la lecture suivante renverrait
+     l'ancienne valeur — la piste resterait figée. */
+  padding: .25rem .25rem 1.5rem;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+.carrousel-piste::-webkit-scrollbar { display: none; }
+
+.diapo {
+  flex: 0 0 auto;
+  width: min(40vw, 22rem);
+  scroll-snap-align: center;
+  margin: 0;
+}
+.diapo img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 0;          /* angles droits */
+  background: var(--gris-fond);
+  transition: transform .5s cubic-bezier(.22,.61,.36,1);
+}
+@media (hover: hover) and (pointer: fine) {
+  .diapo:hover img { transform: scale(1.015); }
+}
+/* Maquettes de pages entières : on cadre sur le haut plutôt qu'au centre */
+.diapo--haute img { object-position: top center; }
+
+.diapo figcaption {
+  display: flex; justify-content: space-between; gap: 1rem;
+  margin-top: .85rem;
+  font-size: var(--t-petit);
+  color: var(--gris);
+}
+.diapo figcaption b { color: var(--noir); font-weight: 500; }
+
+.carrousel-commandes {
+  display: flex; align-items: center; gap: .75rem;
+  margin-top: .5rem;
+}
+.carrousel-bouton {
+  width: 44px; height: 44px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid var(--gris-bord); border-radius: 999px;
+  background: var(--blanc); color: var(--noir);
+  cursor: pointer; font-size: 1rem; line-height: 1;
+  transition: border-color .2s ease, background-color .2s ease, transform .15s ease;
+}
+.carrousel-bouton:hover:not(:disabled) { border-color: var(--noir); background: var(--gris-fond); }
+.carrousel-bouton:active:not(:disabled) { transform: scale(.94); }
+.carrousel-bouton:disabled { opacity: .35; cursor: default; }
+.carrousel-compteur { font-size: var(--t-petit); color: var(--gris); font-variant-numeric: tabular-nums; }
+
+@media (max-width: 40rem) {
+  .diapo { width: 74vw; }
+}
+
+/* --------------------------------------------------------- Tableau --- */
+
+.tableau { width: 100%; border-collapse: collapse; font-size: var(--t-corps); }
+.tableau th, .tableau td { text-align: left; padding: .8rem .75rem; border-bottom: 1px solid var(--gris-bord); }
+.tableau th { font-weight: 500; color: var(--gris); font-size: var(--t-petit); text-transform: uppercase; letter-spacing: .08em; }
+.tableau tbody tr:last-child td { border-bottom: 0; font-weight: 700; }
+.tableau .mise-en-avant { background: var(--gris-fond); }
+
+/* ---------------------------------------------------- Retour en haut --- */
+
+.retour-haut {
+  position: fixed; left: 50%; bottom: 1.25rem; translate: -50% 0;
+  z-index: 50;
+  display: inline-flex; align-items: center; gap: .5rem;
+  min-height: 40px; padding: 0 1rem;
+  border: 1px solid var(--gris-bord); border-radius: 999px;
+  background: color-mix(in srgb, var(--blanc) 88%, transparent);
+  backdrop-filter: blur(10px);
+  color: var(--noir); font-size: var(--t-petit); text-decoration: none;
+  opacity: 0; pointer-events: none;
+  transition: opacity .3s ease;
+}
+.retour-haut.visible { opacity: 1; pointer-events: auto; }
+
+/* -------------------------------------------------------------- Pied --- */
+
+.pied {
+  border-top: 1px solid var(--gris-bord);
+  padding-block: 3rem;
+  font-size: var(--t-petit);
+  color: var(--gris);
+}
+.pied a { color: var(--noir); }
+.pied-rangee { display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: space-between; }
+
+/* --------------------------------------------------------- Animations --- */
+
+@media (prefers-reduced-motion: no-preference) {
+
+  /* Révélation au défilement — CSS piloté par le défilement */
+  @supports (animation-timeline: view()) {
+    .reveler {
+      animation: apparition both linear;
+      animation-timeline: view();
+      animation-range: entry 0% entry 62%;
+    }
+    @keyframes apparition {
+      from { opacity: 0; transform: translateY(48px); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    .pleine img {
+      animation: recadrage both linear;
+      animation-timeline: view();
+      animation-range: cover 0% cover 100%;
+    }
+    @keyframes recadrage {
+      from { scale: 1.08; }
+      to   { scale: 1; }
+    }
+  }
+
+  /* Entrée du hero — transformation seule : le texte reste toujours lisible */
+  .hero-haut, .hero .chapo, .hero .actions { animation: montee .8s cubic-bezier(.22,.61,.36,1) both; }
+  .hero .chapo { animation-delay: .1s; }
+  .hero .actions { animation-delay: .2s; }
+  @keyframes montee { from { transform: translateY(18px); } to { transform: none; } }
+}
+
+/* ------------------------------------------------------------ Mobile --- */
+
+@media (max-width: 40rem) {
+  .hero-haut { gap: 1.25rem; }
+  .entete nav { gap: .9rem; }
+  .manuscrit { font-size: 1.35rem; }
+}
+
+
+/* ------------------------------------------------------------ Montage --- */
+
+figure.pleine.montage { overflow: visible; border-radius: 0; margin-inline: auto; }
+.montage-cadre {
+  display: block;
+  width: min(100%, 60rem);   /* 960px */
+  aspect-ratio: 3 / 2;       /* proportion de la scène du montage */
+  margin-inline: auto;       /* centré */
+  border: 0;
+  background: transparent;
+}
+
+/* ------------------------------------------ Services — grand format --- */
+/* Typographie relevée sur craigelve.co.uk : 42/48 gras, 55/60 au-delà
+   de 1250 px. Ici centré, étiquette au-dessus, intitulés sans écart.     */
+
+.geant {
+  scroll-margin-top: 4.5rem;   /* l'en-tête collant ne recouvre pas le titre */
+  background: var(--noir);
+  color: var(--blanc);
+  padding-block: calc(var(--chapitre) * 1.15);
+}
+.geant-bloc { width: fit-content; max-width: 100%; margin: 0 auto; }
+
+/* colonne de gauche laissée vide : le bloc reste calé à droite */
+.geant-ligne {
+  display: grid;
+  grid-template-columns: 22rem auto;
+  gap: 3.5rem;
+}
+.geant-colonne { grid-column: 2; }
+
+/* même sur-titre que les autres sections, éclairci pour le fond noir */
+.geant-cle { color: var(--gris-bord); font-weight: 700; }
+
+.geant-liste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 42px;
+  line-height: 48px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.geant-liste li { margin: 0; }
+
+@media (min-width: 1250px) {
+  .geant-liste { font-size: 55px; line-height: 60px; }
+}
+
+@media (max-width: 900px) {
+  .geant-ligne { grid-template-columns: 1fr; }
+  .geant-colonne { grid-column: 1; }
+  .geant-liste { font-size: 34px; line-height: 39px; }
+}
+
+/* --------------------------------------------------- Menu burger --- */
+/* Sous 700 px : les liens passent dans un panneau qui glisse depuis la droite. */
+
+.burger {
+  display: none;
+  position: relative;
+  width: 44px; height: 44px;      /* cible tactile confortable */
+  margin: -11px -8px -11px 0;      /* compense le padding de l'en-tête */
+  padding: 0;
+  border: 0; background: transparent;
+  cursor: pointer;
+  z-index: 60;
+}
+.burger span {
+  position: absolute;
+  left: 11px; width: 22px; height: 2px;
+  background: var(--noir);
+  border-radius: 2px;
+  transition: transform .3s cubic-bezier(.22,1,.36,1), opacity .2s ease;
+}
+.burger span:nth-child(1) { top: 15px; }
+.burger span:nth-child(2) { top: 21px; }
+.burger span:nth-child(3) { top: 27px; }
+.burger.actif span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.burger.actif span:nth-child(2) { opacity: 0; }
+.burger.actif span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+.menu-voile {
+  position: fixed; inset: 0; z-index: 30;   /* sous l'en-tête, qui est à 40 */
+  background: rgba(17, 17, 17, .35);
+  opacity: 0; pointer-events: none;
+  transition: opacity .3s ease;
+}
+.menu-voile.visible { opacity: 1; pointer-events: auto; }
+
+@media (max-width: 700px) {
+  .burger { display: block; }
+
+  /* Sans ça, le backdrop-filter de l'en-tête devient le bloc conteneur du
+     panneau en position:fixed, qui ne peut alors plus occuper tout l'écran.
+     Et z-index doit dépasser celui du voile (45) : l'en-tête crée son propre
+     contexte d'empilement, donc le z-index du panneau ne compte pas hors de lui. */
+  .entete { backdrop-filter: none; background: var(--blanc); z-index: 60; }
+
+  .entete nav {
+    position: fixed;
+    top: 0; right: 0; bottom: 0;
+    z-index: 50;
+    width: min(78vw, 20rem);
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0;
+    padding: 5.5rem 1.75rem 2rem;
+    background: var(--blanc);
+    box-shadow: rgba(0, 0, 0, .18) -8px 0 40px;
+    transform: translateX(100%);
+    visibility: hidden;   /* sort aussi de l'ordre de tabulation */
+    transition: transform .35s cubic-bezier(.22,1,.36,1), visibility 0s .35s;
+  }
+  .entete nav.ouvert {
+    transform: none;
+    visibility: visible;
+    transition: transform .35s cubic-bezier(.22,1,.36,1), visibility 0s;
+  }
+
+  /* clip, et non hidden : ne casse pas le position:sticky de l'en-tête */
+  html { overflow-x: clip; }
+
+  /* les trois pastilles doivent tenir sur une seule ligne, comme julius.fm */
+  .pastilles { gap: .5rem; justify-content: space-between; }
+
+  .pastilles a { font-size: 15px; padding: 12px 12px 12px 14px; gap: 7px; }
+
+  .entete nav a {
+    font-size: 1.375rem;          /* 22px */
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--noir);
+    padding: .85rem 0;
+    border-bottom: 1px solid var(--gris-voile);
+  }
+  .entete nav a[aria-current="page"] { color: var(--gris); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .entete nav, .burger span, .menu-voile { transition: none; }
+}
+
+/* ------------------------------------------- Héros sur mobile --- */
+/* Disposition relevée sur julius.fm en 375 px : portrait rond calé à droite,
+   annotation manuscrite à sa gauche, puis nom et fonction à la même taille,
+   la fonction en gris.                                                     */
+
+@media (max-width: 700px) {
+  .hero-visuel {
+    position: relative;
+    justify-self: end;
+    margin-bottom: 2.5rem;
+  }
+  .hero-visuel .manuscrit {
+    position: absolute;
+    left: -7.5rem; bottom: 1.25rem;
+    transform: rotate(-8deg);
+    max-width: 8rem;
+    text-align: right;
+    margin-top: 0;
+  }
+  .hero-texte .role {
+    font-size: 1.75rem;          /* même corps que le nom */
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--gris);
+  }
+  .hero-texte .nom { line-height: 1.15; }
+}
+
+/* ------------------------------------------------ Rangée de logos --- */
+/* Gabarit relevé sur julius.fm : hauteur fixée à 24 px, largeur libre,
+   30 px entre chaque, alignés sur leur axe central.                     */
+
+.logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px 30px;
+  margin: 0 0 1.75rem;
+  padding: 0;
+  list-style: none;
+}
+.logos li {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.logos img {
+  display: block;
+  height: 24px;
+  width: auto;
+  flex: 0 0 auto;
+}
+.logos span {
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+  color: var(--noir);
+  white-space: nowrap;
+}
+
+@media (max-width: 700px) {
+  /* resserré pour que les trois verrous tiennent sur une ligne en 375 px */
+  .logos { gap: 16px 20px; }
+  .logos span { font-size: 15px; }
+}
+
+/* ----------------------------------------------- Bandeau d'outils --- */
+/* Deux séries identiques mises bout à bout : on translate la piste de la
+   moitié de sa largeur, donc la boucle est invisible. Animation CSS pure,
+   pas de JavaScript — rien à démarrer, rien qui puisse se figer.         */
+
+.bandeau {
+  padding-block: calc(var(--chapitre) * .75);
+  overflow: hidden;
+  background: var(--blanc);
+  /* les logos s'effacent sur les bords au lieu d'être coupés net */
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+          mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+
+.bandeau-piste {
+  display: flex;
+  width: max-content;
+  animation: bandeau-defile 80s linear infinite;
+}
+.bandeau:hover .bandeau-piste,
+.bandeau:focus-within .bandeau-piste { animation-play-state: paused; }
+
+.bandeau-serie {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  margin: 0;
+  padding: 0 2rem;
+  list-style: none;
+}
+.bandeau-serie img {
+  display: block;
+  height: 34px;
+  width: auto;
+}
+
+@keyframes bandeau-defile {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (max-width: 700px) {
+  .bandeau-serie { gap: 2.5rem; padding: 0 1.25rem; }
+  .bandeau-serie img { height: 28px; }
+  .bandeau-piste { animation-duration: 60s; }
+}
+
+/* ------------------------------------------------ Article de blog --- */
+
+.titre-article {
+  font-size: var(--t-titre);
+  letter-spacing: -0.025em;
+  max-width: 22ch;
+}
+
+.article { font-size: var(--t-corps); line-height: var(--interligne); }
+.article > *:first-child { margin-top: 0; }
+.article h2 {
+  font-size: var(--t-sous);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 2.75rem 0 .75rem;
+}
+.article h3 { font-size: var(--t-corps); font-weight: 700; margin: 2rem 0 .5rem; }
+.article p { margin: 0 0 1.1rem; }
+.article ul, .article ol { margin: 0 0 1.1rem; padding-left: 1.25rem; }
+.article li { margin-bottom: .45rem; }
+.article a { color: var(--noir); text-decoration: underline; }
+.article blockquote {
+  margin: 1.75rem 0;
+  padding-left: 1.25rem;
+  border-left: 2px solid var(--gris-bord);
+  color: var(--gris);
+}
+.article code {
+  background: var(--gris-fond);
+  padding: .1em .35em;
+  border-radius: .25rem;
+  font-size: .9em;
+}
+.article img { border-radius: 1.25rem; margin: 1.75rem 0; }
+
+.article-pied {
+  margin-top: 3.5rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--gris-bord);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+}

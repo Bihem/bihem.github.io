@@ -1,0 +1,72 @@
+{
+  "updated": "2026-05-17T20:00:00Z",
+  "studios": [
+    {
+      "id": "studio_repetition",
+      "name": "Studios de répétition",
+      "slug": "repetition",
+      "type": "rehearsal",
+      "count": 4,
+      "page": "studios-repetition.html",
+      "description": "4 studios équipés (batterie, amplis, sono, micros). Tarifs progressifs solo/duo/groupe selon créneau.",
+      "schedule": "Mardi au samedi · 15h–22h",
+      "phone": "01 48 91 47 74",
+      "email": "regiestudio@canal93.net",
+      "pricing": [
+        { "label": "Solo · 15h–19h",   "price": 5,  "unit": "/h" },
+        { "label": "Solo · 19h–22h",   "price": 7,  "unit": "/h" },
+        { "label": "Duo · 15h–19h",    "price": 7,  "unit": "/h" },
+        { "label": "Duo · 19h–22h",    "price": 9,  "unit": "/h" },
+        { "label": "Groupe 3+ · 15h–19h", "price": 13, "unit": "/h" },
+        { "label": "Groupe 3+ · 19h–22h", "price": 15, "unit": "/h" }
+      ],
+      "packages": [
+        { "label": "Forfait 10 h", "price": 60, "unit": "" },
+        { "label": "Forfait 20 h", "price": 110, "unit": "" },
+        { "label": "Forfait 30 h", "price": 150, "unit": "" }
+      ]
+    },
+    {
+      "id": "studio_enregistrement",
+      "name": "Studio d'enregistrement",
+      "slug": "enregistrement",
+      "type": "recording",
+      "count": 1,
+      "page": "studio-enregistrement.html",
+      "description": "Studio pro avec console SSD, micros Neumann/AKG, préamplis Avalon/Tube-Tech, Pro Tools, régie séparée.",
+      "schedule": "Mardi au samedi · 15h–22h · sur réservation",
+      "phone": "01 48 91 47 74",
+      "email": "regiestudio@canal93.net",
+      "pricing": [
+        { "label": "Enregistrement solo (voix/instrument)", "price": 30, "unit": "/h" },
+        { "label": "Enregistrement groupe",                  "price": 45, "unit": "/h" },
+        { "label": "Mix & mastering",                        "price": 55, "unit": "/h" }
+      ],
+      "packages": [
+        { "label": "Demi-journée (4h)", "price": 120, "unit": "" },
+        { "label": "Journée (8h)",      "price": 220, "unit": "" }
+      ]
+    },
+    {
+      "id": "studio_danse",
+      "name": "Studio danse",
+      "slug": "danse",
+      "type": "dance",
+      "count": 1,
+      "page": "studio-danse.html",
+      "description": "Grand studio danse avec miroirs, sono, parquet professionnel — pour compagnies pro, créations, résidences.",
+      "schedule": "Sur réservation",
+      "phone": "01 48 91 47 74",
+      "email": "regiestudio@canal93.net",
+      "pricing": [
+        { "label": "Compagnies professionnelles", "price": 0, "unit": "Sur devis" },
+        { "label": "Ateliers / cours réguliers",  "price": 0, "unit": "Sur devis" }
+      ],
+      "packages": []
+    }
+  ],
+  "membership": {
+    "annualBalbynien": 5,
+    "annualNonBalbynien": 10
+  }
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Les 7 erreurs UI qui font fuir vos visiteurs en moins de 3 secondes | Dikenga</title>
+<meta name="description" content="Vous avez 3 secondes. C&#x27;est le temps que prend un visiteur pour décider s&#x27;il reste sur votre site ou s&#x27;il repart. Voici les 7 erreurs que j&#x27;observe le…">
+<link rel="canonical" href="https://dikengadesign.fr/blog/les-7-erreurs-ui-qui-font-fuir-vos-visiteurs-en-moins-de-3-secondes.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Les 7 erreurs UI qui font fuir vos visiteurs en moins de 3 secondes">
+<meta property="og:description" content="Vous avez 3 secondes. C&#x27;est le temps que prend un visiteur pour décider s&#x27;il reste sur votre site ou s&#x27;il repart. Voici les 7 erreurs que j&#x27;observe le…">
+<meta property="og:url" content="https://dikengadesign.fr/blog/les-7-erreurs-ui-qui-font-fuir-vos-visiteurs-en-moins-de-3-secondes.html">
+<link rel="icon" href="/img/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css?v=ed5b0b5a">
+</head>
+<body>
+
+<header class="entete">
+  <a class="marque" href="/index.html">Dikenga</a>
+  <button class="burger" id="burger" type="button"
+          aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu-principal">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="menu-principal" aria-label="Navigation principale">
+    <a href="/projets.html">Projets</a>
+    <a href="/index.html#services">Services</a>
+    <a href="/blog.html" aria-current="page">Blog</a>
+    <a href="/contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+  <article>
+    <section class="hero enveloppe">
+      <div class="colonne">
+        <span class="sur-titre">UI/UX Design · 4 Avril 2025 · 5 min de lecture</span>
+        <h1 class="titre-article">Les 7 erreurs UI qui font fuir vos visiteurs en moins de 3 secondes</h1>
+      </div>
+    </section>
+
+    <section class="chapitre enveloppe" style="padding-top:0">
+      <div class="colonne article">
+        <p>Vous avez 3 secondes. C'est le temps que prend un visiteur pour décider s'il reste sur votre site ou s'il repart. Voici les 7 erreurs que j'observe le plus souvent chez mes clients.</p>
+        <h2>1. La hiérarchie visuelle absente</h2>
+        <p>Quand tout est gros et coloré, rien n'attire l'attention. Un bon design guide l'œil vers ce qui compte : votre proposition de valeur, puis votre CTA.</p>
+        <h2>2. Le CTA invisible ou trop tardif</h2>
+        <p>Votre bouton "Contactez-moi" tout en bas de la page ne convertit pas. Le CTA doit être visible above the fold et répété intelligemment.</p>
+        <h2>3. Une typographie illisible</h2>
+        <p>Taille trop petite, contraste insuffisant, interlignage serré — ces trois erreurs tuent la lisibilité et augmentent le taux de rebond.</p>
+        <h2>4. Trop d'informations sur la homepage</h2>
+        <p>La homepage n'est pas une brochure. Son seul job : convaincre le visiteur de passer à l'action ou d'explorer plus loin.</p>
+        <h2>5. Des images génériques</h2>
+        <p>Les photos Shutterstock de gens qui sourient en costume devant un ordinateur ne inspirent aucune confiance. Utilisez de vraies photos ou du design sur-mesure.</p>
+        <h2>6. Pas de preuve sociale</h2>
+        <p>Témoignages, logos clients, chiffres — la preuve sociale réduit le risque perçu et accélère la décision d'achat.</p>
+        <h2>7. Mobile oublié</h2>
+        <p>En France, plus de 60% du trafic web vient du mobile. Un site non optimisé mobile perd plus de la moitié de ses visiteurs potentiels.</p>
+
+        <div class="article-pied">
+          <a href="/blog.html">← Tous les articles</a>
+          <a class="bouton bouton--clair" href="/contact.html">Parler de votre projet</a>
+        </div>
+      </div>
+    </section>
+  </article>
+
+</main>
+
+<footer class="pied enveloppe">
+  <div class="pleine pied-rangee" style="margin:0">
+    <div>© 2026 Dikenga — Mes-reves Bouzanga</div>
+    <div>
+      <a href="/index.html">Accueil</a> ·
+      <a href="/mentions-legales.html">Mentions légales</a> ·
+      <a href="/contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<a class="retour-haut" href="#" id="retourHaut">Retour en haut ↑</a>
+
+<script>
+  (function () {
+    var p = document.getElementById('retourHaut');
+    function maj() { p.classList.toggle('visible', window.scrollY > 800); }
+    window.addEventListener('scroll', maj, { passive: true });
+    maj();
+    p.addEventListener('click', function (e) { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  })();
+</script>
+<script src="/menu.js?v=21dbd46f" defer></script>
+</body>
+</html>

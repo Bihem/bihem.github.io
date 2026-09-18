@@ -1,0 +1,31 @@
+{
+  "name": "Canal 93 — Bobigny",
+  "short_name": "Canal 93",
+  "description": "Lieu de musiques actuelles à Bobigny, Seine-Saint-Denis. Concerts, studios, ateliers, résidences.",
+  "start_url": "/canal93/",
+  "scope": "/canal93/",
+  "display": "standalone",
+  "background_color": "#0A0A0A",
+  "theme_color": "#0A0A0A",
+  "lang": "fr",
+  "icons": [
+    {
+      "src": "assets/img/c93-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/img/c93-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/img/c93-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
