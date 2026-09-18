@@ -921,3 +921,10 @@ h1, h2, .display, .titre-article, .billet-titre { text-wrap: balance; }
   .diapo img { transition: transform .5s cubic-bezier(.22, 1, .36, 1); }
   .diapo:hover img { transform: scale(1.04); }
 }
+
+/* Visuels à bords droits, comme les diapositives du carrousel.
+   Sélecteur doublé : « figure.pleine » et « figure.pleine > img » sont plus
+   spécifiques qu'une simple classe, et le « overflow: clip » de la figure
+   arrondirait l'image même si l'image, elle, ne l'était plus. */
+figure.pleine.angles-droits,
+figure.pleine.angles-droits > img { border-radius: 0; }
