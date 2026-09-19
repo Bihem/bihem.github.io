@@ -864,19 +864,6 @@ figure.pleine.montage { overflow: visible; border-radius: 0; margin-inline: auto
 h1, h2, .display, .titre-article, .billet-titre { text-wrap: balance; }
 .chapo, .billet-extrait { text-wrap: pretty; }
 
-/* --------------------------------- Présentations sur petit écran --- */
-/* La présentation Talseume est une toile fixe de 1280 px : sur téléphone elle
-   est fortement réduite. Un bouton sous le cadre permet de l'ouvrir en plein
-   écran. La présentation StudioBooking, elle, se réorganise d'elle-même. */
-
-.relais-mobile { display: none; }
-
-@media (max-width: 700px) {
-  .relais-mobile { display: block; text-align: center; margin: 0; }
-  /* La présentation reste affichée sur mobile, à la demande de Bihem.
-     Elle y est réduite — c'est une toile fixe de 1280 px — d'où le bouton
-     juste en dessous, qui l'ouvre en plein écran. */
-}
 
 /* Diapositives au format paysage : même boîte que les autres — même largeur,
    même hauteur. « contain » évite de recadrer : la mise en page reste entière,
