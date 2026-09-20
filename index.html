@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css?v=b4821967">
-<link rel="stylesheet" href="styles-portfolio.css?v=dff80a25">
+<link rel="stylesheet" href="styles-portfolio.css?v=6769204c">
 
 <script type="application/ld+json">
 {
@@ -278,7 +278,8 @@
 
   <!-- ========================================== SYSTEMATIC BY DESIGN -->
   <section class="bloc bloc--noir" id="design-system">
-    <div class="wrap">
+    <div class="wrap systeme">
+
       <div class="systeme-texte">
         <p class="label">Une approche systématique</p>
         <h2>Concevoir une interface.<br>Construire un système.</h2>
@@ -293,161 +294,56 @@
         </ul>
       </div>
 
-      <!-- Aperçu construit entièrement en HTML/CSS : ce sont de vrais composants,
-           et les valeurs affichées sont les jetons qui font tourner ce site. -->
-      <div class="ds">
-
-        <p class="ds-titre">Foundations</p>
-        <div class="ds-grille">
-
-          <div class="ds-carte ds-carte--large">
-            <span class="ds-nom">Couleurs</span>
-            <ul class="ds-palette">
-              <li><i style="background:#0D0D0F"></i><b>Encre</b><code>#0D0D0F</code></li>
-              <li><i style="background:#2A2A2E"></i><b>Graphite</b><code>#2A2A2E</code></li>
-              <li><i style="background:#6E6E73"></i><b>Gris</b><code>#6E6E73</code></li>
-              <li><i style="background:#E4E4E0"></i><b>Trait</b><code>#E4E4E0</code></li>
-              <li><i style="background:#F4F4F2"></i><b>Papier</b><code>#F4F4F2</code></li>
-              <li><i style="background:#FFFFFF"></i><b>Blanc</b><code>#FFFFFF</code></li>
-            </ul>
+      <!-- Aperçu construit en HTML/CSS : ce sont de vrais composants, pas une image. -->
+      <div class="ds-grille" aria-label="Aperçu des composants d’un Design System">
+        <div class="ds-carte">
+          <span class="ds-nom">Couleurs</span>
+          <div class="ds-couleurs">
+            <i style="background:#111"></i><i style="background:#6B5BD2"></i>
+            <i style="background:#E8E8E6"></i><i style="background:#fff"></i>
           </div>
-
-          <div class="ds-carte ds-carte--large">
-            <span class="ds-nom">Typographie</span>
-            <ul class="ds-typo">
-              <li><span style="font-size:30px;letter-spacing:-.04em">Display</span><code>60 / 1.08</code></li>
-              <li><span style="font-size:22px;letter-spacing:-.03em">Titre</span><code>44 / 1.12</code></li>
-              <li><span style="font-size:16px">Sous-titre</span><code>22 / 1.4</code></li>
-              <li><span style="font-size:14px">Corps</span><code>16 / 1.55</code></li>
-              <li><span style="font-size:11px;letter-spacing:.16em;text-transform:uppercase">Légende</span><code>11 / .16em</code></li>
-            </ul>
-          </div>
-
-          <div class="ds-carte">
-            <span class="ds-nom">Espacement</span>
-            <ul class="ds-espace">
-              <li><i style="width:22px"></i><code>22</code></li>
-              <li><i style="width:36px"></i><code>36</code></li>
-              <li><i style="width:56px"></i><code>56</code></li>
-              <li><i style="width:112px"></i><code>112</code></li>
-            </ul>
-          </div>
-
-          <div class="ds-carte">
-            <span class="ds-nom">Rayons &amp; élévation</span>
-            <div class="ds-rayons">
-              <span><i style="border-radius:0"></i><code>0</code></span>
-              <span><i style="border-radius:8px"></i><code>8</code></span>
-              <span><i style="border-radius:999px"></i><code>999</code></span>
-              <span><i class="ds-ombre"></i><code>ombre</code></span>
-            </div>
-          </div>
-
         </div>
 
-        <p class="ds-titre">Composants</p>
-        <div class="ds-grille">
-
-          <div class="ds-carte">
-            <span class="ds-nom">Boutons</span>
-            <div class="ds-pile">
-              <em class="dsb dsb--plein">Principal</em>
-              <em class="dsb">Secondaire</em>
-              <em class="dsb dsb--nu">Tertiaire <i class="dsb-fl">↗</i></em>
-            </div>
-          </div>
-
-          <div class="ds-carte">
-            <span class="ds-nom">Champs</span>
-            <div class="ds-pile">
-              <em class="dsf">Adresse e-mail</em>
-              <em class="dsf dsf--actif">nom@domaine.fr<i class="dsf-caret"></i></em>
-              <em class="dsf dsf--erreur">Format invalide</em>
-            </div>
-          </div>
-
-          <div class="ds-carte">
-            <span class="ds-nom">Sélecteurs</span>
-            <div class="ds-select">
-              <span><i class="dsc dsc--on">✓</i>Case cochée</span>
-              <span><i class="dsc"></i>Case vide</span>
-              <span><i class="dsr dsr--on"></i>Option</span>
-              <span><i class="dsw"></i>Interrupteur</span>
-            </div>
-          </div>
-
-          <div class="ds-carte">
-            <span class="ds-nom">Navigation</span>
-            <div class="ds-pile">
-              <div class="ds-seg"><em class="on">Aperçu</em><em>Détail</em><em>Notes</em></div>
-              <div class="ds-fil">Accueil <i>/</i> Projets <i>/</i> <b>Fiche</b></div>
-            </div>
-          </div>
-
-          <div class="ds-carte">
-            <span class="ds-nom">Badges</span>
-            <div class="ds-badges">
-              <em class="dsg dsg--ok">Confirmé</em>
-              <em class="dsg dsg--att">En attente</em>
-              <em class="dsg dsg--err">Annulé</em>
-              <em class="dsg">Brouillon</em>
-            </div>
-          </div>
-
-          <div class="ds-carte ds-carte--large">
-            <span class="ds-nom">Tableau</span>
-            <table class="dst">
-              <thead><tr><th>Studio</th><th>Créneau</th><th>Statut</th></tr></thead>
-              <tbody>
-                <tr><td>Studio A</td><td>10:00 — 12:00</td><td><em class="dsg dsg--ok">Confirmé</em></td></tr>
-                <tr><td>Studio B</td><td>14:00 — 16:00</td><td><em class="dsg dsg--att">En attente</em></td></tr>
-                <tr><td>Studio C</td><td>18:00 — 20:00</td><td><em class="dsg">Brouillon</em></td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="ds-carte">
-            <span class="ds-nom">Modale</span>
-            <div class="ds-modale">
-              <b>Confirmer la réservation</b>
-              <span>Le créneau sera bloqué immédiatement.</span>
-              <div><em class="dsb dsb--plein">Confirmer</em><em class="dsb">Annuler</em></div>
-            </div>
-          </div>
-
-          <div class="ds-carte">
-            <span class="ds-nom">Notification</span>
-            <div class="ds-pile">
-              <div class="dsn dsn--ok"><i>✓</i>Réservation enregistrée</div>
-              <div class="dsn dsn--err"><i>!</i>Paiement refusé</div>
-            </div>
-          </div>
-
-          <div class="ds-carte">
-            <span class="ds-nom">Progression</span>
-            <div class="ds-pile">
-              <div class="dsp"><i></i></div>
-              <div class="ds-step"><em class="on">1</em><s></s><em class="on">2</em><s></s><em>3</em></div>
-            </div>
-          </div>
-
-          <div class="ds-carte">
-            <span class="ds-nom">Pagination</span>
-            <div class="ds-pag"><em>‹</em><em class="on">1</em><em>2</em><em>3</em><em>›</em></div>
-          </div>
-
+        <div class="ds-carte">
+          <span class="ds-nom">Typographie</span>
+          <div class="ds-typo"><b>Aa</b><span><i></i><i></i><i></i></span></div>
         </div>
 
-        <p class="ds-titre">États</p>
-        <div class="ds-etats">
-          <span><em class="dsb dsb--plein">Bouton</em><code>Défaut</code></span>
-          <span><em class="dsb dsb--plein est-survol">Bouton</em><code>Survol</code></span>
-          <span><em class="dsb dsb--plein est-focus">Bouton</em><code>Focus</code></span>
-          <span><em class="dsb dsb--plein est-presse">Bouton</em><code>Pressé</code></span>
-          <span><em class="dsb dsb--plein est-off">Bouton</em><code>Désactivé</code></span>
-          <span><em class="dsb dsb--plein est-charge"><i></i>Bouton</em><code>Chargement</code></span>
+        <div class="ds-carte">
+          <span class="ds-nom">Boutons</span>
+          <div class="ds-boutons">
+            <em class="ds-btn ds-btn--plein">Principal</em>
+            <em class="ds-btn">Secondaire</em>
+          </div>
         </div>
 
+        <div class="ds-carte">
+          <span class="ds-nom">Champs</span>
+          <div class="ds-inputs">
+            <em class="ds-champ">Exemple</em>
+            <em class="ds-champ ds-champ--actif">Libellé</em>
+          </div>
+        </div>
+
+        <div class="ds-carte">
+          <span class="ds-nom">Navigation</span>
+          <div class="ds-nav"><em class="on">Onglet</em><em>Onglet</em><em>Onglet</em></div>
+        </div>
+
+        <div class="ds-carte">
+          <span class="ds-nom">Cartes</span>
+          <div class="ds-mini"><i></i><span><i></i><i></i></span></div>
+        </div>
+
+        <div class="ds-carte">
+          <span class="ds-nom">Modales</span>
+          <div class="ds-modal"><i></i><i></i><em></em></div>
+        </div>
+
+        <div class="ds-carte">
+          <span class="ds-nom">Tableaux</span>
+          <div class="ds-table"><i></i><i></i><i></i><i></i></div>
+        </div>
       </div>
 
       <dl class="systeme-faits">
