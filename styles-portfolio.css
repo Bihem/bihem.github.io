@@ -1368,3 +1368,175 @@
   width: min(100%, calc(var(--h-montage) * 1.5));
   margin-inline: auto;
 }
+
+/* ==========================================================================
+   OUTILS — bandeau défilant
+   Deux pistes identiques se suivent ; la seconde est masquée aux lecteurs
+   d'écran. Chacune glisse de sa propre largeur, ce qui rend la boucle
+   invisible. Les bords sont estompés pour que les pastilles n'apparaissent
+   pas coupées net.
+   ========================================================================== */
+
+.pf #about .outils-bande {
+  display: flex;
+  gap: 8px;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 48px, #000 calc(100% - 48px), transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 48px, #000 calc(100% - 48px), transparent);
+}
+
+.pf #about .outils-bande ul {
+  flex: 0 0 auto;
+  flex-wrap: nowrap;
+  gap: 8px;
+  animation: outils-defile 26s linear infinite;
+}
+
+.pf #about .outils-bande li { flex: 0 0 auto; }
+
+.pf #about .outils-bande:hover ul,
+.pf #about .outils-bande:focus-within ul { animation-play-state: paused; }
+
+@keyframes outils-defile {
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(-100% - 8px)); }
+}
+
+/* Sans animation : la seconde piste disparaît et la première revient à une
+   simple liste qui passe à la ligne, comme avant. */
+@media (prefers-reduced-motion: reduce) {
+  .pf #about .outils-bande { overflow: visible; -webkit-mask-image: none; mask-image: none; }
+  .pf #about .outils-bande ul { animation: none; flex-wrap: wrap; }
+  .pf #about .outils-bande ul[aria-hidden="true"] { display: none; }
+}
+
+/* ==========================================================================
+   PAGE CONTACT — liste des canaux
+   Cinq lignes cliquables dans la colonne de lecture de 540, sans trait ni
+   contour : c'est un fond qui se révèle au survol qui marque la ligne active.
+   Le rembourrage est compensé à gauche pour que le libellé reste aligné sur
+   la colonne, exactement comme le titre au-dessus.
+   ========================================================================== */
+
+.pf .coord {
+  width: min(100%, var(--mesure));
+  margin: 0 auto var(--r-bloc);
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 2px;
+}
+
+.pf .coord a {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  margin-inline: -16px;
+  padding: 15px 16px;
+  border-radius: 12px;
+  color: #fff;
+  text-decoration: none;
+  transition: background-color .25s var(--ease);
+}
+
+.pf .coord a:hover,
+.pf .coord a:focus-visible { background: rgba(255, 255, 255, .07); }
+
+.pf .coord-cle {
+  flex: 0 0 auto;
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gris-clair);
+}
+
+.pf .coord-val {
+  text-align: right;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.pf .coord-val .fleche {
+  display: inline-block;
+  margin-left: 4px;
+  transition: transform .25s var(--ease);
+}
+.pf .coord a:hover .fleche { transform: translate(2px, -2px); }
+
+/* Les deux boutons de bas de page n'ont pas de liste sous eux : la marge
+   basse appartient déjà à .coord. */
+.pf .coord-actions { margin-bottom: 0; }
+
+@media (max-width: 760px) {
+  .pf .coord a {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 13px 14px;
+    margin-inline: -14px;
+  }
+  .pf .coord-val { text-align: left; font-size: 15px; }
+}
+
+/* ==========================================================================
+   PAGE BLOG — liste des articles
+   Même principe que la liste de contact : la colonne de lecture de 540, pas
+   de trait ni de cadre, un fond qui se révèle au survol. Le rembourrage est
+   compensé à gauche pour que les titres restent alignés sur la colonne.
+   ========================================================================== */
+
+.pf .billets {
+  width: min(100%, var(--mesure));
+  margin-inline: auto;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 4px;
+}
+
+.pf .billet {
+  display: block;
+  margin-inline: -18px;
+  padding: 20px 18px;
+  border: 0;
+  border-radius: 14px;
+  background: transparent;
+  color: inherit;
+  text-decoration: none;
+  transition: background-color .25s var(--ease);
+}
+
+.pf .billet:hover,
+.pf .billet:focus-visible { background: var(--papier-2); }
+
+.pf .billet-meta {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gris-txt);
+}
+
+.pf .billet-titre {
+  margin: 0 0 10px;
+  font-size: 20px;
+  line-height: 1.25;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--encre);
+}
+
+.pf .billet-extrait {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--gris-txt);
+}
+
+@media (max-width: 760px) {
+  .pf .billet { margin-inline: -14px; padding: 16px 14px; border-radius: 12px; }
+  .pf .billet-titre { font-size: 18px; }
+  .pf .billet-extrait { font-size: 14px; }
+}
