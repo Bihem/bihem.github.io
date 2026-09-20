@@ -1131,3 +1131,27 @@
   width: min(100%, calc(var(--h-montage) * 1.5));
   margin-inline: auto;
 }
+
+/* ==========================================================================
+   AJUSTEMENTS MOBILE — menu à droite, boutons sur une ligne, eyebrow réduit
+   ========================================================================== */
+@media (max-width: 760px) {
+
+  /* Le bouton burger passe à droite de l'en-tête */
+  .pf-entete-in .burger { margin-left: auto; order: 3; }
+  .pf-entete-fin { order: 2; }
+
+  /* Les deux boutons du hero tiennent côte à côte */
+  .hero-actions { flex-wrap: nowrap; gap: 8px; }
+  .hero-actions .btn {
+    font-size: 13px; line-height: 17px;
+    min-height: 42px;
+    padding: 10px 13px;
+    white-space: nowrap;
+    flex: 0 1 auto;
+  }
+  .hero-actions .btn .fleche { margin-left: -1px; }
+
+  /* Eyebrow plus discret */
+  .pf .hero .label { font-size: 10px; letter-spacing: .12em; }
+}
