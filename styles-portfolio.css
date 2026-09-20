@@ -891,3 +891,13 @@
 @media (max-width: 620px) {
   .pf .cartes-4 { gap: 32px; }
 }
+
+/* Le bloc-tête était en flex avec le bouton repoussé à droite : le titre se
+   retrouvait décalé hors de la colonne de lecture. Les deux y reviennent. */
+.pf .bloc-tete {
+  display: block;
+  width: min(100%, var(--mesure));
+  margin-inline: auto;
+}
+.pf .bloc-tete > div { width: 100%; margin-inline: 0; }
+.pf .bloc-tete > .btn { margin-top: var(--r-texte); }
