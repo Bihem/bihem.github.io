@@ -1778,7 +1778,9 @@
    au-dessus du texte, en plus petit. */
 @media (max-width: 900px) {
   .pf .hero-in { grid-template-columns: 1fr; }
-  .pf .hero-portrait { order: -1; }
+  /* La photo reste au-dessus du texte mais se cale sur le bord droit,
+     comme chez julius.fm en 375 px. */
+  .pf .hero-portrait { order: -1; margin-left: auto; }
   .pf .hero-portrait img { width: clamp(112px, 26vw, 150px); }
 }
 
