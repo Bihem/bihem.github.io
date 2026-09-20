@@ -1346,3 +1346,17 @@
 .pf .dsx-code code { line-height: 1.45; font-size: 9.5px; }
 
 .pf .systeme-faits { margin-top: var(--r-texte); padding-top: var(--r-texte); }
+
+/* Le bloc Design System adopte les dimensions des montages projets :
+   même largeur (900) et même position gauche (270) que les trois visuels. */
+.pf .dsx {
+  width: min(100%, calc(var(--h-montage) * 1.5));
+  margin-inline: auto;
+}
+
+/* Le texte d'introduction du Design System revient dans la colonne de lecture
+   centrée, comme celui de toutes les autres sections. */
+.pf .systeme-texte {
+  width: min(100%, var(--mesure));
+  margin-inline: auto;
+}
