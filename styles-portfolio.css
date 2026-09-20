@@ -811,3 +811,66 @@
   padding-inline: 0;
   margin-top: var(--r-texte);
 }
+
+/* ==========================================================================
+   PASTILLE « RETOUR EN HAUT »
+   Géométrie relevée : fixe, centrée, 26 px du bas, 45 px de haut,
+   padding 12/12/12/16, corps 17 px, ombre 0 6px 24px.
+   ========================================================================== */
+
+.pf .haut {
+  position: fixed; left: 50%; bottom: 26px; translate: -50% 0;
+  z-index: 70; isolation: isolate;
+  display: inline-flex; align-items: center; gap: 9px;
+  min-height: 45px;
+  padding: 12px 12px 12px 16px;
+  border: 0; border-radius: 999px;
+  background: var(--papier); color: var(--encre);
+  font-size: 17px; font-weight: 500; line-height: 21px;
+  text-decoration: none;
+  opacity: 0; pointer-events: none;
+  transform-origin: 50% center; backface-visibility: hidden;
+  transition: opacity .3s ease, transform .3s cubic-bezier(.22,1,.36,1);
+}
+.pf .haut::after {
+  content: ""; position: absolute; inset: 0;
+  border-radius: inherit; z-index: -1; pointer-events: none;
+  box-shadow: rgba(0, 0, 0, .14) 0 6px 24px;
+  transition: box-shadow .3s ease;
+}
+.pf .haut:hover::after { box-shadow: rgba(0, 0, 0, .2) 0 12px 34px; }
+.pf .haut:active { transform: scale(.97); }
+.pf .haut.visible { opacity: 1; pointer-events: auto; }
+.pf .haut-fleche { color: var(--gris-txt); transition: color .3s ease; }
+.pf .haut:hover .haut-fleche { color: var(--encre); }
+
+/* Les boutons adoptent le même corps et le même gabarit que la pastille. */
+.pf .btn {
+  gap: 9px;
+  min-height: 45px;
+  padding: 12px 14px 12px 16px;
+  font-size: 17px; line-height: 21px; font-weight: 500;
+}
+.pf .btn--petit { min-height: 38px; padding: 8px 12px 8px 14px; font-size: 15px; }
+
+/* Écarts internes restés au-dessus du rythme de bloc */
+.pf .systeme-faits,
+.pf .final-faits,
+.pf .contact-duo,
+.pf .duo-colonnes { margin-top: var(--r-visuel); padding-top: var(--r-texte); }
+.pf .final-actions { margin-bottom: var(--r-bloc); }
+.pf .parcours { margin-bottom: var(--r-bloc); }
+
+@media (max-width: 760px) {
+  .pf .haut { bottom: 18px; font-size: 15px; min-height: 42px; }
+  .pf .btn { font-size: 15px; min-height: 44px; }
+}
+
+/* Aucune marge résiduelle en début ou en fin de bloc : l'écart entre deux
+   sections vaut alors exactement 2 × var(--section), sans variation. */
+.pf section > .wrap > *:last-child,
+.pf .cas > *:last-child,
+.pf .cas-texte > *:last-child,
+.pf .bloc-tete > div > *:last-child { margin-bottom: 0; }
+.pf section > .wrap > *:first-child,
+.pf .cas-texte > *:first-child { margin-top: 0; }

@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css?v=b4821967">
-<link rel="stylesheet" href="styles-portfolio.css?v=b2ab6921">
+<link rel="stylesheet" href="styles-portfolio.css?v=fce65f39">
 
 <script type="application/ld+json">
 {
@@ -543,12 +543,28 @@
     <div class="pied-bas">
       <span>© 2026 Dikenga Design</span>
       <span><a href="mentions-legales.html">Mentions légales</a> · <a href="blog.html">Blog</a></span>
-      <a href="#entete" class="pied-haut">Retour en haut ↑</a>
     </div>
   </div>
 </footer>
 
+<a class="haut" id="retourHaut" href="#entete">
+  Retour en haut <span class="haut-fleche" aria-hidden="true">↑</span>
+</a>
+
 <script>
+  /* Pastille « Retour en haut » : apparaît une fois le hero passé */
+  (function () {
+    var p = document.getElementById('retourHaut');
+    if (!p) return;
+    function maj() { p.classList.toggle('visible', window.scrollY > 700); }
+    window.addEventListener('scroll', maj, { passive: true });
+    maj();
+    p.addEventListener('click', function (e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+
   /* En-tête : fond opaque au défilement */
   (function () {
     var e = document.getElementById('entete');
