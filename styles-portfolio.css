@@ -1613,3 +1613,171 @@
   object-fit: cover;
   margin-inline: auto;
 }
+
+/* ==========================================================================
+   ANIMATIONS
+   Courbes et durées relevées sur thierrychopain.com : les transformations
+   suivent cubic-bezier(.77, 0, .18, 1) sur 1,2 s, les opacités
+   cubic-bezier(.32, .94, .6, 1) sur 0,8 s, les titres se révèlent ligne
+   par ligne sur 1,4 s.
+
+   L'état masqué dépend de la classe « js-anim », posée par animations.js.
+   Sans JavaScript, ou avec « moins d'animations » activé, tout reste
+   visible et immobile.
+   ========================================================================== */
+
+.pf {
+  --ease-transf: cubic-bezier(.77, 0, .18, 1);
+  --ease-appar:  cubic-bezier(.32, .94, .6, 1);
+}
+
+/* --- Apparition au défilement --- */
+
+/* L'état masqué est décrit ici, et non posé par le script : appliqué dès le
+   premier rendu, il évite que le contenu s'affiche puis s'efface. Le script
+   n'a plus qu'à ajouter « vu » au bon moment.
+
+   La règle qui révèle reprend la MÊME liste suivie de .vu. C'est nécessaire :
+   :is() adopte la spécificité de son argument le plus fort, donc un simple
+   « .vu » serait battu par l'état masqué et rien ne s'afficherait jamais. */
+
+.js-anim .pf :is(
+    .hero-texte .label, .hero-desc, .hero-actions, .hero-portrait,
+    .bloc > .wrap > .label, .bloc-desc, .systeme-texte .bloc-desc,
+    .pills, .cas-texte, .cas-montage, .methode-montage,
+    .colonnes-4 > *, .cartes-4 > *, .dsx-fiche, .etape,
+    .systeme-faits > div, .final-faits > div, .final-actions,
+    .about-texte, .about-cote, .outils, .billet, .coord li,
+    .contact-adresse, .contact-tel, .contact-reseaux
+  ) {
+  opacity: 0;
+  transform: translateY(34px);
+  transition: opacity .8s var(--ease-appar), transform 1.2s var(--ease-transf);
+  will-change: opacity, transform;
+}
+
+.js-anim .pf :is(
+    .hero-texte .label, .hero-desc, .hero-actions, .hero-portrait,
+    .bloc > .wrap > .label, .bloc-desc, .systeme-texte .bloc-desc,
+    .pills, .cas-texte, .cas-montage, .methode-montage,
+    .colonnes-4 > *, .cartes-4 > *, .dsx-fiche, .etape,
+    .systeme-faits > div, .final-faits > div, .final-actions,
+    .about-texte, .about-cote, .outils, .billet, .coord li,
+    .contact-adresse, .contact-tel, .contact-reseaux
+  ).vu {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+
+/* --- Titres révélés ligne par ligne --- */
+
+.js-anim .pf .titre-anime .ln {
+  display: block;
+  overflow: hidden;
+  /* Les jambages des lettres seraient rognés par l'overflow : on rend un
+     peu de place sous chaque ligne et on la reprend en marge négative. */
+  padding-bottom: .12em;
+  margin-bottom: -.12em;
+}
+.js-anim .pf .titre-anime .ln-in {
+  display: block;
+  transform: translateY(105%);
+  transition: transform 1.4s var(--ease-transf);
+  will-change: transform;
+}
+.js-anim .pf .titre-anime.vu .ln-in {
+  transform: none;
+  will-change: auto;
+}
+
+/* --- Parallaxe des visuels --- */
+
+.pf .cas-montage iframe,
+.pf .cas-montage img,
+.pf .methode-montage img { will-change: transform; }
+
+/* --- Survols --- */
+
+/* Le visuel d'un projet se rapproche légèrement au survol de sa carte. */
+.pf .cas-montage img,
+.pf .methode-montage img { transition: scale 1.2s var(--ease-transf); }
+.pf .cas-montage:hover img,
+.pf .methode-montage:hover img { scale: 1.015; }
+
+/* Les liens de navigation et de pied de page se soulignent en glissant
+   depuis la gauche plutôt qu'en apparaissant d'un bloc. */
+.pf .pf-nav a,
+.pf .pied-nav a,
+.pf .pied-social a { position: relative; }
+.pf .pf-nav a::after,
+.pf .pied-nav a::after,
+.pf .pied-social a::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -3px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform .5s var(--ease-transf);
+}
+.pf .pf-nav a:hover::after,
+.pf .pf-nav a:focus-visible::after,
+.pf .pied-nav a:hover::after,
+.pf .pied-social a:hover::after { transform: scaleX(1); }
+
+/* Le soulignement natif ferait doublon avec le trait animé. */
+.pf .pied a:hover { text-decoration: none; }
+
+/* --- Respect du réglage système --- */
+
+@media (prefers-reduced-motion: reduce) {
+  .js-anim .pf [class],
+  .js-anim .pf .titre-anime .ln-in {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .pf .cas-montage:hover img,
+  .pf .methode-montage:hover img { scale: 1; }
+  .pf .pf-nav a::after,
+  .pf .pied-nav a::after,
+  .pf .pied-social a::after { transition: none; }
+}
+
+/* ==========================================================================
+   HERO — portrait rond à droite
+   Disposition relevée sur julius.fm : le texte occupe la colonne de gauche,
+   le portrait est un cercle calé sur le bord droit du conteneur. Les trois
+   liens remplacent les deux boutons d'action.
+   ========================================================================== */
+
+.pf .hero-in {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: clamp(28px, 3.5vw, 52px);
+}
+
+/* Le texte se resserre pour laisser sa place au portrait. */
+.pf .hero-texte { max-width: 640px; }
+
+.pf .hero-portrait { margin: 0; }
+.pf .hero-portrait img {
+  display: block;
+  width: clamp(150px, 19vw, 276px);
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* Sous 900 px il n'y a plus la place de deux colonnes : le portrait passe
+   au-dessus du texte, en plus petit. */
+@media (max-width: 900px) {
+  .pf .hero-in { grid-template-columns: 1fr; }
+  .pf .hero-portrait { order: -1; }
+  .pf .hero-portrait img { width: clamp(112px, 26vw, 150px); }
+}

@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css?v=b4821967">
-<link rel="stylesheet" href="styles-portfolio.css?v=cd51122f">
+<link rel="stylesheet" href="styles-portfolio.css?v=be26d956">
 
 <script type="application/ld+json">
 {
@@ -49,6 +49,21 @@
   }
 }
 </script>
+<script>
+/* Masque les éléments à animer avant le premier rendu, mais seulement si
+   l'utilisateur n'a pas demandé moins d'animations. Le filet de sécurité
+   rétablit tout si animations.js ne se charge pas : sans lui, un script
+   manquant laisserait la page vide. */
+(function () {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var r = document.documentElement;
+  r.classList.add('js-anim');
+  setTimeout(function () {
+    if (!window.__animPretes) r.classList.remove('js-anim');
+  }, 2500);
+})();
+</script>
+<script src="animations.js?v=b065eabf" defer></script>
 </head>
 <body class="pf">
 
@@ -92,10 +107,23 @@
         </p>
 
         <div class="hero-actions">
-          <a class="btn btn--noir" href="#work">Découvrir mes projets</a>
-          <a class="btn" href="#contact">Discuter d’un projet <span class="fleche" aria-hidden="true">↗</span></a>
+          <a class="btn" href="https://www.linkedin.com/in/dikengadesign/" target="_blank" rel="noopener">
+            LinkedIn <span class="fleche" aria-hidden="true">↗</span>
+          </a>
+          <a class="btn" href="https://www.instagram.com/dikengadesign/" target="_blank" rel="noopener">
+            Instagram <span class="fleche" aria-hidden="true">↗</span>
+          </a>
+          <a class="btn" href="mailto:uiuxmesreves@gmail.com">
+            Email <span class="fleche" aria-hidden="true">↗</span>
+          </a>
         </div>
       </div>
+
+      <figure class="hero-portrait">
+        <img src="img/portrait-mes-reves.webp"
+             alt="Portrait de Mes-Reves Bouzanga, UI/UX designer."
+             width="820" height="820" fetchpriority="high">
+      </figure>
     </div>
 
   </section>
