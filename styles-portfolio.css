@@ -1124,3 +1124,10 @@
 
 @media (max-width: 1180px) { .pf { --h-montage: 46vw; } }
 @media (max-width: 760px)  { .pf { --h-montage: 58vw; } }
+
+/* La paire Maison Delorme occupait toute la largeur du cadre (1080) alors que
+   les deux iframes font 900. Elle est ramenée à la même largeur, centrée. */
+.pf .cas-montage--duo {
+  width: min(100%, calc(var(--h-montage) * 1.5));
+  margin-inline: auto;
+}
