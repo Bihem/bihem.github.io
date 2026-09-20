@@ -1399,7 +1399,7 @@
 
 @keyframes outils-defile {
   from { transform: translateX(0); }
-  to   { transform: translateX(calc(-100% - 8px)); }
+  to   { transform: translateX(calc(-100% - var(--outils-ecart, 8px))); }
 }
 
 /* Sans animation : la seconde piste disparaît et la première revient à une
@@ -1408,75 +1408,6 @@
   .pf #about .outils-bande { overflow: visible; -webkit-mask-image: none; mask-image: none; }
   .pf #about .outils-bande ul { animation: none; flex-wrap: wrap; }
   .pf #about .outils-bande ul[aria-hidden="true"] { display: none; }
-}
-
-/* ==========================================================================
-   PAGE CONTACT — liste des canaux
-   Cinq lignes cliquables dans la colonne de lecture de 540, sans trait ni
-   contour : c'est un fond qui se révèle au survol qui marque la ligne active.
-   Le rembourrage est compensé à gauche pour que le libellé reste aligné sur
-   la colonne, exactement comme le titre au-dessus.
-   ========================================================================== */
-
-.pf .coord {
-  width: min(100%, var(--mesure));
-  margin: 0 auto var(--r-bloc);
-  padding: 0;
-  list-style: none;
-  display: grid;
-  gap: 2px;
-}
-
-.pf .coord a {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 24px;
-  margin-inline: -16px;
-  padding: 15px 16px;
-  border-radius: 12px;
-  color: #fff;
-  text-decoration: none;
-  transition: background-color .25s var(--ease);
-}
-
-.pf .coord a:hover,
-.pf .coord a:focus-visible { background: rgba(255, 255, 255, .07); }
-
-.pf .coord-cle {
-  flex: 0 0 auto;
-  font-size: 11px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--gris-clair);
-}
-
-.pf .coord-val {
-  text-align: right;
-  font-size: 16px;
-  font-weight: 500;
-}
-
-.pf .coord-val .fleche {
-  display: inline-block;
-  margin-left: 4px;
-  transition: transform .25s var(--ease);
-}
-.pf .coord a:hover .fleche { transform: translate(2px, -2px); }
-
-/* Les deux boutons de bas de page n'ont pas de liste sous eux : la marge
-   basse appartient déjà à .coord. */
-.pf .coord-actions { margin-bottom: 0; }
-
-@media (max-width: 760px) {
-  .pf .coord a {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-    padding: 13px 14px;
-    margin-inline: -14px;
-  }
-  .pf .coord-val { text-align: left; font-size: 15px; }
 }
 
 /* ==========================================================================
@@ -1539,4 +1470,106 @@
   .pf .billet { margin-inline: -14px; padding: 16px 14px; border-radius: 12px; }
   .pf .billet-titre { font-size: 18px; }
   .pf .billet-extrait { font-size: 14px; }
+}
+
+/* Les outils perdent leur pastille : plus de fond, plus de bordure, plus de
+   coin arrondi. Il ne reste que le logo et son nom, séparés par du vide.
+   L'écart entre deux outils (--outils-ecart) sert à la fois de gap et de
+   correctif dans l'animation, pour que la boucle reste invisible quel que
+   soit l'écart choisi. */
+.pf #about .outils li {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.pf #about .outils-bande { --outils-ecart: 30px; gap: var(--outils-ecart); }
+.pf #about .outils-bande ul { gap: var(--outils-ecart); }
+
+@media (max-width: 760px) {
+  .pf #about .outils-bande { --outils-ecart: 24px; }
+}
+
+/* ==========================================================================
+   PAGE CONTACT
+   L'adresse e-mail porte la page : elle est composée en grand, juste sous la
+   description, dans la même colonne de lecture que tout le reste du site.
+   Le téléphone et les trois réseaux suivent en petit. Aucun cadre, aucune
+   pastille, aucun trait — seul le corps du texte hiérarchise.
+   ========================================================================== */
+
+.pf .contact-adresse {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-top: var(--r-visuel);
+  font-size: clamp(22px, 2.6vw, 32px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--encre);
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.pf .contact-adresse .fleche {
+  font-size: .6em;
+  transition: transform .25s var(--ease);
+}
+.pf .contact-adresse:hover .fleche,
+.pf .contact-adresse:focus-visible .fleche { transform: translate(3px, -3px); }
+.pf .contact-adresse:hover .contact-adresse-txt,
+.pf .contact-adresse:focus-visible .contact-adresse-txt {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+.pf .contact-tel {
+  margin-top: var(--r-texte);
+  font-size: 16px;
+  color: var(--gris-txt);
+}
+.pf .contact-tel a {
+  color: var(--encre);
+  text-decoration: none;
+  font-weight: 500;
+}
+.pf .contact-tel a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+.pf .contact-reseaux {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 26px;
+  margin-top: var(--r-bloc);
+}
+.pf .contact-reseaux a {
+  font-size: 14px;
+  color: var(--encre);
+  text-decoration: none;
+}
+.pf .contact-reseaux a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.pf .contact-reseaux .fleche {
+  display: inline-block;
+  transition: transform .25s var(--ease);
+}
+.pf .contact-reseaux a:hover .fleche { transform: translate(2px, -2px); }
+
+/* L'adresse, le téléphone et les réseaux rejoignent la colonne de lecture,
+   comme le titre et la description au-dessus. */
+.pf .contact-page > .wrap > .contact-adresse,
+.pf .contact-page > .wrap > .contact-tel,
+.pf .contact-page > .wrap > .contact-reseaux {
+  width: min(100%, var(--mesure));
+  margin-inline: auto;
+}
+
+/* La page ne contient qu'une section : elle doit remplir la hauteur d'écran
+   pour que le pied de page ne remonte pas au milieu du navigateur. */
+.pf .contact-page { min-height: 62vh; }
+
+@media (max-width: 760px) {
+  .pf .contact-reseaux { gap: 18px; }
+  .pf .contact-page { min-height: 0; }
 }
