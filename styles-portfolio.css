@@ -687,3 +687,65 @@
   padding-inline: var(--pad);
 }
 .bande-explorations .carrousel-commandes { padding-inline: 0; width: auto; }
+
+/* ==========================================================================
+   CENTRAGE ET RESPIRATION — système relevé sur julius.fm
+   À 1440 px : container de 1080 px (marges de 180), colonne de lecture de
+   540 px centrée. Les proportions tiennent à toutes les largeurs.
+   ========================================================================== */
+
+.pf {
+  --wrap: 1080px;      /* container : 1080 à 1440, marges de 180 */
+  --mesure: 540px;     /* colonne de lecture */
+}
+
+.pf .wrap,
+.pf .cas-montage,
+.bande-explorations .carrousel {
+  width: min(100% - var(--pad) * 2, var(--wrap));
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+/* Colonne de lecture centrée */
+.pf .cas-texte,
+.pf .section-tete { width: min(100%, var(--mesure)); margin-inline: auto; }
+.pf .bloc-desc,
+.pf .bloc-desc--large { max-width: none; }
+
+/* ==========================================================================
+   BOUTONS — anatomie de tes pastilles : pas de bordure, une ombre douce
+   portée par un pseudo-élément qui grandit au survol.
+   ========================================================================== */
+
+.pf .btn {
+  position: relative; isolation: isolate;
+  border: 0;
+  min-height: 46px;
+  padding: 0 20px;
+  font-weight: 500;
+  transform-origin: 50% center;
+  backface-visibility: hidden;
+  transition: transform .3s cubic-bezier(.22,1,.36,1), background-color .25s var(--ease), color .25s var(--ease);
+}
+.pf .btn::after {
+  content: ""; position: absolute; inset: 0;
+  border-radius: inherit; z-index: -1; pointer-events: none;
+  box-shadow: rgba(0, 0, 0, .14) 0 6px 24px;
+  transition: box-shadow .3s ease;
+}
+.pf .btn:hover::after { box-shadow: rgba(0, 0, 0, .2) 0 12px 34px; }
+.pf .btn:active { transform: scale(.97); }
+
+/* Le bouton clair garde son fond blanc ; c'est l'ombre qui le détache. */
+.pf .btn { background: var(--papier); color: var(--encre); }
+.pf .btn:hover { background: var(--papier); }
+.pf .btn--noir { background: var(--encre); color: #fff; }
+.pf .btn--noir:hover { background: var(--encre); }
+.pf .btn--clair { background: #fff; color: var(--encre); }
+.pf .btn--clair:hover { background: #fff; }
+
+/* Sur fond noir, l'ombre ne se voit pas : on garde un contour fin. */
+.pf .btn--fantome { background: transparent; color: #fff; box-shadow: inset 0 0 0 1px rgba(255,255,255,.28); }
+.pf .btn--fantome::after { box-shadow: none; }
+.pf .btn--fantome:hover { box-shadow: inset 0 0 0 1px #fff; }
