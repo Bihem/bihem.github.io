@@ -975,84 +975,6 @@
 .pf .cas-montage { margin-block: var(--r-visuel); }
 .pf .cas-montage:has(iframe[src*="talseume-montage"]) { margin-block: 0; }
 
-/* ==========================================================================
-   DESIGN SYSTEM — 8 vignettes supplémentaires
-   Même gabarit que les existantes : glyphes minimaux, aucune image.
-   ========================================================================== */
-
-/* Sélecteurs : case, bouton radio, interrupteur */
-.pf .ds-sel { display: flex; align-items: center; gap: 9px; }
-.pf .ds-sel i {
-  font-style: normal; width: 15px; height: 15px; flex: 0 0 auto;
-  display: inline-flex; align-items: center; justify-content: center;
-  font-size: 9px; color: transparent;
-  box-shadow: inset 0 0 0 1px var(--trait-fonce);
-}
-.pf .ds-sel i.on { background: #fff; color: var(--encre); box-shadow: none; }
-.pf .ds-sel i.rd { border-radius: 50%; box-shadow: inset 0 0 0 1px #fff; }
-.pf .ds-sel i.rd::after { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #fff; }
-.pf .ds-sel i.sw {
-  width: 26px; border-radius: 999px; background: #fff;
-  justify-content: flex-end; padding: 2px; box-shadow: none;
-}
-.pf .ds-sel i.sw::after { content: ""; width: 11px; height: 11px; border-radius: 50%; background: var(--encre); }
-
-/* Badges de statut */
-.pf .ds-bdg { display: flex; flex-wrap: wrap; gap: 5px; }
-.pf .ds-bdg em {
-  display: block; width: 34px; height: 13px; border-radius: 999px;
-  background: rgba(255,255,255,.14);
-}
-.pf .ds-bdg em.ok  { background: rgba(52,199,123,.5); }
-.pf .ds-bdg em.att { background: rgba(232,178,74,.5); }
-
-/* Notification */
-.pf .ds-toast { display: flex; align-items: center; gap: 8px; }
-.pf .ds-toast i { width: 16px; height: 16px; border-radius: 50%; background: #34C77B; flex: 0 0 auto; }
-.pf .ds-toast span { display: grid; gap: 4px; flex: 1; }
-.pf .ds-toast b { display: block; height: 3px; border-radius: 2px; background: var(--trait-fonce); }
-.pf .ds-toast b:first-child { width: 80%; background: rgba(255,255,255,.34); }
-.pf .ds-toast b:last-child { width: 55%; }
-
-/* Barre de progression */
-.pf .ds-prog { height: 6px; border-radius: 999px; background: rgba(255,255,255,.12); overflow: hidden; }
-.pf .ds-prog i { display: block; height: 100%; width: 62%; background: #fff; border-radius: inherit; }
-
-/* Étapes */
-.pf .ds-etape { display: flex; align-items: center; gap: 5px; }
-.pf .ds-etape i {
-  width: 13px; height: 13px; border-radius: 50%; flex: 0 0 auto;
-  box-shadow: inset 0 0 0 1px var(--trait-fonce);
-}
-.pf .ds-etape i.on { background: #fff; box-shadow: none; }
-.pf .ds-etape s { flex: 1; height: 1px; background: var(--trait-fonce); }
-
-/* Pagination */
-.pf .ds-page { display: flex; gap: 5px; }
-.pf .ds-page em {
-  width: 18px; height: 18px; display: block;
-  box-shadow: inset 0 0 0 1px var(--trait-fonce);
-}
-.pf .ds-page em.on { background: #fff; box-shadow: none; }
-
-/* Avatars empilés */
-.pf .ds-ava { display: flex; align-items: center; }
-.pf .ds-ava i {
-  width: 22px; height: 22px; border-radius: 50%; flex: 0 0 auto;
-  background: rgba(255,255,255,.22);
-  box-shadow: 0 0 0 2px var(--encre-2);
-  margin-left: -7px;
-}
-.pf .ds-ava i:first-child { margin-left: 0; }
-.pf .ds-ava em {
-  font-style: normal; margin-left: 7px;
-  font-size: 10.5px; color: var(--gris-clair);
-}
-
-/* Échelle d'espacement */
-.pf .ds-esp { display: grid; gap: 5px; }
-.pf .ds-esp i { display: block; height: 5px; background: rgba(255,255,255,.28); }
-
 /* Correction : « .btn:hover » imposait un fond blanc à tous les boutons.
    Sur fond noir, le bouton en contour blanc devenait blanc sur blanc,
    donc totalement illisible. Il garde maintenant son fond transparent. */
@@ -1063,3 +985,18 @@
   color: #fff;
 }
 .pf .btn--fantome:hover { box-shadow: inset 0 0 0 1px #fff; }
+
+/* Aperçu Design System resserré : vignettes plus compactes, mêmes composants. */
+.pf .ds-grille { gap: 9px; }
+.pf .ds-carte { min-height: 82px; padding: 11px; gap: 9px; }
+.pf .ds-nom { font-size: 9.5px; letter-spacing: .1em; }
+
+.pf .ds-couleurs i { width: 17px; height: 17px; }
+.pf .ds-typo b { font-size: 21px; }
+.pf .ds-btn { font-size: 10px; padding: 5px 8px; }
+.pf .ds-champ { font-size: 10px; padding: 6px 8px; }
+.pf .ds-nav em { font-size: 9.5px; padding: 4px 7px; }
+.pf .ds-mini > i { width: 26px; height: 26px; }
+.pf .ds-modal { padding: 6px; }
+.pf .ds-modal em { height: 11px; }
+.pf .ds-table i { height: 6px; }
