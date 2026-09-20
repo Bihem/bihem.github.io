@@ -968,6 +968,9 @@
 .pf { --section: 28px; }            /* 28 + 28 = 56 entre deux sections */
 .pf .cas + .cas { margin-top: var(--r-bloc); }   /* 56 entre deux projets */
 
-/* Les montages en iframe portent déjà une large marge blanche dans leur
-   propre document : y ajouter la nôtre doublait l'espace perçu. */
-.pf .cas-montage:has(iframe) { margin-block: 0; }
+
+/* Correction : tous les montages reprennent l'écart de 36 px. Seul le montage
+   Talseume porte une large marge blanche dans son propre document — lui seul
+   est mis à zéro, sinon l'espace était compté deux fois. */
+.pf .cas-montage { margin-block: var(--r-visuel); }
+.pf .cas-montage:has(iframe[src*="talseume-montage"]) { margin-block: 0; }
