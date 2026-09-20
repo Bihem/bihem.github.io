@@ -655,3 +655,35 @@
 @media (max-width: 760px) {
   .pf { --section: 44px; }
 }
+
+/* ==========================================================================
+   GRILLE UNIFIÉE
+   Un seul jeton de rythme vertical (--section) et un seul jeton de marge
+   latérale (--pad). Toutes les sections, tous les projets et le carrousel
+   s'y conforment : même écart partout, mêmes bords partout.
+   ========================================================================== */
+
+/* --- Rythme vertical : chaque section porte exactement var(--section) --- */
+.pf .hero,
+.pf .bloc,
+.pf .bande-explorations { padding-block: var(--section); }
+
+/* Les projets suivent le même rythme que les sections : l'écart entre deux
+   projets vaut donc 2 × var(--section), comme entre deux sections. */
+.pf .cas { padding-block: 0; }
+.pf .cas + .cas { margin-top: calc(var(--section) * 2); }
+
+/* --- Bords : tout s'aligne sur la largeur de contenu de .wrap --- */
+.pf .cas-montage {
+  width: min(100%, var(--wrap));
+  padding-inline: var(--pad);
+}
+
+/* Le carrousel est cadré comme le reste ; la piste garde ses propres
+   coordonnées internes, donc la boucle de défilement n'est pas affectée. */
+.bande-explorations .carrousel {
+  width: min(100%, var(--wrap));
+  margin-inline: auto;
+  padding-inline: var(--pad);
+}
+.bande-explorations .carrousel-commandes { padding-inline: 0; width: auto; }
