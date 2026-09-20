@@ -1000,3 +1000,13 @@
 .pf .ds-modal { padding: 6px; }
 .pf .ds-modal em { height: 11px; }
 .pf .ds-table i { height: 6px; }
+
+/* Respiration entre sections : 80 px partout.
+   Chaque section porte 40 px de padding haut et bas (40 + 40 = 80), et deux
+   projets consécutifs sont séparés de la même valeur. Une seule source. */
+.pf { --section: 40px; }
+.pf .cas + .cas { margin-top: calc(var(--section) * 2); }
+
+@media (max-width: 760px) {
+  .pf { --section: 32px; }
+}
