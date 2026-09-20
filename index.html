@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css?v=b4821967">
-<link rel="stylesheet" href="styles-portfolio.css?v=b5cbacc0">
+<link rel="stylesheet" href="styles-portfolio.css?v=83fd8002">
 
 <script type="application/ld+json">
 {
@@ -81,7 +81,6 @@
     <nav id="menu-principal" class="pf-nav" aria-label="Navigation principale">
       <a href="#work">Projets</a>
       <a href="#expertise">Expertise</a>
-      <a href="#about">À propos</a>
       <a href="blog.html">Blog</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -312,127 +311,6 @@
     </div>
   </section>
 
-  <!-- ========================================== SYSTEMATIC BY DESIGN -->
-  <section class="bloc bloc--noir" id="design-system">
-    <div class="wrap">
-      <div class="systeme-texte">
-        <p class="label">Une approche systématique</p>
-        <h2>Concevoir une interface.<br>Construire un système.</h2>
-        <p class="bloc-desc">
-          Je construis des interfaces pensées pour évoluer : foundations, composants,
-          variantes, variables et règles d’utilisation réunis dans des Design Systems
-          cohérents et maintenables.
-        </p>
-        <ul class="pills pills--sombre">
-          <li>Figma</li><li>Auto Layout</li><li>Variables</li>
-          <li>Composants</li><li>Variantes</li><li>Tokens</li>
-        </ul>
-      </div>
-
-      <!-- Fiches construites en HTML/CSS. Les valeurs affichées sont les jetons
-           réellement utilisés par ce site. -->
-      <div class="dsx">
-
-        <article class="dsx-fiche">
-          <header><h3><b>01.</b> Couleurs</h3><p>Palette principale et sémantique.</p></header>
-          <ul class="dsx-pal">
-            <li><i style="background:#0D0D0F"></i><span>Encre</span><code>#0D0D0F</code></li>
-            <li><i style="background:#2A2A2E"></i><span>Graphite</span><code>#2A2A2E</code></li>
-            <li><i style="background:#6E6E73"></i><span>Gris</span><code>#6E6E73</code></li>
-            <li><i style="background:#E4E4E0"></i><span>Trait</span><code>#E4E4E0</code></li>
-            <li><i style="background:#F4F4F2"></i><span>Papier</span><code>#F4F4F2</code></li>
-            <li><i style="background:#FFFFFF"></i><span>Blanc</span><code>#FFFFFF</code></li>
-          </ul>
-        </article>
-
-        <article class="dsx-fiche">
-          <header><h3><b>02.</b> Typographie</h3><p>Une hiérarchie claire et moderne.</p></header>
-          <div class="dsx-typo">
-            <b>Aa</b>
-            <dl>
-              <div><dt>Display</dt><dd>60 / 1.08</dd></div>
-              <div><dt>Titre</dt><dd>44 / 1.12</dd></div>
-              <div><dt>Corps</dt><dd>16 / 1.55</dd></div>
-              <div><dt>Légende</dt><dd>11 / .16em</dd></div>
-            </dl>
-          </div>
-        </article>
-
-        <article class="dsx-fiche">
-          <header><h3><b>03.</b> Espacements</h3><p>Le rythme vertical du site.</p></header>
-          <ul class="dsx-esp">
-            <li><i style="width:14%"></i><code>22</code></li>
-            <li><i style="width:24%"></i><code>36</code></li>
-            <li><i style="width:38%"></i><code>56</code></li>
-            <li><i style="width:56%"></i><code>80</code></li>
-          </ul>
-        </article>
-
-        <article class="dsx-fiche">
-          <header><h3><b>04.</b> Rayons</h3><p>Des angles cohérents.</p></header>
-          <div class="dsx-ray">
-            <span><i style="border-radius:0"></i><code>0</code></span>
-            <span><i style="border-radius:8px"></i><code>8</code></span>
-            <span><i style="border-radius:14px"></i><code>14</code></span>
-            <span><i style="border-radius:999px"></i><code>999</code></span>
-          </div>
-        </article>
-
-        <article class="dsx-fiche">
-          <header><h3><b>05.</b> Boutons</h3><p>États et variantes.</p></header>
-          <div class="dsx-btns">
-            <em class="dsxb dsxb--plein">Principal</em>
-            <em class="dsxb">Secondaire</em>
-            <em class="dsxb dsxb--nu">Tertiaire</em>
-            <em class="dsxb dsxb--plein dsxb--off">Désactivé</em>
-          </div>
-        </article>
-
-        <article class="dsx-fiche">
-          <header><h3><b>06.</b> Champs de saisie</h3><p>Repos, focus et erreur.</p></header>
-          <div class="dsx-champs">
-            <em class="dsxf">Votre e-mail</em>
-            <em class="dsxf dsxf--focus">nom@domaine.fr</em>
-            <em class="dsxf dsxf--err">Format invalide</em>
-          </div>
-        </article>
-
-        <article class="dsx-fiche">
-          <header><h3><b>07.</b> Sélecteurs</h3><p>Case, radio et interrupteur.</p></header>
-          <div class="dsx-sel">
-            <span><i class="dsxc dsxc--on">✓</i>Sélectionnée</span>
-            <span><i class="dsxc"></i>Non sélectionnée</span>
-            <span><i class="dsxr dsxr--on"></i>Option active</span>
-            <span><i class="dsxw"></i>Activé</span>
-          </div>
-        </article>
-
-        <article class="dsx-fiche">
-          <header><h3><b>08.</b> Navigation</h3><p>Onglets et fil d’ariane.</p></header>
-          <div class="dsx-nav">
-            <div class="dsx-seg"><em class="on">Aperçu</em><em>Détail</em><em>Notes</em></div>
-            <p class="dsx-fil">Accueil <i>/</i> Projets <i>/</i> <b>Fiche</b></p>
-          </div>
-        </article>
-
-        <article class="dsx-fiche">
-          <header><h3><b>09.</b> Tokens</h3><p>Des variables pour rester cohérent.</p></header>
-          <pre class="dsx-code"><code>--encre:   #0D0D0F
---papier:  #F4F4F2
---mesure:  540px
---section: 40px</code></pre>
-        </article>
-
-      </div>
-
-      <dl class="systeme-faits">
-        <div><dd class="chiffre">9</dd><dt>Familles documentées</dt></div>
-        <div><dd>Couleur · Espacement · Rayon</dd><dt>Variables</dt></div>
-        <div><dd>Défaut · Survol · Focus · Désactivé</dd><dt>États</dt></div>
-      </dl>
-    </div>
-  </section>
-
   <!-- ====================================================== 03 PROCESS -->
   <section class="bloc" id="process">
     <div class="wrap">
@@ -499,46 +377,6 @@
     </div>
   </section>
 
-  <!-- ===================================================== 04 WHAT I DO -->
-  <section class="bloc bloc--gris" id="services">
-    <div class="wrap">
-      <div class="bloc-tete">
-        <div>
-          <p class="label">Ce que je conçois</p>
-          <h2>J’aide les entreprises à transformer<br>leurs idées en expériences digitales.</h2>
-        </div>
-        <a class="btn btn--noir" href="#contact">Vous avez un projet ? Parlons-en <span class="fleche" aria-hidden="true">↗</span></a>
-      </div>
-
-      <div class="cartes-4">
-        <article class="carte-srv">
-          <span class="num">01</span>
-          <h3>Produits digitaux</h3>
-          <p>Applications web, dashboards et plateformes SaaS conçus autour des usages réels.</p>
-          <ul><li>Design produit</li><li>SaaS</li><li>Tableau de bord</li></ul>
-        </article>
-        <article class="carte-srv">
-          <span class="num">02</span>
-          <h3>Expériences web</h3>
-          <p>Sites et expériences web premium combinant clarté, identité et performance.</p>
-          <ul><li>Site web</li><li>Landing page</li><li>Responsive</li></ul>
-        </article>
-        <article class="carte-srv">
-          <span class="num">03</span>
-          <h3>E-commerce</h3>
-          <p>Expériences d’achat conçues pour simplifier la découverte, la décision et la conversion.</p>
-          <ul><li>E-commerce</li><li>Fiches produits</li><li>Tunnel d’achat</li></ul>
-        </article>
-        <article class="carte-srv">
-          <span class="num">04</span>
-          <h3>Design Systems</h3>
-          <p>Systèmes de composants permettant de maintenir des produits cohérents et scalables.</p>
-          <ul><li>Composants</li><li>Tokens</li><li>Documentation</li></ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
   <!-- ============================================ 05 AI &amp; TECHNOLOGY -->
   <section class="bloc" id="technologie">
     <div class="wrap">
@@ -559,57 +397,31 @@
           <ul><li>Documentation</li><li>Support au développement</li><li>Handoff</li></ul></div>
         <div class="col-num"><span class="num">04</span><h3>Automatisation</h3>
           <ul><li>Tâches répétitives</li><li>Mise en forme</li><li>Contrôle qualité</li></ul></div>
+
+
       </div>
-    </div>
-  </section>
 
-  <!-- ======================================================== 07 ABOUT -->
-  <section class="bloc" id="about">
-    <div class="wrap">
-      <p class="label">À propos</p>
-
-      <div class="about-texte">
-          <h2>Comprendre le problème<br>avant de dessiner l’écran.</h2>
-          <p class="bloc-desc bloc-desc--large">
-            Je suis Mes-Reves Bouzanga, UI/UX Designer et fondateur de Dikenga Design.
-            J’aime comprendre les problèmes, imaginer des solutions et transformer des
-            besoins complexes en interfaces claires, intuitives et agréables à utiliser.
-          </p>
-          <p>
-            Mon approche combine UX, direction visuelle, Design Systems et compréhension
-            technique afin de concevoir des expériences qui fonctionnent aussi bien pour
-            les utilisateurs que pour les équipes qui les développent.
-          </p>
-          <p>
-            Je travaille sur Figma comme outil principal de conception et je pousse mes
-            projets jusqu’à la mise en production quand c’est utile au produit : c’est ce
-            qui me permet de dessiner des interfaces réalistes et de dialoguer précisément
-            avec les personnes qui les développent.
-          </p>
-
-          <div class="outils">
-            <p class="label">Outils</p>
-            <div class="outils-bande">
-              <ul class="outils-piste">
-              <li><img src="img/logo-figma.svg" alt="" width="16" height="16" loading="lazy">Figma</li>
-              <li>FigJam</li>
-              <li><img src="img/logo-photoshop.svg" alt="" width="16" height="16" loading="lazy">Photoshop</li>
-              <li><img src="img/logo-illustrator.svg" alt="" width="16" height="16" loading="lazy">Illustrator</li>
-              <li><img src="img/logo-aftereffects.svg" alt="" width="16" height="16" loading="lazy">After Effects</li>
-              <li><img src="img/logo-claude.svg" alt="" width="16" height="16" loading="lazy">Claude Code</li>
-              <li><img src="img/logo-chatgpt.svg" alt="" width="16" height="16" loading="lazy">ChatGPT</li>
-              </ul>
-              <ul class="outils-piste" aria-hidden="true">
-              <li><img src="img/logo-figma.svg" alt="" width="16" height="16" loading="lazy">Figma</li>
-              <li>FigJam</li>
-              <li><img src="img/logo-photoshop.svg" alt="" width="16" height="16" loading="lazy">Photoshop</li>
-              <li><img src="img/logo-illustrator.svg" alt="" width="16" height="16" loading="lazy">Illustrator</li>
-              <li><img src="img/logo-aftereffects.svg" alt="" width="16" height="16" loading="lazy">After Effects</li>
-              <li><img src="img/logo-claude.svg" alt="" width="16" height="16" loading="lazy">Claude Code</li>
-              <li><img src="img/logo-chatgpt.svg" alt="" width="16" height="16" loading="lazy">ChatGPT</li>
-              </ul>
-            </div>
-          </div>
+<div class="outils">
+        <p class="label">Outils</p>
+        <div class="outils-bande">
+          <ul class="outils-piste">
+          <li><img src="img/logo-figma.svg" alt="" width="16" height="16" loading="lazy">Figma</li>
+          <li>FigJam</li>
+          <li><img src="img/logo-photoshop.svg" alt="" width="16" height="16" loading="lazy">Photoshop</li>
+          <li><img src="img/logo-illustrator.svg" alt="" width="16" height="16" loading="lazy">Illustrator</li>
+          <li><img src="img/logo-aftereffects.svg" alt="" width="16" height="16" loading="lazy">After Effects</li>
+          <li><img src="img/logo-claude.svg" alt="" width="16" height="16" loading="lazy">Claude Code</li>
+          <li><img src="img/logo-chatgpt.svg" alt="" width="16" height="16" loading="lazy">ChatGPT</li>
+          </ul>
+          <ul class="outils-piste" aria-hidden="true">
+          <li><img src="img/logo-figma.svg" alt="" width="16" height="16" loading="lazy">Figma</li>
+          <li>FigJam</li>
+          <li><img src="img/logo-photoshop.svg" alt="" width="16" height="16" loading="lazy">Photoshop</li>
+          <li><img src="img/logo-illustrator.svg" alt="" width="16" height="16" loading="lazy">Illustrator</li>
+          <li><img src="img/logo-aftereffects.svg" alt="" width="16" height="16" loading="lazy">After Effects</li>
+          <li><img src="img/logo-claude.svg" alt="" width="16" height="16" loading="lazy">Claude Code</li>
+          <li><img src="img/logo-chatgpt.svg" alt="" width="16" height="16" loading="lazy">ChatGPT</li>
+          </ul>
         </div>
     </div>
   </section>
@@ -654,7 +466,7 @@
         <p>Design produit &amp; interface</p>
       </div>
       <nav class="pied-nav" aria-label="Navigation de pied de page">
-        <a href="#work">Projets</a><a href="#expertise">Expertise</a><a href="#about">À propos</a>
+        <a href="#work">Projets</a><a href="#expertise">Expertise</a>
         <a href="blog.html">Blog</a><a href="contact.html">Contact</a>
       </nav>
       <div class="pied-social">
