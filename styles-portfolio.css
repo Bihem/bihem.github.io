@@ -1360,3 +1360,11 @@
   width: min(100%, var(--mesure));
   margin-inline: auto;
 }
+
+/* La ligne de faits (9 familles / Couleur · Espacement · Rayon / Défaut ·
+   Survol…) s'étalait sur 1080 alors que la grille du Design System juste
+   au-dessus fait 900. Elle est ramenée sur la même colonne, centrée. */
+.pf .systeme-faits {
+  width: min(100%, calc(var(--h-montage) * 1.5));
+  margin-inline: auto;
+}
