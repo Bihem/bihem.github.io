@@ -1573,3 +1573,27 @@
   .pf .contact-reseaux { gap: 18px; }
   .pf .contact-page { min-height: 0; }
 }
+
+/* ==========================================================================
+   DESIGN SYSTEM SUR MOBILE — bloc réduit
+   Sous 680 px les neuf fiches s'empilaient sur une colonne : la section
+   faisait 2,3 écrans de haut. Elles repassent sur deux colonnes, et chaque
+   contenu interne qui ne tient pas dans 159 px est remis sur une colonne.
+   La fiche Tokens, seule sur sa rangée, occupe les deux colonnes.
+   ========================================================================== */
+
+@media (max-width: 680px) {
+  .pf .dsx { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+
+  /* La palette et les boutons tiennent mal côte à côte dans une demi-fiche. */
+  .pf .dsx-pal  { grid-template-columns: 1fr; }
+  .pf .dsx-btns { grid-template-columns: 1fr; }
+  .pf .dsx-ray  { grid-template-columns: repeat(2, 1fr); }
+
+  /* Le grand « Aa » passe au-dessus de l'échelle, sinon les valeurs de la
+     colonne de droite se coupent en deux lignes. */
+  .pf .dsx-typo   { flex-direction: column; gap: 8px; }
+  .pf .dsx-typo b { font-size: 28px; }
+
+  .pf .dsx-fiche:last-child { grid-column: 1 / -1; }
+}
