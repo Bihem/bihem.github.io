@@ -607,3 +607,20 @@
   .pf h1 { font-size: 30px; }
   .pf h2 { font-size: 24px; }
 }
+
+/* Empilées, les quatre colonnes d'Expertise et d'IA & Technologie occupaient
+   près de 1 400 px de haut sur mobile. En grille 2×2 elles tiennent en deux
+   fois moins, et la lecture reste confortable. */
+@media (max-width: 760px) {
+  .colonnes-4 { grid-template-columns: 1fr 1fr; gap: 30px 18px; }
+  .colonnes-4 .col-num { padding: 0 !important; }
+  .colonnes-4 .col-num .num { margin-bottom: 8px; }
+  .colonnes-4 .col-num h3 { font-size: 16px; margin-bottom: 8px; }
+  .colonnes-4 .col-num li { font-size: 13.5px; line-height: 1.42; }
+  .colonnes-4 .col-num ul { gap: 4px; }
+}
+
+/* Sous 360 px, deux colonnes casseraient les libellés les plus longs. */
+@media (max-width: 360px) {
+  .colonnes-4 { grid-template-columns: 1fr; gap: 24px; }
+}
