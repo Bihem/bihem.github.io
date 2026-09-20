@@ -646,3 +646,12 @@
   .pf .hero { padding-block: 28px 34px; }
   .hero-lieu { margin-top: 20px; }
 }
+
+/* ==========================================================================
+   RESPIRATION — moins d'air entre les sections
+   ========================================================================== */
+.pf { --section: clamp(52px, 5.4vw, 92px); }
+
+@media (max-width: 760px) {
+  .pf { --section: 44px; }
+}

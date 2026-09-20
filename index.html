@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css?v=b4821967">
-<link rel="stylesheet" href="styles-portfolio.css?v=f1497df9">
+<link rel="stylesheet" href="styles-portfolio.css?v=5fc467c2">
 
 <script type="application/ld+json">
 {
@@ -137,20 +137,6 @@
 
   <!-- ================================================ 01 SELECTED WORK -->
   <section class="bloc" id="work">
-    <div class="wrap">
-      <div class="bloc-tete bloc-tete--centre">
-        <div>
-          <p class="label">01 — Projets sélectionnés</p>
-          <h2>Des produits pensés pour être utilisés,<br>pas seulement regardés.</h2>
-          <p class="bloc-desc">
-            Une sélection de produits digitaux sur lesquels j’ai travaillé, de la réflexion UX
-            jusqu’à l’interface, au prototype et au Design System.
-          </p>
-          <a class="lien-fleche" href="projets.html">Voir tous les projets <span class="fleche" aria-hidden="true">↗</span></a>
-        </div>
-      </div>
-    </div>
-
     <!-- ----------------------------------------------- 01 TALSEUME -->
     <article class="cas" id="talseume">
       <div class="wrap">
@@ -596,6 +582,11 @@
       copie.setAttribute('aria-hidden', 'true');
       piste.appendChild(copie);
     });
+
+    /* Indispensable : avec « scroll-snap-type: x mandatory », chaque
+       scrollLeft programmé est ramené sur la diapositive la plus proche,
+       et la piste reste figée. */
+    piste.style.scrollSnapType = 'none';
 
     var VITESSE = 100, enMarche = false, dernier = 0, boucle = null, reprise = null, position = 0;
     function moitie() { return piste.scrollWidth / 2; }
