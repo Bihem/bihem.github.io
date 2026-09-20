@@ -1642,7 +1642,7 @@
    « .vu » serait battu par l'état masqué et rien ne s'afficherait jamais. */
 
 .js-anim .pf :is(
-    .hero-texte .label, .hero-role, .hero-desc, .hero-actions, .hero-portrait,
+    .hero-texte .label, .hero-role, .hero-logos, .hero-desc, .hero-actions, .hero-portrait,
     .bloc > .wrap > .label, .bloc-desc, .systeme-texte .bloc-desc,
     .pills, .cas-texte, .cas-montage, .methode-montage,
     .colonnes-4 > *, .cartes-4 > *, .dsx-fiche, .etape,
@@ -1657,7 +1657,7 @@
 }
 
 .js-anim .pf :is(
-    .hero-texte .label, .hero-role, .hero-desc, .hero-actions, .hero-portrait,
+    .hero-texte .label, .hero-role, .hero-logos, .hero-desc, .hero-actions, .hero-portrait,
     .bloc > .wrap > .label, .bloc-desc, .systeme-texte .bloc-desc,
     .pills, .cas-texte, .cas-montage, .methode-montage,
     .colonnes-4 > *, .cartes-4 > *, .dsx-fiche, .etape,
@@ -1833,3 +1833,67 @@
   margin-inline: auto;
 }
 .pf .outils-bande { width: 100%; }
+
+/* ==========================================================================
+   HERO — ligne de logos et mot manuscrit
+   Relevés sur julius.fm à 1440 px : logos de 24 px de haut espacés de 30 px,
+   posés entre le rôle et le texte ; note manuscrite en Caveat 27 px à gauche
+   de la photo, chaque ligne décalée de 12 px vers la droite.
+   ========================================================================== */
+
+.pf .hero-logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 30px;
+  margin: 0 0 32px;
+  padding: 0;
+  list-style: none;
+}
+.pf .hero-logos li {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  height: 24px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--encre);
+}
+.pf .hero-logos img {
+  width: auto;
+  height: 20px;
+  object-fit: contain;
+}
+
+/* Le rôle se rapproche des logos, qui portent maintenant la respiration. */
+.pf .hero-role { margin-bottom: 22px; }
+
+.pf .hero-portrait { position: relative; }
+
+.pf .hero-mot {
+  position: absolute;
+  right: calc(100% + 12px);
+  bottom: 16%;
+  font-family: Caveat, cursive;
+  font-weight: 600;
+  font-size: clamp(19px, 1.9vw, 27px);
+  line-height: 1.02;
+  color: var(--encre);
+  text-align: right;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.pf .hero-mot span { display: block; }
+.pf .hero-mot span + span { transform: translateX(12px); }
+
+@media (max-width: 900px) {
+  .pf .hero-logos { gap: 12px 20px; margin-bottom: 26px; }
+  .pf .hero-logos li { font-size: 13px; }
+  .pf .hero-logos img { height: 18px; }
+  .pf .hero-mot { bottom: 10%; right: calc(100% + 8px); }
+}
+
+/* Sous 380 px la note n'a plus la place de tenir à gauche du portrait. */
+@media (max-width: 380px) {
+  .pf .hero-mot { display: none; }
+}
