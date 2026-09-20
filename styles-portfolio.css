@@ -882,3 +882,12 @@
   margin-inline: auto;
   max-width: none;
 }
+
+/* « Ce que je conçois » : plus de cartes ni de numéros, seulement le texte. */
+.pf .carte-srv { background: transparent; padding: 0; }
+.pf .carte-srv .num { display: none; }
+.pf .cartes-4 { gap: clamp(28px, 3vw, 40px); }
+
+@media (max-width: 620px) {
+  .pf .cartes-4 { gap: 32px; }
+}
