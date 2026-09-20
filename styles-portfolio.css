@@ -901,3 +901,31 @@
 }
 .pf .bloc-tete > div { width: 100%; margin-inline: 0; }
 .pf .bloc-tete > .btn { margin-top: var(--r-texte); }
+
+/* Pastille « Retour en haut » — gabarit réduit */
+.pf .haut {
+  min-height: 38px;
+  padding: 9px 12px 9px 15px;
+  font-size: 14px; line-height: 18px;
+  gap: 7px;
+}
+
+/* Outils, sous le texte d'À propos, dans la colonne centrée */
+.pf #about .outils { margin-top: var(--r-bloc); }
+.pf #about .outils .label { margin-bottom: var(--r-texte); }
+.pf #about .outils ul {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin: 0; padding: 0; list-style: none;
+}
+.pf #about .outils li {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 7px 13px;
+  border-radius: 999px;
+  background: var(--papier-2);
+  font-size: 14px; color: var(--encre);
+}
+.pf #about .outils img { width: 16px; height: 16px; object-fit: contain; }
+
+@media (max-width: 760px) {
+  .pf .haut { min-height: 34px; padding: 8px 11px 8px 13px; font-size: 13px; bottom: 16px; }
+}
