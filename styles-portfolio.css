@@ -1262,3 +1262,87 @@
 
 @media (max-width: 1100px) { .pf .dsx { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 680px)  { .pf .dsx { grid-template-columns: 1fr; } }
+
+/* Fiches compactées : la hauteur d'une rangée est dictée par sa fiche la plus
+   haute, d'où la palette repassée sur deux colonnes. */
+.pf .dsx { gap: 10px; }
+.pf .dsx-fiche { padding: 13px; gap: 11px; }
+.pf .dsx-fiche h3 { font-size: 13.5px; }
+.pf .dsx-fiche header p { font-size: 10.5px; }
+.pf .dsx-fiche header { gap: 3px; }
+.pf .dsx code { font-size: 10px; }
+
+.pf .dsx-pal { grid-template-columns: 1fr 1fr; gap: 6px 12px; }
+.pf .dsx-pal li { font-size: 10.5px; gap: 7px; }
+.pf .dsx-pal i { width: 13px; height: 13px; }
+
+.pf .dsx-typo { gap: 13px; }
+.pf .dsx-typo b { font-size: 34px; }
+.pf .dsx-typo dl { gap: 4px; }
+.pf .dsx-typo dt { font-size: 10.5px; }
+
+.pf .dsx-esp { gap: 6px; }
+.pf .dsx-esp i { height: 6px; }
+
+.pf .dsx-ray { gap: 8px; }
+.pf .dsx-ray i { aspect-ratio: 3 / 2; }
+.pf .dsx-ray span { gap: 5px; }
+
+.pf .dsx-btns { gap: 6px; }
+.pf .dsxb { padding: 6px 8px; font-size: 10.5px; }
+
+.pf .dsx-champs { gap: 6px; }
+.pf .dsxf { padding: 7px 9px; font-size: 10.5px; }
+
+.pf .dsx-sel { gap: 7px; }
+.pf .dsx-sel span { font-size: 10.5px; gap: 8px; }
+.pf .dsxc, .pf .dsxr { width: 13px; height: 13px; }
+.pf .dsxw { width: 23px; height: 13px; }
+.pf .dsxw::after { width: 9px; height: 9px; }
+
+.pf .dsx-nav { gap: 9px; }
+.pf .dsx-seg em { padding: 4px 9px; font-size: 10.5px; }
+.pf .dsx-fil { font-size: 10.5px; }
+
+.pf .dsx-code { padding: 10px; }
+.pf .dsx-code code { line-height: 1.55; }
+
+/* Second passage de compactage : la rangée fait 178 px, on vise ~140. */
+.pf .dsx { margin-top: var(--r-visuel); gap: 9px; }
+.pf .dsx-fiche { padding: 11px; gap: 9px; }
+.pf .dsx-fiche h3 { font-size: 12.5px; }
+.pf .dsx-fiche header p { font-size: 10px; }
+
+.pf .dsx-pal { gap: 4px 10px; }
+.pf .dsx-pal li { font-size: 10px; gap: 6px; }
+.pf .dsx-pal i { width: 11px; height: 11px; }
+
+.pf .dsx-typo { gap: 11px; }
+.pf .dsx-typo b { font-size: 27px; }
+.pf .dsx-typo dl { gap: 3px; }
+.pf .dsx-typo dt { font-size: 10px; }
+
+.pf .dsx-esp { gap: 5px; }
+.pf .dsx-esp i { height: 5px; }
+
+.pf .dsx-ray { gap: 7px; }
+.pf .dsx-ray i { aspect-ratio: 2 / 1; }
+.pf .dsx-ray span { gap: 4px; }
+
+.pf .dsx-btns { gap: 5px; }
+.pf .dsxb { padding: 5px 7px; font-size: 10px; }
+
+.pf .dsx-champs { gap: 5px; }
+.pf .dsxf { padding: 6px 8px; font-size: 10px; }
+
+.pf .dsx-sel { gap: 5px; }
+.pf .dsx-sel span { font-size: 10px; }
+
+.pf .dsx-nav { gap: 7px; }
+.pf .dsx-seg em { padding: 4px 8px; font-size: 10px; }
+.pf .dsx-fil { font-size: 10px; }
+
+.pf .dsx-code { padding: 9px; }
+.pf .dsx-code code { line-height: 1.45; font-size: 9.5px; }
+
+.pf .systeme-faits { margin-top: var(--r-texte); padding-top: var(--r-texte); }
