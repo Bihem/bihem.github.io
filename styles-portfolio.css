@@ -624,3 +624,25 @@
 @media (max-width: 360px) {
   .colonnes-4 { grid-template-columns: 1fr; gap: 24px; }
 }
+
+/* ==========================================================================
+   HERO ÉPURÉ — plus de carte ni de ligne de mots-clés
+   ========================================================================== */
+
+.pf .hero { padding-block: clamp(40px, 6vw, 84px) clamp(40px, 5vw, 72px); }
+.hero-in { grid-template-columns: 1fr; }
+.hero-texte { max-width: 60rem; }
+.hero-lieu {
+  position: static;
+  margin: 26px 0 0;
+  font-size: 12px;
+  color: var(--gris-txt);
+}
+
+/* Bande d'explorations, juste sous le hero : que les visuels. */
+.bande-explorations { padding-block: 0 var(--section); background: var(--papier); }
+
+@media (max-width: 760px) {
+  .pf .hero { padding-block: 28px 34px; }
+  .hero-lieu { margin-top: 20px; }
+}

@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css?v=b4821967">
-<link rel="stylesheet" href="styles-portfolio.css?v=2988f89c">
+<link rel="stylesheet" href="styles-portfolio.css?v=f1497df9">
 
 <script type="application/ld+json">
 {
@@ -96,21 +96,42 @@
         </div>
       </div>
 
-      <div class="hero-visuel">
-        <figure class="hero-carte">
-          <blockquote>Concevoir pour de vraies personnes.<br>Un impact réel.</blockquote>
-          <figcaption>DIKENGA<sup>®</sup></figcaption>
-        </figure>
-      </div>
-
       <p class="hero-lieu">Paris, France</p>
     </div>
 
-    <div class="wrap">
-      <ul class="signature">
-        <li>UX Design</li><li>UI Design</li><li>Product Design</li>
-        <li>Design Systems</li><li>Prototypage</li>
-      </ul>
+  </section>
+
+  <!-- ============================================= BANDE EXPLORATIONS -->
+  <section class="bande-explorations" id="experiments">
+    <div class="carrousel">
+      <div class="carrousel-piste" id="piste" tabindex="0" role="region" aria-label="Sélection d’explorations">
+        <figure class="diapo">
+          <img width="760" height="928" src="img/tennis-splash-mockup.webp" alt="Écran d’accueil de l’application tennis" loading="lazy">
+          <figcaption><b>Application tennis</b><span>Écran d’accueil</span></figcaption>
+        </figure>
+        <figure class="diapo">
+          <img width="760" height="920" src="img/tennis-mockup-phone.webp" alt="Tableau de bord de l’application tennis" loading="lazy">
+          <figcaption><b>Application tennis</b><span>Tableau de bord</span></figcaption>
+        </figure>
+        <figure class="diapo diapo--paysage">
+          <img width="760" height="507" src="img/adidas-hero-mini.webp" alt="Page d’accueil du concept Adidas Harden Vol.10" loading="lazy">
+          <figcaption><b>Adidas Harden Vol.10</b><span>Page d’accueil</span></figcaption>
+        </figure>
+        <figure class="diapo diapo--paysage">
+          <img width="760" height="507" src="img/adidas-produit-mini.webp" alt="Fiche produit du concept Adidas Harden Vol.10" loading="lazy">
+          <figcaption><b>Adidas Harden Vol.10</b><span>Fiche produit</span></figcaption>
+        </figure>
+        <figure class="diapo diapo--paysage">
+          <img width="760" height="507" src="img/adidas-details-mini.webp" alt="Page détails du concept Adidas Harden Vol.10" loading="lazy">
+          <figcaption><b>Adidas Harden Vol.10</b><span>Le sens du détail</span></figcaption>
+        </figure>
+      </div>
+
+      <div class="wrap carrousel-commandes">
+        <button class="carrousel-bouton" id="precedent" type="button" aria-label="Visuel précédent">←</button>
+        <button class="carrousel-bouton" id="suivant" type="button" aria-label="Visuel suivant">→</button>
+        <span class="carrousel-compteur" id="compteur" aria-live="polite">1 / 5</span>
+      </div>
     </div>
   </section>
 
@@ -430,53 +451,10 @@
     </div>
   </section>
 
-  <!-- ========================================= 06 SELECTED EXPERIMENTS -->
-  <section class="bloc bloc--gris" id="experiments">
-    <div class="wrap">
-      <div class="bloc-tete">
-        <div>
-          <p class="label">06 — Explorations</p>
-          <h2>Explorations d’interface<br>et de direction visuelle.</h2>
-        </div>
-      </div>
-    </div>
-
-    <div class="carrousel">
-      <div class="carrousel-piste" id="piste" tabindex="0" role="region" aria-label="Sélection d’explorations">
-        <figure class="diapo">
-          <img width="760" height="928" src="img/tennis-splash-mockup.webp" alt="Écran d’accueil de l’application tennis" loading="lazy">
-          <figcaption><b>Application tennis</b><span>Écran d’accueil</span></figcaption>
-        </figure>
-        <figure class="diapo">
-          <img width="760" height="920" src="img/tennis-mockup-phone.webp" alt="Tableau de bord de l’application tennis" loading="lazy">
-          <figcaption><b>Application tennis</b><span>Tableau de bord</span></figcaption>
-        </figure>
-        <figure class="diapo diapo--paysage">
-          <img width="760" height="507" src="img/adidas-hero-mini.webp" alt="Page d’accueil du concept Adidas Harden Vol.10" loading="lazy">
-          <figcaption><b>Adidas Harden Vol.10</b><span>Page d’accueil</span></figcaption>
-        </figure>
-        <figure class="diapo diapo--paysage">
-          <img width="760" height="507" src="img/adidas-produit-mini.webp" alt="Fiche produit du concept Adidas Harden Vol.10" loading="lazy">
-          <figcaption><b>Adidas Harden Vol.10</b><span>Fiche produit</span></figcaption>
-        </figure>
-        <figure class="diapo diapo--paysage">
-          <img width="760" height="507" src="img/adidas-details-mini.webp" alt="Page détails du concept Adidas Harden Vol.10" loading="lazy">
-          <figcaption><b>Adidas Harden Vol.10</b><span>Le sens du détail</span></figcaption>
-        </figure>
-      </div>
-
-      <div class="wrap carrousel-commandes">
-        <button class="carrousel-bouton" id="precedent" type="button" aria-label="Visuel précédent">←</button>
-        <button class="carrousel-bouton" id="suivant" type="button" aria-label="Visuel suivant">→</button>
-        <span class="carrousel-compteur" id="compteur" aria-live="polite">1 / 5</span>
-      </div>
-    </div>
-  </section>
-
   <!-- ======================================================== 07 ABOUT -->
   <section class="bloc" id="about">
     <div class="wrap">
-      <p class="label">07 — À propos</p>
+      <p class="label">06 — À propos</p>
 
       <div class="about">
         <div class="about-texte">
@@ -531,7 +509,7 @@
   <!-- ====================================================== 08 CONTACT -->
   <section class="bloc bloc--noir final" id="contact">
     <div class="wrap">
-      <p class="label">08 — Contact</p>
+      <p class="label">07 — Contact</p>
       <h2 class="final-titre">Construisons une meilleure expérience.</h2>
       <p class="bloc-desc bloc-desc--large">
         Vous avez un produit à concevoir, une interface à améliorer ou simplement envie
