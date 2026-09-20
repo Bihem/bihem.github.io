@@ -1099,3 +1099,28 @@
   .pf .etape-corps > .etape-clip { overflow: hidden; min-height: 0; }
   .pf .etape-corps p { padding: 14px 16px; }
 }
+
+/* ==========================================================================
+   MONTAGES — une seule hauteur pour les trois projets
+   Talseume faisait 720 px, StudioBooking 562 et Maison Delorme 707.
+   Tout est ramené à une hauteur commune ; les iframes gardent leur rapport
+   3/2 en ajustant leur largeur, les images sont recadrées en « cover ».
+   ========================================================================== */
+
+.pf { --h-montage: 600px; }
+
+.pf .cas-montage iframe {
+  width: min(100%, calc(var(--h-montage) * 1.5));
+  height: var(--h-montage);
+  aspect-ratio: auto;
+  margin-inline: auto;
+}
+.pf .cas-montage--duo img {
+  height: var(--h-montage);
+  aspect-ratio: auto;
+  object-fit: cover;
+  object-position: top center;
+}
+
+@media (max-width: 1180px) { .pf { --h-montage: 46vw; } }
+@media (max-width: 760px)  { .pf { --h-montage: 58vw; } }
