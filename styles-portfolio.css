@@ -1642,7 +1642,7 @@
    « .vu » serait battu par l'état masqué et rien ne s'afficherait jamais. */
 
 .js-anim .pf :is(
-    .hero-texte .label, .hero-desc, .hero-actions, .hero-portrait,
+    .hero-texte .label, .hero-role, .hero-desc, .hero-actions, .hero-portrait,
     .bloc > .wrap > .label, .bloc-desc, .systeme-texte .bloc-desc,
     .pills, .cas-texte, .cas-montage, .methode-montage,
     .colonnes-4 > *, .cartes-4 > *, .dsx-fiche, .etape,
@@ -1657,7 +1657,7 @@
 }
 
 .js-anim .pf :is(
-    .hero-texte .label, .hero-desc, .hero-actions, .hero-portrait,
+    .hero-texte .label, .hero-role, .hero-desc, .hero-actions, .hero-portrait,
     .bloc > .wrap > .label, .bloc-desc, .systeme-texte .bloc-desc,
     .pills, .cas-texte, .cas-montage, .methode-montage,
     .colonnes-4 > *, .cartes-4 > *, .dsx-fiche, .etape,
@@ -1780,4 +1780,45 @@
   .pf .hero-in { grid-template-columns: 1fr; }
   .pf .hero-portrait { order: -1; }
   .pf .hero-portrait img { width: clamp(112px, 26vw, 150px); }
+}
+
+/* ==========================================================================
+   HERO — nom et rôle en tête, à la manière de julius.fm
+   Relevé chez eux à 1440 px : nom 28/700 en encre, rôle 28/400 en gris,
+   texte courant 18 px avec une interligne de 27,9 (soit 1,55).
+   ========================================================================== */
+
+.pf .hero-nom {
+  font-size: clamp(22px, 2vw, 28px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.pf .hero-role {
+  font-size: clamp(22px, 2vw, 28px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: #9A9A9A;
+  margin: 0 0 var(--r-visuel);
+}
+
+/* Le texte du hero passe en petit corps, comme chez eux : 18 px, interligne
+   1,55, et en encre plutôt qu'en gris — c'est le paragraphe d'accroche. */
+.pf .hero-desc {
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--encre);
+  max-width: 46ch;
+}
+
+/* La photo grandit maintenant que le grand titre a disparu. */
+.pf .hero-portrait img { width: clamp(180px, 24vw, 344px); }
+
+@media (max-width: 900px) {
+  .pf .hero-portrait img { width: clamp(130px, 32vw, 190px); }
+  .pf .hero-desc { font-size: 16px; }
+  .pf .hero-role { margin-bottom: 28px; }
 }
