@@ -958,3 +958,16 @@
 .pf .ds-grille { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 @media (max-width: 1180px) { .pf .ds-grille { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 620px)  { .pf .ds-grille { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* ==========================================================================
+   RYTHME FINAL — valeurs relevées sur julius.fm, appliquées strictement
+   Bloc → bloc : 56 px. C'est la valeur mesurée là-bas ; le portfolio était
+   à 112 px (2 × 56) parce que chaque section portait 56 de chaque côté.
+   ========================================================================== */
+
+.pf { --section: 28px; }            /* 28 + 28 = 56 entre deux sections */
+.pf .cas + .cas { margin-top: var(--r-bloc); }   /* 56 entre deux projets */
+
+/* Les montages en iframe portent déjà une large marge blanche dans leur
+   propre document : y ajouter la nôtre doublait l'espace perçu. */
+.pf .cas-montage:has(iframe) { margin-block: 0; }
