@@ -874,3 +874,11 @@
 .pf .bloc-tete > div > *:last-child { margin-bottom: 0; }
 .pf section > .wrap > *:first-child,
 .pf .cas-texte > *:first-child { margin-top: 0; }
+
+/* « À propos » ne contient plus que du texte : une seule colonne, centrée
+   comme le reste de la page. */
+.pf #about .about-texte {
+  width: min(100%, var(--mesure));
+  margin-inline: auto;
+  max-width: none;
+}
