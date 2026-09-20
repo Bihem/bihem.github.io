@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css?v=b4821967">
-<link rel="stylesheet" href="styles-portfolio.css?v=bf75b5e0">
+<link rel="stylesheet" href="styles-portfolio.css?v=8dcff71d">
 
 <script type="application/ld+json">
 {
@@ -359,14 +359,57 @@
     <div class="wrap">
       <p class="label">Méthode</p>
       <h2 class="bloc-titre">Du problème au produit.</h2>
+      <p class="bloc-desc process-intro">Une approche en six étapes, de la compréhension du besoin jusqu’à la livraison.</p>
 
       <ol class="process">
-        <li><span class="num">01</span><h3>Comprendre</h3><p>Comprendre les utilisateurs, les objectifs et les contraintes.</p></li>
-        <li><span class="fl" aria-hidden="true">→</span><span class="num">02</span><h3>Structurer</h3><p>Architecture, parcours utilisateurs et wireframes.</p></li>
-        <li><span class="fl" aria-hidden="true">→</span><span class="num">03</span><h3>Concevoir</h3><p>Direction visuelle, interface et composants.</p></li>
-        <li><span class="fl" aria-hidden="true">→</span><span class="num">04</span><h3>Prototyper</h3><p>Interactions et scénarios réalistes.</p></li>
-        <li><span class="fl" aria-hidden="true">→</span><span class="num">05</span><h3>Itérer</h3><p>Feedback, tests et améliorations.</p></li>
-        <li><span class="fl" aria-hidden="true">→</span><span class="num">06</span><h3>Livrer</h3><p>Documentation, Design System et handoff.</p></li>
+        <li class="etape">
+          <button class="etape-tete" type="button" aria-expanded="false" aria-controls="etape-1">
+            <span class="num">01</span>
+            <h3>Comprendre</h3>
+            <span class="etape-signe" aria-hidden="true"></span>
+          </button>
+          <div class="etape-corps" id="etape-1"><div class="etape-clip"><p>Comprendre les utilisateurs, les objectifs et les contraintes.</p></div></div>
+        </li>
+        <li class="etape">
+          <span class="fl" aria-hidden="true">→</span><button class="etape-tete" type="button" aria-expanded="false" aria-controls="etape-2">
+            <span class="num">02</span>
+            <h3>Structurer</h3>
+            <span class="etape-signe" aria-hidden="true"></span>
+          </button>
+          <div class="etape-corps" id="etape-2"><div class="etape-clip"><p>Architecture, parcours utilisateurs et wireframes.</p></div></div>
+        </li>
+        <li class="etape">
+          <span class="fl" aria-hidden="true">→</span><button class="etape-tete" type="button" aria-expanded="false" aria-controls="etape-3">
+            <span class="num">03</span>
+            <h3>Concevoir</h3>
+            <span class="etape-signe" aria-hidden="true"></span>
+          </button>
+          <div class="etape-corps" id="etape-3"><div class="etape-clip"><p>Direction visuelle, interface et composants.</p></div></div>
+        </li>
+        <li class="etape">
+          <span class="fl" aria-hidden="true">→</span><button class="etape-tete" type="button" aria-expanded="false" aria-controls="etape-4">
+            <span class="num">04</span>
+            <h3>Prototyper</h3>
+            <span class="etape-signe" aria-hidden="true"></span>
+          </button>
+          <div class="etape-corps" id="etape-4"><div class="etape-clip"><p>Interactions et scénarios réalistes.</p></div></div>
+        </li>
+        <li class="etape">
+          <span class="fl" aria-hidden="true">→</span><button class="etape-tete" type="button" aria-expanded="false" aria-controls="etape-5">
+            <span class="num">05</span>
+            <h3>Itérer</h3>
+            <span class="etape-signe" aria-hidden="true"></span>
+          </button>
+          <div class="etape-corps" id="etape-5"><div class="etape-clip"><p>Feedback, tests et améliorations.</p></div></div>
+        </li>
+        <li class="etape">
+          <span class="fl" aria-hidden="true">→</span><button class="etape-tete" type="button" aria-expanded="false" aria-controls="etape-6">
+            <span class="num">06</span>
+            <h3>Livrer</h3>
+            <span class="etape-signe" aria-hidden="true"></span>
+          </button>
+          <div class="etape-corps" id="etape-6"><div class="etape-clip"><p>Documentation, Design System et handoff.</p></div></div>
+        </li>
       </ol>
     </div>
   </section>
@@ -535,6 +578,39 @@
 </a>
 
 <script>
+  /* Méthode : accordéon sur mobile. Sur desktop les panneaux restent ouverts,
+     le bouton n'y est qu'un conteneur de texte. */
+  (function () {
+    var petit = window.matchMedia('(max-width: 760px)');
+    var totes = [].slice.call(document.querySelectorAll('.etape-tete'));
+    if (!totes.length) return;
+
+    function fermerTout() {
+      totes.forEach(function (t) {
+        t.setAttribute('aria-expanded', 'false');
+        document.getElementById(t.getAttribute('aria-controls')).classList.remove('ouvert');
+      });
+    }
+
+    totes.forEach(function (t) {
+      t.addEventListener('click', function () {
+        if (!petit.matches) return;
+        var corps = document.getElementById(t.getAttribute('aria-controls'));
+        var ouvert = t.getAttribute('aria-expanded') === 'true';
+        fermerTout();
+        if (!ouvert) {
+          t.setAttribute('aria-expanded', 'true');
+          corps.classList.add('ouvert');
+        }
+      });
+    });
+
+    /* En repassant sur grand écran, tout redevient visible d'office. */
+    function surChangement(e) { if (!e.matches) fermerTout(); }
+    if (petit.addEventListener) petit.addEventListener('change', surChangement);
+    else petit.addListener(surChangement);
+  })();
+
   /* Pastille « Retour en haut » : apparaît une fois le hero passé */
   (function () {
     var p = document.getElementById('retourHaut');
