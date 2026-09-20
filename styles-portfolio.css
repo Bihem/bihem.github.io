@@ -929,3 +929,7 @@
 @media (max-width: 760px) {
   .pf .haut { min-height: 34px; padding: 8px 11px 8px 13px; font-size: 13px; bottom: 16px; }
 }
+
+/* Plus aucun numéro au-dessus des titres : Expertise, Méthode, IA. */
+.pf .col-num .num,
+.pf .process .num { display: none; }
