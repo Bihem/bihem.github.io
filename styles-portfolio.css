@@ -749,3 +749,65 @@
 .pf .btn--fantome { background: transparent; color: #fff; box-shadow: inset 0 0 0 1px rgba(255,255,255,.28); }
 .pf .btn--fantome::after { box-shadow: none; }
 .pf .btn--fantome:hover { box-shadow: inset 0 0 0 1px #fff; }
+
+/* ==========================================================================
+   RYTHME RELEVÉ SUR JULIUS.FM (1440 px)
+   22 px entre paragraphes · 36 px entre texte et visuel · 56 px entre blocs.
+   Colonne de lecture 540 centrée (450), visuels 1080 centrés (180).
+   ========================================================================== */
+
+.pf {
+  --r-texte:  22px;   /* paragraphe → paragraphe */
+  --r-visuel: 36px;   /* texte ↔ visuel */
+  --r-bloc:   56px;   /* bloc → bloc */
+  --section:  var(--r-bloc);
+}
+
+/* --- Tout le texte passe dans la colonne de lecture centrée --- */
+.pf .bloc > .wrap > .label,
+.pf .bloc > .wrap > .bloc-titre,
+.pf .bloc > .wrap > .bloc-desc,
+.pf .bloc-tete > div,
+.pf .final-titre,
+.pf .final-actions,
+.pf .final-faits {
+  width: min(100%, var(--mesure));
+  margin-inline: auto;
+}
+
+/* --- Rythme vertical --- */
+.pf .label { margin-bottom: var(--r-texte); }
+.pf p { margin-bottom: var(--r-texte); }
+.pf p:last-child { margin-bottom: 0; }
+
+.pf .cas-titre { margin-bottom: var(--r-texte); }
+.pf .bloc-titre,
+.pf .bloc-tete h2,
+.pf .section-tete { margin-bottom: var(--r-bloc); }
+.pf .final-titre { margin-bottom: var(--r-texte); }
+
+/* Texte ↔ visuel : la même valeur des deux côtés */
+.pf .cas-montage { margin-block: var(--r-visuel); }
+.pf .cas-texte .pills { margin-bottom: var(--r-texte); }
+
+/* Entre deux projets : le même écart qu'entre deux sections */
+.pf .cas + .cas { margin-top: calc(var(--r-bloc) * 2); }
+
+/* Les grilles larges gardent leurs 1080, sous le texte centré */
+.pf .colonnes-4,
+.pf .cartes-4,
+.pf .process,
+.pf .ds-grille { margin-top: 0; }
+
+@media (max-width: 760px) {
+  .pf { --r-bloc: 40px; --r-visuel: 28px; --r-texte: 18px; }
+}
+
+/* Les commandes du carrousel portent .wrap mais sont déjà dans un conteneur
+   calé : sans ça, la marge latérale est appliquée deux fois. */
+.bande-explorations .carrousel > .wrap.carrousel-commandes {
+  width: 100%;
+  margin-inline: 0;
+  padding-inline: 0;
+  margin-top: var(--r-texte);
+}
