@@ -403,7 +403,7 @@
 
 @media (max-width: 1024px) {
   .hero-in { grid-template-columns: 1fr; }
-  .hero-visuel { order: -1; max-width: 460px; min-height: 0; }
+  .hero-visuel { order: 0; justify-content: flex-start; margin-top: 4px; }
   .hero-lieu { position: static; margin-top: 18px; }
   .systeme { grid-template-columns: 1fr; }
   .colonnes-4 { grid-template-columns: repeat(2, 1fr); }
@@ -507,8 +507,10 @@
 
 .cas-texte .pills { margin-bottom: 22px; }
 
+/* Les deux captures Delorme restent côte à côte, même sur petit écran :
+   empilées, elles faisaient quatre fois la hauteur des autres montages. */
 @media (max-width: 620px) {
-  .cas-montage--duo { grid-template-columns: 1fr; }
+  .cas-montage--duo { gap: 10px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .cas-montage--duo img { transition: none; }
@@ -530,4 +532,78 @@
 }
 @media (max-width: 760px) {
   .cas-montage--cadre iframe { width: 100%; }
+}
+
+
+/* ==========================================================================
+   RESPONSIVE — resserrage mobile
+   Sur petit écran la page faisait plus de 16 écrans de haut. On réduit
+   l'échelle typographique et le rythme vertical, sans toucher au desktop.
+   ========================================================================== */
+
+@media (max-width: 760px) {
+  .pf {
+    --section: 56px;   /* au lieu de 72 px */
+    --pad: 20px;
+  }
+
+  /* Titres */
+  .pf h1 { font-size: 33px; line-height: 1.06; letter-spacing: -0.04em; }
+  .pf h2 { font-size: 26px; line-height: 1.12; }
+  .pf .cas-titre { font-size: 22px; }
+  .pf .final-titre { font-size: 30px; }
+  .hero-texte h1 { margin-bottom: 18px; max-width: none; }
+
+  /* Textes courants : c'est là que se gagnait le plus de hauteur */
+  .pf { font-size: 15px; line-height: 1.5; }
+  .hero-desc { font-size: 15px; margin-bottom: 22px; }
+  .pf .bloc-desc--large { font-size: 16px; }
+  .pf .cas-desc { font-size: 14px; }
+  .pf .label { margin-bottom: 12px; }
+
+  /* Rythme des blocs */
+  .bloc-tete { margin-bottom: 26px; }
+  .pf .bloc-titre { margin-bottom: 26px; }
+  .cas { padding-block: 34px 0; }
+  .section-tete { margin-bottom: 26px; }
+
+  /* Colonnes empilées : moins d'air entre chaque groupe */
+  .col-num { padding-top: 20px !important; padding-bottom: 0; }
+  .col-num .num { margin-bottom: 10px; }
+  .col-num h3 { margin-bottom: 10px; }
+  .col-num ul { gap: 5px; }
+  .pf .process li { padding-top: 20px !important; }
+  .pf .process .num { margin-bottom: 8px; }
+
+  /* Cartes */
+  .carte-srv { padding: 20px 0; }
+  .cartes-4 { gap: 4px; }
+  .carte-srv .num { margin-bottom: 12px; }
+  .carte-srv p { margin-bottom: 12px; }
+  .carte-srv ul { padding-top: 12px; gap: 5px; }
+
+  /* Hero : la citation passe sous le texte, alignée à gauche */
+  .hero-visuel { width: 100%; justify-self: stretch; }
+  .hero-carte {
+    width: 100%; max-width: none; padding: 18px 20px;
+    background: var(--papier-2);   /* sans bordure, il lui faut un fond */
+    box-shadow: none;
+  }
+  .hero-carte blockquote { margin-bottom: 10px; }
+  .hero-lieu { position: static; margin-top: 14px; }
+  .pf .signature { padding-bottom: var(--section); gap: 8px 18px; }
+  .pf .signature li { gap: 18px; }
+
+  /* Divers */
+  .about-cote .portrait { width: 96px; height: 96px; margin-bottom: 20px; }
+  .parcours > div { padding: 10px 0; }
+  .systeme-faits, .final-faits { gap: 18px; padding-top: 20px; }
+  .final-actions { margin-bottom: 30px; }
+  .pf .pied { padding-block: 40px 24px; }
+  .pied-grille { padding-bottom: 26px; }
+}
+
+@media (max-width: 400px) {
+  .pf h1 { font-size: 30px; }
+  .pf h2 { font-size: 24px; }
 }
