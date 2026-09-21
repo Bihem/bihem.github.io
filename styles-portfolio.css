@@ -972,11 +972,14 @@
 .pf .cas + .cas { margin-top: var(--r-bloc); }   /* 56 entre deux projets */
 
 
-/* Correction : tous les montages reprennent l'écart de 36 px. Seul le montage
-   Talseume porte une large marge blanche dans son propre document — lui seul
-   est mis à zéro, sinon l'espace était compté deux fois. */
+/* Correction : tous les montages reprennent l'écart de 36 px. Le montage
+   Talseume porte une marge blanche en haut dans son propre document, donc son
+   écart supérieur est mis à zéro — sinon l'espace serait compté deux fois.
+   En bas il n'a aucune marge propre : mesuré au pixel, le bouton n'avait que
+   3 px de blanc contre 37 px pour les deux autres. Il reprend donc l'écart
+   commun sous l'image. */
 .pf .cas-montage { margin-block: var(--r-visuel); }
-.pf .cas-montage:has(iframe[src*="talseume-montage"]) { margin-block: 0; }
+.pf .cas-montage:has(iframe[src*="talseume-montage"]) { margin-block: 0 var(--r-visuel); }
 
 /* Correction : « .btn:hover » imposait un fond blanc à tous les boutons.
    Sur fond noir, le bouton en contour blanc devenait blanc sur blanc,
