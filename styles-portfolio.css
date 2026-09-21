@@ -2592,3 +2592,10 @@
   color: var(--encre);
 }
 .pf .pied-marque sup { font-size: .55em; top: -.6em; }
+
+/* Plus de filet entre les deux rangées du pied : il n'a plus rien à séparer
+   depuis que la colonne d'identité a disparu. La grille n'a plus qu'une
+   colonne, les réseaux restent calés à droite. */
+.pf .pied-bas { border-top: 0; padding-top: 0; }
+.pf .pied-grille { grid-template-columns: 1fr; padding-bottom: 14px; }
+.pf .pied-social { justify-content: flex-end; }
