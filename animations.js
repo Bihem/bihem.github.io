@@ -33,7 +33,7 @@
     '.colonnes-4 > *', '.cartes-4 > *', '.expertise-carte', '.expertise-texte', '.dsx-fiche', '.etape',
     '.systeme-faits > div', '.final-faits > div', '.final-actions',
     '.about-texte', '.about-cote', '.outils', '.billet', '.coord li',
-    '.contact-adresse', '.contact-tel', '.contact-reseaux'
+    '.contact-gauche', '.contact-form'
   ];
 
   var aReveler = [];

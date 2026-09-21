@@ -1495,6 +1495,87 @@
 }
 
 /* ==========================================================================
+   PAGE BLOG — liste des articles
+   Même principe que la liste de contact : la colonne de lecture de 540, pas
+   de trait ni de cadre, un fond qui se révèle au survol. Le rembourrage est
+   compensé à gauche pour que les titres restent alignés sur la colonne.
+   ========================================================================== */
+
+.pf .billets {
+  width: min(100%, var(--mesure));
+  margin-inline: auto;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 4px;
+}
+
+.pf .billet {
+  display: block;
+  margin-inline: -18px;
+  padding: 20px 18px;
+  border: 0;
+  border-radius: 14px;
+  background: transparent;
+  color: inherit;
+  text-decoration: none;
+  transition: background-color .25s var(--ease);
+}
+
+.pf .billet:hover,
+.pf .billet:focus-visible { background: var(--papier-2); }
+
+.pf .billet-meta {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gris-txt);
+}
+
+.pf .billet-titre {
+  margin: 0 0 10px;
+  font-size: 20px;
+  line-height: 1.25;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--encre);
+}
+
+.pf .billet-extrait {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--gris-txt);
+}
+
+@media (max-width: 760px) {
+  .pf .billet { margin-inline: -14px; padding: 16px 14px; border-radius: 12px; }
+  .pf .billet-titre { font-size: 18px; }
+  .pf .billet-extrait { font-size: 14px; }
+}
+
+/* Les outils perdent leur pastille : plus de fond, plus de bordure, plus de
+   coin arrondi. Il ne reste que le logo et son nom, séparés par du vide.
+   L'écart entre deux outils (--outils-ecart) sert à la fois de gap et de
+   correctif dans l'animation, pour que la boucle reste invisible quel que
+   soit l'écart choisi. */
+.pf .outils li {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.pf .outils-bande { --outils-ecart: 30px; gap: var(--outils-ecart); }
+.pf .outils-bande ul { gap: var(--outils-ecart); }
+
+@media (max-width: 760px) {
+  .pf .outils-bande { --outils-ecart: 24px; }
+}
+
+/* ==========================================================================
    PAGE CONTACT
    L'adresse e-mail porte la page : elle est composée en grand, juste sous la
    description, dans la même colonne de lecture que tout le reste du site.
@@ -1651,7 +1732,7 @@
     .colonnes-4 > *, .cartes-4 > *, .expertise-carte, .expertise-texte, .dsx-fiche, .etape,
     .systeme-faits > div, .final-faits > div, .final-actions,
     .about-texte, .about-cote, .outils, .billet, .coord li,
-    .contact-adresse, .contact-tel, .contact-reseaux
+    .contact-gauche, .contact-form
   ) {
   opacity: 0;
   transform: translateY(34px);
@@ -1666,7 +1747,7 @@
     .colonnes-4 > *, .cartes-4 > *, .expertise-carte, .expertise-texte, .dsx-fiche, .etape,
     .systeme-faits > div, .final-faits > div, .final-actions,
     .about-texte, .about-cote, .outils, .billet, .coord li,
-    .contact-adresse, .contact-tel, .contact-reseaux
+    .contact-gauche, .contact-form
   ).vu {
   opacity: 1;
   transform: none;
@@ -2027,3 +2108,110 @@
 /* Le pied de page n'a plus sa colonne de navigation : deux colonnes
    suffisent, l'identité à gauche et les réseaux à droite. */
 .pf .pied-grille { grid-template-columns: minmax(0, 1fr) auto; }
+
+/* ==========================================================================
+   PAGE CONTACT — deux colonnes
+   Structure reprise de julianpenin.com : le texte et les coordonnées à
+   gauche, le formulaire à droite. Leur formulaire n'a ni action ni méthode
+   et son champ s'appelle « body » : il compose un mailto:. Le site étant
+   statique, on fait de même. Les couleurs restent celles du site.
+   ========================================================================== */
+
+.pf .contact-grille {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(36px, 5vw, 80px);
+  align-items: start;
+}
+
+/* Le centrage global vise .bloc > .wrap > … ; ici tout est d'un niveau plus
+   bas et doit rester calé à gauche de sa colonne. */
+.pf .contact-gauche .label,
+.pf .contact-gauche .bloc-titre,
+.pf .contact-gauche .bloc-desc {
+  width: auto;
+  margin-inline: 0;
+}
+.pf .contact-gauche .bloc-desc { max-width: 42ch; }
+
+/* --- Coordonnées : libellé à gauche, valeur à droite, séparées d'un filet */
+
+.pf .contact-lignes {
+  margin: var(--r-bloc) 0 0;
+  padding: 0;
+  border-top: 1px solid var(--trait);
+}
+.pf .contact-lignes > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--trait);
+}
+.pf .contact-lignes dt {
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gris-txt);
+}
+.pf .contact-lignes dd { margin: 0; font-size: 14.5px; text-align: right; }
+.pf .contact-lignes a { color: var(--encre); text-decoration: none; }
+.pf .contact-lignes a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+/* --- Formulaire --- */
+
+.pf .contact-form { display: grid; gap: 18px; }
+
+.pf .champ { display: grid; gap: 8px; }
+.pf .champ label {
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gris-txt);
+}
+.pf .champ label span { text-transform: none; letter-spacing: 0; }
+
+.pf .champ input,
+.pf .champ textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--trait);
+  border-radius: 8px;
+  background: var(--papier);
+  font: inherit;
+  font-size: 15px;
+  color: var(--encre);
+  transition: border-color .2s var(--ease), box-shadow .2s var(--ease);
+}
+.pf .champ textarea { resize: vertical; min-height: 130px; line-height: 1.55; }
+
+.pf .champ input::placeholder,
+.pf .champ textarea::placeholder { color: #A5A5AB; }
+
+.pf .champ input:focus,
+.pf .champ textarea:focus {
+  outline: none;
+  border-color: var(--encre);
+  box-shadow: 0 0 0 3px rgba(13, 13, 15, .08);
+}
+
+.pf .champ-erreur {
+  margin: 0;
+  font-size: 13px;
+  color: #C0392B;
+}
+
+.pf .contact-envoyer { justify-content: center; width: 100%; }
+.pf .contact-note {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--gris-txt);
+}
+
+@media (max-width: 900px) {
+  .pf .contact-grille { grid-template-columns: 1fr; gap: 34px; }
+  .pf .contact-gauche .bloc-desc { max-width: none; }
+  .pf .contact-lignes { margin-top: 30px; }
+}
