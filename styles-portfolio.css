@@ -1648,7 +1648,7 @@
     .hero-texte .label, .hero-role, .hero-logos, .hero-desc, .hero-actions, .hero-portrait,
     .bloc > .wrap > .label, .bloc-desc, .systeme-texte .bloc-desc,
     .pills, .cas-texte, .cas-montage, .methode-montage,
-    .colonnes-4 > *, .cartes-4 > *, .dsx-fiche, .etape,
+    .colonnes-4 > *, .cartes-4 > *, .expertise-carte, .expertise-texte, .dsx-fiche, .etape,
     .systeme-faits > div, .final-faits > div, .final-actions,
     .about-texte, .about-cote, .outils, .billet, .coord li,
     .contact-adresse, .contact-tel, .contact-reseaux
@@ -1663,7 +1663,7 @@
     .hero-texte .label, .hero-role, .hero-logos, .hero-desc, .hero-actions, .hero-portrait,
     .bloc > .wrap > .label, .bloc-desc, .systeme-texte .bloc-desc,
     .pills, .cas-texte, .cas-montage, .methode-montage,
-    .colonnes-4 > *, .cartes-4 > *, .dsx-fiche, .etape,
+    .colonnes-4 > *, .cartes-4 > *, .expertise-carte, .expertise-texte, .dsx-fiche, .etape,
     .systeme-faits > div, .final-faits > div, .final-actions,
     .about-texte, .about-cote, .outils, .billet, .coord li,
     .contact-adresse, .contact-tel, .contact-reseaux
@@ -1920,3 +1920,77 @@
 
 /* Même hauteur dans la bande défilante. */
 .pf .outils-bande img { height: 18px; width: auto; }
+
+/* ==========================================================================
+   EXPERTISE — deux colonnes, cartes empilées
+   Principe repris de julianpenin.com : le titre et le texte tiennent la
+   colonne de gauche, les domaines deviennent des cartes empilées à droite,
+   chacune marquée d'un petit signe. Les couleurs et la typographie restent
+   celles du site.
+   ========================================================================== */
+
+.pf .expertise-grille {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(32px, 4vw, 64px);
+  align-items: start;
+}
+
+.pf .expertise-texte .bloc-titre { margin-bottom: var(--r-texte); }
+.pf .expertise-texte .bloc-desc { max-width: 40ch; }
+
+/* Les règles de centrage du site visent .bloc > .wrap > … ; ici le titre est
+   d'un niveau plus bas et doit rester calé à gauche de sa colonne. */
+.pf .expertise-texte .label,
+.pf .expertise-texte .bloc-titre,
+.pf .expertise-texte .bloc-desc {
+  width: auto;
+  margin-inline: 0;
+}
+
+.pf .expertise-cartes {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pf .expertise-carte {
+  display: flex;
+  gap: 14px;
+  padding: 22px 24px;
+  border-radius: 14px;
+  background: var(--papier-2);
+}
+
+.pf .expertise-signe {
+  flex: 0 0 auto;
+  width: 9px;
+  height: 9px;
+  margin-top: 7px;
+  border-radius: 2px;
+  background: var(--encre);
+  transform: rotate(45deg);
+}
+
+.pf .expertise-carte h3 {
+  margin: 0 0 7px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--encre);
+}
+
+.pf .expertise-carte p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--gris-txt);
+}
+
+@media (max-width: 900px) {
+  .pf .expertise-grille { grid-template-columns: 1fr; gap: 28px; }
+  .pf .expertise-texte .bloc-desc { max-width: none; }
+  .pf .expertise-carte { padding: 18px 18px; gap: 12px; }
+}
