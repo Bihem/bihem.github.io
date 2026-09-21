@@ -3241,7 +3241,8 @@
 .pf .hero-credit {
   position: fixed;
   right: 22px;
-  top: 50%;
+  /* Descendue sous le centre de l'écran. */
+  top: calc(50% + 56px);
   z-index: 50;
   margin: 0;
   writing-mode: vertical-rl;
