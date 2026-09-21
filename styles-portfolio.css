@@ -1994,3 +1994,20 @@
   .pf .expertise-texte .bloc-desc { max-width: none; }
   .pf .expertise-carte { padding: 18px 18px; gap: 12px; }
 }
+
+/* Cartes d'expertise : angles droits, et chaque intitulé sur sa ligne plutôt
+   qu'une suite séparée par des points. */
+.pf .expertise-carte { border-radius: 0; }
+
+.pf .expertise-carte ul {
+  display: grid;
+  gap: 5px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.pf .expertise-carte li {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--gris-txt);
+}
