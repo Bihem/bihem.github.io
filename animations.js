@@ -27,7 +27,7 @@
   /* Cette liste doit rester identique à celle du sélecteur :is() de
      styles-portfolio.css, qui applique l'état masqué avant le rendu. */
   var CIBLES = [
-    '.hero-texte .label', '.hero-role', '.hero-logos', '.hero-desc', '.hero-actions', '.hero-portrait',
+    '.hero-texte .label', '.hero-role', '.hero-logos', '.hero-desc', '.hero-actions', '.hero-credit', '.hero-portrait',
     '.bloc > .wrap > .label', '.bloc-desc', '.systeme-texte .bloc-desc',
     '.pills', '.cas-texte', '.cas-montage', '.methode-montage',
     '.colonnes-4 > *', '.cartes-4 > *', '.expertise-carte', '.expertise-texte', '.dsx-fiche', '.etape',
