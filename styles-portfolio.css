@@ -3241,8 +3241,10 @@
 .pf .hero-credit {
   position: fixed;
   right: 22px;
-  /* Descendue sous le centre de l'écran. */
-  top: calc(50% + 56px);
+  /* Descendue nettement sous le centre. Le décalage est plafonné par la
+     hauteur disponible : la mention mesure ~300 px et ne doit jamais sortir
+     du cadre sur un écran court. */
+  top: calc(50% + min(140px, (100vh - 300px) / 2 - 24px));
   z-index: 50;
   margin: 0;
   writing-mode: vertical-rl;
