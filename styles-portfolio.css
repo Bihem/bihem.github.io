@@ -3029,3 +3029,15 @@
   .pf .contact-bloc { grid-template-columns: 1fr; gap: 30px; }
   .pf .contact-form { padding: 18px; }
 }
+
+/* Page contact : tout le texte gris passe en noir — surtitres, description,
+   libellés des coordonnées et des champs, note sous le bouton. Les textes
+   d'exemple des champs restent gris : en noir, ils se confondraient avec une
+   saisie réelle. */
+.pf.page-contact .label,
+.pf.page-contact .bloc-desc,
+.pf.page-contact .contact-lignes dt,
+.pf.page-contact .champ label,
+.pf.page-contact .contact-note {
+  color: var(--encre);
+}
