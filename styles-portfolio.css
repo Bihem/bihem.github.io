@@ -2390,7 +2390,9 @@
 .pf .hero { padding-top: calc(var(--section) + 56px); }
 
 @media (max-width: 900px) {
-  .pf .hero { padding-top: calc(var(--section) + 28px); }
+  /* Sur mobile le bloc remonte : l'en-tête est déjà collante et la photo
+     arrive juste dessous, il n'y a pas besoin d'autant d'air au-dessus. */
+  .pf .hero { padding-top: 14px; }
 }
 
 /* ==========================================================================
