@@ -2019,3 +2019,7 @@
   gap: 0;
 }
 .pf .expertise-signe { display: none; }
+
+/* Le fond des cartes reprend le gris du document Design System Maison
+   Delorme, relevé directement dans l'image : #E5E6E3. */
+.pf .expertise-carte { background: #E5E6E3; }
