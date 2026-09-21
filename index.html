@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css?v=b4821967">
-<link rel="stylesheet" href="styles-portfolio.css?v=f1f7e885">
+<link rel="stylesheet" href="styles-portfolio.css?v=df4e269b">
 
 <script type="application/ld+json">
 {
@@ -465,29 +465,59 @@
   <!-- ====================================================== 08 CONTACT -->
   <section class="bloc bloc--noir final" id="contact">
     <div class="wrap">
-      <p class="label">Contact</p>
-      <h2 class="final-titre">Construisons une meilleure expérience.</h2>
-      <p class="bloc-desc bloc-desc--large">
-        Vous avez un produit à concevoir, une interface à améliorer ou simplement envie
-        d’échanger autour d’une opportunité ? Parlons-en.
-      </p>
+      <div class="contact-grille">
 
-      <div class="final-actions">
-        <a class="btn btn--clair" href="mailto:uiuxmesreves@gmail.com?subject=Projet">
-          Démarrer un projet <span class="fleche" aria-hidden="true">→</span>
-        </a>
-        <a class="btn btn--fantome" href="mailto:uiuxmesreves@gmail.com">
-          Me contacter <span class="fleche" aria-hidden="true">→</span>
-        </a>
-        <a class="btn btn--fantome" href="https://www.linkedin.com/in/dikengadesign/" target="_blank" rel="noopener">
-          LinkedIn <span class="fleche" aria-hidden="true">↗</span>
-        </a>
+        <div class="contact-gauche">
+          <p class="label">Contact</p>
+          <h2 class="bloc-titre">Construisons une<br>meilleure expérience.</h2>
+          <p class="bloc-desc">
+            Vous avez un produit à concevoir, une interface à améliorer ou simplement envie
+            d’échanger autour d’une opportunité ? Parlons-en.
+          </p>
+
+          <dl class="contact-lignes">
+            <div>
+              <dt>E-mail</dt>
+              <dd><a href="mailto:uiuxmesreves@gmail.com">uiuxmesreves@gmail.com</a></dd>
+            </div>
+            <div>
+              <dt>Téléphone</dt>
+              <dd><a href="tel:+33767537059">+33 7 67 53 70 59</a></dd>
+            </div>
+            <div>
+              <dt>LinkedIn</dt>
+              <dd><a href="https://www.linkedin.com/in/dikengadesign/" target="_blank" rel="noopener">linkedin.com/in/dikengadesign</a></dd>
+            </div>
+            <div>
+              <dt>Instagram</dt>
+              <dd><a href="https://www.instagram.com/dikengadesign/" target="_blank" rel="noopener">@dikengadesign</a></dd>
+            </div>
+          </dl>
+        </div>
+
+        <form class="contact-form" id="formulaire"
+              action="https://formspree.io/f/mdaproed" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="Nouveau message depuis dikengadesign.fr">
+          <div class="champ">
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" name="nom" placeholder="Votre nom" autocomplete="name" required>
+          </div>
+          <div class="champ">
+            <label for="courriel">E-mail</label>
+            <input type="email" id="courriel" name="courriel" placeholder="vous@exemple.com" autocomplete="email" required>
+          </div>
+          <div class="champ">
+            <label for="message">Message <span>(optionnel)</span></label>
+            <textarea id="message" name="message" rows="5" placeholder="Sur quoi travaillez-vous ?"></textarea>
+          </div>
+          <p class="champ-erreur" id="erreur" role="alert" hidden></p>
+          <button class="btn btn--clair contact-envoyer" id="envoyer" type="submit">
+            <span class="envoyer-texte">Envoyer le message</span> <span class="fleche" aria-hidden="true">→</span>
+          </button>
+          <p class="contact-note" id="etat" role="status"></p>
+        </form>
+
       </div>
-
-      <dl class="final-faits">
-        <div><dt>E-mail</dt><dd><a href="mailto:uiuxmesreves@gmail.com">uiuxmesreves@gmail.com</a></dd></div>
-        <div><dt>Basé à</dt><dd>Paris, France</dd></div>
-      </dl>
     </div>
   </section>
 
@@ -669,6 +699,64 @@
       new IntersectionObserver(function (e) { e[0].isIntersecting ? demarrer() : arreter(); }, { threshold: .2 }).observe(piste);
     }
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) demarrer();
+  })();
+</script>
+
+<script>
+  /* Envoi via Formspree (endpoint mdaproed, déjà en service sur l'ancienne
+     version du site). On poste en fetch avec Accept: application/json pour
+     rester sur la page plutôt que d'être redirigé vers Formspree. */
+  (function () {
+    var f = document.getElementById('formulaire');
+    if (!f) return;
+    var err = document.getElementById('erreur');
+    var etat = document.getElementById('etat');
+    var bouton = document.getElementById('envoyer');
+    var libelle = bouton.querySelector('.envoyer-texte');
+
+    function signaler(message, champ) {
+      err.textContent = message;
+      err.hidden = false;
+      if (champ) champ.focus();
+    }
+
+    f.addEventListener('input', function () { err.hidden = true; });
+
+    f.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      var nom = f.nom.value.trim();
+      var courriel = f.courriel.value.trim();
+
+      if (!nom) return signaler('Indiquez votre nom.', f.nom);
+      if (!courriel || courriel.indexOf('@') < 1 || courriel.indexOf('.') < 0) {
+        return signaler('Indiquez une adresse e-mail valide.', f.courriel);
+      }
+
+      bouton.disabled = true;
+      libelle.textContent = 'Envoi…';
+      etat.textContent = '';
+
+      try {
+        var res = await fetch(f.action, {
+          method: 'POST',
+          body: new FormData(f),
+          headers: { Accept: 'application/json' }
+        });
+        if (res.ok) {
+          f.reset();
+          libelle.textContent = 'Message envoyé';
+          etat.textContent = 'Merci, votre message est parti. Je réponds dès que possible.';
+        } else {
+          bouton.disabled = false;
+          libelle.textContent = 'Envoyer le message';
+          signaler('L’envoi a échoué. Réessayez, ou écrivez-moi directement à uiuxmesreves@gmail.com.');
+        }
+      } catch (x) {
+        bouton.disabled = false;
+        libelle.textContent = 'Envoyer le message';
+        signaler('L’envoi a échoué. Réessayez, ou écrivez-moi directement à uiuxmesreves@gmail.com.');
+      }
+    });
   })();
 </script>
 

@@ -2215,3 +2215,30 @@
   .pf .contact-gauche .bloc-desc { max-width: none; }
   .pf .contact-lignes { margin-top: 30px; }
 }
+
+/* Le bloc contact de l'accueil est sur fond noir : le formulaire et les
+   lignes de coordonnées s'y adaptent. */
+.pf .bloc--noir .contact-lignes { border-top-color: var(--trait-fonce); }
+.pf .bloc--noir .contact-lignes > div { border-bottom-color: var(--trait-fonce); }
+.pf .bloc--noir .contact-lignes dt { color: var(--gris-clair); }
+.pf .bloc--noir .contact-lignes a { color: #fff; }
+
+.pf .bloc--noir .champ label { color: var(--gris-clair); }
+.pf .bloc--noir .champ input,
+.pf .bloc--noir .champ textarea {
+  background: rgba(255, 255, 255, .04);
+  border-color: rgba(255, 255, 255, .18);
+  color: #fff;
+}
+.pf .bloc--noir .champ input::placeholder,
+.pf .bloc--noir .champ textarea::placeholder { color: rgba(255, 255, 255, .42); }
+.pf .bloc--noir .champ input:focus,
+.pf .bloc--noir .champ textarea:focus {
+  border-color: #fff;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, .12);
+}
+.pf .bloc--noir .champ-erreur { color: #FF8A7A; }
+.pf .bloc--noir .contact-note { color: var(--gris-clair); }
+
+/* Le titre du bloc contact garde sa grande taille sur l'accueil. */
+.pf .final .contact-gauche .bloc-titre { font-size: clamp(32px, 4vw, 52px); }
