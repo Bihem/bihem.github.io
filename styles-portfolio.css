@@ -2599,3 +2599,30 @@
 .pf .pied-bas { border-top: 0; padding-top: 0; }
 .pf .pied-grille { grid-template-columns: 1fr; padding-bottom: 14px; }
 .pf .pied-social { justify-content: flex-end; }
+
+/* Le pied tient sur une seule ligne : le copyright à gauche, les réseaux à
+   droite. Plus de grille ni de rangée séparée, donc moins de hauteur. */
+.pf .pied { padding-block: 20px 20px; }
+.pf .pied-bas {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px 24px;
+  padding-top: 0;
+  border-top: 0;
+}
+.pf .pied-social { gap: 22px; }
+
+@media (max-width: 760px) {
+  .pf .pied { padding-block: 16px 16px; }
+  .pf .pied-bas { gap: 10px 18px; }
+}
+
+/* Sous 360 px la ligne ne tenait plus et se scindait en deux : on resserre
+   l'écart et le corps du texte pour qu'elle reste sur une seule ligne. */
+@media (max-width: 360px) {
+  .pf .pied { font-size: 12px; }
+  .pf .pied-social { gap: 14px; }
+  .pf .pied-bas { gap: 8px 14px; flex-wrap: nowrap; }
+}
