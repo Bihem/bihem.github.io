@@ -3080,21 +3080,6 @@
   .pf .pied-social { gap: 18px; }
 }
 
-/* Ligne de mention sous le hero, dans l'esprit de celle de julianpenin.com :
-   relevée chez eux en JetBrains Mono 11 px / 300, interlettrage 0,55 px, en
-   capitales. On garde la pile monospace déjà utilisée par le site plutôt que
-   de charger une police supplémentaire. */
-.pf .hero-credit {
-  margin: var(--r-bloc) 0 0;
-  font-family: ui-monospace, Menlo, monospace;
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: .55px;
-  color: var(--gris-txt);
-}
-
-@media (max-width: 760px) {
-  .pf .hero-credit { margin-top: 30px; font-size: 10px; }
 }
 
 /* Le bloc du hero — nom, logos, texte, portrait — démarre plus bas : c'est la
@@ -3219,13 +3204,16 @@
       transform-origin: 50% 0;
       animation: carte-deplie both linear;
       animation-timeline: view();
-      animation-range: entry 8% entry 58%;
+      /* « entry » ne dure que la hauteur de la carte : le pliage se terminait
+         avant qu'elle soit visible. « cover » s'étale sur la traversée de
+         l'écran, donc le mouvement se voit vraiment. */
+      animation-range: cover 0% cover 38%;
     }
     /* Pas d'opacité ici : elle est déjà pilotée par la cascade d'apparition,
        et les deux se disputeraient la propriété. */
     @keyframes carte-deplie {
-      from { transform: perspective(900px) rotateX(-14deg) translateY(16px); }
-      to   { transform: perspective(900px) rotateX(0) translateY(0); }
+      from { transform: perspective(1100px) rotateX(-22deg) translateY(26px); }
+      to   { transform: perspective(1100px) rotateX(0) translateY(0); }
     }
   }
 }
@@ -3241,4 +3229,35 @@
   .pf .btn { transition: none; }
   .pf .btn:hover { transform: none; }
   .pf .haut.vers-le-bas { animation: none; }
+}
+
+/* ==========================================================================
+   MENTION VERTICALE
+   Reprise du principe de thierrychopain.com : une ligne fixée sur le bord
+   gauche, tournée d'un quart de tour, centrée dans la hauteur de l'écran.
+   Valeurs relevées chez eux : Manrope 12 px / 400, à 24 px du bord.
+   ========================================================================== */
+
+.pf .hero-credit {
+  position: fixed;
+  left: 24px;
+  top: 50%;
+  z-index: 50;
+  margin: 0;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  translate: 0 -50%;
+  font-family: Manrope, Inter, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: normal;
+  white-space: nowrap;
+  color: var(--gris-txt);
+  pointer-events: none;
+}
+
+/* Sous 1100 px la colonne de contenu descend trop près du bord : la mention
+   n'aurait plus sa place et passerait sur le texte. */
+@media (max-width: 1100px) {
+  .pf .hero-credit { display: none; }
 }
