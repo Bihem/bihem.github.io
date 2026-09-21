@@ -3041,3 +3041,21 @@
 .pf.page-contact .contact-note {
   color: var(--encre);
 }
+
+/* Le panneau du formulaire portait déjà le gris des cartes, mais les champs
+   ressortaient en blanc. Ce sont eux qui deviennent les blocs gris : le
+   panneau s'efface, chaque champ prend le #F7F7F7 des cartes de l'accueil. */
+.pf.page-contact .contact-form {
+  background: transparent;
+  padding: 0;
+}
+.pf.page-contact .champ input,
+.pf.page-contact .champ textarea {
+  background: #F7F7F7;
+  border-color: transparent;
+}
+.pf.page-contact .champ input:focus,
+.pf.page-contact .champ textarea:focus {
+  background: #F7F7F7;
+  border-color: var(--encre);
+}
