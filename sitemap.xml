@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://dikengadesign.fr/</loc><lastmod>2026-09-18</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://dikengadesign.fr/projets.html</loc><lastmod>2026-09-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://dikengadesign.fr/blog.html</loc><lastmod>2026-09-18</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://dikengadesign.fr/contact.html</loc><lastmod>2026-09-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://dikengadesign.fr/mentions-legales.html</loc><lastmod>2026-09-18</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://dikengadesign.fr/en/</loc><lastmod>2026-09-21</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://dikengadesign.fr/en/blog.html</loc><lastmod>2026-09-21</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://dikengadesign.fr/en/contact.html</loc><lastmod>2026-09-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url><loc>https://dikengadesign.fr/</loc><lastmod>2026-09-21</lastmod><changefreq>weekly</changefreq><priority>1.0</priority><xhtml:link rel="alternate" hreflang="fr" href="https://dikengadesign.fr/"/><xhtml:link rel="alternate" hreflang="en" href="https://dikengadesign.fr/en/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://dikengadesign.fr/"/></url>
+  <url><loc>https://dikengadesign.fr/projets.html</loc><lastmod>2026-09-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://dikengadesign.fr/blog.html</loc><lastmod>2026-09-21</lastmod><changefreq>weekly</changefreq><priority>0.8</priority><xhtml:link rel="alternate" hreflang="fr" href="https://dikengadesign.fr/blog.html"/><xhtml:link rel="alternate" hreflang="en" href="https://dikengadesign.fr/en/blog.html"/><xhtml:link rel="alternate" hreflang="x-default" href="https://dikengadesign.fr/blog.html"/></url>
+  <url><loc>https://dikengadesign.fr/contact.html</loc><lastmod>2026-09-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority><xhtml:link rel="alternate" hreflang="fr" href="https://dikengadesign.fr/contact.html"/><xhtml:link rel="alternate" hreflang="en" href="https://dikengadesign.fr/en/contact.html"/><xhtml:link rel="alternate" hreflang="x-default" href="https://dikengadesign.fr/contact.html"/></url>
+  <url><loc>https://dikengadesign.fr/mentions-legales.html</loc><lastmod>2026-09-21</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://dikengadesign.fr/en/</loc><lastmod>2026-09-21</lastmod><changefreq>weekly</changefreq><priority>0.9</priority><xhtml:link rel="alternate" hreflang="fr" href="https://dikengadesign.fr/"/><xhtml:link rel="alternate" hreflang="en" href="https://dikengadesign.fr/en/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://dikengadesign.fr/"/></url>
+  <url><loc>https://dikengadesign.fr/en/blog.html</loc><lastmod>2026-09-21</lastmod><changefreq>weekly</changefreq><priority>0.7</priority><xhtml:link rel="alternate" hreflang="fr" href="https://dikengadesign.fr/blog.html"/><xhtml:link rel="alternate" hreflang="en" href="https://dikengadesign.fr/en/blog.html"/><xhtml:link rel="alternate" hreflang="x-default" href="https://dikengadesign.fr/blog.html"/></url>
+  <url><loc>https://dikengadesign.fr/en/contact.html</loc><lastmod>2026-09-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority><xhtml:link rel="alternate" hreflang="fr" href="https://dikengadesign.fr/contact.html"/><xhtml:link rel="alternate" hreflang="en" href="https://dikengadesign.fr/en/contact.html"/><xhtml:link rel="alternate" hreflang="x-default" href="https://dikengadesign.fr/contact.html"/></url>
   <url><loc>https://dikengadesign.fr/blog/5-signes-que-votre-site-fait-fuir-vos-clients-et-comment-corriger-sans.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dikengadesign.fr/blog/claude-3-5-claude-3-7-sonnet-tout-ce-que-vous-devez-savoir-sur-les-der.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://dikengadesign.fr/blog/claude-4-ce-que-la-prochaine-generation-d-anthropic-va-changer-pour-le.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
