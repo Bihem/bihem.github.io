@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Blog — Mes-Reves Bouzanga, UI/UX Designer | Dikenga Design</title>
-<meta name="description" content="Design d’interfaces, design systems, IA appliquée au métier et no-code : 29 articles écrits au fil du travail.">
+<meta name="description" content="Interface design, design systems, AI applied to the craft and no-code: 29 articles written along the way.">
 <meta name="author" content="Mes-Reves Bouzanga">
 <link rel="canonical" href="https://dikengadesign.fr/blog.html">
 <link rel="icon" href="img/favicon-32.png?v=2b5522f7" sizes="32x32">
@@ -12,10 +12,10 @@
 
 <meta property="og:site_name" content="Dikenga Design">
 <meta property="og:title" content="Blog — Mes-Reves Bouzanga, UI/UX Designer">
-<meta property="og:description" content="Design d’interfaces, design systems, IA appliquée au métier et no-code.">
+<meta property="og:description" content="Interface design, design systems, AI applied to the craft and no-code.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://dikengadesign.fr/blog.html">
-<meta property="og:locale" content="fr_FR">
+<meta property="og:locale" content="en_GB">
 <meta property="og:image" content="https://dikengadesign.fr/img/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://dikengadesign.fr/img/og-image.jpg">
@@ -43,19 +43,19 @@
 </head>
 <body class="pf">
 
-<a class="saut" href="#contenu">Aller au contenu</a>
+<a class="saut" href="#contenu">Skip to content</a>
 
 <header class="pf-entete" id="entete">
   <div class="pf-entete-in">
     <a class="pf-marque" href="index.html">DIKENGA<sup>®</sup></a>
 
     <button class="burger" id="burger" type="button"
-            aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu-principal">
+            aria-label="Open menu" aria-expanded="false" aria-controls="menu-principal">
       <span></span><span></span><span></span>
     </button>
 
-    <nav id="menu-principal" class="pf-nav" aria-label="Navigation principale">
-      <a href="index.html#work">Projets</a>
+    <nav id="menu-principal" class="pf-nav" aria-label="Main navigation">
+      <a href="index.html#work">Work</a>
       <a href="index.html#expertise">Expertise</a>
       <a href="blog.html" aria-current="page">Blog</a>
       <a href="contact.html">Contact</a>
@@ -68,10 +68,10 @@
   <!-- ====================================================== INTRODUCTION -->
   <section class="bloc">
     <div class="wrap">
-      <h1 class="bloc-titre">Le blog.</h1>
+      <h1 class="bloc-titre">The blog.</h1>
       <p class="bloc-desc bloc-desc--large">
-        Design d’interfaces, design systems, IA appliquée au métier, no-code.
-        Ce que j’apprends en travaillant, écrit au fur et à mesure. 29 articles.
+        Interface design, design systems, AI applied to the craft, no-code.
+        What I learn while working, written along the way. 29 articles, in French.
       </p>
     </div>
   </section>
@@ -291,13 +291,13 @@
   <section class="bloc bloc--noir final">
     <div class="wrap">
       <p class="label">Contact</p>
-      <h2 class="final-titre">Un sujet dont vous voulez parler ?</h2>
+      <h2 class="final-titre">A subject you want to talk about?</h2>
       <div class="final-actions">
         <a class="btn btn--clair" href="contact.html">
-          Me contacter <span class="fleche" aria-hidden="true">→</span>
+          Get in touch <span class="fleche" aria-hidden="true">→</span>
         </a>
         <a class="btn btn--fantome" href="index.html#work">
-          Voir les projets <span class="fleche" aria-hidden="true">→</span>
+          See the work <span class="fleche" aria-hidden="true">→</span>
         </a>
       </div>
     </div>
@@ -318,7 +318,7 @@
 </footer>
 
 <a class="haut" id="retourHaut" href="#entete">
-  <span class="haut-texte">Retour en haut</span> <span class="haut-fleche" aria-hidden="true">↑</span>
+  <span class="haut-texte">Back to top</span> <span class="haut-fleche" aria-hidden="true">↑</span>
 </a>
 
 <script>
@@ -350,7 +350,7 @@
       /* Le libellé s'efface, change, puis revient — sans animation si
          l'utilisateur a demandé moins de mouvement. */
       function poser() {
-        texte.textContent = enBas ? 'Découvrir la suite' : 'Retour en haut';
+        texte.textContent = enBas ? 'Scroll to read more' : 'Back to top';
         fleche.textContent = enBas ? '↓' : '↑';
         p.setAttribute('aria-label', texte.textContent);
       }
