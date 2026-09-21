@@ -1729,9 +1729,9 @@
     .hero-texte .label, .hero-role, .hero-logos, .hero-desc, .hero-actions, .hero-portrait,
     .bloc > .wrap > .label, .bloc-desc, .systeme-texte .bloc-desc,
     .pills, .cas-texte, .cas-montage, .methode-montage,
-    .colonnes-4 > *, .cartes-4 > *, .expertise-carte, .expertise-texte, .dsx-fiche, .etape,
+    .colonnes-4 > *, .cartes-4 > *, .expertise-texte, .dsx-fiche, .etape,
     .systeme-faits > div, .final-faits > div, .final-actions,
-    .about-texte, .about-cote, .outils, .billet, .coord li,
+    .about-texte, .about-cote, .outils, .coord li,
     .contact-lignes, .contact-form
   ) {
   opacity: 0;
@@ -1744,9 +1744,9 @@
     .hero-texte .label, .hero-role, .hero-logos, .hero-desc, .hero-actions, .hero-portrait,
     .bloc > .wrap > .label, .bloc-desc, .systeme-texte .bloc-desc,
     .pills, .cas-texte, .cas-montage, .methode-montage,
-    .colonnes-4 > *, .cartes-4 > *, .expertise-carte, .expertise-texte, .dsx-fiche, .etape,
+    .colonnes-4 > *, .cartes-4 > *, .expertise-texte, .dsx-fiche, .etape,
     .systeme-faits > div, .final-faits > div, .final-actions,
-    .about-texte, .about-cote, .outils, .billet, .coord li,
+    .about-texte, .about-cote, .outils, .coord li,
     .contact-lignes, .contact-form
   ).vu {
   opacity: 1;
@@ -2569,4 +2569,16 @@
    292 px dans un conteneur de 280, et le portrait débordait. */
 @media (max-width: 900px) {
   .pf .hero-in { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Aucune animation sur les cartes, ni sur ordinateur ni sur mobile.
+   L'ancienne feuille styles.css anime encore « .billet » via une timeline de
+   vue (monte-doux) : elle masquait 27 des 29 articles du blog, dont certains
+   visibles à l'écran. On la neutralise ici, cette feuille étant chargée après. */
+.pf .billet,
+.pf .expertise-carte {
+  animation: none !important;
+  opacity: 1 !important;
+  translate: none !important;
+  transform: none !important;
 }

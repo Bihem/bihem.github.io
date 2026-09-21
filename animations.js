@@ -30,9 +30,9 @@
     '.hero-texte .label', '.hero-role', '.hero-logos', '.hero-desc', '.hero-actions', '.hero-portrait',
     '.bloc > .wrap > .label', '.bloc-desc', '.systeme-texte .bloc-desc',
     '.pills', '.cas-texte', '.cas-montage', '.methode-montage',
-    '.colonnes-4 > *', '.cartes-4 > *', '.expertise-carte', '.expertise-texte', '.dsx-fiche', '.etape',
+    '.colonnes-4 > *', '.cartes-4 > *', '.expertise-texte', '.dsx-fiche', '.etape',
     '.systeme-faits > div', '.final-faits > div', '.final-actions',
-    '.about-texte', '.about-cote', '.outils', '.billet', '.coord li',
+    '.about-texte', '.about-cote', '.outils', '.coord li',
     '.contact-lignes', '.contact-form'
   ];
 
