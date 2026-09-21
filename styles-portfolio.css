@@ -1897,3 +1897,20 @@
 @media (max-width: 380px) {
   .pf .hero-mot { display: none; }
 }
+
+/* L'en-tête gardait la formule d'origine — largeur 1080 plus 24 px de marge
+   interne — alors que .wrap est passé à « 100% moins deux marges, sans
+   padding ». Résultat : le logo et le menu étaient 24 px en retrait du
+   contenu. Même formule des deux côtés, donc mêmes bords. */
+.pf .pf-entete-in {
+  width: min(100% - var(--pad) * 2, var(--wrap));
+  padding-inline: 0;
+}
+
+/* Le burger fait 44 px de large pour rester confortable au doigt, mais ses
+   trois traits n'en occupent que 22 et sont centrés dans le bouton : ils
+   tombaient 11 px en deçà du bord du contenu. Le bouton est décalé de cette
+   moitié, sa zone tactile reste entière. */
+@media (max-width: 760px) {
+  .pf .pf-entete-in .burger { margin-right: -11px; }
+}
