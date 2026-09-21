@@ -2630,48 +2630,104 @@
 
 /* ==========================================================================
    BASCULE DE LANGUE
-   Une pastille plutôt qu'un lien de section : le lecteur doit voir tout de
-   suite que ce n'est pas une rubrique du site mais un réglage.
+   Principe relevé sur julianpenin.com : pas de contour, juste le code de la
+   langue et un chevron ; le choix s'ouvre en dessous. Le déclencheur affiche
+   la langue en cours, pas celle vers laquelle on va.
    ========================================================================== */
 /* === BASCULE DE LANGUE === */
-.pf .pf-nav .pf-langue {
+.pf .pf-langue { position: relative; display: flex; align-items: center; }
+
+.pf .pf-langue-bouton {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  min-width: 36px;
-  height: 25px;
-  padding-inline: 9px;
+  gap: 5px;
+  margin-inline-start: -10px;   /* le padding ne doit pas décaler le menu */
+  padding: 6px 10px;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .07em;
+  line-height: 1;
+  color: var(--gris-txt);
+  cursor: pointer;
+  transition: color .2s var(--ease);
+}
+.pf .pf-langue-bouton:hover,
+.pf .pf-langue-bouton[aria-expanded="true"] { color: var(--encre); }
+
+.pf .pf-langue-fleche {
+  flex: none;
+  transition: rotate .25s var(--ease);
+}
+.pf .pf-langue-bouton[aria-expanded="true"] .pf-langue-fleche { rotate: 180deg; }
+
+/* --- Le choix --- */
+.pf .pf-langue-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: -10px;
+  z-index: 60;
+  min-width: 158px;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background: var(--papier);
   border: 1px solid var(--trait);
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: .08em;
+  border-radius: 14px;
+  box-shadow: rgba(13, 13, 15, .10) 0 12px 32px;
+}
+.pf .pf-langue-menu[hidden] { display: none; }
+
+.pf .pf-nav .pf-langue-menu a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 9px;
+  font-size: 13px;
+  line-height: 1;
   color: var(--encre);
-  transition: background .3s var(--ease), color .3s var(--ease),
-              border-color .3s var(--ease);
+  transition: background-color .2s var(--ease);
 }
 /* Le trait qui glisse sous les liens de navigation n'a pas de sens ici. */
-.pf .pf-nav .pf-langue::after { content: none; }
-.pf .pf-nav .pf-langue:hover,
-.pf .pf-nav .pf-langue:focus-visible {
+.pf .pf-nav .pf-langue-menu a::after { content: none; }
+.pf .pf-nav .pf-langue-menu a:hover,
+.pf .pf-nav .pf-langue-menu a:focus-visible { background: var(--papier-2); }
+
+.pf .pf-langue-puce {
+  flex: none;
+  min-width: 26px;
+  padding: 3px 6px;
+  border-radius: 6px;
+  background: var(--papier-2);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-align: center;
+  color: var(--gris-txt);
+  transition: background-color .2s var(--ease), color .2s var(--ease);
+}
+/* La langue affichée se reconnaît à sa pastille pleine. */
+.pf .pf-nav .pf-langue-menu a[aria-current] .pf-langue-puce {
   background: var(--encre);
   color: var(--papier);
-  border-color: var(--encre);
 }
 
 @media (max-width: 700px) {
-  /* Dans le panneau mobile, les liens passent à 22px avec un filet en bas :
-     la pastille reprend sa taille propre et garde son contour complet. */
-  .pf .pf-nav .pf-langue {
-    align-self: flex-start;
-    margin-top: 24px;
-    height: 36px;
-    padding: 0 16px;
-    font-size: 13px;
-    border: 1px solid var(--trait);
-  }
+  /* Dans le panneau mobile les liens passent à 22px avec un filet en bas :
+     la bascule garde sa taille propre et s'ouvre par-dessus. */
+  .pf .pf-langue { order: -1; align-self: flex-start; margin-bottom: 18px; }
+  .pf .pf-langue-bouton { font-size: 13px; padding: 4px 10px; }
+  .pf .pf-langue-menu { top: calc(100% + 8px); }
+  .pf .pf-nav .pf-langue-menu a { font-size: 15px; padding: 10px 12px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .pf .pf-nav .pf-langue { transition: none; }
+  .pf .pf-langue-bouton,
+  .pf .pf-langue-fleche,
+  .pf .pf-nav .pf-langue-menu a,
+  .pf .pf-langue-puce { transition: none; }
 }

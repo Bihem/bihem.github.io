@@ -17,7 +17,7 @@
     bouton.setAttribute('aria-expanded', 'true');
     bouton.setAttribute('aria-label', 'Fermer le menu');
     document.body.style.overflow = 'hidden';
-    var premier = panneau.querySelector('a');
+    var premier = panneau.querySelector('button, a');
     if (premier) premier.focus({ preventScroll: true });
   }
 
@@ -50,4 +50,47 @@
   var surChangement = function (e) { if (e.matches) fermer(false); };
   if (large.addEventListener) large.addEventListener('change', surChangement);
   else large.addListener(surChangement);
+})();
+
+/* Bascule de langue — le chevron ouvre le choix sous le déclencheur.
+   Le bouton est un <button> : le clic ne ferme donc pas le panneau mobile,
+   qui ne se referme que sur un <a>.                                        */
+(function () {
+  var bloc = document.querySelector('.pf-langue');
+  if (!bloc) return;
+  var bouton = bloc.querySelector('.pf-langue-bouton');
+  var menu = bloc.querySelector('.pf-langue-menu');
+  if (!bouton || !menu) return;
+
+  function ouvert() { return bouton.getAttribute('aria-expanded') === 'true'; }
+
+  function basculer(etat) {
+    bouton.setAttribute('aria-expanded', etat ? 'true' : 'false');
+    menu.hidden = !etat;
+    if (etat) {
+      var premier = menu.querySelector('a[aria-current]') || menu.querySelector('a');
+      if (premier) premier.focus({ preventScroll: true });
+    }
+  }
+
+  bouton.addEventListener('click', function (e) {
+    e.stopPropagation();
+    basculer(!ouvert());
+  });
+
+  document.addEventListener('click', function (e) {
+    if (ouvert() && !bloc.contains(e.target)) basculer(false);
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && ouvert()) {
+      basculer(false);
+      bouton.focus({ preventScroll: true });
+    }
+  });
+
+  /* Sortir du menu au clavier le referme. */
+  bloc.addEventListener('focusout', function (e) {
+    if (ouvert() && !bloc.contains(e.relatedTarget)) basculer(false);
+  });
 })();

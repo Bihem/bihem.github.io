@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../styles.css?v=b4821967">
-<link rel="stylesheet" href="../styles-portfolio.css?v=e4164d58">
+<link rel="stylesheet" href="../styles-portfolio.css?v=ae7bdaa4">
 
 <script type="application/ld+json">
 {
@@ -79,11 +79,21 @@
     </button>
 
     <nav id="menu-principal" class="pf-nav" aria-label="Main navigation">
+      <div class="pf-langue">
+        <button class="pf-langue-bouton" type="button" aria-expanded="false"
+                aria-controls="menu-langue" aria-label="Change language">
+          <span class="pf-langue-code">EN</span>
+          <svg class="pf-langue-fleche" viewBox="0 0 10 6" width="10" height="6" aria-hidden="true" focusable="false"><path d="M1 1.2 5 4.8 9 1.2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <ul class="pf-langue-menu" id="menu-langue" hidden>
+        <li><a href="../contact.html" hreflang="fr" lang="fr"><span class="pf-langue-puce">FR</span> Français</a></li>
+        <li><a href="contact.html" hreflang="en" lang="en" aria-current="true"><span class="pf-langue-puce">EN</span> English</a></li>
+        </ul>
+      </div>
       <a href="index.html#work">Work</a>
       <a href="index.html#expertise">Expertise</a>
       <a href="blog.html">Blog</a>
       <a href="contact.html" aria-current="page">Contact</a>
-      <a class="pf-langue" href="../contact.html" hreflang="fr" lang="fr" title="Lire cette page en français">FR</a>
     </nav>
   </div>
 </header>
@@ -298,6 +308,6 @@
   })();
 </script>
 
-<script src="../menu.js?v=21dbd46f" defer></script>
+<script src="../menu.js?v=e4a285ff" defer></script>
 </body>
 </html>
