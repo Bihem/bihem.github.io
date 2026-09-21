@@ -3164,3 +3164,81 @@
   .pf .haut.vers-le-bas .haut-fleche { animation: none; }
   .pf .haut:hover { transform: none; }
 }
+
+/* ==========================================================================
+   EFFETS — survol des boutons et pliage des cartes
+   Les boutons s'inversent au survol : le blanc devient noir, le noir devient
+   blanc. Les cartes se déplient au défilement, pilotées par la timeline de
+   vue quand le navigateur la connaît.
+   ========================================================================== */
+
+.pf .btn {
+  transition: background-color .35s var(--ease-transf),
+              color .35s var(--ease-transf),
+              box-shadow .35s var(--ease-transf),
+              transform .3s cubic-bezier(.22, 1, .36, 1);
+}
+
+/* Blanc → noir */
+.pf .btn:hover,
+.pf .btn:focus-visible { background: var(--encre); color: #fff; }
+
+/* Noir → blanc, avec un filet pour qu'il reste visible sur fond clair */
+.pf .btn--noir:hover,
+.pf .btn--noir:focus-visible {
+  background: var(--papier);
+  color: var(--encre);
+  box-shadow: inset 0 0 0 1px var(--trait);
+}
+
+/* Sur fond sombre, le bouton clair s'inverse aussi */
+.pf .btn--clair:hover,
+.pf .btn--clair:focus-visible {
+  background: var(--encre);
+  color: #fff;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .34);
+}
+
+/* Le fantôme se remplit */
+.pf .btn--fantome:hover,
+.pf .btn--fantome:focus-visible {
+  background: #fff;
+  color: var(--encre);
+  box-shadow: inset 0 0 0 1px #fff;
+}
+
+.pf .btn:hover { transform: translateY(-2px); }
+.pf .btn:active { transform: translateY(0) scale(.97); }
+
+/* --- Pliage des cartes au défilement --- */
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .pf .expertise-carte,
+    .pf .billet {
+      transform-origin: 50% 0;
+      animation: carte-deplie both linear;
+      animation-timeline: view();
+      animation-range: entry 8% entry 58%;
+    }
+    /* Pas d'opacité ici : elle est déjà pilotée par la cascade d'apparition,
+       et les deux se disputeraient la propriété. */
+    @keyframes carte-deplie {
+      from { transform: perspective(900px) rotateX(-14deg) translateY(16px); }
+      to   { transform: perspective(900px) rotateX(0) translateY(0); }
+    }
+  }
+}
+
+/* La pastille flotte doucement tant qu'elle invite à descendre. */
+.pf .haut.vers-le-bas { animation: haut-flotte 3.4s ease-in-out infinite; }
+@keyframes haut-flotte {
+  0%, 100% { translate: -50% 0; }
+  50%      { translate: -50% -4px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pf .btn { transition: none; }
+  .pf .btn:hover { transform: none; }
+  .pf .haut.vers-le-bas { animation: none; }
+}
