@@ -3104,3 +3104,28 @@
 @media (max-width: 900px) {
   .pf .hero { padding-top: calc(var(--section) + 28px); }
 }
+
+/* La pastille est désormais permanente : elle sert à descendre en haut de page
+   et à remonter ensuite. Dimensions relevées sur julius.fm (45 px de haut,
+   rayon en pastille, texte 17 px). */
+.pf .haut {
+  opacity: 1;
+  pointer-events: auto;
+  min-height: 45px;
+  padding: 12px 12px 12px 16px;
+  font-size: 17px;
+  line-height: 21px;
+  gap: 9px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, .14);
+}
+.pf .haut:hover { box-shadow: 0 12px 34px rgba(0, 0, 0, .2); }
+
+@media (max-width: 760px) {
+  .pf .haut {
+    min-height: 40px;
+    padding: 10px 12px 10px 15px;
+    font-size: 15px;
+    line-height: 19px;
+    gap: 8px;
+  }
+}

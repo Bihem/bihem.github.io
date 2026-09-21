@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css?v=b4821967">
-<link rel="stylesheet" href="styles-portfolio.css?v=071bc9b7">
+<link rel="stylesheet" href="styles-portfolio.css?v=c4f77000">
 
 <script type="application/ld+json">
 {
@@ -505,55 +505,51 @@
 </footer>
 
 <a class="haut" id="retourHaut" href="#entete">
-  Retour en haut <span class="haut-fleche" aria-hidden="true">↑</span>
+  <span class="haut-texte">Retour en haut</span> <span class="haut-fleche" aria-hidden="true">↑</span>
 </a>
 
 <script>
-  /* Méthode : accordéon sur mobile. Sur desktop les panneaux restent ouverts,
-     le bouton n'y est qu'un conteneur de texte. */
-  (function () {
-    var petit = window.matchMedia('(max-width: 760px)');
-    var totes = [].slice.call(document.querySelectorAll('.etape-tete'));
-    if (!totes.length) return;
-
-    function fermerTout() {
-      totes.forEach(function (t) {
-        t.setAttribute('aria-expanded', 'false');
-        document.getElementById(t.getAttribute('aria-controls')).classList.remove('ouvert');
-      });
-    }
-
-    totes.forEach(function (t) {
-      t.addEventListener('click', function () {
-        if (!petit.matches) return;
-        var corps = document.getElementById(t.getAttribute('aria-controls'));
-        var ouvert = t.getAttribute('aria-expanded') === 'true';
-        fermerTout();
-        if (!ouvert) {
-          t.setAttribute('aria-expanded', 'true');
-          corps.classList.add('ouvert');
-        }
-      });
-    });
-
-    /* En repassant sur grand écran, tout redevient visible d'office. */
-    function surChangement(e) { if (!e.matches) fermerTout(); }
-    if (petit.addEventListener) petit.addEventListener('change', surChangement);
-    else petit.addListener(surChangement);
-  })();
-
-  /* Pastille « Retour en haut » : apparaît une fois le hero passé */
+  /* Une seule pastille, deux rôles — comme sur julius.fm : « Découvrir la
+     suite » tant qu'on est en haut d'une page assez longue, « Retour en haut »
+     dès qu'on a défilé. Elle reste visible en permanence. */
   (function () {
     var p = document.getElementById('retourHaut');
     if (!p) return;
-    function maj() { p.classList.toggle('visible', window.scrollY > 700); }
+    var texte = p.querySelector('.haut-texte');
+    var fleche = p.querySelector('.haut-fleche');
+    var enBas = false;                     /* le bouton renvoie-t-il vers le bas ? */
+
+    function doux() {
+      return !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    }
+
+    function maj() {
+      var hauteurRestante = document.documentElement.scrollHeight - window.innerHeight;
+      /* Sur une page trop courte, « Découvrir la suite » n'aurait pas de sens. */
+      var assezLongue = hauteurRestante > window.innerHeight * 0.6;
+      var nouveau = assezLongue && window.scrollY < 120;
+
+      p.classList.add('visible');
+      if (nouveau === enBas) return;
+      enBas = nouveau;
+      texte.textContent = enBas ? 'Découvrir la suite' : 'Retour en haut';
+      fleche.textContent = enBas ? '↓' : '↑';
+      p.setAttribute('aria-label', texte.textContent);
+    }
+
     window.addEventListener('scroll', maj, { passive: true });
+    window.addEventListener('resize', maj, { passive: true });
     maj();
+
     p.addEventListener('click', function (e) {
       e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      var cible = enBas ? window.innerHeight : 0;
+      window.scrollTo({ top: cible, behavior: doux() ? 'smooth' : 'auto' });
     });
   })();
+</script>
+
+<script>
 
   /* En-tête : fond opaque au défilement */
   (function () {

@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css?v=b4821967">
-<link rel="stylesheet" href="styles-portfolio.css?v=071bc9b7">
+<link rel="stylesheet" href="styles-portfolio.css?v=c4f77000">
 
 <script type="application/ld+json">
 {
@@ -179,23 +179,51 @@
 </footer>
 
 <a class="haut" id="retourHaut" href="#entete">
-  Retour en haut <span class="haut-fleche" aria-hidden="true">↑</span>
+  <span class="haut-texte">Retour en haut</span> <span class="haut-fleche" aria-hidden="true">↑</span>
 </a>
 
 <script>
-  /* Pastille de retour en haut : apparaît passé un écran de défilement. */
+  /* Une seule pastille, deux rôles — comme sur julius.fm : « Découvrir la
+     suite » tant qu'on est en haut d'une page assez longue, « Retour en haut »
+     dès qu'on a défilé. Elle reste visible en permanence. */
   (function () {
     var p = document.getElementById('retourHaut');
     if (!p) return;
-    function maj() { p.classList.toggle('visible', window.scrollY > 600); }
+    var texte = p.querySelector('.haut-texte');
+    var fleche = p.querySelector('.haut-fleche');
+    var enBas = false;                     /* le bouton renvoie-t-il vers le bas ? */
+
+    function doux() {
+      return !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    }
+
+    function maj() {
+      var hauteurRestante = document.documentElement.scrollHeight - window.innerHeight;
+      /* Sur une page trop courte, « Découvrir la suite » n'aurait pas de sens. */
+      var assezLongue = hauteurRestante > window.innerHeight * 0.6;
+      var nouveau = assezLongue && window.scrollY < 120;
+
+      p.classList.add('visible');
+      if (nouveau === enBas) return;
+      enBas = nouveau;
+      texte.textContent = enBas ? 'Découvrir la suite' : 'Retour en haut';
+      fleche.textContent = enBas ? '↓' : '↑';
+      p.setAttribute('aria-label', texte.textContent);
+    }
+
     window.addEventListener('scroll', maj, { passive: true });
+    window.addEventListener('resize', maj, { passive: true });
     maj();
+
     p.addEventListener('click', function (e) {
       e.preventDefault();
-      var doux = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      window.scrollTo({ top: 0, behavior: doux ? 'smooth' : 'auto' });
+      var cible = enBas ? window.innerHeight : 0;
+      window.scrollTo({ top: cible, behavior: doux() ? 'smooth' : 'auto' });
     });
   })();
+</script>
+
+<script>
 
   /* En-tête : état compact dès que la page défile. */
   (function () {
