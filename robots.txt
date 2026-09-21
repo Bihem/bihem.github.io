@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /admin.html
 # CV : ne doit pas etre accessible pour l'instant
 Disallow: /cv-mes-reves-bouzanga-uiux.pdf
 
