@@ -2011,3 +2011,11 @@
   line-height: 1.5;
   color: var(--gris-txt);
 }
+
+/* Plus de losange devant les titres de carte : la carte redevient un simple
+   bloc, sans la colonne qui accueillait le signe. */
+.pf .expertise-carte {
+  display: block;
+  gap: 0;
+}
+.pf .expertise-signe { display: none; }
