@@ -3059,3 +3059,23 @@
   background: #F7F7F7;
   border-color: var(--encre);
 }
+
+/* Pied de page resserré : LinkedIn et Instagram côte à côte plutôt qu'empilés,
+   et moins d'air autour — le pied n'a plus que deux colonnes depuis le retrait
+   de la navigation, il n'avait plus besoin de cette hauteur. */
+.pf .pied-social {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+}
+
+.pf .pied { padding-block: 34px 20px; }
+.pf .pied-grille { padding-bottom: 22px; gap: 24px; }
+.pf .pied-bas { padding-top: 16px; }
+
+@media (max-width: 760px) {
+  .pf .pied { padding-block: 26px 18px; }
+  .pf .pied-grille { padding-bottom: 18px; gap: 18px; }
+  .pf .pied-social { gap: 18px; }
+}
