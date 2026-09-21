@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css?v=b4821967">
-<link rel="stylesheet" href="styles-portfolio.css?v=df4e269b">
+<link rel="stylesheet" href="styles-portfolio.css?v=fc71e911">
 
 <script type="application/ld+json">
 {
@@ -60,7 +60,7 @@
   }, 2500);
 })();
 </script>
-<script src="animations.js?v=2e166736" defer></script>
+<script src="animations.js?v=ee17ebff" defer></script>
 </head>
 <body class="pf">
 
@@ -86,19 +86,25 @@
 
 <main id="contenu">
 
-  <!-- ============================================================ CONTACT -->
-  <section class="bloc contact-page">
+  <!-- ======================================================= INTRODUCTION -->
+  <section class="bloc">
     <div class="wrap">
-      <div class="contact-grille">
+      <p class="label">Contact</p>
+      <h1 class="bloc-titre">Construisons une meilleure expérience.</h1>
+      <p class="bloc-desc bloc-desc--large">
+        Vous avez un produit à concevoir, une interface à améliorer ou simplement envie
+        d’échanger autour d’une opportunité ? Écrivez-moi, je réponds à tout le monde.
+      </p>
+    </div>
+  </section>
+
+  <!-- ====================================================== COORDONNÉES -->
+  <section class="bloc bloc--doc">
+    <div class="wrap">
+      <div class="contact-bloc">
 
         <div class="contact-gauche">
-          <p class="label">Contact</p>
-          <h1 class="bloc-titre">Travaillons ensemble.</h1>
-          <p class="bloc-desc">
-            Une interface à concevoir, un produit à clarifier, un design system à mettre
-            en place — ou une idée encore floue à confronter. Écrivez-moi.
-          </p>
-
+          <p class="label">Où me joindre</p>
           <dl class="contact-lignes">
             <div>
               <dt>E-mail</dt>
@@ -110,7 +116,7 @@
             </div>
             <div>
               <dt>LinkedIn</dt>
-              <dd><a href="https://www.linkedin.com/in/dikengadesign/" target="_blank" rel="noopener">linkedin.com/in/dikengadesign</a></dd>
+              <dd><a href="https://www.linkedin.com/in/dikengadesign/" target="_blank" rel="noopener">dikengadesign</a></dd>
             </div>
             <div>
               <dt>Instagram</dt>
@@ -126,6 +132,7 @@
         <form class="contact-form" id="formulaire"
               action="https://formspree.io/f/mdaproed" method="POST" novalidate>
           <input type="hidden" name="_subject" value="Nouveau message depuis dikengadesign.fr">
+          <p class="label">Écrire un message</p>
           <div class="champ">
             <label for="nom">Nom</label>
             <input type="text" id="nom" name="nom" placeholder="Votre nom" autocomplete="name" required>
