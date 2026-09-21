@@ -2020,9 +2020,9 @@
 }
 .pf .expertise-signe { display: none; }
 
-/* Le fond des cartes reprend le gris du document Design System Maison
-   Delorme, relevé directement dans l'image : #E5E6E3. */
-.pf .expertise-carte { background: #E5E6E3; }
+/* Le fond des cartes reprend le gris de julius.fm, relevé sur leur page :
+   #F7F7F7, la seule teinte grise qu'ils emploient (7 grands éléments). */
+.pf .expertise-carte { background: #F7F7F7; }
 
 /* Le pied de page n'a plus sa colonne de navigation : deux colonnes
    suffisent, l'identité à gauche et les réseaux à droite. */
