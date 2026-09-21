@@ -2023,3 +2023,7 @@
 /* Le fond des cartes reprend le gris du document Design System Maison
    Delorme, relevé directement dans l'image : #E5E6E3. */
 .pf .expertise-carte { background: #E5E6E3; }
+
+/* Le pied de page n'a plus sa colonne de navigation : deux colonnes
+   suffisent, l'identité à gauche et les réseaux à droite. */
+.pf .pied-grille { grid-template-columns: minmax(0, 1fr) auto; }
