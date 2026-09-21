@@ -3096,3 +3096,15 @@
 @media (max-width: 760px) {
   .pf .hero-credit { margin-top: 30px; font-size: 10px; }
 }
+
+/* La description et le portrait descendent un peu : plus d'air après la ligne
+   de logos, et le portrait ne colle plus au haut de sa colonne. */
+.pf .hero-logos { margin-bottom: 54px; }
+.pf .hero-portrait { margin-top: 56px; }
+
+@media (max-width: 900px) {
+  /* Sur mobile le portrait est au-dessus du texte : ce décalage n'a plus de
+     sens, il creuserait un vide sous l'en-tête. */
+  .pf .hero-portrait { margin-top: 0; }
+  .pf .hero-logos { margin-bottom: 34px; }
+}
