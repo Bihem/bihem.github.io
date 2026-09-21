@@ -101,7 +101,7 @@
 .pf .pills { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 28px; padding: 0; list-style: none; }
 .pf .pills li {
   padding: 6px 13px; border-radius: 999px;
-  border: 1px solid var(--trait); background: var(--papier);
+  border: 0; background: var(--papier-2);
   font-size: 12.5px; color: var(--encre);
 }
 
@@ -217,7 +217,7 @@
 .projet--sombre .projet-meta dt { color: var(--gris-clair); }
 .projet-meta dd { margin: 0; font-size: 13px; line-height: 1.5; }
 
-.projet--sombre .pills li { border-color: var(--trait-fonce); background: transparent; color: rgba(255,255,255,.86); }
+.projet--sombre .pills li { border: 0; background: rgba(255,255,255,.09); color: rgba(255,255,255,.86); }
 .projet-texte .btn { align-self: flex-start; margin-top: auto; }
 
 .projet-visuel { position: relative; display: flex; align-items: center; justify-content: center; padding: clamp(18px, 2vw, 32px); }
@@ -252,7 +252,7 @@
 .systeme { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(28px, 4vw, 64px); align-items: start; }
 .systeme-texte h2 { margin-bottom: 20px; }
 .systeme-texte .bloc-desc { margin-bottom: 26px; }
-.pills--sombre li { border-color: var(--trait-fonce); background: transparent; color: rgba(255,255,255,.86); }
+.pills--sombre li { border: 0; background: rgba(255,255,255,.09); color: rgba(255,255,255,.86); }
 
 .ds-grille { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
 .ds-carte {
