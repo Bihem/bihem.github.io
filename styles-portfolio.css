@@ -2498,29 +2498,6 @@
 .pf .btn:hover { transform: translateY(-2px); }
 .pf .btn:active { transform: translateY(0) scale(.97); }
 
-/* --- Pliage des cartes au défilement --- */
-
-@media (prefers-reduced-motion: no-preference) {
-  @supports (animation-timeline: view()) {
-    .pf .expertise-carte,
-    .pf .billet {
-      transform-origin: 50% 0;
-      animation: carte-deplie both linear;
-      animation-timeline: view();
-      /* « entry » ne dure que la hauteur de la carte : le pliage se terminait
-         avant qu'elle soit visible. « cover » s'étale sur la traversée de
-         l'écran, donc le mouvement se voit vraiment. */
-      animation-range: cover 0% cover 46%;
-    }
-    /* Pas d'opacité ici : elle est déjà pilotée par la cascade d'apparition,
-       et les deux se disputeraient la propriété. */
-    @keyframes carte-deplie {
-      from { transform: perspective(900px) rotateX(-52deg) scale(.94) translateY(44px); }
-      to   { transform: perspective(900px) rotateX(0) scale(1) translateY(0); }
-    }
-  }
-}
-
 /* La pastille flotte doucement tant qu'elle invite à descendre. */
 .pf .haut.vers-le-bas { animation: haut-flotte 3.4s ease-in-out infinite; }
 @keyframes haut-flotte {
