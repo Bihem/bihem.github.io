@@ -669,6 +669,68 @@
   })();
 </script>
 
+<script>
+  /* ── Les montages ne restent pas chargés quand on ne les regarde pas ──
+     Chaque montage est une page entière dans un iframe : elle garde en mémoire
+     ses images décodées et, pour Talseume, deux vidéos. Sur iPhone, un onglet
+     qui traîne tout ça pendant qu'on est ailleurs finit par être vidé par le
+     système ; au retour, le contenu est encore à l'écran mais la barre
+     d'adresse affiche « about:blank ». On décharge donc chaque montage dès
+     qu'il s'éloigne de l'écran ou que la page passe en arrière-plan, et on le
+     recharge quand il revient. La hauteur est figée avant de retirer l'iframe,
+     sinon la page sauterait sous le doigt. */
+(function () {
+  var figures = [].slice.call(document.querySelectorAll('.cas-montage'))
+                   .filter(function (f) { return f.querySelector('iframe'); });
+  if (!figures.length || !('IntersectionObserver' in window)) return;
+
+  figures.forEach(function (fig) {
+    var f = fig.querySelector('iframe');
+    fig.dataset.source = f.getAttribute('src');
+    fig.dataset.titre = f.getAttribute('title') || '';
+  });
+
+  function decharger(fig) {
+    var f = fig.querySelector('iframe');
+    if (!f) return;
+    fig.style.minHeight = Math.round(fig.getBoundingClientRect().height) + 'px';
+    f.remove();
+  }
+
+  function recharger(fig) {
+    if (fig.querySelector('iframe') || !fig.dataset.source) return;
+    var f = document.createElement('iframe');
+    f.setAttribute('src', fig.dataset.source);
+    f.setAttribute('title', fig.dataset.titre);
+    f.setAttribute('loading', 'lazy');
+    fig.appendChild(f);
+    fig.style.minHeight = '';
+  }
+
+  /* Rechargé un écran et demi avant d'arriver, déchargé une fois bien loin. */
+  var observateur = new IntersectionObserver(function (entrees) {
+    entrees.forEach(function (e) {
+      if (e.isIntersecting) recharger(e.target);
+      else if (!document.hidden) decharger(e.target);
+    });
+  }, { rootMargin: '150% 0px' });
+
+  figures.forEach(function (fig) { observateur.observe(fig); });
+
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) {
+      figures.forEach(decharger);
+    } else {
+      figures.forEach(function (fig) {
+        var r = fig.getBoundingClientRect();
+        var marge = innerHeight * 1.5;
+        if (r.bottom > -marge && r.top < innerHeight + marge) recharger(fig);
+      });
+    }
+  });
+})();
+</script>
+
 <script src="../menu.js?v=e4a285ff" defer></script>
 </body>
 </html>
