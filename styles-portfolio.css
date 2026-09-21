@@ -3105,27 +3105,62 @@
   .pf .hero { padding-top: calc(var(--section) + 28px); }
 }
 
-/* La pastille est désormais permanente : elle sert à descendre en haut de page
-   et à remonter ensuite. Dimensions relevées sur julius.fm (45 px de haut,
-   rayon en pastille, texte 17 px). */
+/* ==========================================================================
+   PASTILLE DE DÉFILEMENT
+   Permanente et à deux rôles : descendre d'un écran, puis remonter. Plus
+   compacte que le modèle de julius.fm, et animée — la flèche respire tant
+   qu'elle invite à descendre, et le libellé se fond quand il change.
+   ========================================================================== */
+
 .pf .haut {
   opacity: 1;
   pointer-events: auto;
-  min-height: 45px;
-  padding: 12px 12px 12px 16px;
-  font-size: 17px;
-  line-height: 21px;
-  gap: 9px;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, .14);
+  min-height: 36px;
+  padding: 8px 11px 8px 14px;
+  font-size: 13.5px;
+  line-height: 17px;
+  gap: 7px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, .13);
+  transition: box-shadow .3s ease, transform .35s cubic-bezier(.22, 1, .36, 1);
 }
-.pf .haut:hover { box-shadow: 0 12px 34px rgba(0, 0, 0, .2); }
+.pf .haut:hover,
+.pf .haut:focus-visible {
+  box-shadow: 0 10px 28px rgba(0, 0, 0, .19);
+  transform: translateY(-2px);
+}
+.pf .haut:active { transform: translateY(0) scale(.97); }
+
+/* Le libellé se fond pendant le changement de rôle. */
+.pf .haut-texte,
+.pf .haut-fleche {
+  display: inline-block;
+  transition: opacity .18s ease, transform .18s ease;
+}
+.pf .haut.change .haut-texte,
+.pf .haut.change .haut-fleche { opacity: 0; transform: translateY(3px); }
+
+/* Tant que la pastille invite à descendre, sa flèche respire. */
+.pf .haut.vers-le-bas .haut-fleche { animation: haut-respire 1.9s ease-in-out infinite; }
+
+@keyframes haut-respire {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(3px); }
+}
 
 @media (max-width: 760px) {
   .pf .haut {
-    min-height: 40px;
-    padding: 10px 12px 10px 15px;
-    font-size: 15px;
-    line-height: 19px;
-    gap: 8px;
+    min-height: 34px;
+    padding: 8px 10px 8px 13px;
+    font-size: 12.5px;
+    line-height: 16px;
+    gap: 6px;
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pf .haut,
+  .pf .haut-texte,
+  .pf .haut-fleche { transition: none; }
+  .pf .haut.vers-le-bas .haut-fleche { animation: none; }
+  .pf .haut:hover { transform: none; }
 }
