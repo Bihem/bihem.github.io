@@ -924,7 +924,10 @@
   background: var(--papier-2);
   font-size: 14px; color: var(--encre);
 }
-.pf .outils img { width: 16px; height: 16px; object-fit: contain; }
+/* Chaque marque garde ses proportions : on fixe la hauteur, la largeur
+   suit. Sinon un logotype horizontal comme n8n, écrasé dans un carré, se
+   réduit à un filet de quelques pixels de haut. */
+.pf .outils img { height: 18px; width: auto; object-fit: contain; }
 
 @media (max-width: 760px) {
   .pf .haut { min-height: 34px; padding: 8px 11px 8px 13px; font-size: 13px; bottom: 16px; }
@@ -1914,3 +1917,6 @@
 @media (max-width: 760px) {
   .pf .pf-entete-in .burger { margin-right: -11px; }
 }
+
+/* Même hauteur dans la bande défilante. */
+.pf .outils-bande img { height: 18px; width: auto; }
