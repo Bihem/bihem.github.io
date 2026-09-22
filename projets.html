@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Projets — Mes-reves Bouzanga, designer d’interfaces | Dikenga</title>
-<meta name="description" content="Quatre projets où j’ai conçu, intégré et mis en ligne : Talseume, StudioBooking, une application tennis et un concept Adidas Harden Vol.10.">
+<meta name="description" content="Six projets où j’ai conçu, intégré et mis en ligne : Talseume, StudioBooking, une application tennis, un concept Adidas, Maison Delorme et EQUA.">
 <link rel="canonical" href="https://dikengadesign.fr/projets.html">
 <link rel="icon" href="img/favicon-32.png?v=2b5522f7" sizes="32x32">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png?v=8444803b">
@@ -17,12 +17,12 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:title" content="Projets — Mes-Reves Bouzanga, designer d’interfaces">
-<meta property="og:description" content="Cinq projets : Talseume, StudioBooking, une application tennis, un concept Adidas et Maison Delorme. Interfaces, design system et mise en production.">
+<meta property="og:description" content="Six projets : Talseume, StudioBooking, une application tennis, un concept Adidas, Maison Delorme et EQUA. Interfaces, design system et mise en production.">
 <meta property="og:url" content="https://dikengadesign.fr/projets.html">
 <meta property="og:image" content="https://dikengadesign.fr/img/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Projets — Mes-Reves Bouzanga, designer d’interfaces">
-<meta name="twitter:description" content="Cinq projets : Talseume, StudioBooking, une application tennis, un concept Adidas et Maison Delorme. Interfaces, design system et mise en production.">
+<meta name="twitter:description" content="Six projets : Talseume, StudioBooking, une application tennis, un concept Adidas, Maison Delorme et EQUA. Interfaces, design system et mise en production.">
 <meta name="twitter:image" content="https://dikengadesign.fr/img/og-image.jpg">
 <style>
 /* Pied de page commun au site — mêmes valeurs que la page d'accueil.
@@ -64,6 +64,36 @@
 }
 .delorme-duo figcaption { font-size: var(--t-petit); margin-top: .75rem; }
 @media (max-width: 620px) { .delorme-duo { gap: 12px; } }
+
+/* Les trois visuels EQUA defilent horizontalement : scroll-snap natif,
+   donc glissement au doigt sur mobile et au trackpad sur desktop. Les
+   fleches ne font que pousser le scroll, rien n'est reconstruit en JS. */
+.equa-slider { position: relative; margin-block: 24px 40px; }
+.equa-piste {
+  display: flex; gap: 20px;
+  overflow-x: auto; overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory; scroll-behavior: smooth;
+  scrollbar-width: none; -ms-overflow-style: none;
+  padding-bottom: 4px;
+}
+.equa-piste::-webkit-scrollbar { display: none; }
+.equa-piste figure { margin: 0; flex: 0 0 100%; scroll-snap-align: center; }
+.equa-piste img {
+  display: block; width: 100%; height: auto;
+  aspect-ratio: 3 / 2; object-fit: cover; background: #F4F4F2;
+}
+.equa-piste figcaption { font-size: var(--t-petit); margin-top: .75rem; }
+.equa-commandes {
+  display: flex; align-items: center; gap: 12px; margin-top: 1.25rem;
+}
+.equa-bouton {
+  width: 44px; height: 44px; border: 0; border-radius: 999px;
+  background: #F4F4F2; color: #0D0D0F; font-size: 17px; line-height: 1;
+  cursor: pointer; transition: background .2s ease;
+}
+.equa-bouton:hover { background: #E8E8E4; }
+.equa-compteur { font-size: var(--t-petit); color: #6E6E73; margin-left: 4px; }
+@media (max-width: 620px) { .equa-piste { gap: 12px; } }
 </style>
 </head>
 <body>
@@ -243,6 +273,58 @@
     </div>
   </article>
 
+  <!-- ======================================================= 06 EQUA -->
+  <article class="chapitre enveloppe" id="equa">
+    <div class="colonne reveler">
+      <span class="sur-titre">06 · Application mobile et montre · 2026</span>
+      <h2>EQUA, le bien-être qui tient au poignet.</h2>
+      <p class="chapo">
+        Une application de bien-être pensée sur deux supports : le téléphone pour
+        suivre ses objectifs et ses séances, la montre pour les lancer d’un geste.
+      </p>
+    </div>
+
+    <div class="colonne reveler">
+      <div class="equa-slider">
+        <div class="equa-piste" id="equa-piste" tabindex="0" role="region"
+             aria-label="Visuels du projet EQUA">
+          <figure class="angles-droits">
+            <img width="1536" height="1024" src="img/equa-projet-01-mobile.webp"
+                 alt="EQUA sur iPhone : écran d’accueil et tableau de bord avec objectifs et suivi de la semaine."
+                 loading="lazy">
+            <figcaption class="discret">01 — Accueil et tableau de bord sur iPhone</figcaption>
+          </figure>
+          <figure class="angles-droits">
+            <img width="1536" height="1024" src="img/equa-projet-02-montre.webp"
+                 alt="EQUA sur montre connectée : accueil, objectifs du jour et fiche de séance."
+                 loading="lazy">
+            <figcaption class="discret">02 — Les trois écrans de la montre</figcaption>
+          </figure>
+          <figure class="angles-droits">
+            <img width="1536" height="1024" src="img/equa-projet-03-poignet.webp"
+                 alt="EQUA porté au poignet, séance Yoga Flow prête à être lancée."
+                 loading="lazy">
+            <figcaption class="discret">03 — Lancer une séance au poignet</figcaption>
+          </figure>
+        </div>
+        <div class="equa-commandes">
+          <button class="equa-bouton" type="button" id="equa-precedent"
+                  aria-label="Visuel précédent">←</button>
+          <button class="equa-bouton" type="button" id="equa-suivant"
+                  aria-label="Visuel suivant">→</button>
+          <span class="equa-compteur" id="equa-compteur" aria-live="polite">1 / 3</span>
+        </div>
+      </div>
+
+      <p>
+        Le même système sur deux tailles d’écran : sur le téléphone, la lecture
+        complète — programme du jour, objectifs, courbe de la semaine. Sur la
+        montre, on garde l’essentiel, quatre tuiles et un bouton, parce qu’on la
+        regarde trois secondes.
+      </p>
+    </div>
+  </article>
+
   <!-- ====================================================== CONTACT -->
   <section class="rupture enveloppe">
     <div class="colonne reveler">
@@ -278,6 +360,32 @@
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+  })();
+</script>
+
+<script>
+  (function () {
+    var piste = document.getElementById('equa-piste');
+    if (!piste) return;
+    var compteur = document.getElementById('equa-compteur');
+    var vues = [].slice.call(piste.querySelectorAll('figure'));
+
+    function pas() { return piste.clientWidth + 20; }
+    function pousser(sens) { piste.scrollBy({ left: sens * pas(), behavior: 'smooth' }); }
+
+    document.getElementById('equa-precedent').addEventListener('click', function () { pousser(-1); });
+    document.getElementById('equa-suivant').addEventListener('click', function () { pousser(1); });
+
+    function maj() {
+      var centre = piste.scrollLeft + piste.clientWidth / 2, meilleur = 0, ecart = Infinity;
+      vues.forEach(function (v, i) {
+        var c = v.offsetLeft + v.offsetWidth / 2;
+        if (Math.abs(c - centre) < ecart) { ecart = Math.abs(c - centre); meilleur = i; }
+      });
+      compteur.textContent = (meilleur + 1) + ' / ' + vues.length;
+    }
+    piste.addEventListener('scroll', maj, { passive: true });
+    maj();
   })();
 </script>
 
