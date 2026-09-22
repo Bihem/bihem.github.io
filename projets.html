@@ -32,7 +32,12 @@
 .pied-site {
   border-top: 1px solid #E4E4E0;
   padding-block: 20px;
+  /* ces pages n'ont pas styles-portfolio.css : sans ces trois lignes le pied
+     hérite de la police système et d'un line-height "normal", et ne ressemble
+     plus à celui de l'accueil. Valeurs relevées sur index.html. */
+  font-family: Inter, -apple-system, system-ui, "Segoe UI", sans-serif;
   font-size: 13px;
+  line-height: 1.55;
   color: #6E6E73;
   background: transparent;
 }
@@ -343,6 +348,7 @@
     <div class="pied-bas">
       <span>© 2026 <span class="pied-marque">DIKENGA<sup>®</sup></span></span>
       <div class="pied-social">
+        <a href="mentions-legales.html">Mentions légales</a>
         <a href="https://www.linkedin.com/in/dikengadesign/" target="_blank" rel="noopener">LinkedIn <span class="fleche" aria-hidden="true">↗</span></a>
         <a href="https://www.instagram.com/dikengadesign/" target="_blank" rel="noopener">Instagram <span class="fleche" aria-hidden="true">↗</span></a>
       </div>

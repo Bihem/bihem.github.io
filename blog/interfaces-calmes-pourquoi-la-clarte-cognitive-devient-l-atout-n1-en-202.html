@@ -26,6 +26,40 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css?v=b4821967">
+<style>
+/* Pied de page commun au site — mêmes valeurs que la page d'accueil.
+   Écrit ici plutôt que chargé depuis styles-portfolio.css : cette page est
+   restée dans l'ancienne direction artistique, et importer toute la feuille
+   du portfolio en changerait la mise en page. */
+.pied-site {
+  border-top: 1px solid #E4E4E0;
+  padding-block: 20px;
+  /* ces pages n'ont pas styles-portfolio.css : sans ces trois lignes le pied
+     hérite de la police système et d'un line-height "normal", et ne ressemble
+     plus à celui de l'accueil. Valeurs relevées sur index.html. */
+  font-family: Inter, -apple-system, system-ui, "Segoe UI", sans-serif;
+  font-size: 13px;
+  line-height: 1.55;
+  color: #6E6E73;
+  background: transparent;
+}
+.pied-site-in { width: min(100% - 40px, 1080px); margin-inline: auto; }
+.pied-site .pied-bas {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 14px 24px;
+}
+.pied-site .pied-marque {
+  font-weight: 700; font-size: 13px; letter-spacing: -.02em; color: #0D0D0F;
+}
+.pied-site .pied-marque sup { font-size: .55em; top: -.6em; }
+.pied-site .pied-social { display: flex; flex-direction: row; align-items: center; gap: 22px; }
+.pied-site .pied-social a { color: #0D0D0F; text-decoration: none; }
+.pied-site .pied-social a:hover { text-decoration: underline; }
+@media (max-width: 620px) {
+  .pied-site { padding-block: 16px; }
+  .pied-site .pied-bas { gap: 10px 18px; }
+}
+</style>
 </head>
 <body>
 
@@ -86,13 +120,15 @@
 
 </main>
 
-<footer class="pied enveloppe">
-  <div class="pleine pied-rangee" style="margin:0">
-    <div>© 2026 Dikenga — Mes-reves Bouzanga</div>
-    <div>
-      <a href="/index.html">Accueil</a> ·
-      <a href="/mentions-legales.html">Mentions légales</a> ·
-      <a href="/contact.html">Contact</a>
+<footer class="pied pied-site">
+  <div class="pied-site-in">
+    <div class="pied-bas">
+      <span>© 2026 <span class="pied-marque">DIKENGA<sup>®</sup></span></span>
+      <div class="pied-social">
+        <a href="/mentions-legales.html">Mentions légales</a>
+        <a href="https://www.linkedin.com/in/dikengadesign/" target="_blank" rel="noopener">LinkedIn <span class="fleche" aria-hidden="true">↗</span></a>
+        <a href="https://www.instagram.com/dikengadesign/" target="_blank" rel="noopener">Instagram <span class="fleche" aria-hidden="true">↗</span></a>
+      </div>
     </div>
   </div>
 </footer>
