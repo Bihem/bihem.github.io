@@ -482,6 +482,7 @@
   margin-bottom: 18px;
 }
 .pf .cas-desc { color: var(--gris-txt); margin-bottom: 0; }
+.pf .cas-desc + .cas-desc { margin-top: 14px; }
 
 .cas-montage {
   width: min(100%, 1200px);
@@ -1693,13 +1694,19 @@
    40 px plus étroit que les autres sur mobile. */
 .pf .methode-montage { width: 100%; padding-inline: 0; }
 
-.pf .methode-montage img {
+.pf .methode-montage img,
+.pf .cas-montage--image img {
   display: block;
   width: min(100%, calc(var(--h-montage) * 1.5));
   height: var(--h-montage);
   object-fit: cover;
   margin-inline: auto;
 }
+
+/* Un projet illustré par une image plutôt que par un montage animé : même
+   hauteur que les iframes voisines, pour que les trois projets s'alignent.
+   Pas de padding ici : `.pf .cas-montage` en pose déjà un, l'ajouter une
+   seconde fois décalait l'image de 20 px sur mobile. */
 
 /* ==========================================================================
    ANIMATIONS
@@ -1790,7 +1797,8 @@
 .pf .cas-montage img,
 .pf .methode-montage img { transition: scale 1.2s var(--ease-transf); }
 .pf .cas-montage:hover img,
-.pf .methode-montage:hover img { scale: 1.015; }
+.pf .methode-montage:hover img,
+.pf .cas-montage--image:hover img { scale: 1.015; }
 
 /* Les liens de navigation et de pied de page se soulignent en glissant
    depuis la gauche plutôt qu'en apparaissant d'un bloc. */
@@ -1827,7 +1835,8 @@
     transition: none !important;
   }
   .pf .cas-montage:hover img,
-  .pf .methode-montage:hover img { scale: 1; }
+  .pf .methode-montage:hover img,
+  .pf .cas-montage--image:hover img { scale: 1; }
   .pf .pf-nav a::after,
   .pf .pied-nav a::after,
   .pf .pied-social a::after { transition: none; }
