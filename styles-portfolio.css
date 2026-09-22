@@ -2743,3 +2743,17 @@
   .pf .pf-nav .pf-langue-menu a,
   .pf .pf-langue-puce { transition: none; }
 }
+
+/* ==========================================================================
+   CARROUSEL — pas de voile sur les visuels
+   L'ancienne `styles.css` anime `.diapo` avec `diapo-emphase` : les diapos
+   des bords descendent à `opacity: .35` et `scale: .88`. Sur fond blanc,
+   ça se lit comme un filtre blanc posé sur les images. Neutralisé : tous
+   les visuels restent nets et à pleine échelle.
+   ========================================================================== */
+.pf .diapo {
+  animation: none !important;
+  opacity: 1 !important;
+  scale: none !important;
+  will-change: auto;
+}
