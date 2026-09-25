@@ -103,6 +103,14 @@
 .slider-bouton:hover { background: #E8E8E4; }
 .slider-compteur { font-size: var(--t-petit); color: #6E6E73; margin-left: 4px; }
 @media (max-width: 620px) { .slider-piste { gap: 12px; } }
+
+/* Vidéo de présentation StudioBooking (25/09/2026), à la place de l'animation HTML */
+.sb-video { position: relative; width: 78%; margin-inline: auto; }
+.sb-video video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 14px; background: #eaf3ee; cursor: pointer; }
+.sb-video-son { position: absolute; right: 14px; bottom: 14px; display: flex; align-items: center; gap: 8px; padding: 9px 15px; border: 0; border-radius: 999px; background: rgba(10,20,16,.78); color: #fff; font: 600 13px/1 inherit; font-family: inherit; cursor: pointer; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); transition: transform .2s, background .2s; }
+.sb-video-son:hover { transform: translateY(-1px); background: #3ECF8E; color: #06120c; }
+.sb-video-son.on span { display: none; }
+@media (max-width: 760px) { .sb-video { width: 100%; } .sb-video-son { right: 10px; bottom: 10px; padding: 8px 12px; } }
 </style>
 </head>
 <body>
@@ -186,7 +194,10 @@
     </div>
 
     <figure class="pleine reveler" style="overflow:visible;border-radius:0;margin-inline:auto">
-      <iframe src="studiobooking-presentation.html?embed=1" title="Présentation StudioBooking" style="width:min(100%,50rem);aspect-ratio:16/10;border:0;display:block;margin-inline:auto" loading="lazy"></iframe>
+      <div class="sb-video" style="width:min(100%,50rem)">
+          <video class="projet-video" src="media/studiobooking-presentation.mp4" poster="media/studiobooking-presentation.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Vidéo de présentation de StudioBooking"></video>
+          <button type="button" class="sb-video-son" aria-label="Activer le son" data-on="Couper le son" data-off="Activer le son"><svg viewBox="0 0 256 256" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M52.44,36A6,6,0,0,0,43.56,44L78,81.94l-.08.06H32A14,14,0,0,0,18,96v64a14,14,0,0,0,14,14H77.94l70.38,54.74A6,6,0,0,0,158,224V169.92L203.56,220a6,6,0,0,0,8.88-8.08ZM30,160V96a2,2,0,0,1,2-2H74v68H32A2,2,0,0,1,30,160Zm116,51.73L86,165.07V90.93l.11-.08L146,156.72Zm41.5-66.53a26,26,0,0,0,0-34.37,6,6,0,1,1,9-7.93,38,38,0,0,1,0,50.24,6,6,0,0,1-9-7.94ZM107.41,66.68a6,6,0,0,1,1.06-8.42l39.85-31A6,6,0,0,1,158,32v74.83a6,6,0,0,1-12,0V44.27L115.83,67.73A6,6,0,0,1,107.41,66.68ZM246,128a77.86,77.86,0,0,1-19.86,52,6,6,0,1,1-8.94-8,66,66,0,0,0,0-88,6,6,0,1,1,8.94-8A77.86,77.86,0,0,1,246,128Z"/></svg><span>Activer le son</span></button>
+        </div>
     </figure>
 
     <div class="colonne reveler">
@@ -402,5 +413,18 @@
 </script>
 
 <script src="menu.js?v=e4a285ff" defer></script>
+
+<script>
+  /* Vidéo StudioBooking : lecture muette, bouton pour activer le son (relance au début) */
+  (function () {
+    var OFF = '<path d="M52.44,36A6,6,0,0,0,43.56,44L78,81.94l-.08.06H32A14,14,0,0,0,18,96v64a14,14,0,0,0,14,14H77.94l70.38,54.74A6,6,0,0,0,158,224V169.92L203.56,220a6,6,0,0,0,8.88-8.08ZM30,160V96a2,2,0,0,1,2-2H74v68H32A2,2,0,0,1,30,160Zm116,51.73L86,165.07V90.93l.11-.08L146,156.72Zm41.5-66.53a26,26,0,0,0,0-34.37,6,6,0,1,1,9-7.93,38,38,0,0,1,0,50.24,6,6,0,0,1-9-7.94ZM107.41,66.68a6,6,0,0,1,1.06-8.42l39.85-31A6,6,0,0,1,158,32v74.83a6,6,0,0,1-12,0V44.27L115.83,67.73A6,6,0,0,1,107.41,66.68ZM246,128a77.86,77.86,0,0,1-19.86,52,6,6,0,1,1-8.94-8,66,66,0,0,0,0-88,6,6,0,1,1,8.94-8A77.86,77.86,0,0,1,246,128Z"/>', ON = '<path d="M154.64,26.61a6,6,0,0,0-6.32.65L77.94,82H32A14,14,0,0,0,18,96v64a14,14,0,0,0,14,14H77.94l70.38,54.74A6,6,0,0,0,158,224V32A6,6,0,0,0,154.64,26.61ZM30,160V96a2,2,0,0,1,2-2H74v68H32A2,2,0,0,1,30,160Zm116,51.73L86,165.07V90.93l60-46.66Zm50.53-108.85a38,38,0,0,1,0,50.24,6,6,0,1,1-9-7.94,26,26,0,0,0,0-34.37,6,6,0,0,1,9-7.93ZM246,128a77.86,77.86,0,0,1-19.86,52,6,6,0,1,1-8.94-8,66,66,0,0,0,0-88,6,6,0,1,1,8.94-8A77.86,77.86,0,0,1,246,128Z"/>';
+    [].forEach.call(document.querySelectorAll('.sb-video'), function (b) {
+      var v = b.querySelector('video'), s = b.querySelector('.sb-video-son');
+      function maj() { s.classList.toggle('on', !v.muted); s.querySelector('svg').innerHTML = v.muted ? OFF : ON; s.setAttribute('aria-label', v.muted ? s.dataset.off : s.dataset.on); }
+      function bascule() { v.muted = !v.muted; if (!v.muted) { v.currentTime = 0; v.play(); } maj(); }
+      s.addEventListener('click', function (e) { e.stopPropagation(); bascule(); }); v.addEventListener('click', bascule);
+    });
+  })();
+</script>
 </body>
 </html>
