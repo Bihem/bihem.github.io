@@ -2760,7 +2760,7 @@
 
 /* Vidéo de présentation StudioBooking (25/09/2026), à la place de l'animation HTML */
 .sb-video { position: relative; width: 78%; margin-inline: auto; }
-.sb-video video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 14px; background: #eaf3ee; cursor: pointer; }
+.sb-video video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 0; background: #eaf3ee; cursor: pointer; }
 .sb-video-son { position: absolute; right: 14px; bottom: 14px; display: flex; align-items: center; gap: 8px; padding: 9px 15px; border: 0; border-radius: 999px; background: rgba(10,20,16,.78); color: #fff; font: 600 13px/1 inherit; font-family: inherit; cursor: pointer; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); transition: transform .2s, background .2s; }
 .sb-video-son:hover { transform: translateY(-1px); background: #3ECF8E; color: #06120c; }
 .sb-video-son.on span { display: none; }
