@@ -148,7 +148,7 @@
     </div>
 
     <figure class="pleine reveler" style="overflow:visible;border-radius:0;margin-inline:auto">
-      <iframe src="talseume-presentation.html?embed=1" title="Présentation Talseume" style="width:min(100%,50rem);aspect-ratio:16/10;border:0;display:block;margin-inline:auto" loading="lazy"></iframe>
+      <iframe src="talseume-presentation.html?embed=1" title="Présentation Talseume" style="width:min(100%,50rem);aspect-ratio:16/10;border:0;display:block;margin-inline:auto" loading="lazy"></iframe><script>/* 02/10/2026 — iPhone : un cadre contenant un autre cadre fait afficher « about:blank » dans la barre d'adresse ; sur mobile on le remplace donc par la même présentation en vidéo */(function(){if(!matchMedia("(max-width:760px)").matches)return;var f=document.currentScript.previousElementSibling;if(!f||f.tagName!=="IFRAME")return;var cs=getComputedStyle(f),v=document.createElement("video");v.className="projet-video tals-video";v.src="media/talseume-presentation.mp4";v.muted=true;v.loop=true;v.autoplay=true;v.playsInline=true;v.setAttribute("playsinline","");v.setAttribute("muted","");v.preload="metadata";v.setAttribute("aria-label",f.getAttribute("title")||"Présentation Talseume");v.style.cssText="display:block;margin-inline:auto;object-fit:contain;background:transparent;width:"+cs.width+";aspect-ratio:"+(f.style.aspectRatio||"3 / 2")+";max-width:100%";f.removeAttribute("src");f.replaceWith(v);})();</script>
     </figure>
 
     <div class="colonne reveler">
