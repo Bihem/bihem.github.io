@@ -428,5 +428,31 @@
     });
   })();
 </script>
+<script>
+  /* 02/10/2026 — iPhone : la vidéo StudioBooking ne tourne que lorsqu'elle est à l'écran (sinon l'onglet est vidé et l'adresse devient « about:blank ») */
+(function () {
+  var vids = [].slice.call(document.querySelectorAll('.projet-video'));
+  if (!vids.length || !('IntersectionObserver' in window)) return;
+  var calme = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var vu = new Map();
+  var obs = new IntersectionObserver(function (es) { es.forEach(function (e) { vu.set(e.target, e.isIntersecting); if (e.isIntersecting && !calme && !document.hidden) { var p = e.target.play(); if (p && p.catch) p.catch(function () {}); } else if (!e.isIntersecting) e.target.pause(); }); }, { threshold: .15 });
+  vids.forEach(function (v) { obs.observe(v); });
+  document.addEventListener('visibilitychange', function () { vids.forEach(function (v) { if (document.hidden) v.pause(); else if (vu.get(v) && !calme) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } }); });
+})();
+</script>
+<script>
+  /* 02/10/2026 — iPhone : le montage Talseume (iframe) est déchargé quand il est loin de l'écran ou que l'onglet passe en arrière-plan, puis rechargé au retour (même principe que sur l'accueil) */
+(function () {
+  var cadres = [].slice.call(document.querySelectorAll('iframe[src]'));
+  if (!cadres.length || !('IntersectionObserver' in window)) return;
+  var items = cadres.map(function (f) { var bloc = document.createElement('div'); bloc.className = 'cadre-montage'; f.parentNode.insertBefore(bloc, f); bloc.appendChild(f);
+    return { bloc: bloc, src: f.getAttribute('src'), titre: f.getAttribute('title') || '', style: f.getAttribute('style') || '' }; });
+  function decharger(it) { var f = it.bloc.querySelector('iframe'); if (!f) return; it.bloc.style.minHeight = Math.round(it.bloc.getBoundingClientRect().height) + 'px'; f.remove(); }
+  function recharger(it) { if (it.bloc.querySelector('iframe')) return; var f = document.createElement('iframe'); f.setAttribute('src', it.src); f.setAttribute('title', it.titre); f.setAttribute('style', it.style); f.setAttribute('loading', 'lazy'); it.bloc.appendChild(f); it.bloc.style.minHeight = ''; }
+  var obs = new IntersectionObserver(function (es) { es.forEach(function (e) { var it = items.find(function (x) { return x.bloc === e.target; }); if (e.isIntersecting) recharger(it); else if (!document.hidden) decharger(it); }); }, { rootMargin: '150% 0px' });
+  items.forEach(function (it) { obs.observe(it.bloc); });
+  document.addEventListener('visibilitychange', function () { items.forEach(function (it) { if (document.hidden) decharger(it); else { var r = it.bloc.getBoundingClientRect(), m = innerHeight * 1.5; if (r.bottom > -m && r.top < innerHeight + m) recharger(it); } }); });
+})();
+</script>
 </body>
 </html>
