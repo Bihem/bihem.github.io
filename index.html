@@ -755,5 +755,17 @@
     });
   })();
 </script>
+<script>
+  /* 02/10/2026 — iPhone : la vidéo StudioBooking ne tourne que lorsqu'elle est à l'écran (sinon l'onglet est vidé et l'adresse devient « about:blank ») */
+(function () {
+  var vids = [].slice.call(document.querySelectorAll('.projet-video'));
+  if (!vids.length || !('IntersectionObserver' in window)) return;
+  var calme = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var vu = new Map();
+  var obs = new IntersectionObserver(function (es) { es.forEach(function (e) { vu.set(e.target, e.isIntersecting); if (e.isIntersecting && !calme && !document.hidden) { var p = e.target.play(); if (p && p.catch) p.catch(function () {}); } else if (!e.isIntersecting) e.target.pause(); }); }, { threshold: .15 });
+  vids.forEach(function (v) { obs.observe(v); });
+  document.addEventListener('visibilitychange', function () { vids.forEach(function (v) { if (document.hidden) v.pause(); else if (vu.get(v) && !calme) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } }); });
+})();
+</script>
 </body>
 </html>
