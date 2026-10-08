@@ -69,6 +69,7 @@
 <script src="animations.js?v=52a4d466" defer></script>
 <style>/* 08/10/2026 : vidéo StudioBooking en 4:5 sur mobile (même format que la vidéo précédente) */ @media (max-width:760px){ .sb-video video{ aspect-ratio:4/5 !important; } }</style>
 <style>/* 08/10/2026 : mention « Vidéo créée avec Opus 5.5 », alignée sur la colonne de texte */ .sb-credit{ font-size:10px; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:#6e6e73; margin:0 0 18px; }</style>
+<style>/* 08/10/2026 : Talseume — parcours d'achat filmé sur le vrai site (3:2 ordinateur, 4:5 mobile) */ .tals-achat{ display:block; width:100%; aspect-ratio:3/2; object-fit:cover; background:#fff; } @media (max-width:760px){ .tals-achat{ aspect-ratio:4/5; } }</style>
 </head>
 <body class="pf">
 
@@ -211,8 +212,7 @@
       </div>
 
       <figure class="cas-montage">
-        <iframe src="talseume-montage.html"
-                title="La boutique Talseume qui défile sur un MacBook" loading="lazy"></iframe><script>/* 02/10/2026 — iPhone : un cadre contenant un autre cadre fait afficher « about:blank » dans la barre d'adresse ; sur mobile on le remplace donc par la même présentation en vidéo */(function(){if(!matchMedia("(max-width:760px)").matches)return;var f=document.currentScript.previousElementSibling;if(!f||f.tagName!=="IFRAME")return;var cs=getComputedStyle(f),v=document.createElement("video");v.className="projet-video tals-video";v.src="media/talseume-montage.mp4";v.muted=true;v.loop=true;v.autoplay=true;v.playsInline=true;v.setAttribute("playsinline","");v.setAttribute("muted","");v.preload="metadata";v.setAttribute("aria-label",f.getAttribute("title")||"Présentation Talseume");v.style.cssText="display:block;margin-inline:auto;object-fit:contain;background:transparent;width:"+cs.width+";aspect-ratio:"+(f.style.aspectRatio||"3 / 2")+";max-width:100%";f.removeAttribute("src");f.replaceWith(v);})();</script>
+        <video class="projet-video tals-achat" poster="media/talseume-achat.jpg?v=1" autoplay muted loop playsinline preload="metadata" aria-label="Parcours d’achat sur la boutique Talseume, du choix du produit à la commande confirmée"><source media="(max-width:760px)" src="media/talseume-achat-4x5.mp4?v=1" type="video/mp4"><source src="media/talseume-achat.mp4?v=1" type="video/mp4"></video><script>/* 08/10/2026 : image d'attente au format mobile (4:5) */(function(){if(matchMedia("(max-width:760px)").matches)document.currentScript.previousElementSibling.poster="media/talseume-achat-4x5.jpg?v=1";})();</script>
       </figure>
 
       <div class="wrap">
