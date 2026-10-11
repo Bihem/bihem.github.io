@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Crêperie La Belle Bio — Crêperie bio · Paris 10e (maquette Dikenga Design)</title>
+<meta name="description" content="Maquette de site vitrine proposée par Dikenga Design à Crêperie La Belle Bio. Ce n'est pas le site officiel du restaurant.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap">
+<style>
+:root{--fond:#F7F0DF;--encre:#2B1D10;--acc:#7A4A22;--acc2:#E9B949;--carte:#FBF8F1;--ligne:#DAD2C2;--doux:#796D5F;--titre:'Fraunces', serif;--sur-acc:#FFFFFF}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--fond);color:var(--encre);font:400 16px/1.6 'Inter',system-ui,sans-serif;overflow-x:clip}
+a{color:inherit}
+.maquette{background:#0B0B0C;color:#E9E9EA;font-size:12.5px;letter-spacing:.02em;text-align:center;padding:9px 16px;line-height:1.45}
+.maquette a{color:#fff;font-weight:600;text-underline-offset:3px}
+.maquette b{font-family:'Inter';font-weight:700;letter-spacing:-.01em}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--fond) 88%,transparent);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid var(--ligne)}
+.barre{display:flex;align-items:center;justify-content:space-between;gap:20px;height:72px}
+.logo{font-family:var(--titre);font-size:24px;font-weight:600;text-decoration:none;letter-spacing:-.01em;white-space:nowrap}
+nav{display:flex;gap:28px;font-size:14.5px;font-weight:500}
+nav a{text-decoration:none;opacity:.78} nav a:hover{opacity:1}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:13px 22px;border-radius:999px;font:600 15px/1 'Inter';text-decoration:none;transition:transform .2s ease,box-shadow .2s ease,background .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn-p{background:var(--acc);color:var(--sur-acc);box-shadow:0 10px 24px -12px var(--acc)}
+.btn-s{border:1.5px solid var(--encre);color:var(--encre)}
+.btn-s:hover{background:var(--encre);color:var(--fond)}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;padding:72px 0 88px}
+.sur{font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--acc)}
+
+h1{font-family:var(--titre);font-weight:600;font-size:clamp(46px,7vw,92px);line-height:.98;letter-spacing:-.02em;margin:18px 0 22px}
+.accroche{font-size:clamp(18px,2vw,22px);line-height:1.5;color:var(--doux);max-width:30ch}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin:34px 0 30px}
+.faits{display:flex;flex-wrap:wrap;gap:8px;list-style:none}
+.faits li{font-size:13.5px;font-weight:500;padding:7px 13px;border:1px solid var(--ligne);border-radius:999px;background:var(--carte)}
+.art{position:relative;aspect-ratio:1;border-radius:28px;background:var(--carte);border:1px solid var(--ligne);display:grid;place-items:center;overflow:hidden}
+.art svg{width:84%;height:auto;animation:flotte 9s ease-in-out infinite}
+.art::after{content:"Vos photos ici";position:absolute;bottom:16px;right:18px;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--doux);opacity:.75}
+@keyframes flotte{50%{transform:translateY(-8px) rotate(-1deg)}}
+section{padding:88px 0;border-top:1px solid var(--ligne)}
+.esprit p:not(.sur){font-family:var(--titre);font-size:clamp(24px,3.2vw,38px);line-height:1.3;max-width:26ch;letter-spacing:-.01em}
+.esprit .wrap{display:grid;grid-template-columns:220px 1fr;gap:40px}
+h2{font-family:var(--titre);font-weight:600;font-size:clamp(34px,4.5vw,52px);letter-spacing:-.015em;line-height:1.05}
+.titre-s{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:40px;flex-wrap:wrap}
+.note{font-size:13.5px;color:var(--doux);max-width:38ch}
+.cartes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.plat{background:var(--carte);border:1px solid var(--ligne);border-radius:22px;padding:30px 28px}
+.plat h3{font-family:var(--titre);font-size:25px;font-weight:600;margin-bottom:18px;color:var(--acc)}
+
+.plat ul{list-style:none;display:grid;gap:13px}
+.plat li{display:flex;align-items:baseline;gap:10px;font-size:15.5px}
+.plat li i{flex:1;border-bottom:1.5px dotted var(--ligne);transform:translateY(-4px)}
+.plat li b{color:var(--doux);font-weight:500}
+.infos{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.bloc{background:var(--carte);border:1px solid var(--ligne);border-radius:22px;padding:32px}
+.bloc h3{font-family:var(--titre);font-size:28px;font-weight:600;margin-bottom:20px}
+table{width:100%;border-collapse:collapse;font-size:15.5px}
+th,td{text-align:left;padding:13px 0;border-bottom:1px solid var(--ligne);vertical-align:top}
+th{font-weight:500;color:var(--doux);padding-right:16px} td{text-align:right;font-weight:600}
+.petit{font-size:13px;color:var(--doux);margin-top:14px}
+.adr{font-size:19px;line-height:1.45;margin-bottom:22px}
+.lignes{display:grid;gap:10px;margin-top:6px}
+.reseaux{display:flex;gap:16px;margin-top:22px;font-size:14.5px;font-weight:600}
+.plan{margin-top:20px;border-radius:22px;overflow:hidden;border:1px solid var(--ligne);height:380px;background:var(--carte)}
+.plan iframe{width:100%;height:100%;border:0;display:block;filter:saturate(.75);}
+footer{padding:56px 0 120px;border-top:1px solid var(--ligne);font-size:14px;color:var(--doux)}
+footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+footer .logo{color:var(--encre);display:block;margin-bottom:6px}
+.credit b{color:var(--encre);font-weight:700;letter-spacing:-.01em}
+.mobile{display:none}
+.apparait{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.apparait.vu{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.art svg{animation:none}.apparait{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+@media (max-width:900px){
+ nav{display:none}
+ .hero{grid-template-columns:1fr;gap:36px;padding:44px 0 64px}
+ .art{max-width:420px;width:100%;margin:0 auto}
+ .esprit .wrap,.infos{grid-template-columns:1fr}
+ .cartes{grid-template-columns:1fr}
+ section{padding:64px 0}
+}
+@media (max-width:560px){
+ .wrap{padding:0 16px}
+ .barre{height:62px} .logo{font-size:20px}
+ .logo{font-size:19px;overflow:hidden;text-overflow:ellipsis;min-width:0}
+ .barre .btn{padding:0;width:44px;height:44px;justify-content:center;flex:none} .barre .btn span{display:none}
+ .art{aspect-ratio:4/3} .art svg{width:62%}
+ h1{margin:14px 0 16px} .actions{margin:26px 0 22px}
+ .bloc,.plat{padding:24px 20px}
+ .plan{height:300px}
+ .mobile{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:fixed;left:12px;right:12px;bottom:12px;z-index:30;padding:10px;border-radius:22px;background:color-mix(in srgb,var(--fond) 82%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--ligne);box-shadow:0 18px 40px -20px rgba(0,0,0,.45)}
+ .mobile .btn{justify-content:center;padding:14px 10px}
+}
+</style>
+</head>
+<body>
+<div class="maquette">Maquette proposée par <b>DIKENGA®</b> Design à Crêperie La Belle Bio — ce n'est pas le site officiel du restaurant. <a href="https://dikengadesign.fr/" target="_blank" rel="noopener">dikengadesign.fr</a></div>
+<header><div class="wrap barre">
+ <a class="logo" href="#haut">Crêperie La Belle Bio</a>
+ <nav aria-label="Navigation principale"><a href="#carte">La carte</a><a href="#horaires">Horaires</a><a href="#venir">Nous trouver</a></nav>
+ <a class="btn btn-p" href="tel:+33767282658"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg><span>07 67 28 26 58</span></a>
+</div></header>
+<main id="haut">
+<div class="wrap hero">
+ <div>
+  <p class="sur">Crêperie bio · Paris 10e</p>
+  <h1>Crêperie La Belle Bio</h1>
+  <p class="accroche">Galettes de sarrasin bio et crêpes, rue de Paradis.</p>
+  <div class="actions"><a class="btn btn-p" href="tel:+33767282658"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>Réserver par téléphone</a><a class="btn btn-s" href="#carte">Voir la carte</a></div>
+  <ul class="faits"><li>Farines bio</li><li>Carte courte</li><li>Petite salle</li><li>Ouvert le midi en semaine</li></ul>
+ </div>
+ <div class="art"><svg viewBox="0 0 400 400" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs></defs><ellipse cx="200" cy="330" rx="170" ry="26" fill="#2B1D10" opacity=".08"/>
+    <circle cx="200" cy="205" r="170" fill="#E9B949"/><circle cx="200" cy="205" r="150" fill="none" stroke="#7A4A22" stroke-width="2" opacity="0.25"/><circle cx="200" cy="205" r="120" fill="none" stroke="#7A4A22" stroke-width="2" opacity="0.3"/><circle cx="200" cy="205" r="90" fill="none" stroke="#7A4A22" stroke-width="2" opacity="0.35"/><circle cx="200" cy="205" r="60" fill="none" stroke="#7A4A22" stroke-width="2" opacity="0.4"/><circle cx="301" cy="248" r="9" fill="#7A4A22" opacity=".35"/><circle cx="160" cy="274" r="7" fill="#7A4A22" opacity=".35"/><circle cx="72" cy="184" r="6" fill="#7A4A22" opacity=".35"/><circle cx="171" cy="153" r="8" fill="#7A4A22" opacity=".35"/><circle cx="263" cy="128" r="10" fill="#7A4A22" opacity=".35"/><circle cx="214" cy="242" r="5" fill="#7A4A22" opacity=".35"/><circle cx="196" cy="330" r="7" fill="#7A4A22" opacity=".35"/>
+    <path d="M200 205 L370 205 A170 170 0 0 0 320 85 Z" fill="#F7F0DF" opacity=".55"/>
+    <path d="M200 205 L320 85" stroke="#7A4A22" stroke-width="2" opacity=".5"/></svg></div>
+</div>
+<section class="esprit apparait"><div class="wrap"><p class="sur">L'esprit du lieu</p><p>Une petite salle d&#x27;une dizaine de tables, une carte courte et des farines bio : galettes de sarrasin et crêpes de froment, comme on les aime.</p></div></section>
+<section id="carte" class="apparait"><div class="wrap">
+ <div class="titre-s"><div><p class="sur">À table</p><h2>La carte</h2></div><p class="note">Exemple de mise en page : votre vraie carte, vos prix et vos photos prendront place ici.</p></div>
+ <div class="cartes"><article class="plat"><h3>Galettes de sarrasin</h3><ul><li><span>Complète</span><i aria-hidden="true"></i><b>—</b></li><li><span>Galette du moment</span><i aria-hidden="true"></i><b>—</b></li><li><span>Galette végétarienne</span><i aria-hidden="true"></i><b>—</b></li></ul></article><article class="plat"><h3>Crêpes de froment</h3><ul><li><span>Beurre-sucre</span><i aria-hidden="true"></i><b>—</b></li><li><span>Caramel beurre salé</span><i aria-hidden="true"></i><b>—</b></li><li><span>Crêpe du moment</span><i aria-hidden="true"></i><b>—</b></li></ul></article><article class="plat"><h3>À boire</h3><ul><li><span>Cidre</span><i aria-hidden="true"></i><b>—</b></li><li><span>Jus de pomme</span><i aria-hidden="true"></i><b>—</b></li><li><span>Boissons chaudes</span><i aria-hidden="true"></i><b>—</b></li></ul></article></div>
+</div></section>
+<section id="horaires" class="apparait"><div class="wrap infos">
+ <div class="bloc"><h3>Horaires</h3><table><tr><th scope="row">Lundi – vendredi</th><td>12 h – 15 h</td></tr><tr><th scope="row">Week-end</th><td>Fermé</td></tr></table><p class="petit">Horaires indicatifs, à valider ensemble.</p></div>
+ <div class="bloc" id="venir"><h3>Nous trouver</h3><p class="adr">49 rue de Paradis<br>75010 Paris</p>
+  <div class="lignes"><a class="btn btn-p" href="tel:+33767282658"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>Appeler le 07 67 28 26 58</a><a class="btn btn-s" href="https://www.google.com/maps/search/?api=1&amp;query=Cr%C3%AAperie%20La%20Belle%20Bio%2049%20rue%20de%20Paradis%2C%2075010%20Paris" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>Itinéraire</a></div>
+  <div class="reseaux"><a href="https://www.facebook.com/Clabellebio" rel="noopener" target="_blank">Facebook</a></div>
+ </div>
+</div>
+<div class="wrap"><div class="plan"><iframe title="Plan d'accès — Crêperie La Belle Bio" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=2.34553%2C48.87361%2C2.35353%2C48.87741&layer=mapnik&marker=48.87551%2C2.34953"></iframe></div></div>
+</section>
+</main>
+<footer><div class="wrap">
+ <div><span class="logo">Crêperie La Belle Bio</span>49 rue de Paradis, 75010 Paris · 07 67 28 26 58</div>
+ <div class="credit">Maquette réalisée par <b>DIKENGA®</b> Design · <a href="https://dikengadesign.fr/" target="_blank" rel="noopener">dikengadesign.fr</a></div>
+</div></footer>
+<div class="mobile"><a class="btn btn-p" href="tel:+33767282658"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>Appeler</a><a class="btn btn-s" href="https://www.google.com/maps/search/?api=1&amp;query=Cr%C3%AAperie%20La%20Belle%20Bio%2049%20rue%20de%20Paradis%2C%2075010%20Paris" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>Itinéraire</a></div>
+<script>
+(function(){var el=document.querySelectorAll('.apparait');if(!('IntersectionObserver'in window)){el.forEach(function(x){x.classList.add('vu')});return}
+var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('vu');io.unobserve(x.target)}})},{rootMargin:'0px 0px -10% 0px'});el.forEach(function(x){io.observe(x)})})();
+</script>
+</body>
+</html>
