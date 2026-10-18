@@ -2783,3 +2783,6 @@
 .pf .com-galerie .com-video { position: relative; }
 .pf .com-galerie .com-video video { cursor: pointer; }
 .pf .com-galerie .sb-video-son { right: 10px; bottom: 10px; padding: 8px 12px; font-size: 12px; }
+
+/* 18/10/2026 : section Communication — cartes à gauche, titre à droite (ordinateur) ; sur mobile le titre reste au-dessus */
+@media (min-width: 901px) { .pf #communication .expertise-texte { order: 2; } }
