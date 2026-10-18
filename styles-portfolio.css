@@ -2778,3 +2778,8 @@
   .pf .com-galerie::-webkit-scrollbar { display: none; }
   .pf .com-galerie li { scroll-snap-align: start; }
 }
+
+/* 18/10/2026 : galerie Communication avec le son (bouton « Activer le son » comme la vidéo StudioBooking) */
+.pf .com-galerie .com-video { position: relative; }
+.pf .com-galerie .com-video video { cursor: pointer; }
+.pf .com-galerie .sb-video-son { right: 10px; bottom: 10px; padding: 8px 12px; font-size: 12px; }
