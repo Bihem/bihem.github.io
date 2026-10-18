@@ -2765,3 +2765,16 @@
 .sb-video-son:hover { transform: translateY(-1px); background: #3ECF8E; color: #06120c; }
 .sb-video-son.on span { display: none; }
 @media (max-width: 760px) { .sb-video { width: 100%; } .sb-video-son { right: 10px; bottom: 10px; padding: 8px 12px; } }
+
+/* 18/10/2026 — section « Communication & marketing » (galerie de trois vidéos verticales, même DA que les cartes) */
+.pf .com-galerie { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin: var(--r-visuel, 48px) 0 0; padding: 0; list-style: none; }
+.pf .com-galerie li { margin: 0; }
+.pf .com-galerie video { display: block; width: 100%; aspect-ratio: 9 / 16; object-fit: cover; border-radius: 0; background: #F7F7F7; }
+.pf .com-galerie h3 { margin: 16px 0 6px; font-size: 16px; font-weight: 600; letter-spacing: -0.01em; color: var(--encre); }
+.pf .com-galerie p { margin: 0; font-size: 14px; line-height: 1.55; color: var(--gris-txt); }
+.pf .com-credit { margin-top: 18px; }
+@media (max-width: 760px) {
+  .pf .com-galerie { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 72%; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; scrollbar-width: none; }
+  .pf .com-galerie::-webkit-scrollbar { display: none; }
+  .pf .com-galerie li { scroll-snap-align: start; }
+}
