@@ -55,7 +55,7 @@
 <style>
 /* 02/11/2026 : page Formation (manuel « Devenir ingénieur IA en 10 étages ») */
 .fo-hero { padding-block: clamp(48px, 8vw, 110px) clamp(40px, 6vw, 80px); }
-.fo-hero-in { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(32px, 6vw, 88px); align-items: center; }
+.fo-hero-in { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(32px, 6vw, 88px); align-items: end; }
 .fo-hero h1 { font-size: clamp(40px, 6.2vw, 76px); line-height: 1.02; letter-spacing: -.035em; font-weight: 700; margin: 14px 0 22px; }
 .fo-hero .bloc-desc { max-width: 34em; }
 .fo-gratuit { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #1a8a59; }
@@ -70,8 +70,8 @@
 .fo-merci p { margin: 0; font-size: 14px; }
 .fo-merci .btn { justify-self: start; }
 .fo-note a, .contact-note a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
-.fo-note { font-size: 13px; color: #6e6e73; margin-top: 14px; }
-.fo-couv { margin: 0; }
+.fo-note { font-size: 13px; line-height: 21px; color: #6e6e73; margin-top: 14px; }
+.fo-couv { margin: 0; padding-bottom: 21px; } /* bas de la couverture = bas du bloc de téléchargement (21px = ligne .fo-note) */
 .fo-couv img { display: block; width: 100%; max-width: 440px; margin-left: auto; height: auto; border-radius: 6px; box-shadow: 0 30px 70px -20px rgba(15,19,48,.45), 0 0 0 1px rgba(15,19,48,.08); }
 .fo-chiffres { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid #E4E4E0; border-bottom: 1px solid #E4E4E0; }
 .fo-chiffres div { padding: 26px 8px; text-align: center; }
@@ -95,7 +95,7 @@
 .fo-honnete b { font-weight: 600; }
 @media (max-width: 900px) {
   .fo-hero-in { grid-template-columns: 1fr; }
-  .fo-couv { order: -1; }
+  .fo-couv { order: -1; padding-bottom: 0; }
   .fo-couv img { max-width: 300px; margin: 0 auto; }
   .fo-chiffres { grid-template-columns: repeat(3, 1fr); }
   .fo-chiffres div:nth-child(4) { border-left: 0; }
