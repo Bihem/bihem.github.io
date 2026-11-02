@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Formation gratuite — Devenir ingénieur IA en 10 étages | Dikenga Design</title>
+<meta name="description" content="Manuel gratuit de 660 pages : Python, génie logiciel, machine learning, deep learning, LLM, API, RAG, agents IA, évaluations et mise en production. 10 étages, 79 exercices corrigés, 10 études de cas.">
+<meta name="author" content="Mes-Reves Bouzanga">
+<link rel="canonical" href="https://dikengadesign.fr/formation.html">
+<link rel="icon" href="img/favicon-32.png?v=2b5522f7" sizes="32x32">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png?v=8444803b">
+
+<meta property="og:site_name" content="Dikenga Design">
+<meta property="og:title" content="Devenir ingénieur IA en 10 étages — formation gratuite | Dikenga Design">
+<meta property="og:description" content="Un manuel complet de 660 pages, de la première ligne de Python jusqu'au système IA en production. Gratuit, en PDF.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dikengadesign.fr/formation.html">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:image" content="https://dikengadesign.fr/media/formation/couverture.webp">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Inter:wght@400;500;600;700&family=Manrope:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=b4821967">
+<link rel="stylesheet" href="styles-portfolio.css?v=inv1810">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Book",
+  "name": "Devenir ingénieur IA en 10 étages",
+  "author": { "@type": "Person", "name": "Mes-Reves Bouzanga" },
+  "publisher": { "@type": "Organization", "name": "Dikenga Design", "url": "https://dikengadesign.fr/" },
+  "inLanguage": "fr",
+  "numberOfPages": 660,
+  "bookFormat": "https://schema.org/EBook",
+  "isAccessibleForFree": true,
+  "datePublished": "2026-11",
+  "url": "https://dikengadesign.fr/formation.html",
+  "image": "https://dikengadesign.fr/media/formation/couverture.webp"
+}
+</script>
+<script>
+(function () {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var r = document.documentElement;
+  r.classList.add('js-anim');
+  setTimeout(function () {
+    if (!window.__animPretes) r.classList.remove('js-anim');
+  }, 2500);
+})();
+</script>
+<script src="animations.js?v=52a4d466" defer></script>
+<style>
+/* 02/11/2026 : page Formation (manuel « Devenir ingénieur IA en 10 étages ») */
+.fo-hero { padding-block: clamp(48px, 8vw, 110px) clamp(40px, 6vw, 80px); }
+.fo-hero-in { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(32px, 6vw, 88px); align-items: center; }
+.fo-hero h1 { font-size: clamp(40px, 6.2vw, 76px); line-height: 1.02; letter-spacing: -.035em; font-weight: 700; margin: 14px 0 22px; }
+.fo-hero .bloc-desc { max-width: 34em; }
+.fo-gratuit { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #1a8a59; }
+.fo-gratuit::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #3ecf8e; }
+.fo-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.fo-form { margin-top: 28px; max-width: 560px; }
+.fo-champs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.fo-accord { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; line-height: 1.5; color: #3d3d42; cursor: pointer; }
+.fo-accord input { margin-top: 3px; accent-color: #0D0D0F; flex: none; }
+.fo-merci { display: grid; gap: 12px; padding: 16px; background: #fff; border-left: 3px solid #3ecf8e; }
+.fo-merci[hidden], .champ-erreur[hidden] { display: none; }
+.fo-merci p { margin: 0; font-size: 14px; }
+.fo-merci .btn { justify-self: start; }
+.fo-note a, .contact-note a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.fo-note { font-size: 13px; color: #6e6e73; margin-top: 14px; }
+.fo-couv { margin: 0; }
+.fo-couv img { display: block; width: 100%; max-width: 440px; margin-left: auto; height: auto; border-radius: 6px; box-shadow: 0 30px 70px -20px rgba(15,19,48,.45), 0 0 0 1px rgba(15,19,48,.08); transform: rotate(1.5deg); }
+.fo-chiffres { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid #E4E4E0; border-bottom: 1px solid #E4E4E0; }
+.fo-chiffres div { padding: 26px 8px; text-align: center; }
+.fo-chiffres div + div { border-left: 1px solid #E4E4E0; }
+.fo-chiffres b { display: block; font-size: clamp(26px, 3.4vw, 40px); letter-spacing: -.03em; line-height: 1; }
+.fo-chiffres span { display: block; font-size: 13px; color: #6e6e73; margin-top: 8px; }
+.fo-etages { list-style: none; margin: 40px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 48px; }
+.fo-etages li { display: grid; grid-template-columns: 52px 1fr; gap: 16px; padding: 20px 0; border-top: 1px solid #E4E4E0; }
+.fo-etages .n { font-size: 15px; font-weight: 700; color: #8a6a12; padding-top: 2px; }
+.fo-etages h3 { font-size: 18px; font-weight: 600; letter-spacing: -.01em; margin: 0 0 4px; }
+.fo-etages p { font-size: 14px; color: #6e6e73; margin: 0; line-height: 1.5; }
+.fo-apercu { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 40px; }
+.fo-apercu figure { margin: 0; }
+.fo-apercu img { display: block; width: 100%; height: auto; border-radius: 4px; box-shadow: 0 14px 34px -14px rgba(15,19,48,.35), 0 0 0 1px rgba(15,19,48,.08); }
+.fo-apercu figcaption { font-size: 13px; color: #6e6e73; margin-top: 12px; line-height: 1.45; }
+.fo-contenu { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 40px; }
+.fo-contenu > div { border: 1px solid #E4E4E0; border-radius: 14px; padding: 24px; }
+.fo-contenu h3 { font-size: 17px; font-weight: 600; margin: 0 0 8px; }
+.fo-contenu p { font-size: 14px; color: #6e6e73; margin: 0; line-height: 1.55; }
+.fo-honnete { margin-top: 40px; padding: 24px 28px; border-left: 3px solid #f3c45f; background: #fbfaf6; border-radius: 0 12px 12px 0; font-size: 15px; line-height: 1.6; }
+.fo-honnete b { font-weight: 600; }
+@media (max-width: 900px) {
+  .fo-hero-in { grid-template-columns: 1fr; }
+  .fo-couv { order: -1; }
+  .fo-couv img { max-width: 300px; margin: 0 auto; }
+  .fo-chiffres { grid-template-columns: repeat(3, 1fr); }
+  .fo-chiffres div:nth-child(4) { border-left: 0; }
+  .fo-chiffres div:nth-child(n+4) { border-top: 1px solid #E4E4E0; }
+  .fo-etages { grid-template-columns: 1fr; }
+  .fo-apercu { grid-template-columns: repeat(2, 1fr); }
+  .fo-contenu { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) { .fo-champs { grid-template-columns: 1fr; } }
+@media (max-width: 520px) {
+  .fo-chiffres { grid-template-columns: repeat(2, 1fr); }
+  .fo-chiffres div:nth-child(n) { border-left: 0; border-top: 1px solid #E4E4E0; }
+  .fo-chiffres div:nth-child(even) { border-left: 1px solid #E4E4E0; }
+  .fo-chiffres div:nth-child(-n+2) { border-top: 0; }
+  .fo-chiffres div:last-child { grid-column: 1 / -1; border-left: 0; }
+  .fo-actions .btn { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body class="pf">
+
+<a class="saut" href="#contenu">Aller au contenu</a>
+
+<header class="pf-entete" id="entete">
+  <div class="pf-entete-in">
+    <a class="pf-marque" href="index.html">DIKENGA<sup>®</sup></a>
+
+    <button class="burger" id="burger" type="button"
+            aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu-principal">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav id="menu-principal" class="pf-nav" aria-label="Navigation principale">
+      <a href="projets.html">Projets</a>
+      <a href="index.html#expertise">Expertise</a>
+      <a href="formation.html" aria-current="page">Formation</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu">
+
+  <!-- ============================================================ HERO -->
+  <section class="fo-hero">
+    <div class="wrap fo-hero-in">
+      <div>
+        <span class="fo-gratuit">Formation gratuite · PDF</span>
+        <h1>Devenir ingénieur IA en 10 étages.</h1>
+        <p class="bloc-desc">
+          Un manuel complet pour comprendre, construire, évaluer et déployer des systèmes d’intelligence
+          artificielle : de la première ligne de Python jusqu’à l’agent IA en production.
+        </p>
+        <p class="bloc-desc">
+          Chaque étage s’appuie sur le précédent : on construit les fondations avant le toit.
+        </p>
+        <form class="contact-form fo-form" id="recevoir"
+              action="https://formspree.io/f/mdaproed" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="Téléchargement — Formation « Devenir ingénieur IA en 10 étages »">
+          <input type="hidden" name="source" value="Page Formation (dikengadesign.fr/formation.html)">
+          <p class="label">Recevoir le manuel gratuit</p>
+          <div class="fo-champs">
+            <div class="champ">
+              <label for="prenom">Prénom</label>
+              <input type="text" id="prenom" name="prenom" placeholder="Ton prénom" autocomplete="given-name" required>
+            </div>
+            <div class="champ">
+              <label for="courriel">E-mail</label>
+              <input type="email" id="courriel" name="courriel" placeholder="toi@exemple.com" autocomplete="email" required>
+            </div>
+          </div>
+          <label class="fo-accord"><input type="checkbox" name="nouveautes" value="oui"> Je veux aussi être prévenu des nouveautés de la formation (mises à jour, nouveaux chapitres). Tu peux te désinscrire à tout moment par simple e-mail.</label>
+          <p class="champ-erreur" id="erreur" role="alert" hidden></p>
+          <button class="btn btn--noir contact-envoyer" id="envoyer" type="submit">
+            <span class="envoyer-texte">Recevoir le manuel</span> <span class="fleche" aria-hidden="true">↓</span>
+          </button>
+          <div class="fo-merci" id="merci" hidden>
+            <p><b>Merci <span id="merci-prenom"></span> !</b> Ton téléchargement commence. S’il ne démarre pas&nbsp;:</p>
+            <a class="btn btn--noir" href="media/formation/devenir-ingenieur-ia-10-etages-dikenga.pdf" download id="lien-pdf">Télécharger le PDF <span class="fleche" aria-hidden="true">↓</span></a>
+          </div>
+          <p class="contact-note">Le téléchargement démarre tout de suite. Ton adresse sert seulement à te prévenir des nouveautés si tu l’as demandé, et n’est jamais cédée. <a href="mentions-legales.html">Données personnelles</a></p>
+        </form>
+        <p class="fo-note">Voir le <a href="#programme">programme</a> · PDF de 660 pages · 21 Mo · en français · édition de novembre 2026</p>
+      </div>
+      <figure class="fo-couv">
+        <img src="media/formation/couverture.webp" width="1100" height="1556"
+             alt="Couverture du manuel « Devenir ingénieur IA en 10 étages », Dikenga Design : un immeuble de dix étages, de Python à Production.">
+      </figure>
+    </div>
+  </section>
+
+  <!-- ======================================================= CHIFFRES -->
+  <section class="wrap" aria-label="Le manuel en chiffres">
+    <div class="fo-chiffres">
+      <div><b>660</b><span>pages</span></div>
+      <div><b>10</b><span>étages</span></div>
+      <div><b>83</b><span>schémas techniques</span></div>
+      <div><b>79</b><span>exercices corrigés</span></div>
+      <div><b>10</b><span>études de cas</span></div>
+    </div>
+  </section>
+
+  <!-- ====================================================== PROGRAMME -->
+  <section class="bloc" id="programme">
+    <div class="wrap">
+      <p class="label">Programme</p>
+      <h2 class="bloc-titre">Dix étages,<br>un seul système.</h2>
+      <p class="bloc-desc">
+        Les quatre premiers étages forment les fondations. Les suivants couvrent l’IA moderne,
+        puis la fiabilité. Le projet de chaque étage réutilise celui d’avant, jusqu’au projet final.
+      </p>
+      <ol class="fo-etages">
+        <li><span class="n">01</span><div><h3>Python</h3><p>Écrire, tester et déboguer un programme seul, manipuler des données, appeler une API.</p></div></li>
+        <li><span class="n">02</span><div><h3>Génie logiciel</h3><p>Git, SQL, API REST avec FastAPI, authentification, sécurité, et les langages du web.</p></div></li>
+        <li><span class="n">03</span><div><h3>Machine learning</h3><p>Préparer des données, entraîner et évaluer un modèle, éviter le surapprentissage.</p></div></li>
+        <li><span class="n">04</span><div><h3>Deep learning</h3><p>Neurones, rétropropagation, CNN, PyTorch, transfer learning.</p></div></li>
+        <li><span class="n">05</span><div><h3>LLM</h3><p>Tokens, embeddings, attention, transformers : ce qui se passe quand on parle à ChatGPT ou Claude.</p></div></li>
+        <li><span class="n">06</span><div><h3>API des modèles</h3><p>Prompts, sorties JSON, tool calling, streaming, coûts et erreurs.</p></div></li>
+        <li><span class="n">07</span><div><h3>RAG</h3><p>Faire répondre une IA à partir de ses documents, avec ses sources.</p></div></li>
+        <li><span class="n">08</span><div><h3>Agents IA</h3><p>Outils, mémoire, MCP, LangGraph, validation humaine. Workflow, agent ou application ?</p></div></li>
+        <li><span class="n">09</span><div><h3>Evals</h3><p>Prouver qu’un système IA marche : jeux de tests, métriques, juges, injection de prompt.</p></div></li>
+        <li><span class="n">10</span><div><h3>Production</h3><p>Docker, CI/CD, cloud, observabilité, RGPD, sauvegardes, gestion des incidents.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========================================================= APERÇU -->
+  <section class="bloc" id="apercu">
+    <div class="wrap">
+      <p class="label">Aperçu</p>
+      <h2 class="bloc-titre">Des schémas, du code<br>et des exercices.</h2>
+      <p class="bloc-desc">
+        Chaque notion est expliquée simplement, puis montrée dans un schéma technique et dans du code commenté.
+      </p>
+      <div class="fo-apercu">
+        <figure><img src="media/formation/etage-07.webp" width="900" height="1273" loading="lazy" alt="Page d'ouverture de l'étage 07, RAG, avec le plan des modules."><figcaption>Une page d’ouverture par étage : plan, durée, niveau et projet.</figcaption></figure>
+        <figure><img src="media/formation/rag.webp" width="900" height="1273" loading="lazy" alt="Page du manuel montrant l'architecture complète d'un RAG."><figcaption>L’architecture complète d’un RAG, composant par composant.</figcaption></figure>
+        <figure><img src="media/formation/transformer.webp" width="900" height="1273" loading="lazy" alt="Page du manuel expliquant le bloc décodeur d'un transformer."><figcaption>Le fonctionnement d’un transformer, sans formule inutile.</figcaption></figure>
+        <figure><img src="media/formation/agent.webp" width="900" height="1273" loading="lazy" alt="Page du manuel montrant la boucle d'exécution d'un agent IA."><figcaption>La boucle d’un agent IA, avec ses garde-fous.</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================= CONTENU -->
+  <section class="bloc" id="contenu-manuel">
+    <div class="wrap">
+      <p class="label">Dans le manuel</p>
+      <h2 class="bloc-titre">Un cours complet,<br>pas un résumé.</h2>
+      <div class="fo-contenu">
+        <div><h3>Des cours progressifs</h3><p>Objectifs, prérequis, explications, mécanismes techniques et vocabulaire professionnel à chaque étage.</p></div>
+        <div><h3>De la pratique</h3><p>79 exercices avec leur correction détaillée, et un projet professionnel par étage.</p></div>
+        <div><h3>Des cas réels</h3><p>IBM, Google, Microsoft, Amazon, Netflix, DHL, Siemens, L’Oréal, Carrefour, Schneider Electric : uniquement des faits publiés, avec leurs sources.</p></div>
+        <div><h3>L’automatisation</h3><p>Le lien avec n8n, Make, Claude et FastAPI, et comment choisir entre workflow, agent et application.</p></div>
+        <div><h3>Un projet final</h3><p>Un assistant opérationnel IA qui réunit les dix étages, avec sa grille d’évaluation.</p></div>
+        <div><h3>Un examen</h3><p>40 QCM, 10 questions ouvertes, une étude de conception et un exercice de débogage, tous corrigés.</p></div>
+      </div>
+      <div class="fo-honnete">
+        <b>Pour qui ?</b> Débutants complets, entrepreneurs qui utilisent déjà ChatGPT ou n8n,
+        développeurs qui veulent passer à l’IA. Il faut compter environ 880 heures de travail pour tout faire.
+        Ce manuel ne délivre ni diplôme ni certification : il donne les connaissances, la pratique et des projets
+        à montrer. Les versions et les liens ont été vérifiés en novembre 2026.
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================== FINAL -->
+  <section class="bloc bloc--noir final" id="telecharger">
+    <div class="wrap">
+      <p class="label">Gratuit</p>
+      <h2 class="final-titre">Commence par les fondations.</h2>
+      <p class="bloc-desc bloc-desc--large">
+        Reçois le manuel gratuitement. Pour une formation en entreprise ou un accompagnement sur
+        les agents IA et l’automatisation, écris-moi.
+      </p>
+      <div class="final-actions">
+        <a class="btn btn--clair" href="#recevoir">
+          Recevoir le manuel <span class="fleche" aria-hidden="true">↑</span>
+        </a>
+        <a class="btn btn--fantome" href="contact.html">
+          Me contacter <span class="fleche" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="pied">
+  <div class="wrap">
+    <div class="pied-bas">
+      <span>© 2026 <span class="pied-marque">DIKENGA<sup>®</sup></span></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* 02/11/2026 — Formation : même envoi Formspree que la page Contact (formulaire mdaproed).
+     Le prénom et l'e-mail partent dans la boîte de réception, puis le téléchargement démarre.
+     Si Formspree ne répond pas, on donne quand même le manuel. */
+  (function () {
+    var f = document.getElementById('recevoir');
+    if (!f) return;
+    var err = document.getElementById('erreur');
+    var bouton = document.getElementById('envoyer');
+    var libelle = bouton.querySelector('.envoyer-texte');
+    var merci = document.getElementById('merci');
+    var lien = document.getElementById('lien-pdf');
+
+    function signaler(message, champ) { err.textContent = message; err.hidden = false; if (champ) champ.focus(); }
+    function donner(prenom) {
+      document.getElementById('merci-prenom').textContent = prenom;
+      err.hidden = true; bouton.style.display = 'none'; merci.hidden = false;
+      lien.click();
+    }
+    f.addEventListener('input', function () { err.hidden = true; });
+    f.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      var prenom = f.prenom.value.trim();
+      var courriel = f.courriel.value.trim();
+      if (!prenom) return signaler('Indique ton prénom.', f.prenom);
+      if (!courriel || courriel.indexOf('@') < 1 || courriel.indexOf('.') < 0) return signaler('Indique une adresse e-mail valide.', f.courriel);
+      bouton.disabled = true; libelle.textContent = 'Envoi…';
+      try {
+        await fetch(f.action, { method: 'POST', body: new FormData(f), headers: { Accept: 'application/json' } });
+      } catch (x) { /* le manuel est donné quoi qu'il arrive */ }
+      donner(prenom);
+    });
+  })();
+</script>
+<script src="menu.js?v=e4a285ff" defer></script>
+</body>
+</html>
