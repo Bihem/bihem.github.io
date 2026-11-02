@@ -73,6 +73,13 @@
 .fo-note { font-size: 13px; line-height: 21px; color: #6e6e73; margin-top: 14px; }
 .fo-couv { margin: 0; padding-bottom: 21px; } /* bas de la couverture = bas du bloc de téléchargement (21px = ligne de .fo-note) */
 .fo-couv img { display: block; width: 100%; max-width: 440px; margin-left: auto; height: auto; border-radius: 6px; box-shadow: 0 30px 70px -20px rgba(15,19,48,.45), 0 0 0 1px rgba(15,19,48,.08); }
+.sb-credit { font-size: 10px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: #6e6e73; margin: 0 0 18px; }
+.fo-video { margin: 48px 0 0; }
+.fo-video .sb-video { width: 100%; }
+.fo-video .sb-video video { background: #0B0B0D; box-shadow: 0 30px 70px -30px rgba(15,19,48,.45); }
+.fo-video-legende { text-align: center; margin: 14px 0 0; }
+.fo-video-legende a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 760px) { .fo-video .sb-video video { aspect-ratio: 9/16; } .fo-video { margin-top: 32px; } }
 .fo-chiffres { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid #E4E4E0; border-bottom: 1px solid #E4E4E0; }
 .fo-chiffres div { padding: 26px 8px; text-align: center; }
 .fo-chiffres div + div { border-left: 1px solid #E4E4E0; }
@@ -196,6 +203,22 @@
       <div><b>83</b><span>schémas techniques</span></div>
       <div><b>79</b><span>exercices corrigés</span></div>
       <div><b>10</b><span>études de cas</span></div>
+    </div>
+  </section>
+
+  <!-- ========================================================= VIDÉO (02/11/2026 : mini-formation, 16:9 sur ordinateur, 9:16 sur mobile) -->
+  <section class="bloc fo-film" id="video">
+    <div class="wrap">
+      <p class="label">En vidéo</p>
+      <h2 class="bloc-titre">Les dix étages<br>en deux minutes.</h2>
+      <figure class="fo-video">
+        <div class="sb-video fo-video-cadre">
+          <video class="projet-video" poster="media/formation/mini-formation-16x9.jpg?v=1" autoplay muted loop playsinline preload="metadata" aria-label="Mini-formation « Devenir ingénieur IA en 10 étages » : un schéma animé par étage"><source media="(max-width:760px)" src="media/formation/mini-formation-9x16.mp4?v=1" type="video/mp4"><source src="media/formation/mini-formation-16x9.mp4?v=1" type="video/mp4"></video>
+          <script>/* sur mobile, version 9:16 (certains navigateurs iPhone ignorent l'attribut media des <source>) */(function(){if(!matchMedia("(max-width:760px)").matches)return;var v=document.currentScript.previousElementSibling;if(!v||v.tagName!=="VIDEO")return;[].slice.call(v.querySelectorAll("source")).forEach(function(s){s.remove();});v.poster="media/formation/mini-formation-9x16.jpg?v=1";v.src="media/formation/mini-formation-9x16.mp4?v=1";})();</script>
+          <button type="button" class="sb-video-son" aria-label="Activer le son" data-on="Couper le son" data-off="Activer le son"><svg viewBox="0 0 256 256" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M52.44,36A6,6,0,0,0,43.56,44L78,81.94l-.08.06H32A14,14,0,0,0,18,96v64a14,14,0,0,0,14,14H77.94l70.38,54.74A6,6,0,0,0,158,224V169.92L203.56,220a6,6,0,0,0,8.88-8.08ZM30,160V96a2,2,0,0,1,2-2H74v68H32A2,2,0,0,1,30,160Zm116,51.73L86,165.07V90.93l.11-.08L146,156.72Zm41.5-66.53a26,26,0,0,0,0-34.37,6,6,0,1,1,9-7.93,38,38,0,0,1,0,50.24,6,6,0,0,1-9-7.94ZM107.41,66.68a6,6,0,0,1,1.06-8.42l39.85-31A6,6,0,0,1,158,32v74.83a6,6,0,0,1-12,0V44.27L115.83,67.73A6,6,0,0,1,107.41,66.68ZM246,128a77.86,77.86,0,0,1-19.86,52,6,6,0,1,1-8.94-8,66,66,0,0,0,0-88,6,6,0,1,1,8.94-8A77.86,77.86,0,0,1,246,128Z"/></svg><span>Activer le son</span></button>
+        </div>
+        <figcaption class="sb-credit fo-video-legende">Un schéma animé par étage · voix de synthèse · <a href="blog/mini-formation-devenir-ingenieur-ia-en-10-etages-un-schema-par-etage.html">lire l’article</a></figcaption>
+      </figure>
     </div>
   </section>
 
@@ -327,5 +350,31 @@
   })();
 </script>
 <script src="menu.js?v=e4a285ff" defer></script>
+<script>
+  /* Vidéo StudioBooking : lecture muette, bouton pour activer le son (relance au début) */
+  (function () {
+    var OFF = '<path d="M52.44,36A6,6,0,0,0,43.56,44L78,81.94l-.08.06H32A14,14,0,0,0,18,96v64a14,14,0,0,0,14,14H77.94l70.38,54.74A6,6,0,0,0,158,224V169.92L203.56,220a6,6,0,0,0,8.88-8.08ZM30,160V96a2,2,0,0,1,2-2H74v68H32A2,2,0,0,1,30,160Zm116,51.73L86,165.07V90.93l.11-.08L146,156.72Zm41.5-66.53a26,26,0,0,0,0-34.37,6,6,0,1,1,9-7.93,38,38,0,0,1,0,50.24,6,6,0,0,1-9-7.94ZM107.41,66.68a6,6,0,0,1,1.06-8.42l39.85-31A6,6,0,0,1,158,32v74.83a6,6,0,0,1-12,0V44.27L115.83,67.73A6,6,0,0,1,107.41,66.68ZM246,128a77.86,77.86,0,0,1-19.86,52,6,6,0,1,1-8.94-8,66,66,0,0,0,0-88,6,6,0,1,1,8.94-8A77.86,77.86,0,0,1,246,128Z"/>', ON = '<path d="M154.64,26.61a6,6,0,0,0-6.32.65L77.94,82H32A14,14,0,0,0,18,96v64a14,14,0,0,0,14,14H77.94l70.38,54.74A6,6,0,0,0,158,224V32A6,6,0,0,0,154.64,26.61ZM30,160V96a2,2,0,0,1,2-2H74v68H32A2,2,0,0,1,30,160Zm116,51.73L86,165.07V90.93l60-46.66Zm50.53-108.85a38,38,0,0,1,0,50.24,6,6,0,1,1-9-7.94,26,26,0,0,0,0-34.37,6,6,0,0,1,9-7.93ZM246,128a77.86,77.86,0,0,1-19.86,52,6,6,0,1,1-8.94-8,66,66,0,0,0,0-88,6,6,0,1,1,8.94-8A77.86,77.86,0,0,1,246,128Z"/>';
+    var blocs = [].slice.call(document.querySelectorAll('.sb-video, .com-video'));
+    blocs.forEach(function (b) {
+      var v = b.querySelector('video'), s = b.querySelector('.sb-video-son');
+      function maj() { s.classList.toggle('on', !v.muted); s.querySelector('svg').innerHTML = v.muted ? OFF : ON; s.setAttribute('aria-label', v.muted ? s.dataset.off : s.dataset.on); }
+      b.couper = function () { if (!v.muted) { v.muted = true; maj(); } };
+      function bascule() { v.muted = !v.muted; if (!v.muted) { blocs.forEach(function (o) { if (o !== b && o.couper) o.couper(); }); v.currentTime = 0; v.play(); } maj(); }
+      s.addEventListener('click', function (e) { e.stopPropagation(); bascule(); }); v.addEventListener('click', bascule);
+    });
+  })();
+</script>
+<script>
+  /* 02/10/2026 — iPhone : la vidéo StudioBooking ne tourne que lorsqu'elle est à l'écran (sinon l'onglet est vidé et l'adresse devient « about:blank ») */
+(function () {
+  var vids = [].slice.call(document.querySelectorAll('.projet-video'));
+  if (!vids.length || !('IntersectionObserver' in window)) return;
+  var calme = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var vu = new Map();
+  var obs = new IntersectionObserver(function (es) { es.forEach(function (e) { vu.set(e.target, e.isIntersecting); if (e.isIntersecting && !calme && !document.hidden) { var p = e.target.play(); if (p && p.catch) p.catch(function () {}); } else if (!e.isIntersecting) e.target.pause(); }); }, { threshold: .15 });
+  vids.forEach(function (v) { obs.observe(v); });
+  document.addEventListener('visibilitychange', function () { vids.forEach(function (v) { if (document.hidden) v.pause(); else if (vu.get(v) && !calme) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } }); });
+})();
+</script>
 </body>
 </html>

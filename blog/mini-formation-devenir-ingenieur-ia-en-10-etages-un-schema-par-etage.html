@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mini-formation : devenir ingénieur IA en 10 étages, un schéma par étage | Dikenga</title>
+<meta name="description" content="J’ai condensé mon manuel gratuit de 985 pages en une vidéo de 2 min 20 : dix étages, un schéma animé par étage, de Python à la mise en production.">
+<link rel="canonical" href="https://dikengadesign.fr/blog/mini-formation-devenir-ingenieur-ia-en-10-etages-un-schema-par-etage.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mini-formation : devenir ingénieur IA en 10 étages, un schéma par étage">
+<meta property="og:description" content="J’ai condensé mon manuel gratuit de 985 pages en une vidéo de 2 min 20 : dix étages, un schéma animé par étage, de Python à la mise en production.">
+<meta property="og:url" content="https://dikengadesign.fr/blog/mini-formation-devenir-ingenieur-ia-en-10-etages-un-schema-par-etage.html">
+<meta property="og:site_name" content="Dikenga Design">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:image" content="https://dikengadesign.fr/blog/img/mini-formation-devenir-ingenieur-ia-en-10-etages-un-schema-par-etage.jpg">
+<meta property="article:published_time" content="2026-11-02">
+<meta name="author" content="Mes-Reves Bouzanga">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mini-formation : devenir ingénieur IA en 10 étages, un schéma par étage">
+<meta name="twitter:image" content="https://dikengadesign.fr/blog/img/mini-formation-devenir-ingenieur-ia-en-10-etages-un-schema-par-etage.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://dikengadesign.fr/blog/mini-formation-devenir-ingenieur-ia-en-10-etages-un-schema-par-etage.html"},"headline":"Mini-formation : devenir ingénieur IA en 10 étages, un schéma par étage","description":"J’ai condensé mon manuel gratuit de 985 pages en une vidéo de 2 min 20 : dix étages, un schéma animé par étage, de Python à la mise en production.","image":"https://dikengadesign.fr/blog/img/mini-formation-devenir-ingenieur-ia-en-10-etages-un-schema-par-etage.jpg","datePublished":"2026-11-02","dateModified":"2026-11-02","inLanguage":"fr-FR","author":{"@type":"Person","name":"Mes-Reves Bouzanga","url":"https://dikengadesign.fr/"},"publisher":{"@type":"Organization","name":"Dikenga Design","url":"https://dikengadesign.fr/","logo":{"@type":"ImageObject","url":"https://dikengadesign.fr/img/apple-touch-icon.png"}}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://dikengadesign.fr/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://dikengadesign.fr/blog.html"},{"@type":"ListItem","position":3,"name":"Mini-formation : devenir ingénieur IA en 10 étages, un schéma par étage"}]}</script>
+<link rel="icon" href="/img/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css?v=b4821967">
+<style>
+/* Pied de page commun au site — mêmes valeurs que la page d'accueil.
+   Écrit ici plutôt que chargé depuis styles-portfolio.css : cette page est
+   restée dans l'ancienne direction artistique, et importer toute la feuille
+   du portfolio en changerait la mise en page. */
+.pied-site {
+  border-top: 1px solid #E4E4E0;
+  padding-block: 20px;
+  /* ces pages n'ont pas styles-portfolio.css : sans ces trois lignes le pied
+     hérite de la police système et d'un line-height "normal", et ne ressemble
+     plus à celui de l'accueil. Valeurs relevées sur index.html. */
+  font-family: Inter, -apple-system, system-ui, "Segoe UI", sans-serif;
+  font-size: 13px;
+  line-height: 1.55;
+  color: #6E6E73;
+  background: transparent;
+}
+.pied-site-in { width: min(100% - 40px, 1080px); margin-inline: auto; }
+.pied-site .pied-bas {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 14px 24px;
+}
+.pied-site .pied-marque {
+  font-weight: 700; font-size: 13px; letter-spacing: -.02em; color: #0D0D0F;
+}
+.pied-site .pied-marque sup { font-size: .55em; top: -.6em; }
+.pied-site .pied-social { display: flex; flex-direction: row; align-items: center; gap: 22px; }
+.pied-site .pied-social a { color: #0D0D0F; text-decoration: none; }
+.pied-site .pied-social a:hover { text-decoration: underline; }
+@media (max-width: 620px) {
+  .pied-site { padding-block: 16px; }
+  .pied-site .pied-bas { gap: 10px 18px; }
+}
+.video-article { margin: 32px 0 36px; }
+.video-article video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #0B0B0D; border-radius: 6px; }
+.video-article video.verticale { aspect-ratio: 9 / 16; max-width: 420px; margin-inline: auto; }
+.video-article figcaption { margin-top: 10px; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: #6e6e73; text-align: center; }
+</style>
+</head>
+<body>
+
+<div class="jauge" aria-hidden="true"></div>
+
+<header class="entete">
+  <a class="marque" href="/index.html">Dikenga</a>
+  <button class="burger" id="burger" type="button"
+          aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu-principal">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="menu-principal" aria-label="Navigation principale">
+    <a href="/projets.html">Projets</a>
+    <a href="/index.html#expertise">Expertise</a>
+    <a href="/formation.html">Formation</a>
+    <a href="/blog.html" aria-current="page">Blog</a>
+    <a href="/contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+  <article>
+    <section class="hero enveloppe">
+      <div class="colonne">
+        <span class="sur-titre">IA &amp; Formation · 02 Novembre 2026 · 4 min de lecture</span>
+        <h1 class="titre-article">Mini-formation : devenir ingénieur IA en 10 étages, un schéma par étage</h1>
+      </div>
+    </section>
+
+    <section class="chapitre enveloppe" style="padding-top:0">
+      <div class="colonne article">
+        <p>J’ai écrit un manuel gratuit de <strong>985 pages</strong> pour apprendre à devenir ingénieur IA, en dix étages qui s’appuient les uns sur les autres. Un manuel aussi complet demande du temps. J’en ai donc fait une version courte : <strong>une mini-formation de 2 minutes 20</strong>, avec un schéma animé par étage.</p>
+
+        <figure class="video-article">
+          <video controls playsinline preload="metadata" poster="/media/formation/mini-formation-16x9.jpg?v=1" aria-label="Mini-formation : devenir ingénieur IA en 10 étages, un schéma animé par étage"><source media="(max-width:760px)" src="/media/formation/mini-formation-9x16.mp4?v=1" type="video/mp4"><source src="/media/formation/mini-formation-16x9.mp4?v=1" type="video/mp4"></video>
+          <script>/* sur mobile, version verticale 9:16 */(function(){if(!matchMedia("(max-width:760px)").matches)return;var v=document.currentScript.previousElementSibling;if(!v||v.tagName!=="VIDEO")return;[].slice.call(v.querySelectorAll("source")).forEach(function(s){s.remove();});v.poster="/media/formation/mini-formation-9x16.jpg?v=1";v.src="/media/formation/mini-formation-9x16.mp4?v=1";v.classList.add("verticale");})();</script>
+          <figcaption>Un schéma animé par étage · voix de synthèse</figcaption>
+        </figure>
+
+        <h2>Pourquoi un schéma par étage</h2>
+        <p>L’intelligence artificielle s’explique souvent avec beaucoup de vocabulaire et peu d’images. En tant que designer, j’ai voulu faire l’inverse : <strong>montrer ce qui se passe</strong>, étape par étape. Chaque élément du schéma apparaît au moment précis où la voix en parle. On voit une requête circuler, une droite se corriger, un signal traverser un réseau de neurones.</p>
+        <p>L’objectif n’est pas de tout apprendre en deux minutes. C’est d’avoir <strong>la carte complète</strong> avant d’entrer dans le détail, pour savoir où l’on va.</p>
+
+        <h2>Les dix étages en une phrase</h2>
+        <ul>
+        <li><strong>01 · Python</strong> : des valeurs rangées dans des variables, une fonction qui les transforme et renvoie un résultat.</li>
+        <li><strong>02 · Génie logiciel</strong> : le navigateur envoie une requête à l’API, qui lit ou écrit dans la base de données ; des tests vérifient tout à chaque modification.</li>
+        <li><strong>03 · Machine learning</strong> : le modèle trace une droite, mesure son erreur et la corrige pas à pas. L’erreur baisse : il apprend.</li>
+        <li><strong>04 · Deep learning</strong> : le signal traverse les couches jusqu’à une prédiction, puis l’erreur repart en arrière pour ajuster chaque connexion.</li>
+        <li><strong>05 · LLM</strong> : la phrase est découpée en tokens, chaque token devient une liste de nombres, l’attention relie les mots, et le modèle prédit le mot suivant.</li>
+        <li><strong>06 · API des modèles</strong> : votre application envoie un message, le modèle répond mot par mot et peut demander d’appeler un outil.</li>
+        <li><strong>07 · RAG</strong> : les documents sont découpés et rangés selon leur sens ; on retrouve les passages les plus proches de la question, et le modèle répond en citant ses sources.</li>
+        <li><strong>08 · Agents IA</strong> : l’agent réfléchit, choisit un outil, observe le résultat et recommence, avec des garde-fous qui limitent ce qu’il peut faire.</li>
+        <li><strong>09 · Évaluations</strong> : un jeu de questions avec les bonnes réponses, une note pour chaque réponse, un score comparé avant et après chaque changement.</li>
+        <li><strong>10 · Production</strong> : l’application est mise dans un conteneur, déployée sur des serveurs, et surveillée par des tableaux de bord qui donnent l’alerte.</li>
+        </ul>
+
+        <h2>Comment la vidéo est fabriquée</h2>
+        <p>Les schémas ne sont pas des images figées : ce sont des animations écrites en HTML, CSS et SVG, avec des icônes 3D dessinées dans la même direction artistique que le manuel (noir, bleu cyan, police Inter). La voix est une <strong>voix de synthèse</strong>. Une transcription horodatée donne l’instant de chaque mot, ce qui permet de faire apparaître chaque élément exactement quand il est prononcé. La vidéo est ensuite calculée image par image, en deux formats : vertical pour les réseaux, horizontal pour l’ordinateur.</p>
+        <p>C’est le même principe que dans mon travail de designer : partir du message, puis construire l’interface qui le rend évident.</p>
+
+        <h2>Pour aller plus loin</h2>
+        <p>Chaque étage de la vidéo correspond à une partie du manuel, avec ses cours, ses <strong>83 schémas techniques</strong>, ses <strong>79 exercices corrigés</strong>, un projet par étage et <strong>10 études de cas</strong> d’entreprises. Le manuel est en français et se télécharge gratuitement sur la <a href="/formation.html">page Formation</a>. Il ne délivre ni diplôme ni certification : c’est un parcours de travail, à suivre à votre rythme.</p>
+
+        <div class="article-pied">
+          <a href="/blog.html">← Tous les articles</a>
+          <a class="bouton bouton--clair" href="/formation.html">Télécharger le manuel gratuit</a>
+        </div>
+      </div>
+    </section>
+  </article>
+
+</main>
+
+<footer class="pied pied-site">
+  <div class="pied-site-in">
+    <div class="pied-bas">
+      <span>© 2026 <span class="pied-marque">DIKENGA<sup>®</sup></span></span>
+      <div class="pied-social">
+        <a href="/mentions-legales.html">Mentions légales</a>
+        <a href="https://www.linkedin.com/in/dikengadesign/" target="_blank" rel="noopener">LinkedIn <span class="fleche" aria-hidden="true">↗</span></a>
+        <a href="https://www.instagram.com/dikengadesign/" target="_blank" rel="noopener">Instagram <span class="fleche" aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a class="retour-haut" href="#" id="retourHaut">Retour en haut ↑</a>
+
+<script>
+  (function () {
+    var p = document.getElementById('retourHaut');
+    function maj() { p.classList.toggle('visible', window.scrollY > 800); }
+    window.addEventListener('scroll', maj, { passive: true });
+    maj();
+    p.addEventListener('click', function (e) { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  })();
+</script>
+<script src="/menu.js?v=e4a285ff" defer></script>
+</body>
+</html>
