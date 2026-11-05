@@ -153,7 +153,7 @@
 .sim-resultat a{color:var(--encre);font-weight:500;font-size:14px}
 @media (max-width:1000px){.sim-bas--2{grid-template-columns:1fr}.sim-info .sim-lancer{margin-left:0}}
 .sim-type{font-size:13px}.sim-nom{font-size:15.5px}
-.auto-film{padding-bottom:0}.auto-film figure{margin:0}.auto-film video{display:block;width:100%;aspect-ratio:16/9;border-radius:14px;background:#0D0D0F}.auto-film figcaption{margin-top:10px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gris-txt);text-align:center}
+.cas-carte,.flux,.auto-aussi li,.sim-canvas,.sim-panneau,.secteurs>li,.sim-journal,.sim-post,.sim-post-visuel,.sim-telegram,.sim-resultat img,.expertise-carte{border-radius:0!important}
 </style>
 </head>
 <body class="pf">
@@ -202,11 +202,15 @@
     </div>
   </section>
 
-  <section class="wrap auto-film">
-    <figure>
-      <video controls playsinline preload="metadata" poster="media/automatisation/n8n-publier-linkedin.jpg?v=1" aria-label="Visite commentée de mon vrai workflow n8n de publication LinkedIn"><source src="media/automatisation/n8n-publier-linkedin.mp4?v=1" type="video/mp4"></video>
-      <figcaption>Visite commentée de mon vrai workflow n8n · voix de synthèse</figcaption>
+  <section class="cas auto-film">
+    <figure class="cas-montage cas-montage--cadre">
+      <div class="sb-video">
+        <video class="projet-video" poster="media/automatisation/n8n-publier-linkedin.jpg?v=1" autoplay muted loop playsinline preload="metadata" aria-label="Visite commentée de mon vrai workflow n8n de publication LinkedIn"><source media="(max-width:760px)" src="media/automatisation/n8n-publier-linkedin-4x5.mp4?v=1" type="video/mp4"><source src="media/automatisation/n8n-publier-linkedin.mp4?v=1" type="video/mp4"></video>
+        <script>/* sur mobile, vidéo 4:5 */(function(){if(!matchMedia("(max-width:760px)").matches)return;var v=document.currentScript.previousElementSibling;if(!v||v.tagName!=="VIDEO")return;[].slice.call(v.querySelectorAll("source")).forEach(function(s){s.remove();});v.poster="media/automatisation/n8n-publier-linkedin-4x5.jpg?v=1";v.src="media/automatisation/n8n-publier-linkedin-4x5.mp4?v=1";v.load();})();</script>
+        <button type="button" class="sb-video-son" aria-label="Activer le son" data-on="Couper le son" data-off="Activer le son"><svg viewBox="0 0 256 256" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M52.44,36A6,6,0,0,0,43.56,44L78,81.94l-.08.06H32A14,14,0,0,0,18,96v64a14,14,0,0,0,14,14H77.94l70.38,54.74A6,6,0,0,0,158,224V169.92L203.56,220a6,6,0,0,0,8.88-8.08ZM30,160V96a2,2,0,0,1,2-2H74v68H32A2,2,0,0,1,30,160Zm116,51.73L86,165.07V90.93l.11-.08L146,156.72Zm41.5-66.53a26,26,0,0,0,0-34.37,6,6,0,1,1,9-7.93,38,38,0,0,1,0,50.24,6,6,0,0,1-9-7.94ZM107.41,66.68a6,6,0,0,1,1.06-8.42l39.85-31A6,6,0,0,1,158,32v74.83a6,6,0,0,1-12,0V44.27L115.83,67.73A6,6,0,0,1,107.41,66.68ZM246,128a77.86,77.86,0,0,1-19.86,52,6,6,0,1,1-8.94-8,66,66,0,0,0,0-88,6,6,0,1,1,8.94-8A77.86,77.86,0,0,1,246,128Z"/></svg><span>Activer le son</span></button>
+      </div>
     </figure>
+    <div class="wrap"><div class="cas-texte"><p class="sb-credit">Filmée dans mon vrai n8n · voix de synthèse</p></div></div>
   </section>
 
   <section class="bloc" id="simulation">
