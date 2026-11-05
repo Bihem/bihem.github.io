@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Automatisation et agents IA — Mes-Reves Bouzanga | Dikenga Design</title>
+<meta name="description" content="Je conçois des automatisations et des agents IA avec n8n et Claude Code. Trois systèmes réels : prospection, réparation automatique et publication.">
+<meta name="author" content="Mes-Reves Bouzanga">
+<link rel="canonical" href="https://dikengadesign.fr/automatisation.html">
+<link rel="icon" href="img/favicon-32.png?v=2b5522f7" sizes="32x32">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png?v=8444803b">
+
+<meta property="og:site_name" content="Dikenga Design">
+<meta property="og:title" content="Automatisation et agents IA — Mes-Reves Bouzanga">
+<meta property="og:description" content="Je conçois des automatisations et des agents IA avec n8n et Claude Code. Trois systèmes réels : prospection, réparation automatique et publication.">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://dikengadesign.fr/automatisation.html">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:image" content="https://dikengadesign.fr/img/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Automatisation et agents IA — Mes-Reves Bouzanga">
+<meta name="twitter:description" content="Je conçois des automatisations et des agents IA avec n8n et Claude Code. Trois systèmes réels : prospection, réparation automatique et publication.">
+<meta name="twitter:image" content="https://dikengadesign.fr/img/og-image.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Inter:wght@400;500;600;700&family=Manrope:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=b4821967">
+<link rel="stylesheet" href="styles-portfolio.css?v=inv1810">
+
+<script>
+/* Masque les éléments à animer avant le premier rendu, mais seulement si
+   l'utilisateur n'a pas demandé moins d'animations. Le filet de sécurité
+   rétablit tout si animations.js ne se charge pas : sans lui, un script
+   manquant laisserait la page vide. */
+(function () {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var r = document.documentElement;
+  r.classList.add('js-anim');
+  setTimeout(function () {
+    if (!window.__animPretes) r.classList.remove('js-anim');
+  }, 2500);
+})();
+</script>
+<script src="animations.js?v=52a4d466" defer></script>
+<style>/* 08/10/2026 : vidéo StudioBooking en 4:5 sur mobile (même format que la vidéo précédente) */ @media (max-width:760px){ .sb-video video{ aspect-ratio:4/5 !important; } }</style>
+<style>/* 08/10/2026 : mention « Vidéo créée avec Opus 5.5 », alignée sur la colonne de texte */ .sb-credit{ font-size:10px; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:#6e6e73; margin:0 0 18px; }</style>
+<style>/* 08/10/2026 : Talseume — parcours d'achat filmé sur le vrai site, MacBook entier (3:2) sur ordinateur comme sur mobile */ .tals-achat{ display:block; width:100%; aspect-ratio:3/2; object-fit:cover; background:#fff; }</style>
+<style>/* 23/10/2026 : vidéo de l’automatisation n8n dans la section IA &amp; Technologie (16:9 sur ordinateur ; 31/10/2026 : Reel Instagram 9:16 sur mobile) */ .ia-video{ margin:0 0 64px; } .ia-video-legende{ text-align:center; margin:14px 0 0; } @media (max-width:760px){  .n8n-video video{ aspect-ratio:9/16 !important; } .ia-video{ margin:0 0 40px; } }</style>
+<style>
+.auto-hero{padding-block:clamp(72px,9vw,140px) clamp(40px,5vw,72px)}
+.auto-hero h1{margin:0 0 24px;max-width:15ch;font-size:clamp(42px,6.4vw,84px);line-height:1.02;letter-spacing:-.04em;font-weight:600}
+.auto-hero .bloc-desc{font-size:clamp(17px,1.5vw,20px);opacity:1!important;transform:none!important}
+.auto-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.auto-lien{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border:1px solid var(--trait);color:var(--encre);text-decoration:none;font-weight:500}
+.auto-lien:hover{border-color:var(--encre)}
+.auto-hero .btn--noir-auto{background:var(--encre);border-color:var(--encre);color:#fff}
+.cas{display:grid;gap:clamp(20px,2.4vw,32px);margin:0;padding:0;list-style:none}
+.cas-carte{border-radius:14px;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,4vw,64px);padding:clamp(24px,3.4vw,48px);background:var(--papier);border:1px solid var(--trait)}
+.cas-carte h3{margin:0 0 20px;font-size:clamp(24px,2.5vw,34px);line-height:1.12;letter-spacing:-.03em;font-weight:600}
+.cas-carte dl{margin:0;display:grid;gap:16px}
+.cas-carte dt{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gris-txt);margin-bottom:4px}
+.cas-carte dd{margin:0}
+.flux{border-radius:10px;margin:0;padding:clamp(20px,2.4vw,32px);list-style:none;background:var(--encre);color:#fff;counter-reset:f;align-self:start}
+.flux li{position:relative;counter-increment:f;display:grid;grid-template-columns:40px 1fr;gap:16px;padding-bottom:22px}
+.flux li:last-child{padding-bottom:0}
+.flux li::before{content:counter(f,decimal-leading-zero);display:grid;place-items:center;width:40px;height:40px;border:1px solid rgba(255,255,255,.28);font:500 12px/1 ui-monospace,Menlo,monospace}
+.flux li:not(:last-child)::after{content:"";position:absolute;left:20px;top:40px;bottom:0;width:1px;background:linear-gradient(#22C55E 0 0) 0 0/1px 30% no-repeat,rgba(255,255,255,.2);animation:flux-p 2.4s linear infinite}
+.flux li:nth-child(2)::after{animation-delay:.4s}.flux li:nth-child(3)::after{animation-delay:.8s}.flux li:nth-child(4)::after{animation-delay:1.2s}.flux li:nth-child(5)::after{animation-delay:1.6s}
+@keyframes flux-p{from{background-position:0 -40%}to{background-position:0 140%}}
+.flux strong{display:block;font-weight:500}
+.flux span{display:block;color:var(--gris-clair);font-size:14px}
+.auto-aussi{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:0;padding:0;list-style:none}
+.auto-aussi li{border-radius:14px;padding:24px;border:1px solid var(--trait);background:var(--papier)}
+.auto-aussi h3{margin:0 0 8px;font-size:18px;font-weight:600;letter-spacing:-.02em}
+.auto-aussi p{margin:0;color:var(--gris-txt);font-size:15px}
+.auto-entete{margin-bottom:clamp(32px,4vw,56px)}
+.auto-entete .bloc-titre{margin-bottom:16px}
+#technologie .auto-lien-accueil{display:inline-flex;gap:8px;margin-top:24px;color:var(--encre);font-weight:500}
+@media (max-width:900px){.cas-carte{grid-template-columns:1fr}.auto-aussi{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.auto-aussi{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.flux li::after{animation:none!important}}
+
+.sim-barre{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:16px}
+.sim-barre .btn[aria-pressed=true]{background:var(--encre);border-color:var(--encre);color:#fff}
+.sim-lancer{background:#22C55E!important;border-color:#22C55E!important;color:#07130B!important}
+.sim-option{display:inline-flex;align-items:center;gap:8px;font-size:14px;margin-left:auto}
+.sim-canvas{overflow-x:auto;background:#0D0D0F;border-radius:14px;background-image:radial-gradient(rgba(255,255,255,.1) 1px,transparent 1px);background-size:20px 20px;scroll-behavior:smooth}
+.sim-canvas svg{display:block;width:100%;min-width:1000px;height:auto}
+.sim-arete{fill:none;stroke:rgba(255,255,255,.2);stroke-width:1.5;transition:stroke .25s}
+.sim-arete-err{stroke-dasharray:4 4;stroke:rgba(239,68,68,.32)}
+.sim-arete.on{stroke:#22C55E;stroke-width:2.5}
+.sim-arete-err.on{stroke:#EF4444}
+.sim-noeud rect{fill:#1A1A1D;stroke:rgba(255,255,255,.2);transition:fill .2s,stroke .2s}
+.sim-type{fill:rgba(255,255,255,.5);font:500 9.5px Inter,sans-serif;letter-spacing:.04em}
+.sim-nom{fill:#fff;font:600 11.5px Inter,sans-serif}
+.sim-noeud.actif rect{fill:#123A23;stroke:#22C55E;stroke-width:2.5}
+.sim-noeud.fait rect{fill:#10261A;stroke:#22C55E}
+.sim-noeud.ko rect{fill:#3A1212;stroke:#EF4444;stroke-width:2}
+.sim-bas{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,4fr) minmax(0,4fr);gap:14px;margin-top:14px}
+.sim-panneau{min-width:0;padding:18px;border:1px solid var(--trait);border-radius:14px;background:var(--papier)}
+.sim-panneau h3{margin:0 0 12px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gris-txt);font-weight:500;display:flex;justify-content:space-between;gap:8px}
+.sim-table{width:100%;border-collapse:collapse;font-size:13px}
+.sim-table td{padding:9px 4px;border-top:1px solid var(--trait);vertical-align:top}
+.sim-table tr.choisi td{font-weight:600}
+.sim-statut{font:500 11px ui-monospace,Menlo,monospace;color:var(--gris-txt);white-space:nowrap}
+.sim-statut.cours{color:#B45309}.sim-statut.ok{color:#15803D}.sim-statut.ko{color:#B91C1C}
+.sim-journal{height:320px;overflow:auto;padding:12px;background:#0D0D0F;color:#D7F5E2;border-radius:8px;font:12px/1.5 ui-monospace,Menlo,monospace}
+.sim-journal p{margin:0 0 6px}.sim-journal .sim-gris{color:rgba(255,255,255,.55)}.sim-journal .sim-rouge{color:#FCA5A5}
+.sim-post{border:1px solid var(--trait);border-radius:10px;padding:14px;transition:opacity .3s,border-color .3s}
+.sim-post--attente{opacity:.6}.sim-post--ok{opacity:1;border-color:#22C55E}
+.sim-post-haut{display:flex;gap:10px;align-items:center;margin-bottom:10px}
+.sim-post-avatar{width:38px;height:38px;border-radius:50%;background:var(--encre);flex:none}
+.sim-post-org{font-weight:600;font-size:14px;line-height:1.2}.sim-post-date{font-size:12px;color:var(--gris-txt)}
+.sim-post-texte{white-space:pre-line;font-size:13.5px;line-height:1.45;margin:0 0 10px}
+.sim-post-visuel{display:grid;gap:6px;align-content:center;min-height:130px;padding:18px;border-radius:8px;background:linear-gradient(135deg,#0D0D0F,#1D4B33);color:#fff}
+.sim-post-visuel span{font-size:15px}.sim-post-visuel strong{font-size:21px;line-height:1.15}.sim-post-visuel small{color:rgba(255,255,255,.7)}
+.sim-post-visuel button{justify-self:start;border:1px solid rgba(255,255,255,.4);background:transparent;color:#fff;border-radius:999px;padding:6px 12px;font:500 12px Inter,sans-serif;cursor:pointer}
+.sim-telegram{margin:12px 0 0;padding:10px 12px;border-radius:8px;background:#E7F8EE;color:#14532D;font-size:13px}
+.sim-telegram--err{background:#FDECEC;color:#7F1D1D}
+.sim-note{margin:12px 0 0;font-size:13px;color:var(--gris-txt)}
+.secteurs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:0;padding:0;list-style:none}
+.secteurs>li{padding:24px;border:1px solid var(--trait);border-radius:14px;background:var(--papier)}
+.secteurs h3{margin:0 0 14px;font-size:22px;letter-spacing:-.02em;font-weight:600}
+.secteurs ul{margin:0 0 14px;padding-left:18px;display:grid;gap:8px}
+.secteurs p{margin:0;font-size:14px;color:var(--gris-txt)}
+@media (max-width:1000px){.sim-bas,.secteurs{grid-template-columns:1fr}.sim-journal{height:220px}.sim-option{margin-left:0}}
+
+.cas-outils{display:flex;flex-wrap:wrap;gap:6px;margin:18px 0 0}
+.cas-outils span{padding:4px 10px;border-radius:999px;background:var(--papier-2);font-size:12px;color:var(--encre)}
+.sim-aide{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:18px 0 0;padding:0;list-style:none;font-size:14px;color:var(--gris-txt)}
+.sim-aide strong{display:block;margin-bottom:4px;color:var(--encre);font-weight:600}
+.secteurs dl{margin:0;display:grid;gap:12px}
+.secteurs dt{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gris-txt);margin-bottom:3px}
+.secteurs dd{margin:0;font-size:15px}
+.secteurs .label{margin-bottom:8px}
+@media (max-width:1000px){.sim-aide{grid-template-columns:1fr}}
+.auto-entete *,.expertise-texte *,.final *,.cas-carte,.cas-carte *,.auto-aussi li,.secteurs>li,.expertise-carte{opacity:1!important;transform:none!important}
+
+.sim-info{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:8px}
+.sim-badge{padding:5px 11px;border-radius:999px;font-size:12px;font-weight:500}
+.sim-badge.ok{background:#E7F8EE;color:#14532D}.sim-badge.pause{background:#FEF3C7;color:#78350F}
+.sim-meta{margin:0;font-size:13px;color:var(--gris-txt)}
+.sim-info .sim-lancer{margin-left:auto}
+.sim-desc{margin:0 0 16px;max-width:75ch}
+.sim-canvas{max-height:560px;overflow:auto}
+.sim-canvas svg{width:100%;min-width:0}
+.sim-bas--2{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
+.sim-resultat{display:grid;gap:8px;opacity:.55;transition:opacity .3s}
+.sim-resultat.fini{opacity:1}
+.sim-resultat img{width:100%;max-height:230px;object-fit:cover;object-position:top;border-radius:8px;border:1px solid var(--trait)}
+.sim-resultat strong{font-size:16px;line-height:1.25}.sim-resultat p{margin:0;font-size:14px;color:var(--gris-txt)}
+.sim-resultat a{color:var(--encre);font-weight:500;font-size:14px}
+@media (max-width:1000px){.sim-bas--2{grid-template-columns:1fr}.sim-info .sim-lancer{margin-left:0}}
+.sim-type{font-size:13px}.sim-nom{font-size:15.5px}
+.auto-film{padding-bottom:0}.auto-film figure{margin:0}.auto-film video{display:block;width:100%;aspect-ratio:16/9;border-radius:14px;background:#0D0D0F}.auto-film figcaption{margin-top:10px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gris-txt);text-align:center}
+</style>
+</head>
+<body class="pf">
+
+<a class="saut" href="#contenu">Aller au contenu</a>
+
+<header class="pf-entete" id="entete">
+  <div class="pf-entete-in">
+    <a class="pf-marque" href="index.html">DIKENGA<sup>®</sup></a>
+
+    <button class="burger" id="burger" type="button"
+            aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu-principal">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav id="menu-principal" class="pf-nav" aria-label="Navigation principale">
+      <div class="pf-langue">
+        <button class="pf-langue-bouton" type="button" aria-expanded="false"
+                aria-controls="menu-langue" aria-label="Changer de langue">
+          <span class="pf-langue-code">FR</span>
+          <svg class="pf-langue-fleche" viewBox="0 0 10 6" width="10" height="6" aria-hidden="true" focusable="false"><path d="M1 1.2 5 4.8 9 1.2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <ul class="pf-langue-menu" id="menu-langue" hidden>
+        <li><a href="index.html" hreflang="fr" lang="fr" aria-current="true"><span class="pf-langue-puce">FR</span> Français</a></li>
+        <li><a href="en/index.html" hreflang="en" lang="en"><span class="pf-langue-puce">EN</span> English</a></li>
+        </ul>
+      </div>
+      <a href="projets.html">Projets</a>
+      <a href="automatisation.html">Automatisation</a>
+      <a href="#expertise">Expertise</a>
+      <a href="formation.html">Formation</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu">
+  <section class="wrap auto-hero">
+    <p class="label">Automatisation &amp; agents IA</p>
+    <h1>Des systèmes qui travaillent à votre place.</h1>
+    <p class="bloc-desc">Je conçois des automatisations et des agents IA pour les tâches qui reviennent chaque jour : publier, relancer, surveiller, informer. Mon profil de designer change une chose : le système doit marcher, et rester simple à comprendre pour ceux qui l’utilisent.</p>
+    <div class="auto-actions">
+      <a class="btn btn--noir-auto" href="contact.html">Parler de votre besoin <span class="fleche" aria-hidden="true">→</span></a>
+      <a class="btn" href="#simulation">Voir mes workflows</a>
+    </div>
+  </section>
+
+  <section class="wrap auto-film">
+    <figure>
+      <video controls playsinline preload="metadata" poster="media/automatisation/n8n-publier-linkedin.jpg?v=1" aria-label="Visite commentée de mon vrai workflow n8n de publication LinkedIn"><source src="media/automatisation/n8n-publier-linkedin.mp4?v=1" type="video/mp4"></video>
+      <figcaption>Visite commentée de mon vrai workflow n8n · voix de synthèse</figcaption>
+    </figure>
+  </section>
+
+  <section class="bloc" id="simulation">
+    <div class="wrap">
+      <div class="auto-entete">
+        <p class="label">Mes workflows n8n</p>
+        <h2 class="bloc-titre">De vraies exécutions, rejouées.</h2>
+        <p class="bloc-desc">Ces schémas viennent directement de mon n8n. Les étapes, leur ordre et leurs durées sont ceux d’exécutions enregistrées. Choisissez un workflow pour le rejouer en accéléré : rien n’est republié.</p>
+      </div>
+      <div id="sim">
+        <div class="sim-barre"><button class="btn" type="button" data-wf="li-pdf">LinkedIn · carrousel PDF</button><button class="btn" type="button" data-wf="li-img">LinkedIn · image</button><button class="btn" type="button" data-wf="prog">Programmer un post</button><button class="btn" type="button" data-wf="alertes">Alertes</button><button class="btn" type="button" data-wf="ig">Instagram · publication</button><button class="btn" type="button" data-wf="com">Instagram · commentaires</button><button class="btn" type="button" data-wf="rapport">Rapport du lundi</button></div>
+        <div class="sim-info">
+          <span class="sim-badge"></span>
+          <p class="sim-meta"></p>
+          <button class="btn sim-lancer" type="button">Rejouer</button>
+        </div>
+        <p class="sim-desc"></p>
+        <div class="sim-canvas" tabindex="0" aria-label="Schéma du workflow n8n, faites défiler pour le parcourir"><svg role="img" aria-label="Étapes du workflow n8n"></svg></div>
+        <div class="sim-bas sim-bas--2">
+          <div class="sim-panneau">
+            <h3>Journal de l’exécution <span class="sim-etat">Prêt</span></h3>
+            <div class="sim-journal" aria-live="off"></div>
+          </div>
+          <div class="sim-panneau">
+            <h3>Résultat réel</h3>
+            <div class="sim-resultat"></div>
+          </div>
+        </div>
+        <p class="sim-note">Seuls les noms d’étapes et les durées sont affichés. Les contenus, les clés et les données personnelles restent dans n8n.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloc bloc--gris" id="cas">
+    <div class="wrap">
+      <div class="auto-entete">
+        <p class="label">Cas réels</p>
+        <h2 class="bloc-titre">Trois systèmes en service.</h2>
+        <p class="bloc-desc">Je les ai conçus pour mes propres produits, StudioBooking et Dikenga. Pour chacun : le problème de départ, la solution, les garde-fous et le résultat.</p>
+      </div>
+      <ul class="cas">
+        <li class="cas-carte">
+          <div>
+            <p class="label">Cas 01 · StudioBooking</p>
+            <h3>Prospecter sans y passer ses journées</h3>
+            <dl><div><dt>Le contexte</dt><dd>StudioBooking s’adresse aux studios, aux salles de répétition et aux lieux culturels. Les trouver un par un, vérifier leurs adresses et les relancer à la main prenait trop de temps.</dd></div><div><dt>La solution</dt><dd>Un agent explore la France département par département. Il lit le site officiel de chaque lieu, choisit une adresse professionnelle, rédige une phrase d’accroche à partir de faits trouvés sur le site, puis envoie l’e-mail et les relances.</dd></div><div><dt>Les garde-fous</dt><dd>Chaque adresse passe cinq contrôles. Une adresse douteuse attend ma validation. Le désabonnement se fait en un clic, et l’envoi s’arrête seul au-delà de 5 % d’adresses rejetées ou dès une plainte.</dd></div><div><dt>Le résultat</dt><dd>Jusqu’à 20 nouveaux contacts par jour, sans doublon. Je n’interviens plus que sur les réponses.</dd></div></dl>
+            <p class="cas-outils"><span>Cloudflare Workers</span><span>OpenStreetMap</span><span>Workers AI</span><span>Resend</span></p>
+          </div>
+          <ol class="flux" aria-label="Étapes du système"><li><div><strong>Trouver</strong><span>Recherche des lieux sur OpenStreetMap</span></div></li><li><div><strong>Lire</strong><span>Analyse du site officiel, dans le respect de robots.txt</span></div></li><li><div><strong>Vérifier</strong><span>Cinq contrôles de l’adresse e-mail</span></div></li><li><div><strong>Écrire</strong><span>Message personnalisé, puis deux relances</span></div></li><li><div><strong>Suivre</strong><span>Chaque lieu garde son statut et son historique</span></div></li><li><div><strong>Se protéger</strong><span>Suspension automatique en cas d’alerte</span></div></li></ol>
+        </li>
+        <li class="cas-carte">
+          <div>
+            <p class="label">Cas 02 · StudioBooking</p>
+            <h3>Réparer une panne avant qu’elle se voie</h3>
+            <dl><div><dt>Le contexte</dt><dd>StudioBooking exécute chaque jour des tâches programmées : sauvegardes, rappels, e-mails. Une nuit d’octobre 2026, plusieurs tâches ne sont pas parties, sans aucune alerte. Sur un logiciel de réservation, ce silence est le vrai danger.</dd></div><div><dt>La solution</dt><dd>Toutes les 30 minutes, un contrôle de santé mesure chaque service. S’il trouve une panne connue, l’agent tente d’abord de la réparer : il relance la tâche manquée, rattrape la sauvegarde ou débloque la boîte d’envoi, puis il mesure à nouveau.</dd></div><div><dt>Les garde-fous</dt><dd>Une même tâche n’est relancée qu’une fois par créneau de 50 minutes, pour éviter les boucles. Chaque action est notée dans un historique, et un interrupteur coupe l’agent à tout moment.</dd></div><div><dt>Le résultat</dt><dd>Les pannes simples se règlent sans moi. Je reçois un compte rendu, et une alerte seulement si la réparation échoue.</dd></div></dl>
+            <p class="cas-outils"><span>Cloudflare Workers</span><span>Base D1</span><span>Telegram</span></p>
+          </div>
+          <ol class="flux" aria-label="Étapes du système"><li><div><strong>Surveiller</strong><span>Contrôle de santé toutes les 30 minutes</span></div></li><li><div><strong>Détecter</strong><span>Tâche manquée, sauvegarde en retard, e-mail bloqué</span></div></li><li><div><strong>Réparer</strong><span>Relance ciblée de ce qui a échoué</span></div></li><li><div><strong>Remesurer</strong><span>Nouveau contrôle juste après</span></div></li><li><div><strong>Informer</strong><span>Compte rendu sur Telegram, alerte si échec</span></div></li></ol>
+        </li>
+        <li class="cas-carte">
+          <div>
+            <p class="label">Cas 03 · Dikenga</p>
+            <h3>Publier à l’heure, sans y penser</h3>
+            <dl><div><dt>Le contexte</dt><dd>Je publie régulièrement sur LinkedIn, avec des textes, des images et des carrousels. À la main, un oubli arrive vite, et un carrousel mal envoyé n’affiche que sa couverture.</dd></div><div><dt>La solution</dt><dd>Un workflow n8n lit le planning toutes les 5 minutes. Il reconnaît le format du post et choisit le bon chemin : texte seul, image, ou document PDF envoyé en plusieurs étapes à l’API LinkedIn. C’est le workflow rejoué plus haut sur cette page.</dd></div><div><dt>Les garde-fous</dt><dd>Le post passe en « en cours » avant l’envoi, ce qui évite une double publication. En cas d’erreur, il passe en « erreur » et je reçois une alerte Telegram.</dd></div><div><dt>Le résultat</dt><dd>Les posts partent à l’heure prévue, avec toutes leurs pages, et le lien de chaque publication est enregistré.</dd></div></dl>
+            <p class="cas-outils"><span>n8n</span><span>API LinkedIn</span><span>Telegram</span></p>
+          </div>
+          <ol class="flux" aria-label="Étapes du système"><li><div><strong>Planifier</strong><span>Texte, visuel et heure dans un tableau</span></div></li><li><div><strong>Vérifier</strong><span>Contrôle du planning toutes les 5 minutes</span></div></li><li><div><strong>Choisir</strong><span>Texte, image ou PDF</span></div></li><li><div><strong>Publier</strong><span>Envoi par l’API LinkedIn</span></div></li><li><div><strong>Noter</strong><span>Statut et lien enregistrés</span></div></li></ol>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="bloc">
+    <div class="wrap">
+      <div class="auto-entete">
+        <p class="label">Aussi en service</p>
+        <h2 class="bloc-titre">D’autres automatisations réelles.</h2>
+      </div>
+      <ul class="auto-aussi">
+        <li><h3>Relances de paiement</h3><p>StudioBooking relance un paiement échoué le jour même, puis 3 et 7 jours après.</p></li>
+        <li><h3>Suivi des essais</h3><p>Un message part au bon moment pendant l’essai gratuit : jour 3, jour 7 et jour 15.</p></li>
+        <li><h3>Liste d’attente</h3><p>Un créneau se libère : il est bloqué 30 minutes pour le premier inscrit, puis proposé au suivant.</p></li>
+        <li><h3>Rapprochement des paiements</h3><p>Chaque nuit, le système compare les paiements Stripe aux réservations et signale les écarts.</p></li>
+        <li><h3>E-mails sans perte</h3><p>Chaque e-mail passe par une boîte d’envoi qui réessaie en cas d’échec.</p></li>
+        <li><h3>Point du matin</h3><p>Chaque matin à 8 h, un rapport résume l’activité, sans ouvrir le tableau de bord.</p></li>
+        <li><h3>Gmail vers Telegram</h3><p>Toutes les 5 minutes, les e-mails importants sont signalés sur mon téléphone.</p></li>
+        <li><h3>Sauvegardes</h3><p>La base est sauvegardée chaque nuit, et un rattrapage se lance si une sauvegarde manque.</p></li>
+      </ul>
+    </div>
+  </section>
+  <section class="bloc bloc--gris" id="secteurs">
+    <div class="wrap">
+      <div class="auto-entete">
+        <p class="label">Exemples par secteur</p>
+        <h2 class="bloc-titre">Et dans votre secteur ?</h2>
+        <p class="bloc-desc">Trois scénarios pour montrer la méthode. Ce sont des exemples de projets, pas des réalisations pour des clients.</p>
+      </div>
+      <ul class="secteurs">
+        <li><p class="label">Santé</p><h3>Rappeler les rendez-vous</h3><dl><div><dt>Déclencheur</dt><dd>La veille d’un rendez-vous, à heure fixe.</dd></div><div><dt>Ce que fait le système</dt><dd>Il lit l’agenda, prépare le rappel et l’envoie au patient. Une annulation remonte au secrétariat.</dd></div><div><dt>Le gain visé</dt><dd>Moins d’appels à passer, et des créneaux libérés plus tôt.</dd></div><div><dt>Garde-fou</dt><dd>Les données de santé demandent un cadre juridique et un hébergement adaptés.</dd></div></dl></li>
+        <li><p class="label">Finance</p><h3>Relancer les factures</h3><dl><div><dt>Déclencheur</dt><dd>Une facture dépasse sa date d’échéance.</dd></div><div><dt>Ce que fait le système</dt><dd>Il prépare une relance avec le bon montant, puis résume les impayés chaque lundi.</dd></div><div><dt>Le gain visé</dt><dd>Un suivi régulier, sans tableau à tenir à la main.</dd></div><div><dt>Garde-fou</dt><dd>Une personne valide les relances sensibles. Aucun paiement ne part seul.</dd></div></dl></li>
+        <li><p class="label">Hôpital</p><h3>Suivre les demandes de matériel</h3><dl><div><dt>Déclencheur</dt><dd>Un service remplit un formulaire interne.</dd></div><div><dt>Ce que fait le système</dt><dd>Il transmet la demande à la bonne équipe et relance si rien ne bouge sous 24 heures.</dd></div><div><dt>Le gain visé</dt><dd>Des demandes moins souvent perdues, et un suivi clair.</dd></div><div><dt>Garde-fou</dt><dd>Le système ne traite aucune donnée de patient.</dd></div></dl></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="bloc">
+    <div class="wrap expertise-grille">
+      <div class="expertise-texte">
+        <p class="label">Méthode</p>
+        <h2 class="bloc-titre">Quatre étapes.</h2>
+        <p class="bloc-desc">Une automatisation utile commence par un vrai problème, pas par un outil. Je garde une validation humaine dès qu’une action est sensible.</p>
+      </div>
+      <ul class="expertise-cartes">
+        <li class="expertise-carte"><div><h3>Repérer</h3><p>Trouver les tâches répétitives et le temps qu’elles prennent.</p></div></li>
+        <li class="expertise-carte"><div><h3>Concevoir</h3><p>Dessiner le parcours, les exceptions et les garde-fous.</p></div></li>
+        <li class="expertise-carte"><div><h3>Construire</h3><p>Relier vos outils avec n8n, des agents IA et Claude Code.</p></div></li>
+        <li class="expertise-carte"><div><h3>Surveiller</h3><p>Suivre le système et prévenir dès qu’un problème arrive.</p></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="bloc bloc--noir final" id="contact">
+    <div class="wrap">
+      <p class="label">Contact</p>
+      <h2 class="final-titre">Quelle tâche vous prend trop de temps ?</h2>
+      <p class="bloc-desc bloc-desc--large">Décrivez-la en quelques lignes. Je vous dirai si elle peut être automatisée, et comment.</p>
+      <div class="final-actions"><a class="btn btn--clair" href="contact.html">Parlons-en <span class="fleche" aria-hidden="true">→</span></a></div>
+    </div>
+  </section>
+</main>
+
+<footer class="pied">
+  <div class="wrap">
+    <div class="pied-bas">
+      <span>© 2026 <span class="pied-marque">DIKENGA<sup>®</sup></span></span>
+    </div>
+  </div>
+</footer>
+
+<a class="haut" id="retourHaut" href="#entete">
+  <span class="haut-texte">Retour en haut</span> <span class="haut-fleche" aria-hidden="true">↑</span>
+</a>
+
+<script>
+  /* Une seule pastille, deux rôles — comme sur julius.fm : « Découvrir la
+     suite » tant qu'on est en haut d'une page assez longue, « Retour en haut »
+     dès qu'on a défilé. Elle reste visible en permanence. */
+  (function () {
+    var p = document.getElementById('retourHaut');
+    if (!p) return;
+    var texte = p.querySelector('.haut-texte');
+    var fleche = p.querySelector('.haut-fleche');
+    var enBas = false;                     /* le bouton renvoie-t-il vers le bas ? */
+
+    function doux() {
+      return !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    }
+
+    function maj() {
+      var hauteurRestante = document.documentElement.scrollHeight - window.innerHeight;
+      /* Sur une page trop courte, « Découvrir la suite » n'aurait pas de sens. */
+      var assezLongue = hauteurRestante > window.innerHeight * 0.6;
+      var nouveau = assezLongue && window.scrollY < 120;
+
+      p.classList.add('visible');
+      if (nouveau === enBas) return;
+      enBas = nouveau;
+      p.classList.toggle('vers-le-bas', enBas);
+
+      /* Le libellé s'efface, change, puis revient — sans animation si
+         l'utilisateur a demandé moins de mouvement. */
+      function poser() {
+        texte.textContent = enBas ? 'Découvrir la suite' : 'Retour en haut';
+        fleche.textContent = enBas ? '↓' : '↑';
+        p.setAttribute('aria-label', texte.textContent);
+      }
+      if (!doux()) { poser(); return; }
+      p.classList.add('change');
+      setTimeout(function () { poser(); p.classList.remove('change'); }, 180);
+    }
+
+    window.addEventListener('scroll', maj, { passive: true });
+    window.addEventListener('resize', maj, { passive: true });
+    maj();
+
+    p.addEventListener('click', function (e) {
+      e.preventDefault();
+      var cible = enBas ? window.innerHeight : 0;
+      window.scrollTo({ top: cible, behavior: doux() ? 'smooth' : 'auto' });
+    });
+  })();
+</script>
+
+<script>
+
+  /* En-tête : fond opaque au défilement */
+  (function () {
+    var e = document.getElementById('entete');
+    if (!e) return;
+    function maj() { e.classList.toggle('pose', window.scrollY > 8); }
+    window.addEventListener('scroll', maj, { passive: true });
+    maj();
+  })();
+
+  /* Animations réduites : la vidéo passe en lecture manuelle */
+  (function () {
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    [].forEach.call(document.querySelectorAll('.projet-video'), function (v) {
+      v.autoplay = false; v.loop = false; v.controls = true; v.pause();
+    });
+  })();
+
+  /* Carrousel des explorations : défilement continu */
+  (function () {
+    var piste = document.getElementById('piste');
+    if (!piste) return;
+
+    var originaux = [].slice.call(piste.querySelectorAll('.diapo'));
+    var nb = originaux.length;
+    var prec = document.getElementById('precedent');
+    var suiv = document.getElementById('suivant');
+    var compteur = document.getElementById('compteur');
+
+    originaux.forEach(function (d) {
+      var copie = d.cloneNode(true);
+      copie.setAttribute('aria-hidden', 'true');
+      piste.appendChild(copie);
+    });
+
+    /* Indispensable : avec « scroll-snap-type: x mandatory », chaque
+       scrollLeft programmé est ramené sur la diapositive la plus proche,
+       et la piste reste figée. */
+    piste.style.scrollSnapType = 'none';
+
+    var VITESSE = 100, enMarche = false, dernier = 0, boucle = null, reprise = null, position = 0;
+    function moitie() { return piste.scrollWidth / 2; }
+
+    function pas(t) {
+      if (!enMarche) return;
+      if (!dernier) dernier = t;
+      var dt = Math.min((t - dernier) / 1000, 0.1);
+      dernier = t;
+      position += VITESSE * dt;
+      if (position >= moitie()) position -= moitie();
+      piste.scrollLeft = position;
+      majCompteur();
+      boucle = requestAnimationFrame(pas);
+    }
+    function demarrer() {
+      if (enMarche) return;
+      enMarche = true; dernier = 0; position = piste.scrollLeft;
+      boucle = requestAnimationFrame(pas);
+    }
+    function arreter() {
+      enMarche = false;
+      if (boucle) cancelAnimationFrame(boucle);
+      boucle = null;
+    }
+    function pauseEtReprise() { arreter(); clearTimeout(reprise); reprise = setTimeout(demarrer, 2000); }
+
+    function majCompteur() {
+      if (!compteur) return;
+      var centre = piste.scrollLeft + piste.clientWidth / 2, meilleur = 0, min = Infinity;
+      for (var k = 0; k < nb; k++) {
+        var e = originaux[k], c = e.offsetLeft + e.offsetWidth / 2, ecart = Math.abs(c - centre);
+        if (ecart < min) { min = ecart; meilleur = k; }
+      }
+      compteur.textContent = (meilleur + 1) + ' / ' + nb;
+    }
+
+    piste.addEventListener('mouseenter', arreter);
+    piste.addEventListener('mouseleave', demarrer);
+    piste.addEventListener('focusin', arreter);
+    piste.addEventListener('focusout', demarrer);
+    piste.addEventListener('scroll', function () {
+      if (!enMarche) return;
+      if (Math.abs(piste.scrollLeft - position) > 2) { position = piste.scrollLeft; pauseEtReprise(); }
+    }, { passive: true });
+
+    function decaler(sens) {
+      pauseEtReprise();
+      var centre = piste.scrollLeft + piste.clientWidth / 2, courant = originaux[0], min = Infinity;
+      originaux.forEach(function (e) {
+        var ecart = Math.abs(e.offsetLeft + e.offsetWidth / 2 - centre);
+        if (ecart < min) { min = ecart; courant = e; }
+      });
+      piste.scrollBy({ left: sens * (courant.offsetWidth + 20), behavior: 'smooth' });
+    }
+    prec.addEventListener('click', function () { decaler(-1); });
+    suiv.addEventListener('click', function () { decaler(1); });
+    piste.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { e.preventDefault(); decaler(1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); decaler(-1); }
+    });
+
+    document.addEventListener('visibilitychange', function () { document.hidden ? arreter() : demarrer(); });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (e) { e[0].isIntersecting ? demarrer() : arreter(); }, { threshold: .2 }).observe(piste);
+    }
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) demarrer();
+  })();
+</script>
+
+<script>
+  /* ── Les montages ne restent pas chargés quand on ne les regarde pas ──
+     Chaque montage est une page entière dans un iframe : elle garde en mémoire
+     ses images décodées et, pour Talseume, deux vidéos. Sur iPhone, un onglet
+     qui traîne tout ça pendant qu'on est ailleurs finit par être vidé par le
+     système ; au retour, le contenu est encore à l'écran mais la barre
+     d'adresse affiche « about:blank ». On décharge donc chaque montage dès
+     qu'il s'éloigne de l'écran ou que la page passe en arrière-plan, et on le
+     recharge quand il revient. La hauteur est figée avant de retirer l'iframe,
+     sinon la page sauterait sous le doigt. */
+(function () {
+  var figures = [].slice.call(document.querySelectorAll('.cas-montage'))
+                   .filter(function (f) { return f.querySelector('iframe'); });
+  if (!figures.length || !('IntersectionObserver' in window)) return;
+
+  figures.forEach(function (fig) {
+    var f = fig.querySelector('iframe');
+    fig.dataset.source = f.getAttribute('src');
+    fig.dataset.titre = f.getAttribute('title') || '';
+  });
+
+  function decharger(fig) {
+    var f = fig.querySelector('iframe');
+    if (!f) return;
+    fig.style.minHeight = Math.round(fig.getBoundingClientRect().height) + 'px';
+    f.remove();
+  }
+
+  function recharger(fig) {
+    if (fig.querySelector('iframe') || !fig.dataset.source) return;
+    var f = document.createElement('iframe');
+    f.setAttribute('src', fig.dataset.source);
+    f.setAttribute('title', fig.dataset.titre);
+    f.setAttribute('loading', 'lazy');
+    fig.appendChild(f);
+    fig.style.minHeight = '';
+  }
+
+  /* Rechargé un écran et demi avant d'arriver, déchargé une fois bien loin. */
+  var observateur = new IntersectionObserver(function (entrees) {
+    entrees.forEach(function (e) {
+      if (e.isIntersecting) recharger(e.target);
+      else if (!document.hidden) decharger(e.target);
+    });
+  }, { rootMargin: '150% 0px' });
+
+  figures.forEach(function (fig) { observateur.observe(fig); });
+
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) {
+      figures.forEach(decharger);
+    } else {
+      figures.forEach(function (fig) {
+        var r = fig.getBoundingClientRect();
+        var marge = innerHeight * 1.5;
+        if (r.bottom > -marge && r.top < innerHeight + marge) recharger(fig);
+      });
+    }
+  });
+})();
+</script>
+
+<script src="menu.js?v=e4a285ff" defer></script>
+
+<script>
+  /* Vidéo StudioBooking : lecture muette, bouton pour activer le son (relance au début) */
+  (function () {
+    var OFF = '<path d="M52.44,36A6,6,0,0,0,43.56,44L78,81.94l-.08.06H32A14,14,0,0,0,18,96v64a14,14,0,0,0,14,14H77.94l70.38,54.74A6,6,0,0,0,158,224V169.92L203.56,220a6,6,0,0,0,8.88-8.08ZM30,160V96a2,2,0,0,1,2-2H74v68H32A2,2,0,0,1,30,160Zm116,51.73L86,165.07V90.93l.11-.08L146,156.72Zm41.5-66.53a26,26,0,0,0,0-34.37,6,6,0,1,1,9-7.93,38,38,0,0,1,0,50.24,6,6,0,0,1-9-7.94ZM107.41,66.68a6,6,0,0,1,1.06-8.42l39.85-31A6,6,0,0,1,158,32v74.83a6,6,0,0,1-12,0V44.27L115.83,67.73A6,6,0,0,1,107.41,66.68ZM246,128a77.86,77.86,0,0,1-19.86,52,6,6,0,1,1-8.94-8,66,66,0,0,0,0-88,6,6,0,1,1,8.94-8A77.86,77.86,0,0,1,246,128Z"/>', ON = '<path d="M154.64,26.61a6,6,0,0,0-6.32.65L77.94,82H32A14,14,0,0,0,18,96v64a14,14,0,0,0,14,14H77.94l70.38,54.74A6,6,0,0,0,158,224V32A6,6,0,0,0,154.64,26.61ZM30,160V96a2,2,0,0,1,2-2H74v68H32A2,2,0,0,1,30,160Zm116,51.73L86,165.07V90.93l60-46.66Zm50.53-108.85a38,38,0,0,1,0,50.24,6,6,0,1,1-9-7.94,26,26,0,0,0,0-34.37,6,6,0,0,1,9-7.93ZM246,128a77.86,77.86,0,0,1-19.86,52,6,6,0,1,1-8.94-8,66,66,0,0,0,0-88,6,6,0,1,1,8.94-8A77.86,77.86,0,0,1,246,128Z"/>';
+    var blocs = [].slice.call(document.querySelectorAll('.sb-video, .com-video'));
+    blocs.forEach(function (b) {
+      var v = b.querySelector('video'), s = b.querySelector('.sb-video-son');
+      function maj() { s.classList.toggle('on', !v.muted); s.querySelector('svg').innerHTML = v.muted ? OFF : ON; s.setAttribute('aria-label', v.muted ? s.dataset.off : s.dataset.on); }
+      b.couper = function () { if (!v.muted) { v.muted = true; maj(); } };
+      function bascule() { v.muted = !v.muted; if (!v.muted) { blocs.forEach(function (o) { if (o !== b && o.couper) o.couper(); }); v.currentTime = 0; v.play(); } maj(); }
+      s.addEventListener('click', function (e) { e.stopPropagation(); bascule(); }); v.addEventListener('click', bascule);
+    });
+  })();
+</script>
+<script>
+  /* 02/10/2026 — iPhone : la vidéo StudioBooking ne tourne que lorsqu'elle est à l'écran (sinon l'onglet est vidé et l'adresse devient « about:blank ») */
+(function () {
+  var vids = [].slice.call(document.querySelectorAll('.projet-video'));
+  if (!vids.length || !('IntersectionObserver' in window)) return;
+  var calme = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var vu = new Map();
+  var obs = new IntersectionObserver(function (es) { es.forEach(function (e) { vu.set(e.target, e.isIntersecting); if (e.isIntersecting && !calme && !document.hidden) { var p = e.target.play(); if (p && p.catch) p.catch(function () {}); } else if (!e.isIntersecting) e.target.pause(); }); }, { threshold: .15 });
+  vids.forEach(function (v) { obs.observe(v); });
+  document.addEventListener('visibilitychange', function () { vids.forEach(function (v) { if (document.hidden) v.pause(); else if (vu.get(v) && !calme) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } }); });
+})();
+</script>
+<script src="automatisation-workflows.js?v=2" defer></script>
+<script src="automatisation-sim.js?v=6" defer></script>
+</body>
+</html>

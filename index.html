@@ -71,6 +71,7 @@
 <style>/* 08/10/2026 : mention « Vidéo créée avec Opus 5.5 », alignée sur la colonne de texte */ .sb-credit{ font-size:10px; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:#6e6e73; margin:0 0 18px; }</style>
 <style>/* 08/10/2026 : Talseume — parcours d'achat filmé sur le vrai site, MacBook entier (3:2) sur ordinateur comme sur mobile */ .tals-achat{ display:block; width:100%; aspect-ratio:3/2; object-fit:cover; background:#fff; }</style>
 <style>/* 23/10/2026 : vidéo de l’automatisation n8n dans la section IA &amp; Technologie (16:9 sur ordinateur ; 31/10/2026 : Reel Instagram 9:16 sur mobile) */ .ia-video{ margin:0 0 64px; } .ia-video-legende{ text-align:center; margin:14px 0 0; } @media (max-width:760px){  .n8n-video video{ aspect-ratio:9/16 !important; } .ia-video{ margin:0 0 40px; } }</style>
+<style>.auto-lien-accueil{display:inline-flex;gap:8px;margin-top:24px;color:#0D0D0F;font-weight:500}.af-label{margin:0 0 14px;font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:#6E6E73}.af-titre{margin:0;font-size:clamp(28px,3.4vw,44px);line-height:1.1;letter-spacing:-.03em;font-weight:600;color:#0D0D0F}.accueil-film{margin-bottom:clamp(56px,7vw,110px)}.accueil-film>*{opacity:1!important;transform:none!important}.accueil-film video{display:block;width:100%;aspect-ratio:16/9;margin-top:clamp(20px,2.4vw,32px);border-radius:14px;background:#0D0D0F}</style>
 </head>
 <body class="pf">
 
@@ -98,6 +99,7 @@
         </ul>
       </div>
       <a href="projets.html">Projets</a>
+      <a href="automatisation.html">Automatisation</a>
       <a href="#expertise">Expertise</a>
       <a href="formation.html">Formation</a>
       <a href="blog.html">Blog</a>
@@ -202,6 +204,14 @@
 
   <!-- ================================================ 01 SELECTED WORK -->
   <section class="bloc" id="work">
+    <!-- 05/11/2026 : visite commentée du vrai workflow n8n, avant Talseume -->
+    <div class="wrap accueil-film">
+      <p class="af-label">Automatisation · n8n</p>
+      <h3 class="af-titre">Mon vrai workflow, expliqué en une minute.</h3>
+      <video controls playsinline preload="metadata" poster="media/automatisation/n8n-publier-linkedin.jpg?v=1" aria-label="Visite commentée de mon vrai workflow n8n de publication LinkedIn"><source src="media/automatisation/n8n-publier-linkedin.mp4?v=1" type="video/mp4"></video>
+      <a class="auto-lien-accueil" href="automatisation.html">Voir mes automatisations <span class="fleche" aria-hidden="true">→</span></a>
+    </div>
+
     <!-- ----------------------------------------------- 01 TALSEUME -->
     <article class="cas" id="talseume">
       <div class="wrap">
@@ -297,6 +307,93 @@
       </div>
     </article>
 
+  </section>
+
+  <section class="bloc" id="technologie">
+    <div class="wrap">
+      <!-- 23/10/2026 : vidéo de l’automatisation n8n (portfolio #1) -->
+      <figure class="ia-video">
+        <div class="sb-video n8n-video">
+          <video class="projet-video" poster="media/n8n-publier-tout-seul.jpg?v=1" autoplay muted loop playsinline preload="metadata" aria-label="Démonstration filmée dans un vrai workflow n8n : une publication préparée avec une légende écrite par l’IA"><source media="(max-width:760px)" src="media/n8n-publier-tout-seul-reel.mp4?v=1" type="video/mp4"><source src="media/n8n-publier-tout-seul.mp4?v=1" type="video/mp4"></video>
+          <script>/* 31/10/2026 — sur mobile, vidéo 9:16 du Reel Instagram (certains navigateurs iPhone ignorent l'attribut media des <source>) */(function(){if(!matchMedia("(max-width:760px)").matches)return;var v=document.currentScript.previousElementSibling;if(!v||v.tagName!=="VIDEO")return;[].slice.call(v.querySelectorAll("source")).forEach(function(s){s.remove();});v.poster="media/n8n-publier-tout-seul-reel.jpg?v=1";v.src="media/n8n-publier-tout-seul-reel.mp4?v=1";v.load();})();</script>
+          <button type="button" class="sb-video-son" aria-label="Activer le son" data-on="Couper le son" data-off="Activer le son"><svg viewBox="0 0 256 256" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M52.44,36A6,6,0,0,0,43.56,44L78,81.94l-.08.06H32A14,14,0,0,0,18,96v64a14,14,0,0,0,14,14H77.94l70.38,54.74A6,6,0,0,0,158,224V169.92L203.56,220a6,6,0,0,0,8.88-8.08ZM30,160V96a2,2,0,0,1,2-2H74v68H32A2,2,0,0,1,30,160Zm116,51.73L86,165.07V90.93l.11-.08L146,156.72Zm41.5-66.53a26,26,0,0,0,0-34.37,6,6,0,1,1,9-7.93,38,38,0,0,1,0,50.24,6,6,0,0,1-9-7.94ZM107.41,66.68a6,6,0,0,1,1.06-8.42l39.85-31A6,6,0,0,1,158,32v74.83a6,6,0,0,1-12,0V44.27L115.83,67.73A6,6,0,0,1,107.41,66.68ZM246,128a77.86,77.86,0,0,1-19.86,52,6,6,0,1,1-8.94-8,66,66,0,0,0,0-88,6,6,0,1,1,8.94-8A77.86,77.86,0,0,1,246,128Z"/></svg><span>Activer le son</span></button>
+        </div>
+        <figcaption class="sb-credit ia-video-legende">Démonstration filmée dans un vrai workflow n8n</figcaption>
+      </figure>
+      <div class="expertise-grille">
+
+        <div class="expertise-texte">
+          <p class="label">Automatisation &amp; agents IA</p>
+          <h2 class="bloc-titre">Des agents qui<br>travaillent pour vous.</h2>
+          <p class="bloc-desc">
+            Je mets en place des automatisations et des agents IA qui prennent en charge
+            les tâches répétitives de l’entreprise. Une fois lancé, le système tourne tout seul :
+            vos équipes gagnent du temps pour ce qui compte vraiment.
+          </p>
+          <a class="auto-lien-accueil" href="automatisation.html">Voir trois systèmes réels <span class="fleche" aria-hidden="true">→</span></a>
+        </div>
+
+        <ul class="expertise-cartes">
+          <li class="expertise-carte">
+            <div>
+              <h3>Ce que j’automatise</h3>
+              <p>Publications · Relances · Devis · Prise de rendez-vous · Rapports</p>
+            </div>
+          </li>
+          <li class="expertise-carte">
+            <div>
+              <h3>Comment</h3>
+              <p>Workflows n8n · Agents IA avec Claude Code · Connexion à vos outils</p>
+            </div>
+          </li>
+          <li class="expertise-carte">
+            <div>
+              <h3>Le résultat</h3>
+              <p>Des heures gagnées chaque semaine · Moins d’erreurs · Moins de tâches à faire à la main</p>
+            </div>
+          </li>
+          <li class="expertise-carte">
+            <div>
+              <h3>Tout seul, sans surveillance</h3>
+              <p>Le système se surveille, vous prévient en cas de souci et se répare quand il le peut</p>
+            </div>
+          </li>
+        </ul>
+
+      </div>
+<div class="outils">
+        <p class="label">Outils</p>
+        <div class="outils-bande">
+          <ul class="outils-piste">
+          <li><img src="img/logo-figma.svg" alt="" width="12" height="18">Figma</li>
+          <li><img src="img/logo-photoshop.svg" alt="" width="18" height="18">Photoshop</li>
+          <li><img src="img/logo-illustrator.svg" alt="" width="18" height="18">Illustrator</li>
+          <li><img src="img/logo-indesign.svg" alt="" width="18" height="18">InDesign</li>
+          <li><img src="img/logo-aftereffects.svg" alt="" width="18" height="18">After Effects</li>
+          <li><img src="img/logo-claude.svg" alt="" width="18" height="18">Claude Code</li>
+          <li><img src="img/logo-chatgpt.svg" alt="" width="18" height="18">ChatGPT</li>
+          <li><img src="img/logo-n8n.svg" alt="" width="34" height="18">n8n</li>
+          <li><img src="img/logo-webflow.svg" alt="" width="18" height="18">Webflow</li>
+          <li><img src="img/logo-wordpress.svg" alt="" width="18" height="18">WordPress</li>
+          <li><img src="img/logo-lottie.svg" alt="" width="18" height="18">Lottie</li>
+          <li><img src="img/logo-higgsfield.png" alt="" width="18" height="18">Higgsfield</li>
+          </ul>
+          <ul class="outils-piste" aria-hidden="true">
+          <li><img src="img/logo-figma.svg" alt="" width="12" height="18">Figma</li>
+          <li><img src="img/logo-photoshop.svg" alt="" width="18" height="18">Photoshop</li>
+          <li><img src="img/logo-illustrator.svg" alt="" width="18" height="18">Illustrator</li>
+          <li><img src="img/logo-indesign.svg" alt="" width="18" height="18">InDesign</li>
+          <li><img src="img/logo-aftereffects.svg" alt="" width="18" height="18">After Effects</li>
+          <li><img src="img/logo-claude.svg" alt="" width="18" height="18">Claude Code</li>
+          <li><img src="img/logo-chatgpt.svg" alt="" width="18" height="18">ChatGPT</li>
+          <li><img src="img/logo-n8n.svg" alt="" width="34" height="18">n8n</li>
+          <li><img src="img/logo-webflow.svg" alt="" width="18" height="18">Webflow</li>
+          <li><img src="img/logo-wordpress.svg" alt="" width="18" height="18">WordPress</li>
+          <li><img src="img/logo-lottie.svg" alt="" width="18" height="18">Lottie</li>
+          <li><img src="img/logo-higgsfield.png" alt="" width="18" height="18">Higgsfield</li>
+          </ul>
+        </div>
+    </div>
   </section>
 
   <!-- ==================================================== 02 EXPERTISE -->
@@ -485,91 +582,7 @@
   </section>
 
   <!-- ============================================ 05 AI &amp; TECHNOLOGY -->
-  <section class="bloc" id="technologie">
-    <div class="wrap">
-      <!-- 23/10/2026 : vidéo de l’automatisation n8n (portfolio #1) -->
-      <figure class="ia-video">
-        <div class="sb-video n8n-video">
-          <video class="projet-video" poster="media/n8n-publier-tout-seul.jpg?v=1" autoplay muted loop playsinline preload="metadata" aria-label="Automatisation n8n filmée dans le vrai workflow : Instagram publie tout seul, avec l’IA qui écrit la légende"><source media="(max-width:760px)" src="media/n8n-publier-tout-seul-reel.mp4?v=1" type="video/mp4"><source src="media/n8n-publier-tout-seul.mp4?v=1" type="video/mp4"></video>
-          <script>/* 31/10/2026 — sur mobile, vidéo 9:16 du Reel Instagram (certains navigateurs iPhone ignorent l'attribut media des <source>) */(function(){if(!matchMedia("(max-width:760px)").matches)return;var v=document.currentScript.previousElementSibling;if(!v||v.tagName!=="VIDEO")return;[].slice.call(v.querySelectorAll("source")).forEach(function(s){s.remove();});v.poster="media/n8n-publier-tout-seul-reel.jpg?v=1";v.src="media/n8n-publier-tout-seul-reel.mp4?v=1";v.load();})();</script>
-          <button type="button" class="sb-video-son" aria-label="Activer le son" data-on="Couper le son" data-off="Activer le son"><svg viewBox="0 0 256 256" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M52.44,36A6,6,0,0,0,43.56,44L78,81.94l-.08.06H32A14,14,0,0,0,18,96v64a14,14,0,0,0,14,14H77.94l70.38,54.74A6,6,0,0,0,158,224V169.92L203.56,220a6,6,0,0,0,8.88-8.08ZM30,160V96a2,2,0,0,1,2-2H74v68H32A2,2,0,0,1,30,160Zm116,51.73L86,165.07V90.93l.11-.08L146,156.72Zm41.5-66.53a26,26,0,0,0,0-34.37,6,6,0,1,1,9-7.93,38,38,0,0,1,0,50.24,6,6,0,0,1-9-7.94ZM107.41,66.68a6,6,0,0,1,1.06-8.42l39.85-31A6,6,0,0,1,158,32v74.83a6,6,0,0,1-12,0V44.27L115.83,67.73A6,6,0,0,1,107.41,66.68ZM246,128a77.86,77.86,0,0,1-19.86,52,6,6,0,1,1-8.94-8,66,66,0,0,0,0-88,6,6,0,1,1,8.94-8A77.86,77.86,0,0,1,246,128Z"/></svg><span>Activer le son</span></button>
-        </div>
-        <figcaption class="sb-credit ia-video-legende">Automatisation n8n · Instagram publie tout seul · filmée dans le vrai workflow</figcaption>
-      </figure>
-      <div class="expertise-grille">
-
-        <div class="expertise-texte">
-          <p class="label">IA &amp; Technologie</p>
-          <h2 class="bloc-titre">Des agents qui<br>travaillent pour vous.</h2>
-          <p class="bloc-desc">
-            Je mets en place des automatisations et des agents IA qui prennent en charge
-            les tâches répétitives de l’entreprise. Une fois lancé, le système tourne tout seul :
-            vos équipes gagnent du temps pour ce qui compte vraiment.
-          </p>
-        </div>
-
-        <ul class="expertise-cartes">
-          <li class="expertise-carte">
-            <div>
-              <h3>Ce que j’automatise</h3>
-              <p>Publications · Relances · Devis · Prise de rendez-vous · Rapports</p>
-            </div>
-          </li>
-          <li class="expertise-carte">
-            <div>
-              <h3>Comment</h3>
-              <p>Workflows n8n · Agents IA avec Claude Code · Connexion à vos outils</p>
-            </div>
-          </li>
-          <li class="expertise-carte">
-            <div>
-              <h3>Le résultat</h3>
-              <p>Des heures gagnées chaque semaine · Moins d’erreurs · Moins de tâches à faire à la main</p>
-            </div>
-          </li>
-          <li class="expertise-carte">
-            <div>
-              <h3>Tout seul, sans surveillance</h3>
-              <p>Le système se surveille, vous prévient en cas de souci et se répare quand il le peut</p>
-            </div>
-          </li>
-        </ul>
-
-      </div>
-<div class="outils">
-        <p class="label">Outils</p>
-        <div class="outils-bande">
-          <ul class="outils-piste">
-          <li><img src="img/logo-figma.svg" alt="" width="12" height="18">Figma</li>
-          <li><img src="img/logo-photoshop.svg" alt="" width="18" height="18">Photoshop</li>
-          <li><img src="img/logo-illustrator.svg" alt="" width="18" height="18">Illustrator</li>
-          <li><img src="img/logo-indesign.svg" alt="" width="18" height="18">InDesign</li>
-          <li><img src="img/logo-aftereffects.svg" alt="" width="18" height="18">After Effects</li>
-          <li><img src="img/logo-claude.svg" alt="" width="18" height="18">Claude Code</li>
-          <li><img src="img/logo-chatgpt.svg" alt="" width="18" height="18">ChatGPT</li>
-          <li><img src="img/logo-n8n.svg" alt="" width="34" height="18">n8n</li>
-          <li><img src="img/logo-webflow.svg" alt="" width="18" height="18">Webflow</li>
-          <li><img src="img/logo-wordpress.svg" alt="" width="18" height="18">WordPress</li>
-          <li><img src="img/logo-lottie.svg" alt="" width="18" height="18">Lottie</li>
-          <li><img src="img/logo-higgsfield.png" alt="" width="18" height="18">Higgsfield</li>
-          </ul>
-          <ul class="outils-piste" aria-hidden="true">
-          <li><img src="img/logo-figma.svg" alt="" width="12" height="18">Figma</li>
-          <li><img src="img/logo-photoshop.svg" alt="" width="18" height="18">Photoshop</li>
-          <li><img src="img/logo-illustrator.svg" alt="" width="18" height="18">Illustrator</li>
-          <li><img src="img/logo-indesign.svg" alt="" width="18" height="18">InDesign</li>
-          <li><img src="img/logo-aftereffects.svg" alt="" width="18" height="18">After Effects</li>
-          <li><img src="img/logo-claude.svg" alt="" width="18" height="18">Claude Code</li>
-          <li><img src="img/logo-chatgpt.svg" alt="" width="18" height="18">ChatGPT</li>
-          <li><img src="img/logo-n8n.svg" alt="" width="34" height="18">n8n</li>
-          <li><img src="img/logo-webflow.svg" alt="" width="18" height="18">Webflow</li>
-          <li><img src="img/logo-wordpress.svg" alt="" width="18" height="18">WordPress</li>
-          <li><img src="img/logo-lottie.svg" alt="" width="18" height="18">Lottie</li>
-          <li><img src="img/logo-higgsfield.png" alt="" width="18" height="18">Higgsfield</li>
-          </ul>
-        </div>
-    </div>
-  </section>
+  
 
   <!-- ====================================================== 08 CONTACT -->
   <section class="bloc bloc--noir final" id="contact">
