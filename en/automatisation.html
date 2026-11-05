@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Automation and AI agents — Mes-Reves Bouzanga | Dikenga Design</title>
+<meta name="description" content="I design automations and AI agents with n8n and Claude Code. Six real workflows, filmed with their real executions.">
+<meta name="author" content="Mes-Reves Bouzanga">
+<link rel="canonical" href="https://dikengadesign.fr/en/automatisation.html">
+<link rel="alternate" hreflang="fr" href="https://dikengadesign.fr/automatisation.html">
+<link rel="alternate" hreflang="en" href="https://dikengadesign.fr/en/automatisation.html">
+<link rel="icon" href="../img/favicon-32.png?v=2b5522f7" sizes="32x32">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png?v=8444803b">
+
+<meta property="og:site_name" content="Dikenga Design">
+<meta property="og:title" content="Automation and AI agents — Mes-Reves Bouzanga">
+<meta property="og:description" content="I design automations and AI agents with n8n and Claude Code. Six real workflows, filmed with their real executions.">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://dikengadesign.fr/en/automatisation.html">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="https://dikengadesign.fr/img/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Automation and AI agents — Mes-Reves Bouzanga">
+<meta name="twitter:description" content="I design automations and AI agents with n8n and Claude Code. Six real workflows, filmed with their real executions.">
+<meta name="twitter:image" content="https://dikengadesign.fr/img/og-image.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Inter:wght@400;500;600;700&family=Manrope:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css?v=b4821967">
+<link rel="stylesheet" href="../styles-portfolio.css?v=inv1810">
+
+<script>
+/* Masque les éléments à animer avant le premier rendu, mais seulement si
+   l'utilisateur n'a pas demandé moins d'animations. Le filet de sécurité
+   rétablit tout si animations.js ne se charge pas : sans lui, un script
+   manquant laisserait la page vide. */
+(function () {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var r = document.documentElement;
+  r.classList.add('js-anim');
+  setTimeout(function () {
+    if (!window.__animPretes) r.classList.remove('js-anim');
+  }, 2500);
+})();
+</script>
+<script src="../animations.js?v=52a4d466" defer></script>
+<style>/* 08/10/2026 : 4:5 StudioBooking video on mobile */ @media (max-width:760px){ .sb-video video{ aspect-ratio:4/5 !important; } }</style>
+<style>/* 08/10/2026 : credit « Video created with Opus 5.5 », aligned with the text column */ .sb-credit{ font-size:10px; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:#6e6e73; margin:0 0 18px; }</style>
+<style>/* 08/10/2026 : Talseume — parcours d'achat filmé sur le vrai site, MacBook entier (3:2) sur ordinateur comme sur mobile */ .tals-achat{ display:block; width:100%; aspect-ratio:3/2; object-fit:cover; background:#fff; }</style>
+<style>/* 23/10/2026 : vidéo de l’automatisation n8n dans la section IA &amp; Technologie (16:9 sur ordinateur ; 31/10/2026 : Reel Instagram 9:16 sur mobile) */ .ia-video{ margin:0 0 64px; } .ia-video-legende{ text-align:center; margin:14px 0 0; } @media (max-width:760px){  .n8n-video video{ aspect-ratio:9/16 !important; } .ia-video{ margin:0 0 40px; } }</style>
+<style>.hero-texte,.hero-texte *{opacity:1!important;transform:none!important}.hero,.hero-in{min-height:0!important}.pf .hero-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr)!important;gap:clamp(24px,4vw,56px);align-items:center}.pf .hero-texte{max-width:none}.auto-dessin{margin:0;width:100%}.auto-dessin-svg{display:block;width:100%;height:auto}@media (max-width:900px){.pf .hero-in{grid-template-columns:1fr!important}}</style>
+</head>
+<body class="pf">
+
+<a class="saut" href="#contenu">Skip to content</a>
+
+<header class="pf-entete" id="entete">
+  <div class="pf-entete-in">
+    <a class="pf-marque" href="index.html">DIKENGA<sup>®</sup></a>
+
+    <button class="burger" id="burger" type="button"
+            aria-label="Open menu" aria-expanded="false" aria-controls="menu-principal">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav id="menu-principal" class="pf-nav" aria-label="Main navigation">
+      <div class="pf-langue">
+        <button class="pf-langue-bouton" type="button" aria-expanded="false"
+                aria-controls="menu-langue" aria-label="Change language">
+          <span class="pf-langue-code">EN</span>
+          <svg class="pf-langue-fleche" viewBox="0 0 10 6" width="10" height="6" aria-hidden="true" focusable="false"><path d="M1 1.2 5 4.8 9 1.2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <ul class="pf-langue-menu" id="menu-langue" hidden>
+        <li><a href="../automatisation.html" hreflang="fr" lang="fr"><span class="pf-langue-puce">FR</span> Français</a></li>
+        <li><a href="automatisation.html" hreflang="en" lang="en" aria-current="true"><span class="pf-langue-puce">EN</span> English</a></li>
+        </ul>
+      </div>
+      <a href="../projets.html">Work</a>
+      <a href="automatisation.html">Automation</a>
+      <a href="index.html#expertise">Expertise</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu">
+  <section class="hero">
+    <div class="wrap hero-in">
+      <div class="hero-texte">
+        <h1 class="hero-nom">Automation</h1>
+        <p class="hero-role">Systems that work for you</p>
+        <ul class="hero-logos">
+          <li><img src="../img/logo-n8n.svg" alt="" width="34" height="18" loading="eager">n8n</li>
+          <li><img src="../img/logo-claude.svg" alt="" width="18" height="18" loading="eager">Claude Code</li>
+        </ul>
+        <p class="hero-desc">
+          I design automations and AI agents for the tasks that come back every day:
+          publishing, following up, monitoring, reporting. These are real workflows, filmed in my n8n,
+          with their real executions.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn--noir" href="#cas">See the real cases <span class="fleche" aria-hidden="true">↓</span></a>
+          <a class="btn" href="contact.html">Tell me what you need <span class="fleche" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    <figure class="auto-dessin"><svg class="auto-dessin-svg" viewBox="0 0 744 540" role="img" aria-label="Isometric illustration of an automation: trigger, data, AI, publishing and alert linked by a flow"><style>.auto-dessin-svg .g{stroke:#D0E2FF;stroke-width:1}.auto-dessin-svg .f{stroke:#A6C8FF;stroke-width:3}.auto-dessin-svg .p{stroke:#0F62FE;stroke-width:3;stroke-dasharray:10 16;animation:auto-flux 1.6s linear infinite}.auto-dessin-svg .i{fill:none;stroke:#fff;stroke-width:7;stroke-linecap:square;stroke-linejoin:miter}.auto-dessin-svg .t{font:500 15px ui-monospace,Menlo,monospace;fill:#161616}@keyframes auto-flux{to{stroke-dashoffset:-26}}@media (prefers-reduced-motion:reduce){.auto-dessin-svg .p{animation:none}}</style><line x1="372.0" y1="70.0" x2="8.3" y2="280.0" class="g"/><line x1="372.0" y1="70.0" x2="735.7" y2="280.0" class="g"/><line x1="424.0" y1="100.0" x2="60.2" y2="310.0" class="g"/><line x1="320.0" y1="100.0" x2="683.8" y2="310.0" class="g"/><line x1="475.9" y1="130.0" x2="112.2" y2="340.0" class="g"/><line x1="268.1" y1="130.0" x2="631.8" y2="340.0" class="g"/><line x1="527.9" y1="160.0" x2="164.2" y2="370.0" class="g"/><line x1="216.1" y1="160.0" x2="579.8" y2="370.0" class="g"/><line x1="579.8" y1="190.0" x2="216.1" y2="400.0" class="g"/><line x1="164.2" y1="190.0" x2="527.9" y2="400.0" class="g"/><line x1="631.8" y1="220.0" x2="268.1" y2="430.0" class="g"/><line x1="112.2" y1="220.0" x2="475.9" y2="430.0" class="g"/><line x1="683.8" y1="250.0" x2="320.0" y2="460.0" class="g"/><line x1="60.2" y1="250.0" x2="424.0" y2="460.0" class="g"/><line x1="735.7" y1="280.0" x2="372.0" y2="490.0" class="g"/><line x1="8.3" y1="280.0" x2="372.0" y2="490.0" class="g"/><line x1="127.8" y1="262.6" x2="252.5" y2="334.6" class="f"/><line x1="127.8" y1="262.6" x2="252.5" y2="334.6" class="p"/><line x1="252.5" y1="334.6" x2="377.2" y2="262.6" class="f"/><line x1="252.5" y1="334.6" x2="377.2" y2="262.6" class="p"/><line x1="377.2" y1="262.6" x2="501.9" y2="334.6" class="f"/><line x1="377.2" y1="262.6" x2="501.9" y2="334.6" class="p"/><line x1="501.9" y1="334.6" x2="626.6" y2="262.6" class="f"/><line x1="501.9" y1="334.6" x2="626.6" y2="262.6" class="p"/><polygon points="65.4,211.0 127.8,247.0 127.8,301.0 65.4,265.0" fill="#0043CE"/><polygon points="190.1,211.0 127.8,247.0 127.8,301.0 190.1,265.0" fill="#002D9C"/><polygon points="127.8,175.0 190.1,211.0 127.8,247.0 65.4,211.0" fill="#0F62FE"/><g transform="matrix(0.6235 0.3600 -0.6235 0.3600 127.8 175.0)" class="i"><circle cx="50" cy="50" r="30"/><path d="M50 30V50L66 58"/></g><text x="127.8" y="163.0" class="t" text-anchor="middle">Trigger</text><polygon points="190.1,301.0 252.5,337.0 252.5,373.0 190.1,337.0" fill="#0043CE"/><polygon points="314.8,301.0 252.5,337.0 252.5,373.0 314.8,337.0" fill="#002D9C"/><polygon points="252.5,265.0 314.8,301.0 252.5,337.0 190.1,301.0" fill="#0F62FE"/><g transform="matrix(0.6235 0.3600 -0.6235 0.3600 252.5 265.0)" class="i"><rect x="20" y="24" width="60" height="52"/><path d="M20 42H80M20 59H80M50 24V76"/></g><text x="252.5" y="253.0" class="t" text-anchor="middle">Data</text><polygon points="314.8,181.0 377.2,217.0 377.2,301.0 314.8,265.0" fill="#002D9C"/><polygon points="439.5,181.0 377.2,217.0 377.2,301.0 439.5,265.0" fill="#001D6C"/><polygon points="377.2,145.0 439.5,181.0 377.2,217.0 314.8,181.0" fill="#4589FF"/><g transform="matrix(0.6235 0.3600 -0.6235 0.3600 377.2 145.0)" class="i"><path d="M50 14C54 38 62 46 86 50C62 54 54 62 50 86C46 62 38 54 14 50C38 46 46 38 50 14Z"/></g><text x="377.2" y="133.0" class="t" text-anchor="middle">AI</text><polygon points="439.5,301.0 501.9,337.0 501.9,373.0 439.5,337.0" fill="#0043CE"/><polygon points="564.3,301.0 501.9,337.0 501.9,373.0 564.3,337.0" fill="#002D9C"/><polygon points="501.9,265.0 564.3,301.0 501.9,337.0 439.5,301.0" fill="#0F62FE"/><g transform="matrix(0.6235 0.3600 -0.6235 0.3600 501.9 265.0)" class="i"><path d="M22 72H78M50 58V22M32 40L50 22L68 40"/></g><text x="501.9" y="253.0" class="t" text-anchor="middle">Publishing</text><polygon points="564.3,211.0 626.6,247.0 626.6,301.0 564.3,265.0" fill="#0043CE"/><polygon points="689.0,211.0 626.6,247.0 626.6,301.0 689.0,265.0" fill="#002D9C"/><polygon points="626.6,175.0 689.0,211.0 626.6,247.0 564.3,211.0" fill="#0F62FE"/><g transform="matrix(0.6235 0.3600 -0.6235 0.3600 626.6 175.0)" class="i"><path d="M28 66V46C28 32 38 24 50 24S72 32 72 46V66ZM20 66H80M44 76H56"/></g><text x="626.6" y="163.0" class="t" text-anchor="middle">Alert</text></svg></figure>
+    </div>
+  </section>
+
+  <section class="bloc" id="cas">
+    <article class="cas" id="linkedin">
+      <div class="wrap">
+        <div class="cas-texte">
+          <p class="label">Real case · Live · 2026</p>
+          <h2 class="cas-titre">Publishing on LinkedIn hands-free.</h2>
+          <p class="cas-desc">The workflow checks the schedule every 5 minutes, picks the right format, publishes the post and saves its link. The carousel in this video went out in 23 seconds.</p>
+        </div>
+      </div>
+
+      <figure class="cas-montage cas-montage--cadre">
+        <div class="sb-video">
+          <video class="projet-video" poster="../media/automatisation/n8n-publier-linkedin.jpg?v=1" autoplay muted loop playsinline preload="metadata" aria-label="Publishing on LinkedIn hands-free."><source media="(max-width:760px)" src="../media/automatisation/n8n-publier-linkedin-4x5.mp4?v=1" type="video/mp4"><source src="../media/automatisation/n8n-publier-linkedin.mp4?v=1" type="video/mp4"></video>
+          <script>/* mobile 4:5 video */(function(){if(!matchMedia("(max-width:760px)").matches)return;var v=document.currentScript.previousElementSibling;if(!v||v.tagName!=="VIDEO")return;[].slice.call(v.querySelectorAll("source")).forEach(function(s){s.remove();});v.poster="../media/automatisation/n8n-publier-linkedin-4x5.jpg?v=1";v.src="../media/automatisation/n8n-publier-linkedin-4x5.mp4?v=1";v.load();})();</script>
+          <button type="button" class="sb-video-son" aria-label="Turn sound on" data-on="Turn sound off" data-off="Turn sound on"><svg viewBox="0 0 256 256" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M52.44,36A6,6,0,0,0,43.56,44L78,81.94l-.08.06H32A14,14,0,0,0,18,96v64a14,14,0,0,0,14,14H77.94l70.38,54.74A6,6,0,0,0,158,224V169.92L203.56,220a6,6,0,0,0,8.88-8.08ZM30,160V96a2,2,0,0,1,2-2H74v68H32A2,2,0,0,1,30,160Zm116,51.73L86,165.07V90.93l.11-.08L146,156.72Zm41.5-66.53a26,26,0,0,0,0-34.37,6,6,0,1,1,9-7.93,38,38,0,0,1,0,50.24,6,6,0,0,1-9-7.94ZM107.41,66.68a6,6,0,0,1,1.06-8.42l39.85-31A6,6,0,0,1,158,32v74.83a6,6,0,0,1-12,0V44.27L115.83,67.73A6,6,0,0,1,107.41,66.68ZM246,128a77.86,77.86,0,0,1-19.86,52,6,6,0,1,1-8.94-8,66,66,0,0,0,0-88,6,6,0,1,1,8.94-8A77.86,77.86,0,0,1,246,128Z"/></svg><span>Turn sound on</span></button>
+        </div>
+      </figure>
+
+      <div class="wrap">
+        <div class="cas-texte">
+          <p class="sb-credit">Real execution, November 4, 2026 · French voice-over</p>
+          <a class="btn btn--noir" href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7523753514574159872/" target="_blank" rel="noopener">See the real post <span class="fleche" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="cas" id="alertes">
+      <div class="wrap">
+        <div class="cas-texte">
+          <p class="label">Real case · Live · 2026</p>
+          <h2 class="cas-titre">Getting alerted as soon as an automation fails.</h2>
+          <p class="cas-desc">One workflow watches the others. When one fails, it sends a Telegram alert and records the error in the schedule.</p>
+        </div>
+      </div>
+
+      <figure class="cas-montage cas-montage--cadre">
+        <div class="sb-video">
+          <video class="projet-video" poster="../media/automatisation/alertes.jpg?v=1" autoplay muted loop playsinline preload="metadata" aria-label="Getting alerted as soon as an automation fails."><source media="(max-width:760px)" src="../media/automatisation/alertes-4x5.mp4?v=1" type="video/mp4"><source src="../media/automatisation/alertes.mp4?v=1" type="video/mp4"></video>
+          <script>/* mobile 4:5 video */(function(){if(!matchMedia("(max-width:760px)").matches)return;var v=document.currentScript.previousElementSibling;if(!v||v.tagName!=="VIDEO")return;[].slice.call(v.querySelectorAll("source")).forEach(function(s){s.remove();});v.poster="../media/automatisation/alertes-4x5.jpg?v=1";v.src="../media/automatisation/alertes-4x5.mp4?v=1";v.load();})();</script>
+          <button type="button" class="sb-video-son" aria-label="Turn sound on" data-on="Turn sound off" data-off="Turn sound on"><svg viewBox="0 0 256 256" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M52.44,36A6,6,0,0,0,43.56,44L78,81.94l-.08.06H32A14,14,0,0,0,18,96v64a14,14,0,0,0,14,14H77.94l70.38,54.74A6,6,0,0,0,158,224V169.92L203.56,220a6,6,0,0,0,8.88-8.08ZM30,160V96a2,2,0,0,1,2-2H74v68H32A2,2,0,0,1,30,160Zm116,51.73L86,165.07V90.93l.11-.08L146,156.72Zm41.5-66.53a26,26,0,0,0,0-34.37,6,6,0,1,1,9-7.93,38,38,0,0,1,0,50.24,6,6,0,0,1-9-7.94ZM107.41,66.68a6,6,0,0,1,1.06-8.42l39.85-31A6,6,0,0,1,158,32v74.83a6,6,0,0,1-12,0V44.27L115.83,67.73A6,6,0,0,1,107.41,66.68ZM246,128a77.86,77.86,0,0,1-19.86,52,6,6,0,1,1-8.94-8,66,66,0,0,0,0-88,6,6,0,1,1,8.94-8A77.86,77.86,0,0,1,246,128Z"/></svg><span>Turn sound on</span></button>
+        </div>
+      </figure>
+
+      <div class="wrap">
+        <div class="cas-texte">
+          <p class="sb-credit">Real execution, November 5, 2026 · French voice-over</p>
+          <a class="btn btn--noir" href="contact.html">Tell me what you need <span class="fleche" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="cas" id="programmer">
+      <div class="wrap">
+        <div class="cas-texte">
+          <p class="label">Real case · Live · 2026</p>
+          <h2 class="cas-titre">Scheduling a post from a simple form.</h2>
+          <p class="cas-desc">The workflow receives the form, saves the media, puts it online, adds the post to the schedule and confirms on Telegram.</p>
+        </div>
+      </div>
+
+      <figure class="cas-montage cas-montage--cadre">
+        <div class="sb-video">
+          <video class="projet-video" poster="../media/automatisation/programmer.jpg?v=1" autoplay muted loop playsinline preload="metadata" aria-label="Scheduling a post from a simple form."><source media="(max-width:760px)" src="../media/automatisation/programmer-4x5.mp4?v=1" type="video/mp4"><source src="../media/automatisation/programmer.mp4?v=1" type="video/mp4"></video>
+          <script>/* mobile 4:5 video */(function(){if(!matchMedia("(max-width:760px)").matches)return;var v=document.currentScript.previousElementSibling;if(!v||v.tagName!=="VIDEO")return;[].slice.call(v.querySelectorAll("source")).forEach(function(s){s.remove();});v.poster="../media/automatisation/programmer-4x5.jpg?v=1";v.src="../media/automatisation/programmer-4x5.mp4?v=1";v.load();})();</script>
+          <button type="button" class="sb-video-son" aria-label="Turn sound on" data-on="Turn sound off" data-off="Turn sound on"><svg viewBox="0 0 256 256" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M52.44,36A6,6,0,0,0,43.56,44L78,81.94l-.08.06H32A14,14,0,0,0,18,96v64a14,14,0,0,0,14,14H77.94l70.38,54.74A6,6,0,0,0,158,224V169.92L203.56,220a6,6,0,0,0,8.88-8.08ZM30,160V96a2,2,0,0,1,2-2H74v68H32A2,2,0,0,1,30,160Zm116,51.73L86,165.07V90.93l.11-.08L146,156.72Zm41.5-66.53a26,26,0,0,0,0-34.37,6,6,0,1,1,9-7.93,38,38,0,0,1,0,50.24,6,6,0,0,1-9-7.94ZM107.41,66.68a6,6,0,0,1,1.06-8.42l39.85-31A6,6,0,0,1,158,32v74.83a6,6,0,0,1-12,0V44.27L115.83,67.73A6,6,0,0,1,107.41,66.68ZM246,128a77.86,77.86,0,0,1-19.86,52,6,6,0,1,1-8.94-8,66,66,0,0,0,0-88,6,6,0,1,1,8.94-8A77.86,77.86,0,0,1,246,128Z"/></svg><span>Turn sound on</span></button>
+        </div>
+      </figure>
+
+      <div class="wrap">
+        <div class="cas-texte">
+          <p class="sb-credit">Test execution, October 22, 2026 · French voice-over</p>
+          <a class="btn btn--noir" href="contact.html">Tell me what you need <span class="fleche" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="cas" id="rapport">
+      <div class="wrap">
+        <div class="cas-texte">
+          <p class="label">Real case · Paused · 2026</p>
+          <h2 class="cas-titre">Getting the weekly report without calculating anything.</h2>
+          <p class="cas-desc">The workflow collects account and post figures, calculates the results, has Claude write the report, then sends and archives it.</p>
+        </div>
+      </div>
+
+      <figure class="cas-montage cas-montage--cadre">
+        <div class="sb-video">
+          <video class="projet-video" poster="../media/automatisation/rapport.jpg?v=1" autoplay muted loop playsinline preload="metadata" aria-label="Getting the weekly report without calculating anything."><source media="(max-width:760px)" src="../media/automatisation/rapport-4x5.mp4?v=1" type="video/mp4"><source src="../media/automatisation/rapport.mp4?v=1" type="video/mp4"></video>
+          <script>/* mobile 4:5 video */(function(){if(!matchMedia("(max-width:760px)").matches)return;var v=document.currentScript.previousElementSibling;if(!v||v.tagName!=="VIDEO")return;[].slice.call(v.querySelectorAll("source")).forEach(function(s){s.remove();});v.poster="../media/automatisation/rapport-4x5.jpg?v=1";v.src="../media/automatisation/rapport-4x5.mp4?v=1";v.load();})();</script>
+          <button type="button" class="sb-video-son" aria-label="Turn sound on" data-on="Turn sound off" data-off="Turn sound on"><svg viewBox="0 0 256 256" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M52.44,36A6,6,0,0,0,43.56,44L78,81.94l-.08.06H32A14,14,0,0,0,18,96v64a14,14,0,0,0,14,14H77.94l70.38,54.74A6,6,0,0,0,158,224V169.92L203.56,220a6,6,0,0,0,8.88-8.08ZM30,160V96a2,2,0,0,1,2-2H74v68H32A2,2,0,0,1,30,160Zm116,51.73L86,165.07V90.93l.11-.08L146,156.72Zm41.5-66.53a26,26,0,0,0,0-34.37,6,6,0,1,1,9-7.93,38,38,0,0,1,0,50.24,6,6,0,0,1-9-7.94ZM107.41,66.68a6,6,0,0,1,1.06-8.42l39.85-31A6,6,0,0,1,158,32v74.83a6,6,0,0,1-12,0V44.27L115.83,67.73A6,6,0,0,1,107.41,66.68ZM246,128a77.86,77.86,0,0,1-19.86,52,6,6,0,1,1-8.94-8,66,66,0,0,0,0-88,6,6,0,1,1,8.94-8A77.86,77.86,0,0,1,246,128Z"/></svg><span>Turn sound on</span></button>
+        </div>
+      </figure>
+
+      <div class="wrap">
+        <div class="cas-texte">
+          <p class="sb-credit">Real execution, October 26, 2026 · Paused: Instagram API blocked by Meta · French voice-over</p>
+          <a class="btn btn--noir" href="contact.html">Tell me what you need <span class="fleche" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="cas" id="commentaires">
+      <div class="wrap">
+        <div class="cas-texte">
+          <p class="label">Real case · Paused · 2026</p>
+          <h2 class="cas-titre">Sorting comments and replying in the right tone.</h2>
+          <p class="cas-desc">Claude sorts each comment: question, compliment, customer, spam or other. The workflow prepares the right reply, flags potential customers and hides spam.</p>
+        </div>
+      </div>
+
+      <figure class="cas-montage cas-montage--cadre">
+        <div class="sb-video">
+          <video class="projet-video" poster="../media/automatisation/commentaires.jpg?v=1" autoplay muted loop playsinline preload="metadata" aria-label="Sorting comments and replying in the right tone."><source media="(max-width:760px)" src="../media/automatisation/commentaires-4x5.mp4?v=1" type="video/mp4"><source src="../media/automatisation/commentaires.mp4?v=1" type="video/mp4"></video>
+          <script>/* mobile 4:5 video */(function(){if(!matchMedia("(max-width:760px)").matches)return;var v=document.currentScript.previousElementSibling;if(!v||v.tagName!=="VIDEO")return;[].slice.call(v.querySelectorAll("source")).forEach(function(s){s.remove();});v.poster="../media/automatisation/commentaires-4x5.jpg?v=1";v.src="../media/automatisation/commentaires-4x5.mp4?v=1";v.load();})();</script>
+          <button type="button" class="sb-video-son" aria-label="Turn sound on" data-on="Turn sound off" data-off="Turn sound on"><svg viewBox="0 0 256 256" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M52.44,36A6,6,0,0,0,43.56,44L78,81.94l-.08.06H32A14,14,0,0,0,18,96v64a14,14,0,0,0,14,14H77.94l70.38,54.74A6,6,0,0,0,158,224V169.92L203.56,220a6,6,0,0,0,8.88-8.08ZM30,160V96a2,2,0,0,1,2-2H74v68H32A2,2,0,0,1,30,160Zm116,51.73L86,165.07V90.93l.11-.08L146,156.72Zm41.5-66.53a26,26,0,0,0,0-34.37,6,6,0,1,1,9-7.93,38,38,0,0,1,0,50.24,6,6,0,0,1-9-7.94ZM107.41,66.68a6,6,0,0,1,1.06-8.42l39.85-31A6,6,0,0,1,158,32v74.83a6,6,0,0,1-12,0V44.27L115.83,67.73A6,6,0,0,1,107.41,66.68ZM246,128a77.86,77.86,0,0,1-19.86,52,6,6,0,1,1-8.94-8,66,66,0,0,0,0-88,6,6,0,1,1,8.94-8A77.86,77.86,0,0,1,246,128Z"/></svg><span>Turn sound on</span></button>
+        </div>
+      </figure>
+
+      <div class="wrap">
+        <div class="cas-texte">
+          <p class="sb-credit">Test execution, October 22, 2026 · Paused: Instagram API blocked by Meta · French voice-over</p>
+          <a class="btn btn--noir" href="contact.html">Tell me what you need <span class="fleche" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="cas" id="instagram">
+      <div class="wrap">
+        <div class="cas-texte">
+          <p class="label">Real case · Paused · 2026</p>
+          <h2 class="cas-titre">Publishing on Instagram with an AI-written caption.</h2>
+          <p class="cas-desc">If the caption is missing, Claude writes it. The workflow prepares the media, waits until Instagram is ready, publishes, then removes the temporary files.</p>
+        </div>
+      </div>
+
+      <figure class="cas-montage cas-montage--cadre">
+        <div class="sb-video">
+          <video class="projet-video" poster="../media/automatisation/instagram.jpg?v=1" autoplay muted loop playsinline preload="metadata" aria-label="Publishing on Instagram with an AI-written caption."><source media="(max-width:760px)" src="../media/automatisation/instagram-4x5.mp4?v=1" type="video/mp4"><source src="../media/automatisation/instagram.mp4?v=1" type="video/mp4"></video>
+          <script>/* mobile 4:5 video */(function(){if(!matchMedia("(max-width:760px)").matches)return;var v=document.currentScript.previousElementSibling;if(!v||v.tagName!=="VIDEO")return;[].slice.call(v.querySelectorAll("source")).forEach(function(s){s.remove();});v.poster="../media/automatisation/instagram-4x5.jpg?v=1";v.src="../media/automatisation/instagram-4x5.mp4?v=1";v.load();})();</script>
+          <button type="button" class="sb-video-son" aria-label="Turn sound on" data-on="Turn sound off" data-off="Turn sound on"><svg viewBox="0 0 256 256" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M52.44,36A6,6,0,0,0,43.56,44L78,81.94l-.08.06H32A14,14,0,0,0,18,96v64a14,14,0,0,0,14,14H77.94l70.38,54.74A6,6,0,0,0,158,224V169.92L203.56,220a6,6,0,0,0,8.88-8.08ZM30,160V96a2,2,0,0,1,2-2H74v68H32A2,2,0,0,1,30,160Zm116,51.73L86,165.07V90.93l.11-.08L146,156.72Zm41.5-66.53a26,26,0,0,0,0-34.37,6,6,0,1,1,9-7.93,38,38,0,0,1,0,50.24,6,6,0,0,1-9-7.94ZM107.41,66.68a6,6,0,0,1,1.06-8.42l39.85-31A6,6,0,0,1,158,32v74.83a6,6,0,0,1-12,0V44.27L115.83,67.73A6,6,0,0,1,107.41,66.68ZM246,128a77.86,77.86,0,0,1-19.86,52,6,6,0,1,1-8.94-8,66,66,0,0,0,0-88,6,6,0,1,1,8.94-8A77.86,77.86,0,0,1,246,128Z"/></svg><span>Turn sound on</span></button>
+        </div>
+      </figure>
+
+      <div class="wrap">
+        <div class="cas-texte">
+          <p class="sb-credit">Test execution, October 22, 2026 · Paused: Instagram API blocked by Meta · French voice-over</p>
+          <a class="btn btn--noir" href="contact.html">Tell me what you need <span class="fleche" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section class="bloc" id="studiobooking-auto">
+    <div class="wrap expertise-grille">
+      <div class="expertise-texte">
+        <p class="label">Also in StudioBooking</p>
+        <h2 class="bloc-titre">Automations<br>inside my software.</h2>
+        <p class="bloc-desc">These systems run inside StudioBooking, outside n8n. They handle prospecting, monitoring and customer follow-up.</p>
+      </div>
+      <ul class="expertise-cartes">
+        <li class="expertise-carte"><div><h3>Prospecting agent</h3><p>It finds cultural venues, checks their addresses, writes and follows up: up to 40 emails a day. A doubtful address waits for human approval.</p></div></li>
+        <li class="expertise-carte"><div><h3>Automatic repair</h3><p>Every 30 minutes, a health check restarts what failed and alerts me only if the repair fails.</p></div></li>
+        <li class="expertise-carte"><div><h3>Payment reminders</h3><p>A failed payment is followed up the same day, then 3 and 7 days later.</p></div></li>
+        <li class="expertise-carte"><div><h3>Waiting list</h3><p>A freed slot is held for 30 minutes for the first person on the list, then offered to the next.</p></div></li>
+        <li class="expertise-carte"><div><h3>Payment reconciliation</h3><p>Every night, Stripe payments are compared with bookings, and differences are flagged.</p></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="bloc bloc--noir final" id="contact">
+    <div class="wrap">
+      <p class="label">Contact</p>
+      <h2 class="final-titre">Which task takes up too much of your time?</h2>
+      <p class="bloc-desc bloc-desc--large">Describe it in a few lines. I’ll tell you whether it can be automated, and how.</p>
+      <div class="final-actions"><a class="btn btn--clair" href="contact.html">Let’s talk <span class="fleche" aria-hidden="true">→</span></a></div>
+    </div>
+  </section>
+</main>
+
+<footer class="pied">
+  <div class="wrap">
+    <div class="pied-bas">
+      <span>© 2026 <span class="pied-marque">DIKENGA<sup>®</sup></span></span>
+    </div>
+  </div>
+</footer>
+
+<a class="haut" id="retourHaut" href="#entete">
+  <span class="haut-texte">Back to top</span> <span class="haut-fleche" aria-hidden="true">↑</span>
+</a>
+
+<script>
+  /* Une seule pastille, deux rôles — comme sur julius.fm : « Découvrir la
+     suite » tant qu'on est en haut d'une page assez longue, « Retour en haut »
+     dès qu'on a défilé. Elle reste visible en permanence. */
+  (function () {
+    var p = document.getElementById('retourHaut');
+    if (!p) return;
+    var texte = p.querySelector('.haut-texte');
+    var fleche = p.querySelector('.haut-fleche');
+    var enBas = false;                     /* le bouton renvoie-t-il vers le bas ? */
+
+    function doux() {
+      return !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    }
+
+    function maj() {
+      var hauteurRestante = document.documentElement.scrollHeight - window.innerHeight;
+      /* Sur une page trop courte, « Découvrir la suite » n'aurait pas de sens. */
+      var assezLongue = hauteurRestante > window.innerHeight * 0.6;
+      var nouveau = assezLongue && window.scrollY < 120;
+
+      p.classList.add('visible');
+      if (nouveau === enBas) return;
+      enBas = nouveau;
+      p.classList.toggle('vers-le-bas', enBas);
+
+      /* Le libellé s'efface, change, puis revient — sans animation si
+         l'utilisateur a demandé moins de mouvement. */
+      function poser() {
+        texte.textContent = enBas ? 'Scroll to read more' : 'Back to top';
+        fleche.textContent = enBas ? '↓' : '↑';
+        p.setAttribute('aria-label', texte.textContent);
+      }
+      if (!doux()) { poser(); return; }
+      p.classList.add('change');
+      setTimeout(function () { poser(); p.classList.remove('change'); }, 180);
+    }
+
+    window.addEventListener('scroll', maj, { passive: true });
+    window.addEventListener('resize', maj, { passive: true });
+    maj();
+
+    p.addEventListener('click', function (e) {
+      e.preventDefault();
+      var cible = enBas ? window.innerHeight : 0;
+      window.scrollTo({ top: cible, behavior: doux() ? 'smooth' : 'auto' });
+    });
+  })();
+</script>
+
+<script>
+
+  /* En-tête : fond opaque au défilement */
+  (function () {
+    var e = document.getElementById('entete');
+    if (!e) return;
+    function maj() { e.classList.toggle('pose', window.scrollY > 8); }
+    window.addEventListener('scroll', maj, { passive: true });
+    maj();
+  })();
+
+  /* Animations réduites : la vidéo passe en lecture manuelle */
+  (function () {
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    [].forEach.call(document.querySelectorAll('.projet-video'), function (v) {
+      v.autoplay = false; v.loop = false; v.controls = true; v.pause();
+    });
+  })();
+
+  /* Carrousel des explorations : défilement continu */
+  (function () {
+    var piste = document.getElementById('piste');
+    if (!piste) return;
+
+    var originaux = [].slice.call(piste.querySelectorAll('.diapo'));
+    var nb = originaux.length;
+    var prec = document.getElementById('precedent');
+    var suiv = document.getElementById('suivant');
+    var compteur = document.getElementById('compteur');
+
+    originaux.forEach(function (d) {
+      var copie = d.cloneNode(true);
+      copie.setAttribute('aria-hidden', 'true');
+      piste.appendChild(copie);
+    });
+
+    /* Indispensable : avec « scroll-snap-type: x mandatory », chaque
+       scrollLeft programmé est ramené sur la diapositive la plus proche,
+       et la piste reste figée. */
+    piste.style.scrollSnapType = 'none';
+
+    var VITESSE = 100, enMarche = false, dernier = 0, boucle = null, reprise = null, position = 0;
+    function moitie() { return piste.scrollWidth / 2; }
+
+    function pas(t) {
+      if (!enMarche) return;
+      if (!dernier) dernier = t;
+      var dt = Math.min((t - dernier) / 1000, 0.1);
+      dernier = t;
+      position += VITESSE * dt;
+      if (position >= moitie()) position -= moitie();
+      piste.scrollLeft = position;
+      majCompteur();
+      boucle = requestAnimationFrame(pas);
+    }
+    function demarrer() {
+      if (enMarche) return;
+      enMarche = true; dernier = 0; position = piste.scrollLeft;
+      boucle = requestAnimationFrame(pas);
+    }
+    function arreter() {
+      enMarche = false;
+      if (boucle) cancelAnimationFrame(boucle);
+      boucle = null;
+    }
+    function pauseEtReprise() { arreter(); clearTimeout(reprise); reprise = setTimeout(demarrer, 2000); }
+
+    function majCompteur() {
+      if (!compteur) return;
+      var centre = piste.scrollLeft + piste.clientWidth / 2, meilleur = 0, min = Infinity;
+      for (var k = 0; k < nb; k++) {
+        var e = originaux[k], c = e.offsetLeft + e.offsetWidth / 2, ecart = Math.abs(c - centre);
+        if (ecart < min) { min = ecart; meilleur = k; }
+      }
+      compteur.textContent = (meilleur + 1) + ' / ' + nb;
+    }
+
+    piste.addEventListener('mouseenter', arreter);
+    piste.addEventListener('mouseleave', demarrer);
+    piste.addEventListener('focusin', arreter);
+    piste.addEventListener('focusout', demarrer);
+    piste.addEventListener('scroll', function () {
+      if (!enMarche) return;
+      if (Math.abs(piste.scrollLeft - position) > 2) { position = piste.scrollLeft; pauseEtReprise(); }
+    }, { passive: true });
+
+    function decaler(sens) {
+      pauseEtReprise();
+      var centre = piste.scrollLeft + piste.clientWidth / 2, courant = originaux[0], min = Infinity;
+      originaux.forEach(function (e) {
+        var ecart = Math.abs(e.offsetLeft + e.offsetWidth / 2 - centre);
+        if (ecart < min) { min = ecart; courant = e; }
+      });
+      piste.scrollBy({ left: sens * (courant.offsetWidth + 20), behavior: 'smooth' });
+    }
+    prec.addEventListener('click', function () { decaler(-1); });
+    suiv.addEventListener('click', function () { decaler(1); });
+    piste.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { e.preventDefault(); decaler(1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); decaler(-1); }
+    });
+
+    document.addEventListener('visibilitychange', function () { document.hidden ? arreter() : demarrer(); });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (e) { e[0].isIntersecting ? demarrer() : arreter(); }, { threshold: .2 }).observe(piste);
+    }
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) demarrer();
+  })();
+</script>
+
+<script>
+  /* ── Les montages ne restent pas chargés quand on ne les regarde pas ──
+     Chaque montage est une page entière dans un iframe : elle garde en mémoire
+     ses images décodées et, pour Talseume, deux vidéos. Sur iPhone, un onglet
+     qui traîne tout ça pendant qu'on est ailleurs finit par être vidé par le
+     système ; au retour, le contenu est encore à l'écran mais la barre
+     d'adresse affiche « about:blank ». On décharge donc chaque montage dès
+     qu'il s'éloigne de l'écran ou que la page passe en arrière-plan, et on le
+     recharge quand il revient. La hauteur est figée avant de retirer l'iframe,
+     sinon la page sauterait sous le doigt. */
+(function () {
+  var figures = [].slice.call(document.querySelectorAll('.cas-montage'))
+                   .filter(function (f) { return f.querySelector('iframe'); });
+  if (!figures.length || !('IntersectionObserver' in window)) return;
+
+  figures.forEach(function (fig) {
+    var f = fig.querySelector('iframe');
+    fig.dataset.source = f.getAttribute('src');
+    fig.dataset.titre = f.getAttribute('title') || '';
+  });
+
+  function decharger(fig) {
+    var f = fig.querySelector('iframe');
+    if (!f) return;
+    fig.style.minHeight = Math.round(fig.getBoundingClientRect().height) + 'px';
+    f.remove();
+  }
+
+  function recharger(fig) {
+    if (fig.querySelector('iframe') || !fig.dataset.source) return;
+    var f = document.createElement('iframe');
+    f.setAttribute('src', fig.dataset.source);
+    f.setAttribute('title', fig.dataset.titre);
+    f.setAttribute('loading', 'lazy');
+    fig.appendChild(f);
+    fig.style.minHeight = '';
+  }
+
+  /* Rechargé un écran et demi avant d'arriver, déchargé une fois bien loin. */
+  var observateur = new IntersectionObserver(function (entrees) {
+    entrees.forEach(function (e) {
+      if (e.isIntersecting) recharger(e.target);
+      else if (!document.hidden) decharger(e.target);
+    });
+  }, { rootMargin: '150% 0px' });
+
+  figures.forEach(function (fig) { observateur.observe(fig); });
+
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) {
+      figures.forEach(decharger);
+    } else {
+      figures.forEach(function (fig) {
+        var r = fig.getBoundingClientRect();
+        var marge = innerHeight * 1.5;
+        if (r.bottom > -marge && r.top < innerHeight + marge) recharger(fig);
+      });
+    }
+  });
+})();
+</script>
+
+<script src="../menu.js?v=e4a285ff" defer></script>
+
+<script>
+  /* Vidéo StudioBooking : lecture muette, bouton pour activer le son (relance au début) */
+  (function () {
+    var OFF = '<path d="M52.44,36A6,6,0,0,0,43.56,44L78,81.94l-.08.06H32A14,14,0,0,0,18,96v64a14,14,0,0,0,14,14H77.94l70.38,54.74A6,6,0,0,0,158,224V169.92L203.56,220a6,6,0,0,0,8.88-8.08ZM30,160V96a2,2,0,0,1,2-2H74v68H32A2,2,0,0,1,30,160Zm116,51.73L86,165.07V90.93l.11-.08L146,156.72Zm41.5-66.53a26,26,0,0,0,0-34.37,6,6,0,1,1,9-7.93,38,38,0,0,1,0,50.24,6,6,0,0,1-9-7.94ZM107.41,66.68a6,6,0,0,1,1.06-8.42l39.85-31A6,6,0,0,1,158,32v74.83a6,6,0,0,1-12,0V44.27L115.83,67.73A6,6,0,0,1,107.41,66.68ZM246,128a77.86,77.86,0,0,1-19.86,52,6,6,0,1,1-8.94-8,66,66,0,0,0,0-88,6,6,0,1,1,8.94-8A77.86,77.86,0,0,1,246,128Z"/>', ON = '<path d="M154.64,26.61a6,6,0,0,0-6.32.65L77.94,82H32A14,14,0,0,0,18,96v64a14,14,0,0,0,14,14H77.94l70.38,54.74A6,6,0,0,0,158,224V32A6,6,0,0,0,154.64,26.61ZM30,160V96a2,2,0,0,1,2-2H74v68H32A2,2,0,0,1,30,160Zm116,51.73L86,165.07V90.93l60-46.66Zm50.53-108.85a38,38,0,0,1,0,50.24,6,6,0,1,1-9-7.94,26,26,0,0,0,0-34.37,6,6,0,0,1,9-7.93ZM246,128a77.86,77.86,0,0,1-19.86,52,6,6,0,1,1-8.94-8,66,66,0,0,0,0-88,6,6,0,1,1,8.94-8A77.86,77.86,0,0,1,246,128Z"/>';
+    var blocs = [].slice.call(document.querySelectorAll('.sb-video, .com-video'));
+    blocs.forEach(function (b) {
+      var v = b.querySelector('video'), s = b.querySelector('.sb-video-son');
+      function maj() { s.classList.toggle('on', !v.muted); s.querySelector('svg').innerHTML = v.muted ? OFF : ON; s.setAttribute('aria-label', v.muted ? s.dataset.off : s.dataset.on); }
+      b.couper = function () { if (!v.muted) { v.muted = true; maj(); } };
+      function bascule() { v.muted = !v.muted; if (!v.muted) { blocs.forEach(function (o) { if (o !== b && o.couper) o.couper(); }); v.currentTime = 0; v.play(); } maj(); }
+      s.addEventListener('click', function (e) { e.stopPropagation(); bascule(); }); v.addEventListener('click', bascule);
+    });
+  })();
+</script>
+</body>
+</html>
