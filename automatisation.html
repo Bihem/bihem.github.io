@@ -47,114 +47,7 @@
 <style>/* 08/10/2026 : mention « Vidéo créée avec Opus 5.5 », alignée sur la colonne de texte */ .sb-credit{ font-size:10px; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:#6e6e73; margin:0 0 18px; }</style>
 <style>/* 08/10/2026 : Talseume — parcours d'achat filmé sur le vrai site, MacBook entier (3:2) sur ordinateur comme sur mobile */ .tals-achat{ display:block; width:100%; aspect-ratio:3/2; object-fit:cover; background:#fff; }</style>
 <style>/* 23/10/2026 : vidéo de l’automatisation n8n dans la section IA &amp; Technologie (16:9 sur ordinateur ; 31/10/2026 : Reel Instagram 9:16 sur mobile) */ .ia-video{ margin:0 0 64px; } .ia-video-legende{ text-align:center; margin:14px 0 0; } @media (max-width:760px){  .n8n-video video{ aspect-ratio:9/16 !important; } .ia-video{ margin:0 0 40px; } }</style>
-<style>
-.auto-hero{padding-block:clamp(72px,9vw,140px) clamp(40px,5vw,72px)}
-.auto-hero h1{margin:0 0 24px;max-width:15ch;font-size:clamp(42px,6.4vw,84px);line-height:1.02;letter-spacing:-.04em;font-weight:600}
-.auto-hero .bloc-desc{font-size:clamp(17px,1.5vw,20px);opacity:1!important;transform:none!important}
-.auto-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
-.auto-lien{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border:1px solid var(--trait);color:var(--encre);text-decoration:none;font-weight:500}
-.auto-lien:hover{border-color:var(--encre)}
-.auto-hero .btn--noir-auto{background:var(--encre);border-color:var(--encre);color:#fff}
-.cas{display:grid;gap:clamp(20px,2.4vw,32px);margin:0;padding:0;list-style:none}
-.cas-carte{border-radius:14px;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,4vw,64px);padding:clamp(24px,3.4vw,48px);background:var(--papier);border:1px solid var(--trait)}
-.cas-carte h3{margin:0 0 20px;font-size:clamp(24px,2.5vw,34px);line-height:1.12;letter-spacing:-.03em;font-weight:600}
-.cas-carte dl{margin:0;display:grid;gap:16px}
-.cas-carte dt{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gris-txt);margin-bottom:4px}
-.cas-carte dd{margin:0}
-.flux{border-radius:10px;margin:0;padding:clamp(20px,2.4vw,32px);list-style:none;background:var(--encre);color:#fff;counter-reset:f;align-self:start}
-.flux li{position:relative;counter-increment:f;display:grid;grid-template-columns:40px 1fr;gap:16px;padding-bottom:22px}
-.flux li:last-child{padding-bottom:0}
-.flux li::before{content:counter(f,decimal-leading-zero);display:grid;place-items:center;width:40px;height:40px;border:1px solid rgba(255,255,255,.28);font:500 12px/1 ui-monospace,Menlo,monospace}
-.flux li:not(:last-child)::after{content:"";position:absolute;left:20px;top:40px;bottom:0;width:1px;background:linear-gradient(#22C55E 0 0) 0 0/1px 30% no-repeat,rgba(255,255,255,.2);animation:flux-p 2.4s linear infinite}
-.flux li:nth-child(2)::after{animation-delay:.4s}.flux li:nth-child(3)::after{animation-delay:.8s}.flux li:nth-child(4)::after{animation-delay:1.2s}.flux li:nth-child(5)::after{animation-delay:1.6s}
-@keyframes flux-p{from{background-position:0 -40%}to{background-position:0 140%}}
-.flux strong{display:block;font-weight:500}
-.flux span{display:block;color:var(--gris-clair);font-size:14px}
-.auto-aussi{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:0;padding:0;list-style:none}
-.auto-aussi li{border-radius:14px;padding:24px;border:1px solid var(--trait);background:var(--papier)}
-.auto-aussi h3{margin:0 0 8px;font-size:18px;font-weight:600;letter-spacing:-.02em}
-.auto-aussi p{margin:0;color:var(--gris-txt);font-size:15px}
-.auto-entete{margin-bottom:clamp(32px,4vw,56px)}
-.auto-entete .bloc-titre{margin-bottom:16px}
-#technologie .auto-lien-accueil{display:inline-flex;gap:8px;margin-top:24px;color:var(--encre);font-weight:500}
-@media (max-width:900px){.cas-carte{grid-template-columns:1fr}.auto-aussi{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:560px){.auto-aussi{grid-template-columns:1fr}}
-@media (prefers-reduced-motion:reduce){.flux li::after{animation:none!important}}
-
-.sim-barre{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:16px}
-.sim-barre .btn[aria-pressed=true]{background:var(--encre);border-color:var(--encre);color:#fff}
-.sim-lancer{background:#22C55E!important;border-color:#22C55E!important;color:#07130B!important}
-.sim-option{display:inline-flex;align-items:center;gap:8px;font-size:14px;margin-left:auto}
-.sim-canvas{overflow-x:auto;background:#0D0D0F;border-radius:14px;background-image:radial-gradient(rgba(255,255,255,.1) 1px,transparent 1px);background-size:20px 20px;scroll-behavior:smooth}
-.sim-canvas svg{display:block;width:100%;min-width:1000px;height:auto}
-.sim-arete{fill:none;stroke:rgba(255,255,255,.2);stroke-width:1.5;transition:stroke .25s}
-.sim-arete-err{stroke-dasharray:4 4;stroke:rgba(239,68,68,.32)}
-.sim-arete.on{stroke:#22C55E;stroke-width:2.5}
-.sim-arete-err.on{stroke:#EF4444}
-.sim-noeud rect{fill:#1A1A1D;stroke:rgba(255,255,255,.2);transition:fill .2s,stroke .2s}
-.sim-type{fill:rgba(255,255,255,.5);font:500 9.5px Inter,sans-serif;letter-spacing:.04em}
-.sim-nom{fill:#fff;font:600 11.5px Inter,sans-serif}
-.sim-noeud.actif rect{fill:#123A23;stroke:#22C55E;stroke-width:2.5}
-.sim-noeud.fait rect{fill:#10261A;stroke:#22C55E}
-.sim-noeud.ko rect{fill:#3A1212;stroke:#EF4444;stroke-width:2}
-.sim-bas{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,4fr) minmax(0,4fr);gap:14px;margin-top:14px}
-.sim-panneau{min-width:0;padding:18px;border:1px solid var(--trait);border-radius:14px;background:var(--papier)}
-.sim-panneau h3{margin:0 0 12px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gris-txt);font-weight:500;display:flex;justify-content:space-between;gap:8px}
-.sim-table{width:100%;border-collapse:collapse;font-size:13px}
-.sim-table td{padding:9px 4px;border-top:1px solid var(--trait);vertical-align:top}
-.sim-table tr.choisi td{font-weight:600}
-.sim-statut{font:500 11px ui-monospace,Menlo,monospace;color:var(--gris-txt);white-space:nowrap}
-.sim-statut.cours{color:#B45309}.sim-statut.ok{color:#15803D}.sim-statut.ko{color:#B91C1C}
-.sim-journal{height:320px;overflow:auto;padding:12px;background:#0D0D0F;color:#D7F5E2;border-radius:8px;font:12px/1.5 ui-monospace,Menlo,monospace}
-.sim-journal p{margin:0 0 6px}.sim-journal .sim-gris{color:rgba(255,255,255,.55)}.sim-journal .sim-rouge{color:#FCA5A5}
-.sim-post{border:1px solid var(--trait);border-radius:10px;padding:14px;transition:opacity .3s,border-color .3s}
-.sim-post--attente{opacity:.6}.sim-post--ok{opacity:1;border-color:#22C55E}
-.sim-post-haut{display:flex;gap:10px;align-items:center;margin-bottom:10px}
-.sim-post-avatar{width:38px;height:38px;border-radius:50%;background:var(--encre);flex:none}
-.sim-post-org{font-weight:600;font-size:14px;line-height:1.2}.sim-post-date{font-size:12px;color:var(--gris-txt)}
-.sim-post-texte{white-space:pre-line;font-size:13.5px;line-height:1.45;margin:0 0 10px}
-.sim-post-visuel{display:grid;gap:6px;align-content:center;min-height:130px;padding:18px;border-radius:8px;background:linear-gradient(135deg,#0D0D0F,#1D4B33);color:#fff}
-.sim-post-visuel span{font-size:15px}.sim-post-visuel strong{font-size:21px;line-height:1.15}.sim-post-visuel small{color:rgba(255,255,255,.7)}
-.sim-post-visuel button{justify-self:start;border:1px solid rgba(255,255,255,.4);background:transparent;color:#fff;border-radius:999px;padding:6px 12px;font:500 12px Inter,sans-serif;cursor:pointer}
-.sim-telegram{margin:12px 0 0;padding:10px 12px;border-radius:8px;background:#E7F8EE;color:#14532D;font-size:13px}
-.sim-telegram--err{background:#FDECEC;color:#7F1D1D}
-.sim-note{margin:12px 0 0;font-size:13px;color:var(--gris-txt)}
-.secteurs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:0;padding:0;list-style:none}
-.secteurs>li{padding:24px;border:1px solid var(--trait);border-radius:14px;background:var(--papier)}
-.secteurs h3{margin:0 0 14px;font-size:22px;letter-spacing:-.02em;font-weight:600}
-.secteurs ul{margin:0 0 14px;padding-left:18px;display:grid;gap:8px}
-.secteurs p{margin:0;font-size:14px;color:var(--gris-txt)}
-@media (max-width:1000px){.sim-bas,.secteurs{grid-template-columns:1fr}.sim-journal{height:220px}.sim-option{margin-left:0}}
-
-.cas-outils{display:flex;flex-wrap:wrap;gap:6px;margin:18px 0 0}
-.cas-outils span{padding:4px 10px;border-radius:999px;background:var(--papier-2);font-size:12px;color:var(--encre)}
-.sim-aide{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:18px 0 0;padding:0;list-style:none;font-size:14px;color:var(--gris-txt)}
-.sim-aide strong{display:block;margin-bottom:4px;color:var(--encre);font-weight:600}
-.secteurs dl{margin:0;display:grid;gap:12px}
-.secteurs dt{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gris-txt);margin-bottom:3px}
-.secteurs dd{margin:0;font-size:15px}
-.secteurs .label{margin-bottom:8px}
-@media (max-width:1000px){.sim-aide{grid-template-columns:1fr}}
-.auto-entete *,.expertise-texte *,.final *,.cas-carte,.cas-carte *,.auto-aussi li,.secteurs>li,.expertise-carte{opacity:1!important;transform:none!important}
-
-.sim-info{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:8px}
-.sim-badge{padding:5px 11px;border-radius:999px;font-size:12px;font-weight:500}
-.sim-badge.ok{background:#E7F8EE;color:#14532D}.sim-badge.pause{background:#FEF3C7;color:#78350F}
-.sim-meta{margin:0;font-size:13px;color:var(--gris-txt)}
-.sim-info .sim-lancer{margin-left:auto}
-.sim-desc{margin:0 0 16px;max-width:75ch}
-.sim-canvas{max-height:560px;overflow:auto}
-.sim-canvas svg{width:100%;min-width:0}
-.sim-bas--2{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
-.sim-resultat{display:grid;gap:8px;opacity:.55;transition:opacity .3s}
-.sim-resultat.fini{opacity:1}
-.sim-resultat img{width:100%;max-height:230px;object-fit:cover;object-position:top;border-radius:8px;border:1px solid var(--trait)}
-.sim-resultat strong{font-size:16px;line-height:1.25}.sim-resultat p{margin:0;font-size:14px;color:var(--gris-txt)}
-.sim-resultat a{color:var(--encre);font-weight:500;font-size:14px}
-@media (max-width:1000px){.sim-bas--2{grid-template-columns:1fr}.sim-info .sim-lancer{margin-left:0}}
-.sim-type{font-size:13px}.sim-nom{font-size:15.5px}
-.cas-carte,.flux,.auto-aussi li,.sim-canvas,.sim-panneau,.secteurs>li,.sim-journal,.sim-post,.sim-post-visuel,.sim-telegram,.sim-resultat img,.expertise-carte{border-radius:0!important}
-</style>
+<style>.hero-texte,.hero-texte *{opacity:1!important;transform:none!important}.hero,.hero-in{min-height:0!important}.pf .hero-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr)!important;gap:clamp(24px,4vw,56px);align-items:center}.pf .hero-texte{max-width:none}.auto-dessin{margin:0;width:100%}.auto-dessin-svg{display:block;width:100%;height:auto}@media (max-width:900px){.pf .hero-in{grid-template-columns:1fr!important}}</style>
 </head>
 <body class="pf">
 
@@ -192,142 +85,194 @@
 </header>
 
 <main id="contenu">
-  <section class="wrap auto-hero">
-    <p class="label">Automatisation &amp; agents IA</p>
-    <h1>Des systèmes qui travaillent à votre place.</h1>
-    <p class="bloc-desc">Je conçois des automatisations et des agents IA pour les tâches qui reviennent chaque jour : publier, relancer, surveiller, informer. Mon profil de designer change une chose : le système doit marcher, et rester simple à comprendre pour ceux qui l’utilisent.</p>
-    <div class="auto-actions">
-      <a class="btn btn--noir-auto" href="contact.html">Parler de votre besoin <span class="fleche" aria-hidden="true">→</span></a>
-      <a class="btn" href="#simulation">Voir mes workflows</a>
-    </div>
-  </section>
-
-  <section class="cas auto-film">
-    <figure class="cas-montage cas-montage--cadre">
-      <div class="sb-video">
-        <video class="projet-video" poster="media/automatisation/n8n-publier-linkedin.jpg?v=1" autoplay muted loop playsinline preload="metadata" aria-label="Visite commentée de mon vrai workflow n8n de publication LinkedIn"><source media="(max-width:760px)" src="media/automatisation/n8n-publier-linkedin-4x5.mp4?v=1" type="video/mp4"><source src="media/automatisation/n8n-publier-linkedin.mp4?v=1" type="video/mp4"></video>
-        <script>/* sur mobile, vidéo 4:5 */(function(){if(!matchMedia("(max-width:760px)").matches)return;var v=document.currentScript.previousElementSibling;if(!v||v.tagName!=="VIDEO")return;[].slice.call(v.querySelectorAll("source")).forEach(function(s){s.remove();});v.poster="media/automatisation/n8n-publier-linkedin-4x5.jpg?v=1";v.src="media/automatisation/n8n-publier-linkedin-4x5.mp4?v=1";v.load();})();</script>
-        <button type="button" class="sb-video-son" aria-label="Activer le son" data-on="Couper le son" data-off="Activer le son"><svg viewBox="0 0 256 256" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M52.44,36A6,6,0,0,0,43.56,44L78,81.94l-.08.06H32A14,14,0,0,0,18,96v64a14,14,0,0,0,14,14H77.94l70.38,54.74A6,6,0,0,0,158,224V169.92L203.56,220a6,6,0,0,0,8.88-8.08ZM30,160V96a2,2,0,0,1,2-2H74v68H32A2,2,0,0,1,30,160Zm116,51.73L86,165.07V90.93l.11-.08L146,156.72Zm41.5-66.53a26,26,0,0,0,0-34.37,6,6,0,1,1,9-7.93,38,38,0,0,1,0,50.24,6,6,0,0,1-9-7.94ZM107.41,66.68a6,6,0,0,1,1.06-8.42l39.85-31A6,6,0,0,1,158,32v74.83a6,6,0,0,1-12,0V44.27L115.83,67.73A6,6,0,0,1,107.41,66.68ZM246,128a77.86,77.86,0,0,1-19.86,52,6,6,0,1,1-8.94-8,66,66,0,0,0,0-88,6,6,0,1,1,8.94-8A77.86,77.86,0,0,1,246,128Z"/></svg><span>Activer le son</span></button>
-      </div>
-    </figure>
-    <div class="wrap"><div class="cas-texte"><p class="sb-credit">Filmée dans mon vrai n8n · voix de synthèse</p></div></div>
-  </section>
-
-  <section class="bloc" id="simulation">
-    <div class="wrap">
-      <div class="auto-entete">
-        <p class="label">Mes workflows n8n</p>
-        <h2 class="bloc-titre">De vraies exécutions, rejouées.</h2>
-        <p class="bloc-desc">Ces schémas viennent directement de mon n8n. Les étapes, leur ordre et leurs durées sont ceux d’exécutions enregistrées. Choisissez un workflow pour le rejouer en accéléré : rien n’est republié.</p>
-      </div>
-      <div id="sim">
-        <div class="sim-barre"><button class="btn" type="button" data-wf="li-pdf">LinkedIn · carrousel PDF</button><button class="btn" type="button" data-wf="li-img">LinkedIn · image</button><button class="btn" type="button" data-wf="prog">Programmer un post</button><button class="btn" type="button" data-wf="alertes">Alertes</button><button class="btn" type="button" data-wf="ig">Instagram · publication</button><button class="btn" type="button" data-wf="com">Instagram · commentaires</button><button class="btn" type="button" data-wf="rapport">Rapport du lundi</button></div>
-        <div class="sim-info">
-          <span class="sim-badge"></span>
-          <p class="sim-meta"></p>
-          <button class="btn sim-lancer" type="button">Rejouer</button>
+  <section class="hero">
+    <div class="wrap hero-in">
+      <div class="hero-texte">
+        <h1 class="hero-nom">Automatisation</h1>
+        <p class="hero-role">Des systèmes qui travaillent à votre place</p>
+        <ul class="hero-logos">
+          <li><img src="img/logo-n8n.svg" alt="" width="34" height="18" loading="eager">n8n</li>
+          <li><img src="img/logo-claude.svg" alt="" width="18" height="18" loading="eager">Claude Code</li>
+        </ul>
+        <p class="hero-desc">
+          Je conçois des automatisations et des agents IA pour les tâches qui reviennent chaque jour :
+          publier, relancer, surveiller, informer. Voici de vrais workflows, filmés dans mon n8n,
+          avec leurs vraies exécutions.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn--noir" href="#cas">Voir les cas réels <span class="fleche" aria-hidden="true">↓</span></a>
+          <a class="btn" href="contact.html">Parler de votre besoin <span class="fleche" aria-hidden="true">↗</span></a>
         </div>
-        <p class="sim-desc"></p>
-        <div class="sim-canvas" tabindex="0" aria-label="Schéma du workflow n8n, faites défiler pour le parcourir"><svg role="img" aria-label="Étapes du workflow n8n"></svg></div>
-        <div class="sim-bas sim-bas--2">
-          <div class="sim-panneau">
-            <h3>Journal de l’exécution <span class="sim-etat">Prêt</span></h3>
-            <div class="sim-journal" aria-live="off"></div>
-          </div>
-          <div class="sim-panneau">
-            <h3>Résultat réel</h3>
-            <div class="sim-resultat"></div>
-          </div>
+      </div>
+    <figure class="auto-dessin"><svg class="auto-dessin-svg" viewBox="0 0 744 540" role="img" aria-label="Illustration isométrique d’une automatisation : déclencheur, données, IA, publication et alerte reliés par un flux"><style>.auto-dessin-svg .g{stroke:#D0E2FF;stroke-width:1}.auto-dessin-svg .f{stroke:#A6C8FF;stroke-width:3}.auto-dessin-svg .p{stroke:#0F62FE;stroke-width:3;stroke-dasharray:10 16;animation:auto-flux 1.6s linear infinite}.auto-dessin-svg .i{fill:none;stroke:#fff;stroke-width:7;stroke-linecap:square;stroke-linejoin:miter}.auto-dessin-svg .t{font:500 15px ui-monospace,Menlo,monospace;fill:#161616}@keyframes auto-flux{to{stroke-dashoffset:-26}}@media (prefers-reduced-motion:reduce){.auto-dessin-svg .p{animation:none}}</style><line x1="372.0" y1="70.0" x2="8.3" y2="280.0" class="g"/><line x1="372.0" y1="70.0" x2="735.7" y2="280.0" class="g"/><line x1="424.0" y1="100.0" x2="60.2" y2="310.0" class="g"/><line x1="320.0" y1="100.0" x2="683.8" y2="310.0" class="g"/><line x1="475.9" y1="130.0" x2="112.2" y2="340.0" class="g"/><line x1="268.1" y1="130.0" x2="631.8" y2="340.0" class="g"/><line x1="527.9" y1="160.0" x2="164.2" y2="370.0" class="g"/><line x1="216.1" y1="160.0" x2="579.8" y2="370.0" class="g"/><line x1="579.8" y1="190.0" x2="216.1" y2="400.0" class="g"/><line x1="164.2" y1="190.0" x2="527.9" y2="400.0" class="g"/><line x1="631.8" y1="220.0" x2="268.1" y2="430.0" class="g"/><line x1="112.2" y1="220.0" x2="475.9" y2="430.0" class="g"/><line x1="683.8" y1="250.0" x2="320.0" y2="460.0" class="g"/><line x1="60.2" y1="250.0" x2="424.0" y2="460.0" class="g"/><line x1="735.7" y1="280.0" x2="372.0" y2="490.0" class="g"/><line x1="8.3" y1="280.0" x2="372.0" y2="490.0" class="g"/><line x1="127.8" y1="262.6" x2="252.5" y2="334.6" class="f"/><line x1="127.8" y1="262.6" x2="252.5" y2="334.6" class="p"/><line x1="252.5" y1="334.6" x2="377.2" y2="262.6" class="f"/><line x1="252.5" y1="334.6" x2="377.2" y2="262.6" class="p"/><line x1="377.2" y1="262.6" x2="501.9" y2="334.6" class="f"/><line x1="377.2" y1="262.6" x2="501.9" y2="334.6" class="p"/><line x1="501.9" y1="334.6" x2="626.6" y2="262.6" class="f"/><line x1="501.9" y1="334.6" x2="626.6" y2="262.6" class="p"/><polygon points="65.4,211.0 127.8,247.0 127.8,301.0 65.4,265.0" fill="#0043CE"/><polygon points="190.1,211.0 127.8,247.0 127.8,301.0 190.1,265.0" fill="#002D9C"/><polygon points="127.8,175.0 190.1,211.0 127.8,247.0 65.4,211.0" fill="#0F62FE"/><g transform="matrix(0.6235 0.3600 -0.6235 0.3600 127.8 175.0)" class="i"><circle cx="50" cy="50" r="30"/><path d="M50 30V50L66 58"/></g><text x="127.8" y="163.0" class="t" text-anchor="middle">Déclencheur</text><polygon points="190.1,301.0 252.5,337.0 252.5,373.0 190.1,337.0" fill="#0043CE"/><polygon points="314.8,301.0 252.5,337.0 252.5,373.0 314.8,337.0" fill="#002D9C"/><polygon points="252.5,265.0 314.8,301.0 252.5,337.0 190.1,301.0" fill="#0F62FE"/><g transform="matrix(0.6235 0.3600 -0.6235 0.3600 252.5 265.0)" class="i"><rect x="20" y="24" width="60" height="52"/><path d="M20 42H80M20 59H80M50 24V76"/></g><text x="252.5" y="253.0" class="t" text-anchor="middle">Données</text><polygon points="314.8,181.0 377.2,217.0 377.2,301.0 314.8,265.0" fill="#002D9C"/><polygon points="439.5,181.0 377.2,217.0 377.2,301.0 439.5,265.0" fill="#001D6C"/><polygon points="377.2,145.0 439.5,181.0 377.2,217.0 314.8,181.0" fill="#4589FF"/><g transform="matrix(0.6235 0.3600 -0.6235 0.3600 377.2 145.0)" class="i"><path d="M50 14C54 38 62 46 86 50C62 54 54 62 50 86C46 62 38 54 14 50C38 46 46 38 50 14Z"/></g><text x="377.2" y="133.0" class="t" text-anchor="middle">IA</text><polygon points="439.5,301.0 501.9,337.0 501.9,373.0 439.5,337.0" fill="#0043CE"/><polygon points="564.3,301.0 501.9,337.0 501.9,373.0 564.3,337.0" fill="#002D9C"/><polygon points="501.9,265.0 564.3,301.0 501.9,337.0 439.5,301.0" fill="#0F62FE"/><g transform="matrix(0.6235 0.3600 -0.6235 0.3600 501.9 265.0)" class="i"><path d="M22 72H78M50 58V22M32 40L50 22L68 40"/></g><text x="501.9" y="253.0" class="t" text-anchor="middle">Publication</text><polygon points="564.3,211.0 626.6,247.0 626.6,301.0 564.3,265.0" fill="#0043CE"/><polygon points="689.0,211.0 626.6,247.0 626.6,301.0 689.0,265.0" fill="#002D9C"/><polygon points="626.6,175.0 689.0,211.0 626.6,247.0 564.3,211.0" fill="#0F62FE"/><g transform="matrix(0.6235 0.3600 -0.6235 0.3600 626.6 175.0)" class="i"><path d="M28 66V46C28 32 38 24 50 24S72 32 72 46V66ZM20 66H80M44 76H56"/></g><text x="626.6" y="163.0" class="t" text-anchor="middle">Alerte</text></svg></figure>
+    </div>
+  </section>
+
+  <section class="bloc" id="cas">
+    <article class="cas" id="linkedin">
+      <div class="wrap">
+        <div class="cas-texte">
+          <p class="label">Cas réel · En service · 2026</p>
+          <h2 class="cas-titre">Publier sur LinkedIn sans y toucher.</h2>
+          <p class="cas-desc">Le workflow regarde le planning toutes les 5 minutes, choisit le bon format, publie le post et enregistre son lien. Le carrousel de cette vidéo est parti en 23 secondes.</p>
         </div>
-        <p class="sim-note">Seuls les noms d’étapes et les durées sont affichés. Les contenus, les clés et les données personnelles restent dans n8n.</p>
       </div>
-    </div>
+
+      <figure class="cas-montage cas-montage--cadre">
+        <div class="sb-video">
+          <video class="projet-video" poster="media/automatisation/n8n-publier-linkedin.jpg?v=1" autoplay muted loop playsinline preload="metadata" aria-label="Publier sur LinkedIn sans y toucher."><source media="(max-width:760px)" src="media/automatisation/n8n-publier-linkedin-4x5.mp4?v=1" type="video/mp4"><source src="media/automatisation/n8n-publier-linkedin.mp4?v=1" type="video/mp4"></video>
+          <script>/* sur mobile, vidéo 4:5 */(function(){if(!matchMedia("(max-width:760px)").matches)return;var v=document.currentScript.previousElementSibling;if(!v||v.tagName!=="VIDEO")return;[].slice.call(v.querySelectorAll("source")).forEach(function(s){s.remove();});v.poster="media/automatisation/n8n-publier-linkedin-4x5.jpg?v=1";v.src="media/automatisation/n8n-publier-linkedin-4x5.mp4?v=1";v.load();})();</script>
+          <button type="button" class="sb-video-son" aria-label="Activer le son" data-on="Couper le son" data-off="Activer le son"><svg viewBox="0 0 256 256" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M52.44,36A6,6,0,0,0,43.56,44L78,81.94l-.08.06H32A14,14,0,0,0,18,96v64a14,14,0,0,0,14,14H77.94l70.38,54.74A6,6,0,0,0,158,224V169.92L203.56,220a6,6,0,0,0,8.88-8.08ZM30,160V96a2,2,0,0,1,2-2H74v68H32A2,2,0,0,1,30,160Zm116,51.73L86,165.07V90.93l.11-.08L146,156.72Zm41.5-66.53a26,26,0,0,0,0-34.37,6,6,0,1,1,9-7.93,38,38,0,0,1,0,50.24,6,6,0,0,1-9-7.94ZM107.41,66.68a6,6,0,0,1,1.06-8.42l39.85-31A6,6,0,0,1,158,32v74.83a6,6,0,0,1-12,0V44.27L115.83,67.73A6,6,0,0,1,107.41,66.68ZM246,128a77.86,77.86,0,0,1-19.86,52,6,6,0,1,1-8.94-8,66,66,0,0,0,0-88,6,6,0,1,1,8.94-8A77.86,77.86,0,0,1,246,128Z"/></svg><span>Activer le son</span></button>
+        </div>
+      </figure>
+
+      <div class="wrap">
+        <div class="cas-texte">
+          <p class="sb-credit">Exécution réelle du 4 novembre 2026</p>
+          <a class="btn btn--noir" href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7523753514574159872/" target="_blank" rel="noopener">Voir le vrai post <span class="fleche" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="cas" id="alertes">
+      <div class="wrap">
+        <div class="cas-texte">
+          <p class="label">Cas réel · En service · 2026</p>
+          <h2 class="cas-titre">Être prévenu dès qu’une automatisation échoue.</h2>
+          <p class="cas-desc">Un workflow surveille les autres. Quand l’un d’eux tombe en erreur, il envoie une alerte sur Telegram et note l’erreur dans le planning.</p>
+        </div>
+      </div>
+
+      <figure class="cas-montage cas-montage--cadre">
+        <div class="sb-video">
+          <video class="projet-video" poster="media/automatisation/alertes.jpg?v=1" autoplay muted loop playsinline preload="metadata" aria-label="Être prévenu dès qu’une automatisation échoue."><source media="(max-width:760px)" src="media/automatisation/alertes-4x5.mp4?v=1" type="video/mp4"><source src="media/automatisation/alertes.mp4?v=1" type="video/mp4"></video>
+          <script>/* sur mobile, vidéo 4:5 */(function(){if(!matchMedia("(max-width:760px)").matches)return;var v=document.currentScript.previousElementSibling;if(!v||v.tagName!=="VIDEO")return;[].slice.call(v.querySelectorAll("source")).forEach(function(s){s.remove();});v.poster="media/automatisation/alertes-4x5.jpg?v=1";v.src="media/automatisation/alertes-4x5.mp4?v=1";v.load();})();</script>
+          <button type="button" class="sb-video-son" aria-label="Activer le son" data-on="Couper le son" data-off="Activer le son"><svg viewBox="0 0 256 256" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M52.44,36A6,6,0,0,0,43.56,44L78,81.94l-.08.06H32A14,14,0,0,0,18,96v64a14,14,0,0,0,14,14H77.94l70.38,54.74A6,6,0,0,0,158,224V169.92L203.56,220a6,6,0,0,0,8.88-8.08ZM30,160V96a2,2,0,0,1,2-2H74v68H32A2,2,0,0,1,30,160Zm116,51.73L86,165.07V90.93l.11-.08L146,156.72Zm41.5-66.53a26,26,0,0,0,0-34.37,6,6,0,1,1,9-7.93,38,38,0,0,1,0,50.24,6,6,0,0,1-9-7.94ZM107.41,66.68a6,6,0,0,1,1.06-8.42l39.85-31A6,6,0,0,1,158,32v74.83a6,6,0,0,1-12,0V44.27L115.83,67.73A6,6,0,0,1,107.41,66.68ZM246,128a77.86,77.86,0,0,1-19.86,52,6,6,0,1,1-8.94-8,66,66,0,0,0,0-88,6,6,0,1,1,8.94-8A77.86,77.86,0,0,1,246,128Z"/></svg><span>Activer le son</span></button>
+        </div>
+      </figure>
+
+      <div class="wrap">
+        <div class="cas-texte">
+          <p class="sb-credit">Exécution réelle du 5 novembre 2026</p>
+          <a class="btn btn--noir" href="contact.html">Parler de votre besoin <span class="fleche" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="cas" id="programmer">
+      <div class="wrap">
+        <div class="cas-texte">
+          <p class="label">Cas réel · En service · 2026</p>
+          <h2 class="cas-titre">Programmer un post depuis un simple formulaire.</h2>
+          <p class="cas-desc">Le workflow reçoit le formulaire, enregistre le média, le met en ligne, ajoute le post au planning et confirme sur Telegram.</p>
+        </div>
+      </div>
+
+      <figure class="cas-montage cas-montage--cadre">
+        <div class="sb-video">
+          <video class="projet-video" poster="media/automatisation/programmer.jpg?v=1" autoplay muted loop playsinline preload="metadata" aria-label="Programmer un post depuis un simple formulaire."><source media="(max-width:760px)" src="media/automatisation/programmer-4x5.mp4?v=1" type="video/mp4"><source src="media/automatisation/programmer.mp4?v=1" type="video/mp4"></video>
+          <script>/* sur mobile, vidéo 4:5 */(function(){if(!matchMedia("(max-width:760px)").matches)return;var v=document.currentScript.previousElementSibling;if(!v||v.tagName!=="VIDEO")return;[].slice.call(v.querySelectorAll("source")).forEach(function(s){s.remove();});v.poster="media/automatisation/programmer-4x5.jpg?v=1";v.src="media/automatisation/programmer-4x5.mp4?v=1";v.load();})();</script>
+          <button type="button" class="sb-video-son" aria-label="Activer le son" data-on="Couper le son" data-off="Activer le son"><svg viewBox="0 0 256 256" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M52.44,36A6,6,0,0,0,43.56,44L78,81.94l-.08.06H32A14,14,0,0,0,18,96v64a14,14,0,0,0,14,14H77.94l70.38,54.74A6,6,0,0,0,158,224V169.92L203.56,220a6,6,0,0,0,8.88-8.08ZM30,160V96a2,2,0,0,1,2-2H74v68H32A2,2,0,0,1,30,160Zm116,51.73L86,165.07V90.93l.11-.08L146,156.72Zm41.5-66.53a26,26,0,0,0,0-34.37,6,6,0,1,1,9-7.93,38,38,0,0,1,0,50.24,6,6,0,0,1-9-7.94ZM107.41,66.68a6,6,0,0,1,1.06-8.42l39.85-31A6,6,0,0,1,158,32v74.83a6,6,0,0,1-12,0V44.27L115.83,67.73A6,6,0,0,1,107.41,66.68ZM246,128a77.86,77.86,0,0,1-19.86,52,6,6,0,1,1-8.94-8,66,66,0,0,0,0-88,6,6,0,1,1,8.94-8A77.86,77.86,0,0,1,246,128Z"/></svg><span>Activer le son</span></button>
+        </div>
+      </figure>
+
+      <div class="wrap">
+        <div class="cas-texte">
+          <p class="sb-credit">Exécution d’essai du 22 octobre 2026</p>
+          <a class="btn btn--noir" href="contact.html">Parler de votre besoin <span class="fleche" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="cas" id="rapport">
+      <div class="wrap">
+        <div class="cas-texte">
+          <p class="label">Cas réel · En pause · 2026</p>
+          <h2 class="cas-titre">Recevoir le rapport de la semaine sans rien calculer.</h2>
+          <p class="cas-desc">Le workflow récupère les chiffres du compte et des posts, calcule les résultats, fait rédiger le rapport par Claude, puis l’envoie et l’archive.</p>
+        </div>
+      </div>
+
+      <figure class="cas-montage cas-montage--cadre">
+        <div class="sb-video">
+          <video class="projet-video" poster="media/automatisation/rapport.jpg?v=1" autoplay muted loop playsinline preload="metadata" aria-label="Recevoir le rapport de la semaine sans rien calculer."><source media="(max-width:760px)" src="media/automatisation/rapport-4x5.mp4?v=1" type="video/mp4"><source src="media/automatisation/rapport.mp4?v=1" type="video/mp4"></video>
+          <script>/* sur mobile, vidéo 4:5 */(function(){if(!matchMedia("(max-width:760px)").matches)return;var v=document.currentScript.previousElementSibling;if(!v||v.tagName!=="VIDEO")return;[].slice.call(v.querySelectorAll("source")).forEach(function(s){s.remove();});v.poster="media/automatisation/rapport-4x5.jpg?v=1";v.src="media/automatisation/rapport-4x5.mp4?v=1";v.load();})();</script>
+          <button type="button" class="sb-video-son" aria-label="Activer le son" data-on="Couper le son" data-off="Activer le son"><svg viewBox="0 0 256 256" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M52.44,36A6,6,0,0,0,43.56,44L78,81.94l-.08.06H32A14,14,0,0,0,18,96v64a14,14,0,0,0,14,14H77.94l70.38,54.74A6,6,0,0,0,158,224V169.92L203.56,220a6,6,0,0,0,8.88-8.08ZM30,160V96a2,2,0,0,1,2-2H74v68H32A2,2,0,0,1,30,160Zm116,51.73L86,165.07V90.93l.11-.08L146,156.72Zm41.5-66.53a26,26,0,0,0,0-34.37,6,6,0,1,1,9-7.93,38,38,0,0,1,0,50.24,6,6,0,0,1-9-7.94ZM107.41,66.68a6,6,0,0,1,1.06-8.42l39.85-31A6,6,0,0,1,158,32v74.83a6,6,0,0,1-12,0V44.27L115.83,67.73A6,6,0,0,1,107.41,66.68ZM246,128a77.86,77.86,0,0,1-19.86,52,6,6,0,1,1-8.94-8,66,66,0,0,0,0-88,6,6,0,1,1,8.94-8A77.86,77.86,0,0,1,246,128Z"/></svg><span>Activer le son</span></button>
+        </div>
+      </figure>
+
+      <div class="wrap">
+        <div class="cas-texte">
+          <p class="sb-credit">Exécution réelle du 26 octobre 2026 · En pause : API Instagram bloquée par Meta</p>
+          <a class="btn btn--noir" href="contact.html">Parler de votre besoin <span class="fleche" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="cas" id="commentaires">
+      <div class="wrap">
+        <div class="cas-texte">
+          <p class="label">Cas réel · En pause · 2026</p>
+          <h2 class="cas-titre">Trier les commentaires et répondre avec le bon ton.</h2>
+          <p class="cas-desc">Claude range chaque commentaire : question, compliment, client, spam ou autre. Le workflow prépare la bonne réponse, signale les clients potentiels et masque le spam.</p>
+        </div>
+      </div>
+
+      <figure class="cas-montage cas-montage--cadre">
+        <div class="sb-video">
+          <video class="projet-video" poster="media/automatisation/commentaires.jpg?v=1" autoplay muted loop playsinline preload="metadata" aria-label="Trier les commentaires et répondre avec le bon ton."><source media="(max-width:760px)" src="media/automatisation/commentaires-4x5.mp4?v=1" type="video/mp4"><source src="media/automatisation/commentaires.mp4?v=1" type="video/mp4"></video>
+          <script>/* sur mobile, vidéo 4:5 */(function(){if(!matchMedia("(max-width:760px)").matches)return;var v=document.currentScript.previousElementSibling;if(!v||v.tagName!=="VIDEO")return;[].slice.call(v.querySelectorAll("source")).forEach(function(s){s.remove();});v.poster="media/automatisation/commentaires-4x5.jpg?v=1";v.src="media/automatisation/commentaires-4x5.mp4?v=1";v.load();})();</script>
+          <button type="button" class="sb-video-son" aria-label="Activer le son" data-on="Couper le son" data-off="Activer le son"><svg viewBox="0 0 256 256" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M52.44,36A6,6,0,0,0,43.56,44L78,81.94l-.08.06H32A14,14,0,0,0,18,96v64a14,14,0,0,0,14,14H77.94l70.38,54.74A6,6,0,0,0,158,224V169.92L203.56,220a6,6,0,0,0,8.88-8.08ZM30,160V96a2,2,0,0,1,2-2H74v68H32A2,2,0,0,1,30,160Zm116,51.73L86,165.07V90.93l.11-.08L146,156.72Zm41.5-66.53a26,26,0,0,0,0-34.37,6,6,0,1,1,9-7.93,38,38,0,0,1,0,50.24,6,6,0,0,1-9-7.94ZM107.41,66.68a6,6,0,0,1,1.06-8.42l39.85-31A6,6,0,0,1,158,32v74.83a6,6,0,0,1-12,0V44.27L115.83,67.73A6,6,0,0,1,107.41,66.68ZM246,128a77.86,77.86,0,0,1-19.86,52,6,6,0,1,1-8.94-8,66,66,0,0,0,0-88,6,6,0,1,1,8.94-8A77.86,77.86,0,0,1,246,128Z"/></svg><span>Activer le son</span></button>
+        </div>
+      </figure>
+
+      <div class="wrap">
+        <div class="cas-texte">
+          <p class="sb-credit">Exécution d’essai du 22 octobre 2026 · En pause : API Instagram bloquée par Meta</p>
+          <a class="btn btn--noir" href="contact.html">Parler de votre besoin <span class="fleche" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="cas" id="instagram">
+      <div class="wrap">
+        <div class="cas-texte">
+          <p class="label">Cas réel · En pause · 2026</p>
+          <h2 class="cas-titre">Publier sur Instagram avec une légende écrite par l’IA.</h2>
+          <p class="cas-desc">Si la légende manque, Claude l’écrit. Le workflow prépare le média, attend qu’Instagram soit prêt, publie, puis retire les fichiers temporaires.</p>
+        </div>
+      </div>
+
+      <figure class="cas-montage cas-montage--cadre">
+        <div class="sb-video">
+          <video class="projet-video" poster="media/automatisation/instagram.jpg?v=1" autoplay muted loop playsinline preload="metadata" aria-label="Publier sur Instagram avec une légende écrite par l’IA."><source media="(max-width:760px)" src="media/automatisation/instagram-4x5.mp4?v=1" type="video/mp4"><source src="media/automatisation/instagram.mp4?v=1" type="video/mp4"></video>
+          <script>/* sur mobile, vidéo 4:5 */(function(){if(!matchMedia("(max-width:760px)").matches)return;var v=document.currentScript.previousElementSibling;if(!v||v.tagName!=="VIDEO")return;[].slice.call(v.querySelectorAll("source")).forEach(function(s){s.remove();});v.poster="media/automatisation/instagram-4x5.jpg?v=1";v.src="media/automatisation/instagram-4x5.mp4?v=1";v.load();})();</script>
+          <button type="button" class="sb-video-son" aria-label="Activer le son" data-on="Couper le son" data-off="Activer le son"><svg viewBox="0 0 256 256" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M52.44,36A6,6,0,0,0,43.56,44L78,81.94l-.08.06H32A14,14,0,0,0,18,96v64a14,14,0,0,0,14,14H77.94l70.38,54.74A6,6,0,0,0,158,224V169.92L203.56,220a6,6,0,0,0,8.88-8.08ZM30,160V96a2,2,0,0,1,2-2H74v68H32A2,2,0,0,1,30,160Zm116,51.73L86,165.07V90.93l.11-.08L146,156.72Zm41.5-66.53a26,26,0,0,0,0-34.37,6,6,0,1,1,9-7.93,38,38,0,0,1,0,50.24,6,6,0,0,1-9-7.94ZM107.41,66.68a6,6,0,0,1,1.06-8.42l39.85-31A6,6,0,0,1,158,32v74.83a6,6,0,0,1-12,0V44.27L115.83,67.73A6,6,0,0,1,107.41,66.68ZM246,128a77.86,77.86,0,0,1-19.86,52,6,6,0,1,1-8.94-8,66,66,0,0,0,0-88,6,6,0,1,1,8.94-8A77.86,77.86,0,0,1,246,128Z"/></svg><span>Activer le son</span></button>
+        </div>
+      </figure>
+
+      <div class="wrap">
+        <div class="cas-texte">
+          <p class="sb-credit">Exécution d’essai du 22 octobre 2026 · En pause : API Instagram bloquée par Meta</p>
+          <a class="btn btn--noir" href="contact.html">Parler de votre besoin <span class="fleche" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </article>
   </section>
 
-  <section class="bloc bloc--gris" id="cas">
-    <div class="wrap">
-      <div class="auto-entete">
-        <p class="label">Cas réels</p>
-        <h2 class="bloc-titre">Trois systèmes en service.</h2>
-        <p class="bloc-desc">Je les ai conçus pour mes propres produits, StudioBooking et Dikenga. Pour chacun : le problème de départ, la solution, les garde-fous et le résultat.</p>
-      </div>
-      <ul class="cas">
-        <li class="cas-carte">
-          <div>
-            <p class="label">Cas 01 · StudioBooking</p>
-            <h3>Prospecter sans y passer ses journées</h3>
-            <dl><div><dt>Le contexte</dt><dd>StudioBooking s’adresse aux studios, aux salles de répétition et aux lieux culturels. Les trouver un par un, vérifier leurs adresses et les relancer à la main prenait trop de temps.</dd></div><div><dt>La solution</dt><dd>Un agent explore la France département par département. Il lit le site officiel de chaque lieu, choisit une adresse professionnelle, rédige une phrase d’accroche à partir de faits trouvés sur le site, puis envoie l’e-mail et les relances.</dd></div><div><dt>Les garde-fous</dt><dd>Chaque adresse passe cinq contrôles. Une adresse douteuse attend ma validation. Le désabonnement se fait en un clic, et l’envoi s’arrête seul au-delà de 5 % d’adresses rejetées ou dès une plainte.</dd></div><div><dt>Le résultat</dt><dd>Jusqu’à 20 nouveaux contacts par jour, sans doublon. Je n’interviens plus que sur les réponses.</dd></div></dl>
-            <p class="cas-outils"><span>Cloudflare Workers</span><span>OpenStreetMap</span><span>Workers AI</span><span>Resend</span></p>
-          </div>
-          <ol class="flux" aria-label="Étapes du système"><li><div><strong>Trouver</strong><span>Recherche des lieux sur OpenStreetMap</span></div></li><li><div><strong>Lire</strong><span>Analyse du site officiel, dans le respect de robots.txt</span></div></li><li><div><strong>Vérifier</strong><span>Cinq contrôles de l’adresse e-mail</span></div></li><li><div><strong>Écrire</strong><span>Message personnalisé, puis deux relances</span></div></li><li><div><strong>Suivre</strong><span>Chaque lieu garde son statut et son historique</span></div></li><li><div><strong>Se protéger</strong><span>Suspension automatique en cas d’alerte</span></div></li></ol>
-        </li>
-        <li class="cas-carte">
-          <div>
-            <p class="label">Cas 02 · StudioBooking</p>
-            <h3>Réparer une panne avant qu’elle se voie</h3>
-            <dl><div><dt>Le contexte</dt><dd>StudioBooking exécute chaque jour des tâches programmées : sauvegardes, rappels, e-mails. Une nuit d’octobre 2026, plusieurs tâches ne sont pas parties, sans aucune alerte. Sur un logiciel de réservation, ce silence est le vrai danger.</dd></div><div><dt>La solution</dt><dd>Toutes les 30 minutes, un contrôle de santé mesure chaque service. S’il trouve une panne connue, l’agent tente d’abord de la réparer : il relance la tâche manquée, rattrape la sauvegarde ou débloque la boîte d’envoi, puis il mesure à nouveau.</dd></div><div><dt>Les garde-fous</dt><dd>Une même tâche n’est relancée qu’une fois par créneau de 50 minutes, pour éviter les boucles. Chaque action est notée dans un historique, et un interrupteur coupe l’agent à tout moment.</dd></div><div><dt>Le résultat</dt><dd>Les pannes simples se règlent sans moi. Je reçois un compte rendu, et une alerte seulement si la réparation échoue.</dd></div></dl>
-            <p class="cas-outils"><span>Cloudflare Workers</span><span>Base D1</span><span>Telegram</span></p>
-          </div>
-          <ol class="flux" aria-label="Étapes du système"><li><div><strong>Surveiller</strong><span>Contrôle de santé toutes les 30 minutes</span></div></li><li><div><strong>Détecter</strong><span>Tâche manquée, sauvegarde en retard, e-mail bloqué</span></div></li><li><div><strong>Réparer</strong><span>Relance ciblée de ce qui a échoué</span></div></li><li><div><strong>Remesurer</strong><span>Nouveau contrôle juste après</span></div></li><li><div><strong>Informer</strong><span>Compte rendu sur Telegram, alerte si échec</span></div></li></ol>
-        </li>
-        <li class="cas-carte">
-          <div>
-            <p class="label">Cas 03 · Dikenga</p>
-            <h3>Publier à l’heure, sans y penser</h3>
-            <dl><div><dt>Le contexte</dt><dd>Je publie régulièrement sur LinkedIn, avec des textes, des images et des carrousels. À la main, un oubli arrive vite, et un carrousel mal envoyé n’affiche que sa couverture.</dd></div><div><dt>La solution</dt><dd>Un workflow n8n lit le planning toutes les 5 minutes. Il reconnaît le format du post et choisit le bon chemin : texte seul, image, ou document PDF envoyé en plusieurs étapes à l’API LinkedIn. C’est le workflow rejoué plus haut sur cette page.</dd></div><div><dt>Les garde-fous</dt><dd>Le post passe en « en cours » avant l’envoi, ce qui évite une double publication. En cas d’erreur, il passe en « erreur » et je reçois une alerte Telegram.</dd></div><div><dt>Le résultat</dt><dd>Les posts partent à l’heure prévue, avec toutes leurs pages, et le lien de chaque publication est enregistré.</dd></div></dl>
-            <p class="cas-outils"><span>n8n</span><span>API LinkedIn</span><span>Telegram</span></p>
-          </div>
-          <ol class="flux" aria-label="Étapes du système"><li><div><strong>Planifier</strong><span>Texte, visuel et heure dans un tableau</span></div></li><li><div><strong>Vérifier</strong><span>Contrôle du planning toutes les 5 minutes</span></div></li><li><div><strong>Choisir</strong><span>Texte, image ou PDF</span></div></li><li><div><strong>Publier</strong><span>Envoi par l’API LinkedIn</span></div></li><li><div><strong>Noter</strong><span>Statut et lien enregistrés</span></div></li></ol>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="bloc">
-    <div class="wrap">
-      <div class="auto-entete">
-        <p class="label">Aussi en service</p>
-        <h2 class="bloc-titre">D’autres automatisations réelles.</h2>
-      </div>
-      <ul class="auto-aussi">
-        <li><h3>Relances de paiement</h3><p>StudioBooking relance un paiement échoué le jour même, puis 3 et 7 jours après.</p></li>
-        <li><h3>Suivi des essais</h3><p>Un message part au bon moment pendant l’essai gratuit : jour 3, jour 7 et jour 15.</p></li>
-        <li><h3>Liste d’attente</h3><p>Un créneau se libère : il est bloqué 30 minutes pour le premier inscrit, puis proposé au suivant.</p></li>
-        <li><h3>Rapprochement des paiements</h3><p>Chaque nuit, le système compare les paiements Stripe aux réservations et signale les écarts.</p></li>
-        <li><h3>E-mails sans perte</h3><p>Chaque e-mail passe par une boîte d’envoi qui réessaie en cas d’échec.</p></li>
-        <li><h3>Point du matin</h3><p>Chaque matin à 8 h, un rapport résume l’activité, sans ouvrir le tableau de bord.</p></li>
-        <li><h3>Gmail vers Telegram</h3><p>Toutes les 5 minutes, les e-mails importants sont signalés sur mon téléphone.</p></li>
-        <li><h3>Sauvegardes</h3><p>La base est sauvegardée chaque nuit, et un rattrapage se lance si une sauvegarde manque.</p></li>
-      </ul>
-    </div>
-  </section>
-  <section class="bloc bloc--gris" id="secteurs">
-    <div class="wrap">
-      <div class="auto-entete">
-        <p class="label">Exemples par secteur</p>
-        <h2 class="bloc-titre">Et dans votre secteur ?</h2>
-        <p class="bloc-desc">Trois scénarios pour montrer la méthode. Ce sont des exemples de projets, pas des réalisations pour des clients.</p>
-      </div>
-      <ul class="secteurs">
-        <li><p class="label">Santé</p><h3>Rappeler les rendez-vous</h3><dl><div><dt>Déclencheur</dt><dd>La veille d’un rendez-vous, à heure fixe.</dd></div><div><dt>Ce que fait le système</dt><dd>Il lit l’agenda, prépare le rappel et l’envoie au patient. Une annulation remonte au secrétariat.</dd></div><div><dt>Le gain visé</dt><dd>Moins d’appels à passer, et des créneaux libérés plus tôt.</dd></div><div><dt>Garde-fou</dt><dd>Les données de santé demandent un cadre juridique et un hébergement adaptés.</dd></div></dl></li>
-        <li><p class="label">Finance</p><h3>Relancer les factures</h3><dl><div><dt>Déclencheur</dt><dd>Une facture dépasse sa date d’échéance.</dd></div><div><dt>Ce que fait le système</dt><dd>Il prépare une relance avec le bon montant, puis résume les impayés chaque lundi.</dd></div><div><dt>Le gain visé</dt><dd>Un suivi régulier, sans tableau à tenir à la main.</dd></div><div><dt>Garde-fou</dt><dd>Une personne valide les relances sensibles. Aucun paiement ne part seul.</dd></div></dl></li>
-        <li><p class="label">Hôpital</p><h3>Suivre les demandes de matériel</h3><dl><div><dt>Déclencheur</dt><dd>Un service remplit un formulaire interne.</dd></div><div><dt>Ce que fait le système</dt><dd>Il transmet la demande à la bonne équipe et relance si rien ne bouge sous 24 heures.</dd></div><div><dt>Le gain visé</dt><dd>Des demandes moins souvent perdues, et un suivi clair.</dd></div><div><dt>Garde-fou</dt><dd>Le système ne traite aucune donnée de patient.</dd></div></dl></li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="bloc">
+  <section class="bloc" id="studiobooking-auto">
     <div class="wrap expertise-grille">
       <div class="expertise-texte">
-        <p class="label">Méthode</p>
-        <h2 class="bloc-titre">Quatre étapes.</h2>
-        <p class="bloc-desc">Une automatisation utile commence par un vrai problème, pas par un outil. Je garde une validation humaine dès qu’une action est sensible.</p>
+        <p class="label">Aussi dans StudioBooking</p>
+        <h2 class="bloc-titre">Des automatisations<br>dans mon logiciel.</h2>
+        <p class="bloc-desc">Ces systèmes tournent dans StudioBooking, en dehors de n8n. Ils prennent en charge la prospection, la surveillance et le suivi des clients.</p>
       </div>
       <ul class="expertise-cartes">
-        <li class="expertise-carte"><div><h3>Repérer</h3><p>Trouver les tâches répétitives et le temps qu’elles prennent.</p></div></li>
-        <li class="expertise-carte"><div><h3>Concevoir</h3><p>Dessiner le parcours, les exceptions et les garde-fous.</p></div></li>
-        <li class="expertise-carte"><div><h3>Construire</h3><p>Relier vos outils avec n8n, des agents IA et Claude Code.</p></div></li>
-        <li class="expertise-carte"><div><h3>Surveiller</h3><p>Suivre le système et prévenir dès qu’un problème arrive.</p></div></li>
+        <li class="expertise-carte"><div><h3>Agent de prospection</h3><p>Il trouve des lieux culturels, vérifie leurs adresses, écrit et relance. Une adresse douteuse attend une validation humaine.</p></div></li>
+        <li class="expertise-carte"><div><h3>Réparation automatique</h3><p>Toutes les 30 minutes, un contrôle de santé relance ce qui a échoué et m’alerte seulement si la réparation échoue.</p></div></li>
+        <li class="expertise-carte"><div><h3>Relances de paiement</h3><p>Un paiement échoué est relancé le jour même, puis 3 et 7 jours après.</p></div></li>
+        <li class="expertise-carte"><div><h3>Liste d’attente</h3><p>Un créneau libéré est bloqué 30 minutes pour le premier inscrit, puis proposé au suivant.</p></div></li>
+        <li class="expertise-carte"><div><h3>Rapprochement des paiements</h3><p>Chaque nuit, les paiements Stripe sont comparés aux réservations, et les écarts sont signalés.</p></div></li>
       </ul>
     </div>
   </section>
@@ -604,7 +549,5 @@
   document.addEventListener('visibilitychange', function () { vids.forEach(function (v) { if (document.hidden) v.pause(); else if (vu.get(v) && !calme) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } }); });
 })();
 </script>
-<script src="automatisation-workflows.js?v=2" defer></script>
-<script src="automatisation-sim.js?v=6" defer></script>
 </body>
 </html>
