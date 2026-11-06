@@ -19,7 +19,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 112 112'%3E%3Crect width='112' height='112' rx='24' fill='%23202020'/%3E%3Cg transform='translate(6 11)' fill='%23ffffff'%3E%3Crect x='10' y='10' width='52' height='6'/%3E%3Cpolygon points='53,10 65,10 21,90 9,90'/%3E%3Crect x='10' y='84' width='50' height='6'/%3E%3Cpolygon points='57.5,10 63,10 98,90 92.5,90'/%3E%3Crect x='35' y='59' width='47' height='5'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://images.unsplash.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital@0;1&family=Newsreader:opsz,wght@6..72,300;6..72,350;6..72,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text&display=swap">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"HousePainter","name":"Zoran Abaz Décoration","description":"Artisan peintre décorateur : peinture intérieure et extérieure, décoration et finitions, conseil couleurs.","telephone":"+33631600005","email":"zoran_abaz@live.fr","address":{"@type":"PostalAddress","addressLocality":"Les Pavillons-sous-Bois","postalCode":"93320","addressRegion":"Seine-Saint-Denis","addressCountry":"FR"},"areaServed":{"@type":"AdministrativeArea","name":"Seine-Saint-Denis"},"foundingDate":"2010","taxID":"51993424400012","sameAs":["https://www.facebook.com/zoranabazdeco"],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Prestations","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Peinture intérieure"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Peinture extérieure"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Décoration et finitions, pose de papier peint"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Conseil couleurs et matières"}}]}}
 </script>
@@ -429,6 +429,24 @@ nav.menu a{font-family:'Libre Caslon Text',Georgia,serif;font-size:20px;font-wei
 html{scroll-padding-top:120px}
 .logo-za.grand{gap:14px}.logo-za.grand .za svg{width:64px;height:56px}
 @media (max-width:960px){.barre{height:88px}nav.menu{top:88px}.logo-za{gap:5px}.logo-za .za svg{width:26px;height:23px}}
+
+/* Une seule police partout (Suisse Intl), sauf le nom du logo */
+body,body *{font-family:'Suisse Intl','Helvetica Neue',Helvetica,Arial,sans-serif!important}
+.logo-za .mots,.logo-za .mots *{font-family:'Libre Caslon Text',Georgia,serif!important}
+.chapo,.artisan p,.zone .txt,.zone .txt p,.avis-carte p,.faq .rep,.etapes p,.atouts span,.carte-photo .t3,.presta-detail ul,.v-bas .txt span{font-weight:400}
+.carte-photo .t3{font-weight:300}
+.chapo{font-size:22px;line-height:33px;font-weight:300}
+.artisan .cit{font-weight:300}
+nav.menu a{font-weight:300;letter-spacing:-.2px}
+.cats a{font-weight:300;letter-spacing:-.2px}
+/* Bouton retour en haut */
+.haut-btn{position:fixed;right:clamp(16px,3vw,32px);bottom:clamp(16px,3vw,32px);z-index:45;width:52px;height:52px;border-radius:50%;border:1px solid var(--encre);background:#fff;color:var(--encre);display:grid;place-items:center;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .5s var(--ease),transform .5s var(--ease),visibility .5s,background .4s,color .4s;box-shadow:0 10px 30px -14px rgba(0,0,0,.35)}
+.haut-btn.visible{opacity:1;visibility:visible;transform:none}
+.haut-btn:hover{background:var(--encre);color:#fff}
+.haut-btn svg{transition:transform .5s var(--ease)}
+.haut-btn:hover svg{transform:translateY(-3px)}
+@media (max-width:960px){.haut-btn{bottom:84px;right:16px;width:46px;height:46px}}
+@media (prefers-reduced-motion:reduce){.haut-btn{transition:none}}
 </style>
 </head>
 <body>
@@ -638,6 +656,7 @@ html{scroll-padding-top:120px}
 </div>
 </footer>
 
+<button class="haut-btn" type="button" aria-label="Remonter en haut de la page"><svg viewBox="0 0 14 16" width="14" height="16" aria-hidden="true"><path d="M7 15V1M1 7l6-6 6 6" stroke="currentColor" stroke-width="1.3" fill="none"/></svg></button>
 <a class="appel" href="tel:+33631600005"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>Appeler Zoran</a>
 
 <!-- Visionneuse plein écran -->
@@ -670,11 +689,13 @@ if(!('IntersectionObserver' in window)){cibles.forEach(function(x){x.classList.a
 else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vu');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});cibles.forEach(function(x){io.observe(x)})}
 
 /* Parallaxe, header, menu actif */
+var hb=$('.haut-btn');hb.addEventListener('click',function(){window.scrollTo({top:0,behavior:calme?'auto':'smooth'});$('.logo-za').focus({preventScroll:true})});
 var px=$$('[data-parallax]'),h=$('header'),dernier=0,attente=false,sections=$$('main section[id]'),liens=$$('a',n);
 function maj(){
   var y=window.scrollY,vh=window.innerHeight;
   if(!calme){px.forEach(function(img){var r=img.parentElement.getBoundingClientRect();if(r.bottom<0||r.top>vh)return;img.style.setProperty('--py',((r.top+r.height/2-vh/2)*-(+img.dataset.parallax)).toFixed(1)+'px')})}
   h.classList.toggle('colle',y>40);
+  hb.classList.toggle('visible',y>700);
   if(y>dernier&&y>500&&!n.classList.contains('ouvert'))h.classList.add('cache');else h.classList.remove('cache');
   dernier=y;
   var cur='';sections.forEach(function(s){if(s.getBoundingClientRect().top<vh*.35)cur=s.id});
