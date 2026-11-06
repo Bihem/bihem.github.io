@@ -2786,3 +2786,25 @@
 
 /* 18/10/2026 : section Communication — cartes à gauche, titre à droite (ordinateur) ; sur mobile le titre reste au-dessus */
 @media (min-width: 901px) { .pf #communication .expertise-texte { order: 2; } }
+
+/* Certifications (badges Credly) */
+.pf .certifs { margin-top: var(--r-bloc); }
+.pf .certifs .label { margin-bottom: var(--r-texte); }
+.pf .certif {
+  display: grid; grid-template-columns: 96px 1fr auto; align-items: center; gap: 24px;
+  max-width: 760px; padding: 20px 26px 20px 20px; border-radius: 20px;
+  background: var(--papier-2); color: var(--encre); text-decoration: none;
+  transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+}
+.pf .certif:hover { transform: translateY(-2px); box-shadow: 0 14px 34px -18px rgba(0,0,0,.35); }
+.pf .certif img { width: 96px; height: 96px; object-fit: contain; }
+.pf .certif-txt { display: flex; flex-direction: column; gap: 4px; }
+.pf .certif-txt strong { font-size: 18px; font-weight: 600; }
+.pf .certif-txt span { font-size: 14px; color: var(--gris-txt); }
+.pf .certif-comp { font-size: 13px !important; }
+.pf .certif-lien { font-size: 14px; font-weight: 500; white-space: nowrap; }
+@media (max-width: 640px) {
+  .pf .certif { grid-template-columns: 72px 1fr; gap: 16px; }
+  .pf .certif img { width: 72px; height: 72px; }
+  .pf .certif-lien { grid-column: 1 / -1; }
+}
