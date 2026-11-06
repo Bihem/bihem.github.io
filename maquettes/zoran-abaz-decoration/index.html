@@ -102,8 +102,8 @@ nav.menu a:hover::after,nav.menu a.actif::after{transform:scaleX(1);transform-or
 .hero .photo{position:absolute;inset:0;clip-path:none}
 .hero .photo img{transform:scale(1.08);transition:transform 2.6s var(--ease)}
 .hero.vu .photo img{transform:scale(1)}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.08) 0%,rgba(0,0,0,0) 35%,rgba(0,0,0,.55) 100%);pointer-events:none}
-.hero .contenu{position:absolute;left:0;right:0;bottom:0;z-index:2;padding-bottom:clamp(32px,5vw,64px);display:flex;justify-content:space-between;align-items:flex-end;gap:32px}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.06) 0%,rgba(0,0,0,0) 28%,rgba(0,0,0,.32) 58%,rgba(0,0,0,.72) 100%);pointer-events:none}
+.hero .contenu{text-shadow:0 1px 18px rgba(0,0,0,.25);position:absolute;left:0;right:0;bottom:0;z-index:2;padding-bottom:clamp(32px,5vw,64px);display:flex;justify-content:space-between;align-items:flex-end;gap:32px}
 .hero .label{display:block;margin-bottom:14px}
 h1{font-family:var(--sans);font-weight:400;font-size:clamp(40px,5.4vw,84px);line-height:1.02;letter-spacing:-.035em;max-width:15ch}
 h1 .leger{font-weight:300}
@@ -133,7 +133,7 @@ h2 .leger{font-weight:300;color:var(--g66)}
 .carte-photo .photo{position:absolute;inset:0}
 .carte-photo .photo img{transition:transform 2s var(--ease),opacity .4s}
 .carte-photo:hover .photo.vu img{transform:scale(1.04)}
-.carte-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.6) 100%);pointer-events:none}
+.carte-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 38%,rgba(0,0,0,.28) 62%,rgba(0,0,0,.74) 100%);pointer-events:none}
 .carte-photo .sur-photo{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:26px 28px;display:flex;flex-direction:column;gap:4px}
 .carte-photo .t1{font-size:24px;font-weight:400;letter-spacing:-.02em;line-height:1.15}
 .carte-photo .t2{font-size:24px;font-weight:300;letter-spacing:-.02em;line-height:1.15}
@@ -292,7 +292,7 @@ nav.menu a{padding:15px 0;border-bottom:1px solid var(--ligne);font-family:var(-
 nav.menu a::after{display:none}
 .marque b{font-size:22px}.marque small{font-size:10px}
 .hero{height:82vh}
-.hero .contenu{flex-direction:column;align-items:flex-start}
+.hero .contenu{text-shadow:0 1px 18px rgba(0,0,0,.25);flex-direction:column;align-items:flex-start}
 .hero .lieu{text-align:left}
 .artisan .visuel,.artisan .txt{grid-column:1/13}
 .prestas{grid-template-columns:1fr}
