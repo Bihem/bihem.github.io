@@ -16,10 +16,10 @@
 <meta property="og:image" content="https://images.unsplash.com/photo-1632829882891-5047ccc421bc?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=80">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#ffffff">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 112 112'%3E%3Crect width='112' height='112' rx='24' fill='%23202020'/%3E%3Cg transform='translate(6 11)' fill='%23ffffff'%3E%3Crect x='10' y='10' width='52' height='6'/%3E%3Cpolygon points='53,10 65,10 21,90 9,90'/%3E%3Crect x='10' y='84' width='50' height='6'/%3E%3Cpolygon points='57.5,10 63,10 98,90 92.5,90'/%3E%3Crect x='35' y='59' width='47' height='5'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="img/logo-monogramme.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://images.unsplash.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital@0;1&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital@0;1&family=Newsreader:opsz,wght@6..72,300;6..72,350;6..72,400&display=swap">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"HousePainter","name":"Zoran Abaz Décoration","description":"Artisan peintre décorateur : peinture intérieure et extérieure, décoration et finitions, conseil couleurs.","telephone":"+33631600005","email":"zoran_abaz@live.fr","address":{"@type":"PostalAddress","addressLocality":"Les Pavillons-sous-Bois","postalCode":"93320","addressRegion":"Seine-Saint-Denis","addressCountry":"FR"},"areaServed":{"@type":"AdministrativeArea","name":"Seine-Saint-Denis"},"foundingDate":"2010","taxID":"51993424400012","sameAs":["https://www.facebook.com/zoranabazdeco"],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Prestations","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Peinture intérieure"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Peinture extérieure"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Décoration et finitions, pose de papier peint"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Conseil couleurs et matières"}}]}}
 </script>
@@ -268,6 +268,22 @@ footer .bas{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 2
 footer nav{display:flex;flex-wrap:wrap;gap:22px;font-size:13px;font-weight:300}
 .appel{display:none}
 
+/* Vrai logo */
+.logo-reel{display:inline-flex;align-items:center;gap:12px;justify-self:center}
+.logo-reel img:first-child{height:46px;width:auto}
+.logo-reel img:last-child{height:30px;width:auto}
+.rideau img.mot{width:150px;height:auto}
+.logo-pied img{width:110px;height:auto}
+.pied-droite{display:flex;flex-direction:column;align-items:flex-end;gap:22px}
+/* Réseaux */
+.reseaux{list-style:none;display:flex;gap:10px}
+.reseaux a{width:42px;height:42px;border:1px solid var(--encre);border-radius:50%;display:grid;place-items:center;transition:background .4s var(--ease),color .4s var(--ease)}
+.reseaux a:hover{background:var(--encre);color:#fff}
+.entete-res a{width:36px;height:36px;border-color:var(--ligne)}
+.entete-res svg{width:16px;height:16px}
+@media (max-width:960px){.logo-reel img:first-child{height:38px}.logo-reel img:last-child{height:24px}.pied-droite{align-items:flex-start}}
+@media (max-width:420px){.logo-reel img:last-child{display:none}}
+
 @media (prefers-reduced-motion:reduce){
 html{scroll-behavior:auto}
 .rideau{display:none}
@@ -315,11 +331,57 @@ form{grid-template-columns:1fr;padding:26px}
 .hero .actions .pil{flex:1 1 100%}
 .carte-photo .t1,.carte-photo .t2{font-size:21px}
 }
+
+/* ===== Échelle typographique calquée sur The Local Project (desktop 1440 px) ===== */
+:root{--desc:'Newsreader','Times New Roman',Times,serif}
+body{font-size:16px;line-height:1.5}
+.maquette{font-size:14px}
+nav.menu a{font-size:12px;font-weight:400;letter-spacing:.24px}
+.droite .tel{font-size:12px;font-weight:400;letter-spacing:.24px}
+.pil{font-size:14px;font-weight:300;letter-spacing:.28px;min-height:40px;padding:0 20px}
+.label{font-size:14px;font-weight:300;letter-spacing:.7px;text-transform:uppercase}
+h1{font-size:clamp(34px,3.3vw,48px);line-height:1.1;letter-spacing:normal;font-weight:400;max-width:none}
+.hero .sous{font-size:clamp(18px,1.67vw,24px);line-height:1.5;font-weight:300;margin-top:14px}
+.hero .lieu{font-size:12px;letter-spacing:.24px;font-weight:400}
+.cats a{font-size:20px}
+.surtitre{font-family:var(--sans);font-size:14px;font-weight:300;letter-spacing:.7px;text-transform:uppercase;color:var(--encre)}
+h2{font-size:clamp(32px,3.5vw,50px);line-height:1.1;letter-spacing:-1px;font-weight:400}
+h2 .leger{font-weight:300;color:inherit}
+.chapo{font-family:var(--desc);font-weight:350;font-size:22px;line-height:33px;color:#000}
+.artisan .cit{font-family:var(--sans);font-weight:300;font-size:clamp(28px,2.9vw,42px);line-height:1.1;letter-spacing:normal;color:#000}
+.artisan p,.zone .txt,.zone .txt p,.avis-carte p,.faq .rep,.etapes p{font-family:var(--desc);font-weight:350;font-size:16px;line-height:24px;color:#000}
+.atouts li{font-size:16px;line-height:24px}
+.atouts b{font-family:var(--sans);font-size:12px;letter-spacing:.24px;font-weight:400;padding-top:3px}
+.atouts span{font-family:var(--desc);font-weight:350;color:#000}
+.legende,.mini,.credit-photo{font-size:12px;line-height:18px;letter-spacing:.24px;color:var(--g66)}
+.carte-photo .t1,.carte-photo .t2{font-size:22px;line-height:26.4px;letter-spacing:-.44px}
+.carte-photo .t3{font-family:var(--desc);font-weight:350;font-size:16px;line-height:24px;margin-top:10px}
+.prestas .carte-photo .t1,.prestas .carte-photo .t2{font-size:clamp(28px,2.9vw,42px);line-height:1.1;letter-spacing:normal}
+.prestas .carte-photo .sur-photo{padding:32px 34px}
+.presta-detail h3{font-family:var(--sans);font-weight:400;font-size:18px;line-height:21.6px;letter-spacing:-.36px}
+.presta-detail ul{font-family:var(--desc);font-weight:350;font-size:16px;line-height:24px;color:#000;gap:2px}
+.ambiance p{font-size:clamp(32px,3.3vw,48px);line-height:1.1;letter-spacing:normal}
+.etapes .n{font-size:12px;letter-spacing:.24px;font-weight:400;color:var(--g66)}
+.etapes h3{font-size:22px;line-height:26.4px;letter-spacing:-.44px;font-weight:400}
+.avis-carte .grand{font-size:clamp(28px,2.9vw,42px);line-height:1.1;font-weight:300;letter-spacing:normal}
+.confiance li{font-size:16px}
+.communes li{font-size:12px;letter-spacing:.24px;font-weight:400}
+.faq summary{font-size:22px;line-height:26.4px;letter-spacing:-.44px;font-weight:400}
+.coord{font-size:16px}
+.coord dt{font-size:12px;letter-spacing:.24px;font-weight:400}
+.champ label{font-size:12px;letter-spacing:.24px;font-weight:400}
+.champ input,.champ select,.champ textarea{font-size:16px}
+.envoi-zone small,.champ .aide{font-size:12px;line-height:18px;letter-spacing:.24px}
+.v-bas .txt b{font-size:22px;letter-spacing:-.44px}
+.v-bas .txt span{font-family:var(--desc);font-weight:350;font-size:16px;color:#000}
+footer nav{font-size:12px;letter-spacing:.24px;font-weight:400}
+footer .bas{font-size:11px;letter-spacing:.11px}
+@media (max-width:600px){.chapo{font-size:19px;line-height:28px}.prestas .carte-photo .sur-photo{padding:24px}}
 </style>
 </head>
 <body>
 <a class="evite" href="#contenu">Aller au contenu</a>
-<div class="rideau" aria-hidden="true"><div class="mot marque"><small>DÉCORATION</small><b>ZORAN ABAZ</b></div></div>
+<div class="rideau" aria-hidden="true"><img class="mot" src="img/logo-zoran-abaz.png" alt="" width="500" height="688"></div>
 
 <div class="maquette"><b>Maquette</b> <span>proposée par DIKENGA® Design — ce n'est pas le site officiel de l'entreprise.</span> <a href="https://dikengadesign.fr/" target="_blank" rel="noopener">dikengadesign.fr</a></div>
 
@@ -332,8 +394,8 @@ form{grid-template-columns:1fr;padding:26px}
 <a href="#zone">Zone</a>
 <a href="#faq">FAQ</a>
 </nav>
-<a class="marque" href="#haut" aria-label="Zoran Abaz Décoration, retour à l'accueil"><small>DÉCORATION</small><b>ZORAN ABAZ</b></a>
-<div class="droite"><a class="tel" href="tel:+33631600005">06 31 60 00 05</a><a class="pil pil-n" href="#contact">Demander un devis</a></div>
+<a class="logo-reel" href="#haut" aria-label="Zoran Abaz Décoration, retour à l'accueil"><img src="img/logo-monogramme.png" alt="" width="365" height="400"><img src="img/logo-texte.png" alt="Zoran Abaz Décoration" width="560" height="181"></a>
+<div class="droite"><ul class="reseaux entete-res" aria-label="Réseaux et contact"><li><a href="https://www.facebook.com/zoranabazdeco" target="_blank" rel="noopener" aria-label="Facebook : Zoran Abaz Deco"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M13.5 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21h3.1z"/></svg></a></li><li><a href="tel:+33631600005" aria-label="Appeler le 06 31 60 00 05"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.4" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg></a></li><li><a href="mailto:zoran_abaz@live.fr" aria-label="Écrire à zoran_abaz@live.fr"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.4" d="M3.5 6h17v12h-17zM3.8 6.4l8.2 6.6 8.2-6.6"/></svg></a></li></ul><a class="tel" href="tel:+33631600005">06 31 60 00 05</a><a class="pil pil-n" href="#contact">Demander un devis</a></div>
 <a class="appel-ico" href="tel:+33631600005" aria-label="Appeler Zoran Abaz au 06 31 60 00 05"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.3" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg></a>
 </div></header>
 
@@ -493,6 +555,7 @@ form{grid-template-columns:1fr;padding:26px}
 <dt>Secteur</dt><dd>Les Pavillons-sous-Bois (93320)</dd>
 <dt>Facebook</dt><dd><a href="https://www.facebook.com/zoranabazdeco" target="_blank" rel="noopener">Zoran Abaz Deco</a></dd>
 </dl>
+<div class="apparait" style="--d:.28s"><p class="mini" style="margin-bottom:12px">Suivez Zoran Abaz Deco</p><ul class="reseaux" aria-label="Réseaux et contact"><li><a href="https://www.facebook.com/zoranabazdeco" target="_blank" rel="noopener" aria-label="Facebook : Zoran Abaz Deco"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M13.5 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21h3.1z"/></svg></a></li><li><a href="tel:+33631600005" aria-label="Appeler le 06 31 60 00 05"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.4" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg></a></li><li><a href="mailto:zoran_abaz@live.fr" aria-label="Écrire à zoran_abaz@live.fr"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.4" d="M3.5 6h17v12h-17zM3.8 6.4l8.2 6.6 8.2-6.6"/></svg></a></li></ul></div>
 <a class="pil pil-n apparait" style="--d:.3s;align-self:flex-start" href="tel:+33631600005">Appeler le 06 31 60 00 05</a>
 </div>
 <form id="devis" class="apparait" style="--d:.2s" novalidate aria-describedby="form-aide">
@@ -514,8 +577,8 @@ form{grid-template-columns:1fr;padding:26px}
 
 <footer>
 <div class="wrap haut">
-<a class="marque" href="#haut" aria-label="Retour en haut"><small>DÉCORATION</small><b>ZORAN ABAZ</b></a>
-<nav aria-label="Pied de page"><a href="#artisan">L'artisan</a><a href="#prestations">Prestations</a><a href="#realisations">Réalisations</a><a href="#zone">Zone</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></nav>
+<a class="logo-pied" href="#haut" aria-label="Zoran Abaz Décoration, retour en haut"><img src="img/logo-zoran-abaz.png" alt="Zoran Abaz Décoration" width="500" height="688" loading="lazy"></a>
+<div class="pied-droite"><ul class="reseaux" aria-label="Réseaux et contact"><li><a href="https://www.facebook.com/zoranabazdeco" target="_blank" rel="noopener" aria-label="Facebook : Zoran Abaz Deco"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M13.5 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21h3.1z"/></svg></a></li><li><a href="tel:+33631600005" aria-label="Appeler le 06 31 60 00 05"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.4" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg></a></li><li><a href="mailto:zoran_abaz@live.fr" aria-label="Écrire à zoran_abaz@live.fr"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.4" d="M3.5 6h17v12h-17zM3.8 6.4l8.2 6.6 8.2-6.6"/></svg></a></li></ul><nav aria-label="Pied de page"><a href="#artisan">L'artisan</a><a href="#prestations">Prestations</a><a href="#realisations">Réalisations</a><a href="#zone">Zone</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></nav></div>
 </div>
 <div class="wrap bas">
 <span>Peintre décorateur · Les Pavillons-sous-Bois (93320) · 06 31 60 00 05 · SIRET 519 934 244 00012</span>
