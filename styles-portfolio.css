@@ -2810,6 +2810,6 @@
 }
 
 /* Badge IBM à la place du portrait */
-.pf .hero-portrait--badge a { display: block; border-radius: 22px; transition: transform .5s var(--ease), box-shadow .5s var(--ease); }
-.pf .hero-portrait--badge a:hover { transform: translateY(-3px) rotate(-1deg); box-shadow: 0 22px 44px -22px rgba(0,0,0,.45); }
-.pf .hero-portrait--badge img { border-radius: 22px; object-fit: contain; object-position: center; }
+.pf .hero-portrait--badge a { display: block; border-radius: 0; transition: transform .5s var(--ease), box-shadow .5s var(--ease); }
+.pf .hero-portrait--badge a:hover { transform: translateY(-3px); box-shadow: 0 22px 44px -22px rgba(0,0,0,.45); }
+.pf .hero-portrait--badge img { border-radius: 0; object-fit: contain; object-position: center; }
