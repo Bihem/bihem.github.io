@@ -44,7 +44,7 @@ nav a:not(.btn):hover{color:var(--laiton-t)}
 .burger{display:none;width:44px;height:44px;border:1px solid var(--ligne2);background:transparent;border-radius:2px;cursor:pointer;align-items:center;justify-content:center}
 
 /* Hero */
-.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center;padding:96px 0 112px}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center;padding-block:96px 112px}
 h1{font-size:clamp(48px,6.4vw,88px);line-height:1.02;letter-spacing:-.01em;margin:26px 0 0}
 h1 em{color:var(--noyer)}
 .accroche{margin-top:32px;max-width:500px;font-size:18px;color:var(--doux)}
@@ -65,7 +65,7 @@ h1 em{color:var(--noyer)}
 .faits span{font-size:13px;letter-spacing:.12em;color:#D9CBB6}
 
 /* Savoir-faire */
-.savoir{display:grid;grid-template-columns:.8fr 1.2fr;gap:72px;padding:128px 0}
+.savoir{display:grid;grid-template-columns:.8fr 1.2fr;gap:72px;padding-block:128px}
 .savoir .texte{display:flex;flex-direction:column;gap:24px;font-size:18px;color:#4A3D33}
 .signature{display:flex;align-items:center;gap:18px;margin-top:12px;font-family:var(--serif);font-style:italic;font-size:22px;color:var(--encre)}
 .signature::before{content:"";width:56px;height:1px;background:var(--laiton)}
@@ -81,7 +81,7 @@ h1 em{color:var(--noyer)}
 .carte .num{font-family:var(--serif);font-size:18px;color:var(--laiton-t)}
 .carte h3{font-weight:500;font-size:30px;line-height:1.15}
 .carte p{color:var(--doux);font-size:15px}
-.section{padding:128px 0}
+.section{padding-block:128px}
 
 /* Méthode */
 .etapes{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:40px;margin-top:64px}
@@ -98,7 +98,7 @@ h1 em{color:var(--noyer)}
 .photo{aspect-ratio:4/5;background:#3A2A1F;border:1px solid #4A3727;display:flex;align-items:flex-end;padding:24px;font-size:12px;letter-spacing:.2em;color:#D9CBB6}
 
 /* Contact */
-.contact{display:grid;grid-template-columns:.85fr 1.15fr;gap:72px;padding:128px 0}
+.contact{display:grid;grid-template-columns:.85fr 1.15fr;gap:72px;padding-block:128px}
 .contact .gauche{display:flex;flex-direction:column;gap:28px}
 .contact .gauche p{color:var(--doux);font-size:17px;max-width:420px}
 dl{display:grid;grid-template-columns:120px 1fr;gap:14px 20px;font-size:15px;margin-top:8px}
@@ -136,10 +136,10 @@ nav.ouvert{display:flex}
 nav a:not(.btn){padding:14px 0;border-bottom:1px solid var(--ligne)}
 nav .btn{margin-top:16px}
 .hero,.savoir,.contact{grid-template-columns:1fr;gap:48px}
-.hero{padding:64px 0 80px}
+.hero{padding-block:64px 80px}
 .badge{left:12px}
 .galerie{grid-template-columns:1fr 1fr}
-.section,.savoir,.contact{padding:88px 0}
+.section,.savoir,.contact{padding-block:88px}
 }
 @media (max-width:560px){
 .cartes,.etapes,.galerie,.faits .wrap{grid-template-columns:1fr}
