@@ -546,6 +546,17 @@ nav.menu a{font-size:15px;letter-spacing:0}
 .appel.hors{opacity:0;visibility:hidden;pointer-events:none;filter:blur(6px);transform:translateY(22px);clip-path:inset(0 46% 0 46% round 999px);transition:clip-path .5s var(--ease),opacity .4s var(--ease),transform .5s var(--ease),filter .4s var(--ease),visibility 0s linear .5s}
 .appel.hors svg{opacity:0;transform:translateX(-10px);transition-delay:0s}
 @media (prefers-reduced-motion:reduce){.ia-btn,.ia-btn.hors,.appel,.appel.hors{transition:opacity .2s linear,visibility 0s linear .2s;filter:none;transform:none;clip-path:none}}
+
+/* Mobile : devis sort du bas, assistant de la gauche, retour en haut de la droite */
+@media (max-width:960px){
+.appel{clip-path:none!important;filter:none!important;transition:transform .85s var(--ressort) .05s,opacity .4s var(--ease) .05s,visibility 0s linear 0s}
+.appel.hors{transform:translateY(calc(100% + 32px));opacity:0;transition:transform .5s var(--ease),opacity .4s var(--ease) .1s,visibility 0s linear .5s}
+.ia-btn{filter:none!important;transition:transform .85s var(--ressort) .15s,opacity .4s var(--ease) .15s,visibility 0s linear 0s,background .4s}
+.ia-btn.hors{transform:translateX(calc(-100% - 32px));opacity:0;transition:transform .5s var(--ease),opacity .4s var(--ease) .1s,visibility 0s linear .5s,background .4s}
+.haut-btn{transform:translateX(calc(100% + 32px));opacity:0;transition:transform .5s var(--ease),opacity .4s var(--ease) .1s,visibility 0s linear .5s,background .4s,color .4s}
+.haut-btn.visible{transform:none;opacity:1;transition:transform .85s var(--ressort) .15s,opacity .4s var(--ease) .15s,visibility 0s linear 0s,background .4s,color .4s}
+}
+@media (max-width:960px) and (prefers-reduced-motion:reduce){.appel,.appel.hors,.ia-btn,.ia-btn.hors,.haut-btn,.haut-btn.visible{transition:opacity .2s linear,visibility 0s linear .2s;transform:none}}
 </style>
 </head>
 <body>
@@ -798,7 +809,7 @@ function maj(){
   var y=window.scrollY,vh=window.innerHeight;
   if(!calme){px.forEach(function(img){var r=img.parentElement.getBoundingClientRect();if(r.bottom<0||r.top>vh)return;img.style.setProperty('--py',((r.top+r.height/2-vh/2)*-(+img.dataset.parallax)).toFixed(1)+'px')})}
   h.classList.toggle('colle',y>40);
-  hb.classList.toggle('visible',y>700);
+  hb.classList.toggle('visible',hero.getBoundingClientRect().bottom<vh*.35);
   if(y>dernier&&y>500&&!n.classList.contains('ouvert'))h.classList.add('cache');else h.classList.remove('cache');
   dernier=y;
   var cur='';sections.forEach(function(s){if(s.getBoundingClientRect().top<vh*.35)cur=s.id});
