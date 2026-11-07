@@ -7,11 +7,13 @@
 <meta name="theme-color" content="#161616">
 <title>Zoran Abaz Décoration — Devis & Factures</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Libre+Caslon+Text:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <style>
-:root{--encre:#161616;--g6:#666;--g8:#888;--ligne:#E6E6E6;--fond:#F6F6F4;--blanc:#fff;--ok:#1F7A4D;--okf:#E7F4EC;--att:#9A6700;--attf:#FFF4D6;--ko:#B42318;--kof:#FDECEA;--info:#1D4ED8;--infof:#E8EEFD;--r:10px;--sans:'Inter',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;--serif:'Libre Caslon Text',Georgia,serif}
+@font-face{font-family:'Suisse Intl';src:url('https://cdn.prod.website-files.com/6772f6efe246aaaa73ad2a98/67784f5e4c3068c2e2f22e60_SuisseIntl-Regular.otf')format('opentype');font-weight:400 700;font-display:swap}
+@font-face{font-family:'Suisse Intl';src:url('https://cdn.prod.website-files.com/6772f6efe246aaaa73ad2a98/67784f815ee57b4c18bdae11_SuisseIntl-Light.otf')format('opentype');font-weight:300;font-display:swap}
+:root{--encre:#161616;--g6:#666;--g8:#888;--ligne:#E6E6E6;--fond:#F6F6F4;--blanc:#fff;--ok:#1F7A4D;--okf:#E7F4EC;--att:#9A6700;--attf:#FFF4D6;--ko:#B42318;--kof:#FDECEA;--info:#1D4ED8;--infof:#E8EEFD;--r:10px;--sans:'Suisse Intl','Helvetica Neue',Helvetica,Arial,sans-serif;--serif:'Libre Caslon Text',Georgia,serif}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
 body{font-family:var(--sans);font-size:14px;color:var(--encre);background:var(--fond);-webkit-font-smoothing:antialiased}
@@ -131,54 +133,54 @@ table.t{width:100%;border-collapse:collapse}
 .bandeau-doc .espace{flex:1}
 .bascule{display:none;gap:6px;margin-bottom:12px}
 /* Document A4 — présentation premium */
-.feuille{width:794px;min-height:1123px;background:#fff;color:#141414;padding:0;font-family:var(--sans);font-size:10.8px;line-height:1.55;box-shadow:0 10px 40px -18px rgba(0,0,0,.25);position:relative;display:grid;grid-template-columns:188px 1fr}
-.f-cote{background:#141414;color:#fff;padding:44px 24px 34px;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative}
+.feuille{width:794px;min-height:1123px;background:#fff;color:#141414;padding:0;font-family:var(--sans);font-size:12.6px;line-height:1.45;box-shadow:0 10px 40px -18px rgba(0,0,0,.25);position:relative;display:grid;grid-template-columns:166px 1fr}
+.f-cote{background:#141414;color:#fff;padding:40px 16px 30px;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative}
 .f-logo{display:flex;flex-direction:column;align-items:center;gap:9px}
 .f-logo svg{width:46px;height:41px}
-.f-logo b{font-family:var(--serif);font-weight:400;font-size:17px;letter-spacing:.16em;line-height:1;white-space:nowrap}
-.f-logo small{font-family:var(--serif);font-size:7.5px;letter-spacing:.42em;margin-top:-2px;opacity:.85;padding-left:.42em}
+.f-logo b{font-family:var(--serif);font-weight:400;font-size:19px;letter-spacing:.16em;line-height:1;white-space:nowrap}
+.f-logo small{font-family:var(--serif);font-size:8.8px;letter-spacing:.42em;margin-top:-2px;opacity:.85;padding-left:.42em}
 .f-cote .filet{width:28px;height:1px;background:rgba(255,255,255,.35);margin:28px 0 22px}
-.f-cote .bloc-c{font-size:9.6px;line-height:1.7;color:rgba(255,255,255,.78);margin-bottom:18px}
-.f-cote .bloc-c span{display:block;font-size:7.6px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:4px}
-.f-cote .bas{margin-top:auto;font-size:7.8px;line-height:1.6;color:rgba(255,255,255,.45);letter-spacing:.02em}
-.f-corps{padding:44px 44px 54px 40px;position:relative;display:flex;flex-direction:column}
+.f-cote .bloc-c{font-size:11.5px;line-height:1.7;color:rgba(255,255,255,.88);margin-bottom:18px}
+.f-cote .bloc-c span{display:block;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:4px}
+.f-cote .bas{margin-top:auto;font-size:9.2px;line-height:1.6;color:rgba(255,255,255,.6);letter-spacing:.02em}
+.f-corps{padding:40px 40px 44px 36px;position:relative;display:flex;flex-direction:column}
 .f-titre{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;padding-bottom:14px;border-bottom:1px solid #141414}
 .f-titre h2{font-size:36px;font-weight:300;letter-spacing:-.035em;line-height:.9}
-.f-titre .no{text-align:right;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#8a8a8a}
-.f-titre .no b{display:block;font-size:14px;letter-spacing:.02em;color:#141414;font-weight:500;margin-top:4px;text-transform:none}
-.f-meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;padding:12px 0 14px;border-bottom:1px solid #E6E6E3}
-.f-meta div span,.f-parties span,.f-lab{display:block;font-size:7.6px;letter-spacing:.2em;text-transform:uppercase;color:#8a8a8a;margin-bottom:4px}
-.f-meta div{font-size:10.6px}
-.f-parties{display:grid;grid-template-columns:1fr 1fr;gap:28px;padding:16px 0 2px}
-.f-parties div{font-size:10.6px;line-height:1.6}
-.f-objet{margin-top:12px;padding:10px 14px;background:#F5F3EF;border-radius:2px;font-size:11px}
-.f-objet span{font-size:7.6px;letter-spacing:.2em;text-transform:uppercase;color:#8a8a8a;margin-right:10px}
+.f-titre .no{text-align:right;font-size:10.8px;letter-spacing:.18em;text-transform:uppercase;color:#6b6b6b}
+.f-titre .no b{display:block;font-size:15.7px;letter-spacing:.02em;color:#141414;font-weight:500;margin-top:4px;text-transform:none}
+.f-meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;padding:10px 0 11px;border-bottom:1px solid #E6E6E3}
+.f-meta div span,.f-parties span,.f-lab{display:block;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#6b6b6b;margin-bottom:4px}
+.f-meta div{font-size:12.7px}
+.f-parties{display:grid;grid-template-columns:1fr 1fr;gap:28px;padding:12px 0 0}
+.f-parties div{font-size:12.7px;line-height:1.6}
+.f-objet{margin-top:12px;padding:10px 14px;background:#F5F3EF;border-radius:2px;font-size:13.2px}
+.f-objet span{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#6b6b6b;margin-right:10px}
 table.f-lignes{width:100%;border-collapse:collapse;margin-top:14px}
-.f-lignes th{font-weight:400;font-size:7.6px;text-transform:uppercase;letter-spacing:.18em;color:#8a8a8a;padding:0 6px 8px;text-align:left;border-bottom:1px solid #141414}
+.f-lignes th{font-weight:400;font-size:9px;text-transform:uppercase;letter-spacing:.14em;color:#6b6b6b;padding:0 5px 7px;text-align:left;border-bottom:1px solid #141414}
 .f-lignes th:first-child,.f-lignes td:first-child{padding-left:0}.f-lignes th:last-child,.f-lignes td:last-child{padding-right:0}
 .f-lignes th.n,.f-lignes td.n{text-align:right;white-space:nowrap}
-.f-lignes td{padding:7px 6px;border-bottom:1px solid #EDEDEA;vertical-align:top;font-variant-numeric:tabular-nums}
+.f-lignes td{padding:5px 5px;border-bottom:1px solid #EDEDEA;vertical-align:top;font-variant-numeric:tabular-nums}
 .f-lignes td b{font-weight:500}
-.f-lignes tr.titre td{font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:#141414;font-weight:500;padding-top:12px;padding-bottom:6px;border-bottom:1px solid #D9D9D5}
-.f-lignes .det{color:#7a7a7a;font-size:9.6px;white-space:pre-line;margin-top:1px}
-.f-bas{display:grid;grid-template-columns:1fr 250px;gap:30px;margin-top:16px;align-items:start}
+.f-lignes tr.titre td{font-size:9.4px;letter-spacing:.2em;text-transform:uppercase;color:#141414;font-weight:500;padding-top:12px;padding-bottom:6px;border-bottom:1px solid #D9D9D5}
+.f-lignes .det{color:#5c5c5c;font-size:10.8px;white-space:pre-line;margin-top:1px}
+.f-bas{display:grid;grid-template-columns:1fr 270px;gap:30px;margin-top:16px;align-items:start}
 .f-tot{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
 .f-tot td{padding:6px 0;border-bottom:1px solid #EDEDEA}
 .f-tot td:last-child{text-align:right}
-.f-tot tr.g td{border-bottom:0;border-top:1px solid #141414;padding-top:12px;font-size:19px;font-weight:500;letter-spacing:-.02em}
-.f-tot tr.g td:first-child{font-size:8px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;vertical-align:middle}
-.f-tot tr.sous td{color:#5a5a5a;font-size:10px;border-bottom:0;padding:3px 0}
+.f-tot tr.g td{border-bottom:0;border-top:1px solid #141414;padding-top:12px;font-size:21.3px;font-weight:500;letter-spacing:-.02em}
+.f-tot tr.g td:first-child{font-size:9.4px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;vertical-align:middle}
+.f-tot tr.sous td{white-space:nowrap;color:#5a5a5a;font-size:12px;border-bottom:0;padding:3px 0}
 .f-tot tr.reste td{font-weight:600;border-top:1px solid #141414}
-.f-lettres{font-size:9.4px;color:#6a6a6a;margin-top:10px;font-style:italic;line-height:1.5}
-.f-cond{font-size:9.8px;color:#4a4a4a;line-height:1.65}
+.f-lettres{font-size:11.3px;color:#555;margin-top:10px;font-style:italic;line-height:1.5}
+.f-cond{font-size:11.8px;color:#4a4a4a;line-height:1.65}
 .f-cond p+p{margin-top:12px}
-.f-cond b{display:block;font-weight:400;font-size:7.6px;letter-spacing:.2em;text-transform:uppercase;color:#8a8a8a;margin-bottom:4px}
+.f-cond b{display:block;font-weight:400;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#6b6b6b;margin-bottom:4px}
 .f-sign{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:18px}
-.f-sign div{border-top:1px solid #141414;padding-top:8px;min-height:74px;font-size:9.4px;color:#6a6a6a}
-.f-sign div b{display:block;font-weight:400;font-size:7.6px;letter-spacing:.2em;text-transform:uppercase;color:#141414;margin-bottom:4px}
-.f-mentions{margin-top:auto;padding-top:16px;font-size:8.2px;color:#8a8a8a;line-height:1.6}
+.f-sign div{border-top:1px solid #141414;padding-top:8px;min-height:52px;font-size:11.3px;color:#555}
+.f-sign div b{display:block;font-weight:400;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#141414;margin-bottom:4px}
+.f-mentions{margin-top:auto;padding-top:16px;font-size:9.7px;color:#6b6b6b;line-height:1.6}
 .f-mentions p+p{margin-top:2px}
-.f-filigrane{position:absolute;top:42%;left:188px;right:0;text-align:center;font-size:84px;font-weight:300;color:rgba(0,0,0,.04);transform:rotate(-22deg);pointer-events:none;letter-spacing:.14em}
+.f-filigrane{position:absolute;top:42%;left:166px;right:0;text-align:center;font-size:84px;font-weight:300;color:rgba(0,0,0,.04);transform:rotate(-22deg);pointer-events:none;letter-spacing:.14em}
 
 /* Fenêtres */
 .voile{position:fixed;inset:0;background:rgba(10,10,10,.42);display:grid;place-items:center;z-index:60;padding:16px;opacity:0;transition:opacity .2s}
@@ -715,12 +717,12 @@ async function telechargerPdf(d){if(!d)return;if(!window.jspdf||!window.html2can
     const pxParMm=canvas.width/W;let y=0,page=0;
     // découpe sur les lignes blanches pour ne pas couper un texte
     const ctx=canvas.getContext('2d');
-    const x0=Math.ceil(canvas.width*190/794),ligneBlanche=yy=>{const row=ctx.getImageData(x0,yy,canvas.width-x0,1).data;for(let i=0;i<row.length;i+=16){if(row[i]<245||row[i+1]<245||row[i+2]<245)return false}return true};
+    const x0=Math.ceil(canvas.width*168/794),ligneBlanche=yy=>{const row=ctx.getImageData(x0,yy,canvas.width-x0,1).data;for(let i=0;i<row.length;i+=16){if(row[i]<245||row[i+1]<245||row[i+2]<245)return false}return true};
     if(canvas.height<=H*pxParMm*1.06){const hmm=canvas.height/pxParMm,k=Math.min(1,H/hmm);pdf.addImage(canvas.toDataURL('image/jpeg',0.92),'JPEG',(W-W*k)/2,0,W*k,hmm*k);if(k<1){pdf.setFillColor(20,20,20);pdf.rect(0,0,(W-W*k)/2+0.3,H,'F');pdf.setFillColor(255,255,255);pdf.rect(W-(W-W*k)/2-0.3,0,(W-W*k)/2+0.3,H,'F')}y=canvas.height;page=1}
     while(y<canvas.height){const haut=page?14:0,bas=page?12:0,pageH=Math.floor((H-haut-bas)*pxParMm);let h=Math.min(pageH,canvas.height-y);
       if(y+h<canvas.height){let c=y+h;const min=y+pageH*0.7;while(c>min&&!ligneBlanche(c))c-=2;if(c>min)h=c-y}
       const part=document.createElement('canvas');part.width=canvas.width;part.height=h;part.getContext('2d').drawImage(canvas,0,y,canvas.width,h,0,0,canvas.width,h);
-      if(page)pdf.addPage();pdf.addImage(part.toDataURL('image/jpeg',0.92),'JPEG',0,haut,W,h/pxParMm);const cw=W*188/794;pdf.setFillColor(20,20,20);if(haut)pdf.rect(0,0,cw,haut+0.2,'F');const fin=haut+h/pxParMm;if(fin<H)pdf.rect(0,fin-0.2,cw,H-fin+0.2,'F');y+=h;page++}
+      if(page)pdf.addPage();pdf.addImage(part.toDataURL('image/jpeg',0.92),'JPEG',0,haut,W,h/pxParMm);const cw=W*166/794;pdf.setFillColor(20,20,20);if(haut)pdf.rect(0,0,cw,haut+0.2,'F');const fin=haut+h/pxParMm;if(fin<H)pdf.rect(0,fin-0.2,cw,H-fin+0.2,'F');y+=h;page++}
     const n=pdf.getNumberOfPages();if(n>1)for(let i=1;i<=n;i++){pdf.setPage(i);pdf.setFontSize(7.5);pdf.setTextColor(150);pdf.text(`${titreDoc(d)} ${d.numero} — page ${i}/${n}`,W-14,H-6,{align:'right'})}
     const blob=pdf.output('blob');const c=client(d.clientId);
     const nom=`${d.numero==='(brouillon)'?'Brouillon':d.numero} ${titreDoc(d)} ${nomClient(c)}`.replace(/[\\/:*?"<>|’']/g,'').replace(/\s+/g,'-')+'.pdf';
