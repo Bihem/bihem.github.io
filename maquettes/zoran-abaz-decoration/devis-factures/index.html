@@ -187,7 +187,7 @@ table.f-lignes{width:100%;border-collapse:collapse;margin-top:18px}
 .paiements{display:flex;flex-direction:column;gap:6px;margin-top:8px}
 .paiements div{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 12px;background:var(--fond);border-radius:8px;font-size:13px}
 .mobile-nav{display:none}
-@media (max-width:1180px){.editeur{grid-template-columns:1fr}.editeur .droite{position:static}.bascule{display:flex}.editeur.mode-edit .droite{display:none}.editeur.mode-apercu .gauche{display:none}}
+@media (max-width:1180px){.editeur{grid-template-columns:1fr}.editeur .droite{position:static;min-width:0}.editeur>div{min-width:0}.apercu-cadre{overflow:hidden}.bascule{display:flex}.editeur.mode-edit .droite{display:none}.editeur.mode-apercu .gauche{display:none}}
 @media (max-width:960px){
 .app{grid-template-columns:1fr}.lat{display:none}
 .mobile-nav{display:flex;position:fixed;left:0;right:0;bottom:0;background:var(--encre);z-index:50;justify-content:space-around;padding:6px 4px calc(6px + env(safe-area-inset-bottom))}
@@ -213,12 +213,54 @@ main{padding-bottom:96px}
 .lignes textarea{min-height:40px}
 @media (max-width:560px){.lignes tr{grid-template-columns:repeat(2,minmax(0,1fr))}.lignes td.des{grid-column:1/-1}.lignes tr:not(.titre) td.ops{grid-column:1/-1;grid-row:auto}}
 
+
+/* ===== Aspect « simple » : barre du haut, colonne centrée, grands champs ===== */
+body{font-size:15px;background:#F5F5F2}
+.app{display:block}
+.lat{position:sticky;top:0;z-index:30;height:auto;flex-direction:row;align-items:center;gap:18px;padding:12px 20px;overflow-x:auto}
+.marque{flex-direction:row;gap:10px;padding:0;border:0;flex-shrink:0}
+.marque div{display:flex;flex-direction:column}
+.marque b{font-size:14px}
+.nav{flex-direction:row;gap:4px;margin-left:auto}
+.nav a{padding:8px 12px;font-size:13.5px;border-radius:999px;white-space:nowrap}
+.nav a svg{width:16px;height:16px}
+.lat .pied{display:none}
+.mobile-nav{display:none!important}
+main{max-width:880px;margin:0 auto;padding:24px 16px 130px}
+.entete h1{font-size:26px}
+.carte{border-radius:16px}
+.bloc{padding:20px}
+.etape h2{font-size:17px;font-weight:500;display:flex;align-items:center;gap:10px;justify-content:flex-start;margin-bottom:16px}
+.etape h2 i{font-style:normal;width:28px;height:28px;border-radius:50%;background:var(--encre);color:#fff;display:grid;place-items:center;font-size:13px;flex-shrink:0}
+.etape h2 .btn{margin-left:auto}
+.champ label{font-size:13px}
+.champ input,.champ select,.champ textarea{height:48px;border-radius:10px;padding:0 14px;font-size:16px}
+.champ textarea{height:auto;padding:12px 14px}
+.lignes input,.lignes select,.lignes textarea{height:44px;font-size:15px;border-radius:9px}
+.btn{height:44px;padding:0 20px;font-size:14.5px}
+.btn.petit{height:38px;padding:0 14px;font-size:13.5px}
+.editeur{grid-template-columns:1fr!important}
+.editeur .droite{position:static;min-width:0}.editeur>div{min-width:0}.apercu-cadre{overflow:hidden}
+.editeur.mode-edit .droite{display:none}
+.editeur.mode-apercu .gauche{display:none}
+.bascule{display:none!important}
+.apercu-cadre{max-height:none}
+.barre-gen{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--ligne);padding:12px 16px calc(12px + env(safe-area-inset-bottom));z-index:25}
+.barre-gen .in{max-width:880px;margin:0 auto;display:flex;gap:10px;align-items:center}
+.barre-gen .info{flex:1;min-width:0}
+.barre-gen .info b{font-size:19px;font-weight:600}
+.barre-gen .info small{display:block;color:var(--g6);font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grille2{grid-template-columns:1fr}
+.toast{bottom:96px}
+@media (max-width:960px){.lat{display:flex!important;padding:10px 12px;gap:10px}.nav a span{display:none}.nav a{padding:9px 10px}.nav a.actif span{display:inline}main{padding-bottom:130px}}
+@media (max-width:560px){.barre-gen .in{gap:6px}.barre-gen .btn{padding:0 12px;font-size:13.5px}.barre-gen .btn svg{display:none}.barre-gen .info b{font-size:16px}.entete .actions .btn.doux{display:none}}
 </style>
 </head>
 <body>
 <div class="app">
 <aside class="lat">
-  <div class="marque"><svg viewBox="5 5 102 90" aria-hidden="true"><g fill="currentColor"><rect x="10" y="10" width="52" height="3.4"/><polygon points="54,10 63.5,10 19.5,90 10,90"/><rect x="10" y="86.6" width="50" height="3.4"/><polygon points="58.8,10 62.2,10 97.2,90 93.8,90"/><rect x="35" y="60.8" width="47" height="2.6"/><rect x="88" y="86.6" width="14" height="3.4"/></g></svg><b>ZORAN ABAZ</b><small>DÉCORATION</small></div>
+  <div class="marque"><svg viewBox="5 5 102 90" aria-hidden="true"><g fill="currentColor"><rect x="10" y="10" width="52" height="3.4"/><polygon points="54,10 63.5,10 19.5,90 10,90"/><rect x="10" y="86.6" width="50" height="3.4"/><polygon points="58.8,10 62.2,10 97.2,90 93.8,90"/><rect x="35" y="60.8" width="47" height="2.6"/><rect x="88" y="86.6" width="14" height="3.4"/></g></svg><div><b>ZORAN ABAZ</b><small>DÉCORATION</small></div></div>
   <nav class="nav" id="nav"></nav>
   <div class="pied"><div class="etat local" id="etat-sauv"><i></i><span>Chargement…</span></div><div style="margin-top:6px">Devis & factures · v1</div></div>
 </aside>
@@ -466,7 +508,7 @@ function vueEditeur(){const d=edition,t=totaux(d),s=statut(d),verr=d.statut!=='b
    <div class="editeur mode-${modeMobile}">
    <div class="gauche">
     ${verr?`<div class="note-info">Ce document est ${d.type==='avoir'?'émis':'émis'} : son contenu est verrouillé pour respecter la numérotation et l’intégrité des factures. Pour corriger, créez un avoir.</div>`:''}
-    <div class="carte bloc"><div class="champs">
+    <div class="carte bloc etape"><h2><i>1</i>Le client et le chantier</h2><div class="champs">
      <div class="champ large"><label>Client</label><div style="display:flex;gap:8px"><select data-d="clientId" ${verr?'disabled':''} style="flex:1"><option value="">— Choisir un client —</option>${opts}</select><button class="btn doux petit" style="height:40px" data-client-nouveau="doc" ${verr?'disabled':''}>${I.plus}Client</button></div></div>
      <div class="champ large"><label>Objet</label><input data-d="objet" value="${esc(d.objet||'')}" placeholder="Ex. Rénovation peinture séjour et chambres" ${verr?'disabled':''}></div>
      <div class="champ large"><label>Adresse du chantier</label><input data-d="chantier" value="${esc(d.chantier||'')}" placeholder="Si différente de l’adresse du client" ${verr?'disabled':''}></div>
@@ -477,16 +519,17 @@ function vueEditeur(){const d=edition,t=totaux(d),s=statut(d),verr=d.statut!=='b
       :`<div class="champ"><label>Échéance</label><input type="date" data-d="echeance" value="${d.echeance||''}" ${verr?'disabled':''}></div><div class="champ"><label>Date de réalisation des travaux</label><input data-d="realisation" value="${esc(d.realisation||'')}" placeholder="Ex. du 4 au 8 novembre 2026" ${verr?'disabled':''}></div>`}
      <div class="champ"><label>Remise globale (%)</label><input inputmode="decimal" data-d="remise" value="${esc(d.remise||0)}" ${verr?'disabled':''}></div>
     </div></div>
-    <div class="carte bloc"><h2>Prestations</h2><div class="defile"><table class="lignes"><thead><tr><th>Désignation</th><th class="n">Qté</th><th>Unité</th><th class="n">PU HT</th><th>TVA</th><th class="n">Total HT</th><th></th></tr></thead><tbody>${lignes||''}</tbody></table></div>
+    <div class="carte bloc etape"><h2><i>2</i>Les travaux</h2><div class="defile"><table class="lignes"><thead><tr><th>Désignation</th><th class="n">Qté</th><th>Unité</th><th class="n">PU HT</th><th>TVA</th><th class="n">Total HT</th><th></th></tr></thead><tbody>${lignes||''}</tbody></table></div>
      ${!(d.lignes||[]).length?'<div class="vide">Ajoutez des prestations depuis votre catalogue ou une ligne libre.</div>':''}
      ${verr?'':`<div class="ajouts"><button class="btn plein petit" data-ajout="catalogue">${I.plus}Depuis le catalogue</button><button class="btn doux petit" data-ajout="ligne">${I.plus}Ligne libre</button><button class="btn doux petit" data-ajout="titre">${I.plus}Section</button></div>`}
      <div class="totaux-ed"><table><tr><td>Total HT</td><td>${eur(t.htBrut)}</td></tr>${t.remise?`<tr><td>Remise ${nb(d.remise)} %</td><td>− ${eur(t.remise)}</td></tr><tr><td>Net HT</td><td>${eur(t.ht)}</td></tr>`:''}${t.lignesTva.map(x=>`<tr><td>TVA ${nb(x.taux)} %</td><td>${eur(x.montant)}</td></tr>`).join('')}<tr class="g"><td>Total TTC</td><td>${eur(t.ttc)}</td></tr>${d.type==='devis'&&num(d.acompte)?`<tr><td>Acompte ${nb(d.acompte)} %</td><td>${eur(t.acompte)}</td></tr>`:''}</table></div></div>
-    ${d.type==='facture'&&d.statut!=='brouillon'?`<div class="carte bloc"><h2>Paiements <button class="btn petit plein" data-paiement>${I.euro}Enregistrer un paiement</button></h2>${(d.paiements||[]).length?`<div class="paiements">${d.paiements.map((p,i)=>`<div><span>${fDate(p.date)} · ${esc(p.mode)}${p.ref?' · '+esc(p.ref):''}</span><span><b style="font-weight:500">${eur(p.montant)}</b> <button class="ico" data-sup-paiement="${i}" title="Supprimer">${I.sup}</button></span></div>`).join('')}</div>`:'<div class="vide" style="padding:8px 0">Aucun paiement enregistré.</div>'}<div class="totaux-ed"><table><tr><td>Payé</td><td>${eur(t.paye)}</td></tr><tr class="g"><td>Reste dû</td><td>${eur(Math.max(0,t.reste))}</td></tr></table></div></div>`:''}
-    <div class="carte bloc"><div class="champs"><div class="champ large"><label>Note visible sur le document</label><textarea data-d="notes" placeholder="Ex. Fournitures comprises. Teintes à valider avec le client." ${verr?'disabled':''}>${esc(d.notes||'')}</textarea></div><div class="champ large"><label>Note interne (non imprimée)</label><textarea data-d="interne" placeholder="Mémo pour vous">${esc(d.interne||'')}</textarea></div></div></div>
+    ${d.type==='facture'&&d.statut!=='brouillon'?`<div class="carte bloc etape"><h2><i>€</i>Paiements <button class="btn petit plein" data-paiement>${I.euro}Enregistrer un paiement</button></h2>${(d.paiements||[]).length?`<div class="paiements">${d.paiements.map((p,i)=>`<div><span>${fDate(p.date)} · ${esc(p.mode)}${p.ref?' · '+esc(p.ref):''}</span><span><b style="font-weight:500">${eur(p.montant)}</b> <button class="ico" data-sup-paiement="${i}" title="Supprimer">${I.sup}</button></span></div>`).join('')}</div>`:'<div class="vide" style="padding:8px 0">Aucun paiement enregistré.</div>'}<div class="totaux-ed"><table><tr><td>Payé</td><td>${eur(t.paye)}</td></tr><tr class="g"><td>Reste dû</td><td>${eur(Math.max(0,t.reste))}</td></tr></table></div></div>`:''}
+    <div class="carte bloc etape"><h2><i>3</i>Remarques</h2><div class="champs"><div class="champ large"><label>Note visible sur le document</label><textarea data-d="notes" placeholder="Ex. Fournitures comprises. Teintes à valider avec le client." ${verr?'disabled':''}>${esc(d.notes||'')}</textarea></div><div class="champ large"><label>Note interne (non imprimée)</label><textarea data-d="interne" placeholder="Mémo pour vous">${esc(d.interne||'')}</textarea></div></div></div>
     ${lies.length?`<div class="carte bloc"><h2>Documents liés</h2><div class="liste-mini">${lies.map(x=>`<a data-ouvrir="${x.id}"><span>${titreDoc(x)} ${esc(x.numero)}<br><small>${fDate(x.date)}</small></span><span>${eur(totaux(x).ttc)} <span class="statut ${statut(x)[1]}">${statut(x)[0]}</span></span></a>`).join('')}</div></div>`:''}
     ${d.statut==='brouillon'?`<div style="display:flex;justify-content:flex-end"><button class="btn danger petit" data-supprimer>${I.sup}Supprimer ce brouillon</button></div>`:''}
    </div>
-   <div class="droite"><div class="apercu-cadre" id="cadre"><div class="apercu-zoom" id="zoom"></div></div></div></div>`}
+   <div class="droite"><div class="apercu-cadre" id="cadre"><div class="apercu-zoom" id="zoom"></div></div></div></div>
+   <div class="barre-gen"><div class="in"><div class="info"><b id="bg-total">${eur(t.ttc)}</b><small>${titreDoc(d)} ${esc(d.numero)} · ${esc(nomClient(client(d.clientId)))}</small></div><button class="btn doux" data-mode="${modeMobile==='apercu'?'edit':'apercu'}">${modeMobile==='apercu'?'Modifier':'Aperçu'}</button><button class="btn plein" data-pdf="${d.id}">${I.pdf}Créer le PDF</button></div></div>`}
 function opsLigne(i,verr){return verr?'':`<button class="ico" data-op="haut" data-i="${i}" title="Monter">${I.haut}</button><button class="ico" data-op="bas" data-i="${i}" title="Descendre">${I.bas}</button><button class="ico" data-op="sup" data-i="${i}" title="Supprimer">${I.sup}</button>`}
 function actionsDoc(d,t){const a=[];
   a.push(`<button class="btn doux" data-pdf="${d.id}">${I.pdf}PDF</button>`);
@@ -576,7 +619,7 @@ function brancherEditeur(){const d=edition,v=$('#vue');
   };
 }
 function majLigne(tr,i){const l=edition.lignes[i];const c=tr.querySelector('.tot');if(c)c.textContent=eur(num(l.qte)*num(l.pu)*(1-num(l.remise)/100))}
-function majTotaux(){const t=totaux(edition),d=edition,el=$('.totaux-ed table');if(!el)return;
+function majTotaux(){const t=totaux(edition),d=edition,el=$('.totaux-ed table');const bg=$('#bg-total');if(bg)bg.textContent=eur(t.ttc);if(!el)return;
   el.innerHTML=`<tr><td>Total HT</td><td>${eur(t.htBrut)}</td></tr>${t.remise?`<tr><td>Remise ${nb(d.remise)} %</td><td>− ${eur(t.remise)}</td></tr><tr><td>Net HT</td><td>${eur(t.ht)}</td></tr>`:''}${t.lignesTva.map(x=>`<tr><td>TVA ${nb(x.taux)} %</td><td>${eur(x.montant)}</td></tr>`).join('')}<tr class="g"><td>Total TTC</td><td>${eur(t.ttc)}</td></tr>${d.type==='devis'&&num(d.acompte)?`<tr><td>Acompte ${nb(d.acompte)} %</td><td>${eur(t.acompte)}</td></tr>`:''}`}
 
 function facturerDevis(dv,mode){const t=totaux(dv),p=P();
