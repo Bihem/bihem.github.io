@@ -212,11 +212,13 @@ h2 .leger{font-weight:300;color:var(--g66)}
 
 /* Zone */
 .zone{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:40px;align-items:start}
-.zone .txt{grid-column:1/6;display:flex;flex-direction:column;gap:24px;font-size:18px;line-height:1.65}
+.zone-g{grid-column:1/6;display:flex;flex-direction:column;gap:clamp(32px,4vw,56px)}.zone-g .tete{margin:0}
+.zone .txt{display:flex;flex-direction:column;gap:24px;font-size:18px;line-height:1.65}
 .communes{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
 .communes li{font-size:14px;font-weight:300;border:1px solid var(--encre);border-radius:999px;padding:6px 14px}
 .communes li.base{background:var(--encre);color:#fff}
-.carte{grid-column:7/13;aspect-ratio:4/3;overflow:hidden;filter:grayscale(1)}
+.carte{grid-column:7/13;position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:4px;box-shadow:0 30px 60px -40px rgba(0,0,0,.45)}
+.carte-lien{position:absolute;right:16px;bottom:16px;display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:#fff;color:var(--encre);font-size:13px;box-shadow:0 8px 24px -10px rgba(0,0,0,.35);transition:background .3s,color .3s}.carte-lien:hover{background:var(--encre);color:#fff}.carte-lien svg{width:13px;height:9px}
 .carte iframe{width:100%;height:100%;border:0;display:block}
 
 /* FAQ */
@@ -315,7 +317,7 @@ nav.menu a::after{display:none}
 .galerie{grid-template-columns:1fr 1fr}
 .galerie .grand{grid-column:span 2}
 .galerie .grand button.carte-photo{aspect-ratio:4/3;height:auto}
-.avis-carte,.confiance,.zone .txt,.carte{grid-column:1/13}
+.avis-carte,.confiance,.zone .txt,.zone-g,.carte{grid-column:1/13}
 .faq-grille .tete,.faq{grid-column:1/13}
 .contact-grille .gauche,form{grid-column:1/13}
 footer .bas{padding-bottom:96px}
@@ -664,8 +666,9 @@ nav.menu a{font-size:15px;letter-spacing:0}
 
 <!-- ZONE -->
 <section id="zone" class="gris" aria-labelledby="t-zone"><div class="wrap bloc">
-<div class="tete"><div class="gauche"><span class="surtitre apparait">Zone d'intervention</span><h2 id="t-zone" class="revele"><span class="ligne"><span>Peintre décorateur</span></span><span class="ligne"><span class="leger" style="--d:.1s">aux Pavillons-sous-Bois.</span></span></h2></div></div>
 <div class="zone">
+<div class="zone-g">
+<div class="tete"><div class="gauche"><span class="surtitre apparait">Zone d'intervention</span><h2 id="t-zone" class="revele"><span class="ligne"><span>Peintre décorateur</span></span><span class="ligne"><span class="leger" style="--d:.1s">aux Pavillons-sous-Bois.</span></span></h2></div></div>
 <div class="txt apparait">
 <p>Basé aux Pavillons-sous-Bois (93320), Zoran Abaz intervient pour vos travaux de peinture intérieure, de peinture extérieure et de décoration en Seine-Saint-Denis.</p>
 <ul class="communes" aria-label="Communes desservies, à confirmer">
@@ -673,7 +676,8 @@ nav.menu a{font-size:15px;letter-spacing:0}
 </ul>
 <p><span class="a-completer">Liste à confirmer</span> Les communes desservies seront validées avec l'artisan avant publication.</p>
 </div>
-<div class="carte apparait" style="--d:.1s"><iframe title="Carte : Les Pavillons-sous-Bois, Seine-Saint-Denis" loading="lazy" referrerpolicy="no-referrer" src="https://www.openstreetmap.org/export/embed.html?bbox=2.44%2C48.875%2C2.56%2C48.935&amp;layer=mapnik&amp;marker=48.9066%2C2.5034"></iframe></div>
+</div>
+<div class="carte apparait" style="--d:.1s"><iframe title="Carte Google Maps : Les Pavillons-sous-Bois (93320), Seine-Saint-Denis" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen src="https://maps.google.com/maps?q=Les%20Pavillons-sous-Bois%2093320&amp;z=12&amp;hl=fr&amp;output=embed"></iframe><a class="carte-lien" href="https://www.google.com/maps/search/?api=1&amp;query=Les%20Pavillons-sous-Bois%2093320" target="_blank" rel="noopener">Ouvrir dans Google Maps <svg viewBox="0 0 14 10" aria-hidden="true"><path d="M0 5h13M9 1l4 4-4 4" stroke="currentColor" fill="none"/></svg></a></div>
 </div>
 </div></section>
 
