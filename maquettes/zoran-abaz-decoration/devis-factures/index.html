@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Devis & Factures — Zoran Abaz Décoration</title>
+<meta name="theme-color" content="#161616">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Libre+Caslon+Text&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+<style>
+:root{--encre:#161616;--g6:#666;--g8:#8a8a8a;--ligne:#E4E4E1;--fond:#F5F5F2;--ok:#1F7A4D;--okf:#E6F4EC;--sans:'Inter',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;--serif:'Libre Caslon Text',Georgia,serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);font-size:16px;color:var(--encre);background:var(--fond);-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+.haut{background:var(--encre);color:#fff;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;position:sticky;top:0;z-index:20}
+.marque{display:flex;align-items:center;gap:12px}
+.marque svg{width:28px;height:25px}
+.marque b{font-family:var(--serif);font-weight:400;font-size:15px;letter-spacing:.14em;display:block;line-height:1.1}
+.marque small{font-family:var(--serif);font-size:8px;letter-spacing:.34em;opacity:.7}
+.haut .menu{display:flex;gap:8px}
+.lien-h{background:none;border:1px solid rgba(255,255,255,.35);color:#fff;border-radius:999px;height:36px;padding:0 14px;font-size:13.5px}
+.lien-h:hover{background:#fff;color:var(--encre)}
+.page{max-width:780px;margin:0 auto;padding:22px 16px 140px}
+h1{font-size:26px;font-weight:500;letter-spacing:-.02em;margin:6px 0 4px}
+.intro{color:var(--g6);margin-bottom:20px;line-height:1.5}
+.etape{background:#fff;border:1px solid var(--ligne);border-radius:16px;padding:20px;margin-bottom:14px}
+.etape h2{font-size:17px;font-weight:500;display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.etape h2 i{font-style:normal;width:28px;height:28px;border-radius:50%;background:var(--encre);color:#fff;display:grid;place-items:center;font-size:13px;flex-shrink:0}
+.choix-type{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.choix-type button{border:1.5px solid var(--ligne);background:#fff;border-radius:14px;padding:18px 14px;text-align:left;transition:border-color .2s,background .2s}
+.choix-type button b{display:block;font-size:18px;font-weight:500}
+.choix-type button span{font-size:13px;color:var(--g6)}
+.choix-type button.actif{border-color:var(--encre);background:var(--encre);color:#fff}
+.choix-type button.actif span{color:rgba(255,255,255,.7)}
+.grille{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.large{grid-column:1/-1}
+.champ{display:flex;flex-direction:column;gap:6px}
+.champ label{font-size:13px;color:var(--g6);font-weight:500}
+.champ input,.champ select,.champ textarea{height:48px;border:1px solid var(--ligne);border-radius:10px;padding:0 14px;background:#fff;width:100%;font-size:16px}
+.champ textarea{height:auto;min-height:80px;padding:12px 14px;resize:vertical;line-height:1.45}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--encre);box-shadow:0 0 0 3px rgba(22,22,22,.08)}
+.rapides{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.rapides button{border:1px solid var(--ligne);background:var(--fond);border-radius:999px;padding:9px 14px;font-size:14px}
+.rapides button:hover{border-color:var(--encre)}
+.rapides p{width:100%;font-size:13px;color:var(--g6)}
+.ligne{border:1px solid var(--ligne);border-radius:12px;padding:12px;margin-bottom:10px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;position:relative;background:#FCFCFA}
+.ligne .des{grid-column:1/-1;padding-right:40px}
+.ligne .tot{grid-column:1/-1;text-align:right;font-weight:500}
+.ligne .suppr{position:absolute;top:10px;right:10px;width:34px;height:34px;border-radius:8px;border:1px solid var(--ligne);background:#fff;display:grid;place-items:center}
+.ligne .suppr svg{width:16px;height:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:50px;padding:0 22px;border-radius:999px;border:1.5px solid var(--encre);background:#fff;font-size:15.5px;font-weight:500}
+.btn:hover{background:var(--encre);color:#fff}
+.btn.plein{background:var(--encre);color:#fff}.btn.plein:hover{background:#000}
+.btn.vert{background:var(--ok);border-color:var(--ok);color:#fff}
+.btn svg{width:18px;height:18px}
+.ajout{width:100%;border-style:dashed}
+.total-live{display:flex;justify-content:space-between;align-items:baseline;margin-top:14px;padding-top:14px;border-top:1px solid var(--ligne)}
+.total-live b{font-size:24px;font-weight:600}
+.total-live small{display:block;color:var(--g6);font-size:13px}
+.barre-gen{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--ligne);padding:12px 16px calc(12px + env(safe-area-inset-bottom));z-index:15}
+.barre-gen .in{max-width:780px;margin:0 auto;display:flex;gap:10px;align-items:center}
+.barre-gen .info{flex:1;min-width:0}
+.barre-gen .info b{font-size:18px}
+.barre-gen .info small{display:block;color:var(--g6);font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.aide{font-size:13px;color:var(--g6);line-height:1.5}
+.case{display:flex;align-items:center;gap:10px;font-size:15px;cursor:pointer}
+.case input{width:20px;height:20px;accent-color:var(--encre)}
+/* Fenêtres */
+.voile{position:fixed;inset:0;background:rgba(10,10,10,.5);z-index:40;display:flex;align-items:flex-end;justify-content:center;opacity:0;transition:opacity .25s}
+.voile.ouvert{opacity:1}
+.panneau{background:#fff;width:100%;max-width:900px;max-height:92vh;overflow:auto;border-radius:20px 20px 0 0;padding:20px 18px 28px;transform:translateY(30px);transition:transform .3s}
+.voile.ouvert .panneau{transform:none}
+.panneau h3{font-size:20px;font-weight:500;margin-bottom:4px}
+.panneau .sous{color:var(--g6);margin-bottom:16px;font-size:14px}
+.panneau .actions{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+.cadre{background:#E7E7E3;border-radius:14px;padding:12px;overflow:hidden}
+.zoom{transform-origin:top left}
+.liste-docs{display:flex;flex-direction:column;gap:8px}
+.liste-docs .doc{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px;border:1px solid var(--ligne);border-radius:12px}
+.liste-docs .doc b{font-weight:500}
+.liste-docs .doc small{display:block;color:var(--g6);font-size:13px}
+.liste-docs .doc .bt{display:flex;gap:6px;flex-shrink:0}
+.liste-docs .doc .bt button{height:38px;padding:0 12px;border-radius:999px;border:1px solid var(--ligne);background:#fff;font-size:13px}
+.liste-docs .doc .bt button:hover{border-color:var(--encre)}
+.vide{color:var(--g6);text-align:center;padding:24px 0}
+.toast{position:fixed;bottom:96px;left:50%;transform:translate(-50%,20px);background:var(--encre);color:#fff;padding:12px 18px;border-radius:999px;font-size:14px;opacity:0;transition:.3s;z-index:60;pointer-events:none;max-width:calc(100vw - 32px);text-align:center}
+.toast.vu{opacity:1;transform:translate(-50%,0)}
+@media (max-width:600px){.grille{grid-template-columns:1fr}.ligne{grid-template-columns:1fr 1fr}.ligne .des{grid-column:1/-1}.haut .menu .txt{display:none}}
+/* Document A4 */
+.feuille{width:794px;min-height:1123px;background:#fff;color:#161616;padding:56px 58px 60px;font-family:var(--sans);font-size:11.5px;line-height:1.5;position:relative}
+.f-tete{display:flex;justify-content:space-between;gap:24px}
+.f-logo svg{width:34px;height:30px;display:block;margin-bottom:6px}
+.f-logo b{font-family:var(--serif);font-weight:400;font-size:19px;letter-spacing:.14em;display:block;line-height:1}
+.f-logo small{font-family:var(--serif);font-size:8.5px;letter-spacing:.38em}
+.f-emet{font-size:10.5px;color:#444;margin-top:12px;line-height:1.55}
+.f-type{text-align:right}
+.f-type h2{font-size:30px;font-weight:300;letter-spacing:-.02em;line-height:1}
+.f-type .no{font-size:13px;font-weight:500;margin-top:8px}
+.f-type .dt{font-size:10.5px;color:#555;margin-top:8px;line-height:1.7}
+.f-parties{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:30px}
+.f-parties div{border:1px solid #E4E4E4;border-radius:8px;padding:12px 14px}
+.f-parties span{display:block;font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:#888;margin-bottom:6px}
+.f-objet{margin-top:20px;font-size:12px}
+table.f-l{width:100%;border-collapse:collapse;margin-top:16px}
+.f-l th{background:#161616;color:#fff;font-weight:500;font-size:10px;text-transform:uppercase;letter-spacing:.06em;padding:8px;text-align:left}
+.f-l .n{text-align:right;white-space:nowrap}
+.f-l td{padding:9px 8px;border-bottom:1px solid #EBEBEB;vertical-align:top}
+.f-bas{display:grid;grid-template-columns:1.1fr 1fr;gap:24px;margin-top:20px;align-items:start}
+.f-tot{width:100%;border-collapse:collapse}
+.f-tot td{padding:5px 0;border-bottom:1px solid #EFEFEF}
+.f-tot td:last-child{text-align:right}
+.f-tot tr.g td{border:0;background:#161616;color:#fff;font-weight:600;font-size:13px;padding:9px 10px}
+.f-tot tr.r td{font-weight:600}
+.f-lettres{font-size:10.5px;color:#444;margin-top:8px;font-style:italic}
+.f-cond{font-size:10.5px;color:#444;line-height:1.6;white-space:pre-line}
+.f-cond b{color:#161616}
+.f-sign{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:22px}
+.f-sign div{border:1px dashed #BDBDBD;border-radius:8px;padding:12px;min-height:96px;font-size:10.5px;color:#555}
+.f-mentions{margin-top:22px;padding-top:12px;border-top:1px solid #E4E4E4;font-size:9.2px;color:#666;line-height:1.55}
+.f-pied{position:absolute;left:58px;right:58px;bottom:22px;font-size:8.8px;color:#999;text-align:center;border-top:1px solid #EEE;padding-top:8px}
+#impression{display:none}
+@media print{body{background:#fff}body>*:not(#impression){display:none!important}#impression{display:block}#impression .feuille{width:auto;min-height:0;padding:0}.f-pied{position:static;margin-top:20px}@page{size:A4;margin:14mm}}
+</style>
+</head>
+<body>
+<header class="haut">
+ <div class="marque"><svg viewBox="5 5 102 90" aria-hidden="true"><g fill="currentColor"><rect x="10" y="10" width="52" height="3.4"/><polygon points="54,10 63.5,10 19.5,90 10,90"/><rect x="10" y="86.6" width="50" height="3.4"/><polygon points="58.8,10 62.2,10 97.2,90 93.8,90"/><rect x="35" y="60.8" width="47" height="2.6"/><rect x="88" y="86.6" width="14" height="3.4"/></g></svg><div><b>ZORAN ABAZ</b><small>DÉCORATION</small></div></div>
+ <div class="menu"><button class="lien-h" id="b-docs">📄 <span class="txt">Mes documents</span></button><button class="lien-h" id="b-infos">⚙︎ <span class="txt">Mes infos</span></button></div>
+</header>
+
+<main class="page">
+ <h1>Créer un devis ou une facture</h1>
+ <p class="intro">Remplissez les 3 étapes, puis appuyez sur <b>Créer le PDF</b>. Le document est généré tout de suite, prêt à envoyer.</p>
+
+ <section class="etape"><h2><i>1</i>Que voulez-vous créer ?</h2>
+  <div class="choix-type"><button data-type="devis" class="actif"><b>Devis</b><span>Proposition de prix avant travaux</span></button><button data-type="facture"><b>Facture</b><span>Après les travaux, pour être payé</span></button></div>
+ </section>
+
+ <section class="etape"><h2><i>2</i>Le client</h2>
+  <div class="grille">
+   <div class="champ large"><label for="c-nom">Nom du client</label><input id="c-nom" list="clients-connus" placeholder="Ex. Mme Marie Durand" autocomplete="off"><datalist id="clients-connus"></datalist></div>
+   <div class="champ large"><label for="c-adresse">Adresse</label><input id="c-adresse" placeholder="Ex. 12 rue des Lilas"></div>
+   <div class="champ"><label for="c-cp">Code postal</label><input id="c-cp" inputmode="numeric" placeholder="93140"></div>
+   <div class="champ"><label for="c-ville">Ville</label><input id="c-ville" placeholder="Bondy"></div>
+   <div class="champ"><label for="c-tel">Téléphone</label><input id="c-tel" type="tel" placeholder="06 12 34 56 78"></div>
+   <div class="champ"><label for="c-email">E-mail</label><input id="c-email" type="email" placeholder="client@email.fr"></div>
+   <label class="case large"><input type="checkbox" id="c-pro"> C'est une entreprise (client professionnel)</label>
+  </div>
+ </section>
+
+ <section class="etape"><h2><i>3</i>Les travaux</h2>
+  <div class="grille" style="margin-bottom:16px">
+   <div class="champ large"><label for="d-objet">Description courte</label><input id="d-objet" placeholder="Ex. Peinture du salon et de deux chambres"></div>
+   <div class="champ large"><label for="d-chantier">Adresse du chantier <span style="font-weight:400">(si différente)</span></label><input id="d-chantier" placeholder="Laisser vide si c'est l'adresse du client"></div>
+  </div>
+  <div class="rapides" id="rapides"><p>Ajout rapide (cliquez pour ajouter) :</p></div>
+  <div id="lignes"></div>
+  <button class="btn ajout" id="b-ligne">+ Ajouter une ligne</button>
+  <div class="grille" style="margin-top:16px">
+   <div class="champ"><label for="d-tva">TVA</label><select id="d-tva"><option value="10">10 % (rénovation de logement)</option><option value="20">20 % (taux normal)</option><option value="5.5">5,5 % (rénovation énergétique)</option><option value="0">Pas de TVA (auto-entrepreneur)</option></select></div>
+   <div class="champ" id="z-acompte"><label for="d-acompte">Acompte demandé à la signature</label><select id="d-acompte"><option value="0">Aucun</option><option value="20">20 %</option><option value="30" selected>30 %</option><option value="40">40 %</option><option value="50">50 %</option></select></div>
+   <div class="champ" id="z-paye" hidden><label for="d-paye">Déjà payé par le client (€)</label><input id="d-paye" inputmode="decimal" placeholder="0"></div>
+   <div class="champ" id="z-delai"><label for="d-delai">Durée des travaux</label><input id="d-delai" placeholder="Ex. 5 jours"></div>
+   <div class="champ large"><label for="d-notes">Remarque sur le document <span style="font-weight:400">(facultatif)</span></label><textarea id="d-notes" placeholder="Ex. Fournitures comprises. Teintes à choisir avec le client."></textarea></div>
+  </div>
+  <div class="total-live"><span>Total<small id="t-detail">0,00 € HT</small></span><b id="t-ttc">0,00 €</b></div>
+ </section>
+</main>
+
+<div class="barre-gen"><div class="in"><div class="info"><b id="b-total">0,00 €</b><small id="b-resume">Devis · ajoutez des travaux</small></div><button class="btn plein" id="b-creer">Créer le PDF →</button></div></div>
+<div class="toast" id="toast"></div>
+<div id="impression"></div>
+<div id="hors" style="position:fixed;left:-10000px;top:0"></div>
+
+<script>
+(function(){
+'use strict';
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const r2=n=>Math.round((+n||0)*100)/100;
+const num=v=>{const x=parseFloat(String(v??'').replace(/\s/g,'').replace(',','.'));return isNaN(x)?0:x};
+const eur=n=>r2(n).toLocaleString('fr-FR',{style:'currency',currency:'EUR'});
+const nb=n=>(+n||0).toLocaleString('fr-FR',{maximumFractionDigits:2});
+const jour=(d=new Date())=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+const plusJours=(n)=>{const d=new Date();d.setDate(d.getDate()+n);return jour(d)};
+const fDate=s=>s?new Date(s+'T12:00:00').toLocaleDateString('fr-FR'):'';
+function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('vu');clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove('vu'),2800)}
+const LOGO=document.querySelector('.marque svg').outerHTML;
+
+/* Montant en lettres */
+const U=['zéro','un','deux','trois','quatre','cinq','six','sept','huit','neuf','dix','onze','douze','treize','quatorze','quinze','seize'];
+function s100(n){if(n<17)return U[n];if(n<20)return 'dix-'+U[n-10];const d=Math.floor(n/10),u=n%10;if(d===7||d===9){const r=n-(d===7?60:80);return (d===7?'soixante':'quatre-vingt')+(r===11&&d===7?'-et-':'-')+s100(r)}const t=['','','vingt','trente','quarante','cinquante','soixante','','quatre-vingt'][d];if(u===0)return d===8?'quatre-vingts':t;if(u===1&&d!==8)return t+'-et-un';return t+'-'+U[u]}
+function s1000(n,f){const c=Math.floor(n/100),r=n%100;if(!c)return s100(r);const s=c===1?'cent':U[c]+'-cent';return r?s+'-'+s100(r):(c>1&&f?s+'s':s)}
+function lettres(n){if(!n)return 'zéro';const m=Math.floor(n/1e6),k=Math.floor(n%1e6/1000),r=n%1000,p=[];if(m)p.push(m===1?'un million':lettres(m)+' millions');if(k)p.push(k===1?'mille':s1000(k,false)+'-mille');if(r)p.push(s1000(r,true));return p.join(' ')}
+function enLettres(x){x=Math.abs(r2(x));const e=Math.floor(x),c=Math.round((x-e)*100);let s=lettres(e)+' euro'+(e>1?'s':'');if(c)s+=' et '+lettres(c)+' centime'+(c>1?'s':'');return s[0].toUpperCase()+s.slice(1)}
+
+/* Données gardées sur l'appareil */
+const CLE='zoran-df-v1';
+const INFOS0={nom:'Zoran Abaz Décoration',dirigeant:'Zoran Abaz',adresse:'',cp:'93320',ville:'Les Pavillons-sous-Bois',tel:'06 31 60 00 05',email:'zoran_abaz@live.fr',siret:'519 934 244 00012',tvaNum:'',assureur:'',police:'',iban:'',validite:30,echeance:30,mediateur:''};
+let B={infos:{...INFOS0},docs:[],clients:[],compteurs:{}};
+try{const x=JSON.parse(localStorage.getItem(CLE)||'null');if(x)B={...B,...x,infos:{...INFOS0,...(x.infos||{})}}}catch(e){}
+const garder=()=>{try{localStorage.setItem(CLE,JSON.stringify(B))}catch(e){}};
+
+const RAPIDES=[['Protection du chantier','forfait',150],['Préparation des murs (rebouchage, ponçage)','m²',8],['Peinture des murs (2 couches)','m²',18],['Peinture des plafonds (2 couches)','m²',22],['Enduit de lissage','m²',14],['Peinture des boiseries','ml',16],['Peinture de porte','unité',85],['Pose de papier peint','m²',24],['Enduit décoratif','m²',55],['Ravalement de façade','m²',38],['Peinture de volets','unité',95],['Nettoyage fin de chantier','forfait',120]];
+
+let type='devis',lignes=[],enCours=null;
+/* ===== Formulaire ===== */
+function choisirType(t){type=t;$$('.choix-type button').forEach(b=>b.classList.toggle('actif',b.dataset.type===t));$('#z-acompte').hidden=t!=='devis';$('#z-delai').hidden=t!=='devis';$('#z-paye').hidden=t!=='facture';maj()}
+$$('.choix-type button').forEach(b=>b.onclick=()=>choisirType(b.dataset.type));
+$('#rapides').insertAdjacentHTML('beforeend',RAPIDES.map((r,i)=>`<button data-r="${i}">+ ${esc(r[0])}</button>`).join(''));
+$('#rapides').onclick=e=>{const b=e.target.closest('[data-r]');if(!b)return;const r=RAPIDES[+b.dataset.r];lignes.push({d:r[0],q:'',u:r[1],p:r[2]});dessinerLignes(true);toast('« '+r[0]+' » ajouté — indiquez la quantité')};
+$('#b-ligne').onclick=()=>{lignes.push({d:'',q:1,u:'forfait',p:''});dessinerLignes(true)};
+function dessinerLignes(focus){const z=$('#lignes');
+  z.innerHTML=lignes.map((l,i)=>`<div class="ligne" data-i="${i}"><div class="champ des"><label>Travaux</label><input data-k="d" value="${esc(l.d)}" placeholder="Ex. Peinture du salon"></div>
+   <div class="champ"><label>Quantité</label><input data-k="q" inputmode="decimal" value="${esc(l.q)}" placeholder="0"></div>
+   <div class="champ"><label>Unité</label><select data-k="u">${['m²','ml','unité','forfait','heure','jour'].map(u=>`<option ${u===l.u?'selected':''}>${u}</option>`).join('')}</select></div>
+   <div class="champ"><label>Prix HT (€)</label><input data-k="p" inputmode="decimal" value="${esc(l.p)}" placeholder="0"></div>
+   <div class="tot">= ${eur(num(l.q)*num(l.p))} HT</div>
+   <button class="suppr" data-sup="${i}" aria-label="Supprimer la ligne"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></svg></button></div>`).join('')||'<p class="aide" style="margin-bottom:10px">Aucun travail ajouté pour l\'instant.</p>';
+  if(focus){const last=z.lastElementChild;const champ=last&&(last.querySelector('[data-k="d"]').value?last.querySelector('[data-k="q"]'):last.querySelector('[data-k="d"]'));champ&&champ.focus()}
+  maj()}
+$('#lignes').oninput=e=>{const el=e.target,box=el.closest('.ligne');if(!box)return;const l=lignes[+box.dataset.i];l[el.dataset.k]=el.value;box.querySelector('.tot').textContent='= '+eur(num(l.q)*num(l.p))+' HT';maj()};
+$('#lignes').onchange=$('#lignes').oninput;
+$('#lignes').onclick=e=>{const b=e.target.closest('[data-sup]');if(b){lignes.splice(+b.dataset.sup,1);dessinerLignes()}};
+$$('input,select,textarea').forEach(el=>{if(!el.closest('#lignes'))el.addEventListener('input',maj)});
+// Client connu → remplit l'adresse
+$('#c-nom').addEventListener('change',()=>{const c=B.clients.find(x=>x.nom.toLowerCase()===$('#c-nom').value.trim().toLowerCase());if(c){['adresse','cp','ville','tel','email'].forEach(k=>$('#c-'+k).value=c[k]||'');$('#c-pro').checked=!!c.pro;toast('Coordonnées du client remplies')}});
+function majClients(){$('#clients-connus').innerHTML=B.clients.map(c=>`<option value="${esc(c.nom)}">`).join('')}
+
+/* ===== Calcul ===== */
+function lire(){return{type,client:{nom:$('#c-nom').value.trim(),adresse:$('#c-adresse').value.trim(),cp:$('#c-cp').value.trim(),ville:$('#c-ville').value.trim(),tel:$('#c-tel').value.trim(),email:$('#c-email').value.trim(),pro:$('#c-pro').checked},
+  objet:$('#d-objet').value.trim(),chantier:$('#d-chantier').value.trim(),tva:num($('#d-tva').value),acompte:type==='devis'?num($('#d-acompte').value):0,paye:type==='facture'?num($('#d-paye').value):0,delai:$('#d-delai').value.trim(),notes:$('#d-notes').value.trim(),
+  lignes:lignes.filter(l=>l.d.trim()||num(l.p)).map(l=>({d:l.d.trim(),q:num(l.q)||0,u:l.u,p:num(l.p)}))}}
+function calc(d){const ht=r2(d.lignes.reduce((s,l)=>s+l.q*l.p,0)),tva=r2(ht*d.tva/100),ttc=r2(ht+tva);return{ht,tva,ttc,acompte:r2(ttc*d.acompte/100),reste:r2(ttc-d.paye)}}
+function maj(){const d=lire(),t=calc(d);$('#t-ttc').textContent=eur(t.ttc);$('#t-detail').textContent=`${eur(t.ht)} HT${d.tva?' + '+eur(t.tva)+' de TVA':''}`;
+  $('#b-total').textContent=eur(t.ttc);$('#b-resume').textContent=`${type==='devis'?'Devis':'Facture'} · ${d.client.nom||'client à indiquer'} · ${d.lignes.length} ligne(s)`}
+
+/* ===== Document ===== */
+function feuille(d){const I=B.infos,t=calc(d),c=d.client,dev=d.type==='devis';
+  const adrC=[`<b>${esc(c.nom)}</b>`,esc(c.adresse),esc([c.cp,c.ville].filter(Boolean).join(' ')),esc(c.tel),esc(c.email)].filter(x=>x&&x!=='<b></b>').join('<br>');
+  const ment=[];
+  if(!d.tva)ment.push('TVA non applicable, art. 293 B du CGI.');
+  if(d.tva===10||d.tva===5.5)ment.push('Taux de TVA réduit applicable aux travaux dans un logement achevé depuis plus de deux ans, sous réserve de l’attestation du client.');
+  if(I.assureur)ment.push(`Assurance décennale : ${esc(I.assureur)}${I.police?', contrat n° '+esc(I.police):''}, couverture France métropolitaine.`);
+  if(dev){ment.push('Devis gratuit. Toute modification fera l’objet d’un avenant.')}
+  else{ment.push('En cas de retard de paiement, pénalités au taux de trois fois le taux d’intérêt légal.'+(c.pro?' Indemnité forfaitaire pour frais de recouvrement : 40 €.':'')+' Pas d’escompte pour paiement anticipé.')}
+  if(I.mediateur&&!c.pro)ment.push('Médiateur de la consommation : '+esc(I.mediateur)+'.');
+  const cond=dev?`<b>Conditions de paiement</b>\n${d.acompte?`Acompte de ${nb(d.acompte)} % (${eur(t.acompte)}) à la signature, solde à la fin des travaux.`:'Paiement à la fin des travaux.'}\nVirement, chèque ou espèces.`:`<b>Conditions de paiement</b>\nPaiement avant le ${fDate(d.echeance)}.\nVirement, chèque ou espèces.`;
+  return `<div class="feuille"><div class="f-tete"><div><div class="f-logo">${LOGO}<b>ZORAN ABAZ</b><small>DÉCORATION</small></div>
+   <div class="f-emet">${esc(I.dirigeant)} · Peintre décorateur<br>${I.adresse?esc(I.adresse)+'<br>':''}${esc(I.cp)} ${esc(I.ville)}<br>${esc(I.tel)} · ${esc(I.email)}<br>SIRET ${esc(I.siret)}${I.tvaNum?'<br>TVA '+esc(I.tvaNum):''}</div></div>
+   <div class="f-type"><h2>${dev?'Devis':'Facture'}</h2><div class="no">N° ${esc(d.numero)}</div><div class="dt">Date : ${fDate(d.date)}<br>${dev?'Valable jusqu’au : '+fDate(d.validite):'À payer avant le : '+fDate(d.echeance)}${dev&&d.delai?'<br>Durée des travaux : '+esc(d.delai):''}</div></div></div>
+   <div class="f-parties"><div><span>${dev?'Client':'Facturé à'}</span>${adrC||'—'}</div><div><span>Chantier</span>${esc(d.chantier||[c.adresse,[c.cp,c.ville].filter(Boolean).join(' ')].filter(Boolean).join(', ')||'Adresse du client')}</div></div>
+   ${d.objet?`<div class="f-objet"><b>Objet :</b> ${esc(d.objet)}</div>`:''}
+   <table class="f-l"><thead><tr><th>Désignation</th><th class="n">Qté</th><th>Unité</th><th class="n">Prix HT</th><th class="n">Total HT</th></tr></thead><tbody>
+   ${d.lignes.map(l=>`<tr><td>${esc(l.d)}</td><td class="n">${nb(l.q)}</td><td>${esc(l.u)}</td><td class="n">${eur(l.p)}</td><td class="n">${eur(l.q*l.p)}</td></tr>`).join('')}</tbody></table>
+   <div class="f-bas"><div class="f-cond">${d.notes?esc(d.notes)+'\n\n':''}${cond}${I.iban?`\n\n<b>Coordonnées bancaires</b>\nIBAN ${esc(I.iban)}`:''}</div>
+    <div><table class="f-tot"><tr><td>Total HT</td><td>${eur(t.ht)}</td></tr>${d.tva?`<tr><td>TVA ${nb(d.tva)} %</td><td>${eur(t.tva)}</td></tr>`:''}<tr class="g"><td>Total TTC</td><td>${eur(t.ttc)}</td></tr>
+    ${dev&&d.acompte?`<tr><td>Acompte à la signature (${nb(d.acompte)} %)</td><td>${eur(t.acompte)}</td></tr>`:''}
+    ${!dev&&d.paye?`<tr><td>Déjà payé</td><td>− ${eur(d.paye)}</td></tr><tr class="r"><td>Reste à payer</td><td>${eur(t.reste)}</td></tr>`:''}</table>
+    <div class="f-lettres">${dev?'Arrêté le présent devis':'Arrêtée la présente facture'} à la somme de ${enLettres(t.ttc)} TTC.</div></div></div>
+   ${dev?`<div class="f-sign"><div><b style="color:#161616">L’entreprise</b><br>${esc(I.dirigeant)}</div><div><b style="color:#161616">Le client</b><br>Date et signature précédées de la mention « Bon pour accord »</div></div>`:''}
+   <div class="f-mentions">${ment.map(m=>`<p>${m}</p>`).join('')}</div>
+   <div class="f-pied">${esc(I.nom)} · ${esc([I.adresse,I.cp,I.ville].filter(Boolean).join(' '))} · SIRET ${esc(I.siret)} · ${esc(I.tel)}</div></div>`}
+
+/* ===== Créer ===== */
+$('#b-creer').onclick=()=>{const d=lire();
+  if(!d.client.nom){toast('Indiquez le nom du client (étape 2)');$('#c-nom').focus();return}
+  if(!d.lignes.length){toast('Ajoutez au moins un travail (étape 3)');$('#b-ligne').focus();return}
+  if(d.lignes.some(l=>!l.q||!l.p)){toast('Une ligne n’a pas de quantité ou de prix');return}
+  const an=jour().slice(0,4),k=d.type+'-'+an;
+  if(enCours&&enCours.type===d.type){d.numero=enCours.numero;d.id=enCours.id;d.date=enCours.date}
+  else{B.compteurs[k]=(B.compteurs[k]||0)+1;d.numero=(d.type==='devis'?'D':'F')+'-'+an+'-'+String(B.compteurs[k]).padStart(3,'0');d.id=Date.now().toString(36);d.date=jour()}
+  d.validite=plusJours(+B.infos.validite||30);d.echeance=plusJours(+B.infos.echeance||30);d.creeLe=new Date().toISOString();
+  B.docs=B.docs.filter(x=>x.id!==d.id);B.docs.unshift(d);
+  const ci=B.clients.findIndex(x=>x.nom.toLowerCase()===d.client.nom.toLowerCase());if(ci>=0)B.clients[ci]={...d.client};else B.clients.push({...d.client});
+  garder();majClients();enCours=d;montrer(d)};
+
+function panneau(html,init){const v=document.createElement('div');v.className='voile';v.innerHTML=`<div class="panneau">${html}</div>`;document.body.appendChild(v);requestAnimationFrame(()=>v.classList.add('ouvert'));
+  const fermer=()=>{v.classList.remove('ouvert');setTimeout(()=>v.remove(),250)};v.addEventListener('mousedown',e=>{if(e.target===v)fermer()});
+  document.addEventListener('keydown',function k(e){if(e.key==='Escape'){fermer();document.removeEventListener('keydown',k)}});init&&init(v.firstElementChild,fermer);return fermer}
+function montrer(d){const t=calc(d);
+  panneau(`<h3>${d.type==='devis'?'Devis':'Facture'} ${esc(d.numero)} créé${d.type==='facture'?'e':''} ✓</h3><p class="sous">${esc(d.client.nom)} · ${eur(t.ttc)} TTC</p>
+   <div class="actions"><button class="btn vert" data-pdf>⬇ Télécharger le PDF</button><button class="btn" data-print>🖨 Imprimer</button><button class="btn" data-mail>✉︎ Envoyer par e-mail</button>${d.type==='devis'?'<button class="btn" data-facturer>→ Transformer en facture</button>':''}<button class="btn" data-fermer>Modifier</button><button class="btn plein" data-nouveau>+ Nouveau document</button></div>
+   <div class="cadre"><div class="zoom"></div></div>`,(p,fermer)=>{
+   const z=p.querySelector('.zoom');z.innerHTML=feuille(d);const k=Math.min(1,(p.querySelector('.cadre').clientWidth-24)/794);z.style.transform=`scale(${k})`;z.style.height=(z.firstElementChild.offsetHeight*k)+'px';
+   p.querySelector('[data-pdf]').onclick=()=>pdf(d);
+   p.querySelector('[data-print]').onclick=()=>{$('#impression').innerHTML=feuille(d);window.print()};
+   p.querySelector('[data-mail]').onclick=()=>email(d);
+   p.querySelector('[data-fermer]').onclick=fermer;
+   p.querySelector('[data-nouveau]').onclick=()=>{fermer();vider()};
+   const f=p.querySelector('[data-facturer]');if(f)f.onclick=()=>{fermer();charger(d,'facture')}})}
+
+async function pdf(d){if(!window.jspdf||!window.html2canvas){toast('Chargement en cours, réessayez dans 2 secondes');return}
+  toast('Création du PDF…');const h=$('#hors');h.innerHTML=feuille(d);const el=h.firstElementChild;
+  try{await document.fonts.ready;const cv=await html2canvas(el,{scale:2,backgroundColor:'#fff'});const {jsPDF}=window.jspdf;const doc=new jsPDF({unit:'mm',format:'a4'});
+    const W=210,H=297,px=cv.width/W,ctx=cv.getContext('2d');let y=0,pg=0;
+    const blanc=yy=>{const r=ctx.getImageData(0,yy,cv.width,1).data;for(let i=0;i<r.length;i+=16)if(r[i]<245)return false;return true};
+    while(y<cv.height){const top=pg?14:0,ph=Math.floor((H-top-12)*px);let hh=Math.min(ph,cv.height-y);if(y+hh<cv.height){let c=y+hh;const mn=y+ph*.7;while(c>mn&&!blanc(c))c-=2;if(c>mn)hh=c-y}
+      const part=document.createElement('canvas');part.width=cv.width;part.height=hh;part.getContext('2d').drawImage(cv,0,y,cv.width,hh,0,0,cv.width,hh);
+      if(pg)doc.addPage();doc.addImage(part.toDataURL('image/jpeg',.92),'JPEG',0,top,W,hh/px);y+=hh;pg++}
+    const nom=`${d.numero} ${d.type==='devis'?'Devis':'Facture'} ${d.client.nom}`.replace(/[\\/:*?"<>|]/g,'').replace(/\s+/g,'-')+'.pdf';
+    doc.save(nom);toast('PDF téléchargé : '+nom)}catch(e){console.error(e);toast('Le PDF n’a pas pu être créé. Utilisez « Imprimer ».')}finally{h.innerHTML=''}}
+function email(d){const I=B.infos,t=calc(d);const sujet=`${d.type==='devis'?'Devis':'Facture'} ${d.numero} — ${I.nom}`;
+  const corps=`Bonjour,\n\nVeuillez trouver ci-joint ${d.type==='devis'?'notre devis':'notre facture'} n° ${d.numero}${d.objet?' pour : '+d.objet:''}, d’un montant de ${eur(t.ttc)} TTC.\n${d.type==='devis'?'Pour l’accepter, retournez-le signé avec la mention « Bon pour accord ».':'Merci de régler avant le '+fDate(d.echeance)+'.'+(I.iban?' IBAN : '+I.iban:'')}\n\nCordialement,\n${I.dirigeant}\n${I.nom}\n${I.tel}`;
+  pdf(d);setTimeout(()=>{location.href=`mailto:${encodeURIComponent(d.client.email||'')}?subject=${encodeURIComponent(sujet)}&body=${encodeURIComponent(corps)}`},1500);toast('PDF téléchargé : joignez-le à l’e-mail qui s’ouvre')}
+
+function vider(){enCours=null;lignes=[];['c-nom','c-adresse','c-cp','c-ville','c-tel','c-email','d-objet','d-chantier','d-paye','d-delai','d-notes'].forEach(i=>$('#'+i).value='');$('#c-pro').checked=false;dessinerLignes();window.scrollTo({top:0,behavior:'smooth'})}
+function charger(d,versType){enCours=versType&&versType!==d.type?null:d;choisirType(versType||d.type);
+  const c=d.client;$('#c-nom').value=c.nom;$('#c-adresse').value=c.adresse;$('#c-cp').value=c.cp;$('#c-ville').value=c.ville;$('#c-tel').value=c.tel;$('#c-email').value=c.email;$('#c-pro').checked=!!c.pro;
+  $('#d-objet').value=d.objet;$('#d-chantier').value=d.chantier;$('#d-tva').value=String(d.tva);$('#d-notes').value=d.notes||'';$('#d-delai').value=d.delai||'';
+  if(versType==='facture'&&d.type==='devis'){$('#d-paye').value=d.acompte?String(calc(d).acompte).replace('.',','):'';toast('Facture préparée à partir du devis '+d.numero+(d.acompte?' (acompte déduit)':''))}
+  else $('#d-paye').value=d.paye?String(d.paye).replace('.',','):'';
+  lignes=d.lignes.map(l=>({d:l.d,q:l.q,u:l.u,p:l.p}));dessinerLignes();window.scrollTo({top:0,behavior:'smooth'})}
+
+/* Mes documents */
+$('#b-docs').onclick=()=>{panneau(`<h3>Mes documents</h3><p class="sous">${B.docs.length} document(s) enregistré(s) sur cet appareil.</p><div class="liste-docs">${B.docs.length?B.docs.map(d=>`<div class="doc"><div><b>${d.type==='devis'?'Devis':'Facture'} ${esc(d.numero)}</b><small>${esc(d.client.nom)} · ${fDate(d.date)} · ${eur(calc(d).ttc)}</small></div><div class="bt"><button data-voir="${d.id}">Voir</button><button data-modif="${d.id}">Modifier</button>${d.type==='devis'?`<button data-fact="${d.id}">→ Facture</button>`:''}</div></div>`).join(''):'<div class="vide">Aucun document pour l’instant.</div>'}</div>
+  <div class="actions" style="margin-top:18px"><button class="btn" data-sauv>Sauvegarder (fichier)</button><label class="btn" style="cursor:pointer">Restaurer<input type="file" accept=".json" hidden data-rest></label></div><p class="aide">Les documents sont gardés dans ce navigateur. Faites une sauvegarde de temps en temps (et avant de changer de téléphone).</p>`,(p,fermer)=>{
+  p.onclick=e=>{const b=e.target.closest('button');if(!b)return;const d=B.docs.find(x=>x.id===(b.dataset.voir||b.dataset.modif||b.dataset.fact));
+   if(b.dataset.voir){fermer();setTimeout(()=>montrer(d),260)}if(b.dataset.modif){fermer();charger(d)}if(b.dataset.fact){fermer();charger(d,'facture')}
+   if('sauv' in b.dataset){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(B)],{type:'application/json'}));a.download='sauvegarde-devis-factures-'+jour()+'.json';a.click();toast('Sauvegarde téléchargée')}};
+  p.querySelector('[data-rest]').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const x=JSON.parse(r.result);if(!x.docs)throw 0;B={...B,...x,infos:{...INFOS0,...x.infos}};garder();majClients();fermer();toast('Sauvegarde restaurée : '+B.docs.length+' document(s)')}catch(err){toast('Fichier invalide')}};r.readAsText(f)}})};
+
+/* Mes infos */
+$('#b-infos').onclick=()=>{const I=B.infos;const ch=(k,l,ph='',cl='')=>`<div class="champ ${cl}"><label>${l}</label><input data-i="${k}" value="${esc(I[k])}" placeholder="${esc(ph)}"></div>`;
+  panneau(`<h3>Mes informations</h3><p class="sous">Elles apparaissent sur tous vos devis et factures. À remplir une seule fois.</p><div class="grille">
+   ${ch('nom','Nom de l’entreprise','','large')}${ch('dirigeant','Votre nom')}${ch('siret','SIRET')}${ch('adresse','Adresse','N° et rue','large')}${ch('cp','Code postal')}${ch('ville','Ville')}${ch('tel','Téléphone')}${ch('email','E-mail')}
+   ${ch('assureur','Assurance décennale (nom de l’assureur)','Ex. MAAF, AXA…')}${ch('police','N° de contrat d’assurance')}${ch('iban','IBAN (pour être payé par virement)','FR76 …','large')}
+   ${ch('tvaNum','N° de TVA (si vous facturez la TVA)')}${ch('mediateur','Médiateur de la consommation','Ex. CM2C')}${ch('validite','Durée de validité des devis (jours)')}${ch('echeance','Délai de paiement des factures (jours)')}</div>
+   <div class="actions"><button class="btn plein" data-ok>Enregistrer</button></div>`,(p,fermer)=>{p.querySelector('[data-ok]').onclick=()=>{p.querySelectorAll('[data-i]').forEach(i=>B.infos[i.dataset.i]=i.value.trim());garder();fermer();toast('Informations enregistrées')}})};
+
+choisirType('devis');dessinerLignes();majClients();
+if(!B.infos.adresse||!B.infos.assureur)setTimeout(()=>toast('Pensez à compléter « Mes infos » (adresse, assurance, IBAN)'),1200);
+})();
+</script>
+</body>
+</html>
