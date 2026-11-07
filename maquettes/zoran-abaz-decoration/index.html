@@ -534,6 +534,18 @@ nav.menu a{font-size:15px;letter-spacing:0}
 @media (prefers-reduced-motion:reduce){.ia,.ia-btn,.ia-msg,.ia-choix button{transition:none;animation:none}.ia-btn .orbe::after,.ia-ecrit i{animation:none}}
 .appel{transition:opacity .5s var(--ease),transform .6s var(--ease),visibility .5s}.appel.hors{opacity:0;visibility:hidden;pointer-events:none;transform:translateY(14px)}
 @media (prefers-reduced-motion:reduce){.appel{transition:none}}
+
+/* Apparition / disparition premium des boutons flottants */
+:root{--ressort:cubic-bezier(.22,1.28,.36,1)}
+.ia-btn{transition:transform .9s var(--ressort) .12s,opacity .6s var(--ease) .12s,filter .7s var(--ease) .12s,visibility 0s linear 0s,background .4s}
+.ia-btn .orbe{transition:transform .9s var(--ressort) .22s}
+.ia-btn.hors{opacity:0;visibility:hidden;pointer-events:none;filter:blur(10px);transform:translateY(26px) scale(.82);transition:transform .5s var(--ease),opacity .35s var(--ease),filter .4s var(--ease),visibility 0s linear .5s,background .4s}
+.ia-btn.hors .orbe{transform:rotate(-120deg) scale(.6);transition-delay:0s}
+.appel{clip-path:inset(0 0 0 0 round 999px);transition:clip-path .9s var(--ease),opacity .5s var(--ease),transform .9s var(--ressort),filter .6s var(--ease),visibility 0s linear 0s}
+.appel svg{transition:transform .7s var(--ease) .35s,opacity .5s var(--ease) .35s}
+.appel.hors{opacity:0;visibility:hidden;pointer-events:none;filter:blur(6px);transform:translateY(22px);clip-path:inset(0 46% 0 46% round 999px);transition:clip-path .5s var(--ease),opacity .4s var(--ease),transform .5s var(--ease),filter .4s var(--ease),visibility 0s linear .5s}
+.appel.hors svg{opacity:0;transform:translateX(-10px);transition-delay:0s}
+@media (prefers-reduced-motion:reduce){.ia-btn,.ia-btn.hors,.appel,.appel.hors{transition:opacity .2s linear,visibility 0s linear .2s;filter:none;transform:none;clip-path:none}}
 </style>
 </head>
 <body>
