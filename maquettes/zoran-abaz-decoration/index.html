@@ -532,6 +532,8 @@ nav.menu a{font-size:15px;letter-spacing:0}
 .ia-note{font-size:11px;color:var(--g88);text-align:center;padding:0 12px 10px;background:#fff}
 @media (max-width:960px){.ia-btn{bottom:84px;left:16px;height:46px;padding:0 16px 0 6px}.ia-btn .orbe{width:34px;height:34px}.ia{left:8px;right:8px;bottom:8px;width:auto;height:calc(100dvh - 16px);max-height:none;border-radius:18px}}
 @media (prefers-reduced-motion:reduce){.ia,.ia-btn,.ia-msg,.ia-choix button{transition:none;animation:none}.ia-btn .orbe::after,.ia-ecrit i{animation:none}}
+.appel{transition:opacity .5s var(--ease),transform .6s var(--ease),visibility .5s}.appel.hors{opacity:0;visibility:hidden;pointer-events:none;transform:translateY(14px)}
+@media (prefers-reduced-motion:reduce){.appel{transition:none}}
 </style>
 </head>
 <body>
@@ -934,7 +936,7 @@ function ouvrir(){box.hidden=false;requestAnimationFrame(function(){box.classLis
   setTimeout(function(){champ.focus()},calme?0:350)}
 function fermer(){box.classList.remove('ouverte');btn.classList.remove('cache');btn.setAttribute('aria-expanded','false');setTimeout(function(){box.hidden=true},calme?0:500);btn.focus()}
 btn.setAttribute('aria-expanded','false');
-var heroIA=document.getElementById('haut');function placeIA(){var bas=heroIA?heroIA.getBoundingClientRect().bottom:0;btn.classList.toggle('hors',bas>window.innerHeight*.35)}
+var heroIA=document.getElementById('haut'),appelIA=document.querySelector('.appel');function placeIA(){var bas=heroIA?heroIA.getBoundingClientRect().bottom:0;var h=bas>window.innerHeight*.35;btn.classList.toggle('hors',h);if(appelIA)appelIA.classList.toggle('hors',h)}
 window.addEventListener('scroll',placeIA,{passive:true});window.addEventListener('resize',placeIA);placeIA();
 btn.addEventListener('click',ouvrir);$('.ia-fermer',box).addEventListener('click',fermer);
 document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!box.hidden)fermer()});
