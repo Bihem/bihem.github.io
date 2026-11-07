@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#161616">
+<title>Zoran Abaz Décoration — Devis & Factures</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Libre+Caslon+Text:wght@400&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+:root{--encre:#161616;--g6:#666;--g8:#888;--ligne:#E6E6E6;--fond:#F6F6F4;--blanc:#fff;--ok:#1F7A4D;--okf:#E7F4EC;--att:#9A6700;--attf:#FFF4D6;--ko:#B42318;--kof:#FDECEA;--info:#1D4ED8;--infof:#E8EEFD;--r:10px;--sans:'Inter',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;--serif:'Libre Caslon Text',Georgia,serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:var(--sans);font-size:14px;color:var(--encre);background:var(--fond);-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+a{color:inherit}
+.app{display:grid;grid-template-columns:232px 1fr;min-height:100vh}
+/* Barre latérale */
+.lat{background:var(--encre);color:#fff;padding:22px 14px;display:flex;flex-direction:column;gap:24px;position:sticky;top:0;height:100vh}
+.marque{display:flex;flex-direction:column;align-items:center;gap:6px;padding:6px 0 14px;border-bottom:1px solid rgba(255,255,255,.12)}
+.marque svg{width:30px;height:27px}
+.marque b{font-family:var(--serif);font-weight:400;font-size:15px;letter-spacing:.14em}
+.marque small{font-family:var(--serif);font-size:8px;letter-spacing:.34em;opacity:.75}
+.nav{display:flex;flex-direction:column;gap:2px}
+.nav a{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:8px;text-decoration:none;color:rgba(255,255,255,.72);font-size:14px;transition:background .2s,color .2s}
+.nav a svg{width:18px;height:18px;flex-shrink:0}
+.nav a:hover{background:rgba(255,255,255,.07);color:#fff}
+.nav a.actif{background:#fff;color:var(--encre)}
+.nav .pastille{margin-left:auto;font-size:11px;background:var(--ko);color:#fff;border-radius:999px;padding:1px 7px}
+.lat .pied{margin-top:auto;font-size:11.5px;color:rgba(255,255,255,.5);line-height:1.5}
+.lat .pied .etat{display:flex;align-items:center;gap:6px;color:rgba(255,255,255,.75)}
+.lat .pied .etat i{width:7px;height:7px;border-radius:50%;background:#7BD88F}
+.lat .pied .etat.local i{background:#F5C451}
+/* Contenu */
+main{padding:28px clamp(16px,3vw,40px) 80px;min-width:0}
+.entete{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+.entete h1{font-size:26px;font-weight:500;letter-spacing:-.02em}
+.entete p{color:var(--g6);margin-top:4px}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 16px;border-radius:999px;border:1px solid var(--encre);background:#fff;font-size:13.5px;font-weight:500;white-space:nowrap;transition:background .2s,color .2s,opacity .2s}
+.btn:hover{background:var(--encre);color:#fff}
+.btn.plein{background:var(--encre);color:#fff}.btn.plein:hover{background:#000}
+.btn.doux{border-color:var(--ligne)}.btn.doux:hover{background:var(--fond);color:var(--encre)}
+.btn.danger{border-color:var(--kof);color:var(--ko)}.btn.danger:hover{background:var(--ko);color:#fff}
+.btn.petit{height:32px;padding:0 12px;font-size:12.5px}
+.btn svg{width:15px;height:15px}
+.btn[disabled]{opacity:.4;pointer-events:none}
+.ico{width:32px;height:32px;border-radius:8px;border:1px solid transparent;background:none;display:inline-grid;place-items:center;color:var(--g6)}
+.ico:hover{background:var(--fond);color:var(--encre);border-color:var(--ligne)}
+.ico svg{width:16px;height:16px}
+.carte{background:#fff;border:1px solid var(--ligne);border-radius:14px}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:18px}
+.kpi{padding:18px}
+.kpi span{font-size:12px;color:var(--g6);text-transform:uppercase;letter-spacing:.06em}
+.kpi b{display:block;font-size:24px;font-weight:500;letter-spacing:-.02em;margin-top:8px}
+.kpi small{color:var(--g6);font-size:12px}
+.grille2{display:grid;grid-template-columns:1.4fr 1fr;gap:14px}
+.bloc{padding:18px}
+.bloc h2{font-size:15px;font-weight:500;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center}
+.barres{display:flex;align-items:flex-end;gap:8px;height:170px;padding-top:10px}
+.barres div{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end}
+.barres i{display:block;width:100%;max-width:34px;background:var(--encre);border-radius:6px 6px 2px 2px;min-height:2px;transition:height .6s}
+.barres small{font-size:10.5px;color:var(--g6)}
+.barres em{font-style:normal;font-size:10px;color:var(--g8)}
+.liste-mini{display:flex;flex-direction:column}
+.liste-mini a{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--ligne);text-decoration:none;cursor:pointer}
+.liste-mini a:last-child{border-bottom:0}
+.liste-mini small{color:var(--g6)}
+.vide{color:var(--g6);padding:22px 0;text-align:center;font-size:13px}
+/* Tableaux */
+.outils{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding:14px 16px;border-bottom:1px solid var(--ligne)}
+.recherche{flex:1;min-width:200px;position:relative}
+.recherche input{width:100%;height:38px;border:1px solid var(--ligne);border-radius:999px;padding:0 14px 0 38px;background:var(--fond)}
+.recherche svg{position:absolute;left:13px;top:11px;width:16px;height:16px;color:var(--g8)}
+.filtres{display:flex;gap:6px;flex-wrap:wrap}
+.filtres button{height:32px;padding:0 12px;border-radius:999px;border:1px solid var(--ligne);background:#fff;font-size:12.5px}
+.filtres button.actif{background:var(--encre);color:#fff;border-color:var(--encre)}
+table.t{width:100%;border-collapse:collapse}
+.t th{font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--g6);font-weight:500;text-align:left;padding:10px 16px;border-bottom:1px solid var(--ligne);white-space:nowrap}
+.t td{padding:12px 16px;border-bottom:1px solid var(--ligne);vertical-align:middle}
+.t tr:last-child td{border-bottom:0}
+.t tbody tr{cursor:pointer;transition:background .15s}
+.t tbody tr:hover{background:#FAFAF8}
+.t .num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.t .act{text-align:right;white-space:nowrap}
+.t .sous{color:var(--g6);font-size:12.5px}
+.statut{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:500;white-space:nowrap}
+.statut::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.s-gris{background:#F0F0EE;color:#555}.s-bleu{background:var(--infof);color:var(--info)}.s-vert{background:var(--okf);color:var(--ok)}.s-orange{background:var(--attf);color:var(--att)}.s-rouge{background:var(--kof);color:var(--ko)}
+.defile{overflow-x:auto}
+/* Formulaires */
+.champs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 14px}
+.champs .large{grid-column:1/-1}
+.champ{display:flex;flex-direction:column;gap:6px}
+.champ label{font-size:12px;color:var(--g6);font-weight:500}
+.champ input,.champ select,.champ textarea{height:40px;border:1px solid var(--ligne);border-radius:8px;padding:0 12px;background:#fff;width:100%}
+.champ textarea{height:auto;min-height:76px;padding:10px 12px;resize:vertical;line-height:1.5}
+.champ input:focus,.champ select:focus,.champ textarea:focus,.lignes input:focus,.lignes select:focus,.lignes textarea:focus{outline:none;border-color:var(--encre);box-shadow:0 0 0 3px rgba(22,22,22,.08)}
+.case{display:flex;align-items:center;gap:10px;font-size:13.5px;cursor:pointer}
+.case input{width:18px;height:18px;accent-color:var(--encre)}
+.aide{font-size:12px;color:var(--g6);line-height:1.5}
+.sep{grid-column:1/-1;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--g6);padding-top:10px;border-top:1px solid var(--ligne);margin-top:6px}
+/* Éditeur */
+.editeur{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;align-items:start}
+.editeur .gauche{display:flex;flex-direction:column;gap:14px}
+.editeur .droite{position:sticky;top:20px}
+.apercu-cadre{background:#E9E9E6;border-radius:14px;padding:16px;overflow:auto;max-height:calc(100vh - 140px)}
+.apercu-zoom{transform-origin:top left}
+.lignes{width:100%;border-collapse:collapse}
+.lignes th{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--g6);font-weight:500;text-align:left;padding:6px 4px}
+.lignes td{padding:4px;vertical-align:top}
+.lignes input,.lignes select,.lignes textarea{width:100%;height:36px;border:1px solid var(--ligne);border-radius:7px;padding:0 8px;background:#fff;font-size:13px}
+.lignes textarea{height:36px;min-height:36px;padding:8px;resize:vertical;line-height:1.35}
+.lignes .n{text-align:right}
+.lignes tr.titre input{font-weight:600;background:var(--fond)}
+.lignes .tot{text-align:right;padding-top:13px;font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:500}
+.lignes .ops{white-space:nowrap;padding-top:6px}
+.lignes .ops .ico{width:26px;height:26px}
+.ajouts{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.totaux-ed{display:flex;justify-content:flex-end;margin-top:14px}
+.totaux-ed table{min-width:260px}
+.totaux-ed td{padding:4px 0}
+.totaux-ed td:last-child{text-align:right;font-variant-numeric:tabular-nums;padding-left:24px}
+.totaux-ed tr.g td{font-weight:600;font-size:16px;border-top:1px solid var(--ligne);padding-top:8px}
+.bandeau-doc{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:14px 18px}
+.bandeau-doc .titre{font-size:18px;font-weight:500}
+.bandeau-doc .espace{flex:1}
+.bascule{display:none;gap:6px;margin-bottom:12px}
+/* Document A4 */
+.feuille{width:794px;min-height:1123px;background:#fff;color:#161616;padding:56px 58px 48px;font-family:var(--sans);font-size:11.5px;line-height:1.5;box-shadow:0 10px 40px -18px rgba(0,0,0,.25);position:relative}
+.f-tete{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+.f-logo{display:flex;flex-direction:column;align-items:flex-start;gap:5px}
+.f-logo svg{width:34px;height:30px}
+.f-logo b{font-family:var(--serif);font-weight:400;font-size:19px;letter-spacing:.14em;line-height:1}
+.f-logo small{font-family:var(--serif);font-size:8.5px;letter-spacing:.38em}
+.f-emet{font-size:10.5px;color:#444;margin-top:12px;line-height:1.55}
+.f-type{text-align:right}
+.f-type h2{font-size:28px;font-weight:300;letter-spacing:-.02em;line-height:1}
+.f-type .no{font-size:13px;font-weight:500;margin-top:8px}
+.f-type dl{display:grid;grid-template-columns:auto auto;gap:2px 14px;justify-content:end;margin-top:10px;font-size:10.5px;color:#444}
+.f-type dt{text-align:right;color:#777}.f-type dd{text-align:right}
+.f-parties{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:30px}
+.f-parties div{border:1px solid #E4E4E4;border-radius:8px;padding:12px 14px}
+.f-parties span{display:block;font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:#888;margin-bottom:6px}
+.f-objet{margin-top:20px;font-size:12px}
+.f-objet b{font-weight:600}
+table.f-lignes{width:100%;border-collapse:collapse;margin-top:18px}
+.f-lignes th{background:#161616;color:#fff;font-weight:500;font-size:10px;text-transform:uppercase;letter-spacing:.06em;padding:8px 8px;text-align:left}
+.f-lignes th.n,.f-lignes td.n{text-align:right;white-space:nowrap}
+.f-lignes td{padding:8px 8px;border-bottom:1px solid #EBEBEB;vertical-align:top}
+.f-lignes tr.titre td{font-weight:600;background:#F5F5F3;font-size:11px;text-transform:uppercase;letter-spacing:.04em}
+.f-lignes .det{color:#666;font-size:10.5px;white-space:pre-line}
+.f-bas{display:grid;grid-template-columns:1.1fr 1fr;gap:24px;margin-top:20px;align-items:start}
+.f-tot{width:100%;border-collapse:collapse}
+.f-tot td{padding:5px 0;border-bottom:1px solid #EFEFEF}
+.f-tot td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.f-tot tr.g td{border-bottom:0;background:#161616;color:#fff;font-weight:600;font-size:13px;padding:9px 10px}
+.f-tot tr.reste td{font-weight:600}
+.f-lettres{font-size:10.5px;color:#444;margin-top:8px;font-style:italic}
+.f-cond{font-size:10.5px;color:#444;line-height:1.6}
+.f-cond b{color:#161616;font-weight:600}
+.f-sign{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:22px}
+.f-sign div{border:1px dashed #BDBDBD;border-radius:8px;padding:12px;min-height:96px;font-size:10.5px;color:#555}
+.f-mentions{margin-top:22px;padding-top:12px;border-top:1px solid #E4E4E4;font-size:9.2px;color:#666;line-height:1.55}
+.f-pied{position:absolute;left:58px;right:58px;bottom:22px;font-size:8.8px;color:#999;text-align:center;border-top:1px solid #EEE;padding-top:8px}
+.f-filigrane{position:absolute;top:44%;left:0;right:0;text-align:center;font-size:96px;font-weight:600;color:rgba(0,0,0,.045);transform:rotate(-24deg);pointer-events:none;letter-spacing:.1em}
+/* Fenêtres */
+.voile{position:fixed;inset:0;background:rgba(10,10,10,.42);display:grid;place-items:center;z-index:60;padding:16px;opacity:0;transition:opacity .2s}
+.voile.ouvert{opacity:1}
+.modale{background:#fff;border-radius:16px;width:min(560px,100%);max-height:calc(100vh - 32px);overflow:auto;padding:22px;transform:translateY(10px);transition:transform .25s}
+.voile.ouvert .modale{transform:none}
+.modale h3{font-size:18px;font-weight:500;margin-bottom:6px}
+.modale p.sous{color:var(--g6);margin-bottom:16px;line-height:1.5}
+.modale .pied-m{display:flex;justify-content:flex-end;gap:8px;margin-top:20px;flex-wrap:wrap}
+.choix-cat{max-height:340px;overflow:auto;border:1px solid var(--ligne);border-radius:10px;margin-top:10px}
+.choix-cat button{display:flex;justify-content:space-between;gap:10px;width:100%;text-align:left;padding:11px 14px;border:0;border-bottom:1px solid var(--ligne);background:#fff}
+.choix-cat button:hover{background:var(--fond)}
+.choix-cat small{color:var(--g6)}
+.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,20px);background:var(--encre);color:#fff;padding:11px 18px;border-radius:999px;font-size:13px;opacity:0;transition:opacity .3s,transform .3s;z-index:80;pointer-events:none;max-width:calc(100vw - 32px);text-align:center}
+.toast.vu{opacity:1;transform:translate(-50%,0)}
+.note-info{background:var(--infof);color:#1E3A8A;border-radius:10px;padding:12px 14px;font-size:12.5px;line-height:1.5}
+.note-att{background:var(--attf);color:#7A5200;border-radius:10px;padding:12px 14px;font-size:12.5px;line-height:1.5}
+.paiements{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.paiements div{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 12px;background:var(--fond);border-radius:8px;font-size:13px}
+.mobile-nav{display:none}
+@media (max-width:1180px){.editeur{grid-template-columns:1fr}.editeur .droite{position:static}.bascule{display:flex}.editeur.mode-edit .droite{display:none}.editeur.mode-apercu .gauche{display:none}}
+@media (max-width:960px){
+.app{grid-template-columns:1fr}.lat{display:none}
+.mobile-nav{display:flex;position:fixed;left:0;right:0;bottom:0;background:var(--encre);z-index:50;justify-content:space-around;padding:6px 4px calc(6px + env(safe-area-inset-bottom))}
+.mobile-nav a{display:flex;flex-direction:column;align-items:center;gap:3px;color:rgba(255,255,255,.6);text-decoration:none;font-size:10.5px;padding:6px 8px;border-radius:8px}
+.mobile-nav a svg{width:20px;height:20px}.mobile-nav a.actif{color:#fff;background:rgba(255,255,255,.1)}
+main{padding-bottom:96px}
+.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.grille2{grid-template-columns:1fr}
+.champs{grid-template-columns:1fr}
+.t .cache-m{display:none}
+}
+
+.lignes thead{display:none}
+.lignes tbody{display:flex;flex-direction:column;gap:10px}
+.lignes tr{display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) minmax(90px,auto);gap:8px;padding:12px;border:1px solid var(--ligne);border-radius:12px;background:#FCFCFB}
+.lignes tr.titre{grid-template-columns:1fr auto;background:var(--fond);padding:8px 8px 8px 12px}
+.lignes td{padding:0;display:flex;flex-direction:column;gap:4px;min-width:0}
+.lignes td.des{grid-column:1/-2;gap:6px}
+.lignes td.ops{flex-direction:row;justify-content:flex-end}.lignes tr:not(.titre) td.ops{grid-column:-2/-1;grid-row:1;flex-direction:row;justify-content:flex-end;align-items:flex-start;padding-top:2px}
+.lignes td[data-cap]::before{content:attr(data-cap);font-size:10.5px;color:var(--g6);text-transform:uppercase;letter-spacing:.04em}
+.lignes td.tot{justify-content:flex-start;align-items:flex-end;padding-top:0;font-size:14px}
+.lignes td.tot::before{align-self:flex-end}
+.lignes td.tot{padding-bottom:9px;justify-content:space-between}
+.lignes textarea{min-height:40px}
+@media (max-width:560px){.lignes tr{grid-template-columns:repeat(2,minmax(0,1fr))}.lignes td.des{grid-column:1/-1}.lignes tr:not(.titre) td.ops{grid-column:1/-1;grid-row:auto}}
+
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="lat">
+  <div class="marque"><svg viewBox="5 5 102 90" aria-hidden="true"><g fill="currentColor"><rect x="10" y="10" width="52" height="3.4"/><polygon points="54,10 63.5,10 19.5,90 10,90"/><rect x="10" y="86.6" width="50" height="3.4"/><polygon points="58.8,10 62.2,10 97.2,90 93.8,90"/><rect x="35" y="60.8" width="47" height="2.6"/><rect x="88" y="86.6" width="14" height="3.4"/></g></svg><b>ZORAN ABAZ</b><small>DÉCORATION</small></div>
+  <nav class="nav" id="nav"></nav>
+  <div class="pied"><div class="etat local" id="etat-sauv"><i></i><span>Chargement…</span></div><div style="margin-top:6px">Devis & factures · v1</div></div>
+</aside>
+<main id="vue" tabindex="-1"></main>
+</div>
+<nav class="mobile-nav" id="nav-m"></nav>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div id="hors-ecran" style="position:fixed;left:-10000px;top:0"></div>
+
+<script>
+(function(){
+'use strict';
+/* ================== Utilitaires ================== */
+const $=(s,c=document)=>c.querySelector(s), $$=(s,c=document)=>[...c.querySelectorAll(s)];
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,7);
+const auj=()=>{const x=new Date();return x.getFullYear()+'-'+String(x.getMonth()+1).padStart(2,'0')+'-'+String(x.getDate()).padStart(2,'0')};
+const ajJours=(d,n)=>{const x=new Date(d+'T12:00:00');x.setDate(x.getDate()+(+n||0));return x.getFullYear()+'-'+String(x.getMonth()+1).padStart(2,'0')+'-'+String(x.getDate()).padStart(2,'0')};
+const fDate=d=>d?new Date(d+'T12:00:00').toLocaleDateString('fr-FR',{day:'2-digit',month:'2-digit',year:'numeric'}):'—';
+const fDateL=d=>d?new Date(d+'T12:00:00').toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'}):'—';
+const r2=n=>Math.round((+n||0)*100)/100;
+const eur=n=>(r2(n)).toLocaleString('fr-FR',{style:'currency',currency:'EUR'});
+const nb=n=>(+n||0).toLocaleString('fr-FR',{maximumFractionDigits:2});
+const num=v=>{if(typeof v==='number')return v;const x=parseFloat(String(v||'').replace(/\s/g,'').replace(',','.'));return isNaN(x)?0:x};
+function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('vu');clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove('vu'),2600)}
+
+/* Montant en lettres (orthographe 1990) */
+const U=['zéro','un','deux','trois','quatre','cinq','six','sept','huit','neuf','dix','onze','douze','treize','quatorze','quinze','seize'];
+function s100(n){if(n<17)return U[n];if(n<20)return 'dix-'+U[n-10];const d=Math.floor(n/10),u=n%10;
+  if(d===7||d===9){const r=n-(d===7?60:80);return (d===7?'soixante':'quatre-vingt')+(r===11&&d===7?'-et-':'-')+s100(r)}
+  const t=['','','vingt','trente','quarante','cinquante','soixante','','quatre-vingt'][d];
+  if(u===0)return d===8?'quatre-vingts':t;if(u===1&&d!==8)return t+'-et-un';return t+'-'+U[u]}
+function s1000(n,fin){const c=Math.floor(n/100),r=n%100;let s='';if(c===0)return s100(r);
+  s=c===1?'cent':U[c]+'-cent';if(r)return s+'-'+s100(r);return (c>1&&fin)?s+'s':s}
+function lettres(n){if(n===0)return 'zéro';const m=Math.floor(n/1e6),k=Math.floor((n%1e6)/1000),r=n%1000,p=[];
+  if(m)p.push(m===1?'un million':lettres(m)+' millions');
+  if(k)p.push(k===1?'mille':s1000(k,false)+'-mille');
+  if(r)p.push(s1000(r,true));return p.join(' ')}
+function enLettres(x){x=Math.abs(r2(x));const e=Math.floor(x),c=Math.round((x-e)*100);
+  let s=lettres(e)+(e>=1e6&&e%1e6===0?' d’euros':' euro'+(e>1?'s':''));if(c)s+=' et '+lettres(c)+' centime'+(c>1?'s':'');return s.charAt(0).toUpperCase()+s.slice(1)}
+
+/* ================== Données ================== */
+const LOGO='<svg viewBox="5 5 102 90" aria-hidden="true"><g fill="currentColor"><rect x="10" y="10" width="52" height="3.4"/><polygon points="54,10 63.5,10 19.5,90 10,90"/><rect x="10" y="86.6" width="50" height="3.4"/><polygon points="58.8,10 62.2,10 97.2,90 93.8,90"/><rect x="35" y="60.8" width="47" height="2.6"/><rect x="88" y="86.6" width="14" height="3.4"/></g></svg>';
+const CATALOGUE_DEFAUT=[
+ ['Protection du chantier','Bâchage des sols et des meubles, masquage des menuiseries','forfait',150,10],
+ ['Préparation des murs','Lessivage, rebouchage, ponçage et dépoussiérage','m²',8,10],
+ ['Enduit de lissage','Application d’un enduit de lissage, deux passes, ponçage','m²',14,10],
+ ['Impression des murs','Une couche d’impression adaptée au support','m²',5,10],
+ ['Peinture des murs','Deux couches de peinture acrylique velours ou mate','m²',18,10],
+ ['Peinture des plafonds','Deux couches de peinture mate spéciale plafond','m²',22,10],
+ ['Peinture des boiseries','Ponçage et deux couches de laque satinée (portes, plinthes)','ml',16,10],
+ ['Peinture de porte','Préparation et deux couches de laque, deux faces','unité',85,10],
+ ['Pose de papier peint','Dépose de l’ancien revêtement, encollage et pose','m²',24,10],
+ ['Enduit décoratif','Enduit à effet de matière (béton ciré, stuc, tadelakt)','m²',55,10],
+ ['Ravalement de façade','Nettoyage haute pression, traitement et deux couches de peinture façade','m²',38,10],
+ ['Peinture de volets','Décapage, ponçage et deux couches de peinture microporeuse','unité',95,10],
+ ['Peinture de portail','Préparation, antirouille et deux couches de laque','unité',320,10],
+ ['Conseil couleurs et matières','Visite, nuancier et préconisations de teintes','forfait',90,20],
+ ['Nettoyage de fin de chantier','Évacuation des déchets et nettoyage des lieux','forfait',120,10],
+ ['Frais de déplacement','Déplacement hors secteur','forfait',40,20]
+].map(([designation,detail,unite,pu,tva])=>({id:uid(),designation,detail,unite,pu,tva}));
+function etatInitial(){return{v:1,
+ params:{nom:'Zoran Abaz Décoration',dirigeant:'Zoran Abaz',forme:'Entreprise individuelle',adresse:'',cp:'93320',ville:'Les Pavillons-sous-Bois',tel:'06 31 60 00 05',email:'zoran_abaz@live.fr',siret:'519 934 244 00012',ape:'4334Z',rcs:'',tvaIntra:'',franchise:false,
+  assureur:'',police:'',zoneAssurance:'France métropolitaine',mediateur:'',banque:'',iban:'',bic:'',
+  validite:30,echeance:30,acompte:30,tvaDefaut:10,prefD:'D',prefF:'F',prefA:'A',
+  condDevis:'Acompte de {acompte} % à la signature du devis, solde à réception de la facture.\nPaiement par virement bancaire, chèque ou espèces (dans la limite légale).',
+  noteTva:'Taux de TVA réduit de 10 % applicable aux travaux d’amélioration, d’aménagement et d’entretien de locaux d’habitation achevés depuis plus de deux ans, sous réserve de l’attestation du client.',
+  condFacture:'Paiement à réception de la facture. Pas d’escompte pour paiement anticipé.',
+  compteurs:{}},
+ clients:[],catalogue:CATALOGUE_DEFAUT,docs:[]}}
+let S=etatInitial();
+
+/* ===== Persistance : base privée claude.ai (si disponible) + copie locale ===== */
+const CLE='zoran-facturation-v1';
+let db=null,refDoc=null,source='local',enAttente=null,ecriture=false;
+function lireLocal(){try{const x=localStorage.getItem(CLE);return x?JSON.parse(x):null}catch(e){return null}}
+function ecrireLocal(){try{localStorage.setItem(CLE,JSON.stringify(S))}catch(e){}}
+function majEtatSauv(t){const e=$('#etat-sauv');e.classList.toggle('local',source!=='nuage');e.querySelector('span').textContent=t||(source==='nuage'?'Enregistré dans votre compte':'Enregistré sur cet appareil')}
+function sauver(){S.maj=new Date().toISOString();ecrireLocal();majEtatSauv('Enregistrement…');clearTimeout(sauver.t);sauver.t=setTimeout(pousser,700)}
+async function pousser(){if(!refDoc){majEtatSauv();return}if(ecriture){enAttente=true;return}ecriture=true;
+  try{await refDoc.set({json:JSON.stringify(S),maj:S.maj});majEtatSauv()}catch(e){source='local';majEtatSauv('Sauvegarde du compte indisponible — copie locale')}
+  ecriture=false;if(enAttente){enAttente=false;pousser()}}
+async function initNuage(){
+  try{if(!window.claude||!window.claude.use)throw 0;
+    const [d,u]=await Promise.all([claude.use('db'),claude.use('user')]);if(!d||!u)throw 0;
+    const id=await u.id();if(!id)throw 0;db=d;refDoc=db.collection('data/users/'+id).doc('zoran-facturation');
+    const lu=await Promise.race([refDoc.get(),new Promise((_,k)=>setTimeout(()=>k('delai'),10000))]);
+    const data=lu&&(typeof lu.data==='function'?lu.data():lu);
+    const distant=data&&data.json?JSON.parse(data.json):null;
+    source='nuage';
+    if(distant&&(!S.maj||(distant.maj||'')>=(S.maj||''))){S=fusion(distant);ecrireLocal();rendre()}
+    else if(S.docs.length||S.clients.length){pousser()}
+    majEtatSauv();
+  }catch(e){source='local';majEtatSauv()}
+}
+function fusion(x){const b=etatInitial();return{...b,...x,params:{...b.params,...(x.params||{})},catalogue:x.catalogue||b.catalogue,clients:x.clients||[],docs:x.docs||[]}}
+const local=lireLocal();if(local)S=fusion(local);
+
+/* ================== Calculs ================== */
+const P=()=>S.params;
+const client=id=>S.clients.find(c=>c.id===id);
+const docById=id=>S.docs.find(d=>d.id===id);
+function totaux(d){
+  const fr=P().franchise,parTaux={};let ht=0;
+  (d.lignes||[]).forEach(l=>{if(l.t==='titre')return;const m=r2(num(l.qte)*num(l.pu)*(1-num(l.remise)/100));ht+=m;const t=fr?0:num(l.tva);parTaux[t]=(parTaux[t]||0)+m});
+  const rem=num(d.remise);const k=1-rem/100;let tva=0,lignesTva=[];
+  Object.keys(parTaux).sort((a,b)=>a-b).forEach(t=>{const base=r2(parTaux[t]*k),m=r2(base*t/100);tva+=m;lignesTva.push({taux:+t,base,montant:m})});
+  const htNet=r2(ht*k),ttc=r2(htNet+tva);
+  const paye=r2((d.paiements||[]).reduce((s,p)=>s+num(p.montant),0));
+  return{htBrut:r2(ht),remise:r2(ht-htNet),ht:htNet,tva:r2(tva),lignesTva,ttc,paye,reste:r2(ttc-paye),acompte:r2(ttc*num(d.acompte)/100)}
+}
+function statut(d){
+  if(d.type==='devis'){if(d.statut==='envoye'&&d.validite&&d.validite<auj())return['Expiré','s-orange','expire'];
+    return{brouillon:['Brouillon','s-gris'],envoye:['Envoyé','s-bleu'],accepte:['Accepté','s-vert'],refuse:['Refusé','s-rouge']}[d.statut]||['Brouillon','s-gris']}
+  if(d.type==='avoir')return d.statut==='brouillon'?['Brouillon','s-gris']:['Émis','s-bleu'];
+  if(d.statut==='brouillon')return['Brouillon','s-gris'];
+  const t=totaux(d);if(t.reste<=0.005)return['Payée','s-vert','payee'];
+  if(d.echeance&&d.echeance<auj())return['En retard','s-rouge','retard'];
+  if(t.paye>0)return['Partiellement payée','s-orange','partielle'];return['Émise','s-bleu','emise']}
+const libType=t=>({devis:'Devis',facture:'Facture',avoir:'Avoir'}[t]);
+const titreDoc=d=>d.type==='facture'?(d.sous==='acompte'?'Facture d’acompte':d.sous==='solde'?'Facture de solde':'Facture'):libType(d.type);
+function numero(type,date){const y=(date||auj()).slice(0,4),pref={devis:P().prefD,facture:P().prefF,avoir:P().prefA}[type],k=type+'-'+y;
+  const n=(P().compteurs[k]||0)+1;P().compteurs[k]=n;return `${pref}-${y}-${String(n).padStart(4,'0')}`}
+function nomClient(c){if(!c)return'Client non renseigné';return c.type==='pro'&&c.societe?c.societe:[c.civilite,c.prenom,c.nom].filter(Boolean).join(' ')||c.societe||'Sans nom'}
+
+/* ================== Navigation ================== */
+const ICONES={
+ tableau:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>',
+ devis:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>',
+ factures:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg>',
+ clients:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3.5-5.5 6.5-5.5s5.7 1.9 6.5 5.5"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18.5 14.8c1.6.8 2.7 2.5 3 5.2"/></svg>',
+ catalogue:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16v13H4z"/><path d="M8 7V4h8v3M4 12h16"/></svg>',
+ parametres:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>'};
+const I={plus:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 5v14M5 12h14"/></svg>',pdf:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>',dup:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>',sup:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></svg>',haut:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 19V5M6 11l6-6 6 6"/></svg>',bas:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 5v14M6 13l6 6 6-6"/></svg>',retour:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>',mail:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>',euro:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M17 6.5A7 7 0 1 0 17 17.5M4 10h9M4 14h9"/></svg>',loupe:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>',fleche:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'};
+const VUES=[['tableau','Tableau de bord'],['devis','Devis'],['factures','Factures'],['clients','Clients'],['catalogue','Prestations'],['parametres','Paramètres']];
+let vue='tableau',edition=null,modeMobile='edit',filtre={devis:'tous',factures:'tous'},rech={devis:'',factures:'',clients:'',catalogue:''};
+function nav(){const retard=S.docs.filter(d=>d.type==='facture'&&statut(d)[2]==='retard').length;
+  const h=(m)=>VUES.map(([k,l])=>`<a href="#${k}" class="${(vue===k||(edition&&((edition.type==='devis'&&k==='devis')||(edition.type!=='devis'&&k==='factures'))))?'actif':''}">${ICONES[k]}<span>${m&&k==='catalogue'?'Prestas':m&&k==='parametres'?'Réglages':m&&k==='tableau'?'Accueil':l}</span>${!m&&k==='factures'&&retard?`<em class="pastille">${retard}</em>`:''}</a>`).join('');
+  $('#nav').innerHTML=h(false);$('#nav-m').innerHTML=h(true)}
+function route(){const h=location.hash.replace('#','');edition=null;vue=VUES.some(v=>v[0]===h)?h:'tableau';rendre();$('#vue').scrollTo?.(0,0);window.scrollTo(0,0)}
+window.addEventListener('hashchange',route);
+
+/* ================== Rendu ================== */
+function rendre(){nav();const v=$('#vue');
+  if(edition){v.innerHTML=vueEditeur();brancherEditeur();majApercu();return}
+  v.innerHTML=({tableau:vueTableau,devis:()=>vueListe('devis'),factures:()=>vueListe('factures'),clients:vueClients,catalogue:vueCatalogue,parametres:vueParametres})[vue]();
+  brancher()}
+
+function vueTableau(){
+  const an=auj().slice(0,4),fact=S.docs.filter(d=>d.type!=='devis'&&d.statut!=='brouillon');
+  const signe=d=>d.type==='avoir'?-1:1;
+  const caAn=r2(fact.filter(d=>d.date.slice(0,4)===an).reduce((s,d)=>s+signe(d)*totaux(d).ht,0));
+  const enc=r2(S.docs.filter(d=>d.type==='facture').reduce((s,d)=>s+(d.paiements||[]).filter(p=>(p.date||'').slice(0,4)===an).reduce((a,p)=>a+num(p.montant),0),0));
+  const resteF=S.docs.filter(d=>d.type==='facture'&&d.statut!=='brouillon');const reste=r2(resteF.reduce((s,d)=>s+Math.max(0,totaux(d).reste),0));
+  const devisAtt=S.docs.filter(d=>d.type==='devis'&&d.statut==='envoye'&&statut(d)[2]!=='expire');const montAtt=r2(devisAtt.reduce((s,d)=>s+totaux(d).ttc,0));
+  const tranches=S.docs.filter(d=>d.type==='devis'&&['accepte','refuse'].includes(d.statut));const taux=tranches.length?Math.round(100*tranches.filter(d=>d.statut==='accepte').length/tranches.length):null;
+  // 12 mois encaissés
+  const mois=[];const ref=new Date();for(let i=11;i>=0;i--){const x=new Date(ref.getFullYear(),ref.getMonth()-i,1);mois.push(x.getFullYear()+'-'+String(x.getMonth()+1).padStart(2,'0'))}
+  const parMois=mois.map(m=>r2(S.docs.filter(d=>d.type==='facture').reduce((s,d)=>s+(d.paiements||[]).filter(p=>(p.date||'').slice(0,7)===m).reduce((a,p)=>a+num(p.montant),0),0)));
+  const max=Math.max(1,...parMois);
+  const relances=[...S.docs.filter(d=>d.type==='facture'&&statut(d)[2]==='retard').map(d=>({d,t:'Facture en retard',info:'Échue le '+fDate(d.echeance)})),
+    ...S.docs.filter(d=>d.type==='devis'&&d.statut==='envoye'&&d.envoyeLe&&ajJours(d.envoyeLe,7)<=auj()&&statut(d)[2]!=='expire').map(d=>({d,t:'Devis sans réponse',info:'Envoyé le '+fDate(d.envoyeLe)})),
+    ...S.docs.filter(d=>d.type==='devis'&&statut(d)[2]==='expire').map(d=>({d,t:'Devis expiré',info:'Validité dépassée le '+fDate(d.validite)}))];
+  const recents=[...S.docs].sort((a,b)=>(b.majLe||'').localeCompare(a.majLe||'')).slice(0,6);
+  return `<div class="entete"><div><h1>Bonjour ${esc(P().dirigeant.split(' ')[0]||'')}</h1><p>${fDateL(auj())} · vue d’ensemble de l’activité</p></div>
+  <div class="actions"><button class="btn" data-nouveau="facture">${I.plus}Nouvelle facture</button><button class="btn plein" data-nouveau="devis">${I.plus}Nouveau devis</button></div></div>
+  <div class="kpis">
+   <div class="carte kpi"><span>Chiffre d’affaires ${an}</span><b>${eur(caAn)}</b><small>HT facturé</small></div>
+   <div class="carte kpi"><span>Encaissé ${an}</span><b>${eur(enc)}</b><small>TTC reçu</small></div>
+   <div class="carte kpi"><span>Reste à encaisser</span><b>${eur(reste)}</b><small>${resteF.filter(d=>totaux(d).reste>0.005).length} facture(s) ouverte(s)</small></div>
+   <div class="carte kpi"><span>Devis en attente</span><b>${eur(montAtt)}</b><small>${devisAtt.length} devis · signature ${taux===null?'—':taux+' %'}</small></div>
+  </div>
+  <div class="grille2">
+   <div class="carte bloc"><h2>Encaissements des 12 derniers mois</h2><div class="barres">${parMois.map((v,i)=>`<div title="${eur(v)}"><em>${v?Math.round(v/100)/10+'k':''}</em><i style="height:${Math.max(1,v/max*100)}%"></i><small>${new Date(mois[i]+'-15').toLocaleDateString('fr-FR',{month:'short'}).replace('.','')}</small></div>`).join('')}</div></div>
+   <div class="carte bloc"><h2>À relancer <span class="sous" style="font-weight:400;color:var(--g6);font-size:12px">${relances.length}</span></h2>${relances.length?`<div class="liste-mini">${relances.slice(0,6).map(r=>`<a data-ouvrir="${r.d.id}"><span><b style="font-weight:500">${esc(r.d.numero)}</b> · ${esc(nomClient(client(r.d.clientId)))}<br><small>${r.t} · ${r.info}</small></span><span>${eur(r.d.type==='facture'?totaux(r.d).reste:totaux(r.d).ttc)}</span></a>`).join('')}</div>`:'<div class="vide">Rien à relancer pour le moment.</div>'}</div>
+  </div>
+  <div class="carte bloc" style="margin-top:14px"><h2>Derniers documents</h2>${recents.length?`<div class="liste-mini">${recents.map(d=>{const s=statut(d);return `<a data-ouvrir="${d.id}"><span><b style="font-weight:500">${titreDoc(d)} ${esc(d.numero)}</b> · ${esc(nomClient(client(d.clientId)))}<br><small>${fDate(d.date)} · ${esc(d.objet||'')}</small></span><span style="text-align:right">${eur(totaux(d).ttc)}<br><span class="statut ${s[1]}">${s[0]}</span></span></a>`}).join('')}</div>`:`<div class="vide">Aucun document. Commencez par créer un client puis un devis.<br><br><button class="btn plein" data-nouveau="devis">${I.plus}Créer un premier devis</button></div>`}</div>`}
+
+function vueListe(k){
+  const typeOk=k==='devis'?(d=>d.type==='devis'):(d=>d.type!=='devis');
+  const filtresDef=k==='devis'?[['tous','Tous'],['brouillon','Brouillons'],['envoye','Envoyés'],['accepte','Acceptés'],['refuse','Refusés'],['expire','Expirés']]:[['tous','Toutes'],['brouillon','Brouillons'],['ouverte','À encaisser'],['retard','En retard'],['payee','Payées'],['avoir','Avoirs']];
+  const q=rech[k].toLowerCase(),f=filtre[k];
+  let l=S.docs.filter(typeOk).filter(d=>{const s=statut(d);
+    if(f!=='tous'){if(k==='devis'){if(f==='expire'?s[2]!=='expire':(d.statut!==f||s[2]==='expire'))return false}
+      else{if(f==='brouillon'&&d.statut!=='brouillon')return false;if(f==='avoir'&&d.type!=='avoir')return false;if(f==='payee'&&s[2]!=='payee')return false;if(f==='retard'&&s[2]!=='retard')return false;if(f==='ouverte'&&!(d.type==='facture'&&d.statut!=='brouillon'&&totaux(d).reste>0.005))return false}}
+    if(q){const c=client(d.clientId);return [d.numero,d.objet,nomClient(c),c&&c.ville,d.chantier].join(' ').toLowerCase().includes(q)}return true})
+   .sort((a,b)=>(b.date+b.numero).localeCompare(a.date+a.numero));
+  const tot=r2(l.reduce((s,d)=>s+(d.type==='avoir'?-1:1)*totaux(d).ttc,0));
+  return `<div class="entete"><div><h1>${k==='devis'?'Devis':'Factures & avoirs'}</h1><p>${l.length} document(s) · ${eur(tot)} TTC</p></div>
+  <div class="actions"><button class="btn doux" data-export="${k}">${I.pdf}Export CSV</button>${k==='devis'?`<button class="btn plein" data-nouveau="devis">${I.plus}Nouveau devis</button>`:`<button class="btn" data-nouveau="avoir">${I.plus}Avoir</button><button class="btn plein" data-nouveau="facture">${I.plus}Nouvelle facture</button>`}</div></div>
+  <div class="carte"><div class="outils"><label class="recherche">${I.loupe}<input type="search" data-rech="${k}" placeholder="Rechercher un numéro, un client, un chantier…" value="${esc(rech[k])}"></label><div class="filtres">${filtresDef.map(([v,lb])=>`<button data-filtre="${k}:${v}" class="${f===v?'actif':''}">${lb}</button>`).join('')}</div></div>
+  <div class="defile">${l.length?`<table class="t"><thead><tr><th>Numéro</th><th>Client</th><th class="cache-m">Date</th><th class="cache-m">${k==='devis'?'Validité':'Échéance'}</th><th class="num">Total TTC</th>${k!=='devis'?'<th class="num cache-m">Reste dû</th>':''}<th>Statut</th><th></th></tr></thead><tbody>
+  ${l.map(d=>{const t=totaux(d),s=statut(d),c=client(d.clientId);return `<tr data-ouvrir="${d.id}"><td><b style="font-weight:500">${esc(d.numero)}</b><div class="sous">${titreDoc(d)}${d.objet?' · '+esc(d.objet):''}</div></td><td>${esc(nomClient(c))}<div class="sous">${esc(c&&c.ville||'')}</div></td><td class="cache-m">${fDate(d.date)}</td><td class="cache-m">${fDate(k==='devis'?d.validite:d.echeance)}</td><td class="num">${d.type==='avoir'?'−':''}${eur(t.ttc)}</td>${k!=='devis'?`<td class="num cache-m">${d.type==='facture'&&d.statut!=='brouillon'?eur(Math.max(0,t.reste)):'—'}</td>`:''}<td><span class="statut ${s[1]}">${s[0]}</span></td><td class="act"><button class="ico" title="Télécharger le PDF" data-pdf="${d.id}">${I.pdf}</button><button class="ico" title="Dupliquer" data-dupliquer="${d.id}">${I.dup}</button></td></tr>`}).join('')}</tbody></table>`:`<div class="vide">Aucun document ${q||f!=='tous'?'ne correspond à cette recherche.':'pour le moment.'}</div>`}</div></div>`}
+
+function vueClients(){const q=rech.clients.toLowerCase();
+  const l=S.clients.filter(c=>!q||[nomClient(c),c.email,c.tel,c.ville,c.adresse].join(' ').toLowerCase().includes(q)).sort((a,b)=>nomClient(a).localeCompare(nomClient(b)));
+  return `<div class="entete"><div><h1>Clients</h1><p>${S.clients.length} client(s)</p></div><div class="actions"><button class="btn plein" data-client-nouveau>${I.plus}Nouveau client</button></div></div>
+  <div class="carte"><div class="outils"><label class="recherche">${I.loupe}<input type="search" data-rech="clients" placeholder="Rechercher un client…" value="${esc(rech.clients)}"></label></div>
+  <div class="defile">${l.length?`<table class="t"><thead><tr><th>Client</th><th class="cache-m">Contact</th><th class="cache-m">Ville</th><th class="num">Facturé TTC</th><th class="num cache-m">Reste dû</th><th></th></tr></thead><tbody>${l.map(c=>{const f=S.docs.filter(d=>d.clientId===c.id&&d.type!=='devis'&&d.statut!=='brouillon');const fac=r2(f.reduce((s,d)=>s+(d.type==='avoir'?-1:1)*totaux(d).ttc,0)),reste=r2(f.filter(d=>d.type==='facture').reduce((s,d)=>s+Math.max(0,totaux(d).reste),0));
+   return `<tr data-client="${c.id}"><td><b style="font-weight:500">${esc(nomClient(c))}</b><div class="sous">${c.type==='pro'?'Professionnel':'Particulier'}</div></td><td class="cache-m">${esc(c.tel||'')}<div class="sous">${esc(c.email||'')}</div></td><td class="cache-m">${esc([c.cp,c.ville].filter(Boolean).join(' '))}</td><td class="num">${eur(fac)}</td><td class="num cache-m">${eur(reste)}</td><td class="act"><button class="ico" title="Nouveau devis pour ce client" data-devis-client="${c.id}">${I.plus}</button></td></tr>`}).join('')}</tbody></table>`:`<div class="vide">${q?'Aucun client ne correspond.':'Aucun client. Ajoutez votre premier client.'}</div>`}</div></div>`}
+
+function vueCatalogue(){const q=rech.catalogue.toLowerCase();const l=S.catalogue.filter(p=>!q||(p.designation+' '+p.detail).toLowerCase().includes(q));
+  return `<div class="entete"><div><h1>Prestations</h1><p>Votre catalogue de prix, réutilisable dans les devis et factures.</p></div><div class="actions"><button class="btn plein" data-presta-nouvelle>${I.plus}Nouvelle prestation</button></div></div>
+  <div class="carte"><div class="outils"><label class="recherche">${I.loupe}<input type="search" data-rech="catalogue" placeholder="Rechercher une prestation…" value="${esc(rech.catalogue)}"></label></div>
+  <div class="defile">${l.length?`<table class="t"><thead><tr><th>Prestation</th><th>Unité</th><th class="num">Prix HT</th><th class="num cache-m">TVA</th></tr></thead><tbody>${l.map(p=>`<tr data-presta="${p.id}"><td><b style="font-weight:500">${esc(p.designation)}</b><div class="sous">${esc(p.detail||'')}</div></td><td>${esc(p.unite)}</td><td class="num">${eur(p.pu)}</td><td class="num cache-m">${nb(p.tva)} %</td></tr>`).join('')}</tbody></table>`:'<div class="vide">Aucune prestation.</div>'}</div></div>
+  <p class="aide" style="margin-top:12px">Les prix proposés au départ sont des exemples à ajuster à vos tarifs réels.</p>`}
+
+function vueParametres(){const p=P();const c=(k,l,t='text',plus='')=>`<div class="champ ${plus}"><label for="p-${k}">${l}</label><input id="p-${k}" type="${t}" data-param="${k}" value="${esc(p[k])}"></div>`;
+  const ta=(k,l,plus='large')=>`<div class="champ ${plus}"><label for="p-${k}">${l}</label><textarea id="p-${k}" data-param="${k}">${esc(p[k])}</textarea></div>`;
+  return `<div class="entete"><div><h1>Paramètres</h1><p>Ces informations apparaissent sur vos devis et factures.</p></div><div class="actions"><button class="btn doux" data-sauvegarde>${I.pdf}Sauvegarde (.json)</button><label class="btn doux" style="cursor:pointer">Restaurer<input type="file" accept=".json,application/json" data-restaurer hidden></label></div></div>
+  <div class="carte bloc"><div class="champs">
+   <div class="sep" style="border:0;margin:0;padding:0">Entreprise</div>
+   ${c('nom','Nom commercial')}${c('dirigeant','Nom du dirigeant')}${c('forme','Forme juridique')}${c('siret','SIRET')}${c('ape','Code APE')}${c('rcs','RCS / RM (immatriculation)')}
+   ${c('adresse','Adresse','text','large')}${c('cp','Code postal')}${c('ville','Ville')}${c('tel','Téléphone','tel')}${c('email','E-mail','email')}
+   <div class="sep">TVA</div>
+   <label class="case large"><input type="checkbox" data-param-case="franchise" ${p.franchise?'checked':''}> Franchise en base de TVA (« TVA non applicable, art. 293 B du CGI »)</label>
+   ${c('tvaIntra','N° de TVA intracommunautaire')}<div class="champ"><label for="p-tvaDefaut">Taux de TVA par défaut</label><select id="p-tvaDefaut" data-param="tvaDefaut">${[20,10,5.5,0].map(t=>`<option value="${t}" ${+p.tvaDefaut===t?'selected':''}>${nb(t)} %</option>`).join('')}</select></div>
+   ${ta('noteTva','Mention sur le taux réduit (devis et factures à 10 % ou 5,5 %)')}
+   <div class="sep">Assurance (obligatoire pour les travaux du bâtiment)</div>
+   ${c('assureur','Assureur décennale')}${c('police','N° de contrat')}${c('zoneAssurance','Couverture géographique','text','large')}
+   <div class="sep">Paiement</div>
+   ${c('banque','Banque')}${c('bic','BIC')}${c('iban','IBAN','text','large')}
+   ${c('validite','Validité des devis (jours)','number')}${c('echeance','Échéance des factures (jours)','number')}${c('acompte','Acompte par défaut (%)','number')}${c('mediateur','Médiateur de la consommation','text')}
+   ${ta('condDevis','Conditions de paiement des devis ({acompte} = pourcentage)')}${ta('condFacture','Conditions de paiement des factures')}
+   <div class="sep">Numérotation</div>
+   ${c('prefD','Préfixe des devis')}${c('prefF','Préfixe des factures')}${c('prefA','Préfixe des avoirs')}
+   <p class="aide large">La numérotation est continue et sans trou, par année : ${esc(p.prefF)}-${auj().slice(0,4)}-0001, 0002… Une facture émise ne peut plus être supprimée : on l’annule par un avoir.</p>
+  </div></div>
+  <div class="note-att" style="margin-top:14px">À compléter avant le premier envoi : adresse, assurance décennale, IBAN et médiateur de la consommation. Vérifiez les mentions avec votre expert-comptable.</div>`}
+
+/* ================== Éditeur ================== */
+function vueEditeur(){const d=edition,t=totaux(d),s=statut(d),verr=d.statut!=='brouillon'&&d.type!=='devis';
+  const opts=S.clients.slice().sort((a,b)=>nomClient(a).localeCompare(nomClient(b))).map(c=>`<option value="${c.id}" ${c.id===d.clientId?'selected':''}>${esc(nomClient(c))}</option>`).join('');
+  const lignes=(d.lignes||[]).map((l,i)=>l.t==='titre'?`<tr class="titre" data-i="${i}"><td class="des" colspan="5"><input data-l="designation" value="${esc(l.designation)}" placeholder="Titre de section (ex. Salon)" ${verr?'disabled':''}></td><td class="ops">${opsLigne(i,verr)}</td></tr>`
+   :`<tr data-i="${i}"><td class="des"><input data-l="designation" value="${esc(l.designation)}" placeholder="Désignation" ${verr?'disabled':''}><textarea data-l="detail" placeholder="Détail (facultatif)" ${verr?'disabled':''}>${esc(l.detail||'')}</textarea></td>
+     <td data-cap="Quantité"><input class="n" data-l="qte" inputmode="decimal" value="${esc(l.qte)}" ${verr?'disabled':''}></td>
+     <td data-cap="Unité"><select data-l="unite" ${verr?'disabled':''}>${['m²','ml','unité','forfait','h','jour','lot'].map(u=>`<option ${u===l.unite?'selected':''}>${u}</option>`).join('')}</select></td>
+     <td data-cap="PU HT"><input class="n" data-l="pu" inputmode="decimal" value="${esc(l.pu)}" ${verr?'disabled':''}></td>
+     <td data-cap="TVA"><select data-l="tva" ${verr||P().franchise?'disabled':''}>${[20,10,5.5,0].map(x=>`<option value="${x}" ${+l.tva===x?'selected':''}>${nb(x)}%</option>`).join('')}</select></td>
+     <td class="tot" data-cap="Total HT">${eur(num(l.qte)*num(l.pu)*(1-num(l.remise)/100))}</td><td class="ops">${opsLigne(i,verr)}</td></tr>`).join('');
+  const lies=S.docs.filter(x=>x.origineId===d.id||x.id===d.origineId||(d.origineId&&x.origineId===d.origineId&&x.id!==d.id));
+  return `<div class="entete" style="margin-bottom:16px"><div style="display:flex;align-items:center;gap:12px"><button class="ico" data-retour title="Retour">${I.retour}</button><div><h1>${titreDoc(d)} ${esc(d.numero)}</h1><p><span class="statut ${s[1]}">${s[0]}</span> &nbsp;${esc(nomClient(client(d.clientId)))}</p></div></div>
+   <div class="actions">${actionsDoc(d,t)}</div></div>
+   <div class="bascule"><button class="btn petit ${modeMobile==='edit'?'plein':'doux'}" data-mode="edit">Édition</button><button class="btn petit ${modeMobile==='apercu'?'plein':'doux'}" data-mode="apercu">Aperçu</button></div>
+   <div class="editeur mode-${modeMobile}">
+   <div class="gauche">
+    ${verr?`<div class="note-info">Ce document est ${d.type==='avoir'?'émis':'émis'} : son contenu est verrouillé pour respecter la numérotation et l’intégrité des factures. Pour corriger, créez un avoir.</div>`:''}
+    <div class="carte bloc"><div class="champs">
+     <div class="champ large"><label>Client</label><div style="display:flex;gap:8px"><select data-d="clientId" ${verr?'disabled':''} style="flex:1"><option value="">— Choisir un client —</option>${opts}</select><button class="btn doux petit" style="height:40px" data-client-nouveau="doc" ${verr?'disabled':''}>${I.plus}Client</button></div></div>
+     <div class="champ large"><label>Objet</label><input data-d="objet" value="${esc(d.objet||'')}" placeholder="Ex. Rénovation peinture séjour et chambres" ${verr?'disabled':''}></div>
+     <div class="champ large"><label>Adresse du chantier</label><input data-d="chantier" value="${esc(d.chantier||'')}" placeholder="Si différente de l’adresse du client" ${verr?'disabled':''}></div>
+     <div class="champ"><label>Date</label><input type="date" data-d="date" value="${d.date}" ${verr?'disabled':''}></div>
+     ${d.type==='devis'?`<div class="champ"><label>Valable jusqu’au</label><input type="date" data-d="validite" value="${d.validite||''}"></div>
+       <div class="champ"><label>Début des travaux prévu</label><input type="date" data-d="debut" value="${d.debut||''}"></div><div class="champ"><label>Durée estimée</label><input data-d="duree" value="${esc(d.duree||'')}" placeholder="Ex. 5 jours ouvrés"></div>
+       <div class="champ"><label>Acompte à la signature (%)</label><input inputmode="decimal" data-d="acompte" value="${esc(d.acompte)}"></div>`
+      :`<div class="champ"><label>Échéance</label><input type="date" data-d="echeance" value="${d.echeance||''}" ${verr?'disabled':''}></div><div class="champ"><label>Date de réalisation des travaux</label><input data-d="realisation" value="${esc(d.realisation||'')}" placeholder="Ex. du 4 au 8 novembre 2026" ${verr?'disabled':''}></div>`}
+     <div class="champ"><label>Remise globale (%)</label><input inputmode="decimal" data-d="remise" value="${esc(d.remise||0)}" ${verr?'disabled':''}></div>
+    </div></div>
+    <div class="carte bloc"><h2>Prestations</h2><div class="defile"><table class="lignes"><thead><tr><th>Désignation</th><th class="n">Qté</th><th>Unité</th><th class="n">PU HT</th><th>TVA</th><th class="n">Total HT</th><th></th></tr></thead><tbody>${lignes||''}</tbody></table></div>
+     ${!(d.lignes||[]).length?'<div class="vide">Ajoutez des prestations depuis votre catalogue ou une ligne libre.</div>':''}
+     ${verr?'':`<div class="ajouts"><button class="btn plein petit" data-ajout="catalogue">${I.plus}Depuis le catalogue</button><button class="btn doux petit" data-ajout="ligne">${I.plus}Ligne libre</button><button class="btn doux petit" data-ajout="titre">${I.plus}Section</button></div>`}
+     <div class="totaux-ed"><table><tr><td>Total HT</td><td>${eur(t.htBrut)}</td></tr>${t.remise?`<tr><td>Remise ${nb(d.remise)} %</td><td>− ${eur(t.remise)}</td></tr><tr><td>Net HT</td><td>${eur(t.ht)}</td></tr>`:''}${t.lignesTva.map(x=>`<tr><td>TVA ${nb(x.taux)} %</td><td>${eur(x.montant)}</td></tr>`).join('')}<tr class="g"><td>Total TTC</td><td>${eur(t.ttc)}</td></tr>${d.type==='devis'&&num(d.acompte)?`<tr><td>Acompte ${nb(d.acompte)} %</td><td>${eur(t.acompte)}</td></tr>`:''}</table></div></div>
+    ${d.type==='facture'&&d.statut!=='brouillon'?`<div class="carte bloc"><h2>Paiements <button class="btn petit plein" data-paiement>${I.euro}Enregistrer un paiement</button></h2>${(d.paiements||[]).length?`<div class="paiements">${d.paiements.map((p,i)=>`<div><span>${fDate(p.date)} · ${esc(p.mode)}${p.ref?' · '+esc(p.ref):''}</span><span><b style="font-weight:500">${eur(p.montant)}</b> <button class="ico" data-sup-paiement="${i}" title="Supprimer">${I.sup}</button></span></div>`).join('')}</div>`:'<div class="vide" style="padding:8px 0">Aucun paiement enregistré.</div>'}<div class="totaux-ed"><table><tr><td>Payé</td><td>${eur(t.paye)}</td></tr><tr class="g"><td>Reste dû</td><td>${eur(Math.max(0,t.reste))}</td></tr></table></div></div>`:''}
+    <div class="carte bloc"><div class="champs"><div class="champ large"><label>Note visible sur le document</label><textarea data-d="notes" placeholder="Ex. Fournitures comprises. Teintes à valider avec le client." ${verr?'disabled':''}>${esc(d.notes||'')}</textarea></div><div class="champ large"><label>Note interne (non imprimée)</label><textarea data-d="interne" placeholder="Mémo pour vous">${esc(d.interne||'')}</textarea></div></div></div>
+    ${lies.length?`<div class="carte bloc"><h2>Documents liés</h2><div class="liste-mini">${lies.map(x=>`<a data-ouvrir="${x.id}"><span>${titreDoc(x)} ${esc(x.numero)}<br><small>${fDate(x.date)}</small></span><span>${eur(totaux(x).ttc)} <span class="statut ${statut(x)[1]}">${statut(x)[0]}</span></span></a>`).join('')}</div></div>`:''}
+    ${d.statut==='brouillon'?`<div style="display:flex;justify-content:flex-end"><button class="btn danger petit" data-supprimer>${I.sup}Supprimer ce brouillon</button></div>`:''}
+   </div>
+   <div class="droite"><div class="apercu-cadre" id="cadre"><div class="apercu-zoom" id="zoom"></div></div></div></div>`}
+function opsLigne(i,verr){return verr?'':`<button class="ico" data-op="haut" data-i="${i}" title="Monter">${I.haut}</button><button class="ico" data-op="bas" data-i="${i}" title="Descendre">${I.bas}</button><button class="ico" data-op="sup" data-i="${i}" title="Supprimer">${I.sup}</button>`}
+function actionsDoc(d,t){const a=[];
+  a.push(`<button class="btn doux" data-pdf="${d.id}">${I.pdf}PDF</button>`);
+  a.push(`<button class="btn doux" data-email>${I.mail}E-mail</button>`);
+  a.push(`<button class="btn doux" data-dupliquer="${d.id}">${I.dup}Dupliquer</button>`);
+  if(d.type==='devis'){
+    if(d.statut==='brouillon')a.push(`<button class="btn plein" data-statut="envoye">Marquer envoyé</button>`);
+    if(d.statut==='envoye'){a.push(`<button class="btn" data-statut="refuse">Refusé</button>`);a.push(`<button class="btn plein" data-statut="accepte">Accepté</button>`)}
+    if(d.statut==='accepte'){a.push(`<button class="btn" data-facturer="acompte">Facture d’acompte</button>`);a.push(`<button class="btn plein" data-facturer="solde">Facturer</button>`)}
+    if(d.statut==='refuse'||d.statut==='accepte')a.push(`<button class="btn doux" data-statut="envoye">Rouvrir</button>`)}
+  else{if(d.statut==='brouillon')a.push(`<button class="btn plein" data-emettre>${d.type==='avoir'?'Émettre l’avoir':'Émettre la facture'}</button>`);
+    else if(d.type==='facture'){a.push(`<button class="btn" data-avoir>Créer un avoir</button>`);if(t.reste>0.005)a.push(`<button class="btn plein" data-paiement>${I.euro}Paiement</button>`)}}
+  return a.join('')}
+
+/* ================== Document imprimable ================== */
+function feuille(d){const p=P(),c=client(d.clientId)||{},t=totaux(d),fr=p.franchise,avoir=d.type==='avoir';
+  const sg=avoir?'− ':'';
+  const reduit=!fr&&(d.lignes||[]).some(l=>l.t!=='titre'&&(+l.tva===10||+l.tva===5.5));
+  const adrC=[c.type==='pro'&&c.societe?`<b>${esc(c.societe)}</b>`:'',`<b>${esc([c.civilite,c.prenom,c.nom].filter(Boolean).join(' '))}</b>`,esc(c.adresse||''),esc([c.cp,c.ville].filter(Boolean).join(' ')),c.tel?esc(c.tel):'',c.email?esc(c.email):'',c.type==='pro'&&c.siret?'SIRET '+esc(c.siret):''].filter(x=>x&&x!=='<b></b>').join('<br>');
+  const cond=d.type==='devis'?esc(p.condDevis).replace(/\{acompte\}/g,nb(d.acompte)):esc(p.condFacture);
+  const lignesHtml=(d.lignes||[]).map(l=>l.t==='titre'?`<tr class="titre"><td colspan="${fr?5:6}">${esc(l.designation)}</td></tr>`
+    :`<tr><td><b style="font-weight:500">${esc(l.designation)}</b>${l.detail?`<div class="det">${esc(l.detail)}</div>`:''}</td><td class="n">${nb(l.qte)}</td><td>${esc(l.unite)}</td><td class="n">${eur(l.pu)}</td>${fr?'':`<td class="n">${nb(l.tva)} %</td>`}<td class="n">${sg}${eur(num(l.qte)*num(l.pu)*(1-num(l.remise)/100))}</td></tr>`).join('');
+  const pied=[p.nom,p.forme,p.adresse&&[p.adresse,p.cp,p.ville].join(' '),'SIRET '+p.siret,p.ape&&'APE '+p.ape,p.rcs,p.tvaIntra&&'TVA '+p.tvaIntra].filter(Boolean).join(' · ');
+  const mentions=[];
+  if(fr)mentions.push('TVA non applicable, art. 293 B du CGI.');
+  if(reduit&&p.noteTva)mentions.push(esc(p.noteTva));
+  if(p.assureur)mentions.push(`Assurance responsabilité civile décennale : ${esc(p.assureur)}${p.police?', contrat n° '+esc(p.police):''}${p.zoneAssurance?', couverture : '+esc(p.zoneAssurance):''}.`);
+  if(d.type==='devis'){mentions.push('Devis gratuit. Toute modification fera l’objet d’un avenant.');if(p.mediateur&&c.type!=='pro')mentions.push(`En cas de litige, le client consommateur peut recourir gratuitement au médiateur de la consommation : ${esc(p.mediateur)}.`)}
+  else if(!avoir){mentions.push('En cas de retard de paiement, des pénalités sont exigibles au taux de trois fois le taux d’intérêt légal.'+(c.type==='pro'?' Une indemnité forfaitaire pour frais de recouvrement de 40 € est due (art. L441-10 du Code de commerce).':''));if(p.mediateur&&c.type!=='pro')mentions.push(`Médiateur de la consommation : ${esc(p.mediateur)}.`)}
+  const origine=d.origineId&&docById(d.origineId);
+  const dl=d.type==='devis'?`<dt>Date</dt><dd>${fDate(d.date)}</dd><dt>Valable jusqu’au</dt><dd>${fDate(d.validite)}</dd>${d.debut?`<dt>Début prévu</dt><dd>${fDate(d.debut)}</dd>`:''}${d.duree?`<dt>Durée estimée</dt><dd>${esc(d.duree)}</dd>`:''}`
+    :`<dt>Date</dt><dd>${fDate(d.date)}</dd>${!avoir?`<dt>Échéance</dt><dd>${fDate(d.echeance)}</dd>`:''}${d.realisation?`<dt>Travaux</dt><dd>${esc(d.realisation)}</dd>`:''}${origine?`<dt>Réf.</dt><dd>${titreDoc(origine)} ${esc(origine.numero)}</dd>`:''}`;
+  return `<div class="feuille">${d.statut==='brouillon'?'<div class="f-filigrane">BROUILLON</div>':''}
+   <div class="f-tete"><div><div class="f-logo">${LOGO}<b>ZORAN ABAZ</b><small>DÉCORATION</small></div><div class="f-emet">${esc(p.dirigeant)} · Peintre décorateur<br>${esc(p.adresse||'')}${p.adresse?'<br>':''}${esc(p.cp)} ${esc(p.ville)}<br>${esc(p.tel)} · ${esc(p.email)}<br>SIRET ${esc(p.siret)}</div></div>
+    <div class="f-type"><h2>${titreDoc(d)}</h2><div class="no">N° ${esc(d.numero)}</div><dl>${dl}</dl></div></div>
+   <div class="f-parties"><div><span>${d.type==='devis'?'Client':'Facturé à'}</span>${adrC||'<em style="color:#999">Client à renseigner</em>'}</div><div><span>Chantier</span>${esc(d.chantier||[c.adresse,[c.cp,c.ville].filter(Boolean).join(' ')].filter(Boolean).join(', ')||'Adresse du client')}</div></div>
+   ${d.objet?`<div class="f-objet"><b>Objet :</b> ${esc(d.objet)}</div>`:''}
+   <table class="f-lignes"><thead><tr><th>Désignation</th><th class="n">Qté</th><th>Unité</th><th class="n">PU HT</th>${fr?'':'<th class="n">TVA</th>'}<th class="n">Total HT</th></tr></thead><tbody>${lignesHtml||`<tr><td colspan="6" style="color:#999;text-align:center;padding:18px">Aucune prestation</td></tr>`}</tbody></table>
+   <div class="f-bas"><div class="f-cond">${d.notes?`<p style="margin-bottom:10px;white-space:pre-line">${esc(d.notes)}</p>`:''}${!avoir?`<p style="white-space:pre-line"><b>Conditions de paiement</b><br>${cond}</p>`:''}${!avoir&&p.iban?`<p style="margin-top:8px"><b>Coordonnées bancaires</b><br>${p.banque?esc(p.banque)+'<br>':''}IBAN ${esc(p.iban)}${p.bic?'<br>BIC '+esc(p.bic):''}</p>`:''}</div>
+    <div><table class="f-tot"><tr><td>Total HT</td><td>${sg}${eur(t.htBrut)}</td></tr>${t.remise?`<tr><td>Remise ${nb(d.remise)} %</td><td>− ${eur(t.remise)}</td></tr><tr><td>Net HT</td><td>${sg}${eur(t.ht)}</td></tr>`:''}${fr?'':t.lignesTva.map(x=>`<tr><td>TVA ${nb(x.taux)} % sur ${eur(x.base)}</td><td>${sg}${eur(x.montant)}</td></tr>`).join('')}
+     <tr class="g"><td>${avoir?'Total de l’avoir':'Total TTC'}</td><td>${sg}${eur(t.ttc)}</td></tr>
+     ${d.type==='devis'&&num(d.acompte)?`<tr><td>Acompte à la signature (${nb(d.acompte)} %)</td><td>${eur(t.acompte)}</td></tr>`:''}
+     ${d.type==='facture'&&t.paye>0?`<tr><td>Déjà réglé</td><td>− ${eur(t.paye)}</td></tr><tr class="reste"><td>Reste à payer</td><td>${eur(Math.max(0,t.reste))}</td></tr>`:''}</table>
+     <div class="f-lettres">${avoir?'Arrêté le présent avoir':d.type==='devis'?'Arrêté le présent devis':'Arrêtée la présente facture'} à la somme de ${enLettres(t.ttc)} TTC.</div></div></div>
+   ${d.type==='devis'?`<div class="f-sign"><div><b style="color:#161616">L’entreprise</b><br>${esc(p.dirigeant)}</div><div><b style="color:#161616">Le client</b><br>Date et signature précédées de la mention manuscrite « Bon pour accord, devis reçu avant l’exécution des travaux »</div></div>`:''}
+   <div class="f-mentions">${mentions.map(m=>`<p>${m}</p>`).join('')}</div>
+   <div class="f-pied">${esc(pied)}</div></div>`}
+function majApercu(){const z=$('#zoom');if(!z||!edition)return;z.innerHTML=feuille(edition);const cadre=$('#cadre'),w=cadre.clientWidth-32,k=Math.min(1,w/794);z.style.transform=`scale(${k})`;z.style.width='794px';z.style.height=(z.firstElementChild.offsetHeight*k)+'px'}
+window.addEventListener('resize',()=>{if(edition)majApercu()});
+
+/* ================== Création / modification ================== */
+function nouveauDoc(type,opts={}){const p=P(),date=auj();
+  const d={id:uid(),type,statut:'brouillon',numero:'(brouillon)',clientId:opts.clientId||'',objet:'',chantier:'',date,lignes:[],remise:0,notes:'',interne:'',paiements:[],creeLe:new Date().toISOString(),majLe:new Date().toISOString()};
+  if(type==='devis'){d.validite=ajJours(date,p.validite);d.acompte=p.acompte}else{d.echeance=ajJours(date,p.echeance);d.sous='standard'}
+  Object.assign(d,opts);S.docs.push(d);sauver();ouvrir(d.id)}
+function ouvrir(id){edition=docById(id);if(!edition)return;modeMobile='edit';rendre();window.scrollTo(0,0)}
+function majDoc(){edition.majLe=new Date().toISOString();sauver()}
+function rafraichirEditeur(){const y=window.scrollY;rendre();window.scrollTo(0,y)}
+
+function brancherEditeur(){const d=edition,v=$('#vue');
+  v.oninput=e=>{const el=e.target;
+    if(el.dataset.d){d[el.dataset.d]=el.value;majDoc();if(['remise','acompte'].includes(el.dataset.d))majTotaux();majApercu()}
+    else if(el.dataset.l){const i=+el.closest('tr').dataset.i;d.lignes[i][el.dataset.l]=el.value;majDoc();majLigne(el.closest('tr'),i);majTotaux();majApercu()}};
+  v.onchange=e=>{const el=e.target;if(el.dataset.d==='clientId'||el.dataset.d==='date'){if(el.dataset.d==='date'){if(d.type==='devis')d.validite=ajJours(d.date,P().validite);else if(d.statut==='brouillon')d.echeance=ajJours(d.date,P().echeance)}rafraichirEditeur()}
+    if(el.dataset.l==='unite'||el.dataset.l==='tva'){majTotaux();majApercu()}};
+  v.onclick=async e=>{const b=e.target.closest('button,a');if(!b)return;const ds=b.dataset;
+    if('retour' in ds){location.hash=d.type==='devis'?'devis':'factures';if(location.hash.slice(1)===(d.type==='devis'?'devis':'factures'))route();return}
+    if(ds.mode){modeMobile=ds.mode;rafraichirEditeur();return}
+    if(ds.op){const i=+ds.i,L=d.lignes;if(ds.op==='sup')L.splice(i,1);else{const j=ds.op==='haut'?i-1:i+1;if(j<0||j>=L.length)return;[L[i],L[j]]=[L[j],L[i]]}majDoc();rafraichirEditeur();return}
+    if(ds.ajout==='ligne'){d.lignes.push({t:'ligne',designation:'',detail:'',qte:1,unite:'forfait',pu:0,tva:P().franchise?0:P().tvaDefaut,remise:0});majDoc();rafraichirEditeur();$$('#vue tr[data-i]').pop()?.querySelector('input')?.focus();return}
+    if(ds.ajout==='titre'){d.lignes.push({t:'titre',designation:''});majDoc();rafraichirEditeur();$$('#vue tr[data-i]').pop()?.querySelector('input')?.focus();return}
+    if(ds.ajout==='catalogue'){choisirCatalogue();return}
+    if(ds.statut){d.statut=ds.statut;if(ds.statut==='envoye'){if(d.numero==='(brouillon)')d.numero=numero('devis',d.date);d.envoyeLe=d.envoyeLe||auj()}majDoc();toast(statut(d)[0]);rafraichirEditeur();return}
+    if('emettre' in ds){if(!d.clientId){toast('Choisissez d’abord un client.');return}if(!(d.lignes||[]).some(l=>l.t!=='titre')){toast('Ajoutez au moins une prestation.');return}
+      const ok=await dialogue({titre:d.type==='avoir'?'Émettre l’avoir ?':'Émettre la facture ?',texte:'Un numéro définitif va être attribué et le contenu sera verrouillé. Vous pourrez ensuite enregistrer les paiements.',ok:'Émettre'});if(!ok)return;
+      d.numero=numero(d.type,d.date);d.statut='emise';majDoc();toast(titreDoc(d)+' '+d.numero+' émise');rafraichirEditeur();return}
+    if(ds.facturer){facturerDevis(d,ds.facturer);return}
+    if('avoir' in ds){creerAvoir(d);return}
+    if('paiement' in ds){enregistrerPaiement(d);return}
+    if(ds.supPaiement!==undefined){const ok=await dialogue({titre:'Supprimer ce paiement ?',ok:'Supprimer',danger:true});if(!ok)return;d.paiements.splice(+ds.supPaiement,1);majDoc();rafraichirEditeur();return}
+    if('supprimer' in ds){const ok=await dialogue({titre:'Supprimer ce brouillon ?',texte:'Cette action est définitive.',ok:'Supprimer',danger:true});if(!ok)return;S.docs=S.docs.filter(x=>x.id!==d.id);sauver();const k=d.type==='devis'?'devis':'factures';edition=null;location.hash=k;route();return}
+    if(ds.pdf){telechargerPdf(docById(ds.pdf));return}
+    if(ds.dupliquer){dupliquer(docById(ds.dupliquer));return}
+    if('email' in ds){envoyerEmail(d);return}
+    if(ds.clientNouveau!==undefined){editerClient(null,c=>{d.clientId=c.id;majDoc();rafraichirEditeur()});return}
+    if(ds.ouvrir){ouvrir(ds.ouvrir);return}
+  };
+}
+function majLigne(tr,i){const l=edition.lignes[i];const c=tr.querySelector('.tot');if(c)c.textContent=eur(num(l.qte)*num(l.pu)*(1-num(l.remise)/100))}
+function majTotaux(){const t=totaux(edition),d=edition,el=$('.totaux-ed table');if(!el)return;
+  el.innerHTML=`<tr><td>Total HT</td><td>${eur(t.htBrut)}</td></tr>${t.remise?`<tr><td>Remise ${nb(d.remise)} %</td><td>− ${eur(t.remise)}</td></tr><tr><td>Net HT</td><td>${eur(t.ht)}</td></tr>`:''}${t.lignesTva.map(x=>`<tr><td>TVA ${nb(x.taux)} %</td><td>${eur(x.montant)}</td></tr>`).join('')}<tr class="g"><td>Total TTC</td><td>${eur(t.ttc)}</td></tr>${d.type==='devis'&&num(d.acompte)?`<tr><td>Acompte ${nb(d.acompte)} %</td><td>${eur(t.acompte)}</td></tr>`:''}`}
+
+function facturerDevis(dv,mode){const t=totaux(dv),p=P();
+  const deja=S.docs.filter(x=>x.type==='facture'&&x.origineId===dv.id);
+  if(mode==='acompte'){const pct=num(dv.acompte)||p.acompte;
+    const lignes=t.lignesTva.map(x=>({t:'ligne',designation:`Acompte de ${nb(pct)} % sur le devis ${dv.numero}`,detail:t.lignesTva.length>1?`Part au taux de TVA de ${nb(x.taux)} %`:(dv.objet||''),qte:1,unite:'forfait',pu:r2(x.base*pct/100),tva:x.taux,remise:0}));
+    nouveauDoc('facture',{sous:'acompte',origineId:dv.id,clientId:dv.clientId,objet:dv.objet,chantier:dv.chantier,lignes,echeance:auj()});return}
+  const lignes=JSON.parse(JSON.stringify(dv.lignes||[]));
+  const acomptes=deja.filter(x=>x.sous==='acompte'&&x.statut!=='brouillon');
+  acomptes.forEach(a=>totaux(a).lignesTva.forEach(x=>lignes.push({t:'ligne',designation:`Déduction de la facture d’acompte ${a.numero}`,detail:'',qte:1,unite:'forfait',pu:-x.base,tva:x.taux,remise:0})));
+  nouveauDoc('facture',{sous:acomptes.length?'solde':'standard',origineId:dv.id,clientId:dv.clientId,objet:dv.objet,chantier:dv.chantier,lignes,remise:dv.remise||0,realisation:dv.duree?'':''})}
+function creerAvoir(f){const lignes=JSON.parse(JSON.stringify(f.lignes||[]));nouveauDoc('avoir',{origineId:f.id,clientId:f.clientId,objet:'Avoir sur la facture '+f.numero+(f.objet?' — '+f.objet:''),chantier:f.chantier,lignes,remise:f.remise||0,notes:'Annule et remplace tout ou partie de la facture '+f.numero+'. Ajustez les lignes si l’avoir est partiel.'})}
+function dupliquer(d){const c=JSON.parse(JSON.stringify(d));const p=P();Object.assign(c,{id:uid(),statut:'brouillon',numero:'(brouillon)',date:auj(),paiements:[],origineId:'',envoyeLe:'',creeLe:new Date().toISOString(),majLe:new Date().toISOString()});
+  if(c.type==='devis')c.validite=ajJours(c.date,p.validite);else c.echeance=ajJours(c.date,p.echeance);S.docs.push(c);sauver();toast('Copie créée en brouillon');ouvrir(c.id)}
+
+/* ================== Fenêtres ================== */
+function fenetre(html,init){return new Promise(res=>{const v=document.createElement('div');v.className='voile';v.innerHTML=`<div class="modale" role="dialog" aria-modal="true">${html}</div>`;document.body.appendChild(v);requestAnimationFrame(()=>v.classList.add('ouvert'));
+  const fermer=val=>{v.classList.remove('ouvert');setTimeout(()=>v.remove(),200);document.removeEventListener('keydown',k);res(val)};
+  const k=e=>{if(e.key==='Escape')fermer(null)};document.addEventListener('keydown',k);v.addEventListener('mousedown',e=>{if(e.target===v)fermer(null)});
+  init&&init(v.firstElementChild,fermer);setTimeout(()=>{const f=v.querySelector('input,select,textarea,button.plein');f&&f.focus()},60)})}
+function dialogue({titre,texte='',ok='Confirmer',danger=false}){return fenetre(`<h3>${esc(titre)}</h3>${texte?`<p class="sous">${esc(texte)}</p>`:''}<div class="pied-m"><button class="btn doux" data-n>Annuler</button><button class="btn ${danger?'danger':'plein'}" data-o>${esc(ok)}</button></div>`,(m,f)=>{m.querySelector('[data-n]').onclick=()=>f(false);m.querySelector('[data-o]').onclick=()=>f(true)})}
+function choisirCatalogue(){fenetre(`<h3>Ajouter depuis le catalogue</h3><p class="sous">Cliquez sur une ou plusieurs prestations.</p><label class="recherche">${I.loupe}<input type="search" placeholder="Rechercher…"></label><div class="choix-cat"></div><div class="pied-m"><button class="btn plein" data-fin>Terminé</button></div>`,(m,f)=>{
+  const liste=m.querySelector('.choix-cat'),q=m.querySelector('input');
+  const aff=()=>{const s=q.value.toLowerCase();liste.innerHTML=S.catalogue.filter(p=>(p.designation+' '+p.detail).toLowerCase().includes(s)).map(p=>`<button data-id="${p.id}"><span>${esc(p.designation)}<br><small>${esc(p.detail||'')}</small></span><span style="white-space:nowrap">${eur(p.pu)} / ${esc(p.unite)}</span></button>`).join('')||'<div class="vide">Aucune prestation.</div>'};
+  aff();q.oninput=aff;liste.onclick=e=>{const b=e.target.closest('button');if(!b)return;const p=S.catalogue.find(x=>x.id===b.dataset.id);edition.lignes.push({t:'ligne',designation:p.designation,detail:p.detail||'',qte:p.unite==='forfait'?1:1,unite:p.unite,pu:p.pu,tva:P().franchise?0:p.tva,remise:0});majDoc();toast('« '+p.designation+' » ajouté');b.style.background='var(--okf)'};
+  m.querySelector('[data-fin]').onclick=()=>f(true)}).then(()=>rafraichirEditeur())}
+function enregistrerPaiement(d){const t=totaux(d);fenetre(`<h3>Enregistrer un paiement</h3><p class="sous">${titreDoc(d)} ${esc(d.numero)} · reste dû ${eur(Math.max(0,t.reste))}</p>
+  <div class="champs"><div class="champ"><label>Montant (€)</label><input data-m inputmode="decimal" value="${String(Math.max(0,t.reste)).replace('.',',')}"></div><div class="champ"><label>Date</label><input type="date" data-dt value="${auj()}"></div>
+  <div class="champ"><label>Mode</label><select data-md>${['Virement','Chèque','Espèces','Carte bancaire'].map(x=>`<option>${x}</option>`).join('')}</select></div><div class="champ"><label>Référence</label><input data-rf placeholder="N° de chèque, libellé…"></div></div>
+  <div class="pied-m"><button class="btn doux" data-n>Annuler</button><button class="btn plein" data-o>Enregistrer</button></div>`,(m,f)=>{m.querySelector('[data-n]').onclick=()=>f(null);m.querySelector('[data-o]').onclick=()=>{const mt=num(m.querySelector('[data-m]').value);if(!(mt>0)){toast('Indiquez un montant.');return}
+   f({montant:r2(mt),date:m.querySelector('[data-dt]').value||auj(),mode:m.querySelector('[data-md]').value,ref:m.querySelector('[data-rf]').value.trim()})}}).then(p=>{if(!p)return;d.paiements=d.paiements||[];d.paiements.push(p);majDoc();toast('Paiement enregistré');rafraichirEditeur()})}
+function editerClient(c,apres){const n=!c;c=c||{id:uid(),type:'particulier',civilite:'',prenom:'',nom:'',societe:'',siret:'',adresse:'',cp:'',ville:'',tel:'',email:'',notes:''};
+  const ch=(k,l,t='text',cl='')=>`<div class="champ ${cl}"><label>${l}</label><input data-c="${k}" type="${t}" value="${esc(c[k]||'')}"></div>`;
+  fenetre(`<h3>${n?'Nouveau client':'Modifier le client'}</h3><p class="sous"> </p><div class="champs">
+   <div class="champ"><label>Type</label><select data-c="type"><option value="particulier" ${c.type!=='pro'?'selected':''}>Particulier</option><option value="pro" ${c.type==='pro'?'selected':''}>Professionnel</option></select></div>
+   <div class="champ"><label>Civilité</label><select data-c="civilite">${['','M.','Mme','M. et Mme'].map(x=>`<option ${c.civilite===x?'selected':''}>${x}</option>`).join('')}</select></div>
+   ${ch('prenom','Prénom')}${ch('nom','Nom')}${ch('societe','Société (pro)')}${ch('siret','SIRET (pro)')}${ch('adresse','Adresse','text','large')}${ch('cp','Code postal')}${ch('ville','Ville')}${ch('tel','Téléphone','tel')}${ch('email','E-mail','email')}
+   <div class="champ large"><label>Notes</label><textarea data-c="notes">${esc(c.notes||'')}</textarea></div></div>
+   <div class="pied-m">${!n?'<button class="btn danger" data-sup style="margin-right:auto">Supprimer</button>':''}<button class="btn doux" data-n>Annuler</button><button class="btn plein" data-o>Enregistrer</button></div>`,(m,f)=>{
+   m.querySelector('[data-n]').onclick=()=>f(null);
+   const sup=m.querySelector('[data-sup]');if(sup)sup.onclick=async()=>{if(S.docs.some(d=>d.clientId===c.id)){toast('Ce client a des documents : suppression impossible.');return}f('sup')};
+   m.querySelector('[data-o]').onclick=()=>{$$('[data-c]',m).forEach(i=>c[i.dataset.c]=i.value.trim());if(!c.nom&&!c.societe){toast('Indiquez au moins un nom ou une société.');return}f('ok')}}).then(r=>{
+   if(r==='sup'){S.clients=S.clients.filter(x=>x.id!==c.id);sauver();toast('Client supprimé');rendre();return}
+   if(r!=='ok')return;if(n)S.clients.push(c);sauver();toast('Client enregistré');apres?apres(c):rendre()})}
+function editerPresta(p){const n=!p;p=p||{id:uid(),designation:'',detail:'',unite:'m²',pu:0,tva:P().tvaDefaut};
+  fenetre(`<h3>${n?'Nouvelle prestation':'Modifier la prestation'}</h3><p class="sous"> </p><div class="champs">
+   <div class="champ large"><label>Désignation</label><input data-p="designation" value="${esc(p.designation)}"></div><div class="champ large"><label>Détail</label><textarea data-p="detail">${esc(p.detail||'')}</textarea></div>
+   <div class="champ"><label>Unité</label><select data-p="unite">${['m²','ml','unité','forfait','h','jour','lot'].map(u=>`<option ${u===p.unite?'selected':''}>${u}</option>`).join('')}</select></div>
+   <div class="champ"><label>Prix unitaire HT (€)</label><input data-p="pu" inputmode="decimal" value="${String(p.pu).replace('.',',')}"></div>
+   <div class="champ"><label>TVA</label><select data-p="tva">${[20,10,5.5,0].map(x=>`<option value="${x}" ${+p.tva===x?'selected':''}>${nb(x)} %</option>`).join('')}</select></div></div>
+   <div class="pied-m">${!n?'<button class="btn danger" data-sup style="margin-right:auto">Supprimer</button>':''}<button class="btn doux" data-n>Annuler</button><button class="btn plein" data-o>Enregistrer</button></div>`,(m,f)=>{
+   m.querySelector('[data-n]').onclick=()=>f(null);const s=m.querySelector('[data-sup]');if(s)s.onclick=()=>f('sup');
+   m.querySelector('[data-o]').onclick=()=>{$$('[data-p]',m).forEach(i=>p[i.dataset.p]=['pu','tva'].includes(i.dataset.p)?num(i.value):i.value.trim());if(!p.designation){toast('Indiquez une désignation.');return}f('ok')}}).then(r=>{
+   if(r==='sup'){S.catalogue=S.catalogue.filter(x=>x.id!==p.id);sauver();rendre();return}if(r!=='ok')return;if(n)S.catalogue.push(p);sauver();toast('Prestation enregistrée');rendre()})}
+function envoyerEmail(d){const c=client(d.clientId)||{},t=totaux(d),p=P();
+  const sujet=`${titreDoc(d)} ${d.numero} — ${p.nom}`;
+  const corps=`Bonjour${c.nom?' '+[c.civilite,c.nom].filter(Boolean).join(' '):''},\n\nVeuillez trouver ci-joint ${d.type==='devis'?'notre devis':d.type==='avoir'?'notre avoir':'notre facture'} n° ${d.numero}${d.objet?' concernant : '+d.objet:''}, d’un montant de ${eur(t.ttc)} TTC.\n${d.type==='devis'?`Ce devis est valable jusqu’au ${fDate(d.validite)}. Pour l’accepter, merci de nous le retourner daté et signé avec la mention « Bon pour accord ».`:d.type==='facture'?`Échéance de paiement : ${fDate(d.echeance)}.${p.iban?' IBAN : '+p.iban:''}`:''}\n\nJe reste à votre disposition pour toute question.\n\nBien cordialement,\n${p.dirigeant}\n${p.nom}\n${p.tel}`;
+  const lien=`mailto:${encodeURIComponent(c.email||'')}?subject=${encodeURIComponent(sujet)}&body=${encodeURIComponent(corps)}`;
+  fenetre(`<h3>Envoyer par e-mail</h3><p class="sous">Téléchargez d’abord le PDF, puis joignez-le à l’e-mail.</p><div class="champs"><div class="champ large"><label>Destinataire</label><input readonly value="${esc(c.email||'— e-mail du client non renseigné —')}"></div><div class="champ large"><label>Objet</label><input readonly value="${esc(sujet)}"></div><div class="champ large"><label>Message</label><textarea readonly style="min-height:200px">${esc(corps)}</textarea></div></div>
+   <div class="pied-m"><button class="btn doux" data-pdf2>${I.pdf}PDF</button><button class="btn doux" data-copier>Copier le message</button><a class="btn plein" href="${lien}">${I.mail}Ouvrir la messagerie</a></div>`,(m,f)=>{
+   m.querySelector('[data-copier]').onclick=async()=>{try{await navigator.clipboard.writeText(corps);toast('Message copié')}catch(e){toast('Copie impossible : sélectionnez le texte.')}};
+   m.querySelector('[data-pdf2]').onclick=()=>telechargerPdf(d)})}
+
+/* ================== PDF, CSV, sauvegarde ================== */
+let dl=null;
+async function obtenirDl(){return null}
+async function enregistrerFichier(nom,blob){const d=await obtenirDl();if(!d){try{const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=nom;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1500);return true}catch(e){toast('Téléchargement impossible.');return false}}
+  try{await d.save({filename:nom,data:blob});return true}catch(e){toast('Téléchargement annulé.');return false}}
+async function telechargerPdf(d){if(!d)return;if(!window.jspdf||!window.html2canvas){toast('Outil PDF en cours de chargement, réessayez.');return}
+  toast('Création du PDF…');const z=$('#hors-ecran');z.innerHTML=feuille(d);const el=z.firstElementChild;el.style.boxShadow='none';
+  try{await document.fonts.ready;
+    const canvas=await html2canvas(el,{scale:2,backgroundColor:'#ffffff',useCORS:true,windowWidth:794});
+    const {jsPDF}=window.jspdf;const pdf=new jsPDF({unit:'mm',format:'a4'});const W=210,H=297;
+    const pxParMm=canvas.width/W;let y=0,page=0;
+    // découpe sur les lignes blanches pour ne pas couper un texte
+    const ctx=canvas.getContext('2d');
+    const ligneBlanche=yy=>{const row=ctx.getImageData(0,yy,canvas.width,1).data;for(let i=0;i<row.length;i+=16){if(row[i]<245||row[i+1]<245||row[i+2]<245)return false}return true};
+    while(y<canvas.height){const haut=page?14:0,bas=12,pageH=Math.floor((H-haut-bas)*pxParMm);let h=Math.min(pageH,canvas.height-y);
+      if(y+h<canvas.height){let c=y+h;const min=y+pageH*0.7;while(c>min&&!ligneBlanche(c))c-=2;if(c>min)h=c-y}
+      const part=document.createElement('canvas');part.width=canvas.width;part.height=h;part.getContext('2d').drawImage(canvas,0,y,canvas.width,h,0,0,canvas.width,h);
+      if(page)pdf.addPage();pdf.addImage(part.toDataURL('image/jpeg',0.92),'JPEG',0,haut,W,h/pxParMm);y+=h;page++}
+    const n=pdf.getNumberOfPages();if(n>1)for(let i=1;i<=n;i++){pdf.setPage(i);pdf.setFontSize(7.5);pdf.setTextColor(150);pdf.text(`${titreDoc(d)} ${d.numero} — page ${i}/${n}`,W-14,H-6,{align:'right'})}
+    const blob=pdf.output('blob');const c=client(d.clientId);
+    const nom=`${d.numero==='(brouillon)'?'Brouillon':d.numero} ${titreDoc(d)} ${nomClient(c)}`.replace(/[\\/:*?"<>|’']/g,'').replace(/\s+/g,'-')+'.pdf';
+    if(await enregistrerFichier(nom,blob))toast('PDF prêt : '+nom)}
+  catch(e){console.error(e);toast('Erreur pendant la création du PDF.')}finally{z.innerHTML=''}}
+function csv(k){const l=S.docs.filter(d=>k==='devis'?d.type==='devis':d.type!=='devis');const ent=['Type','Numéro','Date','Échéance/Validité','Client','Objet','Statut','Total HT','TVA','Total TTC','Payé','Reste'];
+  const lignes=l.map(d=>{const t=totaux(d),s=k==='devis'?1:(d.type==='avoir'?-1:1);return [titreDoc(d),d.numero,d.date,d.type==='devis'?d.validite:d.echeance,nomClient(client(d.clientId)),d.objet||'',statut(d)[0],s*t.ht,s*t.tva,s*t.ttc,t.paye,d.type==='facture'?t.reste:0].map(v=>typeof v==='number'?String(r2(v)).replace('.',','):'"'+String(v).replace(/"/g,'""')+'"').join(';')});
+  return '﻿'+[ent.join(';'),...lignes].join('\n')}
+
+/* ================== Branchements des listes ================== */
+function brancher(){const v=$('#vue');
+  v.oninput=e=>{const el=e.target;if(el.dataset.rech){rech[el.dataset.rech]=el.value;const pos=el.selectionStart;rendre();const n=$(`[data-rech="${el.dataset.rech}"]`);n.focus();n.setSelectionRange(pos,pos)}
+    if(el.dataset.param){P()[el.dataset.param]=['validite','echeance','acompte','tvaDefaut'].includes(el.dataset.param)?num(el.value):el.value;sauver()}};
+  v.onchange=e=>{const el=e.target;if(el.dataset.paramCase){P()[el.dataset.paramCase]=el.checked;sauver();toast('Paramètre enregistré')}
+    if(el.dataset.param==='tvaDefaut'){P().tvaDefaut=num(el.value);sauver()}
+    if('restaurer' in el.dataset&&el.files[0]){const r=new FileReader();r.onload=async()=>{try{const x=JSON.parse(r.result);if(!x.params||!x.docs)throw 0;const ok=await dialogue({titre:'Restaurer cette sauvegarde ?',texte:`${x.docs.length} document(s) et ${x.clients.length} client(s). Les données actuelles seront remplacées.`,ok:'Restaurer',danger:true});if(!ok)return;S=fusion(x);sauver();toast('Sauvegarde restaurée');rendre()}catch(err){toast('Fichier de sauvegarde invalide.')}};r.readAsText(el.files[0])}};
+  v.onclick=async e=>{const b=e.target.closest('[data-nouveau],[data-ouvrir],[data-pdf],[data-dupliquer],[data-filtre],[data-export],[data-client],[data-client-nouveau],[data-devis-client],[data-presta],[data-presta-nouvelle],[data-sauvegarde]');if(!b)return;const ds=b.dataset;
+    if(ds.pdf){e.stopPropagation();telechargerPdf(docById(ds.pdf));return}
+    if(ds.dupliquer){e.stopPropagation();dupliquer(docById(ds.dupliquer));return}
+    if(ds.devisClient){e.stopPropagation();nouveauDoc('devis',{clientId:ds.devisClient});return}
+    if(ds.nouveau){if(!S.clients.length){editerClient(null,c=>nouveauDoc(ds.nouveau,{clientId:c.id}));toast('Créez d’abord le client');return}nouveauDoc(ds.nouveau);return}
+    if(ds.ouvrir){ouvrir(ds.ouvrir);return}
+    if(ds.filtre){const [k,f]=ds.filtre.split(':');filtre[k]=f;rendre();return}
+    if(ds.export){const ok=await enregistrerFichier(`${ds.export}-${auj()}.csv`,new Blob([csv(ds.export)],{type:'text/csv;charset=utf-8'}));if(ok)toast('Export prêt');return}
+    if(ds.client){editerClient(client(ds.client));return}
+    if('clientNouveau' in ds){editerClient(null);return}
+    if(ds.presta){editerPresta(S.catalogue.find(p=>p.id===ds.presta));return}
+    if('prestaNouvelle' in ds){editerPresta(null);return}
+    if('sauvegarde' in ds){const ok=await enregistrerFichier(`sauvegarde-zoran-facturation-${auj()}.json`,new Blob([JSON.stringify(S,null,1)],{type:'application/json'}));if(ok)toast('Sauvegarde prête');return}}}
+
+/* ================== Démarrage ================== */
+route();majEtatSauv();initNuage();
+})();
+</script>
+</body>
+</html>
