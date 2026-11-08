@@ -2824,3 +2824,10 @@
 
 /* Certifications : cartes et badges à angles droits */
 .pf .certif, .pf .certif img { border-radius: 0; }
+
+/* Trois badges IBM dans le hero */
+.pf .hero-portrait--trio img { width: clamp(108px, 10.5vw, 156px); }
+@media (max-width: 900px) {
+  .pf .hero-portrait--trio { gap: 8px; }
+  .pf .hero-portrait--trio img { width: clamp(84px, 26vw, 120px); }
+}
