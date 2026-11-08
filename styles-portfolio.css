@@ -2813,3 +2813,10 @@
 .pf .hero-portrait--badge a { display: block; border-radius: 0; transition: transform .5s var(--ease), box-shadow .5s var(--ease); }
 .pf .hero-portrait--badge a:hover { transform: translateY(-3px); box-shadow: 0 22px 44px -22px rgba(0,0,0,.45); }
 .pf .hero-portrait--badge img { border-radius: 0; object-fit: contain; object-position: center; }
+
+/* Deux badges IBM côte à côte dans le hero, en plus petit */
+.pf .hero-portrait--duo { display: flex; gap: clamp(12px, 1.2vw, 18px); align-items: flex-start; }
+.pf .hero-portrait--duo img { width: clamp(130px, 13.5vw, 196px); }
+@media (max-width: 900px) {
+  .pf .hero-portrait--duo img { width: clamp(104px, 30vw, 150px); }
+}
