@@ -2796,6 +2796,7 @@
   background: var(--papier-2); color: var(--encre); text-decoration: none;
   transition: transform .4s var(--ease), box-shadow .4s var(--ease);
 }
+.pf .certif + .certif { margin-top: 12px; }
 .pf .certif:hover { transform: translateY(-2px); box-shadow: 0 14px 34px -18px rgba(0,0,0,.35); }
 .pf .certif img { width: 96px; height: 96px; object-fit: contain; }
 .pf .certif-txt { display: flex; flex-direction: column; gap: 4px; }
@@ -2820,3 +2821,6 @@
 @media (max-width: 900px) {
   .pf .hero-portrait--duo img { width: clamp(104px, 30vw, 150px); }
 }
+
+/* Certifications : cartes et badges à angles droits */
+.pf .certif, .pf .certif img { border-radius: 0; }
