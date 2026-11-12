@@ -2831,3 +2831,12 @@
   .pf .hero-portrait--trio { gap: 8px; }
   .pf .hero-portrait--trio img { width: clamp(84px, 26vw, 120px); }
 }
+
+/* 12/11/2026 : quatre badges dans le hero (3 IBM + Claude 101 de l'Académie Claude) */
+.pf .hero-portrait--quatuor img { width: clamp(92px, 8.6vw, 132px); }
+@media (max-width: 900px) {
+  .pf .hero-portrait--quatuor { gap: 6px; }
+  .pf .hero-portrait--quatuor img { width: clamp(68px, 20vw, 96px); }
+}
+.pf .hero-portrait--quatuor .hero-mot { right: calc(100% + 14px); text-align: right; }
+.pf .hero-portrait--quatuor .hero-mot span + span { transform: none; }
