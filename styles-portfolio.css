@@ -2853,3 +2853,6 @@
   .pf .certifs { grid-template-columns: 1fr; }
   .pf .certifs .certif img { width: 96px; height: 96px; }
 }
+/* 12/11/2026 : deux badges en haut (IBM Make Agentic AI + Claude Code 101) — note manuscrite alignée à droite, sans décalage */
+.pf .hero-portrait--mixte .hero-mot { right: calc(100% + 14px); text-align: right; }
+.pf .hero-portrait--mixte .hero-mot span + span { transform: none; }
