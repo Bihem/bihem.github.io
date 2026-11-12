@@ -2856,3 +2856,22 @@
 /* 12/11/2026 : deux badges en haut (IBM Make Agentic AI + Claude Code 101) — note manuscrite alignée à droite, sans décalage */
 .pf .hero-portrait--mixte .hero-mot { right: calc(100% + 14px); text-align: right; }
 .pf .hero-portrait--mixte .hero-mot span + span { transform: none; }
+
+/* 12/11/2026 (retour du propriétaire) : certifications sur le modèle de la section Expertise —
+   texte à gauche, cartes « en long » à droite (une par ligne, fond #F7F7F7, angles droits, 16 px / 14 px gris). */
+.pf .certifs-grille { margin-top: var(--r-bloc); }
+.pf .certifs-grille .certifs { display: grid; grid-template-columns: 1fr; gap: 14px; max-width: none; width: auto; margin: 0; }
+.pf .certifs-grille .certif {
+  display: grid; grid-template-columns: 56px minmax(0, 1fr); align-items: start; gap: 4px 18px;
+  height: auto; max-width: none; padding: 22px 24px; background: #F7F7F7; border-radius: 0;
+}
+.pf .certifs-grille .certif + .certif { margin-top: 0; }
+.pf .certifs-grille .certif img { grid-row: 1 / span 2; width: 56px; height: 56px; }
+.pf .certifs-grille .certif-txt { gap: 3px; }
+.pf .certifs-grille .certif-txt strong { font-size: 16px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 4px; }
+.pf .certifs-grille .certif-txt span, .pf .certifs-grille .certif-comp { font-size: 14px !important; line-height: 1.55; color: var(--gris-txt); }
+.pf .certifs-grille .certif-lien { grid-column: 2; margin-top: 8px; font-size: 14px; }
+@media (max-width: 640px) {
+  .pf .certifs-grille .certif { grid-template-columns: 44px minmax(0, 1fr); gap: 4px 14px; padding: 18px; }
+  .pf .certifs-grille .certif img { width: 44px; height: 44px; }
+}
