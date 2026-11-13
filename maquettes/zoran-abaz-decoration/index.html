@@ -672,6 +672,20 @@ header.colle{background:rgba(255,255,255,.97);box-shadow:0 1px 0 var(--ligne)}
 <style>@media (min-width:961px){.hero .lieu{white-space:nowrap}}.hero h1{font-size:clamp(44px,5.4vw,88px);line-height:1;letter-spacing:-.035em;max-width:none}.hero h1 .ligne{white-space:nowrap}.hero .sous{margin-top:24px}.hero .contenu{padding-bottom:clamp(110px,19vh,220px)}@media (max-width:960px){.hero .contenu{padding-bottom:160px}}@media (max-width:960px){.hero h1{font-size:clamp(36px,9vw,56px);line-height:1.05}.hero h1 .ligne{white-space:normal}}</style>
 <style>footer .bas{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-bottom:104px}@media (max-width:960px){footer .bas{padding-bottom:160px}}footer .dikenga{font-size:13px;color:var(--g66)}footer .pied-marque{font-family:Inter,var(--sans);font-weight:700;letter-spacing:-.02em;color:var(--encre)}footer .pied-marque sup{font-size:.55em;top:-.6em;position:relative;vertical-align:baseline}</style>
 <style>footer.pied-simple{border-top:0}footer.pied-simple .ligne-pied{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px 32px;padding-block:40px 104px}@media (max-width:960px){footer.pied-simple .ligne-pied{padding-bottom:160px;flex-direction:column-reverse;align-items:flex-start}}</style>
+<style>
+/* Bandeau cookies (même DA que l'en-tête) */
+.cookies{position:fixed;left:0;right:0;bottom:0;z-index:80;background:rgba(255,255,255,.97);-webkit-backdrop-filter:saturate(1.2) blur(10px);backdrop-filter:saturate(1.2) blur(10px);border-top:1px solid var(--ligne);transform:translateY(105%);transition:transform .8s var(--ease)}
+.cookies.visible{transform:none}
+.cookies .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px 40px;padding-block:22px}
+.cookies p{font-size:14px;font-weight:300;line-height:1.55;color:var(--g66);max-width:70ch}
+.cookies p b{font-weight:400;color:var(--encre)}
+.cookies p a{color:var(--encre);text-decoration:underline;text-underline-offset:3px}
+.cookies .choix-c{display:flex;gap:10px;flex:none}
+.cookies .pil-plein{background:var(--encre);color:#fff;border-color:var(--encre)}
+.cookies .pil-plein:hover{background:#fff;color:var(--encre)}
+body.cookies-ouvert .ia-btn,body.cookies-ouvert .haut-btn,body.cookies-ouvert .appel{opacity:0;pointer-events:none}
+@media (max-width:760px){.cookies .wrap{flex-direction:column;align-items:stretch;padding-block:20px calc(20px + env(safe-area-inset-bottom))}.cookies .choix-c .pil{flex:1}}
+</style>
 </head>
 <body>
 <a class="evite" href="#contenu">Aller au contenu</a>
@@ -1142,6 +1156,12 @@ $('#copier').addEventListener('click',function(){var b=this;if(navigator.clipboa
 $('#nouvelle').addEventListener('click',function(){form.reset();photos=[];affichePhotos();$('#merci').hidden=true;$('.d-nav',form).hidden=false;$('.d-tete',form).hidden=false;$('.d-barre',form).hidden=false;etapes[cour].hidden=true;cour=0;va(0)});
 })();
 </script>
+<div class="cookies" id="cookies" role="region" aria-label="Gestion des cookies" hidden>
+<div class="wrap">
+<p><b>Cookies.</b> Ce site ne dépose aucun cookie de mesure d'audience ni de publicité. Seule la carte Google Maps peut en déposer : elle ne s'affiche qu'avec votre accord. <a href="mentions-legales.html#confidentialite">En savoir plus</a></p>
+<div class="choix-c"><button class="pil pil-n" type="button" data-cookies="refus">Refuser</button><button class="pil pil-plein" type="button" data-cookies="accord">Accepter</button></div>
+</div>
+</div>
 <script>
 (function(){
 var calme=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1251,6 +1271,17 @@ btn.addEventListener('click',ouvrir);$('.ia-fermer',box).addEventListener('click
 document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!box.hidden)fermer()});
 saisie.addEventListener('submit',function(e){e.preventDefault();var v=champ.value;champ.value='';envoyer(v)});
 fil.addEventListener('click',function(e){var l=e.target.closest('a[href^="#"]');if(l&&window.innerWidth<960)fermer()});
+})();
+
+/* Bandeau cookies : le choix est mémorisé sur l'appareil ; « Accepter » autorise l'affichage de la carte Google Maps */
+(function(){var b=document.getElementById('cookies'),CLE='zoran-cookies',choix=null;try{choix=localStorage.getItem(CLE)}catch(e){}
+  function chargeCarte(){var bt=document.getElementById('charge-carte');if(bt)bt.click()}
+  if(choix==='accord'){var obs='IntersectionObserver' in window&&new IntersectionObserver(function(es){if(es[0].isIntersecting){chargeCarte();obs.disconnect()}});var c=document.getElementById('carte');if(obs&&c)obs.observe(c)}
+  if(!choix){b.hidden=false;document.body.classList.add('cookies-ouvert');requestAnimationFrame(function(){requestAnimationFrame(function(){b.classList.add('visible')})})}
+  b.addEventListener('click',function(e){var t=e.target.closest('[data-cookies]');if(!t)return;var v=t.getAttribute('data-cookies');try{localStorage.setItem(CLE,v)}catch(er){}
+    if(window.dataLayer)window.dataLayer.push({event:'cookies_'+v});b.classList.remove('visible');document.body.classList.remove('cookies-ouvert');setTimeout(function(){b.hidden=true},800)});
+  var lien=document.createElement('a');lien.href='#';lien.textContent='Cookies';lien.addEventListener('click',function(e){e.preventDefault();b.hidden=false;document.body.classList.add('cookies-ouvert');requestAnimationFrame(function(){b.classList.add('visible')})});
+  var nav=document.querySelector('footer nav');if(nav)nav.appendChild(lien);
 })();
 </script>
 </body>
