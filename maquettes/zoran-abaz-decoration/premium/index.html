@@ -62,7 +62,7 @@ section{position:relative}
 @media (max-width:860px){.tete{grid-template-columns:1fr}}
 
 /* Boutons */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;padding:0 28px;border-radius:999px;border:1px solid var(--noir);font-size:15px;font-weight:400;letter-spacing:-.005em;cursor:pointer;background:none;transition:background .5s var(--ease),color .5s var(--ease),border-color .5s var(--ease),transform .5s var(--ease)}
+.btn{white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;padding:0 28px;border-radius:999px;border:1px solid var(--noir);font-size:15px;font-weight:400;letter-spacing:-.005em;cursor:pointer;background:none;transition:background .5s var(--ease),color .5s var(--ease),border-color .5s var(--ease),transform .5s var(--ease)}
 .btn svg{width:14px;height:10px;transition:transform .5s var(--ease)}
 .btn:hover svg{transform:translateX(4px)}
 .btn-n{background:var(--noir);color:var(--creme)}.btn-n:hover{background:var(--accent-f);border-color:var(--accent-f)}
@@ -82,13 +82,13 @@ section{position:relative}
 .entete.solide{background:rgba(246,243,238,.94);-webkit-backdrop-filter:saturate(1.2) blur(10px);backdrop-filter:saturate(1.2) blur(10px);box-shadow:0 1px 0 var(--ligne);color:var(--noir)}
 .logo{display:flex;align-items:center;gap:14px}
 .logo svg{width:40px;height:36px}
-.logo b{display:block;font-family:var(--titre);font-weight:400;font-size:18px;letter-spacing:.16em;line-height:1}
+.logo b{display:block;white-space:nowrap;font-family:var(--titre);font-weight:400;font-size:18px;letter-spacing:.16em;line-height:1}
 .logo small{display:block;font-size:9.5px;letter-spacing:.42em;margin-top:5px;opacity:.75}
 .nav{display:flex;align-items:center;gap:clamp(18px,2.4vw,36px);font-size:14.5px}
 .nav a.lien-nav{position:relative;padding-block:6px}
 .nav a.lien-nav::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .6s var(--ease)}
 .nav a.lien-nav:hover::after,.nav a.lien-nav[aria-current="true"]::after{transform:scaleX(1);transform-origin:left}
-.tel-tete{display:inline-flex;align-items:center;gap:8px;font-variant-numeric:tabular-nums}
+.tel-tete{white-space:nowrap;display:inline-flex;align-items:center;gap:8px;font-variant-numeric:tabular-nums}
 .tel-tete svg{width:15px;height:15px}
 .entete .btn{min-height:44px;padding:0 20px;font-size:14px}
 .entete.sur-hero .btn{border-color:rgba(246,243,238,.7);color:var(--creme)}
@@ -106,7 +106,8 @@ section{position:relative}
 .menu-mobile .bas{display:flex;flex-direction:column;gap:12px}
 body.menu-ouvert{overflow:hidden}
 body.menu-ouvert .entete{color:var(--creme);background:transparent;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
-@media (max-width:1080px){.nav .lien-nav,.tel-tete span{display:none}}
+@media (max-width:1280px){.tel-tete span{display:none}}
+@media (max-width:1080px){.nav .lien-nav{display:none}}
 @media (max-width:760px){.nav .btn,.nav .tel-tete{display:none}.burger{display:block}}
 
 /* Hero */
@@ -114,7 +115,7 @@ body.menu-ouvert .entete{color:var(--creme);background:transparent;box-shadow:no
 .hero picture,.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .hero img{transform:scale(1.08);animation:zoom 2.4s var(--ease) forwards}
 @keyframes zoom{to{transform:scale(1)}}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,18,16,.55) 0%,rgba(20,18,16,.12) 35%,rgba(20,18,16,.18) 55%,rgba(20,18,16,.78) 100%)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,18,16,.62) 0%,rgba(20,18,16,.28) 45%,rgba(20,18,16,0) 75%),linear-gradient(180deg,rgba(20,18,16,.5) 0%,rgba(20,18,16,.08) 30%,rgba(20,18,16,.15) 55%,rgba(20,18,16,.7) 100%)}
 .hero .wrap{position:relative;z-index:1;width:100%;padding-bottom:clamp(40px,7vw,96px);padding-top:160px}
 .hero .surtitre{color:var(--beige)}
 .hero h1{color:var(--creme);font-size:clamp(52px,9.4vw,150px);line-height:.95;letter-spacing:-.035em;margin:26px 0 30px;max-width:13ch}
@@ -846,7 +847,7 @@ dialog::backdrop{background:rgba(20,18,16,.92)}
 <dt>Lieu</dt><dd><span class="a-completer">à compléter</span></dd>
 <dt>Photo</dt><dd>Page Facebook Zoran Abaz Deco</dd>
 </dl>
-<a class="btn btn-n" href="#contact" data-ferme data-suivi="devis_fiche">Un projet similaire ? Demander un devis <svg viewBox="0 0 14 10" aria-hidden="true"><path d="M0 5h13M9 1l4 4-4 4" stroke="currentColor" fill="none" stroke-width="1.2"/></svg></a>
+<a class="btn btn-n" style="white-space:normal;text-align:left;padding-block:10px" href="#contact" data-ferme data-suivi="devis_fiche">Un projet similaire ? Demander un devis <svg viewBox="0 0 14 10" aria-hidden="true"><path d="M0 5h13M9 1l4 4-4 4" stroke="currentColor" fill="none" stroke-width="1.2"/></svg></a>
 </div>
 </dialog>
 
