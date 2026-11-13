@@ -674,17 +674,17 @@ header.colle{background:rgba(255,255,255,.97);box-shadow:0 1px 0 var(--ligne)}
 <style>footer.pied-simple{border-top:0}footer.pied-simple .ligne-pied{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px 32px;padding-block:40px 104px}@media (max-width:960px){footer.pied-simple .ligne-pied{padding-bottom:160px;flex-direction:column-reverse;align-items:flex-start}}</style>
 <style>
 /* Bandeau cookies (même DA que l'en-tête) */
-.cookies{position:fixed;left:0;right:0;bottom:0;z-index:80;background:rgba(255,255,255,.97);-webkit-backdrop-filter:saturate(1.2) blur(10px);backdrop-filter:saturate(1.2) blur(10px);border-top:1px solid var(--ligne);transform:translateY(105%);transition:transform .8s var(--ease)}
-.cookies.visible{transform:none}
-.cookies .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px 40px;padding-block:22px}
-.cookies p{font-size:14px;font-weight:300;line-height:1.55;color:var(--g66);max-width:70ch}
+.cookies{position:fixed;right:clamp(16px,3vw,32px);bottom:clamp(16px,3vw,32px);z-index:80;width:min(400px,calc(100% - 32px));background:rgba(255,255,255,.96);-webkit-backdrop-filter:saturate(1.3) blur(14px);backdrop-filter:saturate(1.3) blur(14px);border:1px solid var(--ligne);border-radius:16px;box-shadow:0 30px 70px -28px rgba(14,14,14,.38),0 2px 8px rgba(14,14,14,.05);opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease),transform .8s var(--ease)}
+.cookies.visible{opacity:1;transform:none}
+.cookies .wrap{display:flex;flex-direction:column;align-items:stretch;gap:18px;padding:24px;max-width:none}
+.cookies p{font-size:14px;font-weight:300;line-height:1.55;color:var(--g66);max-width:62ch}
 .cookies p b{font-weight:400;color:var(--encre)}
 .cookies p a{color:var(--encre);text-decoration:underline;text-underline-offset:3px}
-.cookies .choix-c{display:flex;gap:10px;flex:none}
+.cookies .choix-c{display:flex;gap:10px;flex:none}.cookies .choix-c .pil{flex:1}
 .cookies .pil-plein{background:var(--encre);color:#fff;border-color:var(--encre)}
 .cookies .pil-plein:hover{background:#fff;color:var(--encre)}
 body.cookies-ouvert .ia-btn,body.cookies-ouvert .haut-btn,body.cookies-ouvert .appel{opacity:0;pointer-events:none}
-@media (max-width:760px){.cookies .wrap{flex-direction:column;align-items:stretch;padding-block:20px calc(20px + env(safe-area-inset-bottom))}.cookies .choix-c .pil{flex:1}}
+@media (max-width:760px){.cookies{right:12px;bottom:calc(12px + env(safe-area-inset-bottom));width:calc(100% - 24px);border-radius:14px}.cookies .wrap{padding:20px}}
 </style>
 </head>
 <body>
