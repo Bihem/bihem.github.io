@@ -1,6 +1,0 @@
-# Fichier prêt pour le futur domaine de Zoran Abaz Décoration.
-# Sur la maquette, la page reste en noindex.
-User-agent: *
-Allow: /
-
-Sitemap: https://dikengadesign.fr/maquettes/zoran-abaz-decoration/premium/sitemap.xml
