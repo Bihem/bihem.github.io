@@ -57,21 +57,6 @@
   .pied-site { padding-block: 16px; }
   .pied-site .pied-bas { gap: 10px 18px; }
 }
-/* Les deux visuels Maison Delorme sont des pages entières : côte à côte et
-   cadrés sur le haut. Empilés en pleine hauteur, ils faisaient quatre fois la
-   hauteur des autres. La paire remplit exactement le même cadre 50rem × 16/10
-   que la présentation Talseume, d'où le rapport 39/50 sur chaque image :
-   (50rem − 20px de gouttière) / 2 pour une hauteur identique. */
-.delorme-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
-               width: min(100%, 50rem); margin-inline: auto; }
-.delorme-duo figure { margin: 0; }
-.delorme-duo img {
-  display: block; width: 100%;
-  aspect-ratio: 39 / 50; object-fit: cover; object-position: top center;
-  background: #F4F4F2;
-}
-.delorme-duo figcaption { font-size: var(--t-petit); margin-top: .75rem; }
-@media (max-width: 620px) { .delorme-duo { gap: 12px; } }
 
 /* Les series de visuels defilent horizontalement : scroll-snap natif, donc
    glissement au doigt sur mobile et au trackpad sur desktop. Les fleches ne
