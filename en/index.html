@@ -74,7 +74,7 @@
 <style>/* 18/11/2026 : positionnement clarifié — promesse en titre, preuves, un seul bouton principal */
 .pf .hero-in{grid-template-columns:minmax(0,1fr) minmax(0,.9fr);align-items:center}
 .pf .hero-photo{grid-area:1 / 2;justify-self:center;margin:0;width:min(100%,400px)}
-.pf .hero-photo img{display:block;width:100%;height:auto;border-radius:50%;background:#fff}
+.pf .hero-photo img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover;object-position:center top;border-radius:50%;background:#fff}
 @media (min-width:901px){.pf .hero-photo{align-self:start;padding-block-start:clamp(44px,4.5vw,64px)}}
 @media (max-width:900px){.pf .hero-in{grid-template-columns:minmax(0,1fr);gap:24px}.pf .hero-photo{grid-area:auto;width:clamp(144px,44vw,200px)}}
 .pf .hero-texte{grid-area:1 / 1}
@@ -138,7 +138,7 @@
     <div class="wrap hero-in">
 
       <figure class="hero-photo">
-        <img src="../img/portrait-mes-reves-bouzanga.webp" alt="Portrait of Mes-Reves Bouzanga" width="800" height="800" fetchpriority="high" decoding="async">
+        <img src="../img/portrait-mes-reves-bouzanga-original.jpg" alt="Portrait of Mes-Reves Bouzanga" width="1792" height="2390" fetchpriority="high" decoding="async">
       </figure>
       <div class="hero-texte">
         <p class="hero-nom">Mes-Reves Bouzanga</p>
