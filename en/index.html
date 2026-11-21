@@ -73,8 +73,11 @@
 <style>/* 23/10/2026 : vidéo de l’automatisation n8n dans la section IA &amp; Technologie (16:9 sur ordinateur ; 31/10/2026 : Reel Instagram 9:16 sur mobile) */ .ia-video{ margin:0 0 64px; } .ia-video-legende{ text-align:center; margin:14px 0 0; } @media (max-width:760px){  .n8n-video video{ aspect-ratio:9/16 !important; } .ia-video{ margin:0 0 40px; } }</style>
 <style>/* 18/11/2026 : positionnement clarifié — promesse en titre, preuves, un seul bouton principal */
 .pf .hero-in{grid-template-columns:minmax(0,1fr) minmax(0,.9fr);align-items:center}
-.pf .hero-projet{margin:0}.pf .hero-projet img{display:block;width:100%;height:auto}.pf .hero-projet figcaption{margin-top:6px;text-align:center;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gris-txt)}
-@media (max-width:900px){.pf .hero-in{grid-template-columns:minmax(0,1fr)}.pf .hero-projet{max-width:520px}}
+.pf .hero-photo{grid-area:1 / 2;justify-self:center;margin:0;width:min(100%,400px)}
+.pf .hero-photo img{display:block;width:100%;height:auto;border-radius:50%;background:#fff}
+@media (max-width:900px){.pf .hero-in{grid-template-columns:minmax(0,1fr);gap:24px}.pf .hero-photo{grid-area:auto;width:clamp(144px,44vw,200px)}}
+.pf .hero-texte{grid-area:1 / 1}
+@media (max-width:900px){.pf .hero-texte{grid-area:auto}}
 .pf .hero-texte{max-width:760px}
 .pf .hero-role{margin-bottom:28px}
 .pf .hero-promesse{font-size:clamp(30px,4vw,52px);font-weight:600;letter-spacing:-0.035em;line-height:1.06;max-width:18ch;margin:0 0 24px}
@@ -133,6 +136,9 @@
   <section class="hero">
     <div class="wrap hero-in">
 
+      <figure class="hero-photo">
+        <img src="../img/portrait-mes-reves-bouzanga.webp" alt="Portrait of Mes-Reves Bouzanga" width="800" height="800" fetchpriority="high" decoding="async">
+      </figure>
       <div class="hero-texte">
         <p class="hero-nom">Mes-Reves Bouzanga</p>
         <p class="hero-role">From design to automation</p>
@@ -161,10 +167,6 @@
         </div>
 
       </div>
-      <figure class="hero-projet">
-        <a href="../projets.html#talseume"><img src="../img/hero-talseume.webp" alt="Talseume store open on a laptop: website designed, built and launched by Mes-Reves Bouzanga." width="1100" height="733" fetchpriority="high"></a>
-        <figcaption>Talseume · designed, built, live</figcaption>
-      </figure>
     </div>
 
   </section>
